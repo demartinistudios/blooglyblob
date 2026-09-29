@@ -681,20 +681,26 @@
       "parts": {},
       "hardware": {},
       "actions": [
-        "Install Git, Make, Python 3.12 or newer, OpenSSH (ssh and scp), and Raspberry Pi Imager on your computer. Check the terminal commands below before continuing; python3 must select your supported Python.",
-        "On Windows, use WSL for every terminal command in this guide, including key creation, cloning and Make. Run Imager in Windows; import the public key from that same WSL environment.",
-        "Use an existing SSH key from the terminal environment you will use to connect. If you have no key, run ssh-keygen below and follow its prompts. Never overwrite an existing key: answer no if it asks to replace one.",
-        "For the default key name, display id_ed25519.pub with the second command. Keep the entire public-key line for Imager. The file without .pub is private; never paste or share it. If your key has another name, use that .pub path and select its private key through your SSH agent or an IdentityFile rule for this Pi."
+        "If you use Windows, install WSL first. Run every terminal command in this guide in WSL, including key creation, cloning and Make. Run Imager in Windows.",
+        "On your computer, install Git, Make, Python 3.12 or newer, OpenSSH (ssh and scp) and Raspberry Pi Imager.",
+        "Run the commands below. Each prints a version or a path. `python3 --version` must show Python 3.12 or newer.",
+        "If this terminal environment already has an SSH key, use it. Skip the command below.",
+        "If you have no key, run the command below. Follow its prompts.",
+        "If `ssh-keygen` asks to overwrite an existing key, answer no. Never overwrite a key.",
+        "For the default key name, display `id_ed25519.pub` with the command below. Keep the whole public-key line for Imager.",
+        "If your key has another name, display its `.pub` file instead. Make SSH use that key for this Pi, through your SSH agent or an IdentityFile rule.",
+        "The key file without `.pub` is private. Never paste or share it."
       ],
-      "check": "",
-      "note": "",
+      "check": "Each tool reports its version or path. Your public-key line is ready for Imager.",
+      "note": "You add this key in Imager in {step:imager-write}.",
       "source": [],
       "panels": [
         {
           "title": "Check your computer tools",
           "actions": [
             0,
-            1
+            1,
+            2
           ],
           "codeBlocks": [
             {
@@ -722,10 +728,11 @@
           ]
         },
         {
-          "title": "Prepare your SSH public key",
+          "title": "Find or create your SSH key",
           "actions": [
-            2,
-            3
+            3,
+            4,
+            5
           ],
           "codeBlocks": [
             {
@@ -735,7 +742,17 @@
               ],
               "context": "computer",
               "label": "Only if you need a new key"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Display your public key",
+          "actions": [
+            6,
+            7,
+            8
+          ],
+          "codeBlocks": [
             {
               "kind": "command",
               "lines": [
@@ -761,34 +778,46 @@
       },
       "hardware": {},
       "actions": [
-        "Open Imager and choose Raspberry Pi 3 for the Pi 3 Model A+ (E09).",
-        "Choose Raspberry Pi OS (other), then Raspberry Pi OS Lite (64-bit). Confirm that the description names Trixie. The installer requires 64-bit Trixie with Python 3.13.",
-        "Insert the microSD card (E13) in your computer’s card reader. Select that card in Imager and check its name and capacity. Writing erases the selected drive; stop if you cannot identify it confidently."
+        "On your computer, open Raspberry Pi Imager.",
+        "Choose Raspberry Pi 3. This entry covers the Raspberry Pi 3 Model A+ board (E09).",
+        "Choose Raspberry Pi OS (other). Choose Raspberry Pi OS Lite (64-bit) in that list.",
+        "Check that its description names Trixie. The installer requires 64-bit Trixie with Python 3.13.",
+        "Insert the microSD card (E13) into your computer’s microSD reader (T10).",
+        "In Imager, select that card. Check its name and capacity.",
+        "If you cannot identify the card with confidence, stop. Do not write to that drive."
       ],
-      "check": "",
+      "check": "Imager has Raspberry Pi 3, Raspberry Pi OS Lite (64-bit) and your microSD card selected.",
       "note": "",
       "source": [],
       "panels": [
         {
           "title": "Choose the Pi",
-          "actions": [
-            0
-          ],
           "image": "assets/setup/imager-device.jpg",
-          "caption": "Select Raspberry Pi 3 for the Model A+."
+          "caption": "Device list with Raspberry Pi 3 selected.",
+          "actions": [
+            0,
+            1
+          ]
         },
         {
-          "title": "Choose the supported operating system",
-          "actions": [
-            1
-          ],
+          "title": "Choose the operating system",
           "image": "assets/setup/imager-os.jpg",
-          "caption": "Confirm Lite 64-bit and Trixie in the image description."
+          "caption": "Operating system list with Raspberry Pi OS Lite (64-bit) selected.",
+          "actions": [
+            2,
+            3
+          ]
         },
         {
           "title": "Select the microSD card",
+          "safety": {
+            "level": "notice",
+            "text": "Writing erases everything on the selected drive. Choosing the wrong drive destroys its files. Check the name and capacity before you select a drive."
+          },
           "actions": [
-            2
+            4,
+            5,
+            6
           ],
           "textOnly": true
         }
@@ -805,46 +834,56 @@
       },
       "hardware": {},
       "actions": [
-        "Choose a unique hostname, for example `blooglyblob`. Write down your hostname and the username you choose next; you will use both for SSH and the repository settings.",
-        "In Localisation, choose your country/capital city, time zone and keyboard layout, then continue to User.",
-        "Choose a username and password for the Pi. This guide uses builder as its example username. Keep the password private and available for sudo prompts; do not put it in the repository settings.",
-        "Enter your Wi-Fi network name and password. The Pi and your computer must be able to reach each other on the network; the Pi also needs internet access."
+        "Enter a unique hostname, for example `blooglyblob`. Use only letters, numbers and hyphens.",
+        "Write down your hostname. You need it for SSH and the repository settings.",
+        "On the Localisation screen, choose your country’s capital city, your time zone and your keyboard layout.",
+        "Continue to the User screen.",
+        "Choose a username and password for the Pi. This guide uses `builder` as its example username.",
+        "Write down your username. You need it for SSH and the repository settings.",
+        "Keep the password private. You need it at sudo prompts. Do not put it in the repository settings.",
+        "Enter your Wi-Fi network name and password.",
+        "Use a network where the Pi and your computer can reach each other. The Pi also needs internet access."
       ],
-      "check": "",
+      "check": "You have written down your hostname and username. Imager holds your location, account and Wi-Fi settings.",
       "note": "",
       "source": [],
       "panels": [
         {
           "title": "Set the hostname",
-          "actions": [
-            0
-          ],
           "image": "assets/setup/imager-hostname.jpg",
-          "caption": "blooglyblob is the example hostname; use your own choice consistently."
+          "caption": "Hostname screen with the example hostname.",
+          "actions": [
+            0,
+            1
+          ]
         },
         {
           "title": "Set your location",
-          "actions": [
-            1
-          ],
           "image": "assets/setup/imager-localisation.jpg",
-          "caption": "Choose the settings for where your Pi will be used."
+          "caption": "Localisation screen with example settings for London.",
+          "actions": [
+            2,
+            3
+          ]
         },
         {
           "title": "Create the Pi account",
-          "actions": [
-            2
-          ],
           "image": "assets/setup/imager-user.jpg",
-          "caption": "Example account shown. Enter your own password; Imager may offer to reuse a previously saved one."
+          "caption": "User screen with the example username. Imager offers a previously saved password.",
+          "actions": [
+            4,
+            5,
+            6
+          ]
         },
         {
           "title": "Set your Wi-Fi",
-          "actions": [
-            3
-          ],
           "image": "assets/setup/imager-wifi.jpg",
-          "caption": "Example network shown before password entry; use your own Wi-Fi details."
+          "caption": "Wi-Fi screen with an example network name, before the password is entered.",
+          "actions": [
+            7,
+            8
+          ]
         }
       ],
       "number": 12
@@ -860,34 +899,49 @@
       },
       "hardware": {},
       "actions": [
-        "Enable SSH and select public-key authentication. Paste your public-key line or select the .pub file you prepared. Do not use Imager’s automatically suggested key unless it is the key from your command environment.",
-        "On Windows, a Windows SSH key and a WSL SSH key are different files. Paste the output of cat from WSL, or select its .pub file through the WSL filesystem; do not switch terminal environments for later commands.",
-        "Leave Raspberry Pi Connect off; this build uses SSH. Review the Pi, OS, storage and custom settings, then start writing. Wait for writing and verification to finish, eject the card, and continue."
+        "Turn on Enable SSH. Select public-key authentication. Paste your public-key line, or select its `.pub` file.",
+        "If Imager suggests a key automatically, use it only if it is the key from your command environment.",
+        "If you use Windows, paste the key that `cat` shows in WSL, or select its `.pub` file in WSL. Windows and WSL keep separate keys. Keep using WSL for later commands.",
+        "Leave Raspberry Pi Connect off. This build uses SSH.",
+        "On the Write image screen, check the device, operating system and storage.",
+        "Check that the summary lists five customisations: hostname, localisation, user account, Wi-Fi and SSH.",
+        "Select WRITE. Leave the card in the reader until writing and verification finish.",
+        "Imager shows “Write complete!” and ejects the card. Remove the card.",
+        "If your computer still shows the card, eject it before you remove it."
       ],
-      "check": "The card is written and verified; you have your chosen hostname, username and SSH key ready.",
-      "note": "",
+      "check": "The card is written and verified. You have your hostname, username and SSH key ready.",
+      "note": "You displayed your public key in {step:computer-ssh-key}.",
       "source": [],
       "panels": [
         {
           "title": "Enable SSH with your public key",
+          "image": "assets/setup/imager-ssh.jpg",
+          "caption": "SSH screen before a key is added. NEXT stays unavailable until you add one.",
           "actions": [
             0,
-            1
-          ],
-          "image": "assets/setup/imager-ssh.jpg",
-          "caption": "Shown before key import. Add your own public key to enable Next."
+            1,
+            2
+          ]
         },
         {
-          "title": "Write and verify",
-          "actions": [
-            2
-          ],
+          "title": "Review your choices",
           "image": "assets/setup/imager-review.jpg",
-          "caption": "Confirm all five customisations before writing. Leave the card connected until verification finishes.",
-          "detail": {
-            "title": "Successful write and verification",
-            "image": "assets/setup/imager-complete.jpg"
-          }
+          "caption": "Write image summary before writing.",
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Write and verify the card",
+          "image": "assets/setup/imager-complete.jpg",
+          "caption": "Write complete screen after verification.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
         }
       ],
       "number": 13
@@ -904,31 +958,36 @@
       },
       "hardware": {},
       "actions": [
-        "With power disconnected, insert the prepared microSD card into the Pi. Rest the bare board on a clean, nonconductive surface.",
-        "Connect the separate 5 V, 2.5 A micro-USB bench supply (T13) to the Pi’s micro-USB power port. Allow a few minutes for the first boot and Wi-Fi connection.",
-        "In your computer terminal, replace builder and blooglyblob in the example with the username and hostname you recorded. Connect using the same environment and SSH key you used for Imager.",
-        "If .local does not resolve, find the Pi’s IP address in your router’s device list and use it instead. On the first connection, confirm you are contacting that Pi before accepting its host key. Stop at a changed-host-key warning; verify a reimage or changed destination before correcting known_hosts.",
-        "A shell prompt containing the Pi’s username and hostname means you are connected. If access is denied, check the Imager username and that its public key matches your SSH key; do not continue with a different account by guessing.",
-        "Type exit to leave the Pi shell. Leave the Pi powered for configuration in the next step."
+        "With power disconnected, insert the written microSD card into the Pi. Rest the bare board on a clean, nonconductive surface.",
+        "Plug the separate 5 V, 2.5 A micro-USB bench supply (T13) into the Pi’s micro-USB power port. Do not use the USB-A socket. It is for audio.",
+        "Allow a few minutes for the first boot and Wi-Fi connection.",
+        "In the terminal environment whose key you gave Imager, run the command below. Replace `builder` and `blooglyblob` with your username and hostname.",
+        "If ssh reports “Could not resolve hostname”, find the Pi’s IP address in your router’s device list. Use the IP address in place of the `.local` name.",
+        "On the first connection, ssh asks whether to trust the Pi’s host key. Accept it only if you are sure you are contacting that Pi.",
+        "If ssh reports “REMOTE HOST IDENTIFICATION HAS CHANGED”, stop. Correct `known_hosts` only after you confirm a reimaged card or a changed address.",
+        "A shell prompt with the Pi’s username and hostname, like the example below, means you are connected.",
+        "If access is denied, check the Imager username. Check that Imager has the public key from this terminal. Do not guess a different account.",
+        "Type `exit` to leave the Pi shell. Leave the Pi powered for the next step."
       ],
-      "check": "You connected to the Pi with your SSH key, then returned to your computer’s terminal.",
+      "check": "You connected to the Pi with your SSH key and returned to your computer’s terminal. The Pi stays powered.",
       "note": "",
       "source": [],
       "panels": [
         {
           "title": "Boot the bare Pi",
+          "image": "assets/circuits/pi-bench-power.svg",
+          "caption": "Pi with the bench supply at the micro-USB power port and the USB-A audio socket free.",
           "actions": [
             0,
-            1
-          ],
-          "image": "assets/circuits/pi-bench-power.svg",
-          "caption": "Power enters the micro-USB socket, not the USB-A audio socket."
+            1,
+            2
+          ]
         },
         {
           "title": "Connect from your computer",
           "actions": [
-            2,
-            3
+            3,
+            4
           ],
           "codeBlocks": [
             {
@@ -938,23 +997,32 @@
               ],
               "context": "computer",
               "label": "Use your chosen username and hostname"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Accept the Pi’s host key",
+          "actions": [
+            5,
+            6
+          ],
+          "textOnly": true
+        },
+        {
+          "title": "Check the prompt and return to your computer",
+          "actions": [
+            7,
+            8,
+            9
+          ],
+          "codeBlocks": [
             {
               "kind": "output",
               "lines": [
                 "builder@blooglyblob:~ $"
               ],
               "label": "Example Pi shell prompt"
-            }
-          ]
-        },
-        {
-          "title": "Return to your computer",
-          "actions": [
-            4,
-            5
-          ],
-          "codeBlocks": [
+            },
             {
               "kind": "command",
               "lines": [
@@ -975,21 +1043,30 @@
       "parts": {},
       "hardware": {},
       "actions": [
-        "On your computer, clone the repository and enter its folder. If you already have this checkout, enter that folder instead; do not create another copy inside it. Run later Make commands from this repository folder.",
-        "The commands below copy each example only if its destination does not exist. Keep existing settings; never replace them with a fresh example during a rerun.",
-        "Open .env in a text editor. Set PI_HOST to your recorded hostname plus .local, or the IP address that worked for SSH; set PI_USER to your chosen username. Keep BLOOGLYBLOB_ENV_FILE=config/app.env.",
-        "The example below matches blooglyblob and builder. These are file settings, not terminal commands. Do not add your Pi password or Wi-Fi password.",
-        "Create an API key for your own OpenAI account and enable API billing. API usage is separate from a ChatGPT subscription; your account needs access to the models listed in config/app.env.example.",
-        "Open config/app.env in your editor and put the key after OPENAI_API_KEY=. Keep the other example settings. This ignored file is private: do not commit it, share it or show it in screenshots. Application startup can make a billable greeting request; conversations also use paid API services."
+        "On your computer, run the commands below. They clone the repository and enter its folder.",
+        "If you already have this checkout, enter that folder instead. Do not clone another copy inside it.",
+        "Run every later Make command from this repository folder.",
+        "Run the commands below. Each copies an example only if its destination does not exist.",
+        "If you run them again, they keep your existing settings. Never replace your settings with a fresh example.",
+        "Open `.env` in a text editor. Set `PI_HOST` to your hostname plus `.local`, or to the IP address that worked for SSH.",
+        "Set `PI_USER` to your username. Keep `BLOOGLYBLOB_ENV_FILE=config/app.env`.",
+        "The example below matches `blooglyblob` and `builder`. These are lines in the file, not terminal commands. Do not add your Pi password or Wi-Fi password.",
+        "Create an API key in your own OpenAI account. Enable API billing for that account.",
+        "API usage is billed separately from a ChatGPT subscription. Your account needs access to the models listed in `config/app.env.example`.",
+        "Application startup can make a billable greeting request. Conversations also use paid API services.",
+        "Open `config/app.env` in your editor. Put your key after `OPENAI_API_KEY=`. Keep the other example settings.",
+        "Keep this file private. Git ignores it. Do not commit it, share it or show it in screenshots."
       ],
-      "check": "",
+      "check": "Your computer has the repository, a `.env` file with your Pi target and a private `config/app.env` with your API key.",
       "note": "",
       "source": [],
       "panels": [
         {
           "title": "Get the repository",
           "actions": [
-            0
+            0,
+            1,
+            2
           ],
           "codeBlocks": [
             {
@@ -1004,9 +1081,10 @@
           ]
         },
         {
-          "title": "Create settings only if absent",
+          "title": "Create the settings files",
           "actions": [
-            1
+            3,
+            4
           ],
           "codeBlocks": [
             {
@@ -1023,8 +1101,9 @@
         {
           "title": "Set the Pi target",
           "actions": [
-            2,
-            3
+            5,
+            6,
+            7
           ],
           "codeBlocks": [
             {
@@ -1039,20 +1118,13 @@
           ]
         },
         {
-          "title": "Add your OpenAI API key",
+          "title": "Create your OpenAI API key",
           "actions": [
-            4,
-            5
+            8,
+            9,
+            10
           ],
-          "codeBlocks": [
-            {
-              "kind": "config",
-              "lines": [
-                "OPENAI_API_KEY=YOUR_PRIVATE_API_KEY"
-              ],
-              "label": "config/app.env · replace the placeholder"
-            }
-          ],
+          "textOnly": true,
           "links": [
             {
               "label": "Create an OpenAI API key",
@@ -1061,6 +1133,22 @@
             {
               "label": "OpenAI API billing",
               "url": "https://platform.openai.com/settings/organization/billing/overview"
+            }
+          ]
+        },
+        {
+          "title": "Add the key to your settings",
+          "actions": [
+            11,
+            12
+          ],
+          "codeBlocks": [
+            {
+              "kind": "config",
+              "lines": [
+                "OPENAI_API_KEY=YOUR_PRIVATE_API_KEY"
+              ],
+              "label": "config/app.env · replace the placeholder"
             }
           ]
         }
@@ -1079,32 +1167,40 @@
       },
       "hardware": {},
       "actions": [
-        "Plug the USB extension’s male end (E23) into the Pi’s USB-A socket, then connect the audio module (E14) to its female socket. Keep the module in its case on the bench.",
-        "From the repository folder on your computer, open SSH using .env. If the target is wrong or unreachable, fix PI_HOST and PI_USER before continuing.",
-        "On the Pi, list the sound cards. Note the USB name after USB-Audio - and its bracketed card ID (Device in this example). Use the ID for mixer commands; the numeric index can change after reboot.",
-        "If no USB audio card appears, check the module and extension connections, then run the command again.",
-        "For this USB module, read the Speaker control, set playback to −40 dB and save it. Replace Device with your card ID. Both channels should report [-40.00dB]. If the control or dB scale is missing, inspect it with alsamixer -c Device before proceeding.",
-        "This is a low starting level; adjust gradually during the later speaker check. Recheck with amixer -c Device sget Speaker after reboot. Type exit to return to your computer.",
-        "Back on your computer, edit config/app.env. Set AUDIO_INPUT_DEVICE and AUDIO_OUTPUT_DEVICE to the actual USB audio name you noted. Remove the leading # if editing the commented examples.",
-        "The selected module provides both microphone and speaker audio, so both settings use that same device name. A missing or ambiguous name stops application startup instead of silently choosing another device.",
-        "Set MIC_GAIN=1 initially so the microphone has no added software amplification. This does not control speaker volume. Tune it only after a voice test."
+        "Plug the male end of the USB-A extension cable (E23) into the Pi’s USB-A socket.",
+        "Plug the USB audio module (E14) into the extension’s female socket. Keep the module in its case on the bench.",
+        "On your computer, in the repository folder, run the command below. It opens SSH with the target in `.env`.",
+        "If the target is wrong or unreachable, correct `PI_HOST` and `PI_USER` in `.env`. Run the command again.",
+        "On the Pi, list the sound cards with the command below.",
+        "Note the USB name after “USB-Audio - ” and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
+        "If no USB audio card appears, check the module and extension connections. List the cards again.",
+        "In each command below, replace `Device` with your card ID. Do not use the card number. It can change after a reboot.",
+        "Run the three commands in order. They read the Speaker control, set a low starting level of −40 dB and save it. Both channels must report `[-40.00dB]`.",
+        "If the Speaker control or its dB scale is missing, stop. Inspect the controls with `alsamixer -c Device` before you continue.",
+        "You adjust the level gradually in the later speaker check. After a reboot, recheck it with `amixer -c Device sget Speaker`.",
+        "Type `exit` to return to your computer.",
+        "On your computer, open `config/app.env`. Set `AUDIO_INPUT_DEVICE` and `AUDIO_OUTPUT_DEVICE` to the USB name you noted. If a line starts with `#`, remove the `#`.",
+        "Use the same name for both. The module provides the microphone and the speaker. A missing or ambiguous name stops startup. The application never picks another device.",
+        "Set `MIC_GAIN=1` to add no software gain to the microphone. It does not change speaker volume. Tune it only after a voice test."
       ],
-      "check": "Your computer has the correct Pi target, private API settings and USB audio names. The USB playback level is saved at −40 dB; microphone software gain starts at 1.",
+      "check": "Both USB playback channels are saved at −40 dB. Your `config/app.env` names your USB audio device for input and output, with `MIC_GAIN=1`.",
       "note": "",
       "source": [],
       "panels": [
         {
           "title": "Connect the loose audio module",
-          "actions": [
-            0
-          ],
           "image": "assets/circuits/usb-audio.svg",
-          "caption": "Connect the USB audio module through its extension before selecting its device name."
+          "caption": "Pi, extension cable and audio module, with the two plug-in connections numbered.",
+          "actions": [
+            0,
+            1
+          ]
         },
         {
           "title": "Open the Pi shell",
           "actions": [
-            1
+            2,
+            3
           ],
           "codeBlocks": [
             {
@@ -1120,8 +1216,9 @@
         {
           "title": "Read the audio device name",
           "actions": [
-            2,
-            3
+            4,
+            5,
+            6
           ],
           "codeBlocks": [
             {
@@ -1141,10 +1238,11 @@
           ]
         },
         {
-          "title": "Start with low playback volume",
+          "title": "Set a low playback level",
           "actions": [
-            4,
-            5
+            7,
+            8,
+            9
           ],
           "codeBlocks": [
             {
@@ -1156,7 +1254,16 @@
                 "sudo alsactl store Device"
               ],
               "label": "Use your USB card ID"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Leave the Pi shell",
+          "actions": [
+            10,
+            11
+          ],
+          "codeBlocks": [
             {
               "kind": "command",
               "context": "pi",
@@ -1170,9 +1277,9 @@
         {
           "title": "Save the audio settings",
           "actions": [
-            6,
-            7,
-            8
+            12,
+            13,
+            14
           ],
           "codeBlocks": [
             {
@@ -1202,14 +1309,20 @@
       },
       "hardware": {},
       "actions": [
-        "On your computer, run the prerequisite check from the repository folder. It must identify your intended Pi 3, aarch64 or arm64, Python 3.13 and Trixie.",
-        "If it rejects the model or OS, stop and correct the board/image selection in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}; do not proceed past a failed check.",
-        "Keep servo and lighting circuits disconnected, then run provisioning. It installs dependencies and starts the application, which also starts on boot. Enter the Pi account password if sudo requests it; it is not saved in .env.",
-        "If provisioning succeeds, continue to the status check. If it asks for a reboot because snd_bcm2835 is loaded, follow the next panel, then rerun provisioning. For any other failure, fix the reported cause before continuing.",
-        "If provisioning reports the built-in audio module, open the Pi shell and reboot it. SSH disconnecting during reboot is expected. This frees the timer the lighting driver needs.",
-        "Wait for the Pi to rejoin Wi-Fi, then rerun make pi-provision from your computer. Provisioning preserves existing remote settings; there is no extra pi-update step for first installation."
+        "On your computer, in the repository folder, run the command below.",
+        "The output must name your Pi 3, aarch64 or arm64, Python 3.13 and trixie.",
+        "If it rejects the model or OS, correct the choices in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}. Do not continue past a failed check.",
+        "Keep servo and lighting circuits disconnected. Only the USB audio module connects to the Pi now.",
+        "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot.",
+        "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
+        "If it ends with “Installation complete”, continue to {step:service-check}.",
+        "If it stops with “Onboard audio is loaded”, reboot the Pi in the next panel. This is expected on the first run.",
+        "If it reports any other failure, fix the reported cause. Run `make pi-provision` again.",
+        "From your computer, open the Pi shell. Reboot the Pi. SSH disconnects during the reboot. The reboot frees the timer the lighting driver needs.",
+        "Wait for the Pi to rejoin Wi-Fi. Run `make pi-provision` again from your computer.",
+        "Provisioning keeps your existing settings on the Pi. First installation needs no extra `pi-update` step."
       ],
-      "check": "",
+      "check": "Provisioning ends with “Installation complete; the application reached local readiness.”",
       "note": "",
       "source": [],
       "panels": [
@@ -1217,7 +1330,8 @@
           "title": "Check the Pi prerequisites",
           "actions": [
             0,
-            1
+            1,
+            2
           ],
           "codeBlocks": [
             {
@@ -1241,8 +1355,9 @@
         {
           "title": "Install the application",
           "actions": [
-            2,
-            3
+            3,
+            4,
+            5
           ],
           "codeBlocks": [
             {
@@ -1256,10 +1371,20 @@
           ]
         },
         {
-          "title": "Reboot only if provisioning requests it",
+          "title": "Read how provisioning ended",
           "actions": [
-            4,
-            5
+            6,
+            7,
+            8
+          ],
+          "textOnly": true
+        },
+        {
+          "title": "Reboot only if provisioning asks",
+          "actions": [
+            9,
+            10,
+            11
           ],
           "codeBlocks": [
             {
@@ -1303,22 +1428,27 @@
       },
       "hardware": {},
       "actions": [
-        "Check the service status. It should show active (running). If it is stopped or failed, inspect its logs next instead of marking setup complete.",
-        "Follow the application log. If it reports a missing key or audio device, correct the installed settings on the Pi as described below; changing the initial file on your computer does not replace an existing remote file.",
-        "Press Ctrl+C to stop following logs and return to your computer prompt. Do not run microphone, lighting or servo tests here; those checks follow hardware assembly.",
-        "If the log identifies a configuration error, open SSH and edit /etc/blooglyblob/app.env with sudoedit. Correct the key or device name, save and close the editor, then type exit.",
-        "Back on your computer, restart and recheck the service. Skip this panel if the service is already running without configuration errors.",
-        "From your computer, open the Pi shell and shut it down. The SSH session will disconnect.",
-        "Wait for the Pi’s green activity light to stop flashing, then unplug the bench supply and USB audio lead. Continue to {step:pi-shifters} with the board unpowered."
+        "On your computer, in the repository folder, run the command below. It must show `active (running)`.",
+        "If it shows stopped or failed, read the log in the next panel. Do not mark setup complete.",
+        "Run the command below. It follows the application log.",
+        "If the log reports a missing key or audio device, correct the installed settings in panel 3. Editing `config/app.env` on your computer does not change the file on the Pi.",
+        "Press Ctrl+C to stop following the log. Do not run microphone, lighting or servo tests here. Those checks follow hardware assembly.",
+        "If the service runs without configuration errors, skip this panel.",
+        "For a configuration error, open the Pi shell. Edit `/etc/blooglyblob/app.env` with `sudoedit`. Correct the key or device name. Save and close the editor. Type `exit`.",
+        "Back on your computer, restart the service. Check its status again.",
+        "From your computer, open the Pi shell. Shut the Pi down with the second command. The SSH session disconnects.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the bench supply (T13) from the Pi.",
+        "Unplug the USB extension (E23) from the Pi. Unplug the audio module (E14) from the extension."
       ],
-      "check": "The application runs with its USB audio device; the Pi is shut down, unplugged and ready to mount.",
-      "note": "",
+      "check": "The application runs with its USB audio device. The Pi is shut down, unplugged and ready to mount.",
+      "note": "You mount the unpowered Pi in {step:pi-shifters}.",
       "source": [],
       "panels": [
         {
           "title": "Confirm the service is running",
           "actions": [
-            0
+            0,
+            1
           ],
           "codeBlocks": [
             {
@@ -1341,8 +1471,9 @@
         {
           "title": "Read the log and leave it",
           "actions": [
-            1,
-            2
+            2,
+            3,
+            4
           ],
           "codeBlocks": [
             {
@@ -1358,8 +1489,9 @@
         {
           "title": "Correct installed settings only if needed",
           "actions": [
-            3,
-            4
+            5,
+            6,
+            7
           ],
           "codeBlocks": [
             {
@@ -1397,12 +1529,13 @@
         },
         {
           "title": "Shut down before mounting",
-          "actions": [
-            5,
-            6
-          ],
           "image": "assets/circuits/pi-bench-power.svg",
-          "caption": "Disconnect bench power only after the Pi has shut down.",
+          "caption": "Pi with the bench supply at the micro-USB power port.",
+          "actions": [
+            8,
+            9,
+            10
+          ],
           "codeBlocks": [
             {
               "kind": "command",
