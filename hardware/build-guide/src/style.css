@@ -186,8 +186,6 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .character-prompts q { font-size: 15px; color: var(--ink); }
 .character-build { margin-top: 64px; }
 .character-build > p { max-width: 72ch; }
-.character-build-details { margin: 16px 0; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
-.character-build-details > summary { cursor: pointer; font-weight: 650; }
 @media (max-width: 1200px) { .character-features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 801px) { .character-intro .intro-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
 @media (max-width: 600px) {
@@ -203,15 +201,14 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .stats { display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--line); }
 .stats strong { display: block; font-size: 34px; line-height: 1.2; color: var(--blue); }
 .stats span { font-size: 12px; color: var(--muted); }
-.build-path, .chapter-grid, .downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.build-path, .downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .build-path { margin: 26px 0 42px; }
-.build-path a, .chapter-card, .download-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); color: var(--ink); }
-.build-path a, .chapter-card { text-decoration: none; border-top: 3px solid var(--copper); }
-.build-path a:hover, .chapter-card:hover { border-color: var(--blue); background: var(--violet-pale); }
+.build-path a, .download-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); color: var(--ink); }
+.build-path a { text-decoration: none; border-top: 3px solid var(--copper); }
+.build-path a:hover { border-color: var(--blue); background: var(--violet-pale); }
 .build-path span { display: block; font-family: var(--mono); font-size: 11px; color: var(--copper); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
 .build-path b { display: block; font-size: 25px; line-height: 1.2; }
 .build-path p, .download-card p { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 12px 0 0; }
-.chapter-card small { display: block; color: var(--muted); margin-bottom: 6px; }
 .download-card b { display: block; margin-bottom: 10px; }
 .reader-list { padding-left: 25px; max-width: 75ch; }
 .reader-list li { padding: 7px 0 7px 5px; }
@@ -378,7 +375,7 @@ dialog.large .zoom-hint { display: none; }
   .intro-grid h1 { max-width: 20ch; }
   .intro-grid .diagram { max-width: 600px; }
   .intro-grid .diagram img { max-height: 430px; object-fit: contain; }
-  .chapter-grid, .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .build-path { gap: 12px; }
   .build-path a { padding: 16px; }
   .build-path b { font-size: 22px; }
@@ -410,7 +407,7 @@ dialog.large .zoom-hint { display: none; }
   .intro-grid h1 { font-size: 46px; }
   .intro-grid .diagram img { max-height: 380px; }
   .lede, .lead { font-size: 18px; }
-  .build-path, .chapter-grid, .downloads, .parts-grid, .color-views { grid-template-columns: 1fr; }
+  .build-path, .downloads, .parts-grid, .color-views { grid-template-columns: 1fr; }
   .build-path a { padding: 19px 21px; }
   .build-path span { margin-bottom: 8px; }
   .build-path b { font-size: 25px; }
@@ -526,8 +523,11 @@ dialog.large .zoom-hint { display: none; }
 .action-panel-command .action-panel-body { display: block; }
 .action-panel-command .action-copy { max-width: 72ch; }
 .action-note { margin: 10px 0 0; color: inherit; font-size: inherit; line-height: inherit; }
-.build-overview { max-width: 68ch; padding-left: 24px; }
-.build-overview li { padding: 8px 0 8px 6px; }
+/* Before you start: tools in two columns where they fit; each chapter's step range follows its name, or sits under it on narrow screens. */
+#start-tools { columns: 2 280px; column-gap: 32px; }
+#start-tools li { break-inside: avoid; }
+.chapter-steps { margin-left: 10px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+@media (max-width: 800px) { .chapter-steps { display: block; margin-left: 0; } }
 @container (max-width: 650px) { .action-panel-body { grid-template-columns: 1fr; gap: 14px; } :is(.action-panel, .harness-overview) .diagram { max-width: 360px; justify-self: center; } }
 @media (max-width: 600px) {
   .action-panel { padding-block: 16px 20px; }

@@ -52,6 +52,46 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.deepEqual((await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),KEY)).custom,{keep:true});
   await page.evaluate(KEY=>localStorage.removeItem(KEY),KEY);await page.reload();
   assert.equal(await page.locator('#progress-count').textContent(),`0 / ${build.length}`,'fresh browser starts empty');
+  // Start path (R1): a new reader follows only primary buttons, landing → Before you start → step 1.
+  const START='before-you-start';
+  await page.goto(BASE+'#start');await page.locator('#page').waitFor();
+  const landingPrimary=page.locator('#page a.button.primary');
+  assert.ok(await landingPrimary.count()>0,'landing page has a primary action');
+  assert.deepEqual([...new Set(await landingPrimary.evaluateAll(es=>es.map(e=>e.getAttribute('href'))))],['#'+START],'landing primary action opens Before you start');
+  await landingPrimary.first().click();await page.waitForURL(BASE+'#'+START);
+  await page.locator('#page h1',{hasText:'Before you start'}).waitFor();
+  assert.ok((await page.title()).startsWith('Before you start'));
+  assert.equal(await page.locator(`nav a.active[data-route="${START}"]`).count(),1,'sidebar marks Before you start');
+  const startText=await page.locator('#page').innerText();
+  assert.ok(startText.includes('Choose your filament colors, then start printing plate 2 (the base).'),'first action (owner decision Q7)');
+  const startPrimary=page.locator('#page a.button.primary');
+  assert.equal(await startPrimary.count(),1,'one start action');
+  assert.equal(await startPrimary.getAttribute('href'),'#step-'+build[0].id);
+  assert.match(await startPrimary.innerText(),/^Start step 1\b/);
+  // Print time and filament are the sums of the production plate estimates in print-data.json.
+  const production=data.prints.filter(p=>p.purpose==='production');
+  const minutes=production.reduce((n,p)=>{const m=p.estimate.time.match(/^(?:(\d+) h)? ?(?:(\d+) min)?$/);assert.ok(m&&(m[1]||m[2]),'plate estimate '+p.id);return n+(+m[1]||0)*60+(+m[2]||0)},0);
+  const grams=Math.round(production.reduce((n,p)=>n+p.estimate.grams,0));
+  assert.ok(startText.includes(`${Math.floor(minutes/60)} h ${minutes%60} min`),'print time equals the plate estimates');
+  assert.ok(startText.includes(`${grams} g of PLA`)&&startText.includes(`${production.length} plates`),'filament and plate count');
+  assert.ok(production.every(p=>p.material==='PLA'));
+  // Owner decisions Q1 and Q2: no assembly time and no cost figure.
+  assert.ok(!/\b(cost|price|budget)\b|[$€£]|assembly time|hours? of assembly/i.test(startText),'no assembly time or cost');
+  assert.ok(/solder/i.test(startText)&&/strip wire/i.test(startText)&&/terminal/i.test(startText)&&/multimeter/i.test(startText),'skills assumed');
+  const tools=data.parts.filter(p=>p.category==='Tool'&&!p.omitted);
+  assert.deepEqual(await page.locator('#start-tools a').evaluateAll(es=>es.map(e=>e.getAttribute('href'))),tools.map(p=>'#parts/'+p.id),'every tool is listed');
+  // One-screen chapter map: every chapter in order, linked to its first step, with its step range.
+  const chapterRows=await page.locator('#start-chapters tbody tr').evaluateAll(rows=>rows.map(r=>({href:r.querySelector('a').getAttribute('href'),name:r.querySelector('a').textContent,steps:r.querySelector('.chapter-steps').textContent,work:r.cells[1].textContent.trim()})));
+  const chapterNames=[...new Set(build.map(s=>s.chapter))];
+  assert.deepEqual(chapterRows.map(r=>r.name),chapterNames,'chapter map lists every chapter in order');
+  for(const row of chapterRows){
+   const x=build.filter(s=>s.chapter===row.name);
+   assert.equal(row.href,'#step-'+x[0].id);
+   assert.equal(row.steps,x.length>1?`Steps ${x[0].number}–${x.at(-1).number}`:`Step ${x[0].number}`);
+   assert.ok(row.work.length>0,'chapter map describes '+row.name);
+  }
+  await startPrimary.click();await page.waitForURL(BASE+'#step-'+build[0].id);await page.locator(`input[data-step="${build[0].id}"]`).waitFor();
+  assert.equal(await page.locator('[data-previous-step]').getAttribute('href'),'#'+START,'step 1 leads back to Before you start');
   // Chapters follow the approved map: contiguous, in build order, shown as sidebar headings.
   const chapters=['Prepare','Print','Base hardware','Pi software','Base boards and controls','Base wiring','Light test','Frame and servos','Head','Body','Arms','Backpack and belt','Final wiring','First power-up','Head and arm mounting','Close up and test'];
   assert.deepEqual(build.map(s=>s.chapter).filter((c,i,a)=>c!==a[i-1]),chapters,'each chapter is contiguous, in build order');
@@ -166,10 +206,10 @@ fs.mkdirSync(OUT,{recursive:false});
   await page.evaluate(({KEY,existing})=>localStorage.setItem(KEY,JSON.stringify(existing)),{KEY,existing});
   await page.reload();assert.deepEqual(await page.evaluate(KEY=>JSON.parse(localStorage.getItem(KEY)),KEY),existing);
   const steps=new Set(data.guide.steps.map(s=>s.id));
-  const shots=['step-board-cover-nuts','step-grille-vent-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service'];
+  const shots=['step-board-cover-nuts','step-grille-vent-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service','before-you-start'];
   shots.push(...SETUP.map(id=>'step-'+id),...SOFTWARE_TOPICS.map(id=>'software/'+id));
   for(const r of shots.filter(r=>r.startsWith('step-')))assert.ok(steps.has(r.slice(5)),'screenshot route missing: '+r);
-  const routes=['start','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
+  const routes=['start','before-you-start','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
   routes.push(...SOFTWARE_TOPICS.map(id=>'software/'+id));
   // Safety entries (KTD4) are one {level,text} entry or a list; the guide shows the level label.
   const safetyOf=value=>value?(Array.isArray(value)?value:[value]):[];
