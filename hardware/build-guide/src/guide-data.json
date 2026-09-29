@@ -257,37 +257,53 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "actions": [
-        "Place the empty enclosure with its bottom open. Gather 8 M2 and 25 M3 nuts. Work through the groups below, fitting and gluing one group at a time. Match each nut’s flats to its pocket and its threaded hole to the screw bore; do not force it.",
-        "After dry-fitting each nut, use a toothpick to place a tiny dab of mixed epoxy between its exposed outside edge and the pocket. CA gel is an optional quicker-setting alternative. Keep glue out of threads, screw bores, sliding channels and flat mounting faces. Keep that face upward until the glue holds before turning the enclosure.",
+        "Place the empty base (FB01) upside down, with its open bottom facing up.",
+        "Fit and glue one group of nuts at a time. Start with the board nuts.",
+        "Push each nut into its pocket without glue. Match its flats to the pocket and its hole to the screw bore. Do not force it.",
+        "With a toothpick, put a tiny dab of mixed epoxy (C09) between the nut’s exposed outside edge and the pocket. You can use CA gel (C18) instead. It sets faster.",
+        "Keep glue out of threads, screw bores, sliding channels and flat mounting faces.",
+        "Keep the glued face up until the glue holds, before you turn the base.",
         "Seat eight M2 nuts in the board pockets: four for the Pi and two for each level shifter.",
-        "Seat four M3 nuts in the bottom-cover recesses, one at each corner. Leave the cover off."
+        "Seat four M3 nuts in the bottom cover recesses, one at each corner.",
+        "Leave the bottom cover off."
       ],
-      "check": "",
+      "check": "The eight board nuts and four cover nuts sit flat in their pockets. No glue is in their threads.",
       "panels": [
         {
-          "title": "Fit and glue one group at a time",
+          "title": "Seat each nut without glue",
           "image": "assets/community/base-board-nut-entry.png",
+          "caption": "",
           "actions": [
             0,
-            1
-          ],
-          "caption": ""
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Glue each nut at its edge",
+          "textOnly": true,
+          "actions": [
+            3,
+            4,
+            5
+          ]
         },
         {
           "title": "Fit the eight board nuts",
           "image": "assets/community/base-board-nut-locations.png",
+          "caption": "",
           "actions": [
-            2
-          ],
-          "caption": ""
+            6
+          ]
         },
         {
           "title": "Fit the four cover nuts",
           "image": "assets/community/base-cover-nut-entry.png",
+          "caption": "",
           "actions": [
-            3
-          ],
-          "caption": ""
+            7,
+            8
+          ]
         }
       ]
     },
@@ -326,35 +342,43 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "actions": [
-        "Fit and glue these nuts as in {step:board-cover-nuts}. Slide four M3 nuts upward into the front-grille slots from inside. Support the thin plastic behind each slot.",
-        "Turn the enclosure so the rear-vent nut slots face upward. Place four M3 nuts into the open slots from inside, aligning each threaded hole with its screw bore.",
-        "Slide four M3 nuts upward into the mounting channels on each side: eight in total, for the grilles’ outer holes."
+        "Fit and glue these nuts as in {step:board-cover-nuts}.",
+        "From inside the base, slide four M3 nuts upward into the front grille slots.",
+        "Turn the base so the rear vent nut slots face up.",
+        "From inside, place four M3 nuts in the open slots. Line up each threaded hole with its screw bore.",
+        "On each side, slide four M3 nuts upward into the mounting channels. These eight nuts hold the side grilles’ outer holes."
       ],
-      "check": "",
+      "check": "The front, rear and side nuts sit flat in their slots. No glue is in their threads.",
       "panels": [
         {
-          "title": "Fit the four front-grille nuts",
+          "title": "Fit the four front grille nuts",
           "image": "assets/community/front-grille-nut-loading.svg",
+          "caption": "",
+          "safety": {
+            "level": "notice",
+            "text": "The plastic behind the front nuts is thin. Too much force can crack it. Support the plastic behind the nuts while you work."
+          },
           "actions": [
-            0
-          ],
-          "caption": ""
-        },
-        {
-          "title": "Fit the four rear-vent nuts",
-          "image": "assets/community/base-rear-nut-entry.png",
-          "actions": [
+            0,
             1
-          ],
-          "caption": ""
+          ]
         },
         {
-          "title": "Fit the eight side-grille nuts",
-          "image": "assets/community/side-grille-nut-loading.svg",
+          "title": "Fit the four rear vent nuts",
+          "image": "assets/community/base-rear-nut-entry.png",
+          "caption": "",
           "actions": [
-            2
-          ],
-          "caption": ""
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Fit the eight side grille nuts",
+          "image": "assets/community/side-grille-nut-loading.svg",
+          "caption": "",
+          "actions": [
+            4
+          ]
         }
       ]
     },
@@ -393,28 +417,44 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "actions": [
-        "Fit and glue these nuts as in {step:board-cover-nuts}. With the bottom of the enclosure facing up, place three M3 nuts directly into the exposed recesses behind the front opening. Glue their outside edges and let the glue cure before mounting the cradle; it holds these nuts in place as the screws enter.",
-        "Turn the enclosure so the power-inlet nut slots face upward, then fit two M3 nuts from inside. Align their threaded holes with the plate’s screw bores.",
-        "Let the glue fully cure according to its label. Then gently check that the nuts stay seated and test each thread with a matching screw by hand, without driving it against the plastic. Remove the test screws and leave the enclosure empty."
+        "Fit and glue these nuts as in {step:board-cover-nuts}.",
+        "With the base’s open bottom facing up, place three M3 nuts in the open recesses behind the front opening.",
+        "Let the glue cure before you mount the audio cradle. The glue holds these nuts while the screws go in.",
+        "Turn the base so the power jack nut slots face up.",
+        "From inside, fit two M3 nuts. Line up their threaded holes with the screw bores of the power jack plate.",
+        "Let the glue cure fully, for the time on its label.",
+        "Check gently that every nut in the base stays seated. Start a matching screw in each thread by hand. Do not drive it against the plastic.",
+        "Remove the test screws. Leave the base empty."
       ],
-      "check": "All 33 enclosure nuts stay seated, every screw starts freely by hand, and the board and cover seating faces are clear.",
+      "check": "All 33 base nuts (8 M2 and 25 M3) stay seated. Every screw starts freely by hand. The board and cover seating faces are clear.",
       "panels": [
         {
-          "title": "Fit the three audio-cradle nuts",
+          "title": "Fit the three audio cradle nuts",
           "image": "assets/community/audio-cradle-nut-loading.svg",
+          "caption": "",
           "actions": [
-            0
-          ],
-          "caption": ""
-        },
-        {
-          "title": "Fit the two power-inlet nuts",
-          "image": "assets/community/inlet-plate-nuts.svg",
-          "actions": [
+            0,
             1,
             2
-          ],
-          "caption": ""
+          ]
+        },
+        {
+          "title": "Fit the two power jack nuts",
+          "image": "assets/community/inlet-plate-nuts.svg",
+          "caption": "",
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Check every nut",
+          "textOnly": true,
+          "actions": [
+            5,
+            6,
+            7
+          ]
         }
       ]
     },
@@ -423,11 +463,17 @@
       "title": "Fit the front grille and rear vent",
       "chapter": "Base hardware",
       "actions": [
-        "Place the empty enclosure with its bottom open. Identify the front microphone opening for FB41 and the rear vent opening for FB03.",
-        "Hold FB41 against the outside and fasten it to the fitted nuts with four M3×6 screws, without washers. Start all four by hand, then tighten evenly while supporting the plastic behind the nuts.",
-        "Fasten FB03 from outside with four M3×12 screws, without washers. Start the screws by hand and tighten evenly. Leave the bottom open."
+        "Place the empty base (FB01) upside down, with its open bottom facing up.",
+        "Find the front opening. The front microphone grille (FB41) fits here.",
+        "Find the rear opening. The rear vent (FB03) fits here.",
+        "At the front opening, hold the grille against the outside of the base. Put four M3×6 screws through the grille into the fitted nuts. Use no washers.",
+        "Start all four screws by hand. Tighten them evenly.",
+        "If a screw does not start by hand, remove it. Check that its nut is seated.",
+        "At the rear opening, hold the rear vent against the outside of the base. Put four M3×12 screws through the vent into the fitted nuts. Use no washers.",
+        "Start all four screws by hand. Tighten them evenly.",
+        "Leave the bottom of the base open."
       ],
-      "check": "Both vents sit flat and their nuts are seated without cracked plastic.",
+      "check": "Both parts sit flat. Each nut stays seated and the plastic around it is not cracked.",
       "parts": {
         "FB41": 1,
         "FB03": 1,
@@ -438,7 +484,7 @@
         "M3x6": 4,
         "M3x12": 4
       },
-      "note": "The enclosure nuts were fitted in {step:grille-vent-nuts}.",
+      "note": "You fitted these nuts in {step:grille-vent-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -458,19 +504,27 @@
       ],
       "panels": [
         {
-          "title": "Locate the vents",
+          "title": "Find the two openings",
           "image": "assets/community/vent-locations.png",
-          "caption": "",
+          "caption": "View through the open bottom, with the front at the lower left.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Fit the front grille",
+          "title": "Fit the front microphone grille",
           "image": "assets/community/front-grille-installation.svg",
-          "caption": "",
+          "caption": "Front wall cut away. Arrows show each screw’s path.",
+          "safety": {
+            "level": "notice",
+            "text": "The plastic behind the front nuts is thin. Too much force can crack it. Support the plastic behind the nuts while you work."
+          },
           "actions": [
-            1
+            3,
+            4,
+            5
           ],
           "detail": {
             "title": "Front fastening detail",
@@ -480,9 +534,11 @@
         {
           "title": "Fit the rear vent",
           "image": "assets/community/rear-vent-installation.svg",
-          "caption": "",
+          "caption": "Rear wall cut away.",
           "actions": [
-            2
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -492,9 +548,11 @@
       "title": "Attach the speakers to their grilles",
       "chapter": "Base hardware",
       "actions": [
-        "Work with the two loose FB19 grilles. Place each speaker against the inside of its grille, with the cone facing the opening. Align the four speaker tabs with the four inner holes.",
-        "Insert four M3×12 screws from the outside of the grille, through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
-        "Hold each nut while tightening its screw until snug. Keep the speaker tabs flat. Repeat for the second speaker; leave both cables unplugged."
+        "Place one speaker (E16) against the inside of a loose side speaker grille (FB19). Face its cone toward the grille opening.",
+        "Line up the four speaker tabs with the four inner holes of the grille.",
+        "From the outside, insert four M3×12 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
+        "Hold each nut while you tighten its screw until snug. Keep the speaker tabs flat.",
+        "Repeat for the second speaker. Leave both speaker cables unplugged."
       ],
       "check": "Both speakers are held firmly against their grilles. Screw tips clear the speaker housing and cables.",
       "parts": {
@@ -507,7 +565,7 @@
         "N3": 8,
         "W3": 8
       },
-      "note": "Mount the completed speaker-and-grille assemblies on the enclosure in {step:side-grilles}.",
+      "note": "You mount these grilles on the base in {step:side-grilles}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -532,7 +590,8 @@
           "image": "assets/community/speaker-placement.svg",
           "caption": "",
           "actions": [
-            0
+            0,
+            1
           ]
         },
         {
@@ -540,8 +599,9 @@
           "image": "assets/community/speaker-fastening-action.svg",
           "caption": "Rear view, with all four screws fastened.",
           "actions": [
-            1,
-            2
+            2,
+            3,
+            4
           ]
         }
       ]
@@ -551,11 +611,14 @@
       "title": "Mount the side speaker grilles",
       "chapter": "Base hardware",
       "actions": [
-        "Pass each speaker cable through the enclosure’s side opening, then seat the grille against the outside of the enclosure. Keep the cable clear of the mounting edge.",
-        "Fasten each grille through its four outer holes with M3×12 screws into the nuts fitted in {step:grille-vent-nuts}. No washers are used on these screws.",
-        "Label the speaker cables left and right. Leave enough slack to pull a grille away for servicing, and leave the plugs disconnected until {step:audio-module}."
+        "Pass one speaker cable through a side opening of the base. Keep the cable clear of the mounting edge.",
+        "Hold the side speaker grille (FB19) flat against the outside of the base.",
+        "Put four M3×12 screws through its outer holes into the fitted nuts. Use no washers. Repeat on the other side.",
+        "Label each speaker cable with its side: robot-left or robot-right.",
+        "Leave enough cable slack to pull a grille away for service.",
+        "Leave the plugs disconnected until {step:audio-module}."
       ],
-      "check": "Both grilles sit flat, with the speakers and cables inside the enclosure and no cable pinched under an edge.",
+      "check": "Both grilles sit flat. The speakers and cables are inside the base, with no cable pinched under an edge.",
       "parts": {
         "FB19": 2,
         "T05": 1
@@ -563,7 +626,7 @@
       "hardware": {
         "M3x12": 8
       },
-      "note": "",
+      "note": "You fitted these nuts in {step:grille-vent-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -582,13 +645,22 @@
       ],
       "panels": [
         {
-          "title": "Attach each grille to the enclosure",
+          "title": "Fasten each grille to the base",
           "image": "assets/community/side-grille-fastening.svg",
-          "caption": "Enclosure shown cut away.",
+          "caption": "Base cut away.",
           "actions": [
             0,
             1,
             2
+          ]
+        },
+        {
+          "title": "Label the speaker cables",
+          "textOnly": true,
+          "actions": [
+            3,
+            4,
+            5
           ]
         }
       ]
@@ -598,11 +670,13 @@
       "title": "Fit the feet",
       "chapter": "Base hardware",
       "actions": [
-        "Choose four matching adhesive feet that fit on the enclosure’s Ø14 mm post faces. Clean and dry the faces before applying the feet.",
-        "Center one foot on each post. Let the adhesive bond as directed before loading it.",
-        "Stand the enclosure upright and check that it does not rock. The bottom cover must clear the feet."
+        "Choose four matching adhesive feet (E25) that fit on the base’s Ø14 mm post faces.",
+        "Clean and dry the four post faces.",
+        "Peel the backing from one foot. Center it on a post face. Press it on firmly.",
+        "Let the adhesive bond for the time on its label before you load the feet.",
+        "Stand the base upright. Check that it does not rock. The bottom cover must clear the feet."
       ],
-      "check": "The enclosure stands level on four firmly bonded feet.",
+      "check": "The base stands level on four firmly bonded feet.",
       "parts": {
         "FB01": 1,
         "E25": 4
@@ -619,20 +693,22 @@
       "commands": [],
       "panels": [
         {
-          "title": "Use the four enclosure posts",
+          "title": "Find the four post faces",
           "image": "assets/community/feet-posts.svg",
           "caption": "",
           "actions": [
-            0
+            0,
+            1
           ]
         },
         {
-          "title": "Peel, position and press",
+          "title": "Peel, center and press each foot",
           "image": "assets/community/foot-application.svg",
           "caption": "",
           "actions": [
-            1,
-            2
+            2,
+            3,
+            4
           ]
         }
       ]
@@ -1393,13 +1469,20 @@
       "title": "Mount the Pi and level shifters",
       "chapter": "Base boards and controls",
       "actions": [
-        "Label the boards S1 and S2. On the back of each board, find the copper jumper labeled Neo beside the top mounting hole. Cut only the narrow bridge within its white outline, then check with a meter that each cut is open.",
-        "Identify the Pi mounts at the rear and the two shifter positions ahead of them. Mark S1 nearer the Pi and S2 nearer the audio cradle.",
-        "Mark GPIO pin 1 beside the header: it is at the microSD end, farthest from the full-size USB port; its underside pad is square.",
-        "Place the Pi with components toward the open bottom, the full-size USB port toward the audio cradle, and the microSD end toward the rear wall. Check that the USB and power plugs fit without pressing against nearby parts. Fit the four M2×12 screws, tightening only until secure without bowing the board.",
-        "Fit S1 in the position nearer the Pi and S2 nearer the audio cradle, with components and screw heads facing the bottom opening. Keep terminal entries and both frame-screw paths clear."
+        "Label the two level shifters (E15) as level shifter (S1) and level shifter (S2).",
+        "On the back of each board, find the copper jumper labeled Neo, beside the top mounting hole. Cutting it disables only the onboard test LED.",
+        "Cut only the narrow bridge inside its white outline. With the meter in continuity mode, check that each cut is open. Both signal channels on each board stay active.",
+        "Place the base (FB01) upside down, with its open bottom facing up.",
+        "Find the Pi mounts at the rear and the two level shifter positions in front of them.",
+        "Mark S1 nearer the Pi and S2 nearer the audio cradle.",
+        "Mark GPIO pin 1 beside the Pi header. Pin 1 is at the microSD end, farthest from the full-size USB port. Its underside pad is square.",
+        "Place the Pi (E09) with its components toward the open bottom. Point its full-size USB port toward the audio cradle and its microSD end toward the rear wall.",
+        "Check that the USB and power plugs fit without pressing on nearby parts. Fit four M2×12 screws. Tighten them only until secure, without bowing the board.",
+        "Fit S1 in the position nearer the Pi and S2 in the position nearer the audio cradle. Face their components and screw heads toward the open bottom.",
+        "Fasten each board with two M2×10 screws into the seated nuts. Use no washers.",
+        "Keep the terminal entries and both frame-screw paths clear."
       ],
-      "check": "All boards sit flat, nut bonds hold, screw tips clear components and sockets remain accessible.",
+      "check": "All three boards sit flat and their nuts stay bonded. Screw tips clear components. The sockets stay reachable.",
       "parts": {
         "FB01": 1,
         "E09": 1,
@@ -1412,7 +1495,7 @@
         "M2x12": 4,
         "M2x10": 4
       },
-      "note": "The eight board nuts are already fitted in {step:board-cover-nuts}.",
+      "note": "You fitted the eight board nuts in {step:board-cover-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -1432,19 +1515,23 @@
       ],
       "panels": [
         {
-          "title": "Prepare S1 and S2",
+          "title": "Cut the Neo jumper on each level shifter",
           "image": "assets/circuits/shifter-neo.svg",
-          "caption": "Cutting Neo disables only the onboard test LED. Both signal channels on each board stay active.",
+          "caption": "Back of one level shifter, with the Neo jumper enlarged.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Locate the boards",
+          "title": "Find the board positions",
           "image": "assets/community/board-layout.svg",
-          "caption": "View through the open bottom. S1 is nearer the Pi; S2 is nearer the audio cradle. USB faces the front and the SD card slides toward the rear.",
+          "caption": "View through the open bottom.",
           "actions": [
-            1
+            3,
+            4,
+            5
           ]
         },
         {
@@ -1452,16 +1539,19 @@
           "image": "assets/community/pi-board-fastening.svg",
           "caption": "",
           "actions": [
-            2,
-            3
+            6,
+            7,
+            8
           ]
         },
         {
-          "title": "Fasten the shifters",
+          "title": "Fasten the level shifters",
           "image": "assets/community/shifter-board-fastening.svg",
-          "caption": "Two M2×10 screws per board into the seated nuts; no washers.",
+          "caption": "",
           "actions": [
-            4
+            9,
+            10,
+            11
           ]
         }
       ]
@@ -1471,13 +1561,19 @@
       "title": "Mount and label the four WAGOs",
       "chapter": "Base boards and controls",
       "actions": [
-        "Clean and dry the connector backs and enclosure pads according to your Gorilla mounting tape instructions. Cut tape to each contact area.",
-        "Dry-fit all four with tape thickness included. Each lever must open fully without touching the cover or nearby parts.",
-        "Remove the liners, press each connector onto its pad and allow the tape’s specified bonding time before wiring.",
-        "Label beside the pads W1, W3, W2 and W4 from rear to front, then gently operate each lever to check the bond.",
-        "Number each connector’s ports from the robot-right end. In this open-bottom view, port 1 is on the picture’s right. All five ports in one connector are joined."
+        "Clean and dry the backs of the four WAGOs (E06) and their pads in the base. Follow the mounting tape (C16) instructions.",
+        "Cut a piece of tape to fit the flat back of each WAGO. Keep it clear of the levers and wire entries.",
+        "Place each WAGO with its wire entries toward the robot’s front and its levers toward the open bottom.",
+        "Test-fit all four WAGOs with the tape thickness included. Each lever must open fully without touching the cover or nearby parts.",
+        "Remove the liners. Press each WAGO onto its pad. Let the tape bond for its stated time before wiring.",
+        "Beside the pads, label the four WAGOs from rear to front.",
+        "Rear to front: input WAGO (W1), ground WAGO (W3), servo power WAGO (W2), servo ground WAGO (W4). W1 and W2 carry +5 V. W3 and W4 carry GND.",
+        "Open and close each lever gently to check the bond.",
+        "Number each WAGO’s ports from the robot-right end. In this open-bottom view, port 1 is on the picture’s right.",
+        "All five ports in one WAGO are joined.",
+        "Use this numbering for all four WAGOs. In this guide, W1/3 means WAGO W1, port 3."
       ],
-      "check": "Four connectors remain bonded while their levers open, and the labels and wire entries are visible.",
+      "check": "All four WAGOs stay bonded while their levers open. The labels and wire entries are visible.",
       "parts": {
         "FB01": 1,
         "E06": 4,
@@ -1495,36 +1591,42 @@
       "hardware_allocations": [],
       "panels": [
         {
-          "title": "Prepare the tape faces",
+          "title": "Cut the tape",
           "image": "assets/community/wago-tape-back.svg",
-          "caption": "Tape goes on the flat connector back, clear of levers and wire entries.",
+          "caption": "",
           "actions": [
-            0
+            0,
+            1
           ]
         },
         {
-          "title": "Bond each connector",
+          "title": "Bond each WAGO to its pad",
           "image": "assets/community/wago-tape-mount.svg",
-          "caption": "Wire entries face the robot’s front; levers face the open bottom.",
+          "caption": "",
           "actions": [
-            1,
-            2
-          ]
-        },
-        {
-          "title": "Label the finished row",
-          "image": "assets/community/wago-finished-layout.svg",
-          "caption": "Rear to front: W1 INPUT +5 V, W3 GND, W2 SERVO +5 V, W4 GND. Label each connector before wiring.",
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Identify the wire ports",
-          "image": "assets/community/wago-port-order.svg",
-          "caption": "Use this numbering for all four connectors.",
-          "actions": [
+            2,
+            3,
             4
+          ]
+        },
+        {
+          "title": "Label the WAGO row",
+          "image": "assets/community/wago-finished-layout.svg",
+          "caption": "View through the open bottom.",
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Number the ports",
+          "image": "assets/community/wago-port-order.svg",
+          "caption": "",
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -1534,11 +1636,13 @@
       "title": "Mount the audio cradle",
       "chapter": "Base boards and controls",
       "actions": [
-        "On the loose cradle (FB24), slide an M2 nut sideways into each end pocket, moving from the middle outward. Keep the nut flats parallel to the slot walls.",
-        "With the base open side up, position FB24 inside it, directly behind the front microphone grille. Keep it clear of the grille screw tips.",
-        "Fasten FB24 with three M3×6 screws into the glued M3 nuts fitted in {step:cradle-jack-nuts}. Start all three by hand, then tighten gently, without washers. Fit the middle screw now; the audio module will cover it."
+        "On the loose audio cradle (FB24), slide an M2 nut sideways into each end pocket. Work from the middle outward.",
+        "Keep the nut flats parallel to the slot walls.",
+        "With the open bottom of the base facing up, place the cradle inside it, directly behind the front microphone grille. Keep it clear of the grille screw tips.",
+        "Put three M3×6 screws through the cradle into the fitted nuts. Use no washers. Fit the middle screw now. The audio module will cover it.",
+        "Start all three screws by hand. Tighten them gently."
       ],
-      "check": "The empty cradle is screwed to the base at all three mounting holes, and both M2 lid nuts are seated.",
+      "check": "The empty cradle is screwed to the base at all three mounting holes. Both M2 lid nuts are seated.",
       "parts": {
         "FB01": 1,
         "FB24": 1,
@@ -1548,7 +1652,7 @@
         "M3x6": 3,
         "N2": 2
       },
-      "note": "",
+      "note": "You fitted the cradle nuts in {step:cradle-jack-nuts}. The lid screws go into the lid nuts in {step:audio-module}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -1576,9 +1680,10 @@
         {
           "title": "Seat the two lid nuts",
           "image": "assets/community/audio-cradle-lid-nuts.svg",
-          "caption": "Right end shown; repeat in the opposite direction at the left end. These nuts receive the lid screws in {step:audio-module}.",
+          "caption": "Right end of the cradle. The left end is the mirror image.",
           "actions": [
-            0
+            0,
+            1
           ]
         },
         {
@@ -1586,8 +1691,9 @@
           "image": "assets/community/audio-cradle-base-mount.svg",
           "caption": "View through the open bottom. Only the front section of the base is shown.",
           "actions": [
-            1,
-            2
+            2,
+            3,
+            4
           ]
         }
       ]
@@ -1597,15 +1703,21 @@
       "title": "Fit the USB audio module",
       "chapter": "Base boards and controls",
       "actions": [
-        "Before seating the module, check that the USB extension socket passes through the cradle end opening without force. If it does not, leave the module out: the cable route or connector fit needs resolving first.",
-        "Clean the case back and inside rear cradle wall as your tape requires. Apply double-sided tape under 1 mm thick to the back of the case, opposite the microphones. Keep it inside the flat face.",
-        "Remove the outer tape liner. With both cables disconnected, lift the module into the mounted cradle with its microphones facing the front grille. Keep the tape clear of the wall until the case is seated.",
-        "Press the case rearward so the tape bonds to the inside rear wall. Follow the tape maker’s pressure and bonding-time instructions.",
-        "Connect the USB data extension (200 mm or shorter) and the four-wire speaker cable through the end openings. Connect each labeled speaker to its matching output.",
-        "Line FB32 with 1 mm foam, keeping openings clear. Fit the lid with two M2×8 screws into the cradle nuts, without washers. Tighten gently without squeezing the case or trapping cables.",
-        "Check that the tape holds the case and that the microphones and plugs remain clear."
+        "Check that the USB extension socket passes through the cradle end opening without force. If it does not, leave the module out. The cable route or connector fit needs resolving first.",
+        "Clean the back of the USB audio module (E14) case and the inside rear wall of the cradle. Follow the tape instructions.",
+        "Apply double-sided tape (C16) under 1 mm thick to the back of the case, opposite the microphones. Keep it inside the flat face. Do not tape the lid.",
+        "Remove the outer tape liner.",
+        "With both cables disconnected, lift the module into the cradle. Face its microphones toward the front grille.",
+        "Keep the tape clear of the wall until the case is seated.",
+        "Press the case rearward so the tape bonds to the inside rear wall. Use the pressure and bonding time in the tape instructions.",
+        "Through the end openings, connect the USB data extension (E23), 200 mm or shorter.",
+        "Connect the four-wire speaker cable. Connect each labeled speaker to its matching output. The speaker outputs do not connect to power ground.",
+        "Leave the Pi end of the USB extension disconnected until {step:button-audio-wiring}.",
+        "Line the audio cradle lid (FB32) with 1 mm foam (C10). Keep its openings clear.",
+        "Fit the lid with two M2×8 screws into the cradle nuts. Use no washers. Tighten gently, without squeezing the case or trapping cables.",
+        "Check that the tape holds the case and that the microphones and plugs stay clear."
       ],
-      "check": "The case is taped to the inner rear wall, the lid is fitted, and the microphones and cable connections are unobstructed.",
+      "check": "The case is taped to the inside rear wall and the lid is fitted. The microphones and cable connections are unobstructed.",
       "parts": {
         "FB24": 1,
         "FB32": 1,
@@ -1640,43 +1752,49 @@
         {
           "title": "Tape the back of the case",
           "image": "assets/community/audio-tape-back.svg",
-          "caption": "Tape goes on the face opposite the microphones, not on the lid.",
+          "caption": "",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
           "title": "Insert the module without cables",
           "image": "assets/community/audio-module-seating.svg",
-          "caption": "The cradle is already mounted. Front section of the base shown.",
+          "caption": "Front section of the base, with the cradle mounted.",
           "actions": [
-            2
+            3,
+            4,
+            5
           ]
         },
         {
           "title": "Press the case against the rear wall",
           "image": "assets/community/audio-tape-contact.svg",
-          "caption": "Side cutaway. A 0.5 mm tape layer is shown; use tape under 1 mm thick.",
+          "caption": "Side cutaway, drawn with a 0.5 mm tape layer.",
           "actions": [
-            3
+            6
           ]
         },
         {
           "title": "Connect through the end openings",
           "image": "assets/community/audio-module-connections.svg",
-          "caption": "Connector detail; cradle omitted. The Pi end stays disconnected until {step:button-audio-wiring}. Speaker outputs do not connect to power ground.",
+          "caption": "Connector detail, with the cradle left out.",
           "actions": [
-            4
+            7,
+            8,
+            9
           ]
         },
         {
           "title": "Fit the padded lid",
           "image": "assets/community/audio-lid-fastening.svg",
-          "caption": "0.5 mm tape shown; actual case position follows your tape thickness.",
+          "caption": "",
           "actions": [
-            5,
-            6
+            10,
+            11,
+            12
           ]
         }
       ]
@@ -1686,11 +1804,17 @@
       "title": "Prepare the button leads",
       "chapter": "Base boards and controls",
       "actions": [
-        "Identify and label the LED and switch terminals as shown. Confirm with a meter that the lower switch pair closes only while pressed.",
-        "On the bench, solder the four Adafruit 1152 quick-connect wires to four GPIO leads, keeping their female sockets at the Pi ends. Slide heat-shrink on before soldering.",
-        "Add R1, 1 kΩ, in the LED-positive lead. Insulate every splice and both resistor joints. Label the Pi ends: switch → 11 and 14; LED + through R1 → 4; LED − → 20."
+        "On the back of the button (E17), find the LED and switch terminals. Label each one.",
+        "The closer upper pair is LED − and LED +. The wider lower pair is the switch.",
+        "With the meter in continuity mode, check that the lower switch pair closes only while you press the button.",
+        "On the bench, slide heat-shrink onto four GPIO jumper leads (E24).",
+        "Solder the four quick-connect wires (E19) to the four GPIO leads. Keep the female sockets at the Pi ends.",
+        "Add the button LED resistor (R1), 1 kΩ, in the LED-positive lead.",
+        "Insulate every splice and both resistor joints.",
+        "Label each Pi end with its Pi pin. Switch leads: pins 11 and 14. LED + lead through R1: pin 4. LED − lead: pin 20.",
+        "Leave the four Pi ends disconnected until {step:button-audio-wiring}."
       ],
-      "check": "",
+      "check": "Every joint on the button leads is insulated. Each Pi end is labeled with its pin.",
       "parts": {
         "E17": 1,
         "E19": 2,
@@ -1717,18 +1841,30 @@
         {
           "title": "Identify the button terminals",
           "image": "assets/circuits/button-terminals.svg",
-          "caption": "Rear view: the closer upper pair is LED − / +; the wider lower pair is the switch.",
+          "caption": "Rear view of the button.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Prepare and insulate the leads",
+          "title": "Solder the leads",
           "image": "assets/circuits/button-led-prepare.svg",
-          "caption": "Leave the four labeled Pi ends disconnected until {step:button-audio-wiring}.",
+          "caption": "",
           "actions": [
-            1,
-            2
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Insulate and label the leads",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -1738,12 +1874,18 @@
       "title": "Fit the front button",
       "chapter": "Base boards and controls",
       "actions": [
-        "Load the two M3 nuts into the enclosure beneath the button opening. Push the inner nut upward. Beside the foot post, slide the other nut sideways from the button opening; align its flats with the pocket.",
-        "On the bench, put the button through FB20 from the outside and tighten its supplied retaining nut against the back of the plate.",
-        "Push the prepared quick connects onto the matching terminals. Cover exposed contact metal with separate insulating sleeves; keep the connectors removable and insulated joints clear of the retaining nut.",
-        "Route the leads into the enclosure and dry-fit the insert flush, clear of the screw bosses and foot post. Leave slack to remove the plate. Fit two M3×8 screws from the outside, no washers; tighten gently without pulling the insert into place."
+        "Beneath the button opening, load two M3 nuts into the base.",
+        "Push the inner nut upward into its pocket.",
+        "Beside the foot post, slide the other nut sideways in from the button opening. Line up its flats with the pocket.",
+        "On the bench, put the button (E17) through the button insert (FB20) from the outside.",
+        "Tighten the button’s supplied retaining nut against the back of the insert.",
+        "Push the prepared quick-connects onto their matching terminals. Cover exposed contact metal with separate insulating sleeves.",
+        "Keep the connectors removable. Keep the insulated joints clear of the retaining nut.",
+        "Route the leads into the base. Leave enough slack to remove the insert.",
+        "Hold the insert flush in its opening, clear of the screw bosses and foot post.",
+        "Fit two M3×8 screws from the outside. Use no washers. Tighten gently. Do not use the screws to pull the insert into place."
       ],
-      "check": "All soldered joints are insulated, the switch closes only when pressed, and the button insert sits flush without pinching its leads. The four labeled Pi ends remain disconnected.",
+      "check": "All soldered joints are insulated and the switch closes only when pressed. The button insert sits flush without pinching its leads. The four labeled Pi ends stay disconnected.",
       "parts": {
         "FB20": 1,
         "E17": 1,
@@ -1774,28 +1916,40 @@
       ],
       "panels": [
         {
-          "title": "Load the two enclosure nuts",
+          "title": "Load the two base nuts",
           "image": "assets/community/button-enclosure-nuts.svg",
-          "caption": "View from inside: the nut beside the foot post enters sideways.",
+          "caption": "View from inside the base.",
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Fit the button in its insert",
-          "image": "assets/community/button-insert-assembly.svg",
-          "caption": "Use the retaining nut supplied with the button.",
-          "actions": [
+            0,
             1,
             2
           ]
         },
         {
-          "title": "Fasten the button plate",
-          "image": "assets/community/button-plate-fastening.svg",
-          "caption": "Two M3×8 screws; no washers.",
+          "title": "Fit the button in its insert",
+          "image": "assets/community/button-insert-assembly.svg",
+          "caption": "",
           "actions": [
-            3
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Connect the button leads",
+          "textOnly": true,
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Fasten the button insert",
+          "image": "assets/community/button-plate-fastening.svg",
+          "caption": "",
+          "actions": [
+            7,
+            8,
+            9
           ]
         }
       ]
@@ -1805,12 +1959,18 @@
       "title": "Prepare and fit the power jack",
       "chapter": "Base boards and controls",
       "actions": [
-        "With J1 loose on the bench, away from printed parts, use continuity to identify the center-pin and sleeve lugs. Solder 18 AWG leads to those two lugs and label their functions; the return may need 150–160 mm.",
-        "Insulate the joints and unused switched lug separately. Check continuity again and confirm there is no short between center and sleeve. Let the joints cool before mounting, and leave the leads long for final routing.",
-        "Fit J1 into FB21 with its supplied nut and washer. Check full thread engagement and clearance around the insulated lugs.",
-        "Seat FB21 flush and fasten it from outside with two M3×12 screws, no washers. Leave enough lead slack to remove the plate."
+        "On the bench, away from printed parts, find the center-pin and sleeve lugs of the power jack (J1). Use the meter in continuity mode.",
+        "The center pin is +5 V. The sleeve is the return. The third, switched lug stays unused.",
+        "Solder an 18 AWG lead to each of those two lugs. Label each lead with its function. The return lead may need 150–160 mm.",
+        "Insulate each joint and the unused switched lug separately.",
+        "With the meter in continuity mode, check each lead again. Check that there is no short between center and sleeve.",
+        "Let the joints cool before mounting. Leave the leads long for final routing.",
+        "Feed the prepared leads through the power jack plate (FB21). Fit J1 into the plate with its supplied washer and nut on the outside.",
+        "Check full thread engagement and clearance around the insulated lugs.",
+        "Seat the plate flush. Fasten it from outside with two M3×12 screws. Use no washers.",
+        "Leave enough lead slack to remove the plate."
       ],
-      "check": "The jack cannot rotate, the center and sleeve leads are labeled and insulated, and the plate can be removed without pulling a joint.",
+      "check": "The jack cannot rotate. The center and sleeve leads are labeled and insulated. The plate comes off without pulling a joint.",
       "parts": {
         "FB21": 1,
         "E18": 1,
@@ -1825,7 +1985,7 @@
       "hardware": {
         "M3x12": 2
       },
-      "note": "Use the power-inlet nuts fitted in {step:cradle-jack-nuts}.",
+      "note": "You fitted the power jack nuts in {step:cradle-jack-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
@@ -1836,28 +1996,40 @@
       "commands": [],
       "panels": [
         {
-          "title": "Solder the inlet on the bench",
+          "title": "Identify the jack lugs",
           "image": "assets/circuits/inlet-terminals.svg",
-          "caption": "J1 center pin is +5 V; sleeve is return. The third, switched lug stays unused.",
+          "caption": "Rear (solder) view of the power jack.",
           "actions": [
             0,
             1
           ]
         },
         {
-          "title": "Fit the jack to its plate",
-          "image": "assets/community/inlet-jack-mounting.svg",
-          "caption": "Feed the prepared leads through first. The supplied washer and retaining nut go on the outside. Leads omitted in the drawing for clarity.",
+          "title": "Solder and insulate the leads",
+          "textOnly": true,
           "actions": [
-            2
+            2,
+            3,
+            4
           ]
         },
         {
-          "title": "Fasten the inlet plate",
+          "title": "Fit the jack to its plate",
+          "image": "assets/community/inlet-jack-mounting.svg",
+          "caption": "Jack and plate, with the leads hidden.",
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Fasten the power jack plate",
           "image": "assets/community/inlet-plate-fastening.svg",
           "caption": "",
           "actions": [
-            3
+            8,
+            9
           ]
         }
       ],
