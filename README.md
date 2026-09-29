@@ -1,3 +1,7 @@
+<a href="https://demartinistudios.github.io/blooglyblob/">
+  <img src="hardware/build-guide/src/assets/robot-mark.svg" alt="BlooglyBlob — open the build guide" width="120" height="170">
+</a>
+
 # BlooglyBlob
 
 **A 3D-printable AI companion powered by Raspberry Pi and the OpenAI API.**
