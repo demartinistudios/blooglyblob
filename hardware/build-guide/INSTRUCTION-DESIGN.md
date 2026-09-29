@@ -135,7 +135,7 @@ being rewritten and errors once the rewrite is complete.
 
 Count words by splitting on spaces. A size or value with its unit counts as
 one word when it has no space, such as `M3×6`, `W1/3` or `T3.15`. A step link
-such as `{step:14}` counts as one word. A command counts as one word.
+such as `{step:body-lights}` counts as one word. A command counts as one word.
 
 Simple mechanical steps should stay short: one to three panels, each with up to
 five actions. A step that needs more than six panels is two steps.
@@ -175,7 +175,7 @@ five actions. A step that needs more than six panels is two steps.
 4. **Step check.** One line saying what the finished step looks like, or what a
    test shows. Write it as a statement, not an instruction.
 5. **Note.** Only a link back or forward to another step ("You fitted these nuts
-   in {step:fb-base-nuts}."). Never put an instruction, caution or fact the
+   in {step:board-cover-nuts}."). Never put an instruction, caution or fact the
    builder needs in a note.
 
 ### Result and recovery lines
@@ -445,7 +445,7 @@ seated.
 **Check:** Both parts sit flat. Each nut stays seated and the plastic around it
 is not cracked.
 
-**Note:** You fitted these nuts in {step:fb-base-nuts}.
+**Note:** You fitted these nuts in {step:grille-vent-nuts}.
 
 ### Example 2: Wire the servo fuse and capacitor (wiring)
 

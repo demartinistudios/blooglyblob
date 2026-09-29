@@ -201,7 +201,7 @@ class WritingTests(unittest.TestCase):
 
     def test_units_step_links_commands_and_symbols_do_not_inflate_counts(self):
         # 20 words when a command is one word and arrows are not words; 23 otherwise.
-        self.step['actions'][0] = ('Run make pi-servo-fit now, then read {step:fb-base-nuts} for four M3×6 '
+        self.step['actions'][0] = ('Run make pi-servo-fit now, then read {step:board-cover-nuts} for four M3×6 '
                                    'screws at W1/3 → F1 → W2/1 with an 11 mm strip here.')
         self.assertEqual(self.warnings('sentence-length'), [])
 

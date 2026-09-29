@@ -96,85 +96,6 @@ def body_foam():
     write('body-foam-template.svg', svg(270, 155, b, 'BlooglyBlob body foam template, actual size'))
 
 
-# ---------------------------------------------------------------- service stand
-def service_stand():
-    W, H = 420, 297  # A3 landscape
-    ox, oy = 12, 44  # bed origin: base end, top edge of the drawing = one long side
-    L = lambda x: ox + x
-    Y = lambda y: oy + 100 + y  # y across the bed, 0 on the centerline
-    b = [text(12, 14, 'BlooglyBlob', 4, weight='bold'),
-         text(12, 24, 'Wooden service stand: full-size template', 8, weight='bold'),
-         text(12, 32, 'Print on A3 at 100% (actual size), or tile it, and check the 100 mm bar. All sizes are in millimetres,', 3.4),
-         text(12, 37.5, 'so you can also mark the parts out with a ruler and square. The stand is a workbench fixture, not part of the robot.', 3.4)]
-    bed = f'M{L(0)} {Y(-100)}H{L(100)}V{Y(-45)}H{L(280)}V{Y(45)}H{L(100)}V{Y(100)}H{L(0)}Z'
-    b.append(f'<path d="{bed}" fill="#f6f1e7" stroke="black" stroke-width="0.4"/>')
-    # footprints of the glued parts (top face of the bed)
-    for sy in (-1, 1):
-        b.append(f'<rect x="{L(22)}" y="{Y(sy*68-15)}" width="58" height="30" fill="none" stroke="#51606b" stroke-width="0.3" stroke-dasharray="2 1.2"/>')
-        b.append(text(L(51), Y(sy * 68) + (-9 if sy < 0 else 12), 'base block', 3, 'middle', fill='#51606b'))
-    b.append(f'<rect x="{L(213)}" y="{Y(-17)}" width="36" height="34" fill="none" stroke="#51606b" stroke-width="0.3" stroke-dasharray="2 1.2"/>')
-    b.append(text(L(231), Y(-20), 'head riser', 3, 'middle', fill='#51606b'))
-    holes = [(37, -68), (65, -68), (37, 68), (65, 68), (231, -10), (231, 10)]
-    for hx, hy in holes:
-        cx, cy = L(hx), Y(hy)
-        b.append(f'<circle cx="{cx}" cy="{cy}" r="2.25" fill="white" stroke="black" stroke-width="0.3"/>')
-        b.append(f'<path d="M{cx-4} {cy}h8M{cx} {cy-4}v8" stroke="black" stroke-width="0.15"/>')
-    # dimensions along the bed (below it)
-    dy = Y(100) + 8
-    b.append(f'<path d="M{L(0)} {dy}H{L(280)}" stroke="{INK}" stroke-width="0.25"/>')
-    for x in (0, 37, 65, 100, 231, 280):
-        b.append(f'<path d="M{L(x)} {dy-2}V{dy+2}" stroke="{INK}" stroke-width="0.25"/>')
-        b.append(text(L(x), dy + 6, str(x), 3, 'middle'))
-    b.append(text(L(140), dy + 12, 'Distances from the base end (holes: 37, 65 and 231)', 3, 'middle'))
-    # dimensions across (right of the crossbar)
-    b.append(text(L(104), Y(-86), 'Crossbar 100 × 200', 3.2))
-    b.append(text(L(104), Y(-80), 'Stem 180 long × 90 wide, centered', 3.2))
-    b.append(text(L(104), Y(-74), 'Overall 280 × 200 × 18 plywood', 3.2))
-    b.append(text(L(104), Y(76), 'Block holes: 68 each side of the centerline', 3.2))
-    b.append(text(L(104), Y(82), 'Riser holes: 10 each side of the centerline', 3.2))
-    b.append(text(L(104), Y(88), 'Six Ø4.5 holes, countersunk Ø8.5 × about 3 deep underneath', 3.2))
-    b.append(text(L(5), Y(-93), 'BASE END', 3.2, weight='bold'))
-    b.append(text(L(276), Y(-38), 'HEAD END', 3.2, 'end', 'bold'))
-    b.append(text(L(50), Y(2), 'CUT OUTSIDE THE LINE', 3.2, 'middle', 'bold'))
-    # the loose parts at full size
-    px = 312
-    b.append(text(px, 50, 'Base block, make 2 (top view)', 3.4, weight='bold'))
-    b.append(f'<rect x="{px}" y="56" width="58" height="30" fill="#f6f1e7" stroke="black" stroke-width="0.35"/>')
-    for x in (15, 43):
-        b.append(f'<circle cx="{px+x}" cy="71" r="1.5" fill="white" stroke="black" stroke-width="0.25"/>')
-    b.append(text(px, 92, '58 × 30 × 13 wood. Two Ø3 pilots, 28 apart,', 3))
-    b.append(text(px, 97, '10 deep, in the face that sits on the bed.', 3))
-    b.append(text(px, 102, 'Glue a 58 × 30 × 2 soft foam pad on top.', 3))
-    b.append(text(px, 114, 'Head riser, make 1', 3.4, weight='bold'))
-    b.append(text(px, 120, 'Bottom face', 3, fill='#51606b'))
-    b.append(f'<rect x="{px}" y="123" width="36" height="34" fill="#f6f1e7" stroke="black" stroke-width="0.35"/>')
-    for y in (7, 27):
-        b.append(f'<circle cx="{px+18}" cy="{123+y}" r="1.5" fill="white" stroke="black" stroke-width="0.25"/>')
-    b.append(text(px + 42, 120, 'Side', 3, fill='#51606b'))
-    sx = px + 42
-    b.append(f'<rect x="{sx}" y="123" width="34" height="70" fill="#f6f1e7" stroke="black" stroke-width="0.35"/>')
-    for x in (7, 27):
-        b.append(f'<path d="M{sx+x} 193V168M{sx+x} 123V141" stroke="black" stroke-width="0.25" stroke-dasharray="1 0.8"/>')
-    b.append(text(sx + 37, 150, '70 tall', 3))
-    b.append(text(sx + 37, 138, 'top pilots', 2.8, fill='#51606b'))
-    b.append(text(sx + 37, 142, '18 deep', 2.8, fill='#51606b'))
-    b.append(text(sx + 37, 183, 'bottom pilots', 2.8, fill='#51606b'))
-    b.append(text(sx + 37, 187, '25 deep', 2.8, fill='#51606b'))
-    b.append(text(px, 202, 'Wood 70 × 36 × 34. Two Ø3 pilots, 20 apart, in', 3))
-    b.append(text(px, 207, 'each end, on the same centers. They don’t meet.', 3))
-    b.append(text(px, 219, 'Printed saddle J05: two 4 × 20 pan-head', 3.4, weight='bold'))
-    b.append(text(px, 225, 'wood screws into the riser’s top pilots.', 3))
-    b.append(text(px, 230, 'Line its curved seat with about 4 mm soft foam.', 3))
-    # screws and scale
-    notes = ['Screws, from underneath through the countersunk holes: 4 × 25 countersunk (blocks, 4) and 4 × 40 countersunk (riser, 2).',
-             'Glue every wood-to-wood joint too. Keep all screw tips buried in the wood.',
-             'Place the robot on its left side: base on the two pads, clear of the speaker grille, head in the saddle.']
-    for i, s in enumerate(notes):
-        b.append(text(12, 276 + i * 6, s, 3.2))
-    b += scale_bar(312, 262, 100, '100 mm')
-    write('service-stand-template.svg', svg(W, H, b, 'BlooglyBlob service stand template, actual size'))
-
-
 # ---------------------------------------------------------------- screw key
 def hardware_totals():
     hardware = json.loads((OUT.parents[2] / 'assembly/hardware.json').read_text())
@@ -242,6 +163,5 @@ def screw_key(form, w, h):
 if __name__ == '__main__':
     eye_film()
     body_foam()
-    service_stand()
     screw_key('letter', 215.9, 279.4)
     screw_key('a4', 210, 297)

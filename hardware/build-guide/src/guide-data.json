@@ -1,7 +1,7 @@
 {
   "steps": [
     {
-      "id": "01",
+      "id": "workbench",
       "chapter": "Prepare",
       "title": "Set up your workbench",
       "parts": {
@@ -20,10 +20,9 @@
       "hardware": {},
       "actions": [
         "Choose filament colors, paint or both. Keep paint off nut pockets, threads, mating faces and adhesive contact areas; let it cure before assembly.",
-        "Gather the tools in the {tools}. Sort screws by size and keep each servo’s horn and center screw together.",
-        "Make the padded stand in {step:fb-stand} before fitting the frame. Only the curved head saddle is printed; the base and supports are wood."
+        "Gather the tools in the {tools}. Sort screws by size and keep each servo’s horn and center screw together."
       ],
-      "check": "Your colors are chosen, tools are ready and the stand is prepared before frame assembly.",
+      "check": "Your colors are chosen and tools are ready.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -48,21 +47,13 @@
           "actions": [
             1
           ]
-        },
-        {
-          "title": "Make the service stand",
-          "image": "assets/community/stand-materials.svg",
-          "caption": "",
-          "actions": [
-            2
-          ]
         }
       ]
     },
     {
-      "id": "02",
-      "chapter": "Prepare",
-      "title": "Print and prepare the parts",
+      "id": "print-plates",
+      "chapter": "Print",
+      "title": "Slice and print the plates",
       "parts": {
         "C13": "By print package"
       },
@@ -70,12 +61,9 @@
       "actions": [
         "Start with plates 2 and 7 for the enclosure and vents. Print the rest as you build; the plate layouts above show the suggested order, parts and estimates.",
         "Open the Bambu project, match your printer, nozzle and build plate, and map its material profiles to your spools. Keep the supplied orientations, supports, blockers and brims. Leave “Synchronize filament list from AMS” off.",
-        "Slice and inspect one plate at a time before printing. Turn bed leveling on and timelapse off. On plate 2, turn flow dynamics calibration off: its calibration line crosses the front brim.",
-        "Let parts cool, then remove supports and brims in small pieces. Support thin fingers, antenna turns, threads and nut-channel ledges while working.",
-        "Clear screw holes, nut pockets, cable slots and the audio-cradle end windows and lid-nut slots. Smooth rough edges at the enclosure’s central wire hole without enlarging it; keep the thin plastic behind the front nuts intact.",
-        "Dry-fit the real screws, nuts and mating parts without forcing them. Set aside cracked or warped parts for reprinting."
+        "Slice and inspect one plate at a time before printing. Turn bed leveling on and timelapse off. On plate 2, turn flow dynamics calibration off: its calibration line crosses the front brim."
       ],
-      "check": "The enclosure and vents are ready, screw and cable paths are smooth, and you know which plate supplies the next parts.",
+      "check": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -94,67 +82,62 @@
             1,
             2
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "print-cleanup",
+      "chapter": "Print",
+      "title": "Clean and check each print",
+      "parts": {},
+      "hardware": {},
+      "actions": [
+        "Let parts cool, then remove supports and brims in small pieces. Support thin fingers, antenna turns, threads and nut-channel ledges while working.",
+        "Clear screw holes, nut pockets, cable slots and the audio-cradle end windows and lid-nut slots. Smooth rough edges at the enclosure’s central wire hole without enlarging it; keep the thin plastic behind the front nuts intact.",
+        "Dry-fit the real screws, nuts and mating parts without forcing them. Set aside cracked or warped parts for reprinting."
+      ],
+      "check": "The enclosure and vents are ready, screw and cable paths are smooth, and you know which plate supplies the next parts.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/printing/current/manifest.json"
+      ],
+      "note": "",
+      "kind": "build",
+      "number": 3,
+      "commands": [],
+      "panels": [
         {
           "title": "Clean and check each print",
           "image": "assets/community/front-nut-entry.png",
           "caption": "Clear the front nut-entry channels without thinning the ledges that retain the nuts.",
           "actions": [
-            3,
-            4,
-            5
+            0,
+            1,
+            2
           ]
         }
       ]
     },
     {
-      "id": "fb-base-nuts",
-      "title": "Fit all the enclosure nuts",
-      "chapter": "Enclosure and electronics",
+      "id": "board-cover-nuts",
+      "title": "Fit the board and cover nuts",
+      "chapter": "Base hardware",
       "kind": "build",
-      "number": 3,
+      "number": 4,
       "parts": {
         "FB01": 1,
         "C09": "Small amount"
       },
       "hardware": {
         "N2": 8,
-        "N3": 25
+        "N3": 4
       },
       "hardware_allocations": [
-        {
-          "allocation_id": "joint-fb-panels",
-          "role": "preload",
-          "hardware": {
-            "N3": 8
-          }
-        },
-        {
-          "allocation_id": "joint-fb-side-panels",
-          "role": "preload",
-          "hardware": {
-            "N3": 8
-          }
-        },
         {
           "allocation_id": "joint-fb-boards",
           "role": "preload",
           "hardware": {
             "N2": 8
-          }
-        },
-        {
-          "allocation_id": "joint-fb-audio-cradle",
-          "role": "preload",
-          "hardware": {
-            "N3": 3
-          }
-        },
-        {
-          "allocation_id": "joint-fb-inlet-button",
-          "role": "preload",
-          "hardware": {
-            "N3": 2
           }
         },
         {
@@ -174,15 +157,9 @@
         "Place the empty enclosure with its bottom open. Gather 8 M2 and 25 M3 nuts. Work through the groups below, fitting and gluing one group at a time. Match each nut’s flats to its pocket and its threaded hole to the screw bore; do not force it.",
         "After dry-fitting each nut, use a toothpick to place a tiny dab of mixed epoxy between its exposed outside edge and the pocket. CA gel is an optional quicker-setting alternative. Keep glue out of threads, screw bores, sliding channels and flat mounting faces. Keep that face upward until the glue holds before turning the enclosure.",
         "Seat eight M2 nuts in the board pockets: four for the Pi and two for each level shifter.",
-        "Seat four M3 nuts in the bottom-cover recesses, one at each corner. Leave the cover off.",
-        "Slide four M3 nuts upward into the front-grille slots from inside. Support the thin plastic behind each slot.",
-        "Turn the enclosure so the rear-vent nut slots face upward. Place four M3 nuts into the open slots from inside, aligning each threaded hole with its screw bore.",
-        "Slide four M3 nuts upward into the mounting channels on each side: eight in total, for the grilles’ outer holes.",
-        "With the bottom of the enclosure facing up, place three M3 nuts directly into the exposed recesses behind the front opening. Glue their outside edges and let the glue cure before mounting the cradle; it holds these nuts in place as the screws enter.",
-        "Turn the enclosure so the power-inlet nut slots face upward, then fit two M3 nuts from inside. Align their threaded holes with the plate’s screw bores.",
-        "Let the glue fully cure according to its label. Then gently check that the nuts stay seated and test each thread with a matching screw by hand, without driving it against the plastic. Remove the test screws and leave the enclosure empty."
+        "Seat four M3 nuts in the bottom-cover recesses, one at each corner. Leave the cover off."
       ],
-      "check": "All 33 enclosure nuts stay seated, every screw starts freely by hand, and the board and cover seating faces are clear.",
+      "check": "",
       "panels": [
         {
           "title": "Fit and glue one group at a time",
@@ -208,12 +185,55 @@
             3
           ],
           "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "grille-vent-nuts",
+      "title": "Fit the grille and vent nuts",
+      "chapter": "Base hardware",
+      "kind": "build",
+      "number": 5,
+      "parts": {
+        "FB01": 1,
+        "C09": "Small amount"
+      },
+      "hardware": {
+        "N3": 16
+      },
+      "hardware_allocations": [
+        {
+          "allocation_id": "joint-fb-panels",
+          "role": "preload",
+          "hardware": {
+            "N3": 8
+          }
         },
+        {
+          "allocation_id": "joint-fb-side-panels",
+          "role": "preload",
+          "hardware": {
+            "N3": 8
+          }
+        }
+      ],
+      "commands": [],
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md"
+      ],
+      "actions": [
+        "Fit and glue these nuts as in {step:board-cover-nuts}. Slide four M3 nuts upward into the front-grille slots from inside. Support the thin plastic behind each slot.",
+        "Turn the enclosure so the rear-vent nut slots face upward. Place four M3 nuts into the open slots from inside, aligning each threaded hole with its screw bore.",
+        "Slide four M3 nuts upward into the mounting channels on each side: eight in total, for the grilles’ outer holes."
+      ],
+      "check": "",
+      "panels": [
         {
           "title": "Fit the four front-grille nuts",
           "image": "assets/community/front-grille-nut-loading.svg",
           "actions": [
-            4
+            0
           ],
           "caption": ""
         },
@@ -221,7 +241,7 @@
           "title": "Fit the four rear-vent nuts",
           "image": "assets/community/base-rear-nut-entry.png",
           "actions": [
-            5
+            1
           ],
           "caption": ""
         },
@@ -229,15 +249,58 @@
           "title": "Fit the eight side-grille nuts",
           "image": "assets/community/side-grille-nut-loading.svg",
           "actions": [
-            6
+            2
           ],
           "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "cradle-jack-nuts",
+      "title": "Fit the cradle and power jack nuts",
+      "chapter": "Base hardware",
+      "kind": "build",
+      "number": 6,
+      "parts": {
+        "FB01": 1,
+        "C09": "Small amount"
+      },
+      "hardware": {
+        "N3": 5
+      },
+      "hardware_allocations": [
+        {
+          "allocation_id": "joint-fb-audio-cradle",
+          "role": "preload",
+          "hardware": {
+            "N3": 3
+          }
         },
+        {
+          "allocation_id": "joint-fb-inlet-button",
+          "role": "preload",
+          "hardware": {
+            "N3": 2
+          }
+        }
+      ],
+      "commands": [],
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md"
+      ],
+      "actions": [
+        "Fit and glue these nuts as in {step:board-cover-nuts}. With the bottom of the enclosure facing up, place three M3 nuts directly into the exposed recesses behind the front opening. Glue their outside edges and let the glue cure before mounting the cradle; it holds these nuts in place as the screws enter.",
+        "Turn the enclosure so the power-inlet nut slots face upward, then fit two M3 nuts from inside. Align their threaded holes with the plate’s screw bores.",
+        "Let the glue fully cure according to its label. Then gently check that the nuts stay seated and test each thread with a matching screw by hand, without driving it against the plastic. Remove the test screws and leave the enclosure empty."
+      ],
+      "check": "All 33 enclosure nuts stay seated, every screw starts freely by hand, and the board and cover seating faces are clear.",
+      "panels": [
         {
           "title": "Fit the three audio-cradle nuts",
           "image": "assets/community/audio-cradle-nut-loading.svg",
           "actions": [
-            7
+            0
           ],
           "caption": ""
         },
@@ -245,17 +308,17 @@
           "title": "Fit the two power-inlet nuts",
           "image": "assets/community/inlet-plate-nuts.svg",
           "actions": [
-            8,
-            9
+            1,
+            2
           ],
           "caption": ""
         }
       ]
     },
     {
-      "id": "fb-panels",
-      "title": "Fit the front and rear vents",
-      "chapter": "Enclosure and electronics",
+      "id": "front-grille-rear-vent",
+      "title": "Fit the front grille and rear vent",
+      "chapter": "Base hardware",
       "actions": [
         "Place the empty enclosure with its bottom open. Identify the front microphone opening for FB41 and the rear vent opening for FB03.",
         "Hold FB41 against the outside and fasten it to the fitted nuts with four M3×6 screws, without washers. Start all four by hand, then tighten evenly while supporting the plastic behind the nuts.",
@@ -271,13 +334,13 @@
         "M3x6": 4,
         "M3x12": 4
       },
-      "note": "The enclosure nuts were fitted in {step:fb-base-nuts}.",
+      "note": "The enclosure nuts were fitted in {step:grille-vent-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 4,
+      "number": 7,
       "commands": [],
       "hardware_allocations": [
         {
@@ -321,9 +384,9 @@
       ]
     },
     {
-      "id": "fb-speakers",
-      "title": "Attach the speakers to the grilles",
-      "chapter": "Enclosure and electronics",
+      "id": "speaker-grilles",
+      "title": "Attach the speakers to their grilles",
+      "chapter": "Base hardware",
       "actions": [
         "Work with the two loose FB19 grilles. Place each speaker against the inside of its grille, with the cone facing the opening. Align the four speaker tabs with the four inner holes.",
         "Insert four M3×12 screws from the outside of the grille, through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
@@ -339,13 +402,13 @@
         "N3": 8,
         "W3": 8
       },
-      "note": "Mount the completed speaker-and-grille assemblies on the enclosure in {step:fb-side-panels}.",
+      "note": "Mount the completed speaker-and-grille assemblies on the enclosure in {step:side-grilles}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 5,
+      "number": 8,
       "commands": [],
       "hardware_allocations": [
         {
@@ -379,13 +442,13 @@
       ]
     },
     {
-      "id": "fb-side-panels",
-      "title": "Mount the speaker assemblies",
-      "chapter": "Enclosure and electronics",
+      "id": "side-grilles",
+      "title": "Mount the side speaker grilles",
+      "chapter": "Base hardware",
       "actions": [
         "Pass each speaker cable through the enclosure’s side opening, then seat the grille against the outside of the enclosure. Keep the cable clear of the mounting edge.",
-        "Fasten each grille through its four outer holes with M3×12 screws into the nuts fitted in {step:fb-base-nuts}. No washers are used on these screws.",
-        "Label the speaker cables left and right. Leave enough slack to pull a grille away for servicing, and leave the plugs disconnected until {step:fb-audio}."
+        "Fasten each grille through its four outer holes with M3×12 screws into the nuts fitted in {step:grille-vent-nuts}. No washers are used on these screws.",
+        "Label the speaker cables left and right. Leave enough slack to pull a grille away for servicing, and leave the plugs disconnected until {step:audio-module}."
       ],
       "check": "Both grilles sit flat, with the speakers and cables inside the enclosure and no cable pinched under an edge.",
       "parts": {
@@ -400,7 +463,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 6,
+      "number": 9,
       "commands": [],
       "hardware_allocations": [
         {
@@ -425,9 +488,9 @@
       ]
     },
     {
-      "id": "fb-shell",
+      "id": "feet",
       "title": "Fit the feet",
-      "chapter": "Enclosure and electronics",
+      "chapter": "Base hardware",
       "actions": [
         "Choose four matching adhesive feet that fit on the enclosure’s Ø14 mm post faces. Clean and dry the faces before applying the feet.",
         "Center one foot on each post. Let the adhesive bond as directed before loading it.",
@@ -446,7 +509,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 7,
+      "number": 10,
       "commands": [],
       "panels": [
         {
@@ -469,32 +532,19 @@
       ]
     },
     {
-      "id": "software-prepare",
-      "title": "Prepare the microSD card",
-      "chapter": "Enclosure and electronics",
+      "id": "computer-ssh-key",
+      "title": "Set up your computer and SSH key",
+      "chapter": "Pi software",
       "kind": "build",
-      "parts": {
-        "E09": 1,
-        "E13": 1
-      },
+      "parts": {},
       "hardware": {},
       "actions": [
         "Install Git, Make, Python 3.12 or newer, OpenSSH (ssh and scp), and Raspberry Pi Imager on your computer. Check the terminal commands below before continuing; python3 must select your supported Python.",
         "On Windows, use WSL for every terminal command in this guide, including key creation, cloning and Make. Run Imager in Windows; import the public key from that same WSL environment.",
         "Use an existing SSH key from the terminal environment you will use to connect. If you have no key, run ssh-keygen below and follow its prompts. Never overwrite an existing key: answer no if it asks to replace one.",
-        "For the default key name, display id_ed25519.pub with the second command. Keep the entire public-key line for Imager. The file without .pub is private; never paste or share it. If your key has another name, use that .pub path and select its private key through your SSH agent or an IdentityFile rule for this Pi.",
-        "Open Imager and choose Raspberry Pi 3 for the Pi 3 Model A+ (E09).",
-        "Choose Raspberry Pi OS (other), then Raspberry Pi OS Lite (64-bit). Confirm that the description names Trixie. The installer requires 64-bit Trixie with Python 3.13.",
-        "Insert the microSD card (E13) in your computer’s card reader. Select that card in Imager and check its name and capacity. Writing erases the selected drive; stop if you cannot identify it confidently.",
-        "Choose a unique hostname, for example `blooglyblob`. Write down your hostname and the username you choose next; you will use both for SSH and the repository settings.",
-        "In Localisation, choose your country/capital city, time zone and keyboard layout, then continue to User.",
-        "Choose a username and password for the Pi. This guide uses builder as its example username. Keep the password private and available for sudo prompts; do not put it in the repository settings.",
-        "Enter your Wi-Fi network name and password. The Pi and your computer must be able to reach each other on the network; the Pi also needs internet access.",
-        "Enable SSH and select public-key authentication. Paste your public-key line or select the .pub file you prepared. Do not use Imager’s automatically suggested key unless it is the key from your command environment.",
-        "On Windows, a Windows SSH key and a WSL SSH key are different files. Paste the output of cat from WSL, or select its .pub file through the WSL filesystem; do not switch terminal environments for later commands.",
-        "Leave Raspberry Pi Connect off; this build uses SSH. Review the Pi, OS, storage and custom settings, then start writing. Wait for writing and verification to finish, eject the card, and continue."
+        "For the default key name, display id_ed25519.pub with the second command. Keep the entire public-key line for Imager. The file without .pub is private; never paste or share it. If your key has another name, use that .pub path and select its private key through your SSH agent or an IdentityFile rule for this Pi."
       ],
-      "check": "The card is written and verified; you have your chosen hostname, username and SSH key ready.",
+      "check": "",
       "note": "",
       "source": [],
       "panels": [
@@ -553,11 +603,33 @@
               "label": "Display the public key"
             }
           ]
-        },
+        }
+      ],
+      "number": 11
+    },
+    {
+      "id": "imager-choose",
+      "title": "Choose the Pi, system and card",
+      "chapter": "Pi software",
+      "kind": "build",
+      "parts": {
+        "E09": 1,
+        "E13": 1
+      },
+      "hardware": {},
+      "actions": [
+        "Open Imager and choose Raspberry Pi 3 for the Pi 3 Model A+ (E09).",
+        "Choose Raspberry Pi OS (other), then Raspberry Pi OS Lite (64-bit). Confirm that the description names Trixie. The installer requires 64-bit Trixie with Python 3.13.",
+        "Insert the microSD card (E13) in your computer’s card reader. Select that card in Imager and check its name and capacity. Writing erases the selected drive; stop if you cannot identify it confidently."
+      ],
+      "check": "",
+      "note": "",
+      "source": [],
+      "panels": [
         {
           "title": "Choose the Pi",
           "actions": [
-            4
+            0
           ],
           "image": "assets/setup/imager-device.jpg",
           "caption": "Select Raspberry Pi 3 for the Model A+."
@@ -565,7 +637,7 @@
         {
           "title": "Choose the supported operating system",
           "actions": [
-            5
+            1
           ],
           "image": "assets/setup/imager-os.jpg",
           "caption": "Confirm Lite 64-bit and Trixie in the image description."
@@ -573,14 +645,34 @@
         {
           "title": "Select the microSD card",
           "actions": [
-            6
+            2
           ],
           "textOnly": true
-        },
+        }
+      ],
+      "number": 12
+    },
+    {
+      "id": "imager-settings",
+      "title": "Set the Pi name, account and Wi-Fi",
+      "chapter": "Pi software",
+      "kind": "build",
+      "parts": {},
+      "hardware": {},
+      "actions": [
+        "Choose a unique hostname, for example `blooglyblob`. Write down your hostname and the username you choose next; you will use both for SSH and the repository settings.",
+        "In Localisation, choose your country/capital city, time zone and keyboard layout, then continue to User.",
+        "Choose a username and password for the Pi. This guide uses builder as its example username. Keep the password private and available for sudo prompts; do not put it in the repository settings.",
+        "Enter your Wi-Fi network name and password. The Pi and your computer must be able to reach each other on the network; the Pi also needs internet access."
+      ],
+      "check": "",
+      "note": "",
+      "source": [],
+      "panels": [
         {
           "title": "Set the hostname",
           "actions": [
-            7
+            0
           ],
           "image": "assets/setup/imager-hostname.jpg",
           "caption": "blooglyblob is the example hostname; use your own choice consistently."
@@ -588,7 +680,7 @@
         {
           "title": "Set your location",
           "actions": [
-            8
+            1
           ],
           "image": "assets/setup/imager-localisation.jpg",
           "caption": "Choose the settings for where your Pi will be used."
@@ -596,7 +688,7 @@
         {
           "title": "Create the Pi account",
           "actions": [
-            9
+            2
           ],
           "image": "assets/setup/imager-user.jpg",
           "caption": "Example account shown. Enter your own password; Imager may offer to reuse a previously saved one."
@@ -604,16 +696,37 @@
         {
           "title": "Set your Wi-Fi",
           "actions": [
-            10
+            3
           ],
           "image": "assets/setup/imager-wifi.jpg",
           "caption": "Example network shown before password entry; use your own Wi-Fi details."
-        },
+        }
+      ],
+      "number": 13
+    },
+    {
+      "id": "imager-write",
+      "title": "Enable SSH and write the card",
+      "chapter": "Pi software",
+      "kind": "build",
+      "parts": {
+        "E13": 1
+      },
+      "hardware": {},
+      "actions": [
+        "Enable SSH and select public-key authentication. Paste your public-key line or select the .pub file you prepared. Do not use Imager’s automatically suggested key unless it is the key from your command environment.",
+        "On Windows, a Windows SSH key and a WSL SSH key are different files. Paste the output of cat from WSL, or select its .pub file through the WSL filesystem; do not switch terminal environments for later commands.",
+        "Leave Raspberry Pi Connect off; this build uses SSH. Review the Pi, OS, storage and custom settings, then start writing. Wait for writing and verification to finish, eject the card, and continue."
+      ],
+      "check": "The card is written and verified; you have your chosen hostname, username and SSH key ready.",
+      "note": "",
+      "source": [],
+      "panels": [
         {
           "title": "Enable SSH with your public key",
           "actions": [
-            11,
-            12
+            0,
+            1
           ],
           "image": "assets/setup/imager-ssh.jpg",
           "caption": "Shown before key import. Add your own public key to enable Next."
@@ -621,7 +734,7 @@
         {
           "title": "Write and verify",
           "actions": [
-            13
+            2
           ],
           "image": "assets/setup/imager-review.jpg",
           "caption": "Confirm all five customisations before writing. Leave the card connected until verification finishes.",
@@ -631,12 +744,12 @@
           }
         }
       ],
-      "number": 8
+      "number": 14
     },
     {
-      "id": "software-connect",
+      "id": "pi-connect",
       "title": "Boot and connect to the Pi",
-      "chapter": "Enclosure and electronics",
+      "chapter": "Pi software",
       "kind": "build",
       "parts": {
         "E09": 1,
@@ -706,17 +819,14 @@
           ]
         }
       ],
-      "number": 9
+      "number": 15
     },
     {
-      "id": "software-configure",
-      "title": "Configure BlooglyBlob",
-      "chapter": "Enclosure and electronics",
+      "id": "repository-settings",
+      "title": "Get the code and add your settings",
+      "chapter": "Pi software",
       "kind": "build",
-      "parts": {
-        "E14": 1,
-        "E23": 1
-      },
+      "parts": {},
       "hardware": {},
       "actions": [
         "On your computer, clone the repository and enter its folder. If you already have this checkout, enter that folder instead; do not create another copy inside it. Run later Make commands from this repository folder.",
@@ -724,18 +834,9 @@
         "Open .env in a text editor. Set PI_HOST to your recorded hostname plus .local, or the IP address that worked for SSH; set PI_USER to your chosen username. Keep BLOOGLYBLOB_ENV_FILE=config/app.env.",
         "The example below matches blooglyblob and builder. These are file settings, not terminal commands. Do not add your Pi password or Wi-Fi password.",
         "Create an API key for your own OpenAI account and enable API billing. API usage is separate from a ChatGPT subscription; your account needs access to the models listed in config/app.env.example.",
-        "Open config/app.env in your editor and put the key after OPENAI_API_KEY=. Keep the other example settings. This ignored file is private: do not commit it, share it or show it in screenshots. Application startup can make a billable greeting request; conversations also use paid API services.",
-        "Plug the USB extension’s male end (E23) into the Pi’s USB-A socket, then connect the audio module (E14) to its female socket. Keep the module in its case on the bench.",
-        "From the repository folder on your computer, open SSH using .env. If the target is wrong or unreachable, fix PI_HOST and PI_USER before continuing.",
-        "On the Pi, list the sound cards. Note the USB name after USB-Audio - and its bracketed card ID (Device in this example). Use the ID for mixer commands; the numeric index can change after reboot.",
-        "If no USB audio card appears, check the module and extension connections, then run the command again.",
-        "For this USB module, read the Speaker control, set playback to −40 dB and save it. Replace Device with your card ID. Both channels should report [-40.00dB]. If the control or dB scale is missing, inspect it with alsamixer -c Device before proceeding.",
-        "This is a low starting level; adjust gradually during the later speaker check. Recheck with amixer -c Device sget Speaker after reboot. Type exit to return to your computer.",
-        "Back on your computer, edit config/app.env. Set AUDIO_INPUT_DEVICE and AUDIO_OUTPUT_DEVICE to the actual USB audio name you noted. Remove the leading # if editing the commented examples.",
-        "The selected module provides both microphone and speaker audio, so both settings use that same device name. A missing or ambiguous name stops application startup instead of silently choosing another device.",
-        "Set MIC_GAIN=1 initially so the microphone has no added software amplification. This does not control speaker volume. Tune it only after a voice test."
+        "Open config/app.env in your editor and put the key after OPENAI_API_KEY=. Keep the other example settings. This ignored file is private: do not commit it, share it or show it in screenshots. Application startup can make a billable greeting request; conversations also use paid API services."
       ],
-      "check": "Your computer has the correct Pi target, private API settings and USB audio names. The USB playback level is saved at −40 dB; microphone software gain starts at 1.",
+      "check": "",
       "note": "",
       "source": [],
       "panels": [
@@ -816,11 +917,39 @@
               "url": "https://platform.openai.com/settings/organization/billing/overview"
             }
           ]
-        },
+        }
+      ],
+      "number": 16
+    },
+    {
+      "id": "audio-settings",
+      "title": "Find and set the audio device",
+      "chapter": "Pi software",
+      "kind": "build",
+      "parts": {
+        "E14": 1,
+        "E23": 1
+      },
+      "hardware": {},
+      "actions": [
+        "Plug the USB extension’s male end (E23) into the Pi’s USB-A socket, then connect the audio module (E14) to its female socket. Keep the module in its case on the bench.",
+        "From the repository folder on your computer, open SSH using .env. If the target is wrong or unreachable, fix PI_HOST and PI_USER before continuing.",
+        "On the Pi, list the sound cards. Note the USB name after USB-Audio - and its bracketed card ID (Device in this example). Use the ID for mixer commands; the numeric index can change after reboot.",
+        "If no USB audio card appears, check the module and extension connections, then run the command again.",
+        "For this USB module, read the Speaker control, set playback to −40 dB and save it. Replace Device with your card ID. Both channels should report [-40.00dB]. If the control or dB scale is missing, inspect it with alsamixer -c Device before proceeding.",
+        "This is a low starting level; adjust gradually during the later speaker check. Recheck with amixer -c Device sget Speaker after reboot. Type exit to return to your computer.",
+        "Back on your computer, edit config/app.env. Set AUDIO_INPUT_DEVICE and AUDIO_OUTPUT_DEVICE to the actual USB audio name you noted. Remove the leading # if editing the commented examples.",
+        "The selected module provides both microphone and speaker audio, so both settings use that same device name. A missing or ambiguous name stops application startup instead of silently choosing another device.",
+        "Set MIC_GAIN=1 initially so the microphone has no added software amplification. This does not control speaker volume. Tune it only after a voice test."
+      ],
+      "check": "Your computer has the correct Pi target, private API settings and USB audio names. The USB playback level is saved at −40 dB; microphone software gain starts at 1.",
+      "note": "",
+      "source": [],
+      "panels": [
         {
           "title": "Connect the loose audio module",
           "actions": [
-            6
+            0
           ],
           "image": "assets/circuits/usb-audio.svg",
           "caption": "Connect the USB audio module through its extension before selecting its device name."
@@ -828,7 +957,7 @@
         {
           "title": "Open the Pi shell",
           "actions": [
-            7
+            1
           ],
           "codeBlocks": [
             {
@@ -844,8 +973,8 @@
         {
           "title": "Read the audio device name",
           "actions": [
-            8,
-            9
+            2,
+            3
           ],
           "codeBlocks": [
             {
@@ -867,8 +996,8 @@
         {
           "title": "Start with low playback volume",
           "actions": [
-            10,
-            11
+            4,
+            5
           ],
           "codeBlocks": [
             {
@@ -894,9 +1023,9 @@
         {
           "title": "Save the audio settings",
           "actions": [
-            12,
-            13,
-            14
+            6,
+            7,
+            8
           ],
           "codeBlocks": [
             {
@@ -911,12 +1040,12 @@
           ]
         }
       ],
-      "number": 10
+      "number": 17
     },
     {
       "id": "software-install",
-      "title": "Install and check the software",
-      "chapter": "Enclosure and electronics",
+      "title": "Install the software",
+      "chapter": "Pi software",
       "kind": "build",
       "parts": {
         "E09": 1,
@@ -927,20 +1056,13 @@
       "hardware": {},
       "actions": [
         "On your computer, run the prerequisite check from the repository folder. It must identify your intended Pi 3, aarch64 or arm64, Python 3.13 and Trixie.",
-        "If it rejects the model or OS, stop and correct the board/image selection in {step:software-prepare}. If SSH fails, fix the connection in {step:software-connect}; do not proceed past a failed check.",
+        "If it rejects the model or OS, stop and correct the board/image selection in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}; do not proceed past a failed check.",
         "Keep servo and lighting circuits disconnected, then run provisioning. It installs dependencies and starts the application, which also starts on boot. Enter the Pi account password if sudo requests it; it is not saved in .env.",
         "If provisioning succeeds, continue to the status check. If it asks for a reboot because snd_bcm2835 is loaded, follow the next panel, then rerun provisioning. For any other failure, fix the reported cause before continuing.",
         "If provisioning reports the built-in audio module, open the Pi shell and reboot it. SSH disconnecting during reboot is expected. This frees the timer the lighting driver needs.",
-        "Wait for the Pi to rejoin Wi-Fi, then rerun make pi-provision from your computer. Provisioning preserves existing remote settings; there is no extra pi-update step for first installation.",
-        "Check the service status. It should show active (running). If it is stopped or failed, inspect its logs next instead of marking setup complete.",
-        "Follow the application log. If it reports a missing key or audio device, correct the installed settings on the Pi as described below; changing the initial file on your computer does not replace an existing remote file.",
-        "Press Ctrl+C to stop following logs and return to your computer prompt. Do not run microphone, lighting or servo tests here; those checks follow hardware assembly.",
-        "If the log identifies a configuration error, open SSH and edit /etc/blooglyblob/app.env with sudoedit. Correct the key or device name, save and close the editor, then type exit.",
-        "Back on your computer, restart and recheck the service. Skip this panel if the service is already running without configuration errors.",
-        "From your computer, open the Pi shell and shut it down. The SSH session will disconnect.",
-        "Wait for the Pi’s green activity light to stop flashing, then unplug the bench supply and USB audio lead. Continue to {step:fb-boards} with the board unpowered."
+        "Wait for the Pi to rejoin Wi-Fi, then rerun make pi-provision from your computer. Provisioning preserves existing remote settings; there is no extra pi-update step for first installation."
       ],
-      "check": "The application runs with its USB audio device; the Pi is shut down, unplugged and ready to mount.",
+      "check": "",
       "note": "",
       "source": [],
       "panels": [
@@ -1017,11 +1139,39 @@
               "label": "After the Pi reconnects · repository folder"
             }
           ]
-        },
+        }
+      ],
+      "number": 18
+    },
+    {
+      "id": "service-check",
+      "title": "Check the service and shut down",
+      "chapter": "Pi software",
+      "kind": "build",
+      "parts": {
+        "E09": 1,
+        "E14": 1,
+        "E23": 1,
+        "T13": 1
+      },
+      "hardware": {},
+      "actions": [
+        "Check the service status. It should show active (running). If it is stopped or failed, inspect its logs next instead of marking setup complete.",
+        "Follow the application log. If it reports a missing key or audio device, correct the installed settings on the Pi as described below; changing the initial file on your computer does not replace an existing remote file.",
+        "Press Ctrl+C to stop following logs and return to your computer prompt. Do not run microphone, lighting or servo tests here; those checks follow hardware assembly.",
+        "If the log identifies a configuration error, open SSH and edit /etc/blooglyblob/app.env with sudoedit. Correct the key or device name, save and close the editor, then type exit.",
+        "Back on your computer, restart and recheck the service. Skip this panel if the service is already running without configuration errors.",
+        "From your computer, open the Pi shell and shut it down. The SSH session will disconnect.",
+        "Wait for the Pi’s green activity light to stop flashing, then unplug the bench supply and USB audio lead. Continue to {step:pi-shifters} with the board unpowered."
+      ],
+      "check": "The application runs with its USB audio device; the Pi is shut down, unplugged and ready to mount.",
+      "note": "",
+      "source": [],
+      "panels": [
         {
           "title": "Confirm the service is running",
           "actions": [
-            6
+            0
           ],
           "codeBlocks": [
             {
@@ -1044,8 +1194,8 @@
         {
           "title": "Read the log and leave it",
           "actions": [
-            7,
-            8
+            1,
+            2
           ],
           "codeBlocks": [
             {
@@ -1061,8 +1211,8 @@
         {
           "title": "Correct installed settings only if needed",
           "actions": [
-            9,
-            10
+            3,
+            4
           ],
           "codeBlocks": [
             {
@@ -1101,8 +1251,8 @@
         {
           "title": "Shut down before mounting",
           "actions": [
-            11,
-            12
+            5,
+            6
           ],
           "image": "assets/circuits/pi-bench-power.svg",
           "caption": "Disconnect bench power only after the Pi has shut down.",
@@ -1125,12 +1275,12 @@
           ]
         }
       ],
-      "number": 11
+      "number": 19
     },
     {
-      "id": "fb-boards",
-      "title": "Mount the Pi and both level shifters",
-      "chapter": "Enclosure and electronics",
+      "id": "pi-shifters",
+      "title": "Mount the Pi and level shifters",
+      "chapter": "Base boards and controls",
       "actions": [
         "Label the boards S1 and S2. On the back of each board, find the copper jumper labeled Neo beside the top mounting hole. Cut only the narrow bridge within its white outline, then check with a meter that each cut is open.",
         "Identify the Pi mounts at the rear and the two shifter positions ahead of them. Mark S1 nearer the Pi and S2 nearer the audio cradle.",
@@ -1149,13 +1299,13 @@
         "M2x12": 4,
         "M2x10": 4
       },
-      "note": "The eight board nuts are already fitted in {step:fb-base-nuts}.",
+      "note": "The eight board nuts are already fitted in {step:board-cover-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 12,
+      "number": 20,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1204,9 +1354,9 @@
       ]
     },
     {
-      "id": "fb-wagos",
-      "title": "Tape and label the four WAGOs",
-      "chapter": "Enclosure and electronics",
+      "id": "wagos",
+      "title": "Mount and label the four WAGOs",
+      "chapter": "Base boards and controls",
       "actions": [
         "Clean and dry the connector backs and enclosure pads according to your Gorilla mounting tape instructions. Cut tape to each contact area.",
         "Dry-fit all four with tape thickness included. Each lever must open fully without touching the cover or nearby parts.",
@@ -1227,7 +1377,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 13,
+      "number": 21,
       "commands": [],
       "hardware_allocations": [],
       "panels": [
@@ -1267,13 +1417,13 @@
       ]
     },
     {
-      "id": "fb-audio-cradle",
-      "title": "Mount the empty audio cradle in the base",
-      "chapter": "Enclosure and electronics",
+      "id": "audio-cradle",
+      "title": "Mount the audio cradle",
+      "chapter": "Base boards and controls",
       "actions": [
         "On the loose cradle (FB24), slide an M2 nut sideways into each end pocket, moving from the middle outward. Keep the nut flats parallel to the slot walls.",
         "With the base open side up, position FB24 inside it, directly behind the front microphone grille. Keep it clear of the grille screw tips.",
-        "Fasten FB24 with three M3×6 screws into the glued M3 nuts fitted in {step:fb-base-nuts}. Start all three by hand, then tighten gently, without washers. Fit the middle screw now; the audio module will cover it."
+        "Fasten FB24 with three M3×6 screws into the glued M3 nuts fitted in {step:cradle-jack-nuts}. Start all three by hand, then tighten gently, without washers. Fit the middle screw now; the audio module will cover it."
       ],
       "check": "The empty cradle is screwed to the base at all three mounting holes, and both M2 lid nuts are seated.",
       "parts": {
@@ -1290,7 +1440,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 14,
+      "number": 22,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1312,7 +1462,7 @@
         {
           "title": "Seat the two lid nuts",
           "image": "assets/community/audio-cradle-lid-nuts.svg",
-          "caption": "Right end shown; repeat in the opposite direction at the left end. These nuts receive the lid screws in {step:fb-audio}.",
+          "caption": "Right end shown; repeat in the opposite direction at the left end. These nuts receive the lid screws in {step:audio-module}.",
           "actions": [
             0
           ]
@@ -1329,9 +1479,9 @@
       ]
     },
     {
-      "id": "fb-audio",
-      "title": "Fit and tape the USB audio module",
-      "chapter": "Enclosure and electronics",
+      "id": "audio-module",
+      "title": "Fit the USB audio module",
+      "chapter": "Base boards and controls",
       "actions": [
         "Before seating the module, check that the USB extension socket passes through the cradle end opening without force. If it does not, leave the module out: the cable route or connector fit needs resolving first.",
         "Clean the case back and inside rear cradle wall as your tape requires. Apply double-sided tape under 1 mm thick to the back of the case, opposite the microphones. Keep it inside the flat face.",
@@ -1360,7 +1510,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 15,
+      "number": 23,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1400,7 +1550,7 @@
         {
           "title": "Connect through the end openings",
           "image": "assets/community/audio-module-connections.svg",
-          "caption": "Connector detail; cradle omitted. The Pi end stays disconnected until {step:fb-signals}. Speaker outputs do not connect to power ground.",
+          "caption": "Connector detail; cradle omitted. The Pi end stays disconnected until {step:button-audio-wiring}. Speaker outputs do not connect to power ground.",
           "actions": [
             4
           ]
@@ -1417,13 +1567,58 @@
       ]
     },
     {
-      "id": "fb-inlet-button",
-      "title": "Prepare and fit the front button",
-      "chapter": "Enclosure and electronics",
+      "id": "button-leads",
+      "title": "Prepare the button leads",
+      "chapter": "Base boards and controls",
       "actions": [
         "Identify and label the LED and switch terminals as shown. Confirm with a meter that the lower switch pair closes only while pressed.",
         "On the bench, solder the four Adafruit 1152 quick-connect wires to four GPIO leads, keeping their female sockets at the Pi ends. Slide heat-shrink on before soldering.",
-        "Add R1, 1 kΩ, in the LED-positive lead. Insulate every splice and both resistor joints. Label the Pi ends: switch → 11 and 14; LED + through R1 → 4; LED − → 20.",
+        "Add R1, 1 kΩ, in the LED-positive lead. Insulate every splice and both resistor joints. Label the Pi ends: switch → 11 and 14; LED + through R1 → 4; LED − → 20."
+      ],
+      "check": "",
+      "parts": {
+        "E17": 1,
+        "E19": 2,
+        "E24": 4,
+        "R1": 1,
+        "C12": "As fitted",
+        "C14": "As used"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json",
+        "hardware/printing/current/manifest.json"
+      ],
+      "kind": "build",
+      "number": 24,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Identify the button terminals",
+          "image": "assets/circuits/button-terminals.svg",
+          "caption": "Rear view: the closer upper pair is LED − / +; the wider lower pair is the switch.",
+          "actions": [
+            0
+          ]
+        },
+        {
+          "title": "Prepare and insulate the leads",
+          "image": "assets/circuits/button-led-prepare.svg",
+          "caption": "Leave the four labeled Pi ends disconnected until {step:button-audio-wiring}.",
+          "actions": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "button",
+      "title": "Fit the front button",
+      "chapter": "Base boards and controls",
+      "actions": [
         "Load the two M3 nuts into the enclosure beneath the button opening. Push the inner nut upward. Beside the foot post, slide the other nut sideways from the button opening; align its flats with the pocket.",
         "On the bench, put the button through FB20 from the outside and tighten its supplied retaining nut against the back of the plate.",
         "Push the prepared quick connects onto the matching terminals. Cover exposed contact metal with separate insulating sleeves; keep the connectors removable and insulated joints clear of the retaining nut.",
@@ -1432,12 +1627,7 @@
       "check": "All soldered joints are insulated, the switch closes only when pressed, and the button insert sits flush without pinching its leads. The four labeled Pi ends remain disconnected.",
       "parts": {
         "FB20": 1,
-        "E17": 1,
-        "E19": 2,
-        "E24": 4,
-        "R1": 1,
-        "C12": "As fitted",
-        "C14": "As used"
+        "E17": 1
       },
       "hardware": {
         "M3x8": 2,
@@ -1450,7 +1640,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 16,
+      "number": 25,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1464,28 +1654,11 @@
       ],
       "panels": [
         {
-          "title": "Identify the button terminals",
-          "image": "assets/circuits/button-terminals.svg",
-          "caption": "Rear view: the closer upper pair is LED − / +; the wider lower pair is the switch.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Prepare and insulate the leads",
-          "image": "assets/circuits/button-led-prepare.svg",
-          "caption": "Leave the four labeled Pi ends disconnected until {step:fb-signals}.",
-          "actions": [
-            1,
-            2
-          ]
-        },
-        {
           "title": "Load the two enclosure nuts",
           "image": "assets/community/button-enclosure-nuts.svg",
           "caption": "View from inside: the nut beside the foot post enters sideways.",
           "actions": [
-            3
+            0
           ]
         },
         {
@@ -1493,8 +1666,8 @@
           "image": "assets/community/button-insert-assembly.svg",
           "caption": "Use the retaining nut supplied with the button.",
           "actions": [
-            4,
-            5
+            1,
+            2
           ]
         },
         {
@@ -1502,15 +1675,15 @@
           "image": "assets/community/button-plate-fastening.svg",
           "caption": "Two M3×8 screws; no washers.",
           "actions": [
-            6
+            3
           ]
         }
       ]
     },
     {
-      "id": "fb-inlet",
-      "title": "Prepare and fit the power inlet",
-      "chapter": "Enclosure and electronics",
+      "id": "power-jack",
+      "title": "Prepare and fit the power jack",
+      "chapter": "Base boards and controls",
       "actions": [
         "With J1 loose on the bench, away from printed parts, use continuity to identify the center-pin and sleeve lugs. Solder 18 AWG leads to those two lugs and label their functions; the return may need 150–160 mm.",
         "Insulate the joints and unused switched lug separately. Check continuity again and confirm there is no short between center and sleeve. Let the joints cool before mounting, and leave the leads long for final routing.",
@@ -1528,14 +1701,14 @@
       "hardware": {
         "M3x12": 2
       },
-      "note": "Use the power-inlet nuts fitted in {step:fb-base-nuts}.",
+      "note": "Use the power-inlet nuts fitted in {step:cradle-jack-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 17,
+      "number": 26,
       "commands": [],
       "panels": [
         {
@@ -1575,9 +1748,9 @@
       ]
     },
     {
-      "id": "fb-power",
-      "title": "Connect inlet, Pi power and ground",
-      "chapter": "Enclosure and electronics",
+      "id": "power-wiring",
+      "title": "Connect the power jack, Pi power lead and ground",
+      "chapter": "Base wiring",
       "actions": [
         "Leave both fuses out. Route and trim the inlet leads to their labeled ports.",
         "Strip 11 mm for each WAGO 221-415 port. Insert one bare, untinned wire fully, close the lever and gently pull-check it.",
@@ -1599,7 +1772,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 18,
+      "number": 27,
       "commands": [],
       "panels": [
         {
@@ -1645,9 +1818,9 @@
       ]
     },
     {
-      "id": "fb-servo-power",
+      "id": "servo-fuse-capacitor",
       "title": "Wire the servo fuse and capacitor",
-      "chapter": "Enclosure and electronics",
+      "chapter": "Base wiring",
       "actions": [
         "Label one holder F1. Dry-route its loop from W1/3 to W2/1, then mark and cut where both ends reach without tension.",
         "If the output needs length, solder an 18 AWG extension on the bench and insulate the joint. Do not extend the input; change the layout instead.",
@@ -1671,7 +1844,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 19,
+      "number": 28,
       "commands": [],
       "panels": [
         {
@@ -1703,9 +1876,9 @@
       ]
     },
     {
-      "id": "fb-light-power",
-      "title": "Wire the lighting fuse and capacitor",
-      "chapter": "Enclosure and electronics",
+      "id": "light-fuse-capacitor",
+      "title": "Wire the light fuse and capacitor",
+      "chapter": "Base wiring",
       "actions": [
         "Label the second holder F2. Dry-route its loop from W1/4 to the base half of BASE→BODY, called H3. Mark and cut only when both ends reach.",
         "Use 18 AWG for any output extension, soldered and insulated on the bench. Do not extend the input.",
@@ -1732,7 +1905,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 20,
+      "number": 29,
       "commands": [],
       "panels": [
         {
@@ -1772,33 +1945,28 @@
       ]
     },
     {
-      "id": "fb-signals",
-      "title": "Connect signals, button and USB audio",
-      "chapter": "Enclosure and electronics",
+      "id": "shifter-wiring",
+      "title": "Connect the level shifters",
+      "chapter": "Base wiring",
       "actions": [
         "Prepare the remaining eight GPIO leads for the shifter inputs, keeping the 2.54 mm female socket at each Pi end. Remove any connector at the other end and strip only enough insulation for the bare wire to fit fully inside its screw terminal.",
         "Hold the plastic socket and push it straight down onto the physical Pi pin shown in the following wiring diagrams. Each socket fits one pin.",
         "Connect Pi pin 1 to S1 V, pin 6 to G, pin 12 to DAT and pin 32 to CLK. Land H3 DATA on S1 D5; label C5 LEFT.",
         "Insert bare wire fully inside each shifter terminal and tighten, with no exposed strands. Leave !D5 unused.",
-        "Connect Pi pin 17 to S2 V, pin 9 to G, pin 33 to DAT and pin 36 to CLK. Leave !D5 unused.",
-        "Connect the two prepared switch leads to Pi pin 11 (GPIO17 input) and pin 14 (GND). These lower terminals close only while the button is pressed.",
-        "Connect the prepared LED-positive lead, with R1 insulated in line, to Pi pin 4 (+5 V); connect LED − to pin 20 (GND). The Pi header supplies the button light’s power and return. Keep this upper LED pair separate from the lower switch pair.",
-        "Connect the audio extension to the Pi’s full-size USB socket and check both speaker plugs. Keep servo outputs labeled but disconnected.",
-        "Route the USB cable around the audio cradle with a relaxed bend below it. Keep the cable clear of the bottom cover and avoid pulling sideways on either socket."
+        "Connect Pi pin 17 to S2 V, pin 9 to G, pin 33 to DAT and pin 36 to CLK. Leave !D5 unused."
       ],
-      "check": "All twelve Pi header connections match their physical pin numbers, H3 DATA reaches S1 D5, and switch, light and speaker circuits are separate.",
+      "check": "",
       "parts": {
-        "E24": 8,
-        "E23": 1
+        "E24": 8
       },
       "hardware": {},
-      "note": "The button starts a conversation; it does not turn power off.",
+      "note": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 21,
+      "number": 30,
       "commands": [],
       "panels": [
         {
@@ -1833,13 +2001,39 @@
           "actions": [
             4
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "button-audio-wiring",
+      "title": "Connect the button and USB audio",
+      "chapter": "Base wiring",
+      "actions": [
+        "Connect the two prepared switch leads to Pi pin 11 (GPIO17 input) and pin 14 (GND). These lower terminals close only while the button is pressed.",
+        "Connect the prepared LED-positive lead, with R1 insulated in line, to Pi pin 4 (+5 V); connect LED − to pin 20 (GND). The Pi header supplies the button light’s power and return. Keep this upper LED pair separate from the lower switch pair.",
+        "Connect the audio extension to the Pi’s full-size USB socket and check both speaker plugs. Keep servo outputs labeled but disconnected.",
+        "Route the USB cable around the audio cradle with a relaxed bend below it. Keep the cable clear of the bottom cover and avoid pulling sideways on either socket."
+      ],
+      "check": "All twelve Pi header connections match their physical pin numbers, H3 DATA reaches S1 D5, and switch, light and speaker circuits are separate.",
+      "parts": {
+        "E23": 1
+      },
+      "hardware": {},
+      "note": "The button starts a conversation; it does not turn power off.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "build",
+      "number": 31,
+      "commands": [],
+      "panels": [
         {
           "title": "Connect the button switch",
           "image": "assets/circuits/button-switch.svg",
           "caption": "Lower switch tabs connect to Pi pins 11 and 14; the LED tabs stay separate.",
           "actions": [
-            5
+            0
           ]
         },
         {
@@ -1847,7 +2041,7 @@
           "image": "assets/circuits/button-led.svg",
           "caption": "Pin 4 supplies +5 V; pin 20 is ground. Both button contacts and all soldered joins are insulated.",
           "actions": [
-            6
+            1
           ]
         },
         {
@@ -1855,7 +2049,7 @@
           "image": "assets/circuits/usb-audio.svg",
           "caption": "USB carries data and power; speaker outputs do not join W3 or W4.",
           "actions": [
-            7
+            2
           ]
         },
         {
@@ -1863,15 +2057,15 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique view with the enclosure omitted. Adjust the bend to your cable; the cover must close without pressing on it.",
           "actions": [
-            8
+            3
           ]
         }
       ]
     },
     {
-      "id": "fb-fuses-capacitors",
-      "title": "Secure the wired components and bundles",
-      "chapter": "Enclosure and electronics",
+      "id": "secure-base-wiring",
+      "title": "Secure the fuses, capacitors and wire bundles",
+      "chapter": "Base wiring",
       "actions": [
         "Lay F1 toward the front and F2 toward the rear, with C1 and C2 beside the WAGO row as shown. Keep fuse openings reachable and capacitor vent ends uncovered.",
         "With their liners still on, position 1 × 1-inch adhesive tie squares on flat interior faces. Check full contact and at least 4 mm clearance from wiring and tie locks to the cover.",
@@ -1897,7 +2091,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 22,
+      "number": 32,
       "commands": [],
       "panels": [
         {
@@ -1929,9 +2123,9 @@
       ]
     },
     {
-      "id": "fb-base-check",
+      "id": "base-check",
       "title": "Check the unpowered base",
-      "chapter": "Enclosure and electronics",
+      "chapter": "Base wiring",
       "actions": [
         "Check jack center → W1, sleeve → W3, H2 plug polarity and W3 → W4. There must be no direct W1-to-W2 connection and no sustained +5 V-to-ground short.",
         "Check capacitor polarity and insulated joints. Test each fuse separately; fit F1 T3.15 A to confirm W1 reaches W2 through it, then remove F1 again. Fit F2 T1 A for the next lighting test.",
@@ -1947,7 +2141,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 23,
+      "number": 33,
       "commands": [],
       "panels": [
         {
@@ -1971,31 +2165,21 @@
       ]
     },
     {
-      "id": "light-input",
-      "title": "Prepare and test the body light input",
-      "chapter": "Enclosure and electronics",
+      "id": "body-light-input",
+      "title": "Prepare the body light input",
+      "chapter": "Light test",
       "actions": [
         "Use Adafruit’s wire markings: copper coil/dots identify +5 V, the middle wire is normally DATA, and the remaining wire is GND. Label them; ask the vendor if markings are missing or disagree.",
         "For the likely input, hold the connector upward with the resin bump facing you and marked +5 V wire on the left. Confirm direction with the light test below.",
-        "Prepare the BODY pigtail and separate 22 AWG HEAD power tails. Leave them long until dry-routing in {step:14}; keep all 100 pebbles together.",
+        "Prepare the BODY pigtail and separate 22 AWG HEAD power tails. Leave them long until dry-routing in {step:body-light-strand}; keep all 100 pebbles together.",
         "Label the factory leads, then remove only the likely input’s connector, retaining wire length. Solder R2 (330 Ω) between BODY DATA and strand DATA near the first pebble, then insulate both joints.",
-        "Branch BODY +5 V to strand +5 V and the HEAD positive tail. Repeat for GND. Insulate both joints and cap the two free HEAD tails separately.",
-        "Check contact mapping and for a +5 V-to-GND short, then plug H3 into BODY. F1 stays out, F2 T1 A stays fitted, servos stay disconnected and HEAD tails stay capped.",
-        "Power the supply by itself. With your meter on DC volts, red probe in the plug center and black on its sleeve, check 5.0–5.25 V with no minus sign. Unplug it again.",
-        "Connect the supply to the base, then the wall, and let the Pi boot. Stop and unplug if you notice smoke, an unusual smell or overheating.",
-        "Run make pi-stop, then make pi-test-neopixels from your computer. It addresses the first 16 pixels at brightness 128 and clears those 16 when finished; software eye/mouth labels still refer to indices on this all-pebble test strand.",
-        "If the first 16 pebbles light from the connected end in sequence, mark that end INPUT. The other 84 should remain dark; unplug and investigate unexpected light.",
-        "If nothing lights, check power, DATA and contacts first. If those are correct but the strand stays dark, shut down and unplug, move the BODY/R2 harness and its power branches to the other end, and repeat. Insulate the abandoned end’s three wires separately. Mark INPUT only after a positive light test.",
-        "Run make pi-ssh, then sudo poweroff; wait for the green light to stop, then unplug. Disconnect BASE→BODY. Keep the prepared input wiring attached and the HEAD tails capped for {step:14}. Do not cut between pebbles until an end passes."
+        "Branch BODY +5 V to strand +5 V and the HEAD positive tail. Repeat for GND. Insulate both joints and cap the two free HEAD tails separately."
       ],
-      "check": "The connected end passes the light test and is marked INPUT. Its permanent BODY/R2 wiring stays attached; HEAD tails are capped and power is disconnected.",
+      "check": "",
       "parts": {
         "E05": 1,
         "E10": 1,
         "R2": 1,
-        "E20": 1,
-        "E21": 1,
-        "T03": 1,
         "C12": "As fitted",
         "C14": "As used",
         "C06": "As routed"
@@ -2007,7 +2191,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 24,
+      "number": 34,
       "panels": [
         {
           "title": "Identify the wires and likely input",
@@ -2034,13 +2218,44 @@
           "actions": [
             4
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "body-light-test",
+      "title": "Test the body light input",
+      "chapter": "Light test",
+      "actions": [
+        "Check contact mapping and for a +5 V-to-GND short, then plug H3 into BODY. F1 stays out, F2 T1 A stays fitted, servos stay disconnected and HEAD tails stay capped.",
+        "Power the supply by itself. With your meter on DC volts, red probe in the plug center and black on its sleeve, check 5.0–5.25 V with no minus sign. Unplug it again.",
+        "Connect the supply to the base, then the wall, and let the Pi boot. Stop and unplug if you notice smoke, an unusual smell or overheating.",
+        "Run make pi-stop, then make pi-test-neopixels from your computer. It addresses the first 16 pixels at brightness 128 and clears those 16 when finished; software eye/mouth labels still refer to indices on this all-pebble test strand.",
+        "If the first 16 pebbles light from the connected end in sequence, mark that end INPUT. The other 84 should remain dark; unplug and investigate unexpected light.",
+        "If nothing lights, check power, DATA and contacts first. If those are correct but the strand stays dark, shut down and unplug, move the BODY/R2 harness and its power branches to the other end, and repeat. Insulate the abandoned end’s three wires separately. Mark INPUT only after a positive light test.",
+        "Run make pi-ssh, then sudo poweroff; wait for the green light to stop, then unplug. Disconnect BASE→BODY. Keep the prepared input wiring attached and the HEAD tails capped for {step:body-light-strand}. Do not cut between pebbles until an end passes."
+      ],
+      "check": "The connected end passes the light test and is marked INPUT. Its permanent BODY/R2 wiring stays attached; HEAD tails are capped and power is disconnected.",
+      "parts": {
+        "E05": 1,
+        "E20": 1,
+        "E21": 1,
+        "T03": 1
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "build",
+      "number": 35,
+      "panels": [
         {
           "title": "Connect the prepared strand",
           "image": "assets/circuits/strand-test-connection.svg",
           "caption": "",
           "actions": [
-            5
+            0
           ]
         },
         {
@@ -2048,7 +2263,7 @@
           "image": "assets/circuits/supply-polarity-test.svg",
           "caption": "Use the specified Mean Well GST40A05-P1J, 5 V, 5 A.",
           "actions": [
-            6
+            1
           ]
         },
         {
@@ -2056,8 +2271,8 @@
           "image": "assets/circuits/robot-power-connection.svg",
           "caption": "Connect the barrel plug before powering the supply.",
           "actions": [
-            7,
-            8
+            2,
+            3
           ],
           "commands": [
             "make pi-stop",
@@ -2069,15 +2284,15 @@
           "image": "assets/circuits/strand-input-result.svg",
           "caption": "",
           "actions": [
-            9,
-            10,
-            11
+            4,
+            5,
+            6
           ]
         }
       ]
     },
     {
-      "id": "03",
+      "id": "frame-uprights",
       "chapter": "Frame and servos",
       "title": "Attach the frame uprights",
       "parts": {
@@ -2099,9 +2314,9 @@
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
-      "note": "Keep the head and arms off the servo shafts until {step:servo-position}.",
+      "note": "Keep the head and arms off the servo shafts until {step:shelf-arms}.",
       "kind": "build",
-      "number": 25,
+      "number": 36,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2137,7 +2352,7 @@
       "id": "servo-cables",
       "kind": "build",
       "chapter": "Frame and servos",
-      "number": 26,
+      "number": 37,
       "title": "Prepare the three servo cables",
       "parts": {
         "E01": 3,
@@ -2178,7 +2393,7 @@
       ]
     },
     {
-      "id": "04",
+      "id": "shoulder-servos",
       "chapter": "Frame and servos",
       "title": "Mount the shoulder servos",
       "parts": {
@@ -2206,7 +2421,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 27,
+      "number": 38,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2264,9 +2479,9 @@
       ]
     },
     {
-      "id": "05",
+      "id": "head-servo",
       "chapter": "Frame and servos",
-      "title": "Mount the head servo and upper collar",
+      "title": "Mount the head servo and upper foam collar",
       "parts": {
         "P04": 1,
         "P01": 1,
@@ -2294,7 +2509,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 28,
+      "number": 39,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2353,7 +2568,7 @@
       ]
     },
     {
-      "id": "06",
+      "id": "servo-horns",
       "chapter": "Frame and servos",
       "title": "Prepare the three servo horns",
       "parts": {
@@ -2362,7 +2577,7 @@
       "hardware": {},
       "actions": [
         "Keep each round horn with its center screw. With the horn off its servo, select the opposite pair about 18 mm apart and drill those two holes to 2.2 mm.",
-        "Remove burrs and drilling debris. Leave the central spline and center hole unchanged; keep the horns off the shafts until {step:servo-position}.",
+        "Remove burrs and drilling debris. Leave the central spline and center hole unchanged; keep the horns off the shafts until {step:shelf-arms}.",
         "The horn’s long splined hub faces the servo shaft; the flat disk seats against the printed part. Keep each center screw for the fit-pose step."
       ],
       "check": "Two M2 screws pass freely through each drilled pair and all three center splines are undamaged.",
@@ -2371,7 +2586,7 @@
       ],
       "note": "The drawing identifies the hole pair; it is not a drilling template.",
       "kind": "build",
-      "number": 29,
+      "number": 40,
       "commands": [],
       "panels": [
         {
@@ -2394,7 +2609,7 @@
       ]
     },
     {
-      "id": "07",
+      "id": "head-shelf",
       "chapter": "Head",
       "title": "Build the head shelf on the bench",
       "parts": {
@@ -2420,7 +2635,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 30,
+      "number": 41,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2454,7 +2669,7 @@
       ]
     },
     {
-      "id": "08",
+      "id": "eye-windows",
       "chapter": "Head",
       "title": "Fit the eye windows and diffusers",
       "parts": {
@@ -2476,7 +2691,7 @@
       ],
       "note": "Any clear flexible transparency sheet is suitable if it fits the groove without forcing the lip.",
       "kind": "build",
-      "number": 31,
+      "number": 42,
       "commands": [],
       "panels": [
         {
@@ -2499,7 +2714,7 @@
       ]
     },
     {
-      "id": "09",
+      "id": "eye-housings",
       "chapter": "Head",
       "title": "Seat the eye housings",
       "parts": {
@@ -2525,7 +2740,7 @@
       ],
       "note": "Standard M2 nuts are 4 mm across flats and 1.6 mm thick.",
       "kind": "build",
-      "number": 32,
+      "number": 43,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2560,7 +2775,7 @@
       "id": "eye-boards",
       "kind": "build",
       "chapter": "Head",
-      "number": 33,
+      "number": 44,
       "title": "Fit the eye boards and straps",
       "parts": {
         "GS20": 1,
@@ -2653,9 +2868,9 @@
       ]
     },
     {
-      "id": "12",
+      "id": "head-harness",
       "chapter": "Head",
-      "title": "Prepare and connect the head lighting",
+      "title": "Wire the head harness",
       "parts": {
         "E10": 1,
         "E11": 2,
@@ -2675,7 +2890,7 @@
         "On the bench, join the second 5755 lead’s DATA wire to the mouth DIN lead. Insulate the splice and its unused red and black wires separately.",
         "Check continuity and insulation before connecting the eye plugs. Seat the first 5755 plug in the first eye’s IN; either eye can be first. Press the plug housing rather than its wires.",
         "Use the 100 mm Adafruit 6404 cable from the first eye’s OUT to the second eye’s IN. Seat the second 5755 plug in the second eye’s OUT.",
-        "Tie the eye wires at P06 with slack, keeping joints away from bends. Support the wired mouth beside the head until {step:10}; do not let it hang from its wires."
+        "Tie the eye wires at P06 with slack, keeping joints away from bends. Support the wired mouth beside the head until {step:mouth}; do not let it hang from its wires."
       ],
       "check": "Mouth power bypasses the eye cable, all joints are insulated, the eye plugs are seated and the wired mouth remains loose for fitting next.",
       "source": [
@@ -2684,7 +2899,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 34,
+      "number": 45,
       "commands": [],
       "panels": [
         {
@@ -2734,7 +2949,7 @@
       ]
     },
     {
-      "id": "10",
+      "id": "mouth",
       "chapter": "Head",
       "title": "Assemble the mouth",
       "parts": {
@@ -2748,7 +2963,7 @@
         "N2": 4
       },
       "actions": [
-        "With the leads prepared in {step:12}, fit the mouth stick to P30 with two M2×8 screws and M2 nuts, no washers. Support the wired board while working and keep the LED faces unobstructed.",
+        "With the leads prepared in {step:head-harness}, fit the mouth stick to P30 with two M2×8 screws and M2 nuts, no washers. Support the wired board while working and keep the LED faces unobstructed.",
         "Seat both nuts in the head before bringing in the mouth assembly.",
         "Cut a continuous 4 mm foam strip, 7.4 mm high and slightly long. Curve it into the mouth pocket and trim its ends until it lies flat without bunching or stretching.",
         "Place P31 behind the foam and P30 behind P31. Fit the two outer M2×8 clamp screws from the rear, opposite to the board screws, into the head nuts; no washers.",
@@ -2761,7 +2976,7 @@
       ],
       "note": "Print P30 and P31 in black PLA. Black plastic is not electrical insulation.",
       "kind": "build",
-      "number": 35,
+      "number": 46,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2810,7 +3025,7 @@
       ]
     },
     {
-      "id": "11",
+      "id": "antenna",
       "chapter": "Head",
       "title": "Fit the antenna",
       "parts": {
@@ -2827,9 +3042,9 @@
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "You can leave the antenna off until {step:system-check} to protect it while assembling.",
+      "note": "You can leave the antenna off until {step:secure-wiring} to protect it while assembling.",
       "kind": "build",
-      "number": 36,
+      "number": 47,
       "commands": [],
       "panels": [
         {
@@ -2844,16 +3059,16 @@
       ]
     },
     {
-      "id": "13",
+      "id": "head-light-cable",
       "chapter": "Head",
-      "title": "Prepare the head cable and fasteners",
+      "title": "Prepare the head light cable and fasteners",
       "parts": {
         "GS20": 1,
         "P08": 1
       },
       "hardware": {},
       "actions": [
-        "With head and shelf supported separately, test-fit three M2 nuts and three M2×8 button-head screws. Use no washers or plugs; set them aside for {step:servo-position}.",
+        "With head and shelf supported separately, test-fit three M2 nuts and three M2×8 button-head screws. Use no washers or plugs; set them aside for {step:head-shoulder-covers}.",
         "Test-route the three-wire HEAD lighting cable through the shelf’s open side notch, clear of the horn screws. Lay it into the notch from the side; do not force the plug through a closed hole. This is separate from the head-servo cable.",
         "Leave a relaxed loop between the rotating head and stationary body. Support both parts and check that the cable lets you lift the head enough to release the HEAD latch. Keep it clear of the horn and screw tips; leave the head and shelf off the servo until the fit-pose step."
       ],
@@ -2865,7 +3080,7 @@
       ],
       "note": "Head screw seats suit Ø3.5 × 1.3 mm button heads and M2 nuts 4 mm across flats × 1.6 mm thick; check your fasteners.",
       "kind": "build",
-      "number": 37,
+      "number": 48,
       "commands": [],
       "panels": [
         {
@@ -2895,60 +3110,39 @@
       ]
     },
     {
-      "id": "14",
+      "id": "body-light-strand",
       "chapter": "Body",
-      "title": "Wire and fit the six body lights",
+      "title": "Prepare the body light strand",
       "parts": {
-        "P11": 2,
-        "P12": 1,
-        "P13": 1,
         "E05": 1,
-        "C07": 12,
         "R2": 1,
         "E10": 1,
         "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used"
       },
-      "hardware": {
-        "M3x10CS": 3,
-        "N3": 3
-      },
+      "hardware": {},
       "actions": [
         "With the strand unplugged, count six pebbles from INPUT and cut midway between the sixth and seventh. Mark the saved remainder’s newly cut upstream end INPUT before storing it. Label the six lights 0–5.",
-        "Keep the BODY connector, R2 and HEAD power tails prepared in {step:light-input} attached. If input wiring has not been prepared, make it as shown there before mounting the lights; keep the confirmed INPUT direction.",
+        "Keep the BODY connector, R2 and HEAD power tails prepared in {step:body-light-input} attached. If input wiring has not been prepared, make it as shown there before mounting the lights; keep the confirmed INPUT direction.",
         "Dry-route BODY down through the frame’s central opening to H3 in the enclosure, and the separate HEAD power tails up to the head’s side notch. Leave the plugs reachable and enough slack to lift the head and unplug it. Mark any extensions or trimming, then finish them on the bench; keep the existing input branches intact.",
         "On the bench, solder the body half of HEAD to the prepared +5 V and GND tails and light 5’s outgoing DATA. Insulate each joint and the strand’s two unused outgoing power wires individually.",
-        "Check connector mapping and that +5 V is not shorted to GND before mounting the strand.",
-        "Fit both P11 brackets and P13 with one M3×10 countersunk screw and M3 nut each.",
-        "Hold P12 at the middle rear with low-tack tape, its pads pointing forward and 10° outward. The backpack carrier fastens it in {step:28}.",
-        "Place one pebble on each pad with its LED facing out. Pass two ties through the pad slots and gently secure the wire on each side of the resin.",
-        "Keep the roughly 100 mm inter-pixel wires in loose loops. Do not cinch, stretch or sharply fold them."
+        "Check connector mapping and that +5 V is not shorted to GND before mounting the strand."
       ],
-      "check": "All joins are insulated, four lights face forward, the two rear lights angle forward and no tie crosses an LED or resin body.",
+      "check": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
       "note": "",
       "kind": "build",
-      "number": 38,
+      "number": 49,
       "commands": [],
-      "hardware_allocations": [
-        {
-          "allocation_id": "joint-14",
-          "role": "install",
-          "hardware": {
-            "M3x10CS": 3,
-            "N3": 3
-          }
-        }
-      ],
       "panels": [
         {
           "title": "Cut from the tested input end",
           "image": "assets/circuits/cut-six.svg",
-          "caption": "Use only the end positively marked INPUT in {step:light-input}.",
+          "caption": "Use only the end positively marked INPUT in {step:body-light-test}.",
           "actions": [
             0
           ]
@@ -2977,14 +3171,57 @@
             3,
             4
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "body-lights",
+      "chapter": "Body",
+      "title": "Fit the six body lights",
+      "parts": {
+        "P11": 2,
+        "P12": 1,
+        "P13": 1,
+        "E05": 1,
+        "C07": 12
+      },
+      "hardware": {
+        "M3x10CS": 3,
+        "N3": 3
+      },
+      "actions": [
+        "Fit both P11 brackets and P13 with one M3×10 countersunk screw and M3 nut each.",
+        "Hold P12 at the middle rear with low-tack tape, its pads pointing forward and 10° outward. The backpack carrier fastens it in {step:backpack-carrier}.",
+        "Place one pebble on each pad with its LED facing out. Pass two ties through the pad slots and gently secure the wire on each side of the resin.",
+        "Keep the roughly 100 mm inter-pixel wires in loose loops. Do not cinch, stretch or sharply fold them."
+      ],
+      "check": "All joins are insulated, four lights face forward, the two rear lights angle forward and no tie crosses an LED or resin body.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/hardware.json"
+      ],
+      "note": "",
+      "kind": "build",
+      "number": 50,
+      "commands": [],
+      "hardware_allocations": [
+        {
+          "allocation_id": "joint-14",
+          "role": "install",
+          "hardware": {
+            "M3x10CS": 3,
+            "N3": 3
+          }
+        }
+      ],
+      "panels": [
         {
           "title": "Fit the light brackets",
           "image": "assets/community/body-brackets.png",
           "caption": "P11 at lower and upper front; P13 at middle front; P12 temporarily taped at middle rear.",
           "actions": [
-            5,
-            6
+            0,
+            1
           ]
         },
         {
@@ -2992,14 +3229,14 @@
           "image": "assets/community/pebble-wire-restraint.svg",
           "caption": "Two 2.5 mm ties per pebble, outside the resin body.",
           "actions": [
-            7,
-            8
+            2,
+            3
           ]
         }
       ]
     },
     {
-      "id": "15",
+      "id": "body-diffuser",
       "chapter": "Body",
       "title": "Wrap the body diffuser",
       "parts": {
@@ -3024,7 +3261,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 39,
+      "number": 51,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3065,7 +3302,7 @@
       ]
     },
     {
-      "id": "16",
+      "id": "upper-arms",
       "chapter": "Arms",
       "title": "Prepare the upper arms",
       "parts": {
@@ -3086,9 +3323,9 @@
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "The arms go onto their shafts only after all three servos reach the fit pose in {step:servo-position}.",
+      "note": "The arms go onto their shafts only after all three servos reach the fit pose in {step:fit-position}.",
       "kind": "build",
-      "number": 40,
+      "number": 52,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3120,7 +3357,7 @@
       ]
     },
     {
-      "id": "17",
+      "id": "elbows",
       "chapter": "Arms",
       "title": "Build the elbows",
       "parts": {
@@ -3142,7 +3379,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 41,
+      "number": 53,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3167,9 +3404,9 @@
       ]
     },
     {
-      "id": "18",
+      "id": "hands-shoulder-covers",
       "chapter": "Arms",
-      "title": "Fit the hands and try the shoulder covers",
+      "title": "Fit the hands and test-fit the shoulder covers",
       "parts": {
         "AR03": 1,
         "AR06": 1,
@@ -3195,7 +3432,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 42,
+      "number": 54,
       "commands": [],
       "panels": [
         {
@@ -3242,7 +3479,7 @@
       ]
     },
     {
-      "id": "28",
+      "id": "backpack-carrier",
       "chapter": "Backpack and belt",
       "title": "Fit the backpack carrier",
       "parts": {
@@ -3254,7 +3491,7 @@
       },
       "actions": [
         "Load all four side-entry nuts before fitting the shell; they receive its four screws in the next step.",
-        "Place P34 against the middle and upper seam covers. Align the stacked holes and start both screws into the nuts loaded in {step:15}.",
+        "Place P34 against the middle and upper seam covers. Align the stacked holes and start both screws into the nuts loaded in {step:body-diffuser}.",
         "Tighten evenly, then remove the temporary tape. Keep the shell off until both carrier screws are secure."
       ],
       "check": "Both screws pass through the full stack, the carrier follows the body curve and its four shell nuts remain seated.",
@@ -3264,7 +3501,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 43,
+      "number": 55,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3297,7 +3534,7 @@
       ]
     },
     {
-      "id": "29",
+      "id": "backpack",
       "chapter": "Backpack and belt",
       "title": "Build and attach the backpack",
       "parts": {
@@ -3327,7 +3564,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 44,
+      "number": 56,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3369,7 +3606,7 @@
       ]
     },
     {
-      "id": "30",
+      "id": "belt",
       "chapter": "Backpack and belt",
       "title": "Assemble the belt",
       "parts": {
@@ -3393,7 +3630,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 45,
+      "number": 57,
       "commands": [],
       "panels": [
         {
@@ -3424,31 +3661,26 @@
       ]
     },
     {
-      "id": "33",
-      "chapter": "Final wiring and inspection",
-      "title": "Connect the servos and lighting",
+      "id": "servo-connections",
+      "chapter": "Final wiring",
+      "title": "Connect the three servo cables",
       "parts": {
-        "C06": "As routed",
-        "C07": "As routed",
-        "C17": "As routed"
+        "C06": "As routed"
       },
       "hardware": {},
       "actions": [
         "Support the robot in its stand. Bring the BASE→BODY lighting lead and three separately labeled servo cables through the smooth central opening into the enclosure. Keep each cable identifiable; connect LEFT to the shown ports.",
         "Connect RIGHT, then gently pull-check both WAGO wires and its signal wire.",
-        "Connect the head servo. Keep its cable distinct from the separate HEAD lighting plug.",
-        "Connect BASE→BODY. H3 DATA already lands on S1 D5; F2 and C2 stay in the base. Support the head separately on the bench and connect HEAD without letting a cable carry its weight.",
-        "Check labels and connector mapping, closed levers and no sustained +5 V-to-ground short. A meter cannot check data through an LED; the next light test checks the full chain.",
-        "Secure stationary bundles with P13 and adhesive tie mounts, leaving the HEAD lighting loop free to turn and both lighting latches reachable. Leave enough service slack to reach servo terminals without pulling a splice. Keep splices off bends, clear of moving horns, and away from WAGO levers, SD card, microphone and frame screws."
+        "Connect the head servo. Keep its cable distinct from the separate HEAD lighting plug."
       ],
-      "check": "All three servos match their labels, lighting plugs are seated and no cable or joint takes tension.",
+      "check": "",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "note": "",
       "kind": "build",
-      "number": 46,
+      "number": 58,
       "commands": [],
       "panels": [
         {
@@ -3474,14 +3706,40 @@
           "actions": [
             2
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "light-connections",
+      "chapter": "Final wiring",
+      "title": "Connect the light connectors and secure the cables",
+      "parts": {
+        "C07": "As routed",
+        "C17": "As routed"
+      },
+      "hardware": {},
+      "actions": [
+        "Connect BASE→BODY. H3 DATA already lands on S1 D5; F2 and C2 stay in the base. Support the head separately on the bench and connect HEAD without letting a cable carry its weight.",
+        "Check labels and connector mapping, closed levers and no sustained +5 V-to-ground short. A meter cannot check data through an LED; the next light test checks the full chain.",
+        "Secure stationary bundles with P13 and adhesive tie mounts, leaving the HEAD lighting loop free to turn and both lighting latches reachable. Leave enough service slack to reach servo terminals without pulling a splice. Keep splices off bends, clear of moving horns, and away from WAGO levers, SD card, microphone and frame screws."
+      ],
+      "check": "All three servos match their labels, lighting plugs are seated and no cable or joint takes tension.",
+      "source": [
+        "hardware/assembly/electrical.json",
+        "hardware/cad/CURRENT-NOTES.md"
+      ],
+      "note": "",
+      "kind": "build",
+      "number": 59,
+      "commands": [],
+      "panels": [
         {
           "title": "Seat the lighting plugs",
           "image": "assets/circuits/jst-sm-seat.svg",
           "caption": "BASE→BODY supplies the body; HEAD continues power and data to the head lighting.",
           "actions": [
-            3,
-            4
+            0,
+            1
           ]
         },
         {
@@ -3489,14 +3747,14 @@
           "image": "assets/community/head-cable-entry.svg",
           "caption": "Keep slack at plugs and the head, clear of screws and the open shelf entry.",
           "actions": [
-            5
+            2
           ]
         }
       ]
     },
     {
-      "id": "34",
-      "chapter": "Final wiring and inspection",
+      "id": "power-up-inspection",
+      "chapter": "Final wiring",
       "title": "Inspect before power-up",
       "parts": {},
       "hardware": {},
@@ -3513,7 +3771,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 47,
+      "number": 60,
       "commands": [],
       "panels": [
         {
@@ -3537,8 +3795,8 @@
       ]
     },
     {
-      "id": "35",
-      "chapter": "Power-up and first movement",
+      "id": "all-lights-test",
+      "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
       "actions": [
         "Support the robot on its stand with the cover off, head on the bench and HEAD connected. Keep head and arms off the servo shafts; fit F1 T3.15 A and F2 T1 A.",
@@ -3558,7 +3816,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 48,
+      "number": 61,
       "commands": [],
       "panels": [
         {
@@ -3593,55 +3851,24 @@
       ]
     },
     {
-      "id": "servo-position",
-      "chapter": "Power-up and first movement",
-      "title": "Set all three servo positions and attach the parts",
+      "id": "fit-position",
+      "chapter": "First power-up",
+      "title": "Set the fit position",
       "actions": [
         "Stand the robot upright, cover off, with the prepared head shelf, head and arms nearby. Keep the horns off all three shafts.",
         "Power up and wait for the Pi. Run make pi-servo-fit on your computer; it stops the application, positions all three servos and holds them.",
-        "When movement stops, type STOP and press Enter. Run make pi-ssh, then sudo poweroff; wait for the green light to stop and unplug. Do not turn the shafts by hand.",
-        "With the shelf front toward the robot front, seat its horn on the nearest spline tooth and fit the center screw. Never pull a misaligned horn onto the spline with the screw.",
-        "Seat the left arm’s horn on the nearest spline tooth with the arm hanging down. Fit its supplied center screw.",
-        "Seat and fasten the right arm the same way, using its supplied center screw.",
-        "Place the three M2 nuts in P08 from above. Keep the HEAD plug seated and accessible, then lower the head without trapping its cable.",
-        "Start all three head screws by hand and tighten just enough to secure the shell.",
-        "Fit AR08 after checking the left arm center screw is secure.",
-        "Fit AR09 and check both arms hang down and the head faces forward."
+        "When movement stops, type STOP and press Enter. Run make pi-ssh, then sudo poweroff; wait for the green light to stop and unplug. Do not turn the shafts by hand."
       ],
-      "check": "All three center screws are fitted, the head is secure and the cable has slack.",
-      "note": "A 21-tooth spline gives about 17° between teeth. Pick the closest tooth; do not force a horn or bend an arm to correct the small remaining offset.",
-      "hardware": {
-        "CENTER": 3,
-        "M2x8": 3,
-        "N2": 3
-      },
-      "parts": {
-        "P08": 1,
-        "P14": 1,
-        "GS20": 1,
-        "AR01": 1,
-        "AR04": 1,
-        "AR08": 1,
-        "AR09": 1,
-        "E02": 3
-      },
+      "check": "",
+      "note": "",
+      "hardware": {},
+      "parts": {},
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 49,
-      "hardware_allocations": [
-        {
-          "allocation_id": "joint-servo-position",
-          "role": "install",
-          "hardware": {
-            "CENTER": 3,
-            "M2x8": 3,
-            "N2": 3
-          }
-        }
-      ],
+      "number": 62,
       "panels": [
         {
           "title": "Command the fit pose",
@@ -3655,13 +3882,52 @@
           "commands": [
             "make pi-servo-fit"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "shelf-arms",
+      "chapter": "Head and arm mounting",
+      "title": "Attach the head shelf and arms",
+      "actions": [
+        "With the shelf front toward the robot front, seat its horn on the nearest spline tooth and fit the center screw. Never pull a misaligned horn onto the spline with the screw.",
+        "Seat the left arm’s horn on the nearest spline tooth with the arm hanging down. Fit its supplied center screw.",
+        "Seat and fasten the right arm the same way, using its supplied center screw."
+      ],
+      "check": "",
+      "note": "A 21-tooth spline gives about 17° between teeth. Pick the closest tooth; do not force a horn or bend an arm to correct the small remaining offset.",
+      "hardware": {
+        "CENTER": 3
+      },
+      "parts": {
+        "P08": 1,
+        "P14": 1,
+        "AR01": 1,
+        "AR04": 1,
+        "E02": 3
+      },
+      "source": [
+        "hardware/assembly/electrical.json",
+        "hardware/cad/CURRENT-NOTES.md"
+      ],
+      "kind": "build",
+      "number": 63,
+      "hardware_allocations": [
+        {
+          "allocation_id": "joint-servo-position",
+          "role": "install",
+          "hardware": {
+            "CENTER": 3
+          }
+        }
+      ],
+      "panels": [
         {
           "title": "Attach the head shelf",
           "image": "assets/community/head-center-screw.svg",
           "caption": "Use the servo’s supplied center screw, not an M2 screw.",
           "actions": [
-            3
+            0
           ]
         },
         {
@@ -3669,7 +3935,7 @@
           "image": "assets/community/arm-center-screw-left.svg",
           "caption": "AR01 hangs straight down at the fit pose.",
           "actions": [
-            4
+            1
           ]
         },
         {
@@ -3677,15 +3943,55 @@
           "image": "assets/community/arm-center-screw-right.svg",
           "caption": "AR04 hangs straight down at the fit pose.",
           "actions": [
-            5
+            2
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "head-shoulder-covers",
+      "chapter": "Head and arm mounting",
+      "title": "Fasten the head and shoulder covers",
+      "actions": [
+        "Place the three M2 nuts in P08 from above. Keep the HEAD plug seated and accessible, then lower the head without trapping its cable.",
+        "Start all three head screws by hand and tighten just enough to secure the shell.",
+        "Fit AR08 after checking the left arm center screw is secure.",
+        "Fit AR09 and check both arms hang down and the head faces forward."
+      ],
+      "check": "All three center screws are fitted, the head is secure and the cable has slack.",
+      "note": "",
+      "hardware": {
+        "M2x8": 3,
+        "N2": 3
+      },
+      "parts": {
+        "GS20": 1,
+        "AR08": 1,
+        "AR09": 1
+      },
+      "source": [
+        "hardware/assembly/electrical.json",
+        "hardware/cad/CURRENT-NOTES.md"
+      ],
+      "kind": "build",
+      "number": 64,
+      "hardware_allocations": [
+        {
+          "allocation_id": "joint-servo-position",
+          "role": "install",
+          "hardware": {
+            "M2x8": 3,
+            "N2": 3
+          }
+        }
+      ],
+      "panels": [
         {
           "title": "Route HEAD and load the nuts",
           "image": "assets/community/head-cable-entry.svg",
           "caption": "Lay the cable into P08’s open side entry and leave turning/lifting slack.",
           "actions": [
-            6
+            0
           ]
         },
         {
@@ -3693,7 +3999,7 @@
           "image": "assets/community/head-shell-fastening.svg",
           "caption": "Three M2×8 button-head screws, no washers or plugs.",
           "actions": [
-            7
+            1
           ]
         },
         {
@@ -3701,7 +4007,7 @@
           "image": "assets/community/shoulder-cover-left.svg",
           "caption": "AR08 covers the robot-left center screw.",
           "actions": [
-            8
+            2
           ]
         },
         {
@@ -3709,16 +4015,16 @@
           "image": "assets/community/shoulder-cover-right.svg",
           "caption": "AR09 covers the robot-right center screw.",
           "actions": [
-            9
+            3
           ]
         }
       ]
     },
     {
-      "id": "first-motion",
+      "id": "first-movement",
       "kind": "build",
-      "chapter": "Power-up and first movement",
-      "number": 50,
+      "chapter": "Close up and test",
+      "number": 65,
       "title": "Check the first movement",
       "parts": {},
       "hardware": {},
@@ -3726,7 +4032,7 @@
         "Stand the robot upright with the cover off and room around it. Clear fingers, tools and cables, then power it on.",
         "The application moves the servos to the same rest pose you just fitted, so expect little movement.",
         "Press the button and talk to the robot, then ask it to dance. Watch the HEAD lighting loop as the head turns: it must stay loose without catching a horn, screw or edge. Check the other cables for rubbing, stretching or contact with moving parts.",
-        "If anything binds or strains, unplug immediately. Free the cable or refit the part using {step:servo-position}, then repeat. F1 does not protect a jammed servo."
+        "If anything binds or strains, unplug immediately. Free the cable or refit the part using {step:fit-position}, then repeat. F1 does not protect a jammed servo."
       ],
       "check": "Conversation and dance movements clear the body, head and wiring.",
       "note": "Software limits arms from hanging down to roughly level forward, and the head to about 45° either side. Correct mechanical horn positioning is still required.",
@@ -3754,8 +4060,8 @@
       ]
     },
     {
-      "id": "system-check",
-      "chapter": "Power-up and first movement",
+      "id": "secure-wiring",
+      "chapter": "Close up and test",
       "title": "Secure the wiring before closing",
       "actions": [
         "After the movement check, shut down with make pi-ssh and sudo poweroff. Wait for the green light to stop, unplug the supply and support the robot in its padded stand.",
@@ -3768,7 +4074,7 @@
       "parts": {},
       "source": [],
       "kind": "build",
-      "number": 51,
+      "number": 66,
       "commands": [],
       "panels": [
         {
@@ -3791,9 +4097,9 @@
       ]
     },
     {
-      "id": "fb-close",
+      "id": "bottom-cover",
       "title": "Fit the bottom cover",
-      "chapter": "Close and test",
+      "chapter": "Close up and test",
       "actions": [
         "Keep the robot unplugged and supported in its padded stand.",
         "Check that no wire crosses the cover edge or a screw hole.",
@@ -3807,14 +4113,14 @@
       "hardware": {
         "M3x12": 4
       },
-      "note": "The four cover nuts were fitted in {step:fb-base-nuts}.",
+      "note": "The four cover nuts were fitted in {step:board-cover-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 52,
+      "number": 67,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3847,9 +4153,9 @@
       ]
     },
     {
-      "id": "fb-closed-test",
+      "id": "finished-robot",
       "title": "Try your finished robot",
-      "chapter": "Close and test",
+      "chapter": "Close up and test",
       "actions": [
         "Stand the robot upright with its vents clear. Connect the supply to the robot, then the wall, and wait for the Pi to boot. Press the front button and have a short conversation. Check that it hears you and that speech sounds clear.",
         "Ask it to wave and play its dance. Check that the head and arms move freely, cables stay clear of the joints, and the body and eye lights respond.",
@@ -3864,7 +4170,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 53,
+      "number": 68,
       "commands": [],
       "panels": [
         {
@@ -3889,23 +4195,16 @@
       ]
     },
     {
-      "id": "37",
+      "id": "head-open",
       "chapter": "Service",
-      "title": "Open the head or service an arm",
+      "title": "Open the head",
       "parts": {},
       "hardware": {},
       "actions": [
         "Shut down and unplug. Support the head, remove its three screws, and lift only far enough to unplug HEAD. Take the head to the bench without pulling an LED wire.",
-        "Keep nuts with their screws. On refitting, lay the cable in the side entry, leave slack and tighten the same screws without washers or plugs.",
-        "Support P30, remove its two outer M2×8 clamp screws and move the cassette back, then down through the open rim. Release ties for slack; never pull on soldered leads.",
-        "Remove P31 and the foam afterward. Remove the two board screws only on the bench.",
-        "Unplug the eye leads, support the housing and remove its two outer M2×10 screws and washers. The central M2×6 board screws can stay.",
-        "Pull the cassette backward and slide the housing straight out, catching its nuts. Refit eyes before mouth, with nuts loaded from the housing’s upper edge and no glue.",
-        "Support the forearm and pull a hand straight out by its palm, never by a finger.",
-        "Adjust elbow stiffness at its exposed M3×14 screw; the joint should hold a pose and still bend smoothly by hand.",
-        "Remove the shoulder cover to access the servo center screw. If a horn comes off, use {step:servo-position} to refit it."
+        "Keep nuts with their screws. On refitting, lay the cable in the side entry, leave slack and tighten the same screws without washers or plugs."
       ],
-      "check": "Removed parts are supported and fasteners stay together for refitting.",
+      "check": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -3930,14 +4229,38 @@
           "actions": [
             1
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "mouth-eye-removal",
+      "chapter": "Service",
+      "title": "Remove the mouth or an eye housing",
+      "parts": {},
+      "hardware": {},
+      "actions": [
+        "Open the head as in {step:head-open}. Support P30, remove its two outer M2×8 clamp screws and move the cassette back, then down through the open rim. Release ties for slack; never pull on soldered leads.",
+        "Remove P31 and the foam afterward. Remove the two board screws only on the bench.",
+        "Unplug the eye leads, support the housing and remove its two outer M2×10 screws and washers. The central M2×6 board screws can stay.",
+        "Pull the cassette backward and slide the housing straight out, catching its nuts. Refit eyes before mouth, with nuts loaded from the housing’s upper edge and no glue."
+      ],
+      "check": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/printing/current/manifest.json"
+      ],
+      "note": "",
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
         {
           "title": "Remove the mouth cassette",
           "image": "assets/community/mouth-removal.svg",
           "caption": "P30 and its board move backward about 8 mm, then down. P31 and foam remain until afterward.",
           "actions": [
-            2,
-            3
+            0,
+            1
           ]
         },
         {
@@ -3945,16 +4268,39 @@
           "image": "assets/community/eye-cassette-fastening.svg",
           "caption": "Remove the mouth first for straight access to the outer eye screws.",
           "actions": [
-            4,
-            5
+            2,
+            3
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "arm-service",
+      "chapter": "Service",
+      "title": "Service a hand, elbow or shoulder",
+      "parts": {},
+      "hardware": {},
+      "actions": [
+        "Shut down and unplug. Support the forearm and pull a hand straight out by its palm, never by a finger.",
+        "Adjust elbow stiffness at its exposed M3×14 screw; the joint should hold a pose and still bend smoothly by hand.",
+        "Remove the shoulder cover to access the servo center screw. If a horn comes off, use {step:fit-position} to refit it."
+      ],
+      "check": "Removed parts are supported and fasteners stay together for refitting.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/printing/current/manifest.json"
+      ],
+      "note": "",
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
         {
           "title": "Remove a hand",
           "image": "assets/r19/wrist-round.png",
           "caption": "",
           "actions": [
-            6
+            0
           ]
         },
         {
@@ -3962,7 +4308,7 @@
           "image": "assets/r19/step-17.png",
           "caption": "",
           "actions": [
-            7
+            1
           ]
         },
         {
@@ -3970,13 +4316,13 @@
           "image": "assets/community/shoulder-cover-left.svg",
           "caption": "The right shoulder opens in the same way.",
           "actions": [
-            8
+            2
           ]
         }
       ]
     },
     {
-      "id": "fb-service",
+      "id": "base-open",
       "title": "Open the base and remove boards",
       "chapter": "Service",
       "actions": [
@@ -4043,8 +4389,8 @@
       ]
     },
     {
-      "id": "fb-service-power",
-      "title": "Replace a fuse, capacitor or inlet",
+      "id": "power-parts-service",
+      "title": "Replace a fuse, capacitor or power jack",
       "chapter": "Service",
       "actions": [
         "Shut down, unplug and confirm capacitor voltage has discharged before touching power wiring. Label connections before releasing them.",
@@ -4103,12 +4449,12 @@
       ]
     },
     {
-      "id": "fb-service-audio",
+      "id": "audio-service",
       "title": "Service audio, speakers or button",
       "chapter": "Service",
       "actions": [
         "With power unplugged, disconnect USB and speaker plugs by their bodies. Remove the two lid screws and lid. Support the case and cradle while releasing the tape according to the tape maker’s removal instructions; then lift out the module.",
-        "Remove the empty cradle only after the module. If any of its three base nuts comes loose, refit and glue it as shown in {step:fb-base-nuts}; let the glue cure before reinstalling the cradle. Replace the tape before refitting the case as shown in {step:fb-audio}.",
+        "Remove the empty cradle only after the module. If any of its three base nuts comes loose, refit and glue it as shown in {step:cradle-jack-nuts}; let the glue cure before reinstalling the cradle. Replace the tape before refitting the case as shown in {step:audio-module}.",
         "Support the grille, remove the outer screws and move it only as far as its cable slack allows. Unplug the speaker and replace it on the bench, preserving tab washers and nuts.",
         "Keep switch and LED wires labeled separately. On refitting, seat the retaining nut in its recess and let the insert sit flush before tightening.",
         "Keep microphone and speaker openings clear, restore the lid foam, then test sound with the robot upright."
@@ -4161,7 +4507,7 @@
       ]
     },
     {
-      "id": "fb-servo-service",
+      "id": "servo-replacement",
       "title": "Replace a servo",
       "chapter": "Service",
       "actions": [
@@ -4171,7 +4517,7 @@
         "Release cable ties as needed. Support the arm or head, remove the center screw and lift its horn off without forcing the shaft.",
         "Remove bracket-to-frame screws if access requires it, then the two M2 ear screws and nuts. Slide the servo sideways out of the open bracket.",
         "Prepare its cable as in {step:servo-cables}, mount and reconnect the new servo, and leave its horn off.",
-        "Follow {step:servo-position}: command the fit pose, STOP, shut down and unplug, then refit the horn and part. Repeat {step:first-motion}."
+        "Follow {step:fit-position}: command the fit pose, STOP, shut down and unplug, then refit the horn and part. Repeat {step:first-movement}."
       ],
       "check": "The replacement is secure, the horn was fitted at the commanded pose and all movement is clear.",
       "parts": {},
@@ -4230,21 +4576,16 @@
       ]
     },
     {
-      "id": "fb-lighting-service",
-      "title": "Replace an eye, mouth or body lights",
+      "id": "head-light-service",
+      "title": "Replace an eye board or mouth stick",
       "chapter": "Service",
       "actions": [
         "Shut down and unplug power. Support the head, remove its three M2×8 screws and lift only far enough to unplug HEAD before taking it to the bench.",
-        "Remove the mouth as in {step:37} for tool access. Unplug the eye leads and remove the two M2×6 board screws. Keep the cassette fitted if its board nuts stay seated; if a nut moves, withdraw the cassette and reseat it on the bench.",
-        "Fit the replacement board with LED toward foam and sockets inward, preserving IN/OUT. For housing or cassette replacement, remove the two outer screws as in {step:37}. Refit the eyes before the mouth.",
-        "Remove P30 as in {step:37}, then replace and solder the Adafruit 1426 on the bench. Connect +5 V, GND and DIN only; DOUT remains unused.",
-        "Unplug BASE→BODY and HEAD, open the foam seam and release ties. Remove the strand with its head power feed.",
-        "For six replacement lights from your marked saved remainder, retain the marked input direction. Transfer the existing BODY connector, R2 and HEAD power feed on the bench, using the input joints in {step:light-input}; then follow {step:14} for cutting, output joins and mounting.",
-        "For an entirely new strand, transfer the BODY/R2 harness and its HEAD power tails to the likely input as in {step:light-input}. Keep the HEAD connector unplugged; do not dismantle the head harness or buy another connector pair.",
-        "Remove F1 and label and disconnect all three servo cables using {step:fb-servo-service}. Follow the input test in {step:light-input}, leaving the prepared input harness attached after a passing test. Then build the six-light section as in {step:14}.",
-        "Restore the labeled servo connections and F1, and repeat the unpowered checks and all-16-light test before closing."
+        "Remove the mouth as in {step:mouth-eye-removal} for tool access. Unplug the eye leads and remove the two M2×6 board screws. Keep the cassette fitted if its board nuts stay seated; if a nut moves, withdraw the cassette and reseat it on the bench.",
+        "Fit the replacement board with LED toward foam and sockets inward, preserving IN/OUT. For housing or cassette replacement, remove the two outer screws as in {step:mouth-eye-removal}. Refit the eyes before the mouth.",
+        "Remove P30 as in {step:mouth-eye-removal}, then replace and solder the Adafruit 1426 on the bench. Connect +5 V, GND and DIN only; DOUT remains unused."
       ],
-      "check": "Replaced lights follow the correct power and data paths, and no wire carries the weight of a removed part.",
+      "check": "",
       "parts": {},
       "hardware": {},
       "note": "",
@@ -4280,14 +4621,39 @@
           "actions": [
             3
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "body-light-service",
+      "title": "Replace the body lights",
+      "chapter": "Service",
+      "actions": [
+        "Shut down and unplug power. Unplug BASE→BODY and HEAD, open the foam seam and release ties. Remove the strand with its head power feed.",
+        "For six replacement lights from your marked saved remainder, retain the marked input direction. Transfer the existing BODY connector, R2 and HEAD power feed on the bench, using the input joints in {step:body-light-input}; then follow {step:body-light-strand} for cutting, output joins and mounting.",
+        "For an entirely new strand, transfer the BODY/R2 harness and its HEAD power tails to the likely input as in {step:body-light-input}. Keep the HEAD connector unplugged; do not dismantle the head harness or buy another connector pair.",
+        "Remove F1 and label and disconnect all three servo cables using {step:servo-replacement}. Follow the input test in {step:body-light-test}, leaving the prepared input harness attached after a passing test. Then build the six-light section as in {step:body-light-strand}.",
+        "Restore the labeled servo connections and F1, and repeat the unpowered checks and all-16-light test before closing."
+      ],
+      "check": "Replaced lights follow the correct power and data paths, and no wire carries the weight of a removed part.",
+      "parts": {},
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
         {
           "title": "Replace the body strand",
           "image": "assets/community/pebble-wire-restraint.svg",
           "caption": "Six pebbles form one strand; two ties per pebble retain wires outside the resin.",
           "actions": [
-            4,
-            5
+            0,
+            1
           ]
         },
         {
@@ -4295,8 +4661,8 @@
           "image": "assets/circuits/strand-test-connection.svg",
           "caption": "Test through the permanent BODY/R2 input; keep HEAD unplugged.",
           "actions": [
-            6,
-            7
+            2,
+            3
           ]
         },
         {
@@ -4304,124 +4670,10 @@
           "image": "assets/circuits/head-data.svg",
           "caption": "",
           "actions": [
-            8
+            4
           ]
         }
       ]
-    },
-    {
-      "id": "fb-stand",
-      "title": "Make the padded service stand",
-      "chapter": "Service",
-      "actions": [
-        "Print one J05 head saddle. Cut the plywood base, two wooden base blocks and wooden head riser to the sizes in the materials list and template. The rectangular supports are wood, not printed parts.",
-        "Drill the template’s six Ø4.5 mm base holes and countersink them underneath. Drill Ø3 mm pilot holes in the blocks and riser to the depths shown.",
-        "Glue the two base blocks to the plywood base and fasten them from below with four 4×25 mm countersunk wood screws. Add a 2 mm foam pad to each block.",
-        "Glue the head riser to the base and fasten it from below with two 4×40 mm countersunk wood screws. Attach J05 from above with two 4×20 mm pan-head wood screws, then line its curved seat with about 4 mm soft foam.",
-        "Lower the robot onto its left side, supporting base and head with both hands. Rest the enclosure on the two padded blocks and the head in the saddle. Keep the face, antenna, backpack and speaker grille clear; support the arms and hands with padding.",
-        "Check that the stand does not rock or slip while using a screwdriver. Clamp the base to the bench if needed. Before the head is fitted, only the base pads carry the robot."
-      ],
-      "check": "The stand supports base, head and arms without rocking or loading decorative parts.",
-      "parts": {
-        "J05": 1
-      },
-      "hardware": {},
-      "note": "Sound scrap wood can be used if it matches the listed dimensions. Cardboard is not a substitute for the wooden parts in this screw-fastened stand.",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Print one saddle; cut the wooden parts",
-          "image": "assets/community/stand-materials.svg",
-          "caption": "",
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Attach the base blocks",
-          "image": "assets/community/stand-base-blocks.svg",
-          "caption": "",
-          "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Attach the riser and saddle",
-          "image": "assets/community/stand-head-saddle-actions.png",
-          "caption": "Fasten J05 first, then line only its curved contact face.",
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Support the robot",
-          "image": "assets/r16/service-stand.png",
-          "caption": "",
-          "actions": [
-            4,
-            5
-          ]
-        }
-      ],
-      "workshop_supplies": [
-        [
-          "1",
-          "Plywood base",
-          "280 × 200 × 18 mm blank; cut the T shape from the template"
-        ],
-        [
-          "2",
-          "Wood base blocks",
-          "58 × 30 × 13 mm each"
-        ],
-        [
-          "1",
-          "Wood head riser",
-          "36 × 34 mm footprint × 70 mm tall"
-        ],
-        [
-          "1",
-          "Printed head saddle J05",
-          "PLA; the only 3D-printed stand part"
-        ],
-        [
-          "2",
-          "Soft closed-cell foam pads",
-          "58 × 30 × 2 mm each, for the base blocks"
-        ],
-        [
-          "1",
-          "Soft foam saddle lining",
-          "About 4 mm thick; trim to the curved seat"
-        ],
-        [
-          "4",
-          "Countersunk wood screws",
-          "4 × 25 mm, for the base blocks"
-        ],
-        [
-          "2",
-          "Countersunk wood screws",
-          "4 × 40 mm, for the head riser"
-        ],
-        [
-          "2",
-          "Pan-head wood screws",
-          "4 × 20 mm, for the printed saddle"
-        ],
-        [
-          "As needed",
-          "Adhesives",
-          "Wood glue for wood joints; suitable adhesive for the foam"
-        ]
-      ],
-      "workshop_tools": "Saw, ruler and square, drill with 3 mm and 4.5 mm bits, countersink, matching screwdriver and clamps."
     }
   ],
   "totals": {

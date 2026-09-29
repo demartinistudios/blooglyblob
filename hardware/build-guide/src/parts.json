@@ -12,7 +12,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "11"
+      "antenna"
     ],
     "additional_links": [
       {
@@ -34,7 +34,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "11"
+      "antenna"
     ],
     "additional_links": [
       {
@@ -56,8 +56,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "16",
-      "servo-position"
+      "upper-arms",
+      "shelf-arms"
     ],
     "additional_links": [
       {
@@ -79,7 +79,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "17"
+      "elbows"
     ],
     "additional_links": [
       {
@@ -101,7 +101,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "18"
+      "hands-shoulder-covers"
     ],
     "additional_links": [
       {
@@ -123,8 +123,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "16",
-      "servo-position"
+      "upper-arms",
+      "shelf-arms"
     ],
     "additional_links": [
       {
@@ -146,7 +146,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "17"
+      "elbows"
     ],
     "additional_links": [
       {
@@ -168,7 +168,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "18"
+      "hands-shoulder-covers"
     ],
     "additional_links": [
       {
@@ -190,7 +190,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "18"
+      "hands-shoulder-covers"
     ],
     "optional_label": "Optional alternate hand",
     "additional_links": [
@@ -207,14 +207,14 @@
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Covers the robot-left shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:18} and fit it for good in {step:servo-position}.",
+    "description": "Covers the robot-left shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:hands-shoulder-covers} and fit it for good in {step:head-shoulder-covers}.",
     "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
     "image": "assets/part-AR08.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "18",
-      "servo-position"
+      "hands-shoulder-covers",
+      "head-shoulder-covers"
     ],
     "additional_links": [
       {
@@ -230,14 +230,14 @@
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Covers the robot-right shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:18} and fit it for good in {step:servo-position}.",
+    "description": "Covers the robot-right shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:hands-shoulder-covers} and fit it for good in {step:head-shoulder-covers}.",
     "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
     "image": "assets/part-AR09.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "18",
-      "servo-position"
+      "hands-shoulder-covers",
+      "head-shoulder-covers"
     ],
     "additional_links": [
       {
@@ -291,7 +291,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "30"
+      "belt"
     ],
     "additional_links": [
       {
@@ -313,7 +313,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "30"
+      "belt"
     ],
     "additional_links": [
       {
@@ -335,7 +335,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "30"
+      "belt"
     ],
     "additional_links": [
       {
@@ -357,7 +357,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "30"
+      "belt"
     ],
     "additional_links": [
       {
@@ -379,7 +379,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "30"
+      "belt"
     ],
     "additional_links": [
       {
@@ -401,8 +401,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "03",
-      "05"
+      "frame-uprights",
+      "head-servo"
     ],
     "additional_links": [
       {
@@ -424,7 +424,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "03"
+      "frame-uprights"
     ],
     "additional_links": [
       {
@@ -446,7 +446,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "04"
+      "shoulder-servos"
     ],
     "additional_links": [
       {
@@ -468,7 +468,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "05"
+      "head-servo"
     ],
     "additional_links": [
       {
@@ -512,9 +512,9 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "07",
-      "13",
-      "servo-position"
+      "head-shelf",
+      "head-light-cable",
+      "shelf-arms"
     ],
     "additional_links": [
       {
@@ -536,7 +536,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "15"
+      "body-diffuser"
     ],
     "additional_links": [
       {
@@ -558,7 +558,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "15"
+      "body-diffuser"
     ],
     "additional_links": [
       {
@@ -580,7 +580,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "14"
+      "body-lights"
     ],
     "additional_links": [
       {
@@ -602,7 +602,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "14"
+      "body-lights"
     ],
     "additional_links": [
       {
@@ -624,7 +624,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "14"
+      "body-lights"
     ],
     "additional_links": [
       {
@@ -646,8 +646,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "07",
-      "servo-position"
+      "head-shelf",
+      "shelf-arms"
     ],
     "additional_links": [
       {
@@ -669,14 +669,16 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-base-nuts",
-      "fb-panels",
-      "fb-shell",
-      "fb-boards",
-      "fb-wagos",
-      "fb-audio-cradle",
-      "fb-fuses-capacitors",
-      "03"
+      "board-cover-nuts",
+      "grille-vent-nuts",
+      "cradle-jack-nuts",
+      "front-grille-rear-vent",
+      "feet",
+      "pi-shifters",
+      "wagos",
+      "audio-cradle",
+      "secure-base-wiring",
+      "frame-uprights"
     ],
     "additional_links": [
       {
@@ -698,7 +700,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-close"
+      "bottom-cover"
     ],
     "additional_links": [
       {
@@ -720,8 +722,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-speakers",
-      "fb-side-panels"
+      "speaker-grilles",
+      "side-grilles"
     ],
     "additional_links": [
       {
@@ -743,7 +745,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-inlet-button"
+      "button"
     ],
     "additional_links": [
       {
@@ -765,7 +767,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-inlet"
+      "power-jack"
     ],
     "additional_links": [
       {
@@ -787,7 +789,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-panels"
+      "front-grille-rear-vent"
     ],
     "additional_links": [
       {
@@ -809,8 +811,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-audio-cradle",
-      "fb-audio"
+      "audio-cradle",
+      "audio-module"
     ],
     "additional_links": [
       {
@@ -832,7 +834,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "10"
+      "mouth"
     ],
     "additional_links": [
       {
@@ -854,7 +856,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "10"
+      "mouth"
     ],
     "additional_links": [
       {
@@ -876,7 +878,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-audio"
+      "audio-module"
     ],
     "additional_links": [
       {
@@ -898,7 +900,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "28"
+      "backpack-carrier"
     ],
     "additional_links": [
       {
@@ -920,7 +922,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -942,7 +944,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -964,7 +966,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -986,7 +988,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -1008,7 +1010,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -1030,7 +1032,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "29"
+      "backpack"
     ],
     "additional_links": [
       {
@@ -1052,7 +1054,7 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "fb-panels"
+      "front-grille-rear-vent"
     ],
     "additional_links": [
       {
@@ -1074,10 +1076,10 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "09",
+      "eye-housings",
       "eye-boards",
-      "13",
-      "servo-position"
+      "head-light-cable",
+      "head-shoulder-covers"
     ],
     "additional_links": [
       {
@@ -1099,8 +1101,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "08",
-      "09"
+      "eye-windows",
+      "eye-housings"
     ],
     "additional_links": [
       {
@@ -1122,8 +1124,8 @@
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "08",
-      "09"
+      "eye-windows",
+      "eye-housings"
     ],
     "additional_links": [
       {
@@ -1211,8 +1213,8 @@
     "image": "assets/cartoons/E01.svg",
     "steps": [
       "servo-cables",
-      "04",
-      "05"
+      "shoulder-servos",
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1242,10 +1244,10 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E02.svg",
     "steps": [
-      "06",
-      "07",
-      "16",
-      "servo-position"
+      "servo-horns",
+      "head-shelf",
+      "upper-arms",
+      "shelf-arms"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1301,8 +1303,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E04.svg",
     "steps": [
-      "12",
-      "10"
+      "head-harness",
+      "mouth"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1324,8 +1326,10 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E05.svg",
     "steps": [
-      "light-input",
-      "14"
+      "body-light-input",
+      "body-light-test",
+      "body-light-strand",
+      "body-lights"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1355,8 +1359,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E06.svg",
     "steps": [
-      "fb-wagos",
-      "fb-power"
+      "wagos",
+      "power-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1382,9 +1386,9 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E07.svg",
     "steps": [
-      "fb-servo-power",
-      "fb-light-power",
-      "fb-fuses-capacitors"
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "secure-base-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1406,8 +1410,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/F1.svg",
     "steps": [
-      "fb-servo-power",
-      "fb-fuses-capacitors"
+      "servo-fuse-capacitor",
+      "secure-base-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1429,8 +1433,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/F2.svg",
     "steps": [
-      "fb-light-power",
-      "fb-fuses-capacitors"
+      "light-fuse-capacitor",
+      "secure-base-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1452,9 +1456,9 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E08.svg",
     "steps": [
-      "fb-servo-power",
-      "fb-light-power",
-      "fb-fuses-capacitors"
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "secure-base-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1480,10 +1484,11 @@
     "verification": "Exact product specified; any approved reseller",
     "image": "assets/cartoons/E09.svg",
     "steps": [
-      "software-prepare",
-      "software-connect",
+      "imager-choose",
+      "pi-connect",
       "software-install",
-      "fb-boards"
+      "service-check",
+      "pi-shifters"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1521,10 +1526,10 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E10.svg",
     "steps": [
-      "fb-light-power",
-      "light-input",
-      "12",
-      "14"
+      "light-fuse-capacitor",
+      "body-light-input",
+      "head-harness",
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1541,7 +1546,7 @@
     "verification": "Any lead that meets the description",
     "image": "assets/cartoons/E11.svg",
     "steps": [
-      "12"
+      "head-harness"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1558,7 +1563,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E12.svg",
     "steps": [
-      "12"
+      "head-harness"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1575,9 +1580,10 @@
     "verification": "Specified model; check the part number on the listing",
     "image": "assets/cartoons/E13.svg",
     "steps": [
-      "software-prepare",
-      "software-connect",
-      "fb-boards"
+      "imager-choose",
+      "imager-write",
+      "pi-connect",
+      "pi-shifters"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1603,9 +1609,10 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E14.svg",
     "steps": [
-      "software-configure",
+      "audio-settings",
       "software-install",
-      "fb-audio"
+      "service-check",
+      "audio-module"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1631,7 +1638,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E15.svg",
     "steps": [
-      "fb-boards"
+      "pi-shifters"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1657,8 +1664,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E16.svg",
     "steps": [
-      "fb-speakers",
-      "fb-audio"
+      "speaker-grilles",
+      "audio-module"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1675,7 +1682,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E17.svg",
     "steps": [
-      "fb-inlet-button"
+      "button-leads",
+      "button"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1697,7 +1705,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E18.svg",
     "steps": [
-      "fb-inlet"
+      "power-jack"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1723,7 +1731,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E19.svg",
     "steps": [
-      "fb-inlet-button"
+      "button-leads"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1735,13 +1743,13 @@
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "External regulated 5 V, 5 A supply with the 05-P1J plug. Use exactly this supply: the Pi lead and the wiring before the fuses rely on its built-in overload shutdown, so never substitute a higher-current supply. No mains wiring goes inside the robot. First used in {step:light-input}.",
+    "description": "External regulated 5 V, 5 A supply with the 05-P1J plug. Use exactly this supply: the Pi lead and the wiring before the fuses rely on its built-in overload shutdown, so never substitute a higher-current supply. No mains wiring goes inside the robot. First used in {step:body-light-test}.",
     "link": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST40A05-P1J/7703701",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E20.svg",
     "steps": [
-      "light-input",
-      "35"
+      "body-light-test",
+      "all-lights-test"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1763,8 +1771,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E21.svg",
     "steps": [
-      "light-input",
-      "35"
+      "body-light-test",
+      "all-lights-test"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1786,7 +1794,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E22.svg",
     "steps": [
-      "fb-power"
+      "power-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1808,10 +1816,11 @@
     "verification": "Check the included cable",
     "image": "assets/cartoons/E23.svg",
     "steps": [
-      "software-configure",
+      "audio-settings",
       "software-install",
-      "fb-audio",
-      "fb-signals"
+      "service-check",
+      "audio-module",
+      "button-audio-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1828,8 +1837,8 @@
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/E24.svg",
     "steps": [
-      "fb-inlet-button",
-      "fb-signals"
+      "button-leads",
+      "shifter-wiring"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1846,7 +1855,7 @@
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/E25.svg",
     "steps": [
-      "fb-shell"
+      "feet"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1863,7 +1872,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/R1.svg",
     "steps": [
-      "fb-inlet-button"
+      "button-leads"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1885,8 +1894,8 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/R2.svg",
     "steps": [
-      "light-input",
-      "14"
+      "body-light-input",
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1908,8 +1917,8 @@
     "verification": "Any suitable sheet",
     "image": "assets/cartoons/C01.svg",
     "steps": [
-      "08",
-      "09"
+      "eye-windows",
+      "eye-housings"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1926,8 +1935,8 @@
     "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
     "image": "assets/cartoons/C02.svg",
     "steps": [
-      "08",
-      "09"
+      "eye-windows",
+      "eye-housings"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1949,7 +1958,7 @@
     "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
     "image": "assets/cartoons/C03.svg",
     "steps": [
-      "10"
+      "mouth"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1971,7 +1980,7 @@
     "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
     "image": "assets/cartoons/C04.svg",
     "steps": [
-      "15"
+      "body-diffuser"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1993,10 +2002,10 @@
     "verification": "Example product; cut to fit",
     "image": "assets/cartoons/C05.svg",
     "steps": [
-      "fb-inlet",
-      "fb-power",
-      "fb-servo-power",
-      "fb-light-power"
+      "power-jack",
+      "power-wiring",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2013,11 +2022,11 @@
     "verification": "Example product",
     "image": "assets/cartoons/C06.svg",
     "steps": [
-      "fb-light-power",
+      "light-fuse-capacitor",
       "servo-cables",
-      "12",
-      "14",
-      "33"
+      "head-harness",
+      "body-light-strand",
+      "servo-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2034,9 +2043,9 @@
     "verification": "Example product; check the size",
     "image": "assets/cartoons/C07.svg",
     "steps": [
-      "fb-fuses-capacitors",
-      "14",
-      "33"
+      "secure-base-wiring",
+      "body-lights",
+      "light-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2053,7 +2062,7 @@
     "verification": "K&J D31, 3/16 \u00d7 1/16 inch",
     "image": "assets/cartoons/C08.svg",
     "steps": [
-      "18"
+      "hands-shoulder-covers"
     ],
     "status": "Check it when it arrives",
     "optional_label": "Add 1 only for the optional pointing hand",
@@ -2076,10 +2085,12 @@
     "verification": "Choose a suitable adhesive",
     "image": "assets/cartoons/C09.svg",
     "steps": [
-      "fb-base-nuts",
+      "board-cover-nuts",
+      "grille-vent-nuts",
+      "cradle-jack-nuts",
       "eye-boards",
-      "18",
-      "29"
+      "hands-shoulder-covers",
+      "backpack"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -2101,7 +2112,7 @@
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/C10.svg",
     "steps": [
-      "fb-audio"
+      "audio-module"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2118,16 +2129,16 @@
     "verification": "Example product; choose sizes for your joints",
     "image": "assets/cartoons/C12.svg",
     "steps": [
-      "fb-inlet-button",
-      "fb-inlet",
-      "fb-power",
-      "fb-servo-power",
-      "fb-light-power",
-      "fb-fuses-capacitors",
-      "light-input",
+      "button-leads",
+      "power-jack",
+      "power-wiring",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "secure-base-wiring",
+      "body-light-input",
       "servo-cables",
-      "12",
-      "14"
+      "head-harness",
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2144,7 +2155,7 @@
     "verification": "See Printing for settings",
     "image": "assets/cartoons/C13.svg",
     "steps": [
-      "02"
+      "print-plates"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2161,14 +2172,14 @@
     "verification": "General workshop supplies",
     "image": "assets/cartoons/C14.svg",
     "steps": [
-      "fb-inlet-button",
-      "fb-inlet",
-      "fb-servo-power",
-      "fb-light-power",
-      "light-input",
+      "button-leads",
+      "power-jack",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "body-light-input",
       "servo-cables",
-      "12",
-      "14"
+      "head-harness",
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2185,7 +2196,7 @@
     "verification": "Example tool",
     "image": "assets/cartoons/T01.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2202,7 +2213,7 @@
     "verification": "Example tool",
     "image": "assets/cartoons/T02.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2219,8 +2230,8 @@
     "verification": "Example tool",
     "image": "assets/cartoons/T03.svg",
     "steps": [
-      "01",
-      "light-input"
+      "workbench",
+      "body-light-test"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2237,7 +2248,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T04.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2254,7 +2265,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T05.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2271,7 +2282,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T06.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2288,7 +2299,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T07.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2305,7 +2316,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T08.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2322,7 +2333,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T09.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2339,7 +2350,7 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T10.svg",
     "steps": [
-      "01"
+      "workbench"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2356,7 +2367,7 @@
     "verification": "Any DIN 912 / ISO 4762 socket-head screw of this size",
     "image": "assets/cartoons/M3x14.svg",
     "steps": [
-      "17"
+      "elbows"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2373,18 +2384,20 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/N3.svg",
     "steps": [
-      "fb-base-nuts",
-      "fb-speakers",
-      "fb-inlet-button",
-      "03",
-      "04",
-      "05",
-      "07",
-      "14",
-      "15",
-      "17",
-      "28",
-      "29"
+      "board-cover-nuts",
+      "grille-vent-nuts",
+      "cradle-jack-nuts",
+      "speaker-grilles",
+      "button",
+      "frame-uprights",
+      "shoulder-servos",
+      "head-servo",
+      "head-shelf",
+      "body-lights",
+      "body-diffuser",
+      "elbows",
+      "backpack-carrier",
+      "backpack"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2401,11 +2414,11 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x6.svg",
     "steps": [
-      "04",
-      "05",
-      "07",
+      "shoulder-servos",
+      "head-servo",
+      "head-shelf",
       "eye-boards",
-      "16"
+      "upper-arms"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2422,16 +2435,16 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/N2.svg",
     "steps": [
-      "fb-base-nuts",
-      "fb-audio-cradle",
-      "04",
-      "05",
-      "07",
-      "09",
+      "board-cover-nuts",
+      "audio-cradle",
+      "shoulder-servos",
+      "head-servo",
+      "head-shelf",
+      "eye-housings",
       "eye-boards",
-      "10",
-      "16",
-      "servo-position"
+      "mouth",
+      "upper-arms",
+      "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2448,9 +2461,9 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x16.svg",
     "steps": [
-      "03",
-      "04",
-      "15"
+      "frame-uprights",
+      "shoulder-servos",
+      "body-diffuser"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2467,7 +2480,7 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x20.svg",
     "steps": [
-      "05"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2484,7 +2497,7 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x10.svg",
     "steps": [
-      "05"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2501,9 +2514,9 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x8.svg",
     "steps": [
-      "fb-inlet-button",
-      "07",
-      "29"
+      "button",
+      "head-shelf",
+      "backpack"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2520,7 +2533,7 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x10.svg",
     "steps": [
-      "fb-boards",
+      "pi-shifters",
       "eye-boards"
     ],
     "status": "Check it when it arrives",
@@ -2555,9 +2568,9 @@
     "verification": "Kadrick B0BX96SMW4 kit includes M2\u00d78 button heads; measure the head",
     "image": "assets/cartoons/M2x8.svg",
     "steps": [
-      "fb-audio",
-      "10",
-      "servo-position"
+      "audio-module",
+      "mouth",
+      "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2574,7 +2587,7 @@
     "verification": "Fastenere; check for a \u00d86 mm, 90\u00b0 head",
     "image": "assets/cartoons/M3x10CS.svg",
     "steps": [
-      "14"
+      "body-lights"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2591,8 +2604,8 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x6.svg",
     "steps": [
-      "fb-panels",
-      "fb-audio-cradle"
+      "front-grille-rear-vent",
+      "audio-cradle"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2609,7 +2622,7 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x12.svg",
     "steps": [
-      "fb-boards"
+      "pi-shifters"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2626,12 +2639,12 @@
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x12.svg",
     "steps": [
-      "fb-panels",
-      "fb-side-panels",
-      "fb-speakers",
-      "fb-inlet",
-      "29",
-      "fb-close"
+      "front-grille-rear-vent",
+      "side-grilles",
+      "speaker-grilles",
+      "power-jack",
+      "backpack",
+      "bottom-cover"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2648,7 +2661,7 @@
     "verification": "Exact washer specified",
     "image": "assets/cartoons/W3.svg",
     "steps": [
-      "fb-speakers"
+      "speaker-grilles"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2665,7 +2678,7 @@
     "verification": "Size match; measure and check the fit",
     "image": "assets/cartoons/M3x18.svg",
     "steps": [
-      "28"
+      "backpack-carrier"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -2687,27 +2700,9 @@
     "verification": "Supplied with each servo (E01)",
     "image": "assets/cartoons/CENTER.svg",
     "steps": [
-      "servo-position"
+      "shelf-arms"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
-  },
-  {
-    "id": "J05",
-    "name": "Service-stand head saddle (optional)",
-    "exact": "J05 head saddle",
-    "qty": 0,
-    "optional": 1,
-    "category": "Printed",
-    "description": "The only 3D-printed part of the padded service stand. Print one PLA saddle; cut the base, two support blocks and head riser from wood, then add soft foam. See the stand materials list for sizes, screws and tools.",
-    "image": "assets/r16/part-J05.png",
-    "link": "",
-    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
-    "verification": "Compare your cleaned print with the picture.",
-    "optional_label": "Optional service-fixture part",
-    "steps": [
-      "fb-stand"
-    ],
     "additional_links": []
   },
   {
@@ -2719,8 +2714,8 @@
     "category": "Consumable",
     "description": "Four cut pieces for the WAGOs and one patch for the back of the audio case. The audio patch must be under 1 mm thick; use a separate thinner tape if needed. Choose tape compatible with both surfaces. WAGO levers must open fully and clear the cover. Follow the maker\u2019s surface preparation, pressure and bonding-time instructions.",
     "steps": [
-      "fb-wagos",
-      "fb-audio"
+      "wagos",
+      "audio-module"
     ],
     "link": "https://gorillatough.com/product/heavy-duty-mounting-tape",
     "image": "assets/cartoons/C16.svg",
@@ -2737,8 +2732,8 @@
     "category": "Consumable",
     "description": "Nominal 1 \u00d7 1-inch squares with their own adhesive backing and slots accepting 2.5 mm ties. Choose an adhesive suitable for the printed plastic. Each square needs full contact with a flat interior surface; no mounting screws or printed pads are needed. Count the mounts after laying out the wire bundles, and check that each bond holds without obstructing vents or service access.",
     "steps": [
-      "fb-fuses-capacitors",
-      "33"
+      "secure-base-wiring",
+      "light-connections"
     ],
     "link": "",
     "image": "assets/cartoons/C17.svg",
@@ -2755,7 +2750,9 @@
     "category": "Consumable",
     "description": "Optional gel superglue for retaining the 8 M2 and 25 M3 enclosure nuts instead of mixing epoxy. Apply a tiny dab to each nut\u2019s exposed outside edge, keeping threads, screw bores and seating faces clear. Choose a PLA/metal-compatible gel and follow its full cure time. The pocket walls resist rotation.",
     "steps": [
-      "fb-base-nuts"
+      "board-cover-nuts",
+      "grille-vent-nuts",
+      "cradle-jack-nuts"
     ],
     "link": "",
     "image": "assets/cartoons/C18.svg",
@@ -2774,9 +2771,10 @@
     "link": "",
     "verification": "Any supply that meets the description",
     "steps": [
-      "01",
-      "software-connect",
-      "software-install"
+      "workbench",
+      "pi-connect",
+      "software-install",
+      "service-check"
     ],
     "additional_links": []
   }
