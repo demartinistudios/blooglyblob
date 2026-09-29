@@ -3,6 +3,8 @@
 
 Ordinary checks validate usable inputs. --publication additionally requires the
 release checklist. Review revisions are human declarations, not inferred approval.
+Writing-standard violations are reported as warnings and do not change ok.
+`facts` prints each step's and part card's technical tokens for before/after diffs.
 """
 import argparse
 from collections import Counter
@@ -109,6 +111,265 @@ def check_panels(guide):
             covered.extend(indices)
         if covered != list(range(len(step['actions']))):
             raise ValueError(f"{step['id']}: panels must cover every action exactly once in order")
+
+
+# Writing standard: hardware/build-guide/INSTRUCTION-DESIGN.md ("Limits" and
+# "Banned terms"). This is the one place the checks read their limits and terms.
+WRITING = {
+    'sentence_words': 20,
+    'action_words': 35,
+    'step_panels': 6,
+    # Labels written on parts. W2 and W3 are always WAGO labels here, never the
+    # washer fastener IDs; fastener IDs are sizes and need no plain name.
+    'labels': ('W1', 'W2', 'W3', 'W4', 'F1', 'F2', 'C1', 'C2', 'S1', 'S2', 'R1', 'R2', 'J1'),
+    # (term, pattern, case-sensitive, scope). Scope 'text' applies everywhere,
+    # 'unsafe' everywhere except safety entries and quoted software messages,
+    # 'caption' only in captions.
+    'banned': (
+        ('land', r'\b(?:land|lands|landed|landing)\b', False, 'text'),
+        ('dry-route', r'\bdry-rout(?:e|es|ed|ing)\b', False, 'text'),
+        ('dry-fit', r'\bdry-fit(?:s|ted|ting)?\b', False, 'text'),
+        ('pull-check', r'\bpull-check(?:s|ed|ing)?\b', False, 'text'),
+        ('fit pose', r'\bfit poses?\b', False, 'text'),
+        ('rest pose', r'\brest poses?\b', False, 'text'),
+        ('dress', r'\bdress(?:es|ed|ing)?\b', False, 'text'),
+        ('enclosure', r'\benclosures?\b', False, 'text'),
+        ('inlet', r'\binlets?\b', False, 'text'),
+        ('panel jack', r'\bpanel jacks?\b', False, 'text'),
+        ('BASE→BODY', r'BASE\s*→\s*BODY', True, 'text'),
+        ('H2', r'\bH2\b', True, 'text'),
+        ('H3', r'\bH3\b', True, 'text'),
+        ('BODY (connector)', r'(?<!→)\bBODY\b(?! LIGHT)', True, 'text'),
+        ('HEAD (connector)', r'\bHEAD (?:tails?|plugs?|latch(?:es)?|connectors?|power|lighting)\b', True, 'text'),
+        ('pigtail', r'\bpigtails?\b', False, 'text'),
+        ('simply', r'\bsimply\b', False, 'text'),
+        ('just', r'\bjust\b', False, 'text'),
+        ('easily', r'\beasily\b', False, 'text'),
+        ('carefully', r'\bcarefully\b', False, 'text'),
+        ('please', r'\bplease\b', False, 'text'),
+        ('make sure', r'\bmake sure\b', False, 'text'),
+        ('note that', r'\bnote that\b', False, 'text'),
+        ('warning', r'\bwarnings?\b', False, 'unsafe'),
+        ('caution', r'\bcautions?\b', False, 'unsafe'),
+        ('be careful', r'\bbe careful\b', False, 'unsafe'),
+        ('danger', r'\bdanger\b', False, 'unsafe'),
+        ('not to scale', r'\bnot to scale\b', False, 'caption'),
+        ('illustrative', r'\billustrative(?:ly)?\b', False, 'caption'),
+        ('does not show', r'\bdoes not show\b', False, 'caption'),
+    ),
+    # Two instructions joined in one sentence: a semicolon, or "then" after the start.
+    'joined': r';|\s\bthen\b',
+    'card_fields': ('name', 'description', 'status', 'verification'),
+}
+STEP_LINK = re.compile(r'\{step:[^}]+\}')
+MAKE = re.compile(r'\bmake\s+[A-Za-z][A-Za-z0-9_]*-[A-Za-z0-9_-]+')
+QUOTED = re.compile(r'“[^”]*”|"[^"]*"')
+
+
+def sentences(text):
+    """Split prose after . ! or ? (with any closing quote) when the next word is not lowercase."""
+    parts = re.split(r'(?<=[.!?])\s+(?=[^a-z\s])|(?<=[.!?][”"’)])\s+(?=[^a-z\s])', text.strip())
+    return [p for p in parts if p]
+
+
+def word_count(text):
+    """Split on spaces; a command, step link or backtick span is one word, and symbols are not words."""
+    text = re.sub(r'`[^`]*`', 'code', MAKE.sub('command', STEP_LINK.sub('link', text)))
+    return sum(1 for token in text.split() if re.search(r'\w', token))
+
+
+def step_texts(step):
+    """Yield (location, field, text) for a step's prose in reading order."""
+    sid = step['id']
+
+    def safety(entry, where):
+        for i, row in enumerate(entry if isinstance(entry, list) else [entry]):
+            if isinstance(row, dict) and isinstance(row.get('text'), str):
+                yield f'{where}.safety' + (f'[{i}]' if isinstance(entry, list) else ''), 'safety', row['text']
+
+    yield f'{sid} title', 'title', step.get('title', '')
+    if 'safety' in step:
+        yield from safety(step['safety'], sid)
+    actions = step.get('actions', [])
+    for j, panel in enumerate(step.get('panels', [])):
+        where = f'{sid} panels[{j}]'
+        yield f'{where}.title', 'title', panel.get('title', '')
+        if 'safety' in panel:
+            yield from safety(panel['safety'], where)
+        for i in panel.get('actions', []):
+            if type(i) is int and 0 <= i < len(actions):
+                yield f'{sid} actions[{i}]', 'action', actions[i]
+        yield f'{where}.caption', 'caption', panel.get('caption', '')
+        if isinstance(panel.get('detail'), dict):
+            yield f'{where}.detail.title', 'title', panel['detail'].get('title', '')
+    yield f'{sid} check', 'check', step.get('check', '')
+    yield f'{sid} note', 'note', step.get('note', '')
+
+
+def card_texts(parts):
+    for part in parts:
+        for field in WRITING['card_fields']:
+            if isinstance(part.get(field), str):
+                yield f"part {part['id']} {field}", 'card', part[field]
+
+
+def banned_terms(text, field):
+    found = []
+    unquoted = QUOTED.sub(' ', text)
+    for term, pattern, case, scope in WRITING['banned']:
+        if (scope == 'caption' and field != 'caption') or (scope == 'unsafe' and field == 'safety'):
+            continue
+        if re.search(pattern, unquoted if scope == 'unsafe' else text, 0 if case else re.I):
+            found.append(term)
+    return found
+
+
+def named_in_parentheses(text, start):
+    """True when the ID at start sits in parentheses directly after a name."""
+    opening = text.rfind('(', 0, start)
+    return (opening > 0 and ')' not in text[opening:start] and ')' in text[start:]
+            and re.search(r'\w\s*$', text[:opening]) is not None)
+
+
+def check_writing(guide, parts):
+    """Return writing-standard warnings; they never change ok until the rules become errors."""
+    limits = WRITING
+    ids = {p['id'] for p in parts if p.get('category') != 'Fastener'} | set(limits['labels'])
+    id_pattern = re.compile(r'(?<![\w.])(' + '|'.join(sorted(map(re.escape, ids), key=len, reverse=True)) + r')(?!\w)')
+    warnings = []
+    for step in guide['steps']:
+        sid = step['id']
+        panels = step.get('panels', [])
+        if len(panels) > limits['step_panels']:
+            warnings.append(f"panel-count: {sid}: {len(panels)} panels (limit {limits['step_panels']})")
+        seen = set()
+        for where, field, text in step_texts(step):
+            if not text:
+                continue
+            for n, sentence in enumerate(sentences(text), 1):
+                count = word_count(sentence)
+                if count > limits['sentence_words']:
+                    warnings.append(f"sentence-length: {where}: sentence {n} has {count} words "
+                                    f"(limit {limits['sentence_words']})")
+                if field == 'action' and re.search(limits['joined'], sentence.strip(), re.I):
+                    warnings.append(f'one-instruction: {where}: sentence {n} joins instructions')
+            if field == 'action':
+                count = word_count(text)
+                if count > limits['action_words']:
+                    warnings.append(f"action-length: {where}: {count} words (limit {limits['action_words']})")
+            for term in banned_terms(text, field):
+                warnings.append(f'banned-term: {where}: {term}')
+            clean = QUOTED.sub(lambda m: ' ' * len(m.group()), STEP_LINK.sub(lambda m: ' ' * len(m.group()), text))
+            for match in id_pattern.finditer(clean):
+                label = match.group(1)
+                if label in seen:
+                    continue
+                seen.add(label)
+                if not named_in_parentheses(clean, match.start()):
+                    warnings.append(f'first-use: {where}: {label} needs its plain name first, ID in parentheses')
+        actions = step.get('actions', [])
+        for j, panel in enumerate(panels):
+            caption = panel.get('caption', '')
+            covered = [actions[i] for i in panel.get('actions', []) if type(i) is int and 0 <= i < len(actions)]
+            if caption and set(map(normal, sentences(caption))) & {normal(s) for a in covered for s in sentences(a)}:
+                warnings.append(f'caption-repeats-action: {sid} panels[{j}].caption: repeats its action text')
+    for where, field, text in card_texts(parts):
+        for term in banned_terms(text, field):
+            warnings.append(f'banned-term: {where}: {term}')
+    return warnings
+
+
+def normal(text):
+    return ' '.join(re.sub(r'[^\w\s]', ' ', text.lower()).split())
+
+
+# Fact inventory (KTD7): technical tokens a rewrite must keep, per step and part card.
+UNITS = r'(?:mm|cm|µm|m|inches|inch|mV|V|mA|A|W|kΩ|Ω|µF|uF|nF|AWG|°C|°|ms|s|min|h|g|kg|GB|MB|kHz|Hz|%)'
+NUMBER = r'\d+(?:\.\d+)?(?:/\d+)?'
+COUNTS = ('two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve')
+FACTS = (  # (kind, pattern, case-sensitive); earlier patterns claim their text first
+    ('command', MAKE.pattern, True),
+    ('quote', QUOTED.pattern, True),
+    ('literal', r'`[^`]+`|\b[\w.]+=\S*\w', True),
+    ('fuse', r'\bT\d+(?:\.\d+)?\s?A\b', True),
+    ('port', r'\bW[1-4]/\d(?:\s?[–-]\s?\d)?', True),
+    ('pin', r'\b[Pp]ins?\s+\d+(?:(?:,\s*|,?\s+and\s+|,?\s+or\s+)\d+)*', True),
+    ('pin', r'\bS[12] !?[A-Z]{1,3}\d?\b|!?\b[CD]5\b|\bGPIO\s?\d+\b', True),
+    ('id', r'\bM\d(?:\.\d)?\s?[×x]\s?\d+(?:\s?countersunk|CS)?\b', True),
+    ('id', None, True),  # part IDs and written labels, filled in from parts.json
+    ('value', rf'(?<![\w.])[+−]?{NUMBER}(?:\s?[–-]\s?{NUMBER})?(?:\s?×\s?{NUMBER})*\s?{UNITS}(?![\w])', True),
+    ('signal', r'\b(?:GND|DATA|DAT|CLK|DIN|DOUT|VIN|VCC)\b', True),
+    ('label', r'BASE\s*→\s*BODY|\b(?:BODY LIGHT|HEAD LIGHT|PI POWER|LEFT|RIGHT|HEAD|BODY|INPUT|SERVO)\b', True),
+    ('polarity', r'\b(?:positive|negative|striped?|red|black|center|sleeve|polarity|robot-left|robot-right)\b', False),
+    ('count', r'\b(?:' + '|'.join(COUNTS) + r')\b', False),
+    ('number', r'(?<![\w.])\d+(?:\.\d+)?(?![\w])', True),
+)
+
+
+def normalize_fact(kind, token):
+    token = ' '.join(token.split())
+    if kind == 'id':
+        token = re.sub(r'\s?[×x]\s?', '×', token, count=1)
+    elif kind == 'value':
+        token = re.sub(r'\s?×\s?', ' × ', token)
+        token = re.sub(r'\s?([–-])\s?', r'\1', token)
+        token = re.sub(rf'(\d)\s?({UNITS})$', r'\1 \2', token)
+    elif kind == 'fuse':
+        token = re.sub(r'\s?A$', ' A', token)
+    elif kind == 'pin':
+        numbers = re.findall(r'\d+', token) if token.lower().startswith('pin') else None
+        return [f'pin {n}' for n in numbers] if numbers else [token]
+    elif kind in ('polarity', 'count'):
+        token = token.lower()
+    return [token]
+
+
+def text_facts(text, ids):
+    """Return the set of (kind, token) facts in one piece of text."""
+    found = set()
+    text = STEP_LINK.sub(lambda m: ' ' * len(m.group()), text)
+    for kind, pattern, case in FACTS:
+        pattern = pattern or ids
+        def claim(match):
+            found.update((kind, t) for t in normalize_fact(kind, match.group()))
+            return ' ' * len(match.group())
+        text = re.sub(pattern, claim, text, flags=0 if case else re.I)
+    return found
+
+
+def fact_inventory(guide, parts):
+    """Map each step, then each part card, to its sorted technical tokens."""
+    names = sorted({p['id'] for p in parts if not re.match(r'M\d', p['id'])} | set(WRITING['labels']),
+                   key=len, reverse=True)
+    ids = r'(?<![\w.])(?:' + '|'.join(map(re.escape, names)) + r')(?!\w)'
+    inventory = {}
+    for step in guide['steps']:
+        facts = set()
+        for _, _, text in step_texts(step):
+            facts |= text_facts(text, ids)
+        commands = list(step.get('commands', []))
+        for panel in step.get('panels', []):
+            commands += panel.get('commands', [])
+            for block in panel.get('codeBlocks', []):
+                facts.update((block.get('kind', 'code'), line.strip()) for line in block.get('lines', []) if line.strip())
+        facts.update(('command', ' '.join(c.split())) for c in commands if isinstance(c, str) and c.strip())
+        for row in step.get('workshop_supplies', []):
+            for cell in row:
+                facts |= text_facts(str(cell), ids)
+        if isinstance(step.get('workshop_tools'), str):
+            facts |= text_facts(step['workshop_tools'], ids)
+        inventory[step['id']] = sorted(facts)
+    for part in parts:
+        facts = set()
+        for field in ('name', 'exact', 'description', 'status', 'verification'):
+            if isinstance(part.get(field), str):
+                facts |= text_facts(part[field], ids)
+        inventory[f"part {part['id']}"] = sorted(facts)
+    return inventory
+
+
+def format_facts(inventory):
+    return ''.join(f'{key}\t{kind}\t{token}\n' for key, facts in inventory.items() for kind, token in facts)
 
 
 def check_quantities(hardware, supplies, catalog, guide, parts):
@@ -255,13 +516,15 @@ def review_status(root):
 
 def check(root=ROOT, publication=False):
     root = Path(root).resolve()
-    result = {'errors': [], 'blockers': [], 'review': {}}
+    result = {'errors': [], 'warnings': [], 'blockers': [], 'review': {}}
     try:
         guide = read(root, f'{GUIDE}/guide-data.json')
+        parts = read(root, f'{GUIDE}/parts.json')
         check_panels(guide)
         check_quantities(read(root, 'hardware/assembly/hardware.json'), read(root, 'hardware/catalog/supplies.json'),
-                         read(root, 'hardware/catalog/parts.json'), guide,
-                         read(root, f'{GUIDE}/parts.json'))
+                         read(root, 'hardware/catalog/parts.json'), guide, parts)
+        # Writing warnings do not affect ok until the clarity rewrite makes them errors.
+        result['warnings'] = check_writing(guide, parts)
         check_references(root, read(root, REFERENCE), read(root, f'{GUIDE}/references/catalog.json'))
         check_reference_page((root / GUIDE / 'references.html').read_text(),
                              read(root, f'{GUIDE}/references/catalog.json'))
@@ -278,11 +541,16 @@ def check(root=ROOT, publication=False):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('check',))
+    parser.add_argument('command', choices=('check', 'facts'))
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--publication', action='store_true')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args()
+    if args.command == 'facts':
+        root = Path(args.root).resolve()
+        inventory = fact_inventory(read(root, f'{GUIDE}/guide-data.json'), read(root, f'{GUIDE}/parts.json'))
+        print(json.dumps(inventory, indent=2, ensure_ascii=False) if args.json else format_facts(inventory), end='')
+        return 0
     report = check(args.root, args.publication)
     if args.json:
         print(json.dumps(report, indent=2))
@@ -290,6 +558,12 @@ def main():
         print('Guide invariants: ' + ('FAIL' if report['errors'] else 'PASS'))
         for error in report['errors']:
             print('ERROR: ' + error)
+        for warning in report['warnings']:
+            print('WARNING: ' + warning)
+        if report['warnings']:
+            rules = Counter(w.split(':', 1)[0] for w in report['warnings'])
+            print(f"Writing warnings: {len(report['warnings'])} ("
+                  + ', '.join(f'{rule} {n}' for rule, n in sorted(rules.items())) + ')')
         if args.publication:
             for blocker in report['blockers']:
                 print('REVIEW REQUIRED: ' + blocker)

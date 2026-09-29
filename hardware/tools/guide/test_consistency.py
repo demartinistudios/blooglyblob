@@ -160,6 +160,174 @@ class PanelTests(unittest.TestCase):
             self.check()
 
 
+def words(count, word='bolt'):
+    return ' '.join([word] * count)
+
+
+class WritingTests(unittest.TestCase):
+    """Writing-standard rules report warnings; U18 of the clarity plan makes them errors."""
+
+    def setUp(self):
+        self.parts = [dict(id='FB41', category='Printed', name='Front microphone grille'),
+                      dict(id='C01', category='Consumable', name='Clear eye film'),
+                      dict(id='W2', category='Fastener', name='M2 washer'),
+                      dict(id='M3x12', category='Fastener', name='M3×12')]
+        self.step = dict(id='fixture', title='Fit the grille', actions=['Fit the part.', 'Tighten the screws.'],
+                         check='The part sits flat.', note='', panels=[
+                             dict(title='Fit', image='fit.svg', caption='Front view.', actions=[0, 1])])
+
+    def warnings(self, rule=None):
+        found = c.check_writing({'steps': [self.step]}, self.parts)
+        return [w for w in found if rule is None or w.startswith(rule + ':')]
+
+    def test_clean_step_has_no_warnings(self):
+        self.assertEqual(self.warnings(), [])
+
+    def test_long_sentence_names_step_and_action(self):
+        self.step['actions'][1] = words(25) + '.'
+        found = self.warnings()
+        self.assertEqual(len(found), 1, found)
+        self.assertTrue(found[0].startswith('sentence-length:'))
+        self.assertIn('fixture actions[1]', found[0])
+        self.assertIn('25 words', found[0])
+
+    def test_action_at_exact_limits_passes_and_one_more_word_warns(self):
+        self.step['actions'][0] = words(20) + '. ' + words(15, 'Nut') + '.'
+        self.assertEqual(self.warnings(), [])
+        self.step['actions'][0] = words(20) + '. ' + words(16, 'Nut') + '.'
+        found = self.warnings()
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('action-length: fixture actions[0]', found[0])
+
+    def test_units_step_links_commands_and_symbols_do_not_inflate_counts(self):
+        # 20 words when a command is one word and arrows are not words; 23 otherwise.
+        self.step['actions'][0] = ('Run make pi-servo-fit now, then read {step:fb-base-nuts} for four M3×6 '
+                                   'screws at W1/3 → F1 → W2/1 with an 11 mm strip here.')
+        self.assertEqual(self.warnings('sentence-length'), [])
+
+    def test_caption_repeating_its_action_warns(self):
+        self.step['panels'][0]['caption'] = 'Tighten the screws.'
+        found = self.warnings()
+        self.assertEqual(len(found), 1, found)
+        self.assertTrue(found[0].startswith('caption-repeats-action: fixture panels[0].caption'))
+
+    def test_banned_terms_in_actions_notes_and_captions(self):
+        self.step['actions'][0] = 'Dress the cable along the rib.'
+        self.step['note'] = 'Simply check the fit.'
+        self.step['panels'][0]['caption'] = 'Enclosure cut away, not to scale.'
+        found = self.warnings('banned-term')
+        self.assertEqual(len(found), 4, found)
+        self.assertTrue(any('fixture actions[0]' in w and 'dress' in w for w in found))
+        self.assertTrue(any('fixture note' in w and 'simply' in w for w in found))
+        self.assertTrue(any('panels[0].caption' in w and 'enclosure' in w for w in found))
+        self.assertTrue(any('panels[0].caption' in w and 'not to scale' in w for w in found))
+
+    def test_banned_letters_inside_longer_words_pass(self):
+        self.step['actions'][0] = 'Address the headland, adjust the enclosed speaker and stand it on the landscape mat.'
+        self.step['note'] = 'The BODY LIGHT and HEAD LIGHT labels face up. Label the HEAD servo cable.'
+        self.assertEqual(self.warnings('banned-term'), [])
+
+    def test_connector_terms_are_case_sensitive(self):
+        self.step['actions'][0] = 'Connect H3 to BODY.'
+        self.step['actions'][1] = 'Seat the HEAD plug.'
+        found = self.warnings('banned-term')
+        self.assertEqual(len(found), 3, found)
+
+    def test_safety_words_only_in_safety_entries_or_quotes(self):
+        self.step['actions'][1] = 'Stop at a warning.'
+        self.assertEqual(len(self.warnings('banned-term')), 1)
+        self.step['actions'][1] = 'Stop if it shows “power warning”.'
+        self.assertEqual(self.warnings('banned-term'), [])
+        self.step['panels'][0]['safety'] = dict(level='caution', text='Caution: the capacitor can vent.')
+        self.assertEqual(self.warnings('banned-term'), [])
+
+    def test_part_id_needs_plain_name_on_first_use_only(self):
+        self.step['actions'] = ['Fit FB41 to the base.', 'Tighten FB41.']
+        found = self.warnings('first-use')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('fixture actions[0]', found[0])
+        self.assertIn('FB41', found[0])
+        self.step['actions'] = ['Fit the front microphone grille (FB41).', 'Tighten FB41.']
+        self.assertEqual(self.warnings('first-use'), [])
+
+    def test_wago_labels_are_not_washer_ids_and_similar_ids_stay_distinct(self):
+        self.step['actions'] = ['Cut the clear eye film (C01). Insert the loop into W2/1.',
+                                'Fit four M3×12 screws and a T3.15 A fuse at the servo power WAGO (W3).']
+        found = self.warnings('first-use')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('W2', found[0])
+
+    def test_step_with_more_panels_than_limit_warns(self):
+        limit = c.WRITING['step_panels']
+        self.step['actions'] = ['Fit the part.'] * (limit + 1)
+        self.step['panels'] = [dict(title=f'Panel {i}', image='p.svg', actions=[i]) for i in range(limit)]
+        self.step['panels'][-1]['actions'] = [limit - 1, limit]
+        self.assertEqual(self.warnings('panel-count'), [])
+        self.step['panels'][-1]['actions'] = [limit - 1]
+        self.step['panels'].append(dict(title='Extra', image='p.svg', actions=[limit]))
+        found = self.warnings('panel-count')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn(f'{limit + 1} panels', found[0])
+
+    def test_joined_instructions_warn(self):
+        for text in ('Start the screws by hand, then tighten them.', 'Start the screws by hand; tighten them.'):
+            self.step['actions'][0] = text
+            with self.subTest(text=text):
+                self.assertEqual(len(self.warnings('one-instruction')), 1)
+        self.step['actions'][0] = 'Start the screws by hand. Then tighten them.'
+        self.assertEqual(self.warnings('one-instruction'), [])
+
+    def test_part_card_text_is_checked_for_banned_terms(self):
+        self.parts[0]['status'] = 'Print it, then dry-fit it.'
+        found = self.warnings('banned-term')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('part FB41 status', found[0])
+
+    def test_limits_match_the_approved_standard(self):
+        standard = (Path(__file__).resolve().parents[2] / 'build-guide/INSTRUCTION-DESIGN.md').read_text()
+        for rule, key in (('Words in one sentence', 'sentence_words'), ('Words in one action (all its sentences)', 'action_words'),
+                          ('Panels in one step', 'step_panels')):
+            self.assertIn(f"| {rule} | {c.WRITING[key]} or fewer |", standard)
+
+
+class FactTests(unittest.TestCase):
+    def setUp(self):
+        self.step = dict(id='fuse', title='Wire the fuse', actions=[
+            'Fit the servo fuse (F1) with a T3.15 A fuse.',
+            'Insert its loop into W2/1. Strip 11 mm first.',
+            'Connect Pi pin 12 to DAT. Fasten four M3×12 screws. Run make pi-servo-fit.'],
+            check='The fuse holder closes.', note='',
+            panels=[dict(title='Fuse', image='f.svg', caption='', actions=[0, 1, 2],
+                         codeBlocks=[dict(kind='output', lines=['throttled=0x0'])])])
+        self.parts = [dict(id='E07', category='Purchased', name='Fuse holder', description='Holds a 5 × 20 mm fuse.')]
+
+    def inventory(self):
+        return c.fact_inventory({'steps': [self.step]}, self.parts)
+
+    def test_sample_step_lists_technical_tokens(self):
+        facts = self.inventory()['fuse']
+        for token in ('T3.15 A', 'W2/1', '11 mm', 'pin 12', 'M3×12', 'F1', 'make pi-servo-fit', 'throttled=0x0'):
+            self.assertIn(token, [t for _, t in facts])
+        self.assertIn(('value', '5 × 20 mm'), self.inventory()['part E07'])
+
+    def test_output_is_stable_and_sorted(self):
+        first = c.format_facts(self.inventory())
+        self.assertEqual(first, c.format_facts(self.inventory()))
+        lines = [line for line in first.splitlines() if line.startswith('fuse\t')]
+        self.assertEqual(lines, sorted(lines))
+
+    def test_moving_a_fact_between_actions_keeps_the_inventory(self):
+        before = self.inventory()
+        self.step['actions'][1] = 'Insert its loop into W2/1.'
+        self.step['actions'][0] = 'Strip 11 mm first. Fit the servo fuse (F1) with a T3.15 A fuse.'
+        self.assertEqual(self.inventory(), before)
+
+    def test_removed_fact_changes_the_inventory(self):
+        before = self.inventory()
+        self.step['actions'][1] = 'Insert its loop into W2/2. Strip 11 mm first.'
+        self.assertNotEqual(self.inventory(), before)
+
+
 class ReferenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -245,11 +413,12 @@ class ReviewTests(unittest.TestCase):
         self.write(c.GUIDE + '/guide-data.json', json.dumps({'steps': [{'panels': [panel]}]}))
         self.assertEqual(c.missing_commands(self.root), ['absent', 'pi-not-a-target'])
 
-    def check_fixture(self, commands=()):
+    def check_fixture(self, commands=(), warnings=()):
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
             for name in ('check_panels', 'check_quantities', 'check_references', 'check_reference_page'):
                 stack.enter_context(patch.object(c, name))
+            stack.enter_context(patch.object(c, 'check_writing', return_value=list(warnings)))
             stack.enter_context(patch.object(c, 'read', return_value={}))
             stack.enter_context(patch.object(c, 'missing_commands', return_value=list(commands)))
             stack.enter_context(patch.object(c, 'review_status', return_value={
@@ -266,6 +435,14 @@ class ReviewTests(unittest.TestCase):
         offline, _ = self.check_fixture(['pi-servo-fit'])
         self.assertFalse(offline['ok'])
         self.assertIn('pi-servo-fit', offline['errors'][0])
+
+    def test_writing_warnings_are_reported_without_failing(self):
+        offline, _ = self.check_fixture(warnings=['sentence-length: fixture actions[0]: 25 words'])
+        self.assertTrue(offline['ok'])
+        self.assertEqual(offline['warnings'], ['sentence-length: fixture actions[0]: 25 words'])
+        offline, _ = self.check_fixture(['pi-servo-fit'], warnings=['banned-term: fixture note: simply'])
+        self.assertFalse(offline['ok'])
+        self.assertEqual(len(offline['warnings']), 1)
 
 
 class InlinePrintSettingsTests(unittest.TestCase):
