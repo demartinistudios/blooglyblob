@@ -1,6 +1,8 @@
 # Selected eye board: Adafruit 5975
 
-User-approved 2026-09-17 after viewing the product photo. Quantity: **two**, one per eye. Use behind removable Plastazote eye diffusers; mounting should permit replacement without glue.
+The build uses **two** Adafruit 5975 boards, one per eye, behind removable
+Plastazote diffusers. The boards fasten to printed holders so they can be replaced
+without glue.
 
 - [Product and published envelope](https://www.adafruit.com/product/5975): 12.3 × 11.3 × 6.2 mm, M2 mounting, 3-pin JST-SH input/output.
 - [Adafruit PCB source](https://github.com/adafruit/Adafruit-NeoPixel-Breakout-PCB), linked by the [manufacturer downloads page](https://learn.adafruit.com/adafruit-neopixel-breakout/downloads).
@@ -9,12 +11,15 @@ User-approved 2026-09-17 after viewing the product photo. Quantity: **two**, one
 
 The Eagle file uses millimeters. Two plain holes have diameter 2 mm and centers (0, +4.318) and (0, −4.318): **8.636 mm apart**. The LED is centered at (0, 0). Layer 20 outlines a 12.192 × 11.43 mm rounded board, with 2.54 mm corner radii. These are CAD nominal dimensions, not physical measurements or print clearances. The small difference from the product listing is retained explicitly rather than rounding the mounting pattern.
 
-Do not infer the full front/back component stack from the overall 6.2 mm envelope. Leave access for both connector plugs and wiring bends, and inspect the manufacturer 3D model or an actual board before finalizing the holder. Holders will use clearance fasteners and nuts; screw lengths and support pad geometry follow that inspection.
+The overall 6.2 mm product envelope does not define the full front/back component
+stack. Keep both connector plugs and wiring bends accessible; use the maintained
+assembly instructions for screws, nuts and washers.
 
 ## Assembly use
 
-Current CAD includes removable P06 holders and P07 bezels, with P08 feed-through
-and strain relief. The selected [current design](../../cad/CURRENT-DESIGN.md),
+The eye boards mount in P06 holders. Follow the
+[build guide](https://demartinistudios.github.io/blooglyblob/) for diffuser placement,
+fastening and wire routing. The selected [current design](../../cad/CURRENT-DESIGN.md),
 [assembly allocations](../../assembly/hardware.json) and
 [electrical tables](../../assembly/electrical.json) define the maintained build.
 This reference does not replace those quantities, fastening choices or wiring.
