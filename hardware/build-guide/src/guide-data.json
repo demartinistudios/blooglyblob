@@ -19,15 +19,22 @@
       },
       "hardware": {},
       "actions": [
-        "Choose filament colors, paint or both. Keep paint off nut pockets, threads, mating faces and adhesive contact areas; let it cure before assembly.",
-        "Gather the tools in the {tools}. Sort screws by size and keep each servo’s horn and center screw together."
+        "Choose filament colors, paint or both.",
+        "If you paint, keep paint off nut pockets, threads, mating faces and adhesive contact areas.",
+        "Let the paint cure for the time on its label before assembly.",
+        "Gather the tools in the {tools}.",
+        "Sort the screws by size.",
+        "Keep each servo’s horn and center screw together.",
+        "Solder and insulate loose parts on the bench, before you mount them.",
+        "Where wire length depends on the fit, test-route the wire first. To test-route, run the wire along its final path without fixing or soldering it.",
+        "Mark the length. Take the parts back to the bench to solder and heat-shrink them."
       ],
-      "check": "Your colors are chosen and tools are ready.",
+      "check": "Your colors are chosen, your tools are ready and your screws are sorted.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "Prepare, solder and insulate loose parts on the bench before mounting them. If wire length depends on the fit, dry-route and mark it first, then take the parts back to the bench for soldering and heat-shrink.",
+      "note": "",
       "kind": "build",
       "number": 1,
       "commands": [],
@@ -37,7 +44,9 @@
           "image": "assets/r22/main-front.png",
           "caption": "",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
@@ -45,7 +54,18 @@
           "image": "assets/cartoons/Workbench.svg",
           "caption": "",
           "actions": [
-            1
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Solder on the bench first",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -59,11 +79,18 @@
       },
       "hardware": {},
       "actions": [
-        "Start with plates 2 and 7 for the enclosure and vents. Print the rest as you build; the plate layouts above show the suggested order, parts and estimates.",
-        "Open the Bambu project, match your printer, nozzle and build plate, and map its material profiles to your spools. Keep the supplied orientations, supports, blockers and brims. Leave “Synchronize filament list from AMS” off.",
-        "Slice and inspect one plate at a time before printing. Turn bed leveling on and timelapse off. On plate 2, turn flow dynamics calibration off: its calibration line crosses the front brim."
+        "Open the all-plates Bambu project in Bambu Studio.",
+        "Select your printer, nozzle and build plate.",
+        "Map each plate’s material profile to one of your spools.",
+        "Keep the supplied orientations, supports, support blockers and brims.",
+        "Leave “Synchronize filament list from AMS” off.",
+        "Slice one plate at a time. Inspect each slice before you print it.",
+        "Turn bed leveling on. Turn timelapse off.",
+        "Print plates 2 and 7 first. They hold the base and its panels and grilles.",
+        "For plate 2, turn flow dynamics calibration off. The printer’s calibration line crosses that plate’s front brim.",
+        "Print the other plates as you build. The plate layouts above show the suggested order, the parts and the estimates."
       ],
-      "check": "",
+      "check": "Plates 2 and 7 are printed with their supplied settings.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -74,13 +101,38 @@
       "commands": [],
       "panels": [
         {
-          "title": "Slice and print in stages",
-          "image": "assets/plates/plate-2.png",
-          "caption": "Plate 2 starts the enclosure. Keep its supplied orientation, support blockers and brim.",
+          "title": "Open the Bambu project",
+          "textOnly": true,
           "actions": [
             0,
             1,
             2
+          ]
+        },
+        {
+          "title": "Keep the supplied settings",
+          "textOnly": true,
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Slice one plate at a time",
+          "textOnly": true,
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Print plates 2 and 7 first",
+          "image": "assets/plates/plate-2.png",
+          "caption": "Plate 2 thumbnail from the supplied Bambu project.",
+          "actions": [
+            7,
+            8,
+            9
           ]
         }
       ]
@@ -95,11 +147,21 @@
       },
       "hardware": {},
       "actions": [
-        "Let parts cool, then remove supports and brims in small pieces. Support thin fingers, antenna turns, threads and nut-channel ledges while working.",
-        "Clear screw holes, nut pockets, cable slots and the audio-cradle end windows and lid-nut slots. Smooth rough edges at the enclosure’s central wire hole without enlarging it; keep the thin plastic behind the front nuts intact.",
-        "Dry-fit the real screws, nuts and mating parts without forcing them. Set aside cracked or warped parts for reprinting."
+        "Let each part cool before you remove its supports.",
+        "Remove supports and brims in small pieces.",
+        "While you work, support thin fingers, eye housing lips, horn seats, antenna turns, threads and nut-channel ledges.",
+        "On the backpack shell (P35), support the belt tabs while you clear the hinge gaps and lower screw passages.",
+        "Clear the P35 pin holes.",
+        "In the base (FB01), clear the small support lips from the front nut-entry channels.",
+        "Clear the screw holes, cable slots and exposed nut pockets in the base. The nut pockets hold the board, bottom cover, grille, power jack plate and audio cradle nuts.",
+        "Smooth rough edges at the central wire hole. Do not enlarge the hole.",
+        "On the audio cradle (FB24), clear the end windows and lid-nut slots.",
+        "Clear support from the horn recesses in both upper arms (AR01, AR04).",
+        "Test-fit the real screws, nuts and mating parts. Do not force them. Test-fit means fitting parts without glue or final tightening, and removing them afterwards.",
+        "Check how the eyes, eye housings and head shelf (P08) fit the head shell (GS20).",
+        "Set aside cracked, warped or delaminated parts for reprinting."
       ],
-      "check": "The enclosure and vents are ready, screw and cable paths are smooth, and you know which plate supplies the next parts.",
+      "check": "The base, its grilles and the rear vent are clean. Their screw holes, nut pockets and cable paths are clear. You know which plate holds the next parts.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -110,13 +172,51 @@
       "commands": [],
       "panels": [
         {
-          "title": "Clean and check each print",
-          "image": "assets/community/front-nut-entry.png",
-          "caption": "Clear the front nut-entry channels without thinning the ledges that retain the nuts.",
+          "title": "Remove supports and brims",
+          "textOnly": true,
           "actions": [
             0,
             1,
             2
+          ]
+        },
+        {
+          "title": "Clear the backpack shell",
+          "textOnly": true,
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Clear the base",
+          "image": "assets/community/front-nut-entry.png",
+          "caption": "Front nut-entry channel and its nut, seen from inside the base.",
+          "safety": {
+            "level": "notice",
+            "text": "The plastic behind the front nuts is thin. Too much force can crack it. Clear the channels without thinning that plastic."
+          },
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Clear the audio cradle and upper arms",
+          "textOnly": true,
+          "actions": [
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Test-fit and check each part",
+          "textOnly": true,
+          "actions": [
+            10,
+            11,
+            12
           ]
         }
       ]

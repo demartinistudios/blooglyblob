@@ -145,7 +145,7 @@ function hardware(){const rows=Object.entries(guide.totals).map(([id,n])=>[escap
 function printResources(partId){
  const match=partMap[partId],selected=match?prints.filter(p=>p.parts.includes(partId)):[];
  const context=match?`<p class="notice info">${escape(partId)} · ${escape(match.name)}: ${selected.length?selected.map(p=>escape(p.name)).join(', '):'not on the supplied plates'}. <a href="#step-print-plates">Show the full printing step</a></p>`:'';
- return `<p class="lede">${printedPieceCount} printed pieces / ${parts.filter(p=>p.category==='Printed'&&p.qty>0).length} types on ten PLA plates. Start with the enclosure and vents, then print the rest as you build.</p>
+ return `<p class="lede">${printedPieceCount} printed pieces / ${parts.filter(p=>p.category==='Printed'&&p.qty>0).length} types on ten PLA plates. Start with the base and its panels and grilles. Print the rest as you build.</p>
  <div class="actions"><a class="button primary" href="downloads/BlooglyBlob-PLA.3mf" download>Bambu project · all plates</a><a class="button" href="downloads/BlooglyBlob-STL.zip" download>All STL files (ZIP)</a><a class="button" href="downloads/BlooglyBlob-PETG-ball.3mf" download>Optional PETG ball</a></div>
  <p class="fine">Choose your own colors. Print one antenna ball: PLA on plate 10 or the optional clear PETG version. For STLs, use the settings and orientations below in your own slicer.</p>
  ${context}${plateSettings()}
