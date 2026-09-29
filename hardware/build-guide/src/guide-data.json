@@ -89,7 +89,10 @@
       "id": "print-cleanup",
       "chapter": "Print",
       "title": "Clean and check each print",
-      "parts": {},
+      "parts": {
+        "T01": 1,
+        "T07": 1
+      },
       "hardware": {},
       "actions": [
         "Let parts cool, then remove supports and brims in small pieces. Support thin fingers, antenna turns, threads and nut-channel ledges while working.",
@@ -328,7 +331,8 @@
       "parts": {
         "FB41": 1,
         "FB03": 1,
-        "FB01": 1
+        "FB01": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x6": 4,
@@ -395,7 +399,8 @@
       "check": "Both speakers are held firmly against their grilles. Screw tips clear the speaker housing and cables.",
       "parts": {
         "FB19": 2,
-        "E16": 2
+        "E16": 2,
+        "T05": 1
       },
       "hardware": {
         "M3x12": 8,
@@ -452,7 +457,8 @@
       ],
       "check": "Both grilles sit flat, with the speakers and cables inside the enclosure and no cable pinched under an edge.",
       "parts": {
-        "FB19": 2
+        "FB19": 2,
+        "T05": 1
       },
       "hardware": {
         "M3x12": 8
@@ -614,7 +620,8 @@
       "kind": "build",
       "parts": {
         "E09": 1,
-        "E13": 1
+        "E13": 1,
+        "T10": 1
       },
       "hardware": {},
       "actions": [
@@ -657,7 +664,9 @@
       "title": "Set the Pi name, account and Wi-Fi",
       "chapter": "Pi software",
       "kind": "build",
-      "parts": {},
+      "parts": {
+        "T10": 1
+      },
       "hardware": {},
       "actions": [
         "Choose a unique hostname, for example `blooglyblob`. Write down your hostname and the username you choose next; you will use both for SSH and the repository settings.",
@@ -710,7 +719,8 @@
       "chapter": "Pi software",
       "kind": "build",
       "parts": {
-        "E13": 1
+        "E13": 1,
+        "T10": 1
       },
       "hardware": {},
       "actions": [
@@ -928,7 +938,8 @@
       "kind": "build",
       "parts": {
         "E14": 1,
-        "E23": 1
+        "E23": 1,
+        "T13": 1
       },
       "hardware": {},
       "actions": [
@@ -1293,7 +1304,9 @@
         "FB01": 1,
         "E09": 1,
         "E13": 1,
-        "E15": 2
+        "E15": 2,
+        "T03": 1,
+        "T05": 1
       },
       "hardware": {
         "M2x12": 4,
@@ -1428,7 +1441,8 @@
       "check": "The empty cradle is screwed to the base at all three mounting holes, and both M2 lid nuts are seated.",
       "parts": {
         "FB01": 1,
-        "FB24": 1
+        "FB24": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x6": 3,
@@ -1499,7 +1513,8 @@
         "E23": 1,
         "E16": 2,
         "C10": "As fitted",
-        "C16": "One patch, under 1 mm thick"
+        "C16": "One patch, under 1 mm thick",
+        "T05": 1
       },
       "hardware": {
         "M2x8": 2
@@ -1582,7 +1597,11 @@
         "E24": 4,
         "R1": 1,
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T02": 1,
+        "T03": 1,
+        "T04": 1,
+        "T09": 1
       },
       "hardware": {},
       "note": "",
@@ -1627,7 +1646,8 @@
       "check": "All soldered joints are insulated, the switch closes only when pressed, and the button insert sits flush without pinching its leads. The four labeled Pi ends remain disconnected.",
       "parts": {
         "FB20": 1,
-        "E17": 1
+        "E17": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x8": 2,
@@ -1696,7 +1716,11 @@
         "E18": 1,
         "C05": "As routed",
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T02": 1,
+        "T03": 1,
+        "T04": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x12": 2
@@ -1763,7 +1787,10 @@
         "E06": 4,
         "E22": 1,
         "C05": "As routed",
-        "C12": "As fitted"
+        "C12": "As fitted",
+        "T01": 1,
+        "T03": 1,
+        "T04": 1
       },
       "hardware": {},
       "note": "",
@@ -1835,7 +1862,11 @@
         "E08": 1,
         "C05": "As routed",
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T01": 1,
+        "T02": 1,
+        "T04": 1,
+        "T09": 1
       },
       "hardware": {},
       "note": "",
@@ -1896,7 +1927,11 @@
         "C05": "As routed",
         "C06": "As routed",
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T04": 1
       },
       "hardware": {},
       "note": "",
@@ -1957,7 +1992,10 @@
       ],
       "check": "",
       "parts": {
-        "E24": 8
+        "E24": 8,
+        "T01": 1,
+        "T04": 1,
+        "T05": 1
       },
       "hardware": {},
       "note": "",
@@ -2133,7 +2171,9 @@
         "Remove wire offcuts and debris. Check board nuts, screw tips, plug access and cover clearance; keep servos and HEAD disconnected."
       ],
       "check": "The unpowered checks pass, F1 is removed, F2 T1 A is fitted and all servo and HEAD connections are still disconnected.",
-      "parts": {},
+      "parts": {
+        "T03": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -2182,7 +2222,10 @@
         "R2": 1,
         "C12": "As fitted",
         "C14": "As used",
-        "C06": "As routed"
+        "C06": "As routed",
+        "T01": 1,
+        "T02": 1,
+        "T04": 1
       },
       "hardware": {},
       "note": "",
@@ -2298,7 +2341,8 @@
       "parts": {
         "P01": 1,
         "P02": 2,
-        "FB01": 1
+        "FB01": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x16": 2,
@@ -2358,7 +2402,11 @@
         "E01": 3,
         "C06": "As needed",
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T01": 1,
+        "T02": 1,
+        "T04": 1,
+        "T09": 1
       },
       "hardware": {},
       "actions": [
@@ -2398,7 +2446,8 @@
       "title": "Mount the shoulder servos",
       "parts": {
         "P03": 1,
-        "E01": 2
+        "E01": 2,
+        "T05": 1
       },
       "hardware": {
         "M2x6": 4,
@@ -2485,7 +2534,8 @@
       "parts": {
         "P04": 1,
         "P01": 1,
-        "E01": 1
+        "E01": 1,
+        "T05": 1
       },
       "hardware": {
         "M2x6": 2,
@@ -2572,7 +2622,9 @@
       "chapter": "Frame and servos",
       "title": "Prepare the three servo horns",
       "parts": {
-        "E02": 3
+        "E02": 3,
+        "T07": 1,
+        "T08": 1
       },
       "hardware": {},
       "actions": [
@@ -2615,7 +2667,8 @@
       "parts": {
         "P14": 1,
         "P08": 1,
-        "E02": 1
+        "E02": 1,
+        "T05": 1
       },
       "hardware": {
         "M2x6": 2,
@@ -2784,7 +2837,8 @@
         "GS01": 1,
         "GS02": 1,
         "GS03": 1,
-        "C09": "Small amount"
+        "C09": "Small amount",
+        "T05": 1
       },
       "hardware": {
         "M2x6": 4,
@@ -2878,7 +2932,12 @@
         "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used",
-        "E04": 1
+        "E04": 1,
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T04": 1,
+        "T09": 1
       },
       "hardware": {},
       "actions": [
@@ -2956,7 +3015,8 @@
         "P30": 1,
         "P31": 1,
         "E04": 1,
-        "C03": 1
+        "C03": 1,
+        "T05": 1
       },
       "hardware": {
         "M2x8": 4,
@@ -3119,7 +3179,11 @@
         "E10": 1,
         "C06": "As routed",
         "C12": "As fitted",
-        "C14": "As used"
+        "C14": "As used",
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T04": 1
       },
       "hardware": {},
       "actions": [
@@ -3183,7 +3247,8 @@
         "P12": 1,
         "P13": 1,
         "E05": 1,
-        "C07": 12
+        "C07": 12,
+        "T05": 1
       },
       "hardware": {
         "M3x10CS": 3,
@@ -3242,7 +3307,8 @@
       "parts": {
         "P09": 2,
         "P10": 3,
-        "C04": 1
+        "C04": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x16": 1,
@@ -3308,7 +3374,8 @@
       "parts": {
         "AR01": 1,
         "AR04": 1,
-        "E02": 2
+        "E02": 2,
+        "T05": 1
       },
       "hardware": {
         "M2x6": 4,
@@ -3362,7 +3429,8 @@
       "title": "Build the elbows",
       "parts": {
         "AR02": 1,
-        "AR05": 1
+        "AR05": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x14": 2,
@@ -3483,7 +3551,8 @@
       "chapter": "Backpack and belt",
       "title": "Fit the backpack carrier",
       "parts": {
-        "P34": 1
+        "P34": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x18": 2,
@@ -3544,7 +3613,8 @@
         "P38": 1,
         "P39": 1,
         "P40": 1,
-        "C09": "Small amount"
+        "C09": "Small amount",
+        "T05": 1
       },
       "hardware": {
         "M3x8": 2,
@@ -3665,7 +3735,8 @@
       "chapter": "Final wiring",
       "title": "Connect the three servo cables",
       "parts": {
-        "C06": "As routed"
+        "C06": "As routed",
+        "T05": 1
       },
       "hardware": {},
       "actions": [
@@ -3715,7 +3786,8 @@
       "title": "Connect the light connectors and secure the cables",
       "parts": {
         "C07": "As routed",
-        "C17": "As routed"
+        "C17": "As routed",
+        "T03": 1
       },
       "hardware": {},
       "actions": [
@@ -3756,7 +3828,9 @@
       "id": "power-up-inspection",
       "chapter": "Final wiring",
       "title": "Inspect before power-up",
-      "parts": {},
+      "parts": {
+        "T03": 1
+      },
       "hardware": {},
       "actions": [
         "Check connector polarity, capacitor polarity and that neither speaker output joins ground.",
@@ -3798,6 +3872,10 @@
       "id": "all-lights-test",
       "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
+      "safety": {
+        "level": "warning",
+        "text": "Keep the supply plug reachable. Never open a WAGO lever with power connected."
+      },
       "actions": [
         "Support the robot on its stand with the cover off, head on the bench and HEAD connected. Keep head and arms off the servo shafts; fit F1 T3.15 A and F2 T1 A.",
         "Connect the specified supply to the robot, then the wall. Bare servo shafts may turn to their rest positions.",
@@ -3806,7 +3884,6 @@
         "Run make pi-ssh, then sudo poweroff. Wait for the green light to stop flashing and unplug the supply."
       ],
       "check": "All 16 lights show the correct order and colors, and the Pi starts without a power warning.",
-      "note": "Keep the supply plug reachable. Never open a WAGO lever with power connected.",
       "hardware": {},
       "parts": {
         "E20": 1,
@@ -3904,7 +3981,8 @@
         "P14": 1,
         "AR01": 1,
         "AR04": 1,
-        "E02": 3
+        "E02": 3,
+        "T05": 1
       },
       "source": [
         "hardware/assembly/electrical.json",
@@ -3967,7 +4045,8 @@
       "parts": {
         "GS20": 1,
         "AR08": 1,
-        "AR09": 1
+        "AR09": 1,
+        "T05": 1
       },
       "source": [
         "hardware/assembly/electrical.json",
@@ -4108,7 +4187,8 @@
       ],
       "check": "The cover sits flat without pressing on wiring and the robot rests level on its feet.",
       "parts": {
-        "FB02": 1
+        "FB02": 1,
+        "T05": 1
       },
       "hardware": {
         "M3x12": 4
@@ -4198,7 +4278,9 @@
       "id": "head-open",
       "chapter": "Service",
       "title": "Open the head",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "actions": [
         "Shut down and unplug. Support the head, remove its three screws, and lift only far enough to unplug HEAD. Take the head to the bench without pulling an LED wire.",
@@ -4236,7 +4318,9 @@
       "id": "mouth-eye-removal",
       "chapter": "Service",
       "title": "Remove the mouth or an eye housing",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "actions": [
         "Open the head as in {step:head-open}. Support P30, remove its two outer M2×8 clamp screws and move the cassette back, then down through the open rim. Release ties for slack; never pull on soldered leads.",
@@ -4278,7 +4362,9 @@
       "id": "arm-service",
       "chapter": "Service",
       "title": "Service a hand, elbow or shoulder",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "actions": [
         "Shut down and unplug. Support the forearm and pull a hand straight out by its palm, never by a finger.",
@@ -4334,7 +4420,9 @@
         "Recheck any changed wiring, seat FB02 by hand and refit its four screws. Stand the robot upright for a function check."
       ],
       "check": "The repair is checked, all cables are supported and the cover closes without pressing on them.",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -4401,7 +4489,12 @@
         "Recheck polarity, continuity, fuse values and insulation before powering the repaired base."
       ],
       "check": "Specified fuses, correct polarity, insulation and wire restraint are restored.",
-      "parts": {},
+      "parts": {
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T05": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -4415,7 +4508,11 @@
         {
           "title": "Replace F1 or F2",
           "image": "assets/circuits/f1-land.svg",
-          "caption": "F1 is T3.15 A; F2 is T1 A. Never increase a fuse value.",
+          "caption": "F1 is T3.15 A; F2 is T1 A.",
+          "safety": {
+            "level": "warning",
+            "text": "Never increase a fuse value."
+          },
           "actions": [
             0,
             1
@@ -4460,7 +4557,9 @@
         "Keep microphone and speaker openings clear, restore the lid foam, then test sound with the robot upright."
       ],
       "check": "The serviced parts are secure, plugs seat fully and all sound openings remain clear.",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -4520,7 +4619,9 @@
         "Follow {step:fit-position}: command the fit pose, STOP, shut down and unplug, then refit the horn and part. Repeat {step:first-movement}."
       ],
       "check": "The replacement is secure, the horn was fitted at the commanded pose and all movement is clear.",
-      "parts": {},
+      "parts": {
+        "T05": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -4586,7 +4687,10 @@
         "Remove P30 as in {step:mouth-eye-removal}, then replace and solder the Adafruit 1426 on the bench. Connect +5 V, GND and DIN only; DOUT remains unused."
       ],
       "check": "",
-      "parts": {},
+      "parts": {
+        "T02": 1,
+        "T05": 1
+      },
       "hardware": {},
       "note": "",
       "source": [
@@ -4636,7 +4740,9 @@
         "Restore the labeled servo connections and F1, and repeat the unpowered checks and all-16-light test before closing."
       ],
       "check": "Replaced lights follow the correct power and data paths, and no wire carries the weight of a removed part.",
-      "parts": {},
+      "parts": {
+        "T02": 1
+      },
       "hardware": {},
       "note": "",
       "source": [

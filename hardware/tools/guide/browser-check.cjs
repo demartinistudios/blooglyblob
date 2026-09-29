@@ -166,11 +166,14 @@ fs.mkdirSync(OUT,{recursive:false});
   await page.evaluate(({KEY,existing})=>localStorage.setItem(KEY,JSON.stringify(existing)),{KEY,existing});
   await page.reload();assert.deepEqual(await page.evaluate(KEY=>JSON.parse(localStorage.getItem(KEY)),KEY),existing);
   const steps=new Set(data.guide.steps.map(s=>s.id));
-  const shots=['step-board-cover-nuts','step-grille-vent-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring'];
+  const shots=['step-board-cover-nuts','step-grille-vent-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service'];
   shots.push(...SETUP.map(id=>'step-'+id),...SOFTWARE_TOPICS.map(id=>'software/'+id));
   for(const r of shots.filter(r=>r.startsWith('step-')))assert.ok(steps.has(r.slice(5)),'screenshot route missing: '+r);
   const routes=['start','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
   routes.push(...SOFTWARE_TOPICS.map(id=>'software/'+id));
+  // Safety entries (KTD4) are one {level,text} entry or a list; the guide shows the level label.
+  const safetyOf=value=>value?(Array.isArray(value)?value:[value]):[];
+  assert.ok(data.guide.steps.some(s=>safetyOf(s.safety).length||s.panels.some(p=>safetyOf(p.safety).length)),'guide carries safety entries');
   const textOf=action=>action.replace(/`([^`]+)`/g,'$1').replaceAll('{tools}','tool list').replace(/\{step:([\w-]+)\}/g,(_,id)=>{
    const target=data.guide.steps.find(s=>s.id===id);
    assert.ok(target,'action references known step '+id);
@@ -217,6 +220,28 @@ fs.mkdirSync(OUT,{recursive:false});
        await d.locator('img').evaluate(img=>img.decode());
        await d.locator('summary').click();assert.equal(await d.getAttribute('open'),null);
       }
+     }
+     // Each safety message sits before the first action it governs: panel entries before that
+     // panel's action list, step entries before the first panel. Nothing clips at any width.
+     const safetyShown=await page.locator('#page article').first().evaluate(article=>{
+      const read=el=>({level:el.dataset.level,label:el.querySelector('.safety-label')?.textContent,text:el.querySelector('.safety-text')?.textContent,clipped:el.scrollWidth>el.clientWidth+1||el.getBoundingClientRect().right>innerWidth+1});
+      const before=(el,target)=>!!target&&!!(el.compareDocumentPosition(target)&Node.DOCUMENT_POSITION_FOLLOWING);
+      const firstPanel=article.querySelector('.action-panel');
+      return {total:article.querySelectorAll('.safety').length,
+       step:[...article.querySelectorAll(':scope > .step-safety .safety')].map(el=>({...read(el),before:before(el,firstPanel)})),
+       panels:[...article.querySelectorAll('.action-panel')].map(panel=>[...panel.querySelectorAll('.safety')].map(el=>({...read(el),before:before(el,panel.querySelector('.instructions li'))})))};
+     });
+     const expectSafety=value=>safetyOf(value).map(e=>({level:e.level,label:e.level.toUpperCase(),text:textOf(e.text),clipped:false,before:true}));
+     assert.deepEqual(safetyShown,{total:safetyOf(step.safety).length+step.panels.reduce((n,p)=>n+safetyOf(p.safety).length,0),step:expectSafety(step.safety),panels:step.panels.map(p=>expectSafety(p.safety))},'safety messages precede their actions: '+route+' '+width);
+     // Parts, fasteners and tools are visible without expanding anything.
+     if(step.id!=='print-plates'&&(Object.keys(step.parts).length||Object.keys(step.hardware).length)){
+      assert.equal(await page.locator('.bench-list').evaluate(el=>el.open),true,'parts list open on arrival: '+route);
+      assert.ok(await page.locator('.bench-list .gather').isVisible(),'parts list visible: '+route);
+      // Parts, fasteners and tools each have their own section, in that order.
+      const isTool=id=>data.parts.find(p=>p.id===id)?.category==='Tool';
+      const partIds=Object.keys(step.parts).filter(id=>!isTool(id)),toolIds=Object.keys(step.parts).filter(isTool),hwIds=Object.keys(step.hardware);
+      assert.deepEqual(await page.locator('.bench-list .gather > section').evaluateAll(es=>es.map(e=>({heading:e.querySelector('h2').textContent,ids:[...e.querySelectorAll('li a')].map(a=>a.getAttribute('href').replace('#parts/',''))}))),
+       [partIds.length&&{heading:'Parts',ids:partIds},hwIds.length&&{heading:'Fasteners',ids:hwIds},toolIds.length&&{heading:'Tools',ids:toolIds}].filter(Boolean),'parts, fasteners and tools sections: '+route);
      }
      if(step.id==='fit-position')assert.equal(await page.locator('.action-panel').first().locator('.code-card[data-kind="command"]').count(),1,'fit commands must precede attachment');
      if(SETUP.includes(step.id)&&width===1440)await checkCopies();
@@ -336,7 +361,11 @@ fs.mkdirSync(OUT,{recursive:false});
   await page.goto(BASE+'#step-eye-windows');await page.locator('[data-zoom]').first().click();assert.ok(await page.locator('#zoom').isVisible());await page.locator('#close-zoom').click();assert.ok(!await page.locator('#zoom').isVisible());
   for(const href of new Set([...links,...images]))assert.ok((await page.request.get(new URL(href,BASE).href)).ok(),href);
   await page.goto(BASE+'#step-power-jack');
-  assert.equal(await page.locator('.bench-list').evaluate(el=>el.open),false);
+  const bench=page.locator('.bench-list');
+  assert.equal(await bench.evaluate(el=>el.open),true,'parts list is open on first load');
+  await bench.locator('summary').click();
+  assert.equal(await bench.evaluate(el=>el.open),false,'parts list still collapses');
+  assert.ok(!await bench.locator('.gather').isVisible());
   await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
   assert.equal(await page.locator('.bench-list').evaluate(el=>el.open),true,'print includes parts');
   await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
@@ -353,8 +382,15 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.equal((await page.request.get(new URL('Index.html',BASE).href)).status(),404);
   await page.setViewportSize({width:1100,height:1400});
   await page.emulateMedia({media:'print',reducedMotion:'reduce'});
-  for(const route of ['#step-print-plates','#step-eye-windows','#electrical','references.html','repeat-build.html']){
+  for(const route of ['#step-print-plates','#step-eye-windows','#step-all-lights-test','#step-power-parts-service','#electrical','references.html','repeat-build.html']){
    await page.goto(new URL(route,BASE).href);await page.evaluate(()=>document.fonts.ready);
+   if(route.startsWith('#step-')&&route!=='#step-print-plates'){
+    const step=data.guide.steps.find(s=>'#step-'+s.id===route);
+    const count=safetyOf(step.safety).length+step.panels.reduce((n,p)=>n+safetyOf(p.safety).length,0);
+    assert.equal(await page.locator('.safety').count(),count);
+    for(const el of await page.locator('.safety').all()){assert.ok(await el.isVisible(),'print shows safety: '+route);assert.ok(await el.locator('.safety-label').isVisible());}
+    if(Object.keys(step.parts).length||Object.keys(step.hardware).length)assert.ok(await page.locator('.bench-list .gather').isVisible(),'print shows the parts list: '+route);
+   }
    await page.locator('img[src]').evaluateAll(async es=>{for(const e of es)e.loading='eager';await Promise.all(es.map(e=>e.decode()));});
    const label=route.replace('#','').replace('.html','');
    await capture({path:path.join(OUT,label+'-print.png'),fullPage:true});

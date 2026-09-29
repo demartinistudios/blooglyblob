@@ -56,6 +56,35 @@ class QuantityTests(unittest.TestCase):
             self.run_check()
 
 
+class ToolListTests(unittest.TestCase):
+    """Each step lists the tools its work needs; each tool card lists those steps (R3)."""
+    def setUp(self):
+        self.parts = [dict(id='T01', category='Tool', steps=['cut', 'service']),
+                      dict(id='T02', category='Tool', steps=['cut']),
+                      dict(id='EYE', category='Printed', steps=['fit'])]
+        self.guide = {'steps': [dict(id='cut', parts={'T01': 1, 'T02': 1}),
+                                dict(id='fit', parts={'EYE': 1}),
+                                dict(id='service', parts={'T01': 1})]}
+
+    def check(self):
+        c.check_tools(self.guide, self.parts)
+
+    def test_matching_tool_lists_pass(self):
+        self.check()
+
+    def test_tool_card_must_list_every_step_that_uses_it_in_order(self):
+        for steps in (['cut'], ['service', 'cut'], ['cut', 'fit', 'service']):
+            with self.subTest(steps=steps):
+                self.parts[0]['steps'] = steps
+                with self.assertRaisesRegex(ValueError, r'^T01: tool card steps differ from the steps that use it'):
+                    self.check()
+
+    def test_a_tool_is_listed_once_per_step(self):
+        self.guide['steps'][0]['parts']['T02'] = 2
+        with self.assertRaisesRegex(ValueError, r'^cut: tool T02 must have quantity 1'):
+            self.check()
+
+
 class PanelTests(unittest.TestCase):
     def setUp(self):
         self.step = dict(id='fixture', actions=['prepare', 'fit', 'check'], panels=[
@@ -159,6 +188,52 @@ class PanelTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'panels are required'):
             self.check()
 
+    def test_safety_entries_on_panels_and_steps_are_accepted(self):
+        self.step['safety'] = dict(level='warning', text='A short circuit can cause burns. Unplug first.')
+        self.step['panels'][0]['safety'] = dict(level='notice', text='Thin plastic cracks. Do not force the nut.')
+        self.step['panels'][1]['safety'] = [dict(level='caution', text='C1 is polarized. Match its stripe.'),
+                                            dict(level='notice', text='Forcing the plug bends its pins.')]
+        self.check()
+
+    def test_safety_with_unknown_level_fails_with_step_id(self):
+        for where in ('step', 'panel'):
+            with self.subTest(where=where):
+                self.setUp()
+                entry = dict(level='danger', text='A short circuit can cause burns.')
+                (self.step if where == 'step' else self.step['panels'][1])['safety'] = entry
+                with self.assertRaisesRegex(ValueError, r'^fixture.*safety level must be warning, caution or notice'):
+                    self.check()
+        self.step['panels'][1]['safety'] = dict(text='A short circuit can cause burns.')
+        with self.assertRaisesRegex(ValueError, r'^fixture panels\[1\]: safety level'):
+            self.check()
+
+    def test_safety_with_empty_text_fails_with_step_id(self):
+        for text in ('', '   ', None):
+            with self.subTest(text=text):
+                self.step['panels'][0]['safety'] = dict(level='caution', text=text)
+                with self.assertRaisesRegex(ValueError, r'^fixture panels\[0\]: safety text'):
+                    self.check()
+        self.step['panels'][0].pop('safety')
+        self.step['safety'] = [dict(level='warning', text='Unplug first.'), dict(level='warning', text='')]
+        with self.assertRaisesRegex(ValueError, r'^fixture: safety text'):
+            self.check()
+
+    def test_safety_shape_is_one_entry_or_a_nonempty_list(self):
+        for value in ([], 'Unplug first.', [dict(level='warning', text='Unplug first.'), 'Unplug first.'],
+                      dict(level='warning', text='Unplug first.', title='Power')):
+            with self.subTest(value=value):
+                self.step['safety'] = value
+                with self.assertRaisesRegex(ValueError, r'^fixture: safety'):
+                    self.check()
+
+    def test_safety_text_does_not_repeat_its_level_label(self):
+        # The guide shows the level label; the text must not type it again.
+        for text in ('WARNING: unplug first.', 'Caution - C1 is polarized.', '**Notice** thin plastic.'):
+            with self.subTest(text=text):
+                self.step['panels'][0]['safety'] = dict(level='caution', text=text)
+                with self.assertRaisesRegex(ValueError, 'safety text must not repeat the level label or add bold'):
+                    self.check()
+
 
 def words(count, word='bolt'):
     return ' '.join([word] * count)
@@ -238,7 +313,7 @@ class WritingTests(unittest.TestCase):
         self.assertEqual(len(self.warnings('banned-term')), 1)
         self.step['actions'][1] = 'Stop if it shows “power warning”.'
         self.assertEqual(self.warnings('banned-term'), [])
-        self.step['panels'][0]['safety'] = dict(level='caution', text='Caution: the capacitor can vent.')
+        self.step['panels'][0]['safety'] = dict(level='caution', text='A reversed capacitor can vent. Take caution with its stripe.')
         self.assertEqual(self.warnings('banned-term'), [])
 
     def test_part_id_needs_plain_name_on_first_use_only(self):
@@ -416,7 +491,7 @@ class ReviewTests(unittest.TestCase):
     def check_fixture(self, commands=(), warnings=()):
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
-            for name in ('check_panels', 'check_quantities', 'check_references', 'check_reference_page'):
+            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_references', 'check_reference_page'):
                 stack.enter_context(patch.object(c, name))
             stack.enter_context(patch.object(c, 'check_writing', return_value=list(warnings)))
             stack.enter_context(patch.object(c, 'read', return_value={}))

@@ -2196,7 +2196,17 @@
     "verification": "Example tool",
     "image": "assets/cartoons/T01.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "print-cleanup",
+      "power-wiring",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "shifter-wiring",
+      "body-light-input",
+      "servo-cables",
+      "head-harness",
+      "body-light-strand",
+      "power-parts-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2213,7 +2223,18 @@
     "verification": "Example tool",
     "image": "assets/cartoons/T02.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "button-leads",
+      "power-jack",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "body-light-input",
+      "servo-cables",
+      "head-harness",
+      "body-light-strand",
+      "power-parts-service",
+      "head-light-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2231,7 +2252,18 @@
     "image": "assets/cartoons/T03.svg",
     "steps": [
       "workbench",
-      "body-light-test"
+      "pi-shifters",
+      "button-leads",
+      "power-jack",
+      "power-wiring",
+      "light-fuse-capacitor",
+      "base-check",
+      "body-light-test",
+      "head-harness",
+      "body-light-strand",
+      "light-connections",
+      "power-up-inspection",
+      "power-parts-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2248,7 +2280,17 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T04.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "button-leads",
+      "power-jack",
+      "power-wiring",
+      "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "shifter-wiring",
+      "body-light-input",
+      "servo-cables",
+      "head-harness",
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2265,7 +2307,40 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T05.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "front-grille-rear-vent",
+      "speaker-grilles",
+      "side-grilles",
+      "pi-shifters",
+      "audio-cradle",
+      "audio-module",
+      "button",
+      "power-jack",
+      "shifter-wiring",
+      "frame-uprights",
+      "shoulder-servos",
+      "head-servo",
+      "head-shelf",
+      "eye-boards",
+      "mouth",
+      "body-lights",
+      "body-diffuser",
+      "upper-arms",
+      "elbows",
+      "backpack-carrier",
+      "backpack",
+      "servo-connections",
+      "shelf-arms",
+      "head-shoulder-covers",
+      "bottom-cover",
+      "head-open",
+      "mouth-eye-removal",
+      "arm-service",
+      "base-open",
+      "power-parts-service",
+      "audio-service",
+      "servo-replacement",
+      "head-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2299,7 +2374,9 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T07.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "print-cleanup",
+      "servo-horns"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2316,7 +2393,8 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T08.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "servo-horns"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2333,7 +2411,11 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T09.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "button-leads",
+      "servo-fuse-capacitor",
+      "servo-cables",
+      "head-harness"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2350,7 +2432,10 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T10.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "imager-choose",
+      "imager-settings",
+      "imager-write"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2773,6 +2858,7 @@
     "steps": [
       "workbench",
       "pi-connect",
+      "audio-settings",
       "software-install",
       "service-check"
     ],

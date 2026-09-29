@@ -49,14 +49,40 @@ def allocation_totals(allocations):
     return dict(totals)
 
 
+SAFETY_LEVELS = ('warning', 'caution', 'notice')
+# The guide shows the level label itself (INSTRUCTION-DESIGN.md, "Safety messages").
+SAFETY_LABEL = re.compile(r'^\W*(?:warning|caution|notice|danger)\b|\*\*', re.I)
+
+
+def check_safety(value, where):
+    """A safety value is one {level, text} entry or a nonempty list of them."""
+    entries = value if isinstance(value, list) else [value]
+    if not entries:
+        raise ValueError(f'{where}: safety must be an entry or a nonempty list of entries')
+    for entry in entries:
+        if not isinstance(entry, dict) or set(entry) - {'level', 'text'}:
+            raise ValueError(f'{where}: safety entries have only a level and text')
+        if entry.get('level') not in SAFETY_LEVELS:
+            raise ValueError(f'{where}: safety level must be warning, caution or notice')
+        text = entry.get('text')
+        if not isinstance(text, str) or not text.strip():
+            raise ValueError(f'{where}: safety text must contain text')
+        if SAFETY_LABEL.search(text):
+            raise ValueError(f'{where}: safety text must not repeat the level label or add bold')
+
+
 def check_panels(guide):
     """Each action has one readable illustration panel, in assembly order."""
     for step in guide['steps']:
         panels = step.get('panels')
         if not isinstance(panels, list) or not panels:
             raise ValueError(f"{step['id']}: action panels are required")
+        if 'safety' in step:
+            check_safety(step['safety'], step['id'])
         covered = []
-        for panel in panels:
+        for j, panel in enumerate(panels):
+            if 'safety' in panel:
+                check_safety(panel['safety'], f"{step['id']} panels[{j}]")
             indices = panel.get('actions')
             if not panel.get('title') or not (panel.get('image') or panel.get('commands') or panel.get('codeBlocks') or panel.get('textOnly') is True):
                 raise ValueError(f"{step['id']}: panel needs a title and image, commands/codeBlocks, or explicit textOnly")
@@ -428,6 +454,19 @@ def check_quantities(hardware, supplies, catalog, guide, parts):
     return totals
 
 
+def check_tools(guide, parts):
+    """Each step lists the tools its work needs, once each; tool cards list those steps in order."""
+    tools = {p['id']: p for p in parts if p.get('category') == 'Tool'}
+    for step in guide['steps']:
+        for tid, n in step.get('parts', {}).items():
+            if tid in tools and n != 1:
+                raise ValueError(f"{step['id']}: tool {tid} must have quantity 1")
+    for tid, card in tools.items():
+        used = [step['id'] for step in guide['steps'] if tid in step.get('parts', {})]
+        if card.get('steps') != used:
+            raise ValueError(f'{tid}: tool card steps differ from the steps that use it: {used}')
+
+
 def check_references(root, technical, presentation):
     for directory in ('hardware/references', 'hardware/servos'):
         for path in (root / directory).rglob('*'):
@@ -523,6 +562,7 @@ def check(root=ROOT, publication=False):
         check_panels(guide)
         check_quantities(read(root, 'hardware/assembly/hardware.json'), read(root, 'hardware/catalog/supplies.json'),
                          read(root, 'hardware/catalog/parts.json'), guide, parts)
+        check_tools(guide, parts)
         # Writing warnings do not affect ok until the clarity rewrite makes them errors.
         result['warnings'] = check_writing(guide, parts)
         check_references(root, read(root, REFERENCE), read(root, f'{GUIDE}/references/catalog.json'))
