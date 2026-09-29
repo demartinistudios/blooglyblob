@@ -1,0 +1,11 @@
+# Hardware-free developer environment; use the same OpenAI runtime dependencies.
+-c requirements/pi-py313.txt
+-r requirements/runtime.txt
+setuptools==84.0.0
+wheel==0.48.0
+mypy==2.3.1
+types-pyaudio==0.2.16.20260508
+ruff==0.16.7
+pytest==9.1.1
+pytest-asyncio==1.4.0
+coverage==7.16.1

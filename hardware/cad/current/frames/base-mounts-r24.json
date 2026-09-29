@@ -1,0 +1,132 @@
+[
+  {
+    "part": "FB24",
+    "source": "saved MAIN R24/cloud19",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.1,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "assembly_mm_to_bed_mm": [
+      [
+        1,
+        0,
+        0,
+        0.0
+      ],
+      [
+        0,
+        -1,
+        0,
+        -78.3499984741211
+      ],
+      [
+        0,
+        0,
+        -1,
+        -7.0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "bounds_mm": [
+      [
+        -66.48080348968506,
+        -10.349997520446777,
+        -1.1920928955078125e-07
+      ],
+      [
+        66.48080348968506,
+        10.350004196166992,
+        32.000000953674316
+      ]
+    ],
+    "triangles": 16666,
+    "mesh_sha256": "64af4169bf945fe8d63707c9cebe7ad74aec5d343f355e0e5b30dfebd2c448e6",
+    "frame_provenance": "FB01 retains recorded R23 matrix; FB24 parent frame verified against every oriented triangle of previous selected STL. Matrix applied after occurrence transform exactly once.",
+    "scope": "Selected geometry export frame only; affected print project placement, support and slicing require update."
+  },
+  {
+    "part": "FB01",
+    "source": "saved MAIN R24/cloud19",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "assembly_mm_to_bed_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1.4
+      ],
+      [
+        0,
+        0,
+        1,
+        69
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "bounds_mm": [
+      [
+        -105.0,
+        -91.60000190734863,
+        -9.5367431640625e-07
+      ],
+      [
+        105.0,
+        93.9,
+        66.99999997019768
+      ]
+    ],
+    "triangles": 172828,
+    "mesh_sha256": "d8cac582d71edafa2e7433dffaf81b68dbeeb344074c3f3385d242f011f0f8ec",
+    "frame_provenance": "FB01 retains recorded R23 matrix; FB24 parent frame verified against every oriented triangle of previous selected STL. Matrix applied after occurrence transform exactly once.",
+    "scope": "Selected geometry export frame only; affected print project placement, support and slicing require update."
+  }
+]

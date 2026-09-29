@@ -1,0 +1,68 @@
+{
+  "part": "P35",
+  "assembly_mm_to_bed_mm": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "frame": "assembly mm; selected source STL is not bed-normalized",
+  "comparison": "Every oriented triangle matches the corresponding accepted R24 render triangle within 0.00001 mm; native occurrence transform identity. Print project has a separate bed transform.",
+  "maximum_coordinate_difference_mm": 3.814697265625e-06,
+  "triangles": 7624,
+  "prior_stl_sha256": "5f0754ecbe02a5468f9f2dc3f607c690c47b0b1d3271a59b91cf62cbf9c9f990",
+  "source": "saved MAIN R25/cloud20",
+  "units": "mm",
+  "native_body_local_cm_to_assembly_cm": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "bounds_mm": [
+    [
+      -38.09999942779541,
+      23.819153308868408,
+      30.0
+    ],
+    [
+      38.09999942779541,
+      54.000000953674316,
+      103.50000381469727
+    ]
+  ],
+  "mesh_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+  "scope": "Retained selected source STL frame only. Separate full-plate W2 placement/support/slice review required."
+}

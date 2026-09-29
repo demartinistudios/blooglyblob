@@ -1,0 +1,38 @@
+{
+  "status": "PASS bounded digital preparation; physical qualification pending",
+  "cad": "R28/cloud24",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon /0.4mm/textured PEI",
+  "changed_parts": [
+    "FB01"
+  ],
+  "changed_plates": [
+    "K1"
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 70,
+  "project_sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+  "source_sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+  "frame": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -6.626157941780342e-09,
+    0.0,
+    6.626157941780342e-09,
+    -1.0,
+    0.0,
+    1.1500013999819032,
+    33.49999972103876
+  ],
+  "geometry": "Selected oriented STL triangles match raw normal mesh in retained rigid frame within0.0001mm. Parent source frame independently rechecked.",
+  "settings": "Global/plate/object/component settings and transforms retained. All 15 inherited blockers unchanged; none overlaps moved post/pad envelopes. Roof-down,0.20mm,4walls,25%gyroid,5mm outer brim/0.12gap,normal/snug supports0.20Z/0.40XY,PLA220C/60C. Logical material2; no physical AMS mapping.",
+  "support_review": "Eight moved Pi/shifter hex cavities, straight10mm approaches and bores, plus four pad face bands, contain zero sampled support centerlines. All nine retained R27 rear/power/audio slot regions remain clear. Existing blockers do not overlap moved post/pad envelopes. Small bridges and adjacent supports still need physical cleanup review; not full bead-envelope or fit/adhesive qualification.",
+  "toolpath_review": "All3 K1 objects included, none skipped/outside. Full-height extrusion centerlines within256mm bed; first-layer brims and spacing visually reviewed.0.1mm maximum support sampling including arcs; X1C Y+2 offset applied. Flow calibration stays off because prior layout intersects calibration region.",
+  "other_plates": "Nine unchanged plate estimates inherited,70 other instances preserved exactly; optional PETG project bytes unchanged.",
+  "source_review_pending": 48,
+  "no_print_dispatched": true
+}

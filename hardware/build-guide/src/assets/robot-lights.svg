@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 136">
+  <!-- Decorative light overlay aligned to robot-mark.svg; the character stays still. -->
+  <defs>
+    <linearGradient id="rainbow" gradientUnits="userSpaceOnUse" x1="31" y1="108" x2="65" y2="108">
+      <stop stop-color="#ff767d"/>
+      <stop offset=".2" stop-color="#ffc56d"/>
+      <stop offset=".4" stop-color="#f5ed7a"/>
+      <stop offset=".6" stop-color="#8de5a1"/>
+      <stop offset=".8" stop-color="#7edcf5"/>
+      <stop offset="1" stop-color="#c3a0ff"/>
+    </linearGradient>
+  </defs>
+  <g fill="#efffff" stroke="#87ecf4" stroke-width="2">
+    <rect x="21" y="82" width="13" height="10" rx="5"/>
+    <rect x="62" y="82" width="13" height="10" rx="5"/>
+  </g>
+  <path d="M31 108q17 9 34 0" fill="none" stroke="url(#rainbow)" stroke-width="5" stroke-linecap="round"/>
+</svg>

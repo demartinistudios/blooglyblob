@@ -1,0 +1,29 @@
+[
+  {
+    "name": "R27 power slots clear access column",
+    "id": 3000,
+    "assembly_bounds": [
+      [
+        76.8,
+        81,
+        -73
+      ],
+      [
+        83.2,
+        95,
+        1
+      ]
+    ],
+    "component_center": [
+      80,
+      -89.4,
+      34
+    ],
+    "dimensions": [
+      6.4,
+      14,
+      74
+    ],
+    "purpose": "Full-height exclusion prevents supports generated above either slot descending through the nut-loading path. Small bridges require physical cleanup review."
+  }
+]

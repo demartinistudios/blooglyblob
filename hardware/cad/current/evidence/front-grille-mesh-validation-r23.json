@@ -1,0 +1,22 @@
+[
+  {
+    "part": "FB41",
+    "triangles": 10196,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "signed_volume_mm3": 4868.030005882203,
+    "volume_error_fraction": 9.299556770549942e-05,
+    "mesh_modified": false
+  },
+  {
+    "part": "FB01",
+    "triangles": 193590,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "signed_volume_mm3": 339823.13263265847,
+    "volume_error_fraction": 0.0006469767677513635,
+    "mesh_modified": false
+  }
+]

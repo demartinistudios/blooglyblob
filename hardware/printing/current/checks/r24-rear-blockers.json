@@ -1,0 +1,110 @@
+[
+  {
+    "name": "R24 rear nut cup and bore X-26 Z-12.5",
+    "id": 2000,
+    "assembly_bounds": [
+      [
+        -29.2,
+        82,
+        -17.0
+      ],
+      [
+        -22.8,
+        94,
+        -8.0
+      ]
+    ],
+    "component_center": [
+      -26,
+      -89.4,
+      10.5
+    ],
+    "dimensions": [
+      6.4,
+      12,
+      9
+    ],
+    "purpose": "Exclude support from rear cup and coaxial screw bore; small roof bridges require physical review"
+  },
+  {
+    "name": "R24 rear nut cup and bore X-26 Z-49.5",
+    "id": 2001,
+    "assembly_bounds": [
+      [
+        -29.2,
+        82,
+        -54.0
+      ],
+      [
+        -22.8,
+        94,
+        -45.0
+      ]
+    ],
+    "component_center": [
+      -26,
+      -89.4,
+      47.5
+    ],
+    "dimensions": [
+      6.4,
+      12,
+      9
+    ],
+    "purpose": "Exclude support from rear cup and coaxial screw bore; small roof bridges require physical review"
+  },
+  {
+    "name": "R24 rear nut cup and bore X58 Z-12.5",
+    "id": 2002,
+    "assembly_bounds": [
+      [
+        54.8,
+        82,
+        -17.0
+      ],
+      [
+        61.2,
+        94,
+        -8.0
+      ]
+    ],
+    "component_center": [
+      58,
+      -89.4,
+      10.5
+    ],
+    "dimensions": [
+      6.4,
+      12,
+      9
+    ],
+    "purpose": "Exclude support from rear cup and coaxial screw bore; small roof bridges require physical review"
+  },
+  {
+    "name": "R24 rear nut cup and bore X58 Z-49.5",
+    "id": 2003,
+    "assembly_bounds": [
+      [
+        54.8,
+        82,
+        -54.0
+      ],
+      [
+        61.2,
+        94,
+        -45.0
+      ]
+    ],
+    "component_center": [
+      58,
+      -89.4,
+      47.5
+    ],
+    "dimensions": [
+      6.4,
+      12,
+      9
+    ],
+    "purpose": "Exclude support from rear cup and coaxial screw bore; small roof bridges require physical review"
+  }
+]

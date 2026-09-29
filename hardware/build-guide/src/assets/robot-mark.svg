@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 136" role="img" aria-labelledby="title desc">
+  <title id="title">BlooglyBlob</title>
+  <desc id="desc">An indigo robot with glowing cyan-white eyes, a rainbow smile, copper goggles and collar, and a spring antenna topped with a pale blue ball.</desc>
+  <defs>
+    <clipPath id="head">
+      <path d="M8 79V76a40 40 0 0 1 80 0v15c0 10-18 14-40 14S8 101 8 91Z"/>
+    </clipPath>
+    <linearGradient id="goggle-band">
+      <stop stop-color="#777680"/>
+      <stop offset=".22" stop-color="#d9d5c9"/>
+      <stop offset=".78" stop-color="#d9d5c9"/>
+      <stop offset="1" stop-color="#777680"/>
+    </linearGradient>
+    <linearGradient id="collar" x1="0" x2="1">
+      <stop stop-color="#855037"/>
+      <stop offset=".45" stop-color="#ce966d"/>
+      <stop offset="1" stop-color="#855037"/>
+    </linearGradient>
+    <radialGradient id="eye-light">
+      <stop offset=".35" stop-color="#ffffff"/>
+      <stop offset=".65" stop-color="#e2ffff"/>
+      <stop offset="1" stop-color="#65dce9"/>
+    </radialGradient>
+    <linearGradient id="rainbow" gradientUnits="userSpaceOnUse" x1="31" y1="92" x2="65" y2="92">
+      <stop stop-color="#ff767d"/>
+      <stop offset=".2" stop-color="#ffc56d"/>
+      <stop offset=".4" stop-color="#f5ed7a"/>
+      <stop offset=".6" stop-color="#8de5a1"/>
+      <stop offset=".8" stop-color="#7edcf5"/>
+      <stop offset="1" stop-color="#c3a0ff"/>
+    </linearGradient>
+  </defs>
+  <!-- Bold, self-contained shapes keep the same mark usable in the guide and on GitHub. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 18q0 6 9 6M57 51q0 4-9 4" stroke="#292747" stroke-width="6"/>
+    <path d="M39.00 28.56C39.00 27.66 43.03 27.07 48.00 27.83C52.97 28.59 57.00 30.69 57.00 33.11" stroke="#292747" stroke-width="6"/>
+    <path d="M39.00 37.67C39.00 36.77 43.03 36.18 48.00 36.94C52.97 37.70 57.00 39.81 57.00 42.22" stroke="#292747" stroke-width="6"/>
+    <path d="M39.00 46.78C39.00 45.88 43.03 45.29 48.00 46.05C52.97 46.81 57.00 48.92 57.00 51.33" stroke="#292747" stroke-width="6"/>
+    <path d="M57.00 24.00C57.00 26.42 52.97 28.52 48.00 29.28C43.03 30.04 39.00 29.45 39.00 28.56" stroke="#46417d" stroke-width="6"/>
+    <path d="M57.00 33.11C57.00 35.53 52.97 37.63 48.00 38.39C43.03 39.15 39.00 38.56 39.00 37.67" stroke="#46417d" stroke-width="6"/>
+    <path d="M57.00 42.22C57.00 44.64 52.97 46.74 48.00 47.50C43.03 48.26 39.00 47.67 39.00 46.78" stroke="#46417d" stroke-width="6"/>
+  </g>
+  <circle cx="48" cy="11" r="9" fill="#a5d5dc" stroke="#292747" stroke-width="3"/>
+  <circle cx="45" cy="8" r="3" fill="#faf8f1"/>
+  <g transform="translate(0 16)">
+  <path d="M13 94q35 13 70 0v12c0 6-16 10-35 10s-35-4-35-10Z" fill="url(#collar)" stroke="#292747" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M18 104q30 12 60 0" fill="none" stroke="#e5b28b" stroke-width="2" stroke-linecap="round"/>
+  <path d="M8 79V76a40 40 0 0 1 80 0v15c0 10-18 14-40 14S8 101 8 91Z" fill="#46417d" stroke="#292747" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M23 53c6-8 15-12 25-12" fill="none" stroke="#7771ad" stroke-width="4" stroke-linecap="round"/>
+  <path d="M0 60q48 20 96 0v7Q48 81 0 67Z" fill="url(#goggle-band)" clip-path="url(#head)"/>
+  <path d="M41 72h14" stroke="#292747" stroke-width="10"/>
+  <path d="M41 71h14" stroke="#bd8869" stroke-width="5"/>
+  <rect x="13" y="57" width="29" height="28" rx="10" fill="#bd8869" stroke="#292747" stroke-width="3"/>
+  <rect x="54" y="57" width="29" height="28" rx="10" fill="#bd8869" stroke="#292747" stroke-width="3"/>
+  <rect x="18.5" y="63.5" width="18" height="15" rx="7.5" fill="#65dce9" opacity=".28"/>
+  <rect x="59.5" y="63.5" width="18" height="15" rx="7.5" fill="#65dce9" opacity=".28"/>
+  <rect x="21" y="66" width="13" height="10" rx="5" fill="url(#eye-light)"/>
+  <rect x="62" y="66" width="13" height="10" rx="5" fill="url(#eye-light)"/>
+  <path d="M31 92q17 9 34 0" fill="none" stroke="url(#rainbow)" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+{
+  "status": "PASS digital checks; physical print and fit pending",
+  "cad": "R23/cloud18",
+  "bambu_studio": "2.7.1.62",
+  "changed_parts": [
+    "FB01",
+    "FB41"
+  ],
+  "affected_plates": [
+    2,
+    7
+  ],
+  "instances": 75,
+  "types": 52,
+  "unchanged_instances": 73,
+  "desktop_roundtrip_max_vertex_delta_mm": 4.5779999999773224e-06,
+  "settings": "All 75 object settings unchanged. Numeric print material settings retained. Desktop expands vector defaults and annotates preset names; differences recorded in project-comparison.json. No AMS synchronization or physical slot assignment.",
+  "geometry": "FB01 rotated X180 for established roof-down orientation; FB41 stays flat/front-down. Exact shared STL vertices merged without changing triangle coordinates. Four original switch blockers preserved; six additional front-mount support blockers added.",
+  "support_check": "No support in the four screw bores or the solid nut-channel regions. Extended entry envelope has two 0.1mm-spaced centerline samples at X103.64 Y202.16..202.26 Z14.8, above lower seat termination Z14.4: accessible edge support, not trapped inside channel. Trim visible entry-edge debris before nut insertion.",
+  "paths": "Whole K1/C2 sliced after desktop save; 3/11 objects, no skipped/outside objects. Full-height extrusion bounds include brims/supports and X1C extruder Y+2 offset.",
+  "warning": "Bambu reports bed_temperature_too_high_than_filament on PLA; retained established 60C K1 / 55C C2 bed profiles. Vent enclosure as documented; no temperature change introduced.",
+  "physical_limits": "New 1mm bearing web, M3 nut insertion, M3x6 engagement and 0.3mm nominal audio-cradle clearance require physical qualification.",
+  "no_print_dispatched": true,
+  "guide_not_notified": true
+}

@@ -1,0 +1,33 @@
+{
+  "reusable": {
+    "P19": "FB19",
+    "P20": "FB20",
+    "P21": "FB21",
+    "P32": "FB32"
+  },
+  "replacements": {
+    "P17": "FB01 structural shell",
+    "P18": "FB02 unwired cover",
+    "P22": "FB03 rear grille",
+    "P23": "Integral FB01 board posts",
+    "P24": "R26 FB24 with both tie slits closed; rear-face tape retention against existing cradle wall, no tape pad or support-height change; actual tape bond and connector fit unqualified.",
+    "P25": "R24 FB01 flat WAGO tape faces; old integral pockets retired",
+    "P27": "R24 adhesive tie mounts and supported bundles; old integral fuse saddles retired",
+    "P28": "R24 adhesive tie mounts and supported bundles; old integral capacitor saddles retired",
+    "P33": "R24 adhesive tie mounts and supported bundles; old integral fuse saddles retired",
+    "P41": "R17 FB41: changed, no longer a reusable alias",
+    "Pre-R18 P08": "R18 P08 matched M2 nut carrier",
+    "R14/R15 GS20": "R18 GS20 reinforced recessed M2 head",
+    "Batch09 AR01": "R19 AR01",
+    "Batch09 AR02": "R19 AR02",
+    "Batch09 AR03": "R19 AR03",
+    "Batch09 AR04": "R19 AR04",
+    "Batch09 AR05": "R19 AR05",
+    "Batch09 AR06": "R19 AR06",
+    "Batch09 AR07": "R19 AR07",
+    "Pre-R20 P30": "R20 P30",
+    "Pre-R20 P31": "R20 P31",
+    "R17/R20 FB01": "R21 FB01; shell-only relief; no current completed stock credited",
+    "P26": "Retired with FB26 in R24; no pressure pad in the taped-WAGO design"
+  }
+}

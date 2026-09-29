@@ -1,0 +1,160 @@
+{
+  "power": {
+    "header": [
+      "Block",
+      "Port 1",
+      "Port 2",
+      "Port 3",
+      "Port 4",
+      "Port 5"
+    ],
+    "rows": [
+      [
+        "W1 INPUT +5 V",
+        "J1 center",
+        "H2 Pi +",
+        "F1 input",
+        "F2 input",
+        "Empty"
+      ],
+      [
+        "W2 SERVO +5 V",
+        "F1 output",
+        "LEFT servo +",
+        "RIGHT servo +",
+        "HEAD servo +",
+        "C1 +"
+      ],
+      [
+        "W3 GND",
+        "J1 sleeve",
+        "H2 Pi return",
+        "18 AWG link to W4/1",
+        "C1 \u2212",
+        "H3 return, including C2 \u2212"
+      ],
+      [
+        "W4 GND",
+        "Link from W3/3",
+        "LEFT servo return",
+        "RIGHT servo return",
+        "HEAD servo return",
+        "Empty"
+      ]
+    ]
+  },
+  "signal": {
+    "header": [
+      "Pi physical pin",
+      "BCM / named signal",
+      "Connection"
+    ],
+    "rows": [
+      [
+        "1",
+        "3.3 V",
+        "S1 V"
+      ],
+      [
+        "6",
+        "GND",
+        "S1 G"
+      ],
+      [
+        "12",
+        "BCM18, lighting data",
+        "S1 DAT \u2192 S1 D5 \u2192 R2 \u2192 body pixel 0 DIN"
+      ],
+      [
+        "32",
+        "BCM12, left arm",
+        "S1 CLK \u2192 S1 C5 \u2192 LEFT servo signal"
+      ],
+      [
+        "17",
+        "3.3 V",
+        "S2 V"
+      ],
+      [
+        "9",
+        "GND",
+        "S2 G"
+      ],
+      [
+        "33",
+        "BCM13, right arm",
+        "S2 DAT \u2192 S2 D5 \u2192 RIGHT servo signal"
+      ],
+      [
+        "36",
+        "BCM16, head",
+        "S2 CLK \u2192 S2 C5 \u2192 HEAD servo signal"
+      ],
+      [
+        "11",
+        "BCM17, button",
+        "One normally-open switch contact"
+      ],
+      [
+        "14",
+        "GND",
+        "Other switch contact"
+      ],
+      [
+        "4",
+        "Pi 5 V rail",
+        "R1 \u2192 button LED +"
+      ],
+      [
+        "20",
+        "GND",
+        "Button LED \u2212"
+      ]
+    ]
+  },
+  "gates": {
+    "header": [
+      "Check",
+      "What to verify"
+    ],
+    "rows": [
+      [
+        "Unpowered harness inspection",
+        "Correct jack center/sleeve; distinct W1/W2; correct fuses and capacitor polarity; verified header orientation; no speaker-to-ground connection; all adapters continuity-tested; no exposed contacts or pinched wires."
+      ],
+      [
+        "Staged power-up",
+        "Qualified builder uses a current-limited low-voltage bench supply for initial harness checks, then the selected brick. Connect/verify one branch at a time with servo mechanism kept safe. Record rail voltage and unexpected idle current. Do not create test shorts in the robot."
+      ],
+      [
+        "Combined real workload",
+        "On actual 3A+, run normal approved motion, 16-pixel patterns at the initial brightness ceiling, duplex conversation and theme playback together. Record inlet/Pi/dongle minimum voltage and peak/steady current. Target \u22654.85 V at Pi under the tested load, never exceed 5.25 V on the 5 V system, and no fresh undervoltage/throttle flags or USB resets. These are prototype acceptance targets, not manufacturer certification thresholds."
+      ],
+      [
+        "Supply and wiring margin",
+        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing supply capacity. Confirm OEM leads, pigtails, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
+      ],
+      [
+        "Protection coordination",
+        "A qualified bench test using controlled loads, away from the assembled robot, establishes supply limiting, branch fault behavior, fuse time/current performance and wire heating. This is still open; the BOM does not claim every fault clears a fuse."
+      ],
+      [
+        "Audio",
+        "Check clean music and speech at the intended listening volume, including bass/percussion, enclosure rattles and hiss. Repeat with the bottom cover fitted; inspect the microphone openings and speaker mounting if performance changes."
+      ],
+      [
+        "Conversation",
+        "At 0.5 and 1 m: quiet/normal speech, room noise, motors active, interruption during playback and false self-responses. No documented hardware AEC is assumed. Do not accept a regression by silently switching to half-duplex."
+      ],
+      [
+        "Actual Pi / software",
+        "Implement and verify the 16-address lighting profile, including the mouth zone, before powering the lighting assembly. On the actual 512 MB Pi 3A+, check the client, voice effects and motion together for memory exhaustion, sustained swapping, audio underruns and startup failures. Select USB input/output by stable device identity and verify automatic startup behavior."
+      ],
+      [
+        "Lighting / service",
+        "Verify the 16-pixel address sequence, red/green/blue order and visible mouth end pixels, with no flicker during motion/audio. With external power disconnected, remove and refit the plain cover, reach the SD card, and operate each local disconnect without loading a board or pulling a wire. The character remains attached for routine base work."
+      ]
+    ]
+  },
+  "diagram": "External 5 V supply \u2192 panel jack \u2192 W1 INPUT +5V\n                                   \u251c\u2500 H2 micro-USB \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n                                   \u251c\u2500 F1 3.15 A \u2192 W2 SERVO +5V \u2192 three servos\n                                   \u2502                            \u2514\u2500 C1 1000 \u00b5F\n                                   \u2514\u2500 F2 1 A \u2192 H3 LIGHTING \u2192 body + dedicated head power pair\n                                                           \u2514\u2500 C2 1000 \u00b5F at feed; head powers eyes and mouth\n\nJack return \u2192 W3 GND \u2500\u250018 AWG link\u2500\u2500 W4 GND\nPi GPIO \u2192 two Pixel Shifters \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
+}

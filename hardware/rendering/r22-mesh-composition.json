@@ -1,0 +1,31 @@
+{
+  "authority": {
+    "cloud_name": "Blue Glee Blob - MAIN",
+    "project": "Admin Project",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "design_revision": "R22",
+    "cloud_version": 17,
+    "acceptance_record_name": "R22.json",
+    "acceptance_record_sha256": "0caa53c5174400c06be90665e2bdba9db519910d4205772050ddf8751aa69cee"
+  },
+  "replaced": [
+    {
+      "id": "GS11",
+      "source_sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+      "bounds_error_mm": 0.0005493823988445001,
+      "volume_error_fraction": 0.0001408941824489216
+    },
+    {
+      "id": "GS12",
+      "source_sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+      "bounds_error_mm": 0.0005493316431852691,
+      "volume_error_fraction": 7.926464092414869e-05
+    }
+  ],
+  "omitted": [
+    "AR10",
+    "AR11"
+  ],
+  "unchanged_rows_exact": 144,
+  "physical_fit_tested": false
+}

@@ -1,0 +1,5306 @@
+{
+  "schema_version": 1,
+  "scope": "Exact accepted-project semantic snapshot plus independent selected-STL triangle comparison in declared row-vector mesh frames. No generic surface-equivalence, support audit, slice determinism or physical qualification claim.",
+  "frame_convention": "12 coefficients: row-vector 3x3 rotation followed by translation in millimetres. STL -> raw normal-part mesh -> component transform -> build transform. Frames fitted to corresponding largest nondegenerate triangles then independently checked against every oriented triangle; tessellation mismatch requires review.",
+  "projects": [
+    {
+      "path": "hardware/printing/current/BlooglyBlob-R28-PLA-Production.3mf",
+      "project_sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+      "role": "required",
+      "global_settings_sha256": "75f3692f66601635b2bd6fd47cf33842ff0d01e655983482a919b7c025c7be26",
+      "plate_settings_sha256": "52196ae61ea1d730eefda90957cc69a98270923920347b2e93a890d5a71a8474",
+      "instances": [
+        {
+          "recipe_instance_id": "kit-P02-01",
+          "part": "P02",
+          "object_id": "2",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "d48748687ef2a3f6306db914f5e1cbfe1105181062840947dabaf0d1ba708f2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              67.2000063,
+              86.6500023,
+              4.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
+                "mesh_sha256": "6bbc8ad7f029a22999df19ef4d988080bc0e94950a0008016d699b48046bfb5e",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1700 triangles, recipe 2814; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P03-01",
+          "part": "P03",
+          "object_id": "4",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              204.700016,
+              160.109581,
+              23.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "c2512d555478bb57cca67589006a88f6cb33a2a28edc3504c66867f2a7020843",
+                "mesh_sha256": "ce159d259567ef44438e6debf0f5f5cffa0f701ba1860140184b11a6ead62b48",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1340 triangles, recipe 2156; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P04-01",
+          "part": "P04",
+          "object_id": "6",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              121.700016,
+              148.109581,
+              4.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
+                "mesh_sha256": "00c56478c3908c3b941d9bd7f3e40967c3cd8b9c4358cc874863de0525779180",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 716 triangles, recipe 1148; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P06-01",
+          "part": "P06",
+          "object_id": "8",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "d48748687ef2a3f6306db914f5e1cbfe1105181062840947dabaf0d1ba708f2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              90.2000167,
+              98.4934393,
+              2.4000001
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "74ddb29c48b5ed12ae8d0f4195465f5263a0462976d26126a4b3b5dd3aa5da00",
+                "mesh_sha256": "73a3c1b087b3e3eb7a7bb10670e053da1fcb00ce3a33a49bee04f1e72bdb02f6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1704 triangles, recipe 3320; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P08-01",
+          "part": "P08",
+          "object_id": "10",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            3.044348106939765e-10,
+            -0.9999999999999998,
+            0.0,
+            0.9999999999999998,
+            3.044348106939765e-10,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -4.485313787050416e-09,
+            -7.606530516568455e-09,
+            -4.0999999
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "d11836d4205f5c63d75bafcbe77c9486194f3ec76c46a753d1aa4f3894022d29",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              193.627396,
+              74.5547905,
+              4.0999999
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "6c1c8fb323f329238e00456947f69a9d5eadc6e449955fc2ae4ef5bc4c7d48ea",
+                "mesh_sha256": "738f3354260a501455573891447166d19aeb5c15ef06aee46ca90cd12127a499",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P14-01",
+          "part": "P14",
+          "object_id": "12",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "d48748687ef2a3f6306db914f5e1cbfe1105181062840947dabaf0d1ba708f2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              106.200015,
+              52.4967192,
+              5.67999983
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "884c09e37351676838b6c857abe17454c11e3676c7b959d9f02af273e397e028",
+                "mesh_sha256": "6626de9a7d0c4b69c5bce472c374a4b4606a1e1fd6f87030a172e6aa02dc2c2f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 2316 triangles, recipe 3878; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-FB24-01",
+          "part": "FB24",
+          "object_id": "14",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.0,
+            1.0,
+            0.0,
+            -1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            2.587890612915089e-08,
+            -2.5878904352794052e-08,
+            -16.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "d11836d4205f5c63d75bafcbe77c9486194f3ec76c46a753d1aa4f3894022d29",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              33.3499952,
+              103.493401,
+              16.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "ccc8eefd1a48ab56c5d115c6e623c590dea45ee62435f6345732105dd3e1375a",
+                "mesh_sha256": "84e8a43546a8c2ab6887fd3c8bab0e1920747d853b8e5d43f34201ddee825f52",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB32-01",
+          "part": "FB32",
+          "object_id": "16",
+          "plate_id": "W1",
+          "plate_number": 1,
+          "source_sha256": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.9999999999999994,
+            -3.73018053251295e-08,
+            0.0,
+            -3.73018053251295e-08,
+            0.9999999999999994,
+            0.0,
+            0.0,
+            0.0,
+            -1.0,
+            -2.9654949429414046e-07,
+            3.721990129434971e-06,
+            1.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              76.5,
+              206.336802,
+              1.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "67bc1e8c39e4217d25cfa1006128bbac7344c8bee629c07c048e203f47a9092d",
+                "mesh_sha256": "021e3f46be3f72b89b339d6533bbc30bef2224e1b4b5c93cb24bd2e2cf219cef",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB01-01",
+          "part": "FB01",
+          "object_id": "32",
+          "plate_id": "K1",
+          "plate_number": 2,
+          "source_sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0,
+            -6.626157941780342e-09,
+            0.0,
+            6.626157941780342e-09,
+            -1.0,
+            0.0,
+            1.1500013999819032,
+            33.49999972103876
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "0253d99f8c7f14b1c3255eac0b655306b74cd090d55d5073d4104075dad29902",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              435.2,
+              112.0,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "c26d016d774eb130ec09508d7b024b918a8d926308655de01e2a38de21d9a5fa",
+                "mesh_sha256": "313a623d2b06a9d70332f9c2aaadaf2e6d66ed141b0bb68cb5b623654ba5d2af",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  -1.15000153,
+                  33.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "b52118b2a651ce7abb5e04bf0d22722b4de2bf4211f0e273579641a6084dae8b",
+                "mesh_sha256": "b366e8fad85c477de4074cf1bccf4898b900c3e4e40e01401f2dd991f04f69e6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  73.0,
+                  74.5999985,
+                  4.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "3874cf7df4238c9691c16ec8c1d9a37c7adb536f4c35db2ae521b630a11e96d4",
+                "mesh_sha256": "150639a0e2c40aca523adef7b69c62bfcf4f6c46fbf3b8e807ba5c38bb95d831",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  76.0,
+                  74.5999985,
+                  34.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f19820e19f4094dfe156d5a560d6ac70da19689a9277ea9dd602beb9a3614ad9",
+                "mesh_sha256": "b366e8fad85c477de4074cf1bccf4898b900c3e4e40e01401f2dd991f04f69e6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  97.0,
+                  74.5999985,
+                  4.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "b56ff95c5131a21437cb57906227d2669079b537b75bfba489cfee30b3b767da",
+                "mesh_sha256": "150639a0e2c40aca523adef7b69c62bfcf4f6c46fbf3b8e807ba5c38bb95d831",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  94.0,
+                  74.5999985,
+                  34.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "0463248e590d2762afa05c790e1069bcef7b746d2e021f42e0b4071a656756e7",
+                "mesh_sha256": "ac671d338c73cb4a8ad1b79804ab6cafbd1d4f0bec6f06a6cc15b0b3388cd814",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -27.0,
+                  89.2,
+                  34.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f1b9842e03e8aa96f6e16d00aa11f38925dc62f3ee5fa4d568ea553b26a320f6",
+                "mesh_sha256": "c868c575f4473d0f70f06fa1d3a817e8acdd5e279d700450ead33599286c6691",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -27.0,
+                  90.0,
+                  8.7
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "88f45852d7347ad10d31dd1abe6a8b342ef5c824cf95a64c57e8e61771934a5a",
+                "mesh_sha256": "c868c575f4473d0f70f06fa1d3a817e8acdd5e279d700450ead33599286c6691",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -27.0,
+                  90.0,
+                  38.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f4d72cbeed099e6e1cfc9cddeee2f7610e5488f759402900bd98bafbcd974725",
+                "mesh_sha256": "ac671d338c73cb4a8ad1b79804ab6cafbd1d4f0bec6f06a6cc15b0b3388cd814",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  51.0,
+                  89.2,
+                  34.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f656471fa3bddc495c6cce385b1c207eb4cbcf56bbedbc37df3a8f79ab2d6515",
+                "mesh_sha256": "c868c575f4473d0f70f06fa1d3a817e8acdd5e279d700450ead33599286c6691",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  51.0,
+                  90.0,
+                  8.7
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "affb4a2cd01d8a2cf927d37b2de871cecb1cf76bd7449676d4c7d3fc1ebba023",
+                "mesh_sha256": "c868c575f4473d0f70f06fa1d3a817e8acdd5e279d700450ead33599286c6691",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  51.0,
+                  90.0,
+                  38.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "ff6f7fa87fdd418804789277d0015df54fba3c7bbf2b742883a73ce0769dfbad",
+                "mesh_sha256": "5d49fcabdf60b839cd472e6ae81de748e4e24bc0fe513b266b66786a39d18d12",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -26.0,
+                  -89.4,
+                  10.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "370723da95aaaacc59d7d65e2f23ad02e0fd49add1d11a71aa769a2eeac0f61d",
+                "mesh_sha256": "5d49fcabdf60b839cd472e6ae81de748e4e24bc0fe513b266b66786a39d18d12",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -26.0,
+                  -89.4,
+                  47.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "327a63cedea8eb4348910dc629ae6271115977f48cb85ab3c9178228aacaec64",
+                "mesh_sha256": "5d49fcabdf60b839cd472e6ae81de748e4e24bc0fe513b266b66786a39d18d12",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  58.0,
+                  -89.4,
+                  10.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "72cf224dab992b0fe1811ad0b6fff0705a5d399f7d95f568f20bcf5a26da3dba",
+                "mesh_sha256": "5d49fcabdf60b839cd472e6ae81de748e4e24bc0fe513b266b66786a39d18d12",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  58.0,
+                  -89.4,
+                  47.5
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "04e2ea5d34376498bb05d7354e668bb55648e8971c8e5b0265006857a281c6a9",
+                "mesh_sha256": "9e7654c5f95e2cefef49c53c165de1cad96aaa60ba504e820ac4f91bdc94a9ee",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  80.0,
+                  -89.4,
+                  34.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P30-01",
+          "part": "P30",
+          "object_id": "34",
+          "plate_id": "K1",
+          "plate_number": 2,
+          "source_sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -1.8530272427597083e-08,
+            -4.632568106899271e-09,
+            -8.48499966
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "9e715c8ddbd96a768428a337ebc9ea528bb7bcde16c2b3ae619f5cbf7a36c6ff",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              380.2,
+              238.0,
+              8.48499966
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "3b190dbf63f920e91188c76cd18ea055e1ce0101512ba938926766c77b741f0b",
+                "mesh_sha256": "15ed969fc98ffcbee6ad354ae4491065ef49930dfd9935d1e0090d8eca87aebb",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P31-01",
+          "part": "P31",
+          "object_id": "36",
+          "plate_id": "K1",
+          "plate_number": 2,
+          "source_sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            2.7533289537196026e-10,
+            0.0,
+            -2.7533289537196026e-10,
+            1.0,
+            3.7060548407907845e-08,
+            4.708192946623058e-09,
+            -9.372317309955395
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "9e715c8ddbd96a768428a337ebc9ea528bb7bcde16c2b3ae619f5cbf7a36c6ff",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              468.2,
+              240.0,
+              9.37063694
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "fbf51193bb4bf56c676cd45897ed2af1de9a785db20e62042ceed4b130ce4c7e",
+                "mesh_sha256": "37321276d6c135399fd3c6e45696e538bcfe6fd78880a4fff59095720b85cd00",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P02-02",
+          "part": "P02",
+          "object_id": "38",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "c65fb6ed55021c17cf759a69f2a25cce24fef12a4eb279ff7decbf9a65f04edd",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              634.900009,
+              86.6500023,
+              4.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
+                "mesh_sha256": "6bbc8ad7f029a22999df19ef4d988080bc0e94950a0008016d699b48046bfb5e",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1700 triangles, recipe 2814; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P06-02",
+          "part": "P06",
+          "object_id": "40",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "c65fb6ed55021c17cf759a69f2a25cce24fef12a4eb279ff7decbf9a65f04edd",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              842.00485,
+              41.5000009,
+              2.4000001
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "74ddb29c48b5ed12ae8d0f4195465f5263a0462976d26126a4b3b5dd3aa5da00",
+                "mesh_sha256": "73a3c1b087b3e3eb7a7bb10670e053da1fcb00ce3a33a49bee04f1e72bdb02f6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1704 triangles, recipe 3320; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P09-01",
+          "part": "P09",
+          "object_id": "42",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              765.477433,
+              46.0,
+              3.70000076
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "08dab4d79db545cb64e3eed33abb728be4048e6d5ecd4e0290e0c06f43ef0b71",
+                "mesh_sha256": "f7f287c2ab749f5f1a4996c0f3540eebf86c25280520e00747b2d3af14163bdb",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 436 triangles, recipe 1080; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P09-02",
+          "part": "P09",
+          "object_id": "44",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              807.504848,
+              44.0274153,
+              3.70000076
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "08dab4d79db545cb64e3eed33abb728be4048e6d5ecd4e0290e0c06f43ef0b71",
+                "mesh_sha256": "88d8fd903d4e10fa02b0faf030c91c7f4919d34d2e3509924e22a8c7b1cf6be5",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 436 triangles, recipe 1080; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P10-01",
+          "part": "P10",
+          "object_id": "46",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              683.397093,
+              239.085106,
+              9.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
+                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P10-02",
+          "part": "P10",
+          "object_id": "48",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              711.030028,
+              239.085106,
+              9.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
+                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P10-03",
+          "part": "P10",
+          "object_id": "50",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              738.662962,
+              239.085106,
+              9.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
+                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P11-01",
+          "part": "P11",
+          "object_id": "52",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              690.605626,
+              149.5,
+              11.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
+                "mesh_sha256": "cb163b599c7f20ca7e543c962c8447d172596bc878dc706e24babbefd4092522",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 776 triangles, recipe 1120; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P11-02",
+          "part": "P11",
+          "object_id": "54",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              724.425018,
+              61.5,
+              11.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
+                "mesh_sha256": "cb163b599c7f20ca7e543c962c8447d172596bc878dc706e24babbefd4092522",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 776 triangles, recipe 1120; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P12-01",
+          "part": "P12",
+          "object_id": "56",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              706.97428,
+              209.68277,
+              11.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
+                "mesh_sha256": "274be3ba5e55d50173f6a60da14696eb78ea196f9eba00d0753668db0fe6cf83",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 614 triangles, recipe 828; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P13-01",
+          "part": "P13",
+          "object_id": "58",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              729.380625,
+              131.4,
+              8.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "9a69a7aa035cfc3436b37519d589b46c22743e18a208bf80379e3b4ab0da9432",
+                "mesh_sha256": "132855ffcee190a9424b8c6b44b09413034be085453c163d661dcad6d3e1ba68",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 744 triangles, recipe 1072; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P34-01",
+          "part": "P34",
+          "object_id": "60",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "22d8042daa8914059ad12d1dceb5699e0423d9773d18420420cc6d8b1177e3aa",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              674.400019,
+              68.0,
+              3.66969681
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "fc3c83b26882770d24d18aa892761a461c926ab39ff145fe6570bc018ef25779",
+                "mesh_sha256": "517404726dc647104caa3dcdc46239667b4265c447504de67dbfb9852189d0f6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 2112 triangles, recipe 3516; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P35-01",
+          "part": "P35",
+          "object_id": "64",
+          "plate_id": "W2",
+          "plate_number": 3,
+          "source_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            38.909687,
+            0,
+            -66.75
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "20a353f74c77d9d12426c936b79b61287e251db64722052353abe0d91489834c",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              646.990313,
+              194.900003,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "ea1ff37482b4aa04730d2580794d76ec12ac29e4aa4e577fc667696a9e4bc755",
+                "mesh_sha256": "0ab4c5100cc93bfed7c6b8d679c218170281f919ee6bd2e21b999e93c673b6f3",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  36.75
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f438776c2840b52fcee9d4df5c007370a0e69038944d0e13f812911654d8b06f",
+                "mesh_sha256": "f1de0a7244420b69fa1541430b671e4a663d6c45c6c042d761422f907b3919f6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  12.4911108,
+                  31.4844265,
+                  26.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "489bc7ede571885bdbe8f632ebc801dae887a6e07d6ff124ee09b0a5c438733c",
+                "mesh_sha256": "72c147695e39a0e20ea7a0dba5ca37874685bde5926b9c3bb6cb29daabbde143",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  12.4911108,
+                  -31.4844265,
+                  26.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-AR01-01",
+          "part": "AR01",
+          "object_id": "74",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.0,
+            1.0,
+            0.0,
+            -1.0000000000000002,
+            0.0,
+            1.903696089655682e-10,
+            1.903696089655682e-10,
+            0.0,
+            1.0000000000000002,
+            -0.00016498840010420457,
+            0.0,
+            -15.999999999690512
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7feaf02a14523c5e955715dcc070a3001307d78d9422f2c02fd8477bf3a00c13",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1078.3942,
+              45.75,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "e3cdef808b4fe05eebaa46112e8851db1fa2a2c05e60c5e76c4af898d734f73c",
+                "mesh_sha256": "e151f5326211f37b18483069fb9f05b922dc80c7b2cfff52b850984999f1209b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  16.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "a43f4515b5930b143093695b325019b167a5962f47f85fcb33d4d6d5bf24afbc",
+                "mesh_sha256": "a8d9b9c0c765eac4ec8e88aaa8b922105acfb0e4e35e5f591ae0f84de1999d30",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -12.500165,
+                  -4.75,
+                  29.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "e6a3a5580f00dd645aae1e1b01969f8991239e3e23834c0373b1f956ca268411",
+                "mesh_sha256": "41f806b04c3f3f3280e072d640de24b8b263fbf1150f29e8fd5054ab3bae2361",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -12.500165,
+                  -4.75,
+                  3.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "ab156a0191f27de90ed7df50972e54125ab9bebe32521d317ee36df6de21c00c",
+                "mesh_sha256": "16f7d796b468cac3dbaf66e569fd8178246e53148eb83b46d3ddc352163e242d",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -12.5001649,
+                  -8.19999981,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "377e627902fad5c8de633dc6d7a7727e924ef489b612dfec351c76a301295b17",
+                "mesh_sha256": "549e86469d3f89eaffba64d939f2cdba91f22a76c698d8b99a29dc568ffdf2f6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  21.4998341,
+                  -7.49999952,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "ecaae43dbe4b7fef79286d06784a3aefd9f1d03ab487950a2498cfb8541ef179",
+                "mesh_sha256": "bdd556f604e2068aa9201b2c4bfe3d3ed6f121291f71a6ebe2a135bdb2e84d03",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  21.4998369,
+                  -1.25,
+                  15.999999
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "e02eb1f935e75cc7eff5927139d7cd443f365c620b79fee86de1ed0914aebec0",
+                "mesh_sha256": "afbb155c53e9c0429841847a9b5b0364456938150f3f153dec8e72cc40c8ce01",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -12.500165,
+                  -3.75,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "717df6f04a78e34a25d91a555e416d9ee34929a903d01cbf7e5f28403b784130",
+                "mesh_sha256": "7805423f1d8cdbd9ee4b468b1bedc5c1b1b99578188bafa7fa6adbcaa93a40a3",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  21.4998341,
+                  0.25,
+                  16.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8875a3a9b913e36bb750cf84219e121e37e89395078869a4d1f6e6bde77c99b7",
+                "mesh_sha256": "652a4a548d88831f35d8237cad080c421536219a419fb42b86cff712e67b89b0",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  21.4998341,
+                  7.7249999,
+                  16.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-AR04-01",
+          "part": "AR04",
+          "object_id": "84",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -3.0526980943079707e-10,
+            0.0,
+            3.0526980943079707e-10,
+            1.0,
+            0.0,
+            0.0001649804352840123,
+            -15.999999999934545
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2e02c202f3dcc5ec2411cfcc38538843ceb79f7a73af94868ca816d1d341ab7b",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1141.14404,
+              64.999836,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "e3cdef808b4fe05eebaa46112e8851db1fa2a2c05e60c5e76c4af898d734f73c",
+                "mesh_sha256": "c0b6273e46c430ccd91db7fc7aebebc37ccdf3a4d4333f97f12f0faff7489503",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  16.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "05d0f4efaadb0452219c2919e218f947744346ea695ccb4fce5daaaa5f3a3517",
+                "mesh_sha256": "30cd30be078794ac6b8336535cdd83b7d0b337ef97f13e458411c54c6b2db88b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -4.75,
+                  12.500165,
+                  3.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "fc0ff90804fb467ede304e86eedde8ded8910bd285330f4b7f71173e6d23cd95",
+                "mesh_sha256": "8773265e8e9d286aa98a5aa8afe8fd62b50de929de168472bfee60df58ac6764",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -4.75,
+                  12.500165,
+                  29.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f864f2c058d738d1cec55737d16eb2ecae5764c75799b4e3f823650b4f8ffdae",
+                "mesh_sha256": "3ace62baef5a5b22a39841a7f015da3a514e6365ca5d66e959936fe59fad0f1c",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -8.19999981,
+                  12.5001649,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "7a8dc8cd15fdcb8ac19293cab0201c371588574152a98397ac7c966a5c2538bb",
+                "mesh_sha256": "95766b782e14b729f8864ea6f57928b122ef3e0fc03eabe17dba36d5e1042932",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -7.49999952,
+                  -21.4998341,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "6d867e64d59324526ed294ad33ad77bb1ebcaf88149931a5be32a9b3f1445f14",
+                "mesh_sha256": "1029ec6ebb98bb9daabb82ba32b4f6a184c94d502bf0427ef4fe5b7ffa3396cd",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -1.25,
+                  -21.4998369,
+                  15.999999
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "a9c2f3de7ae2720cc577f69e174a5b2eb34edb227d34afc3bf67ee0c40f151dd",
+                "mesh_sha256": "77b8f933ca0192be4d3583cc67b34df8ab94cf0c931da556e2b12758017e08d7",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -3.75,
+                  12.500165,
+                  16.000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "993506ed39ca230eae074f802997200bb734a5e91fb057dc47c3d866a6b5155b",
+                "mesh_sha256": "29783c00d7935237e2b86bf833036bb99ba4b9d28bc4cd00c087a399eeeebd1d",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.25,
+                  -21.4998341,
+                  16.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "860a2544483f3c60cd98e633c14fcaf2816c545bfb2a4822a151ace56b5d751e",
+                "mesh_sha256": "75de823ba67672962d62d54cb3ddf22798aa4ab250c25273c6a43c1e12ff4227",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  7.7249999,
+                  -21.4998341,
+                  16.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P01-01",
+          "part": "P01",
+          "object_id": "86",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "c125758edefcb14d6c752f6f33defc17e360738d3426d397379bdd27a348f073",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              984.495948,
+              76.8962606,
+              3.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "fa39b98b134a38b550cca9b07a8e7971e6890e59682b8b588c114f2c07f10fe0",
+                "mesh_sha256": "2539959fe1672ebf74ee770ba78d174c27abad8c73e04e53ca72ba4c76504c05",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 2128 triangles, recipe 3292; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P01-02",
+          "part": "P01",
+          "object_id": "88",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "c125758edefcb14d6c752f6f33defc17e360738d3426d397379bdd27a348f073",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              984.495948,
+              182.693443,
+              3.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "fa39b98b134a38b550cca9b07a8e7971e6890e59682b8b588c114f2c07f10fe0",
+                "mesh_sha256": "2539959fe1672ebf74ee770ba78d174c27abad8c73e04e53ca72ba4c76504c05",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 2128 triangles, recipe 3292; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-GS11-01",
+          "part": "GS11",
+          "object_id": "92",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.9999999998614825,
+            -1.6644356191107793e-05,
+            -2.026805398937518e-08,
+            1.6644356190887242e-05,
+            -0.9999999998614828,
+            2.4063825437456912e-09,
+            -2.0268094039255838e-08,
+            2.406045194702467e-09,
+            0.9999999999999999,
+            3.243456664825395e-05,
+            4.488171868066715e-05,
+            -4.00000438688545
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2e02c202f3dcc5ec2411cfcc38538843ceb79f7a73af94868ca816d1d341ab7b",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1066.17665,
+              92.8254514,
+              1.53442414e-09
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "5256b77e96efde067571467a66e84d097e5c653abe60e0fec9624b64b05d2abb",
+                "mesh_sha256": "8c5fdd654deb06eea2a20798495f10fe346547304a139bf94bf435a20ce7275b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  4.00000429
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "beffcd8faa85e3225b283150f3f6f8f07b558a4e784afeda9dd0f9818e7c619e",
+                "mesh_sha256": "4a72b15efd3965cb16e4a139770a5ecd538676a3ab5565aef2b0b30260571f2a",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  11.2542582,
+                  5.29672575,
+                  4.50000474
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8eb92ec8aac9ed782e76f2893f58dd923fa47dd106112e36b79ac383492597d7",
+                "mesh_sha256": "2520b044a7a1b830e6540a9fed22ed2fc9ab9d2a15fe0fcc742d84481a98ec58",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -6.74574232,
+                  5.29642654,
+                  4.50000474
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-GS12-01",
+          "part": "GS12",
+          "object_id": "96",
+          "plate_id": "C1",
+          "plate_number": 4,
+          "source_sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.9999999998575578,
+            -1.6878505110288245e-05,
+            -7.709183449159144e-09,
+            1.687850511011558e-05,
+            0.9999999998575578,
+            2.862744007078431e-09,
+            7.709135129221732e-09,
+            -2.8628741261629205e-09,
+            0.9999999999999998,
+            3.337094029198795e-05,
+            -5.477218900296066e-05,
+            -4.000004191783485
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "2e02c202f3dcc5ec2411cfcc38538843ceb79f7a73af94868ca816d1d341ab7b",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1123.74122,
+              131.325136,
+              1.53442414e-09
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "07490c32858eb7214cd67cfcb82fa8af2994901330636736e02ff476dd8bc22a",
+                "mesh_sha256": "3cbd27ab7e173e319b6f84c5958baf700b05d73782993e3fc6172cbebfefdcdd",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -2.25422764,
+                  0.0457291603,
+                  4.00000429
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "653668d894fa4d0de0b7ea95bf36385c1d3b2cfcf69139d8bb073faf0ef11b9e",
+                "mesh_sha256": "acd81f01c372e1e59359befc4b593731390026d2a50db77ca9b5c6f140e86b93",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -8.99997044,
+                  -5.25070667,
+                  4.50000474
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "c53abf269640819126c8bbbf8db135d2b2c1924841f5051b2861b978cc94b446",
+                "mesh_sha256": "b993e52c7b9f406a38dcf6ee50e51ae4babdd14a80d642e6c58b9205a1ce31f8",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  9.00002956,
+                  -5.25100922,
+                  4.50000474
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-AR02-01",
+          "part": "AR02",
+          "object_id": "100",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "ad6b6416d9ad538e82a77517813396eac2da66567958044081352b69a2a473f1",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              79.1143086,
+              -127.834301,
+              1.50146491e-08
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "4b0d02541b8a18cbfcde659f0fb9466b36ef31d65271dbcee69788c01f582ae9",
+                "mesh_sha256": "e705dddcdf62f6f6660d3cd21abff1fd8056445a8a27403a2dfb70be672209d5",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -4.05311584e-06,
+                  1.1920929e-06,
+                  14.4249935
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "1a03b20a50cb9990f08f645ca3615c8402f1a8776b75bec4a0af6690bb31e588",
+                "mesh_sha256": "e1c2c9475030186fff4e4fe08397b1ec2489e7215c3d13be52ffb71536cde705",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -0.00916457176,
+                  -0.392060041,
+                  26.0499897
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "7163065b4b4bd3825a02fb0053937c04a3206bfb171192718c2edb15ae8c9267",
+                "mesh_sha256": "46483fd7cced4512806c78d4d40ef56b98f124566519954cb36cba366b1cfc94",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -0.00916457176,
+                  -0.392060101,
+                  5.84998655
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Mesh coordinates differ or tolerance match is ambiguous; review required"
+        },
+        {
+          "recipe_instance_id": "kit-AR05-01",
+          "part": "AR05",
+          "object_id": "104",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "ad6b6416d9ad538e82a77517813396eac2da66567958044081352b69a2a473f1",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              117.275221,
+              -86.9265821,
+              1.50146491e-08
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "a37f5f89c3b596b25e6e35134ae57d66e4df221eb94349902211398d07782239",
+                "mesh_sha256": "183bfb607fc793197fab331ea207e2556e59f127f8ae11540efa5b845d9a959d",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  14.4249935
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "476ceca24d325904dc099e4fd5d3bbc0272f0056260e06e93fcedc3d650ac18f",
+                "mesh_sha256": "b8357ed9730167bfea9899abfe613a8875336bdaf429d8c33fbdd32c81d57494",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0118684769,
+                  0.392537832,
+                  26.0499897
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "24db2ae4630df18e431dab08eb2f93372f972751f42ec25605dc25cd69568501",
+                "mesh_sha256": "36feb936050680ddbf70e5c857827e0c7c51ea61ecd958d9f61c29f6381cb58e",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0118682384,
+                  0.392537773,
+                  5.84998655
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Mesh coordinates differ or tolerance match is ambiguous; review required"
+        },
+        {
+          "recipe_instance_id": "kit-AR03-01",
+          "part": "AR03",
+          "object_id": "107",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "ad6b6416d9ad538e82a77517813396eac2da66567958044081352b69a2a473f1",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              76.0399548,
+              -81.4445036,
+              -2.91503905e-08
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2fc9757772a75743a9f3d8fae5672b1857192722df85cfac145df26dc3c1b62a",
+                "mesh_sha256": "74fc6e2355696af798de39b71a2ff5cbcc26750e9fb7281deb2f255768d5330b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  4.76837158e-07,
+                  7.15255737e-07,
+                  13.3371239
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "4b070008a1fa6ce793c3849066854751f6cdbf64cdd8391ad795cae0160abad1",
+                "mesh_sha256": "9840dbd3a272d2eb200e356e84286e091e02695654ff967548df5b242c2cf1ec",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  2.4448619,
+                  1.43051147e-06,
+                  0.900000088
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Mesh coordinates differ or tolerance match is ambiguous; review required"
+        },
+        {
+          "recipe_instance_id": "kit-AR06-01",
+          "part": "AR06",
+          "object_id": "110",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "ad6b6416d9ad538e82a77517813396eac2da66567958044081352b69a2a473f1",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              32.0133183,
+              -81.4445036,
+              -2.91503905e-08
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "1226cc62a08a6b11380fd310480edec59b595c4786f6a8f2c831358898114a24",
+                "mesh_sha256": "4d98ce761482c352be221d502dd59d2b8bb4427bf746b4b2927cbfa545cc8fd8",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  4.76837158e-07,
+                  -2.38418579e-07,
+                  13.3371239
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "2451f60b9d5273c6cbe6a3a641baffa1cb3a63cbc4bf673a9badbe79cac054ca",
+                "mesh_sha256": "4a1aa1c1eeb54c5ad39239059a9639ee564fc5814b8a8ae65795ba5ce241d1c0",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -2.44486099,
+                  4.76837158e-07,
+                  0.900000088
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Mesh coordinates differ or tolerance match is ambiguous; review required"
+        },
+        {
+          "recipe_instance_id": "kit-AR08-01",
+          "part": "AR08",
+          "object_id": "112",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "0670b4e3a991610ad14837d04040cc103f92d0d73d1b826d3923937b588a3b4d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              37.7151031,
+              -182.016833,
+              6.4000001
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "e0b708a6d7451ad0d531de2bc98cbd5cd4bbc4d6d878b3ae627790304c293c64",
+                "mesh_sha256": "930a92d9c215dd9e41abcdce13717919a8ecbee1bfde404da24530670425ba7e",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 19378 triangles, recipe 71626; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-AR09-01",
+          "part": "AR09",
+          "object_id": "114",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "0670b4e3a991610ad14837d04040cc103f92d0d73d1b826d3923937b588a3b4d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              37.7151031,
+              -249.472278,
+              6.4000001
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "e0b708a6d7451ad0d531de2bc98cbd5cd4bbc4d6d878b3ae627790304c293c64",
+                "mesh_sha256": "2325fd4d5c1c9029acc3d82d078da3534d02efecffa92b11588cd6a3134b987a",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 19378 triangles, recipe 71626; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-A04-01",
+          "part": "A04",
+          "object_id": "118",
+          "plate_id": "B1",
+          "plate_number": 5,
+          "source_sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "07477adfb5d97375cf4dd2e8099445be97dd6c7ce83eda57171cee45ebd50ca2",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              34.9473043,
+              -123.341807,
+              2.58789079e-08
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "df52fcc1b5a682af661b8478f33cad34cd463f5ce854b2b31e23c44bccda574b",
+                "mesh_sha256": "edf833eef4556438fae20288ac00eeedef1df1de17ef422bad2484b3808a8a35",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  21.6500015
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "55b8e1584b61b461521a2f5c8a3339528380469e09a49188a955bfd7d6fb39da",
+                "mesh_sha256": "38096a5458766a5727fbde5a244952c38f311dddd45e412621a99c2dac198240",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  2.35000012
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "637f595cf4e817e13bc2b2510b0df75c943e7d403b1b6196cb1a663e27cdeb27",
+                "mesh_sha256": "460edc88402e0fa2989604694bf3d54acb75b87c314fa6e6496534571231f21c",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  41.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 78388 triangles, recipe 98700; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-GS20-01",
+          "part": "GS20",
+          "object_id": "120",
+          "plate_id": "B2",
+          "plate_number": 6,
+          "source_sha256": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            2.859609868344215e-09,
+            -3.1126989874508126e-11,
+            -2.8596100626332444e-09,
+            1.0,
+            -9.405308198928708e-10,
+            3.112701763008374e-11,
+            9.405307088705683e-10,
+            1.0,
+            -1.0862735955186054e-07,
+            -7.881103414320023e-08,
+            -24.495590248082827
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "82261e3cf001d6f612c9dc0a245758b1a9ccfe12f89cacfa2b5f7237789b2b42",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              435.19999,
+              -179.19998,
+              24.4955902
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "e71dd4399deefdbd3765203affb8e55df4e1fbf703640f41149adc8ab50f33cf",
+                "mesh_sha256": "d8b49f3075268203966e2bcf5bb5617aa1d597b013697281ce4fcd77ff45a802",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB03-01",
+          "part": "FB03",
+          "object_id": "122",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            1.6457391005531008e-12,
+            0.0,
+            -1.6457391005531008e-12,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            2.848855595871669e-10,
+            1.1528555887707626e-12,
+            -1.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              693.4,
+              -138.2,
+              1.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "67bc1e8c39e4217d25cfa1006128bbac7344c8bee629c07c048e203f47a9092d",
+                "mesh_sha256": "31465c546cec50b4719fcf147e7d70d570ca6c508770e4d3b265035e3bc66c94",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB19-01",
+          "part": "FB19",
+          "object_id": "124",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            -4.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              734.4,
+              -223.2,
+              4.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "b3f33e6edb686af5b2a4f6074889951dcade1233e232acb5e491f8efef8ae7dc",
+                "mesh_sha256": "7a4ee2c1f5cbdd5e5ce69c2dc5ebf04c3b0e6639758a0ae7d80ce9b9e82189e2",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB19-02",
+          "part": "FB19",
+          "object_id": "126",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            -4.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              670.4,
+              -223.2,
+              4.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "b3f33e6edb686af5b2a4f6074889951dcade1233e232acb5e491f8efef8ae7dc",
+                "mesh_sha256": "7a4ee2c1f5cbdd5e5ce69c2dc5ebf04c3b0e6639758a0ae7d80ce9b9e82189e2",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB20-01",
+          "part": "FB20",
+          "object_id": "128",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0000000000000002,
+            -3.6129643721238835e-10,
+            0.0,
+            3.6129643721238835e-10,
+            1.0000000000000002,
+            1.5139399631049735e-16,
+            -5.469809907597274e-26,
+            -1.5139399631049737e-16,
+            1.0,
+            2.667726928251568e-09,
+            5.133371949739285e-09,
+            -1.0000000000000013
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              661.4,
+              -80.2,
+              1.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "67bc1e8c39e4217d25cfa1006128bbac7344c8bee629c07c048e203f47a9092d",
+                "mesh_sha256": "e58a460f68f52ff6deaec66860ef99ce06f03c8566643c0e75b6469c47b20395",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB21-01",
+          "part": "FB21",
+          "object_id": "130",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0000000000000002,
+            -2.6818213622048503e-10,
+            0.0,
+            2.6818213622048503e-10,
+            1.0000000000000002,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -3.754554001034194e-09,
+            3.2181812770204488e-09,
+            -1.0
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              706.4,
+              -83.2,
+              1.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "67bc1e8c39e4217d25cfa1006128bbac7344c8bee629c07c048e203f47a9092d",
+                "mesh_sha256": "6d7879096a8868cd198b727093f3b22c2ae1e99b5f5010ca9d6a297c0041ac50",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB41-01",
+          "part": "FB41",
+          "object_id": "132",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -1.4599610409504749e-09,
+            -4.125976715840807e-08,
+            -0.9999992894415284
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              800.4,
+              -141.8,
+              1.00000381
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "d10bc811f0ae7d733942846eaab91d254351a36814c342dd5a6be34006147c18",
+                "mesh_sha256": "7c810ae7b3ecea5e6b634df4b60c930a26c4ef847482bf100f36e4875e114f01",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P36-01",
+          "part": "P36",
+          "object_id": "134",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              792.4,
+              -204.2,
+              27.3457756
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "1d2503f18533bec391f5cf40208d55a3fa6ea5e1c9bdaaf8618fa999b9883f1b",
+                "mesh_sha256": "043bc89cecb2a59c144775376bef25a8419ae253333cadbc97f1aeb58dc490d5",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 5124 triangles, recipe 13002; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P36-02",
+          "part": "P36",
+          "object_id": "136",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              832.4,
+              -204.2,
+              27.3457756
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "1d2503f18533bec391f5cf40208d55a3fa6ea5e1c9bdaaf8618fa999b9883f1b",
+                "mesh_sha256": "043bc89cecb2a59c144775376bef25a8419ae253333cadbc97f1aeb58dc490d5",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 5124 triangles, recipe 13002; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P38-01",
+          "part": "P38",
+          "object_id": "138",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            8.822389416240917e-10,
+            1.0,
+            0.0,
+            -1.0,
+            8.822389416240917e-10,
+            -23.24970436,
+            91.24984355941702,
+            -44.50016030293046
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              746.649704,
+              -84.950156,
+              3.99952698
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "d93a5a1a9811e531551389f4a68b6191202d833ee59d6051e679b8ce096be8a9",
+                "mesh_sha256": "846834b1efc0bf4e67226b4863c44c6e576046b4a6b33a44a040eedad1e7ec5d",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P39-01",
+          "part": "P39",
+          "object_id": "140",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -8.822389381546447e-10,
+            1.0,
+            0.0,
+            -1.0,
+            -8.822389381546447e-10,
+            23.24970436,
+            91.25000004058299,
+            -44.500316533540584
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              776.649704,
+              -84.95,
+              3.99968338
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "042657c3473363f893daf9d0d968bd890a3b3d3dfdaab6dda81b4bc9a163d35f",
+                "mesh_sha256": "aa82a7cde3a1d7c1585c913d020e6b4c08bd06938a81391c8c23236bfccf8d76",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P40-01",
+          "part": "P40",
+          "object_id": "142",
+          "plate_id": "C2",
+          "plate_number": 7,
+          "source_sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              812.581686,
+              -87.900001,
+              2.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "41433bb83a1e1a920569ab2bb1fceef2b0b53c2d0a9064f2b921f3ab943b28cf",
+                "mesh_sha256": "6c49e7b2e6119bde10b970b7dde7afa42f29154a2fc4fef480e2759c4ee6bb3a",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 452 triangles, recipe 612; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B01-01",
+          "part": "B01",
+          "object_id": "146",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              987.353277,
+              -250.026124,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2a428009b8254b3d994c4bb46b5f2b3a7c2d7421473df30eedc124d5efa39c01",
+                "mesh_sha256": "5fdd3ebe68f1ec897b993663c4ef8c766ca8db20b85908df92bca72dd7fadd98",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -0.00959038734,
+                  -0.00140953064,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f28194f0c86aacc7482d147406ceaa8aec99c912970e8c8fbab9734c5576e73e",
+                "mesh_sha256": "9845b017bb7730ca31c88657049f545a0992539fda45f8e790a6c633913a088e",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  1.70692465,
+                  -23.5753994,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "781ce2f7ac797b07f7da7d3c74fc7fd07eb9e449ee81d57ecf9d7642b7042089",
+                "mesh_sha256": "f60ee3fcacc39cb9ef7aeb9aaccecf313162dd8d9303910f44077a9493cfe153",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  1.70691026,
+                  23.5725803,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1344 triangles, recipe 7068; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B02-01",
+          "part": "B02",
+          "object_id": "150",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1008.71711,
+              -265.054902,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
+                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -9.53674316e-07,
+                  -4.76837158e-07,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8e95832044d5438e2eb4fac14adef95d27757ea254dbbde0d23f02e037577195",
+                "mesh_sha256": "01375b3582b64b1be2659c2b57aea2be4687e60cd6b6e1d486e8f46f7f7882a8",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.44760865,
+                  -8.54517078,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "13b9d7991cad95e9d3c761cbd0ac5c2ad9c7c141e18523172a6c1ad3ca611df4",
+                "mesh_sha256": "3108e36c3c5a380f1d5d183f47fb5fda1a0f42545576e8ff5818d332e03ad50f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.447614908,
+                  8.54516983,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B02-02",
+          "part": "B02",
+          "object_id": "154",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1016.81471,
+              -236.86231,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "5dc77af595c6754985359f4074c01d6fa65757a4a68f979976abf569cce27b4c",
+                "mesh_sha256": "e0a98d02d915f1545448d1e61bd7c2fb23cb629bcfec9814f8d8b32b099a9ab9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -4.76837158e-07,
+                  9.53674316e-07,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "fc05e5f99cd2d8f437eeb205ad448501b2925eb2761ac8cd7be3d29eda5360bf",
+                "mesh_sha256": "31e1dffaf8445a9b9e1d2118f925665e7fbe119b26b17ccb2324409cbae674b7",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -8.54517078,
+                  -0.44760865,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "321ed76d254221de5a124c810727be6ccd803b15d0c8800568cc66b8e45e2c5b",
+                "mesh_sha256": "0e64550d7c69a105c9ca73092e5423f3a409a7b0eb8e5fe2861ca4f6832eb972",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  8.54516983,
+                  -0.447614908,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B02-03",
+          "part": "B02",
+          "object_id": "158",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1028.8121,
+              -265.054902,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
+                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -9.53674316e-07,
+                  -4.76837158e-07,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8e95832044d5438e2eb4fac14adef95d27757ea254dbbde0d23f02e037577195",
+                "mesh_sha256": "01375b3582b64b1be2659c2b57aea2be4687e60cd6b6e1d486e8f46f7f7882a8",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.44760865,
+                  -8.54517078,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "13b9d7991cad95e9d3c761cbd0ac5c2ad9c7c141e18523172a6c1ad3ca611df4",
+                "mesh_sha256": "3108e36c3c5a380f1d5d183f47fb5fda1a0f42545576e8ff5818d332e03ad50f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.447614908,
+                  8.54516983,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B02-04",
+          "part": "B02",
+          "object_id": "162",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1002.88823,
+              -177.659137,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
+                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -9.53674316e-07,
+                  -4.76837158e-07,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8e95832044d5438e2eb4fac14adef95d27757ea254dbbde0d23f02e037577195",
+                "mesh_sha256": "01375b3582b64b1be2659c2b57aea2be4687e60cd6b6e1d486e8f46f7f7882a8",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.44760865,
+                  -8.54517078,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "13b9d7991cad95e9d3c761cbd0ac5c2ad9c7c141e18523172a6c1ad3ca611df4",
+                "mesh_sha256": "3108e36c3c5a380f1d5d183f47fb5fda1a0f42545576e8ff5818d332e03ad50f",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.447614908,
+                  8.54516983,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B03-01",
+          "part": "B03",
+          "object_id": "166",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              994.182035,
+              -206.328241,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "15839d61dfba9e2552cc8cf5a55063d7fdc135dd87dbed5f99d3698a182f66d2",
+                "mesh_sha256": "88f70a2834e1354f8268f7dbb822e5eef8acc94e9a33cb6b2a109175c4c38464",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  -0.924147725,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "8a151b376154f84318ef22295e8a1ff2e08d2a89fff29739e7a58913733ea46f",
+                "mesh_sha256": "6c89169dc62fde98d0f6c2763e3e62740d1d230ca6ada8c0939f8033c5d89eb6",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  8.54517031,
+                  -2.18749046e-05,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "74d5e1d54010fe9a636381a57f079fe20915ac0b4f8115ffa07fbc45a1eb763d",
+                "mesh_sha256": "bd0d04fbf37cb7253648a04a4afc12d794f4b93a9fa7945f9fc2b3fa09dedd46",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -8.54517031,
+                  -1.88946724e-05,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 2388 triangles, recipe 9828; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B04-01",
+          "part": "B04",
+          "object_id": "170",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              981.524397,
+              -156.006219,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "5a9daed4ddac3635df5cdded96c320dd77b87b5613b7b83a89bb55506eb73f2d",
+                "mesh_sha256": "17ebe64638214fb6be72392d2837ce4f8a955ef860b072d50e6433b0b435696b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -0.00958347321,
+                  -0.00140953064,
+                  4.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "d002236e0a32b47fddf3aa3d8d6bbef68b05db1ce65eea21597970bab0d6f76f",
+                "mesh_sha256": "6af6e2ad70ccf10222a122751335682d39446b902a26cc37ff5798a584a34130",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  1.70693325,
+                  -23.5753994,
+                  4.0000001
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "05ab27ee1c1028ae60f803f65d7ce31fd5780ba449b6d805d82b7b04bd97e39f",
+                "mesh_sha256": "05c782dc24202c619bf772691fd15749a921c602a1665044bcbf22c27441fca2",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  1.7069191,
+                  23.5725803,
+                  4.0000001
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 944 triangles, recipe 4368; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-01",
+          "part": "B09",
+          "object_id": "172",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1020.91381,
+              -218.21488,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-02",
+          "part": "B09",
+          "object_id": "174",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1001.42742,
+              -150.914103,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-03",
+          "part": "B09",
+          "object_id": "176",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1001.42742,
+              -133.714232,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-04",
+          "part": "B09",
+          "object_id": "178",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1017.34285,
+              -116.51436,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-05",
+          "part": "B09",
+          "object_id": "180",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1018.60078,
+              -150.914103,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-06",
+          "part": "B09",
+          "object_id": "182",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1018.60078,
+              -133.714232,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-07",
+          "part": "B09",
+          "object_id": "184",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1017.34285,
+              -99.314488,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-B09-08",
+          "part": "B09",
+          "object_id": "186",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1017.34285,
+              -82.1146163,
+              3.82500005
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
+                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-GS01-01",
+          "part": "GS01",
+          "object_id": "188",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.9983117355710656,
+            0.05808337646079361,
+            1.633612528584294e-08,
+            -0.0580833764607735,
+            0.9983117355703939,
+            1.1593241374273479e-06,
+            5.1028914704875916e-08,
+            -1.1583157490391294e-06,
+            0.9999999999993279,
+            -34.28050779837825,
+            1.7784887686139896,
+            -147.00002587083762
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "603269315eab6bfd62fbfcb80c603d26f5d6d87a8296eaa0b3d5222d177fabd8",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              950.904024,
+              -150.60201,
+              3.30000305
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "d0c3b80d1661c5432542fa09f2316888135e9fb57716739a92d2a5d5149263ef",
+                "mesh_sha256": "35175c3c3947fb2c9356c119609dec5d49619a457613a81de730acd2e384a584",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-GS02-01",
+          "part": "GS02",
+          "object_id": "190",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.05808450196807866,
+            0.9983116700866099,
+            6.262151716618369e-08,
+            -0.9983116700864701,
+            0.05808450196803688,
+            5.365566217606457e-07,
+            5.320133975306174e-07,
+            -9.36814154861576e-08,
+            0.9999999999998542,
+            -1.7783627990204316,
+            34.28047774588746,
+            -147.0000097485287
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "603269315eab6bfd62fbfcb80c603d26f5d6d87a8296eaa0b3d5222d177fabd8",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              971.327293,
+              -96.7293133,
+              3.30000305
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "c3c9e7aca5ddabbf11fa5acdfcae792bd268f4483c5cd85f73b7745e4f26c514",
+                "mesh_sha256": "51450379348349603f0de3640aa247854b88d47d356b877e76e30b107ca55c00",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-GS03-01",
+          "part": "GS03",
+          "object_id": "192",
+          "plate_id": "G1",
+          "plate_number": 8,
+          "source_sha256": "e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            2.5387197986198595e-10,
+            1.0,
+            2.5388095792333587e-10,
+            -0.9999999999999999,
+            2.538719807293477e-10,
+            1.172001236145648e-09,
+            1.1720008529614951e-09,
+            -2.538809605254211e-10,
+            1.0,
+            31.368468108926468,
+            2.8292378329020096e-08,
+            -147.0000000478007
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "603269315eab6bfd62fbfcb80c603d26f5d6d87a8296eaa0b3d5222d177fabd8",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              953.818469,
+              -236.190047,
+              3.30000305
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "3b2e0b0e6872485e7f01d3ebda88628db9cf18c448ebe398b260c0e9aeaea992",
+                "mesh_sha256": "7a80307cf7bde8791957438e31a59fc939d0486d647ff5dc6464ff5682ec8a6b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-FB02-01",
+          "part": "FB02",
+          "object_id": "194",
+          "plate_id": "K2",
+          "plate_number": 9,
+          "source_sha256": "c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -2.5878904352794052e-08,
+            3.730468733920134e-08,
+            -1.5
+          ],
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "286163c9dea818886fd0a901f9dda012c2a0b649458e69312e58c2bd29b0a8fd",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              128.0,
+              -499.4,
+              1.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "8622c76664054f224157746fd2c97cfe04937fda11e889b85d88066404d1930d",
+                "mesh_sha256": "6bebb4fa4fb9e2c4931bbd7ad7ce7bac4a61ed69f43550782d04f3a6d3382ee4",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "recipe_instance_id": "kit-P37-01",
+          "part": "P37",
+          "object_id": "196",
+          "plate_id": "K2",
+          "plate_number": 9,
+          "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "12b291ea967c1f90c5ae1e0da62fc644449b4d19408da8bebf5dd5bbe14d79c3",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              102.000685,
+              -378.4,
+              6.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2f16ceed2f1d60043fa033a784eb8444f171459ff5dfc20373349815e41921da",
+                "mesh_sha256": "7ab09ee4151411c8e47da1679d39fe5e3ec7aed2fff7b2f0655e348ba988e2de",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1106 triangles, recipe 2564; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-P37-02",
+          "part": "P37",
+          "object_id": "198",
+          "plate_id": "K2",
+          "plate_number": 9,
+          "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "12b291ea967c1f90c5ae1e0da62fc644449b4d19408da8bebf5dd5bbe14d79c3",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              155.000685,
+              -378.4,
+              6.5
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "2f16ceed2f1d60043fa033a784eb8444f171459ff5dfc20373349815e41921da",
+                "mesh_sha256": "7ab09ee4151411c8e47da1679d39fe5e3ec7aed2fff7b2f0655e348ba988e2de",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 1106 triangles, recipe 2564; independent surface/frame review required"
+        },
+        {
+          "recipe_instance_id": "kit-A05-01",
+          "part": "A05",
+          "object_id": "201",
+          "plate_id": "T1",
+          "plate_number": 10,
+          "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "39d149c005ebf6b5004236d841390aa4f8e1f2000082ef64c6d40b20c5f8150d",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              336.698451,
+              -570.900123,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "705825674231abebcaa89f51f473d1f1a3d8f9014b00460a5da5c737cdd2ec14",
+                "mesh_sha256": "578bfa0dcf5a0f816d19919f0bf851ef372be3b3b3df16464676d11c95814c39",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -2.38418579e-07,
+                  4.76837158e-07,
+                  5.75
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "f3b8c388e32313f9e4408c74d0cdc4d1bb5661fd8e074f044f07ac0e9cbac368",
+                "mesh_sha256": "bde464b106e4cc955436d59ac05d352582683e5e1ce9c3b34316f19187c6857b",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.00025510788,
+                  -0.000488162041,
+                  4.9499999
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 15802 triangles, recipe 26936; independent surface/frame review required"
+        }
+      ]
+    },
+    {
+      "path": "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+      "project_sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
+      "role": "replacement",
+      "global_settings_sha256": "0374cc33a4b1a2e88cc2bcc3d087253c69024254c6125d9e963de0f0a7af2427",
+      "plate_settings_sha256": "0973dccfde1d78b4c63a9bad10369066ffef9ff9b9a6b618b4e07edda1b8cfcf",
+      "instances": [
+        {
+          "recipe_instance_id": "optional-petg-A05-01",
+          "part": "A05",
+          "object_id": "199",
+          "plate_id": "PETG-A05",
+          "plate_number": 1,
+          "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
+          "invariants": {
+            "printable": true,
+            "settings_sha256": "60f7688f3479331e9cdcf83353105d0a9be8a1d79e473e68cafe0b2fbe104992",
+            "build": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              128.0,
+              128.0,
+              0.0
+            ],
+            "parts": [
+              {
+                "type": "normal_part",
+                "settings_sha256": "beffe8c958b9b030c55b46b43b9525a8ae2126647a4b7d6f5500e727cade5f13",
+                "mesh_sha256": "578bfa0dcf5a0f816d19919f0bf851ef372be3b3b3df16464676d11c95814c39",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  -2.38418579e-07,
+                  4.76837158e-07,
+                  5.75
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "639050245bb96933e77de9c1b1ed2145671c9c3a8c07d4f629a1d9dc1af3603d",
+                "mesh_sha256": "6942a38eb25e39a42a891e3b3d7b421b7bb2abc0720be23c58ab157a6a8cad22",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.00025510788,
+                  -0.000488162041,
+                  4.95000014
+                ]
+              }
+            ]
+          },
+          "source_review_reason": "Different tessellation: selected STL 15802 triangles, recipe 26936; independent surface/frame review required"
+        }
+      ],
+      "replacement": {
+        "part": "A05",
+        "replaces": "A05",
+        "quantity": 1,
+        "material": "Clear PETG",
+        "installed_demand": "replaces the required A05; never adds a second ball"
+      }
+    }
+  ],
+  "review_evidence": {
+    "status": "R28 full K1 bounded review; nine other plates and optional PETG preserved.48 unrelated independent source reviews pending; no physical qualification.",
+    "support_scope": "Eight moved Pi/shifter hex cavities, straight10mm approaches and bores, plus four pad face bands, contain zero sampled support centerlines. All nine retained R27 rear/power/audio slot regions remain clear. Existing blockers do not overlap moved post/pad envelopes. Small bridges and adjacent supports still need physical cleanup review; not full bead-envelope or fit/adhesive qualification. All3 K1 objects included, none skipped/outside. Full-height extrusion centerlines within256mm bed; first-layer brims and spacing visually reviewed.0.1mm maximum support sampling including arcs; X1C Y+2 offset applied. Flow calibration stays off because prior layout intersects calibration region.",
+    "estimates_sha256": "0a31ce7344a6cd69f238bb5a982385556be1ae99b6f7202bedc92c33b11d0c7f",
+    "files": [
+      {
+        "path": "hardware/printing/current/checks/validation.json",
+        "sha256": "dfeabf0f48a97bf6070cca606c994624fc20278e3c0fa7a48fb905c4bec939e7"
+      },
+      {
+        "path": "hardware/printing/current/checks/slice-audit.json",
+        "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3"
+      },
+      {
+        "path": "hardware/printing/current/checks/project-comparison.json",
+        "sha256": "8629762153c3ef127cf9fdf88d27edbfafee4e280e889f31ca30379cc7d37d5f"
+      },
+      {
+        "path": "hardware/printing/current/checks/mesh-replacement.json",
+        "sha256": "d92aa161d7a223e935ebce8b3f1cd14cf421defd86c014e9e412df9317617b3b"
+      },
+      {
+        "path": "hardware/printing/current/checks/front-mount-blockers.json",
+        "sha256": "d62e8ee4e18482226bef17c1b0bf344f52006619d8dec2062cf61dcea4a78147"
+      },
+      {
+        "path": "hardware/printing/recipes/project-privacy.json",
+        "sha256": "6d9523c4935fe3a37e3bc7e4312b20c81e48fe2c75b7b6d2b7f030b08378211b"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-desktop-normalization.json",
+        "sha256": "995ed4b9dac496864a055ece27cc7ba9b274c01a3b80e89e4d2f96bd70c84473"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-front-audit.json",
+        "sha256": "1015f32533f40dbe9fd62f1dbfffc0d31d375bc00a2267d4ead4b8c23ab5af3c"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-project-comparison.json",
+        "sha256": "ea718e4d079dd97f756fc5ad67136071e77c6057eaa3b129bbd965779547e36f"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-rear-audit.json",
+        "sha256": "a1711879a1146b793e434be33e5caa7911bb5576a5c5fb70fe50d46e8a11a27d"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-rear-blockers.json",
+        "sha256": "5f59d5a021c4935ed0a99bc54c31ad468a216d10d78967f9c572899d0df966c0"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-slice-audit.json",
+        "sha256": "638e5f521d4a7b653f8619cbc739f7a278ce501668da84fd9f11050350094b31"
+      },
+      {
+        "path": "hardware/printing/current/checks/r24-validation.json",
+        "sha256": "df47cbc4000fa47282a89ea4c6316ba2d55c379e71274a4430c93dbf70de7f87"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-desktop-normalization.json",
+        "sha256": "cb788567fcd9530c580c41c334005b306bf2ccf257d89d2113e04d1a812e522b"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-replacement.json",
+        "sha256": "75955883518d1c44ba0e678d9ba203c076541d7de71645eadf42f8fa96747a2f"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-roundtrip.json",
+        "sha256": "fb935f0e09591932e67a23d3bd6b19ddb397195952b0d6ddd334cfeb0710dd83"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-slice-audit.json",
+        "sha256": "33a831eb687164a3a0d8e670dc7967079312165239fe7e5bfbbdec91d62d8f25"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-support-comparison.json",
+        "sha256": "0ace64ba3120a3bd2cd601dadf9dfd8ffe00eb5eee2d7d866f2dbecf431339ce"
+      },
+      {
+        "path": "hardware/printing/current/checks/r25-validation.json",
+        "sha256": "01d9818d8ffd21cb650efefa7774bfe82fa34d096ef9e5c4c659aa27edcf6d56"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-desktop-normalization.json",
+        "sha256": "cb788567fcd9530c580c41c334005b306bf2ccf257d89d2113e04d1a812e522b"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-preset-identity.json",
+        "sha256": "007824ba78fbf7f4384b92b5f5e8fe58a93acf7b602885d96e34449088426644"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-replacement.json",
+        "sha256": "c3b92d0afb4e67be800b6fcf1af7c19abf22f46d873194b7c33ec93957047066"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-roundtrip.json",
+        "sha256": "098f15a3b068b47c53930420bd3095ae6261bb1f6282a3ab5e52c914e858fa80"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-slice-audit.json",
+        "sha256": "ce8e2259ea9dfd265248362f7c4a6e4e0a0459bb50420ea5d1dfdfd02e3fcc66"
+      },
+      {
+        "path": "hardware/printing/current/checks/r26-validation.json",
+        "sha256": "a1a05e0e395d9c781c7183525f04daaa1aa8c072f3df67d7bd2b47ff62856671"
+      },
+      {
+        "path": "hardware/printing/current/checks/r27-power-blockers.json",
+        "sha256": "3ef4c67fb75790afcf4bcc204d718be4808ade56a53d90af93a6077db6116d61"
+      },
+      {
+        "path": "hardware/printing/current/checks/r27-preservation.json",
+        "sha256": "b12c787524f53d53b7ee8a40a54814ad11687be39f3d7c89e20f8b932ba3fd12"
+      },
+      {
+        "path": "hardware/printing/current/checks/r27-replacement.json",
+        "sha256": "4ef1ec29f7aafc696764b3976152500c7cab8dda52565c1a5823c4f3d35dd8ab"
+      },
+      {
+        "path": "hardware/printing/current/checks/r27-slice-audit.json",
+        "sha256": "ddb73fe9d9383d34fb6fe0e830dc04a6c4716c4c702c69d157ce0e4614845565"
+      },
+      {
+        "path": "hardware/printing/current/checks/r27-validation.json",
+        "sha256": "d4851e2dbb161b23d4b9aaa0e31b3209f162b8fc03e97829bf24b54c9919fef9"
+      },
+      {
+        "path": "hardware/printing/current/checks/r28-preservation.json",
+        "sha256": "b4c4b99826c219c76215ce8e55edbb302910b669f0f9b6ceb284477d840ac6ac"
+      },
+      {
+        "path": "hardware/printing/current/checks/r28-replacement.json",
+        "sha256": "3931234df132f848f9d492e85757387449a8cfe7cba571e9e329ecbdc5d2878d"
+      },
+      {
+        "path": "hardware/printing/current/checks/r28-slice-audit.json",
+        "sha256": "867a33ee37f33d0813cb728968221c73c6b81451b28e2400aa829bb7a2af41bb"
+      },
+      {
+        "path": "hardware/printing/current/checks/r28-validation.json",
+        "sha256": "48f32c6215446f075b985debe9179bb3beb84f873c9b98ea7df4d1ca46842a0f"
+      }
+    ],
+    "inputs": {
+      "hardware/printing/current/BlooglyBlob-R28-PLA-Production.3mf": {
+        "project_sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+        "sources": {
+          "kit-P02-01": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+          "kit-P03-01": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+          "kit-P04-01": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+          "kit-P06-01": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+          "kit-P08-01": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+          "kit-P14-01": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+          "kit-FB24-01": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+          "kit-FB32-01": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+          "kit-FB01-01": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+          "kit-P30-01": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+          "kit-P31-01": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+          "kit-P02-02": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+          "kit-P06-02": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+          "kit-P09-01": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+          "kit-P09-02": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+          "kit-P10-01": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "kit-P10-02": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "kit-P10-03": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+          "kit-P11-01": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+          "kit-P11-02": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+          "kit-P12-01": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+          "kit-P13-01": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+          "kit-P34-01": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+          "kit-P35-01": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+          "kit-AR01-01": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
+          "kit-AR04-01": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
+          "kit-P01-01": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "kit-P01-02": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "kit-GS11-01": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+          "kit-GS12-01": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+          "kit-AR02-01": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
+          "kit-AR05-01": "208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
+          "kit-AR03-01": "2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
+          "kit-AR06-01": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
+          "kit-AR08-01": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+          "kit-AR09-01": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+          "kit-A04-01": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+          "kit-GS20-01": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
+          "kit-FB03-01": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
+          "kit-FB19-01": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+          "kit-FB19-02": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+          "kit-FB20-01": "63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
+          "kit-FB21-01": "6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
+          "kit-FB41-01": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+          "kit-P36-01": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "kit-P36-02": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "kit-P38-01": "c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
+          "kit-P39-01": "003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
+          "kit-P40-01": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+          "kit-B01-01": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+          "kit-B02-01": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "kit-B02-02": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "kit-B02-03": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "kit-B02-04": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+          "kit-B03-01": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+          "kit-B04-01": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+          "kit-B09-01": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-02": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-03": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-04": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-05": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-06": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-07": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-B09-08": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+          "kit-GS01-01": "5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
+          "kit-GS02-01": "b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
+          "kit-GS03-01": "e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
+          "kit-FB02-01": "c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
+          "kit-P37-01": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+          "kit-P37-02": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+          "kit-A05-01": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be"
+        }
+      },
+      "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf": {
+        "project_sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
+        "sources": {
+          "optional-petg-A05-01": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be"
+        }
+      }
+    }
+  }
+}

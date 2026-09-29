@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "parts": [
+    {
+      "part": "GS11",
+      "mesh_source": "Fusion native high-refinement STL; avoid known OCC cone tessellation seam issue",
+      "step_sha256": "3380f36f9b253b1eff731dee5671fa9f87c5008caad938131935c12bc2660e1f",
+      "stl_sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+      "valid_solid": true,
+      "watertight": true,
+      "connected_material_components": 1,
+      "volume_mm3": 1709.368735743484,
+      "mesh_volume_error_fraction": 5.544357111554456e-05,
+      "world_to_eye": [
+        [
+          0.9063077870366499,
+          -0.42261826174069955,
+          5.3139250561158817e-17,
+          -1.3005861513489757e-14
+        ],
+        [
+          -0.17860619515673043,
+          -0.3830222215594891,
+          -0.9063077870366499,
+          117.18559686383884
+        ],
+        [
+          0.3830222215594891,
+          0.8213938048432698,
+          -0.4226182617406995,
+          96.64454124307245
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "bed_shift_mm": [
+        -2.2543136238789696,
+        1.2035062340725915,
+        4.0000046451205975
+      ],
+      "orientation": "front face down; rear nut roofs form short bridges over channels",
+      "dimensions_mm": [
+        31.564650915027183,
+        24.650924873334247,
+        8.000008289830717
+      ]
+    },
+    {
+      "part": "GS12",
+      "mesh_source": "Fusion native high-refinement STL; avoid known OCC cone tessellation seam issue",
+      "step_sha256": "5fc408d8303b1b99991a7b5cd59240d939fdde58d589c222d52a776656ffca00",
+      "stl_sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+      "valid_solid": true,
+      "watertight": true,
+      "connected_material_components": 1,
+      "volume_mm3": 1709.3673492323358,
+      "mesh_volume_error_fraction": 5.50716727421342e-05,
+      "world_to_eye": [
+        [
+          0.90630778703665,
+          0.42261826174069944,
+          5.241214316848804e-18,
+          8.297614774308295e-15
+        ],
+        [
+          0.17860619515673032,
+          -0.38302222155948906,
+          -0.9063077870366499,
+          117.18559686383882
+        ],
+        [
+          -0.383022221559489,
+          0.8213938048432697,
+          -0.42261826174069944,
+          96.64454124307244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "bed_shift_mm": [
+        2.2543136238789643,
+        1.2035058543885313,
+        4.0000046451205975
+      ],
+      "orientation": "front face down; rear nut roofs form short bridges over channels",
+      "dimensions_mm": [
+        31.564650915027187,
+        24.650923053765368,
+        8.000008289830717
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "Remove only nonempty DesignerUserId XML element; all surrounding XML bytes and every other member payload unchanged. No slicing or physical qualification.",
+  "source_before_sha256": "582597d69d63f7f92670970ef96dd43cb027ab015630578e35bc6358ef54f78b",
+  "source_after_sha256": "506daf40313b82bea0ae1ad0e5dac79d6e5f4260b37ffea292773e7000ddf7e0",
+  "changed_members": [
+    "3D/3dmodel.model"
+  ],
+  "member_count": 134,
+  "geometry_settings_placements_unchanged": true,
+  "identifier_values_recorded": false
+}

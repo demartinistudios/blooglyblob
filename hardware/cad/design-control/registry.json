@@ -1,0 +1,23 @@
+{
+  "schema_version": 3,
+  "main": {
+    "cloud_name": "Blue Glee Blob - MAIN",
+    "project": "Admin Project",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "design_revision": "R28",
+    "cloud_version": 24,
+    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
+    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+  },
+  "accepted_native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "original_path": "hardware/cad/current/assembly.f3d",
+    "sha256": "2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8"
+  },
+  "current_inputs": {
+    "path": "hardware/cad/design-control/current-inputs.json",
+    "sha256": "18a21905781a2f57cb36305f8eec425030d34511531de8ab368c6714b5247d3b",
+    "bytes": 26609
+  },
+  "delivery": null
+}

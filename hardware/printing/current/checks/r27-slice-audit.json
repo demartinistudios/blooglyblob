@@ -1,0 +1,165 @@
+{
+  "scope": "Full-height extrusion centerline bed bounds; changed nine nut slots and straight approach support sampling. 0.1mm maximum sampling including arcs, X1C Y+2 applied. Not full bead-envelope or physical fit proof.",
+  "plates": [
+    {
+      "plate": "K1",
+      "project_sha256": "2ffc46fa932aa5b86213adafa9c2d3c0ceb6e5ac3b2e5cb2f6dc6a7e3c3e58d3",
+      "slice_sha256": "bc323832594adc3eff05e6884ac5062a063b4701816c10226a99307ccb45aca9",
+      "metadata": {
+        "index": "2",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "44096",
+        "weight": "289.54",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15226",
+          "name": "FB01-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15237",
+          "name": "P30-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15248",
+          "name": "P31-1 | Black",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          18.538,
+          13.639
+        ],
+        [
+          237.462,
+          254.4085526398201
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 1681583,
+      "changed_mount_support_audit": [
+        {
+          "family": "rear",
+          "center": [
+            -26,
+            83.5,
+            -12.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            -26,
+            83.5,
+            -49.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            58,
+            83.5,
+            -12.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            58,
+            83.5,
+            -49.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "power",
+          "center": [
+            80,
+            84,
+            -27
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "power",
+          "center": [
+            80,
+            84,
+            -53
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            -62,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            0,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            62,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        }
+      ]
+    }
+  ]
+}

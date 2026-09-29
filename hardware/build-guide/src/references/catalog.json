@@ -1,0 +1,466 @@
+{
+  "checked_date": "2026-09-26",
+  "note": "External publisher documents and product pages. Internet access is required; no publisher PDFs are stored or bundled.",
+  "references": [
+    {
+      "parts": [
+        "E03"
+      ],
+      "title": "Adafruit 5975 NeoPixel eye board — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/5975",
+      "checked": "2026-09-26",
+      "reference_id": "ref-001"
+    },
+    {
+      "parts": [
+        "E04"
+      ],
+      "title": "Adafruit 1426 RGB NeoPixel stick — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/1426",
+      "checked": "2026-09-26",
+      "reference_id": "ref-002"
+    },
+    {
+      "parts": [
+        "E10"
+      ],
+      "title": "Adafruit 1663 JST-SM three-pin pair — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/1663",
+      "checked": "2026-09-26",
+      "reference_id": "ref-003"
+    },
+    {
+      "parts": [
+        "E11"
+      ],
+      "title": "Adafruit 5755 JST-SH to header — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/5755",
+      "checked": "2026-09-26",
+      "reference_id": "ref-004"
+    },
+    {
+      "parts": [
+        "E12"
+      ],
+      "title": "Adafruit 6404 JST-SH plug–plug cable — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/6404",
+      "checked": "2026-09-26",
+      "reference_id": "ref-005"
+    },
+    {
+      "parts": [
+        "E15"
+      ],
+      "title": "Adafruit 6066 Pixel Shifter — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/6066",
+      "checked": "2026-09-26",
+      "reference_id": "ref-006"
+    },
+    {
+      "parts": [
+        "E16"
+      ],
+      "title": "Adafruit 1669 enclosed speaker — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/1669",
+      "checked": "2026-09-26",
+      "reference_id": "ref-007"
+    },
+    {
+      "parts": [
+        "E17"
+      ],
+      "title": "Adafruit 1479 white momentary illuminated button — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/1479",
+      "checked": "2026-09-26",
+      "reference_id": "ref-008"
+    },
+    {
+      "parts": [
+        "E19"
+      ],
+      "title": "Adafruit 1152 quick-connect wire pair — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/1152",
+      "checked": "2026-09-26",
+      "reference_id": "ref-009"
+    },
+    {
+      "parts": [
+        "E22"
+      ],
+      "title": "Adafruit 4056 micro-B power — official product specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/4056",
+      "checked": "2026-09-26",
+      "reference_id": "ref-010"
+    },
+    {
+      "parts": [
+        "E01",
+        "E02"
+      ],
+      "title": "Kitronik 25105 clippable servo and supplied accessories",
+      "publisher": "Kitronik",
+      "url": "https://kitronik.co.uk/products/25105-clippable-servo",
+      "checked": "2026-09-26",
+      "reference_id": "ref-011"
+    },
+    {
+      "parts": [
+        "E01",
+        "E02"
+      ],
+      "title": "Kitronik FS90MG-CL servo datasheet",
+      "publisher": "Kitronik",
+      "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-fs90mg-datasheet.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-012"
+    },
+    {
+      "parts": [
+        "E01",
+        "E02"
+      ],
+      "title": "Kitronik 25105 servo technical drawing",
+      "publisher": "Kitronik",
+      "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-technical-drawing.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-013"
+    },
+    {
+      "parts": [
+        "E03"
+      ],
+      "title": "Adafruit 5975 NeoPixel breakout guide with pinouts and schematic",
+      "publisher": "Adafruit",
+      "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-neopixel-breakout.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-014"
+    },
+    {
+      "parts": [
+        "E04"
+      ],
+      "title": "NeoPixel family wiring, power and download reference",
+      "publisher": "Adafruit",
+      "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide",
+      "checked": "2026-09-26",
+      "reference_id": "ref-015"
+    },
+    {
+      "parts": [
+        "E06"
+      ],
+      "title": "WAGO 221-415 manufacturer product specifications",
+      "publisher": "WAGO",
+      "url": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-415",
+      "checked": "2026-09-26",
+      "reference_id": "ref-016"
+    },
+    {
+      "parts": [
+        "E06"
+      ],
+      "title": "WAGO 221-415 datasheet (WAGO PDF hosted by NetXL)",
+      "publisher": "WAGO",
+      "url": "https://www.netxl.com/wago/docs/221-415-data-sheet.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-017"
+    },
+    {
+      "parts": [
+        "E07"
+      ],
+      "title": "SCHURTER FDI fuseholder datasheet",
+      "publisher": "SCHURTER",
+      "url": "https://www.schurter.com/en/datasheet/typ_FDI.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-018"
+    },
+    {
+      "parts": [
+        "F1",
+        "F2"
+      ],
+      "title": "Eaton S505H time-delay fuses",
+      "publisher": "Eaton",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/5b5eef3606a7bf121d519d56b11ebf12.pdf?productCode=C3162760",
+      "checked": "2026-09-26",
+      "reference_id": "ref-019"
+    },
+    {
+      "parts": [
+        "E08"
+      ],
+      "title": "Panasonic EEUFR1A102 product specifications",
+      "publisher": "Panasonic",
+      "url": "https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/EEUFR1A102",
+      "checked": "2026-09-26",
+      "reference_id": "ref-020"
+    },
+    {
+      "parts": [
+        "E08"
+      ],
+      "title": "Panasonic FR series datasheet",
+      "publisher": "Panasonic",
+      "url": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1259.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-021"
+    },
+    {
+      "parts": [
+        "E09"
+      ],
+      "title": "Raspberry Pi 3 Model A+ official product page",
+      "publisher": "Raspberry Pi",
+      "url": "https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/",
+      "checked": "2026-09-26",
+      "reference_id": "ref-022"
+    },
+    {
+      "parts": [
+        "E09"
+      ],
+      "title": "Raspberry Pi 3 Model A+ product brief",
+      "publisher": "Raspberry Pi",
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-product-brief.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-023"
+    },
+    {
+      "parts": [
+        "E09"
+      ],
+      "title": "Raspberry Pi 3 Model A+ mechanical drawing",
+      "publisher": "Raspberry Pi",
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-024"
+    },
+    {
+      "parts": [
+        "E09"
+      ],
+      "title": "Raspberry Pi 3 Model A+ reduced schematics",
+      "publisher": "Raspberry Pi",
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-025"
+    },
+    {
+      "parts": [
+        "E13"
+      ],
+      "title": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+      "publisher": "SanDisk",
+      "url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
+      "checked": "2026-09-26",
+      "reference_id": "ref-026"
+    },
+    {
+      "parts": [
+        "E13"
+      ],
+      "title": "SanDisk High Endurance microSD family datasheet",
+      "publisher": "SanDisk",
+      "url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-027"
+    },
+    {
+      "parts": [
+        "E14",
+        "E23"
+      ],
+      "title": "Waveshare USB TO AUDIO 18833 product and included cable",
+      "publisher": "Waveshare",
+      "url": "https://www.waveshare.com/product/usb-to-audio.htm",
+      "checked": "2026-09-26",
+      "reference_id": "ref-028"
+    },
+    {
+      "parts": [
+        "E14"
+      ],
+      "title": "Waveshare USB TO AUDIO manufacturer wiki and interfaces",
+      "publisher": "Waveshare",
+      "url": "https://www.waveshare.com/wiki/USB_TO_AUDIO",
+      "checked": "2026-09-26",
+      "reference_id": "ref-029"
+    },
+    {
+      "parts": [
+        "E15"
+      ],
+      "title": "Adafruit Pixel Shifter pinouts and full guide",
+      "publisher": "Adafruit",
+      "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-pixel-shifter.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-030"
+    },
+    {
+      "parts": [
+        "E17"
+      ],
+      "title": "Adafruit 16 mm button mechanical and terminal diagram",
+      "publisher": "Adafruit",
+      "url": "https://cdn-shop.adafruit.com/datasheets/R16diagram.jpg",
+      "checked": "2026-09-26",
+      "reference_id": "ref-031"
+    },
+    {
+      "parts": [
+        "E18"
+      ],
+      "title": "Switchcraft 721AU product specifications",
+      "publisher": "Switchcraft",
+      "url": "https://www.switchcraft.com/sealed-unmated-dc-power-jack-2-1mm-solder-standard-material/721au/",
+      "checked": "2026-09-26",
+      "reference_id": "ref-032"
+    },
+    {
+      "parts": [
+        "E18"
+      ],
+      "title": "Switchcraft 721AU customer drawing and terminal schematic",
+      "publisher": "Switchcraft",
+      "url": "https://www.switchcraft.com/assets/1/6/721AU_CD.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-033"
+    },
+    {
+      "parts": [
+        "E20"
+      ],
+      "title": "MEAN WELL GST40A specification",
+      "publisher": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
+      "checked": "2026-09-26",
+      "reference_id": "ref-034"
+    },
+    {
+      "parts": [
+        "E21"
+      ],
+      "title": "MEAN WELL PowerNex accessory catalog with YP12+YC12 cord",
+      "publisher": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-035"
+    },
+    {
+      "parts": [
+        "E22"
+      ],
+      "title": "Adafruit 4056 cable drawing",
+      "publisher": "Adafruit",
+      "url": "https://cdn-shop.adafruit.com/product-files/4056/4056_PCM-A-003_TYPE_C_F-MICROUSB_B_M_30cm_SCREW.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-036"
+    },
+    {
+      "parts": [
+        "R1",
+        "R2"
+      ],
+      "title": "YAGEO CFR carbon-film resistor family datasheet",
+      "publisher": "YAGEO",
+      "url": "https://yageogroup.com/content/datasheet/asset/file/YAGEO-CFR_DATASHEET",
+      "checked": "2026-09-26",
+      "reference_id": "ref-037"
+    },
+    {
+      "parts": [
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "title": "Coscom white Plastazote LD45 light-diffusing sheets",
+      "publisher": "Coscom Cosplay Supplies",
+      "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+      "checked": "2026-09-26",
+      "reference_id": "ref-038"
+    },
+    {
+      "parts": [
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "title": "Zotefoams Plastazote LD45 product information",
+      "publisher": "Zotefoams",
+      "url": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-039"
+    },
+    {
+      "parts": [
+        "C08"
+      ],
+      "title": "K&J D31 N42 disc magnet specifications",
+      "publisher": "K&J Magnetics",
+      "url": "https://www.kjmagnetics.com/d31-neodymium-disc-magnet",
+      "checked": "2026-09-26",
+      "reference_id": "ref-040"
+    },
+    {
+      "parts": [
+        "C08"
+      ],
+      "title": "K&J D31 magnet dimensional drawing",
+      "publisher": "K&J Magnetics",
+      "url": "https://www.kjmagnetics.com/resources/pdfs/D31.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-041"
+    },
+    {
+      "parts": [
+        "E05"
+      ],
+      "title": "Adafruit 6026 product",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/6026",
+      "checked": "2026-09-27",
+      "reference_id": "ref-042"
+    },
+    {
+      "parts": [
+        "E05"
+      ],
+      "title": "Adafruit 6026 strand manufacturer drawing",
+      "publisher": "Adafruit",
+      "url": "https://cdn-shop.adafruit.com/product-files/6026/P6026-P010100NA3SA1-C21280-001.pdf",
+      "checked": "2026-09-27",
+      "reference_id": "ref-043"
+    },
+    {
+      "parts": [
+        "E05"
+      ],
+      "title": "Adafruit seed-pixel wire identification",
+      "publisher": "Adafruit",
+      "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide/seed-pixels",
+      "checked": "2026-09-27",
+      "reference_id": "ref-044"
+    },
+    {
+      "parts": [
+        "E05"
+      ],
+      "title": "Adafruit pebble strand lead colors",
+      "publisher": "Adafruit",
+      "url": "https://learn.adafruit.com/icicle-crown-with-pebble-pixels-wled?view=all",
+      "checked": "2026-09-27",
+      "reference_id": "ref-045"
+    }
+  ]
+}

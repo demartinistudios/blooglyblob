@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "description": "Technical specification and required supply quantities projected into guide parts.json. Fastener counts derive from assembly/hardware.json. This is build demand, not purchasing stock. Optional supply flags retain their authored meaning; do not sum repeated guide uses.",
+  "supplies": [
+    {
+      "id": "E01",
+      "exact": "Kitronik 25105 / FS90MG-CL servo",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 3,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E02",
+      "exact": "Supplied round disk horn + center screw",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 3,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E03",
+      "exact": "Adafruit 5975 NeoPixel eye board",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E04",
+      "exact": "Adafruit 1426 RGB NeoPixel stick",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E05",
+      "exact": "Adafruit 6026",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E06",
+      "exact": "WAGO 221-415 five-position lever block",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 4,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E07",
+      "exact": "Schurter FDI 8601.2001.08 fuseholder",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "F1",
+      "exact": "Eaton BK1-S505H-3.15-R time-delay fuse",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "F2",
+      "exact": "Eaton BK1-S505H-1-R time-delay fuse",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E08",
+      "exact": "Panasonic EEU-FR1A102 capacitor",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E09",
+      "exact": "Raspberry Pi 3 Model A+ / Adafruit 4027",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E10",
+      "exact": "Adafruit 1663 JST-SM three-pin pair",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E11",
+      "exact": "Adafruit 5755 JST-SH to header donor",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E12",
+      "exact": "Adafruit 6404 JST-SH plug\u2013plug cable",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E13",
+      "exact": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E14",
+      "exact": "Waveshare USB TO AUDIO 18833",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E15",
+      "exact": "Adafruit 6066 Pixel Shifter",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E16",
+      "exact": "Adafruit 1669 enclosed speaker",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E17",
+      "exact": "Adafruit 1479 white momentary illuminated button",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E18",
+      "exact": "Switchcraft 721AU solder-lug panel jack",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E19",
+      "exact": "Adafruit 1152 quick-connect wire pair",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E20",
+      "exact": "Mean Well GST40A05-P1J supply",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E21",
+      "exact": "Mean Well YP12_YC12 US mains cord",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E22",
+      "exact": "Adafruit 4056 micro-B power donor",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E23",
+      "exact": "USB-A male\u2013female data extension",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E24",
+      "exact": "Twelve 24 AWG GPIO connections",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 12,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E25",
+      "exact": "Four matching adhesive rubber feet fitting the \u00d814 mm post faces",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 4,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "R1",
+      "exact": "Yageo CFR-25JB-52-1K resistor",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "R2",
+      "exact": "Yageo CFR-25JB-52-330R resistor",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "C01",
+      "exact": "Flexible clear front-eye film",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C02",
+      "exact": "White Plastazote eye patches",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": 2,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C03",
+      "exact": "White Plastazote mouth strip",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C04",
+      "exact": "White Plastazote body wrap",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C05",
+      "exact": "18 AWG stranded copper wire",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "1 red/black wire kit",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C06",
+      "exact": "22 AWG stranded copper wire",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "1 multicolor wire assortment",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C07",
+      "exact": "2.5 mm narrow nylon cable ties",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "About 40\u201350",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C08",
+      "exact": "3/16\u00d71/16 inch disc magnets",
+      "category": "Consumable",
+      "optional": 1,
+      "qty": 4,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C09",
+      "exact": "Two-part epoxy compatible with PLA and nickel-plated magnets",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "Small amount",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C10",
+      "exact": "Nonconductive closed-cell foam",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "1 mm sheet offcuts",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C12",
+      "exact": "Heat-shrink tubing / Adafruit 344 example",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "As fitted",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C13",
+      "exact": "PLA filament, 1.75 mm",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "Enough for all plates",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C14",
+      "exact": "Solder, flux and wire labels",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "As used",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "T01",
+      "exact": "Flush cutters",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T02",
+      "exact": "Soldering station, stand and ventilation",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T03",
+      "exact": "Multimeter with continuity",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T04",
+      "exact": "Wire stripper covering 18\u201328 AWG",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T05",
+      "exact": "Small hex/terminal drivers and fine pliers",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T06",
+      "exact": "Caliper / metric ruler",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T07",
+      "exact": "Deburring knife, small files, mat, safety glasses",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T08",
+      "exact": "2.2 mm drill and controlled hand drill",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T09",
+      "exact": "Heat source suitable for heat-shrink",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "T10",
+      "exact": "microSD reader and setup computer",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "reusable-tool"
+    },
+    {
+      "id": "M3x14",
+      "exact": "M3\u00d714",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "N3",
+      "exact": "Ordinary M3 hex nut",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M2x6",
+      "exact": "M2\u00d76",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "N2",
+      "exact": "Ordinary M2 hex nut",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x16",
+      "exact": "M3\u00d716",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x20",
+      "exact": "M3\u00d720",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x10",
+      "exact": "M3\u00d710",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x8",
+      "exact": "M3\u00d78",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M2x10",
+      "exact": "M2\u00d710",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "W2",
+      "exact": "BFirst MFWZ002 thin M2 washer",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M2x8",
+      "exact": "M2\u00d70.4, 8 mm under-head length",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x10CS",
+      "exact": "M3\u00d710 countersunk",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x6",
+      "exact": "M3\u00d76",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M2x12",
+      "exact": "M2\u00d712",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x12",
+      "exact": "M3\u00d712",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "W3",
+      "exact": "BFirst MFWZ003 M3 washer",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "M3x18",
+      "exact": "M3\u00d718",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "CENTER",
+      "exact": "Supplied servo center screw",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "C16",
+      "exact": "Double-sided mounting tape",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "Four WAGO pieces + one audio patch",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C17",
+      "exact": "25.4 \u00d7 25.4 mm adhesive-backed cable-tie mounts",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "As routed",
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "C18",
+      "exact": "PLA/metal-compatible cyanoacrylate gel glue",
+      "category": "Consumable",
+      "optional": 1,
+      "qty": 0,
+      "quantity_scope": "consumable-allowance"
+    },
+    {
+      "id": "T13",
+      "exact": "Regulated 5 V micro-USB supply rated at least 2.5 A",
+      "category": "Tool",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    }
+  ]
+}

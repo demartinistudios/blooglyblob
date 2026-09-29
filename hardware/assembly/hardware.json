@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "quantity_scope": "Installed demand only. Each allocation is a physical joint/group, independent of guide ordering, preloading, service, purchasing allowance or observed stock. Totals are derived from allocations.",
+  "allocations": [
+    {
+      "id": "joint-fb-panels",
+      "description": "Fit the front and rear vents",
+      "hardware": {
+        "M3x6": 4,
+        "M3x12": 4,
+        "N3": 8
+      }
+    },
+    {
+      "id": "joint-fb-side-panels",
+      "description": "Fit both side speaker grilles",
+      "hardware": {
+        "M3x12": 8,
+        "N3": 8
+      }
+    },
+    {
+      "id": "joint-fb-speakers",
+      "description": "Install the speakers",
+      "hardware": {
+        "M3x12": 8,
+        "N3": 8,
+        "W3": 8
+      }
+    },
+    {
+      "id": "joint-fb-inlet-button",
+      "description": "Fit the button and the power inlet",
+      "hardware": {
+        "M3x8": 2,
+        "M3x12": 2,
+        "N3": 4
+      }
+    },
+    {
+      "id": "joint-fb-audio-cradle",
+      "description": "Fasten the audio cradle",
+      "hardware": {
+        "M3x6": 3,
+        "N3": 3
+      }
+    },
+    {
+      "id": "joint-fb-audio",
+      "description": "Install the USB audio module and lid",
+      "hardware": {
+        "M2x8": 2,
+        "N2": 2
+      }
+    },
+    {
+      "id": "joint-fb-boards",
+      "description": "Mount the Pi and both level shifters",
+      "hardware": {
+        "M2x12": 4,
+        "M2x10": 4,
+        "N2": 8
+      }
+    },
+    {
+      "id": "joint-03",
+      "description": "Attach the frame uprights to the base",
+      "hardware": {
+        "M3x16": 2,
+        "N3": 2
+      }
+    },
+    {
+      "id": "joint-04",
+      "description": "Mount the two shoulder servos",
+      "hardware": {
+        "M2x6": 4,
+        "N2": 4,
+        "M3x16": 4,
+        "N3": 4
+      }
+    },
+    {
+      "id": "joint-05",
+      "description": "Mount the head servo and upper collar",
+      "hardware": {
+        "M2x6": 2,
+        "N2": 2,
+        "M3x20": 2,
+        "M3x10": 2,
+        "N3": 4
+      }
+    },
+    {
+      "id": "joint-07",
+      "description": "Build the head shelf on the bench",
+      "hardware": {
+        "M2x6": 2,
+        "N2": 2,
+        "M3x8": 3,
+        "N3": 3
+      }
+    },
+    {
+      "id": "joint-09",
+      "description": "Load the eye nuts and seat the housings",
+      "hardware": {
+        "M2x6": 4,
+        "N2": 8,
+        "M2x10": 4,
+        "W2": 4
+      }
+    },
+    {
+      "id": "joint-10",
+      "description": "Assemble the mouth",
+      "hardware": {
+        "M2x8": 4,
+        "N2": 4
+      }
+    },
+    {
+      "id": "joint-14",
+      "description": "Fit the six body lights and wire guide",
+      "hardware": {
+        "M3x10CS": 3,
+        "N3": 3
+      }
+    },
+    {
+      "id": "joint-15",
+      "description": "Wrap the body diffuser",
+      "hardware": {
+        "M3x16": 1,
+        "N3": 1
+      }
+    },
+    {
+      "id": "joint-16",
+      "description": "Prepare the upper arms",
+      "hardware": {
+        "M2x6": 4,
+        "N2": 4
+      }
+    },
+    {
+      "id": "joint-17",
+      "description": "Build the two elbows",
+      "hardware": {
+        "M3x14": 2,
+        "N3": 2
+      }
+    },
+    {
+      "id": "joint-28",
+      "description": "Fit the backpack carrier",
+      "hardware": {
+        "M3x18": 2,
+        "N3": 6
+      }
+    },
+    {
+      "id": "joint-29",
+      "description": "Build and attach the backpack",
+      "hardware": {
+        "M3x8": 2,
+        "M3x12": 4,
+        "N3": 2
+      }
+    },
+    {
+      "id": "joint-servo-position",
+      "description": "Set the fit pose and attach the head and arms",
+      "hardware": {
+        "CENTER": 3,
+        "M2x8": 3,
+        "N2": 3
+      }
+    },
+    {
+      "id": "joint-fb-close",
+      "description": "Fit the bottom cover",
+      "hardware": {
+        "M3x12": 4,
+        "N3": 4
+      }
+    }
+  ]
+}

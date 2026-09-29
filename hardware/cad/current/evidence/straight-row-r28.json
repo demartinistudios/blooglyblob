@@ -1,0 +1,399 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8",
+    "bytes": 15495649
+  },
+  "geometry": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 24,
+    "latest_version": 24,
+    "complete": true,
+    "modified": false,
+    "native_reimport_exact_all_occurrence_statistics": true,
+    "candidate_FB01_exact_BRep_symmetric_difference": true,
+    "changed_parts": [
+      "FB01"
+    ],
+    "unchanged_occurrence_transforms": 327,
+    "changed_occurrence_transforms": 13,
+    "as_built_joints_unchanged": 8,
+    "single_connected_solid": true,
+    "fine_mesh_surface_tolerance_cm": 0.0005,
+    "fine_mesh_max_side_length_cm": 0.2,
+    "fine_mesh_triangles": 136852
+  },
+  "mesh": {
+    "part": "FB01",
+    "triangles": 136852,
+    "degenerate_triangles": 0,
+    "non_two_use_edges": 0,
+    "inconsistent_edge_winding": 0,
+    "mesh_volume_mm3": 314040.6609153174,
+    "native_volume_mm3": 314086.88549528155,
+    "volume_error_fraction": 0.00014717131500486847,
+    "coordinate_comparison_mm": 1e-05,
+    "mesh_repair": false,
+    "surface_tolerance_cm": 0.0005,
+    "maximum_side_length_cm": 0.2
+  },
+  "integration": {
+    "changed_parts": [
+      "FB01"
+    ],
+    "changes": [
+      {
+        "path": "FBREF Pi PCB:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Pi GPIO:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Pi USB:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Pi SD:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF WAGO W4:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF WAGO W3:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF WAGO W2:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF WAGO W1:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Shifter S1:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Shifter S2:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Fuse F1:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Capacitor C1:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FBREF Capacitor C2:1",
+        "change": [
+          "transform"
+        ]
+      },
+      {
+        "path": "FB01 Structural base:1",
+        "change": [
+          "bodies"
+        ]
+      }
+    ],
+    "native_sha256": "814f748f29078a5e36b7d610b818dea2aabbbfd36f9373ebb9f9729fa6b4d3db",
+    "source_sha256": "a78b99754e3f44dbec6d46e2fe02591fe2a782ead8c091becc9516f5fa7402a7",
+    "movements_mm": {
+      "FBREF Pi PCB": [
+        0,
+        38,
+        0
+      ],
+      "FBREF Pi GPIO": [
+        0,
+        38,
+        0
+      ],
+      "FBREF Pi USB": [
+        0,
+        38,
+        0
+      ],
+      "FBREF Pi SD": [
+        0,
+        38,
+        0
+      ],
+      "FBREF Shifter S1": [
+        -10.7,
+        -74,
+        0
+      ],
+      "FBREF Shifter S2": [
+        -10.7,
+        13,
+        0
+      ],
+      "FBREF Fuse F1": [
+        67,
+        -124,
+        0
+      ],
+      "FBREF WAGO W1": [
+        -15,
+        3,
+        0
+      ],
+      "FBREF WAGO W2": [
+        -15,
+        -27,
+        0
+      ],
+      "FBREF WAGO W3": [
+        -15,
+        33,
+        0
+      ],
+      "FBREF WAGO W4": [
+        -15,
+        3,
+        0
+      ],
+      "FBREF Capacitor C1": [
+        0,
+        0,
+        0
+      ],
+      "FBREF Capacitor C2": [
+        0,
+        0,
+        0
+      ]
+    },
+    "capacitor_rotation_deg": 90,
+    "source_geometry_exact_in_assembly_frame": true,
+    "other_occurrence_statistics_transforms_appearances_visibility_unchanged": true,
+    "occurrences": 340,
+    "joints_unchanged": 8,
+    "provisional_wire_models_promoted": false
+  },
+  "layout": {
+    "centers_mm": {
+      "FBREF WAGO W4": [
+        48.0,
+        -38.0,
+        -17.2
+      ],
+      "FBREF WAGO W3": [
+        48.0,
+        22.0,
+        -17.2
+      ],
+      "FBREF WAGO W2": [
+        48.0,
+        -8.0,
+        -17.2
+      ],
+      "FBREF WAGO W1": [
+        48.0,
+        52.0,
+        -17.2
+      ]
+    },
+    "shared_translation_from_original_row_mm": [
+      -15,
+      3,
+      0
+    ],
+    "row_pitch_mm": 30,
+    "order_rear_to_front": [
+      "W1",
+      "W3",
+      "W2",
+      "W4"
+    ],
+    "base_one_solid": true,
+    "base_volume_delta_mm3": 0,
+    "caps_centers_mm": [
+      [
+        24,
+        0,
+        -20
+      ],
+      [
+        24,
+        32,
+        -20
+      ]
+    ],
+    "notes": "All four pads moved together. Capacitors retain pre-r5 centers; r4 axial orientation. Pi/shifters/F1 remain r4 positions. Wire routes from r4 hidden and invalid for this layout."
+  },
+  "spot_checks": {
+    "tool_paths": [
+      {
+        "tool": "frame -26.5",
+        "hits": []
+      },
+      {
+        "tool": "frame 26.5",
+        "hits": []
+      },
+      {
+        "tool": "Pi mount (-74.5, 2.5)",
+        "hits": []
+      },
+      {
+        "tool": "Pi mount (-74.5, 60.5)",
+        "hits": []
+      },
+      {
+        "tool": "Pi mount (-25.5, 2.5)",
+        "hits": []
+      },
+      {
+        "tool": "Pi mount (-25.5, 60.5)",
+        "hits": []
+      },
+      {
+        "tool": "shifter mount -22.08",
+        "hits": []
+      },
+      {
+        "tool": "shifter mount -11.92",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -25.72, 0)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -25.72, 1)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -25.72, 2)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -25.72, 3)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -10.28, 0)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -10.28, 1)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -10.28, 2)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-17, -10.28, 3)",
+        "hits": []
+      },
+      {
+        "tool": "shifter mount -44.08",
+        "hits": []
+      },
+      {
+        "tool": "shifter mount -33.92",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -25.72, 0)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -25.72, 1)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -25.72, 2)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -25.72, 3)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -10.28, 0)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -10.28, 1)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -10.28, 2)",
+        "hits": []
+      },
+      {
+        "tool": "terminal (-39, -10.28, 3)",
+        "hits": []
+      }
+    ],
+    "wire_routes": [
+      {
+        "wire": "USB-data",
+        "hits": {},
+        "length_mm": 88.09,
+        "minimum_radius_mm": 13.5
+      },
+      {
+        "wire": "H2-jacket",
+        "hits": {},
+        "length_mm": 22.2,
+        "minimum_radius_mm": 13.5
+      },
+      {
+        "wire": "H2-positive",
+        "hits": {},
+        "length_mm": 69.3466453588361,
+        "minimum_radius_mm": 6.0
+      },
+      {
+        "wire": "H2-return",
+        "hits": {},
+        "length_mm": 81.53982308796526,
+        "minimum_radius_mm": 5.82
+      }
+    ],
+    "H2_finished_longest_mm": 144.73982308796525,
+    "scope": "26 straight driver approaches against rigid physical parts with cover removed;4 nominal USB/power centerlines against rigid FB parts. Does not include full wire-to-wire routing, installed restraint/access proof or physical fitting."
+  },
+  "solid_checks": {
+    "changed_component_solid_interferences": [],
+    "wire_routes_included": false,
+    "basis": "Exact BRep intersection against all FB physical occurrences; same-board internal geometry and provisional wire/access illustrations excluded."
+  },
+  "limits": "Component layout accepted with straight Wago row. Wiring spot checks only; full harness and physical fit unqualified."
+}

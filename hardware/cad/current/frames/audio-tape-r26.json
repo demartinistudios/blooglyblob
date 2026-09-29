@@ -1,0 +1,65 @@
+{
+  "part": "FB24",
+  "source": "saved MAIN R26/cloud21",
+  "units": "mm",
+  "native_body_local_cm_to_assembly_cm": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.1,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "assembly_mm_to_bed_mm": [
+    [
+      1,
+      0,
+      0,
+      0.0
+    ],
+    [
+      0,
+      -1,
+      0,
+      -78.3499984741211
+    ],
+    [
+      0,
+      0,
+      -1,
+      -7.0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "bounds_mm": [
+    [
+      -66.50000095367432,
+      -10.349997520446777,
+      -1.1920928955078125e-07
+    ],
+    [
+      66.50000095367432,
+      10.350004196166992,
+      32.000000953674316
+    ]
+  ],
+  "triangles": 125938,
+  "mesh_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+  "frame_provenance": "Retains the R24 FB24 assembly-mm to bed-mm matrix. Body-local cm transformed once to assembly, then mm, then selected bed frame.",
+  "scope": "Retained R24 bed-normalized source STL frame, occurrence transform applied once. Full W1 placement/support/slice review required."
+}

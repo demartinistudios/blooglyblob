@@ -1,0 +1,40 @@
+[
+  {
+    "gcode_fields": {
+      "before_layer_change_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "change_filament_gcode": "435c71461e01cbe11d6bab0791859171955480efb9d91149212925cf01e473c8",
+      "filament_end_gcode": "2a8e0cb34b53f0fb82009d562ec29bbf7062eb8f4c55a78e706082ad530df605",
+      "filament_start_gcode": "1c9754c888358b5b0d04a0d587de86b7f114f606a371917d57f5ff0b22517bb5",
+      "gcode_add_line_number": "98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+      "gcode_flavor": "0327681c6d43af1719a752a088e93f5192c8740abee2bc63353fe4eff7749287",
+      "layer_change_gcode": "3f4b299602aeffecb6bb2ec9bb19e471f521ca28bc5ef2bcce68531d8431164c",
+      "machine_end_gcode": "12a7fc368198353dacf8a3e79fde4e55034b5a1b947207892ce83228b116cce6",
+      "machine_pause_gcode": "421d0316bd5e4954c4425af1b89603412254dde55fe6eaf70c90b5b4e620fb66",
+      "machine_start_gcode": "b7d0782c8cb55544df527977d4902fca6c8c95ed276c393f7e49e35659f701e1",
+      "printing_by_object_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "template_custom_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "time_lapse_gcode": "5f163889f3a786002ea9347c3d94bdbbbce05f72f5509f1ef08511947330846a",
+      "wrapping_detection_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+    },
+    "source_filename": "BlooglyBlob-R25-PLA-Production.3mf"
+  },
+  {
+    "gcode_fields": {
+      "before_layer_change_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "change_filament_gcode": "435c71461e01cbe11d6bab0791859171955480efb9d91149212925cf01e473c8",
+      "filament_end_gcode": "2a8e0cb34b53f0fb82009d562ec29bbf7062eb8f4c55a78e706082ad530df605",
+      "filament_start_gcode": "1c9754c888358b5b0d04a0d587de86b7f114f606a371917d57f5ff0b22517bb5",
+      "gcode_add_line_number": "98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+      "gcode_flavor": "0327681c6d43af1719a752a088e93f5192c8740abee2bc63353fe4eff7749287",
+      "layer_change_gcode": "3f4b299602aeffecb6bb2ec9bb19e471f521ca28bc5ef2bcce68531d8431164c",
+      "machine_end_gcode": "12a7fc368198353dacf8a3e79fde4e55034b5a1b947207892ce83228b116cce6",
+      "machine_pause_gcode": "421d0316bd5e4954c4425af1b89603412254dde55fe6eaf70c90b5b4e620fb66",
+      "machine_start_gcode": "b7d0782c8cb55544df527977d4902fca6c8c95ed276c393f7e49e35659f701e1",
+      "printing_by_object_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "template_custom_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "time_lapse_gcode": "5f163889f3a786002ea9347c3d94bdbbbce05f72f5509f1ef08511947330846a",
+      "wrapping_detection_gcode": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+    },
+    "source_filename": "BlooglyBlob-R26-Candidate.3mf"
+  }
+]

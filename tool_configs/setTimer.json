@@ -1,0 +1,18 @@
+{
+    "name": "setTimer",
+    "description": "Set a countdown timer. The timer will fire after the specified duration with an audio and visual alert. Use this when the user asks to set a timer for a specific duration (e.g., 'set a timer for 5 minutes').",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "duration_seconds": {
+                "type": "integer",
+                "description": "Duration in seconds until the timer fires. Convert from user's request (e.g., '5 minutes' = 300, '1 hour' = 3600)."
+            },
+            "label": {
+                "type": "string",
+                "description": "Optional label for the timer (e.g., 'pizza', 'laundry', 'break'). If the user mentions what the timer is for, use that."
+            }
+        },
+        "required": ["duration_seconds"]
+    }
+}

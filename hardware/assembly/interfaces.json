@@ -1,0 +1,62 @@
+{
+  "status": "review requirements, not passed tests",
+  "interfaces": [
+    {
+      "parts": [
+        "GS11",
+        "GS12",
+        "GS20",
+        "P06",
+        "E03"
+      ],
+      "checks": [
+        "locator fit",
+        "side-load nuts",
+        "bearing roof strength",
+        "independent eye removal",
+        "optical fit"
+      ]
+    },
+    {
+      "parts": [
+        "AR01",
+        "AR04",
+        "AR02",
+        "AR05",
+        "AR03",
+        "AR06"
+      ],
+      "checks": [
+        "horn seat",
+        "magnet retention",
+        "manual wrist friction",
+        "cleanup",
+        "load strength"
+      ]
+    },
+    {
+      "parts": [
+        "FB01",
+        "FB02",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB41"
+      ],
+      "checks": [
+        "switch locknut access",
+        "closed-cover seating",
+        "insulation",
+        "thermal/load validation",
+        "front nut loading and grille fastening",
+        "audio cradle access and fastening order",
+        "glued open board/cover nut retention",
+        "inward rear-vent nut loading",
+        "WAGO tape contact and lever clearance",
+        "adhesive-square full contact and bundle support",
+        "capacitor insulation/vent clearance and fuse service",
+        "FB24 rear-face tape contact under 1 mm, case seating, connector clearance and service removal"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "cad": {
+    "design_revision": "R28",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 24,
+    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
+    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+  },
+  "scene_review_cad": {
+    "cloud_name": "Blue Glee Blob - MAIN",
+    "project": "Admin Project",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "design_revision": "R28",
+    "cloud_version": 24,
+    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
+    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+  },
+  "roles": {
+    "mesh": "hardware/rendering/r28-visible-meshes.json.gz",
+    "native_meshes": "hardware/cad/current/native-meshes.json",
+    "assembly": "hardware/cad/current/release-assembly.json",
+    "joints": "hardware/cad/current/joints.json",
+    "palette": "hardware/rendering/r22-colors.json",
+    "stand_mesh": "hardware/rendering/r23-service-stand-meshes.json.gz",
+    "stand_provenance": "hardware/rendering/r23-service-stand-provenance.json",
+    "scenes": "hardware/rendering/scenes/views.json"
+  },
+  "release_sources": {
+    "native_meshes": "hardware/cad/current/native-meshes.json",
+    "assembly": "hardware/cad/current/release-assembly.json",
+    "joints": "hardware/cad/current/joints.json"
+  },
+  "files": [
+    {
+      "path": "hardware/rendering/r28-visible-meshes.json.gz",
+      "sha256": "8f7c52afd64b3962cc9eef8f69ad90fe9bb51ec145518273083bf01dc25f470b"
+    },
+    {
+      "path": "hardware/cad/current/native-meshes.json",
+      "sha256": "15a39003dbebf597108bb99b4cd67f064c0265f88926402fd88aed2b24d04c37"
+    },
+    {
+      "path": "hardware/cad/current/release-assembly.json",
+      "sha256": "c43880d38c47f58294e585cd0ccc8349f4445b5f03792530370ea5a6ff325c58"
+    },
+    {
+      "path": "hardware/cad/current/joints.json",
+      "sha256": "c091d6695f1db283040a2470755fd35ed7174a2cb07fd192005a4af466c09d64"
+    },
+    {
+      "path": "hardware/rendering/r22-colors.json",
+      "sha256": "260bef8897f30e5733d368bc1e9274bfc11189d2a75a5c0ae9844a10803eb40d"
+    },
+    {
+      "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
+      "sha256": "37e41c2738ec50f8b4d024a6a771e6e476a6983560f961f057b0903c55ef4219"
+    },
+    {
+      "path": "hardware/rendering/r23-service-stand-provenance.json",
+      "sha256": "026f9dfab36be91547bc8190aaa153124c3d2efc3d87a6a26ebb5bfd4be8644e"
+    },
+    {
+      "path": "hardware/rendering/scenes/views.json",
+      "sha256": "dd21504b5fd6a5a92b4c65d13b02436528068b6c3b34d7b50bc0f3cb4dc7baf5"
+    }
+  ],
+  "frames": "Body-local cm, occurrence transform once, then cm to mm. Bed-normalized print geometry has separate frames.",
+  "scene_review": "R28/cloud24 dimension review: Pi +38Y; S1/S2 centers(-18,-17/-39); Wago row X48 rear-to-front W1/W3/W2/W4 at52/22/-8/-38; F1 moved, capacitor axes Y. Updated board/nut/crop markers and recognition helpers. Output visual review tracked separately in guide record.",
+  "reference_frame_check": "Fuse and capacitor rows freshly exported from clean saved cloud19: body-local vertices and actual occurrence transform. Replaces legacy baked-coordinate rows; no geometry or CAD save change."
+}

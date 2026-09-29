@@ -1,0 +1,15 @@
+{
+  "checked_date": "2026-09-25",
+  "T02": {
+    "product_id": 136,
+    "title": "Ladyada’s Electronics Toolkit",
+    "url": "https://www.adafruit.com/product/136",
+    "finding": "Workshop toolkit; includes a multimeter, iron, stand, cutters, stripper and other tools. Not a standalone multimeter SKU."
+  },
+  "T03": {
+    "product_id": 2034,
+    "title": "Digital Multimeter - Model 9205B+",
+    "url": "https://www.adafruit.com/product/2034",
+    "finding": "Exact standalone meter linked from the toolkit contents. Current T03 photo source uses 2034, but its purchase link still uses 136. No RMS-bandwidth qualification implied."
+  }
+}

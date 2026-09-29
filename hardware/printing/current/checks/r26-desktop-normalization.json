@@ -1,0 +1,633 @@
+{
+  "global_display_ids_restored": [
+    "filament_settings_id",
+    "print_settings_id"
+  ],
+  "source_matrix_metadata_restored": [
+    {
+      "plate": "5",
+      "label": "AR06-1 | Blue",
+      "component_index": 0,
+      "before": "1 0 0 9.5367431620312493e-07 0 1 0 -4.7683715810156247e-07 0 0 1 26.674247770849611 0 0 0 1",
+      "desktop": "1 0 0 1.4305114742031249e-06 0 1 0 -7.1525573710156243e-07 0 0 1 40.011371670849613 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR06-1 | Blue",
+      "component_index": 1,
+      "before": "1 0 0 -4.8897219848158269 0 1 0 9.5367431620312493e-07 0 0 1 1.8000001759168511 0 0 0 1",
+      "desktop": "1 0 0 -7.3345829748158273 0 1 0 1.4305114742031249e-06 0 0 1 2.7000002639168512 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS12-1 | Copper",
+      "component_index": 0,
+      "before": "1 0 0 -4.5084552782446288 0 1 0 0.091458320608837892 0 0 1 8.0000085815344235 0 0 0 1",
+      "desktop": "1 0 0 -6.7626829182446286 0 1 0 0.13718748090883789 0 0 1 12.000012871534423 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS12-1 | Copper",
+      "component_index": 1,
+      "before": "1 0 0 -17.999940396096193 0 1 0 -10.501413342668457 0 0 1 9.0000094791858967 0 0 0 1",
+      "desktop": "1 0 0 -26.999910836096191 0 1 0 -15.752120012668456 0 0 1 13.500014219185896 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS12-1 | Copper",
+      "component_index": 2,
+      "before": "1 0 0 18.000059603903807 0 1 0 -10.502018925845338 0 0 1 9.0000094791858967 0 0 0 1",
+      "desktop": "1 0 0 27.000089163903809 0 1 0 -15.753028145845338 0 0 1 13.500014219185896 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS11-1 | Copper",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 8.0000085815344235 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 12.000012871534423 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS11-1 | Copper",
+      "component_index": 1,
+      "before": "1 0 0 22.508515855822754 0 1 0 10.593451499969483 0 0 1 9.0000094791858967 0 0 0 1",
+      "desktop": "1 0 0 33.762774055822753 0 1 0 15.890177249969483 0 0 1 13.500014219185896 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "GS11-1 | Copper",
+      "component_index": 2,
+      "before": "1 0 0 -13.491484401014404 0 1 0 10.59285259465271 0 0 1 9.0000094791858967 0 0 0 1",
+      "desktop": "1 0 0 -20.237226721014402 0 1 0 15.88927913465271 0 0 1 13.500014219185896 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "A04-1 | Blue",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 43.300003025878908 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 64.95000452587891 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "A04-1 | Blue",
+      "component_index": 1,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 4.7000002369741152 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 7.050000356974115 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "A04-1 | Blue",
+      "component_index": 2,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 82 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 123 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR02-1 | Blue",
+      "component_index": 0,
+      "before": "1 0 0 -8.1062316847265626e-06 0 1 0 2.3841857955078126e-06 0 0 1 28.849987015014648 0 0 0 1",
+      "desktop": "1 0 0 -1.2159347524726563e-05 0 1 0 3.5762786955078126e-06 0 0 1 43.274980515014647 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR02-1 | Blue",
+      "component_index": 1,
+      "before": "1 0 0 -0.018329143522084961 0 1 0 -0.78412008242761233 0 0 1 52.099978400317383 0 0 0 1",
+      "desktop": "1 0 0 -0.027493715282084961 0 1 0 -1.1761801234276124 0 0 1 78.149968100317381 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR02-1 | Blue",
+      "component_index": 2,
+      "before": "1 0 0 -0.018329143522084961 0 1 0 -0.78412020203225707 0 0 1 11.699973343192138 0 0 0 1",
+      "desktop": "1 0 0 -0.027493715282084961 0 1 0 -1.1761803030322571 0 0 1 17.549959893192138 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR03-1 | Blue",
+      "component_index": 0,
+      "before": "1 0 0 9.5367431620312493e-07 0 1 0 1.4305114743046875e-06 0 0 1 26.674247770849611 0 0 0 1",
+      "desktop": "1 0 0 1.4305114742031249e-06 0 1 0 2.1457672113046875e-06 0 0 1 40.011371670849613 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR03-1 | Blue",
+      "component_index": 1,
+      "before": "1 0 0 4.8897238037866586 0 1 0 2.861022944609375e-06 0 0 1 1.8000001759168511 0 0 0 1",
+      "desktop": "1 0 0 7.334585703786658 0 1 0 4.291534414609375e-06 0 0 1 2.7000002639168512 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR05-1 | Blue",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 28.849987015014648 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 43.274980515014647 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR05-1 | Blue",
+      "component_index": 1,
+      "before": "1 0 0 0.023736953767675782 0 1 0 0.78507566426013176 0 0 1 52.099978400317383 0 0 0 1",
+      "desktop": "1 0 0 0.035605430667675783 0 1 0 1.1776134962601317 0 0 1 78.149968100317381 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "5",
+      "label": "AR05-1 | Blue",
+      "component_index": 2,
+      "before": "1 0 0 0.023736476849096681 0 1 0 0.78507554565548698 0 0 1 11.699973343192138 0 0 0 1",
+      "desktop": "1 0 0 0.035604715249096683 0 1 0 1.1776133186554869 0 0 1 17.549959893192138 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 1,
+      "before": "1 0 0 -9.5 0 1 0 25.000329985656741 0 0 1 6 0 0 0 1",
+      "desktop": "1 0 0 -14.25 0 1 0 37.500494985656744 0 0 1 9 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 2,
+      "before": "1 0 0 -9.5 0 1 0 25.000329985656741 0 0 1 58 0 0 0 1",
+      "desktop": "1 0 0 -14.25 0 1 0 37.500494985656744 0 0 1 87 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 3,
+      "before": "1 0 0 -16.400000099265135 0 1 0 25.000329266447448 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 -24.599999909265136 0 1 0 37.500494166447446 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 4,
+      "before": "1 0 0 -14.999999043162841 0 1 0 -42.999668160668946 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 -22.499998563162841 0 1 0 -64.499502260668947 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 5,
+      "before": "1 0 0 -2.5 0 1 0 -42.999673321691894 0 0 1 31.999998046325686 0 0 0 1",
+      "desktop": "1 0 0 -3.75 0 1 0 -64.499510221691892 0 0 1 47.999997046325689 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 6,
+      "before": "1 0 0 -7.5 0 1 0 25.000329985656741 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 -11.25 0 1 0 37.500494985656744 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 7,
+      "before": "1 0 0 0.5 0 1 0 -42.999668160668946 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 0.75 0 1 0 -64.499502260668947 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR04-1 | Copper",
+      "component_index": 8,
+      "before": "1 0 0 15.449999804632569 0 1 0 -42.999668160668946 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 23.174999704632569 0 1 0 -64.499502260668947 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 0 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 1,
+      "before": "1 0 0 -25.000329985656741 0 1 0 -9.5 0 0 1 58 0 0 0 1",
+      "desktop": "1 0 0 -37.500494985656744 0 1 0 -14.25 0 0 1 87 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 2,
+      "before": "1 0 0 -25.000329985656741 0 1 0 -9.5 0 0 1 6 0 0 0 1",
+      "desktop": "1 0 0 -37.500494985656744 0 1 0 -14.25 0 0 1 9 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 3,
+      "before": "1 0 0 -25.000329266447448 0 1 0 -16.400000099265135 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 -37.500494166447446 0 1 0 -24.599999909265136 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 4,
+      "before": "1 0 0 42.999668160668946 0 1 0 -14.999999043162841 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 64.499502260668947 0 1 0 -22.499998563162841 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 5,
+      "before": "1 0 0 42.999673321691894 0 1 0 -2.5 0 0 1 31.999998046325686 0 0 0 1",
+      "desktop": "1 0 0 64.499510221691892 0 1 0 -3.75 0 0 1 47.999997046325689 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 6,
+      "before": "1 0 0 -25.000329985656741 0 1 0 -7.5 0 0 1 32.000001453674315 0 0 0 1",
+      "desktop": "1 0 0 -37.500494985656744 0 1 0 -11.25 0 0 1 48.000002453674313 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 7,
+      "before": "1 0 0 42.999668160668946 0 1 0 0.5 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 64.499502260668947 0 1 0 0.75 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "4",
+      "label": "AR01-1 | Copper",
+      "component_index": 8,
+      "before": "1 0 0 42.999668160668946 0 1 0 15.449999804632569 0 0 1 32 0 0 0 1",
+      "desktop": "1 0 0 64.499502260668947 0 1 0 23.174999704632569 0 0 1 48 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "3",
+      "label": "P35-1 | White",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 0 0 0 1 73.5 0 0 0 1",
+      "desktop": "1 0 0 0.000110626220703125 0 1 0 0 0 0 1 110.25 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "3",
+      "label": "P35-1 | White",
+      "component_index": 1,
+      "before": "1 0 0 24.982221601696779 0 1 0 62.968852998413084 0 0 1 52 0 0 0 1",
+      "desktop": "1 0 0 37.47333240169678 0 1 0 94.453279498413082 0 0 1 78 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "3",
+      "label": "P35-1 | White",
+      "component_index": 2,
+      "before": "1 0 0 24.982221601696779 0 1 0 -62.968852998413084 0 0 1 52 0 0 0 1",
+      "desktop": "1 0 0 37.47333240169678 0 1 0 -94.453279498413082 0 0 1 78 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-4 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -1.9073486324062499e-06 0 1 0 -9.5367431620312493e-07 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -2.8610229484062497e-06 0 1 0 -1.4305114742031249e-06 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-4 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 0.89521729973068243 0 1 0 -17.090341563996581 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428259497306825 0 1 0 -25.635512343996581 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-4 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 0.89522981621838382 0 1 0 17.090339660322265 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428447242183839 0 1 0 25.635509490322264 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B01-1 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -0.019180774684360351 0 1 0 -0.0028190612796484375 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -0.02877116202436035 0 1 0 -0.0042285919196484376 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B01-1 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 3.4138492445433997 0 1 0 -47.15079979880371 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 5.1207738945433992 0 1 0 -70.726199198803712 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B01-1 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 3.4138205800216865 0 1 0 47.14516163752441 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 5.120730840021686 0 1 0 70.717741937524409 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B04-1 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -0.019166946415566405 0 1 0 -0.0028190612796484375 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -0.028750419625566404 0 1 0 -0.0042285919196484376 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B04-1 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 3.4138665025134087 0 1 0 -47.15079979880371 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 5.1207997525134088 0 1 0 -70.726199198803712 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B04-1 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 3.4138381964102744 0 1 0 47.14516163752441 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 5.1207572964102743 0 1 0 70.717741937524409 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-3 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -1.9073486324062499e-06 0 1 0 -9.5367431620312493e-07 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -2.8610229484062497e-06 0 1 0 -1.4305114742031249e-06 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-3 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 0.89521729973068243 0 1 0 -17.090341563996581 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428259497306825 0 1 0 -25.635512343996581 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-3 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 0.89522981621838382 0 1 0 17.090339660322265 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428447242183839 0 1 0 25.635509490322264 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B03-1 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 -1.8482954501052857 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 -2.7724431751052858 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B03-1 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 17.090340377159421 0 1 0 -4.3749809232568356e-05 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 25.635510687159421 0 1 0 -6.5624713832568353e-05 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B03-1 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 -17.090340857159426 0 1 0 -3.7789344793798832e-05 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 -25.635511167159425 0 1 0 -5.6684017193798836e-05 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-1 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -1.9073486324062499e-06 0 1 0 -9.5367431620312493e-07 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -2.8610229484062497e-06 0 1 0 -1.4305114742031249e-06 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-1 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 0.89521729973068243 0 1 0 -17.090341563996581 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428259497306825 0 1 0 -25.635512343996581 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-1 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 0.89522981621838382 0 1 0 17.090339660322265 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 1.3428447242183839 0 1 0 25.635509490322264 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-2 | Gray",
+      "component_index": 0,
+      "before": "1 0 0 -9.5367431620312493e-07 0 1 0 1.9073486324062499e-06 0 0 1 8 0 0 0 1",
+      "desktop": "1 0 0 -1.4305114742031249e-06 0 1 0 2.8610229484062497e-06 0 0 1 12 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-2 | Gray",
+      "component_index": 1,
+      "before": "1 0 0 -17.090341563996581 0 1 0 -0.89521729973068243 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 -25.635512343996581 0 1 0 -1.3428259497306825 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "8",
+      "label": "B02-2 | Gray",
+      "component_index": 2,
+      "before": "1 0 0 17.090339660322265 0 1 0 -0.89522981621838382 0 0 1 8.0000004368575475 0 0 0 1",
+      "desktop": "1 0 0 25.635509490322264 0 1 0 -1.3428447242183839 0 0 1 12.000000536857549 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "10",
+      "label": "A05-1 | Clear",
+      "component_index": 0,
+      "before": "1 0 0 -4.7683715810156247e-07 0 1 0 9.5367431620312493e-07 0 0 1 11.5 0 0 0 1",
+      "desktop": "1 0 0 -7.1525573710156243e-07 0 1 0 1.4305114742031249e-06 0 0 1 17.25 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "10",
+      "label": "A05-1 | Clear",
+      "component_index": 1,
+      "before": "1 0 0 0.0005102157596386719 0 1 0 -0.00097632408171044916 0 0 1 9.9000000461226847 0 0 0 1",
+      "desktop": "1 0 0 0.00076532363963867193 0 1 0 -0.0014644861227104491 0 0 1 14.849999946122685 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 0,
+      "before": "1 0 0 0 0 1 0 -1.1500015258789062 0 0 1 67 0 0 0 1",
+      "desktop": "1 0 0 0 0 1 0 -2.3000030558789062 0 0 1 100.5 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 1,
+      "before": "1 0 0 146 0 1 0 149.19999697412109 0 0 1 9 0 0 0 1",
+      "desktop": "1 0 0 219 0 1 0 223.79999547412109 0 0 1 13.5 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 2,
+      "before": "1 0 0 152 0 1 0 149.19999697412109 0 0 1 68 0 0 0 1",
+      "desktop": "1 0 0 228 0 1 0 223.79999547412109 0 0 1 102 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 3,
+      "before": "1 0 0 194 0 1 0 149.19999697412109 0 0 1 9 0 0 0 1",
+      "desktop": "1 0 0 291 0 1 0 223.79999547412109 0 0 1 13.5 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 4,
+      "before": "1 0 0 188 0 1 0 149.19999697412109 0 0 1 68 0 0 0 1",
+      "desktop": "1 0 0 282 0 1 0 223.79999547412109 0 0 1 102 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 5,
+      "before": "1 0 0 -54 0 1 0 178.40000000000001 0 0 1 68 0 0 0 1",
+      "desktop": "1 0 0 -81 0 1 0 267.60000000000002 0 0 1 102 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 6,
+      "before": "1 0 0 -54 0 1 0 180 0 0 1 17.399999999999999 0 0 0 1",
+      "desktop": "1 0 0 -81 0 1 0 270 0 0 1 26.099999999999998 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 7,
+      "before": "1 0 0 -54 0 1 0 180 0 0 1 77 0 0 0 1",
+      "desktop": "1 0 0 -81 0 1 0 270 0 0 1 115.5 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 8,
+      "before": "1 0 0 102 0 1 0 178.40000000000001 0 0 1 68 0 0 0 1",
+      "desktop": "1 0 0 153 0 1 0 267.60000000000002 0 0 1 102 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 9,
+      "before": "1 0 0 102 0 1 0 180 0 0 1 17.399999999999999 0 0 0 1",
+      "desktop": "1 0 0 153 0 1 0 270 0 0 1 26.099999999999998 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 10,
+      "before": "1 0 0 102 0 1 0 180 0 0 1 77 0 0 0 1",
+      "desktop": "1 0 0 153 0 1 0 270 0 0 1 115.5 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 11,
+      "before": "1 0 0 -26 0 1 0 -89.4 0 0 1 10.5 0 0 0 1",
+      "desktop": "1 0 0 -52 0 1 0 -178.80000000000001 0 0 1 21 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 12,
+      "before": "1 0 0 -26 0 1 0 -89.4 0 0 1 47.5 0 0 0 1",
+      "desktop": "1 0 0 -52 0 1 0 -178.80000000000001 0 0 1 95 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 13,
+      "before": "1 0 0 58 0 1 0 -89.4 0 0 1 10.5 0 0 0 1",
+      "desktop": "1 0 0 116 0 1 0 -178.80000000000001 0 0 1 21 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    },
+    {
+      "plate": "2",
+      "label": "FB01-1 | Black",
+      "component_index": 14,
+      "before": "1 0 0 58 0 1 0 -89.4 0 0 1 47.5 0 0 0 1",
+      "desktop": "1 0 0 116 0 1 0 -178.80000000000001 0 0 1 95 0 0 0 1",
+      "action": "Restore original source-matrix metadata; actual component/build transform and mesh are independently checked"
+    }
+  ],
+  "reason": "Bambu save accumulates source-matrix offsets without changing component/build transforms. Restore inherited metadata explicitly before strict semantic comparison; retain genuine fresh native preview images."
+}

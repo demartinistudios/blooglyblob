@@ -1,0 +1,14 @@
+{
+    "name": "findTimers",
+    "description": "Search for active timers. Returns matching items with their IDs (needed for cancelTimer). Provide search terms to filter by label, or omit to list all.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "queries": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Search terms to filter by label (case-insensitive, matches any term). Include synonyms or related words to cast a wider net. Omit to return all active timers."
+            }
+        }
+    }
+}

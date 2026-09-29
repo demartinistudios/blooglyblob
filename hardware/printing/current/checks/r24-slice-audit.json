@@ -1,0 +1,591 @@
+{
+  "scope": "Bounded sampled support centerlines and full-height centerline bed bounds; excludes bead-envelope proof, physical fit/glue/tape/restraint acceptance.",
+  "plates": [
+    {
+      "plate": "W1",
+      "project_sha256": "9161a47b1213cebb0a57ec217bcdfa5aacd962b6f67aa505cc5e70e933f61c24",
+      "slice_sha256": "1b479a8aae205970a9bcb78d68953b5f0822c4a6b0f549d8f84f4301f2132dc1",
+      "metadata": {
+        "index": "1",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "12767",
+        "weight": "64.59",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "4476",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4487",
+          "name": "P03-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4498",
+          "name": "P04-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4509",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4520",
+          "name": "P08-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4531",
+          "name": "P14-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4542",
+          "name": "FB24-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4553",
+          "name": "FB32-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          13.581729026403536,
+          26.886
+        ],
+        [
+          239.99109101023785,
+          219.3
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 532419,
+      "fork_audit": [
+        {
+          "fork_center_assembly_x": -9,
+          "core_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "fork_center_assembly_x": 11,
+          "core_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        }
+      ]
+    },
+    {
+      "plate": "K1",
+      "project_sha256": "fd6d5dd4b851920602bb8109226626a3093fb98df43aa9eece7e40d87ae9bd35",
+      "slice_sha256": "04d263c49c3275262f7defb105f464c2d1a0f1b17b42794c660714443caff8ce",
+      "metadata": {
+        "index": "2",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "44648",
+        "weight": "290.04",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "4635",
+          "name": "FB01-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4646",
+          "name": "P30-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4657",
+          "name": "P31-1 | Black",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          18.538,
+          13.638
+        ],
+        [
+          237.462,
+          254.4085526398201
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 1821574,
+      "nominal_nut_path_audit": [
+        {
+          "pocket": {
+            "family": "board",
+            "x": -74.5,
+            "y": -35.5,
+            "mouth_z": -17,
+            "floor_z": -15.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -74.5,
+            "y": 22.5,
+            "mouth_z": -17,
+            "floor_z": -15.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -25.5,
+            "y": -35.5,
+            "mouth_z": -17,
+            "floor_z": -15.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -25.5,
+            "y": 22.5,
+            "mouth_z": -17,
+            "floor_z": -15.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -7.3,
+            "y": -57.08,
+            "mouth_z": -15,
+            "floor_z": -13.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -7.3,
+            "y": -46.92,
+            "mouth_z": -15,
+            "floor_z": -13.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -7.3,
+            "y": 51.92,
+            "mouth_z": -15,
+            "floor_z": -13.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "board",
+            "x": -7.3,
+            "y": 62.08,
+            "mouth_z": -15,
+            "floor_z": -13.2,
+            "AF": 4.3,
+            "nut_AF": 4.0,
+            "nut_thickness": 1.6,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "cover",
+            "x": -99,
+            "y": -68,
+            "mouth_z": -62,
+            "floor_z": -59.4,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "cover",
+            "x": -99,
+            "y": 68,
+            "mouth_z": -62,
+            "floor_z": -59.4,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "cover",
+            "x": 99,
+            "y": -68,
+            "mouth_z": -62,
+            "floor_z": -59.4,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "cover",
+            "x": 99,
+            "y": 68,
+            "mouth_z": -62,
+            "floor_z": -59.4,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              0,
+              1
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "rear",
+            "x": -26,
+            "z": -12.5,
+            "mouth_y": 83.5,
+            "floor_y": 86.3,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              1,
+              0
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "rear",
+            "x": -26,
+            "z": -49.5,
+            "mouth_y": 83.5,
+            "floor_y": 86.3,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              1,
+              0
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "rear",
+            "x": 58,
+            "z": -12.5,
+            "mouth_y": 83.5,
+            "floor_y": 86.3,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              1,
+              0
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        },
+        {
+          "pocket": {
+            "family": "rear",
+            "x": 58,
+            "z": -49.5,
+            "mouth_y": 83.5,
+            "floor_y": 86.3,
+            "AF": 5.8,
+            "nut_AF": 5.5,
+            "nut_thickness": 2.4,
+            "entry_vector": [
+              0,
+              1,
+              0
+            ]
+          },
+          "entry_support_samples": 0,
+          "seat_support_samples": 0,
+          "sample_bounds_assembly_mm": null
+        }
+      ]
+    },
+    {
+      "plate": "W2",
+      "project_sha256": "9161a47b1213cebb0a57ec217bcdfa5aacd962b6f67aa505cc5e70e933f61c24",
+      "slice_sha256": "50e56168e44f9f0cf99bb5639c8bddd54ecd0a82e133a4a433f1e05da3522ee0",
+      "metadata": {
+        "index": "3",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "15100",
+        "weight": "65.77",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "4668",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4679",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4690",
+          "name": "P09-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4701",
+          "name": "P09-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4712",
+          "name": "P10-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4723",
+          "name": "P10-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4734",
+          "name": "P10-3 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4745",
+          "name": "P11-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4756",
+          "name": "P11-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4767",
+          "name": "P12-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4778",
+          "name": "P13-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4789",
+          "name": "P34-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "4812",
+          "name": "P35-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          12.886,
+          26.886
+        ],
+        [
+          237.218,
+          242.927
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 807984
+    }
+  ]
+}

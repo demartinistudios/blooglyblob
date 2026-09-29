@@ -1,0 +1,860 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "48b0de8049b3d260dfb8a2d9c774405aa23639e6f673a31f145533b43f16471c",
+    "bytes": 15478133
+  },
+  "geometry": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 22,
+    "latest_version": 22,
+    "complete": true,
+    "modified": false,
+    "native_reimport_exact_all_occurrence_statistics": true,
+    "candidate_FB01_exact_BRep_symmetric_difference": true,
+    "changed_parts": [
+      "FB01"
+    ],
+    "unchanged_occurrence_transforms": 340,
+    "as_built_joints_unchanged": 8,
+    "single_connected_solid": true,
+    "fine_mesh_surface_tolerance_cm": 0.0005,
+    "fine_mesh_max_side_length_cm": 0.2,
+    "fine_mesh_triangles": 135096
+  },
+  "mesh": {
+    "part": "FB01",
+    "triangles": 135096,
+    "degenerate_triangles": 0,
+    "non_two_use_edges": 0,
+    "inconsistent_edge_winding": 0,
+    "mesh_volume_mm3": 314036.6756393466,
+    "native_volume_mm3": 314082.7235101891,
+    "volume_error_fraction": 0.0001466106455263633,
+    "coordinate_comparison_mm": 1e-05,
+    "mesh_repair": false,
+    "surface_tolerance_cm": 0.0005,
+    "maximum_side_length_cm": 0.2
+  },
+  "integration": {
+    "changed_parts": [
+      "FB01"
+    ],
+    "changes": [
+      {
+        "path": "FB01 Structural base:1",
+        "change": [
+          "bodies"
+        ]
+      }
+    ],
+    "native_sha256": "bd9f12c49fc9a73e35adceb0238bf323d7cba90a9407fcf6b38394e6be4e00a2",
+    "approved_candidate_sha256": "8b22569dc601774ef54cd23a66ca50332e7ae62833f8edc74953958508bface4",
+    "candidate_checks": {
+      "baseline": "R26/cloud21",
+      "reference": "Original working R26 speaker open U slots; eight speaker mounts unchanged exactly",
+      "user_evidence": "Rear hex nut will not seat without bending its cradle; open-top speaker slots accept the actual nuts. Print deformation versus model fit not established.",
+      "mounts": [
+        {
+          "family": "front",
+          "mouth_mm": [
+            -27,
+            -89.2,
+            -40.5
+          ],
+          "outward_axis": [
+            0,
+            -1,
+            0
+          ],
+          "post_length_mm": 3.8,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            -27,
+            -89.2,
+            -10.7
+          ],
+          "outward_axis": [
+            0,
+            -1,
+            0
+          ],
+          "post_length_mm": 3.8,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            51,
+            -89.2,
+            -40.5
+          ],
+          "outward_axis": [
+            0,
+            -1,
+            0
+          ],
+          "post_length_mm": 3.8,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            51,
+            -89.2,
+            -10.7
+          ],
+          "outward_axis": [
+            0,
+            -1,
+            0
+          ],
+          "post_length_mm": 3.8,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            -26,
+            83.5,
+            -12.5
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 9,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            -26,
+            83.5,
+            -49.5
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 9,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            58,
+            83.5,
+            -12.5
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 9,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            58,
+            83.5,
+            -49.5
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 9,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            -48,
+            -12.5
+          ],
+          "outward_axis": [
+            -1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            -48,
+            -49.5
+          ],
+          "outward_axis": [
+            -1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            32,
+            -12.5
+          ],
+          "outward_axis": [
+            -1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            32,
+            -49.5
+          ],
+          "outward_axis": [
+            -1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            -48,
+            -12.5
+          ],
+          "outward_axis": [
+            1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            -48,
+            -49.5
+          ],
+          "outward_axis": [
+            1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            32,
+            -12.5
+          ],
+          "outward_axis": [
+            1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            32,
+            -49.5
+          ],
+          "outward_axis": [
+            1,
+            0,
+            0
+          ],
+          "post_length_mm": 8.4,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": false,
+          "audio": false
+        },
+        {
+          "family": "power plate",
+          "mouth_mm": [
+            80,
+            84,
+            -27
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 8.5,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "power plate",
+          "mouth_mm": [
+            80,
+            84,
+            -53
+          ],
+          "outward_axis": [
+            0,
+            1,
+            0
+          ],
+          "post_length_mm": 8.5,
+          "screw_length_mm": 12,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": false
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            -62,
+            -78.2,
+            -7
+          ],
+          "outward_axis": [
+            0,
+            0,
+            1
+          ],
+          "post_length_mm": 0,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": true
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            0,
+            -78.2,
+            -7
+          ],
+          "outward_axis": [
+            0,
+            0,
+            1
+          ],
+          "post_length_mm": 0,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": true
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            62,
+            -78.2,
+            -7
+          ],
+          "outward_axis": [
+            0,
+            0,
+            1
+          ],
+          "post_length_mm": 0,
+          "screw_length_mm": 6,
+          "slot_width_mm": 5.8,
+          "slot_depth_mm": 2.8,
+          "measured_nut_AF_mm": 5.49,
+          "measured_nut_thickness_mm": 2.35,
+          "changed": true,
+          "audio": true
+        }
+      ],
+      "checks": [
+        {
+          "family": "front",
+          "mouth_mm": [
+            -27,
+            -89.2,
+            -40.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            -27,
+            -89.2,
+            -10.7
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            51,
+            -89.2,
+            -40.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "front",
+          "mouth_mm": [
+            51,
+            -89.2,
+            -10.7
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            -26,
+            83.5,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            -26,
+            83.5,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            58,
+            83.5,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "rear",
+          "mouth_mm": [
+            58,
+            83.5,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            -48,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            -48,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            32,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "left speaker",
+          "mouth_mm": [
+            -96.6,
+            32,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            -48,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            -48,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            32,
+            -12.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "right speaker",
+          "mouth_mm": [
+            96.6,
+            32,
+            -49.5
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "power plate",
+          "mouth_mm": [
+            80,
+            84,
+            -27
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "power plate",
+          "mouth_mm": [
+            80,
+            84,
+            -53
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            -62,
+            -78.2,
+            -7
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            0,
+            -78.2,
+            -7
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        },
+        {
+          "family": "audio cradle",
+          "mouth_mm": [
+            62,
+            -78.2,
+            -7
+          ],
+          "nut_insertion_overlap_mm3": 0,
+          "seated_nut_overlap_mm3": 0,
+          "screw_overlap_mm3": 0,
+          "nut_other_hits": [],
+          "screw_other_hits": []
+        }
+      ],
+      "speaker_mounts_exactly_unchanged": [
+        [
+          -96.6,
+          -48,
+          -12.5
+        ],
+        [
+          -96.6,
+          -48,
+          -49.5
+        ],
+        [
+          -96.6,
+          32,
+          -12.5
+        ],
+        [
+          -96.6,
+          32,
+          -49.5
+        ],
+        [
+          96.6,
+          -48,
+          -12.5
+        ],
+        [
+          96.6,
+          -48,
+          -49.5
+        ],
+        [
+          96.6,
+          32,
+          -12.5
+        ],
+        [
+          96.6,
+          32,
+          -49.5
+        ]
+      ],
+      "front_mounts_exactly_match_MAIN": [
+        [
+          -27,
+          -89.2,
+          -40.5
+        ],
+        [
+          -27,
+          -89.2,
+          -10.7
+        ],
+        [
+          51,
+          -89.2,
+          -40.5
+        ],
+        [
+          51,
+          -89.2,
+          -10.7
+        ]
+      ],
+      "added_material_hits": [],
+      "difference_from_r1b": [
+        {
+          "total_mm3": 419.9931574863146,
+          "outside_regions_mm3": 0
+        },
+        {
+          "total_mm3": 436.5392940540951,
+          "outside_regions_mm3": 0
+        }
+      ],
+      "native_sha256": "8b22569dc601774ef54cd23a66ca50332e7ae62833f8edc74953958508bface4",
+      "occurrences": 340,
+      "joints": 8,
+      "limits": "All nuts load before components. Front post must remain short for audio clearance. Open slots use flat opposing walls and stop rather than a six-sided fit. Audio mounts use fully exposed slots in the ceiling, no hidden transfer tunnel. Source-based fit improvement proposed, not physically proven. Slice/support review and visual approval pending."
+    },
+    "all_other_occurrence_statistics_transforms_appearances_visibility_unchanged": true,
+    "occurrences": 340,
+    "joints_unchanged": 8
+  },
+  "limits": "Nine FB01 mounts revised: rear4, power2, cradle3. Front and speaker mounts unchanged. Actual print fit, supports and adhesive retention remain unqualified."
+}

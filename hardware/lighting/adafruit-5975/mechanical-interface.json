@@ -1,0 +1,41 @@
+{
+  "product": "Adafruit 5975 NeoPixel Breakout with JST SH Connectors",
+  "quantity": 2,
+  "selected_by_user": true,
+  "date": "2026-09-17",
+  "source_url": "https://github.com/adafruit/Adafruit-NeoPixel-Breakout-PCB",
+  "source_sha256": "3f099e71ee7f80dbe5c457c28eada6b6e164f6461c76e9c7773a2f20bac3d3a3",
+  "pcb_outline_mm": {
+    "width_x": 12.192,
+    "height_y": 11.43,
+    "corner_radius": 2.54
+  },
+  "holes_mm": [
+    {
+      "x": 0.0,
+      "y": 4.318,
+      "drill": 2.0
+    },
+    {
+      "x": 0.0,
+      "y": -4.318,
+      "drill": 2.0
+    }
+  ],
+  "hole_spacing_mm": 8.636,
+  "led_center_mm": [
+    0,
+    0
+  ],
+  "product_page_envelope_mm": [
+    12.3,
+    11.3,
+    6.2
+  ],
+  "notes": [
+    "Outline comes from layer 20 of the Eagle source. Rounded corners stay within listed bounds.",
+    "PCB outline and product-page envelope differ slightly; retain both without treating them as exact equivalents.",
+    "PCB thickness, component stack heights, cable bends and physical mounting fit require further verification.",
+    "No print clearance or mounting screw length is inferred from the source hole diameter."
+  ]
+}

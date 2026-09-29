@@ -1,0 +1,89 @@
+{
+  "scope": "Bounded complete-plate sampled extrusion centerlines and visual support projections.0.1mm maximum support sample spacing, including arcs; X1C Y+2 offset applied. Closed slit source geometry exact; no tape bond, real socket fit or full bead-envelope proof.",
+  "plates": [
+    {
+      "plate": "W1",
+      "project_sha256": "a618a11b87e93d3d41ea678a3f76869c386e65c5c41f48b74c9beaa8e94fe5d2",
+      "slice_sha256": "6d9af59b423804296f7a7a211f906ba39cd4ffd2fe6c14fb07249133862c17ae",
+      "metadata": {
+        "index": "1",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "12660",
+        "weight": "64.88",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15054",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15065",
+          "name": "P03-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15076",
+          "name": "P04-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15087",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15098",
+          "name": "P08-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15109",
+          "name": "P14-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15120",
+          "name": "FB24-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15131",
+          "name": "FB32-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          13.582706215011704,
+          26.886
+        ],
+        [
+          239.99109101023785,
+          219.3
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 531780
+    }
+  ]
+}

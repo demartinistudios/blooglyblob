@@ -1,0 +1,71 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "28aa904f8ff11416c9366fd9beab1f1140bda473851ce0e4987edeae591a1b93",
+    "bytes": 15504532
+  },
+  "geometry": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 20,
+    "latest_version": 20,
+    "complete": true,
+    "modified": false,
+    "native_reimport_exact_all_occurrence_statistics": true,
+    "candidate_P35_exact_BRep_symmetric_difference": true,
+    "changed_parts": [
+      "P35"
+    ],
+    "unchanged_occurrence_transforms": 340,
+    "as_built_joints_unchanged": 8,
+    "single_connected_solid": true,
+    "fine_mesh_surface_tolerance_cm": 0.0005,
+    "fine_mesh_max_side_length_cm": 0.05,
+    "fine_mesh_triangles": 166392
+  },
+  "mesh": {
+    "part": "P35",
+    "triangles": 166392,
+    "degenerate_triangles": 0,
+    "non_two_use_edges": 0,
+    "inconsistent_edge_winding": 0,
+    "mesh_volume_mm3": 19228.00931121726,
+    "native_volume_mm3": 19234.823634063032,
+    "volume_error_fraction": 0.0003542700975798243,
+    "coordinate_comparison_mm": 1e-05,
+    "mesh_repair": false,
+    "surface_tolerance_cm": 0.0005,
+    "maximum_side_length_cm": 0.05
+  },
+  "approved_candidate_sha256": "f1fe69858376ef591b68be68e30f812002a3716d138f0424be6b30ec7bed1ec3",
+  "reinforcement": {
+    "added_volume_mm3": 139.91929269321122,
+    "root_blends_mm": 1.5,
+    "maximum_outward_rib_thickness_mm": 2,
+    "upper_root_wall_thickness_mm": 4.3,
+    "lower_roots": "Split around horizontal screw access; thickness varies.",
+    "original_material_removed_mm3": 0,
+    "belt_pin_geometry_and_placements_unchanged": true,
+    "minimum_added_material_belt_clearance_mm": 0.35,
+    "protected_pin_radius_mm": 2.6,
+    "protected_hinge_gap_z_mm": [
+      54.3,
+      57.7
+    ],
+    "protected_screw_radius_mm": 2.2,
+    "new_added_material_intersections_other_bodies": 0
+  },
+  "motion_checks": {
+    "isolated_end_link_sample_deg": 2,
+    "range_deg": [
+      -90,
+      90
+    ],
+    "forward_pin_removed_samples_mm": 0.5,
+    "forward_range_mm": [
+      0,
+      15
+    ],
+    "new_collisions_on_previously_clear_samples": 0
+  },
+  "limits": "Sampled local motion only, not continuous whole-belt articulation proof. Failed side/fracture location unknown. Physical strength, printed fit, support cleanup and durability untested."
+}

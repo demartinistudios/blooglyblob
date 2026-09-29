@@ -1,0 +1,8 @@
+{
+    "name": "goToSleep",
+    "description": "REQUIRED: You MUST call this tool when the user says goodbye, bye, goodnight, see you, or indicates they're done chatting. Say a brief natural farewell, then call this tool to end the conversation. Never say the tool name aloud.",
+    "input_schema": {
+        "type": "object",
+        "properties": {}
+    }
+}

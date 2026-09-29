@@ -1,0 +1,108 @@
+# Environment and secrets
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+.envrc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+.venv-beats/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Linting
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
+
+# Local runtime state and externally supplied model files
+data/
+*.ppn
+
+# Local hardware experiments; never a required build input.
+/hardware/.work/
+
+# Guide sources are part of the root repository; dist is build output.
+/hardware/build-guide/dist/
+!/hardware/build-guide/src/downloads/
+
+# Reproducible browser dependencies and local promotion transactions.
+node_modules/
+/hardware/cad/design-control/promotion-lock.json
+/hardware/cad/design-control/publication-in-progress.json
+*.publication-tmp
+
+/hardware/build-guide/.guide-previous/
+/hardware/build-guide/.guide-stage-*/
+
+# Machine-specific agent configuration.
+/.codex/config.toml
+
+# Private working records stay on this machine, even after acceptance.
+/hardware/records/
+/hardware/printing/operations/
+/docs/plans/
+/docs/investigations/
+/.compound-engineering/config.local.yaml
+
+# Superseded snapshots and release diaries retained locally for recovery.
+/hardware/cad/design-control/deliveries/R23-cleanup-20260925.json
+/hardware/cad/design-control/releases/R24-base-simplification-20260926.json
+/hardware/cad/design-control/releases/R25-jetpack-root-reinforcement-20260927.json
+/hardware/cad/design-control/releases/R26-audio-tape-cradle-20260927.json
+/hardware/cad/design-control/releases/R27-base-nut-slots-20260928.json
+/hardware/cad/design-control/releases/R28-straight-row-20260928.json
+/hardware/rendering/r23-visible-meshes.json.gz
+/hardware/rendering/r24-visible-meshes.json.gz
+/hardware/rendering/r25-visible-meshes.json.gz
+/hardware/rendering/r26-visible-meshes.json.gz
+/hardware/rendering/r27-visible-meshes.json.gz
+/hardware/rendering/r23-mesh-composition.json

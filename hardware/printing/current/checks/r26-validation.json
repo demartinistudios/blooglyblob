@@ -1,0 +1,38 @@
+{
+  "status": "PASS bounded digital preparation; physical qualification pending",
+  "cad": "R26/cloud21",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon /0.4mm/textured PEI",
+  "changed_parts": [
+    "FB24"
+  ],
+  "changed_plates": [
+    "W1"
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 70,
+  "project_sha256": "7595d139810c4296337977d84d0e86477aebd60bd7541040b74c879cd22e0e86",
+  "source_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+  "frame": [
+    0.0,
+    1.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    2.587890612915089e-08,
+    -2.5878904352794052e-08,
+    -16.0
+  ],
+  "geometry": "Selected oriented STL triangles match raw normal mesh in declared proper rigid frame within0.0001mm. Retained source frame rechecked by exact parent-STL oriented triangle comparison, with CAD confirming retained bed-normalized export frame.",
+  "settings": "All settings, orientations, positions and inherited modifiers unchanged. FB24:0.16mm layers,4walls,20%gyroid,3mm outer brim/0.1gap,tree supports0.16Z/0.4XY. Logical material1; no physical AMS assignment.",
+  "support_review": "Reviewed cradle support projections and first-layer layout. Support remains around the cradle ends; physical support release remains untested. Closed tie slits are intentional solid geometry, not support to excavate. Digital review does not qualify tape bond, actual USB connector/end-window fit or support release.",
+  "toolpath_review": "All8 W1 objects included, none skipped/outside; full-height centerlines within256mm bed, first-layer brims/spacing reviewed.0.1mm maximum centerline samples including arcs; X1C Y+2 offset applied. Not full bead-envelope proof.",
+  "other_plates": "Nine unaffected estimates inherited with exact semantic preservation; optional PETG bytes unchanged.",
+  "source_review_pending": 48,
+  "no_print_dispatched": true
+}

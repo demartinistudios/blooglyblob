@@ -1,0 +1,762 @@
+{
+  "objects": [
+    {
+      "name": "8:B02-2 | Gray",
+      "id": "158",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B02-3 | Gray",
+      "id": "162",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B02-4 | Gray",
+      "id": "166",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B03-1 | Gray",
+      "id": "170",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B04-1 | Gray",
+      "id": "174",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B09-1 | Gray",
+      "id": "176",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-2 | Gray",
+      "id": "178",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-3 | Gray",
+      "id": "180",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-4 | Gray",
+      "id": "182",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-5 | Gray",
+      "id": "184",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-6 | Gray",
+      "id": "186",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-7 | Gray",
+      "id": "188",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:B09-8 | Gray",
+      "id": "190",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:GS01-1 | Gray",
+      "id": "192",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:GS02-1 | Gray",
+      "id": "194",
+      "roundtrip_max_vertex_delta_mm": 2.8000000895644916e-07,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "8:GS03-1 | Gray",
+      "id": "196",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "9:FB02-1 | Black",
+      "id": "198",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "9:P37-1 | Black",
+      "id": "200",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "9:P37-2 | Black",
+      "id": "202",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "10:A05-1 | Clear",
+      "id": "205",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 1
+    },
+    {
+      "name": "7:FB20-1 | Copper",
+      "id": "132",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:FB19-2 | Copper",
+      "id": "130",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:FB19-1 | Copper",
+      "id": "128",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:FB03-1 | Copper",
+      "id": "126",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "6:GS20-1 | Blue",
+      "id": "124",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "5:A04-1 | Blue",
+      "id": "122",
+      "roundtrip_max_vertex_delta_mm": 2.587890790550773e-08,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "5:AR09-1 | Blue",
+      "id": "118",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "5:AR08-1 | Blue",
+      "id": "116",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "5:AR06-1 | Blue",
+      "id": "114",
+      "roundtrip_max_vertex_delta_mm": 2.9150390545851224e-08,
+      "normal_parts": 1,
+      "support_blockers": 1
+    },
+    {
+      "name": "5:AR03-1 | Blue",
+      "id": "111",
+      "roundtrip_max_vertex_delta_mm": 2.9150390545851224e-08,
+      "normal_parts": 1,
+      "support_blockers": 1
+    },
+    {
+      "name": "5:AR05-1 | Blue",
+      "id": "108",
+      "roundtrip_max_vertex_delta_mm": 6.501464966390813e-08,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "5:AR02-1 | Blue",
+      "id": "104",
+      "roundtrip_max_vertex_delta_mm": 6.501464966390813e-08,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "4:GS12-1 | Copper",
+      "id": "100",
+      "roundtrip_max_vertex_delta_mm": 5.199999861815741e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "4:P01-2 | Copper",
+      "id": "92",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "4:GS11-1 | Copper",
+      "id": "96",
+      "roundtrip_max_vertex_delta_mm": 4.800000112936686e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B02-1 | Gray",
+      "id": "154",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "8:B01-1 | Gray",
+      "id": "150",
+      "roundtrip_max_vertex_delta_mm": 2.400000003177638e-07,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "7:P36-2 | Copper",
+      "id": "140",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:P40-1 | Copper",
+      "id": "146",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:P39-1 | Copper",
+      "id": "144",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:P36-1 | Copper",
+      "id": "138",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:P38-1 | Copper",
+      "id": "142",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:FB21-1 | Copper",
+      "id": "134",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "7:FB41-1 | Copper",
+      "id": "136",
+      "roundtrip_max_vertex_delta_mm": 4.5779999999773224e-06,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P12-1 | White",
+      "id": "54",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P09-1 | White",
+      "id": "40",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "2:P31-1 | Black",
+      "id": "34",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P02-1 | White",
+      "id": "36",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P11-2 | White",
+      "id": "52",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P10-3 | White",
+      "id": "48",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P11-1 | White",
+      "id": "50",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P13-1 | White",
+      "id": "56",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P34-1 | White",
+      "id": "58",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "2:P30-1 | Black",
+      "id": "32",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P10-2 | White",
+      "id": "46",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P06-1 | White",
+      "id": "38",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P09-2 | White",
+      "id": "42",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P10-1 | White",
+      "id": "44",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:FB26-3 | White",
+      "id": "68",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:FB26-2 | White",
+      "id": "66",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "4:AR01-1 | Copper",
+      "id": "78",
+      "roundtrip_max_vertex_delta_mm": 5.000001692678779e-07,
+      "normal_parts": 1,
+      "support_blockers": 8
+    },
+    {
+      "name": "4:AR04-1 | Copper",
+      "id": "88",
+      "roundtrip_max_vertex_delta_mm": 5.000000129484761e-07,
+      "normal_parts": 1,
+      "support_blockers": 8
+    },
+    {
+      "name": "4:P01-1 | Copper",
+      "id": "90",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:FB24-1 | White",
+      "id": "14",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:FB32-1 | White",
+      "id": "16",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "2:FB01-1 | Black",
+      "id": "30",
+      "roundtrip_max_vertex_delta_mm": 3.870000000461005e-06,
+      "normal_parts": 1,
+      "support_blockers": 10
+    },
+    {
+      "name": "1:FB26-1 | White",
+      "id": "18",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "3:P35-1 | White",
+      "id": "62",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 2
+    },
+    {
+      "name": "3:FB26-1 | White",
+      "id": "64",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P03-1 | White",
+      "id": "4",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P14-1 | White",
+      "id": "12",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P08-1 | White",
+      "id": "10",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P02-1 | White",
+      "id": "2",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P04-1 | White",
+      "id": "6",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    },
+    {
+      "name": "1:P06-1 | White",
+      "id": "8",
+      "roundtrip_max_vertex_delta_mm": 0,
+      "normal_parts": 1,
+      "support_blockers": 0
+    }
+  ],
+  "global_settings_changes": {
+    "overhang_threshold_participating_cooling": [
+      [
+        "95%"
+      ],
+      [
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%",
+        "95%"
+      ]
+    ],
+    "filament_dev_ams_drying_temperature": [
+      [
+        "45",
+        "45",
+        "45",
+        "45"
+      ],
+      [
+        "45",
+        "45",
+        "45",
+        "45",
+        "45",
+        "45",
+        "45",
+        "45",
+        "45",
+        "45"
+      ]
+    ],
+    "filament_map_2": [
+      [
+        "1"
+      ],
+      null
+    ],
+    "first_x_layer_part_fan_speed": [
+      [
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "different_settings_to_system": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      null
+    ],
+    "ironing_fan_speed": [
+      [
+        "-1"
+      ],
+      [
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1"
+      ]
+    ],
+    "inherits_group": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      null
+    ],
+    "filament_dev_ams_drying_time": [
+      [
+        "12",
+        "12",
+        "12",
+        "12"
+      ],
+      [
+        "12",
+        "12",
+        "12",
+        "12",
+        "12",
+        "12",
+        "12",
+        "12",
+        "12",
+        "12"
+      ]
+    ],
+    "filament_settings_id": [
+      [
+        "01 White PLA - W1",
+        "02 Black PLA - K1",
+        "03 White PLA - W2",
+        "04 Copper Silk PLA - C1",
+        "05 Blue PLA - B1",
+        "06 Blue PLA - B2",
+        "07 Copper Silk PLA - C2",
+        "08 Gray PLA - G1",
+        "09 Black PLA - K2",
+        "10 Clear PLA - T1"
+      ],
+      [
+        "01 White PLA - W1(BlooglyBlob-R23-Review.3mf)",
+        "02 Black PLA - K1(BlooglyBlob-R23-Review.3mf)",
+        "03 White PLA - W2(BlooglyBlob-R23-Review.3mf)",
+        "04 Copper Silk PLA - C1(BlooglyBlob-R23-Review.3mf)",
+        "05 Blue PLA - B1(BlooglyBlob-R23-Review.3mf)",
+        "06 Blue PLA - B2(BlooglyBlob-R23-Review.3mf)",
+        "07 Copper Silk PLA - C2(BlooglyBlob-R23-Review.3mf)",
+        "08 Gray PLA - G1(BlooglyBlob-R23-Review.3mf)",
+        "09 Black PLA - K2(BlooglyBlob-R23-Review.3mf)",
+        "10 Clear PLA - T1(BlooglyBlob-R23-Review.3mf)"
+      ]
+    ],
+    "filament_dev_ams_drying_ams_limitations": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "default_filament_colour": [
+      [
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "print_settings_id": [
+      "BlooglyBlob R22 per-object production settings",
+      "BlooglyBlob R22 per-object production settings(BlooglyBlob-R23-Review.3mf)"
+    ],
+    "wipe_tower_x": [
+      [
+        "15"
+      ],
+      [
+        "15",
+        "15",
+        "15",
+        "15",
+        "15",
+        "15",
+        "15",
+        "15",
+        "15",
+        "15"
+      ]
+    ],
+    "wipe_tower_y": [
+      [
+        "214.804"
+      ],
+      [
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804",
+        "214.804"
+      ]
+    ]
+  },
+  "result": "PASS"
+}

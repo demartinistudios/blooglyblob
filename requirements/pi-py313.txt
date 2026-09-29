@@ -1,0 +1,45 @@
+# Reference ARM64/Python 3.13 dependency constraints.
+# Brain versions: successful isolated ARM64 install recorded 2026-09-17.
+# Hardware additions: built/installed on ARM64 Pi 3B+ / Python 3.13.5 on 2026-09-19.
+# Full fresh-device qualification remains required; this is not an OS image lock.
+aiohappyeyeballs==2.7.1
+aiohttp==3.14.3
+aiosignal==1.4.0
+annotated-types==0.8.0
+anyio==4.15.1
+attrs==26.1.0
+certifi==2026.7.22
+charset-normalizer==3.5.1
+frozenlist==1.8.0
+h11==0.16.0
+httpcore2==2.13.0
+httpx2==2.13.0
+idna==3.20
+jiter==0.17.0
+multidict==6.8.0
+numpy==2.5.3
+openai==3.13.0
+propcache==0.5.4
+pydantic==2.13.5
+pydantic_core==2.46.5
+python-dotenv==1.2.3
+python-roku==3.1.5
+RapidFuzz==3.14.6
+requests==2.34.2
+six==1.17.0
+sniffio==1.3.1
+soxr==1.1.0
+tmdbv3api==1.9.0
+truststore==0.10.4
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+urllib3==2.8.0
+websockets==15.0.1
+yarl==1.25.1
+PyAudio==0.2.14
+RPi.GPIO==0.7.1
+colorzero==2.0
+gpiozero==2.0.1.post3
+pigpio==1.78
+rpi_ws281x==5.0.0
+setuptools==84.0.0

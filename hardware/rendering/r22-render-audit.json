@@ -1,0 +1,572 @@
+{
+  "release": "R22",
+  "renders": {
+    "overview-front": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "front",
+        "title": "R22 / COMPLETE CURRENT ASSEMBLY",
+        "exclude": [
+          "AR07",
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "overview-back": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        0.9,
+        1.6,
+        0.9
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "rear",
+        "title": "R22 / COMPLETE CURRENT ASSEMBLY",
+        "exclude": [
+          "AR07",
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "overview-poster": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "front",
+        "title": "R22 / ACCEPTED COLOR SCHEME",
+        "footer": "Accepted R22 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+        "exclude": [
+          "AR07",
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "overview-colors-rear": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        0.9,
+        1.6,
+        0.9
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "rear",
+        "title": "R22 / ACCEPTED COLOR SCHEME",
+        "footer": "Accepted R22 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+        "exclude": [
+          "AR07",
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-01": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "front",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-09": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 74324,
+      "labels": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "GS20",
+          "GS11",
+          "GS12",
+          "GS01",
+          "GS02",
+          "GS03"
+        ],
+        "camera": [
+          -0.85,
+          -1.6,
+          0.85
+        ],
+        "highlight": [
+          "GS11",
+          "GS12",
+          "GS01",
+          "GS02",
+          "GS03"
+        ],
+        "title": "GOGGLES AND STRAPS \u2022 installed positions; dry-fit before bonding",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-12": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 38096,
+      "labels": [
+        "P06",
+        "P06",
+        "E03",
+        "E03",
+        "P08",
+        "P30",
+        "E04",
+        "GS11",
+        "GS12"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        0.9,
+        1.6,
+        0.9
+      ],
+      "view": {
+        "select": [
+          "P06",
+          "GS11",
+          "GS12",
+          "E03",
+          "P30",
+          "E04",
+          "P08"
+        ],
+        "angle": "rear",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-13": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 176062,
+      "labels": [
+        "P08",
+        "P14",
+        "A04",
+        "A05",
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "GS20",
+          "P08",
+          "P14",
+          "A04",
+          "A05",
+          "GS11",
+          "GS12",
+          "GS01",
+          "GS02",
+          "GS03"
+        ],
+        "offset": {
+          "GS20": [
+            0,
+            0,
+            28
+          ],
+          "GS11": [
+            0,
+            0,
+            28
+          ],
+          "GS12": [
+            0,
+            0,
+            28
+          ],
+          "A04": [
+            0,
+            0,
+            28
+          ],
+          "A05": [
+            0,
+            0,
+            28
+          ],
+          "GS01": [
+            0,
+            0,
+            28
+          ],
+          "GS02": [
+            0,
+            0,
+            28
+          ],
+          "GS03": [
+            0,
+            0,
+            28
+          ]
+        },
+        "highlight": [
+          "GS20"
+        ],
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-34": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 1321102,
+      "labels": [],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        0.9,
+        1.6,
+        0.9
+      ],
+      "view": {
+        "select": [
+          "all"
+        ],
+        "angle": "rear",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "head-straps-installed": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 92672,
+      "labels": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.65
+      ],
+      "view": {
+        "select": [
+          "GS01",
+          "GS02",
+          "GS03",
+          "GS11",
+          "GS12",
+          "GS20",
+          "M2\u00d78",
+          "M2 nut"
+        ],
+        "camera": [
+          -0.85,
+          -1.6,
+          0.65
+        ],
+        "title": "R22 / SEPARATE GOGGLES AND STRAPS",
+        "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "head-straps-rear": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 92672,
+      "labels": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2\u00d78"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        0.85,
+        1.6,
+        0.65
+      ],
+      "view": {
+        "select": [
+          "GS01",
+          "GS02",
+          "GS03",
+          "GS11",
+          "GS12",
+          "GS20",
+          "M2\u00d78",
+          "M2 nut"
+        ],
+        "camera": [
+          0.85,
+          1.6,
+          0.65
+        ],
+        "title": "R22 / THREE STRAP SECTIONS \u2014 REAR",
+        "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "head-straps-separated": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 74324,
+      "labels": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "GS01",
+          "GS02",
+          "GS03",
+          "GS11",
+          "GS12",
+          "GS20"
+        ],
+        "angle": "front",
+        "title": "R22 / HEAD PARTS \u2014 SEPARATED FOR IDENTIFICATION",
+        "offset": {
+          "GS11": [
+            -8,
+            -20,
+            0
+          ],
+          "GS12": [
+            8,
+            -20,
+            0
+          ],
+          "GS01": [
+            15,
+            0,
+            0
+          ],
+          "GS02": [
+            -15,
+            0,
+            0
+          ],
+          "GS03": [
+            0,
+            18,
+            0
+          ]
+        },
+        "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "step-18": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 403746,
+      "labels": [
+        "AR01",
+        "AR08",
+        "AR02",
+        "AR03"
+      ],
+      "width": 1200,
+      "height": 1000,
+      "camera": [
+        1.8,
+        -0.9,
+        0.6
+      ],
+      "view": {
+        "select": [
+          "AR01",
+          "AR02",
+          "AR03",
+          "AR08",
+          "AR10"
+        ],
+        "camera": [
+          1.8,
+          -0.9,
+          0.6
+        ],
+        "offset": {
+          "AR03": [
+            0,
+            -6.84,
+            -18.79
+          ],
+          "AR08": [
+            24,
+            10,
+            0
+          ],
+          "AR10": [
+            27,
+            -8,
+            0
+          ]
+        },
+        "title": "ROBOT-LEFT ARM \u2022 mirror for robot-right",
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "part-GS11": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 8646,
+      "labels": [],
+      "width": 560,
+      "height": 420,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "GS11"
+        ],
+        "camera": [
+          -0.85,
+          -1.6,
+          0.85
+        ],
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    },
+    "part-GS12": {
+      "renderer": "per-pixel depth buffer, opaque surfaces, 2\u00d7 supersampling",
+      "triangles": 8646,
+      "labels": [],
+      "width": 560,
+      "height": 420,
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "view": {
+        "select": [
+          "GS12"
+        ],
+        "camera": [
+          -0.85,
+          -1.6,
+          0.85
+        ],
+        "exclude": [
+          "AR10",
+          "AR11"
+        ]
+      }
+    }
+  },
+  "source_mesh_sha256": "07df5c2061454ea01ed595a2c1b99fb212546e8cb7cfc21d19410bfb41a68c8c"
+}

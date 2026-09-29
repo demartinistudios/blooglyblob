@@ -1,0 +1,189 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "81b5c2eb77fb84c016d0d1702804f5ccb9b0a8076718fca05e7adf0ca831c9c9",
+    "bytes": 15491592
+  },
+  "geometry": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 21,
+    "latest_version": 21,
+    "complete": true,
+    "modified": false,
+    "native_reimport_exact_all_occurrence_statistics": true,
+    "candidate_FB24_exact_BRep_symmetric_difference": true,
+    "changed_parts": [
+      "FB24"
+    ],
+    "unchanged_occurrence_transforms": 340,
+    "as_built_joints_unchanged": 8,
+    "single_connected_solid": true,
+    "fine_mesh_surface_tolerance_cm": 0.0005,
+    "fine_mesh_max_side_length_cm": 0.05,
+    "fine_mesh_triangles": 125938
+  },
+  "mesh": {
+    "part": "FB24",
+    "triangles": 125938,
+    "degenerate_triangles": 0,
+    "non_two_use_edges": 0,
+    "inconsistent_edge_winding": 0,
+    "mesh_volume_mm3": 13216.051591177518,
+    "native_volume_mm3": 13216.756097532349,
+    "volume_error_fraction": 5.3304029342104325e-05,
+    "coordinate_comparison_mm": 1e-05,
+    "mesh_repair": false,
+    "surface_tolerance_cm": 0.0005,
+    "maximum_side_length_cm": 0.05
+  },
+  "integration": {
+    "changed_parts": [
+      "FB24"
+    ],
+    "added_volume_mm3": 364.60800000000035,
+    "removed_volume_mm3": 0,
+    "patch_regions": [
+      {
+        "lo_local_mm": [
+          -10.8,
+          -79.5,
+          -9.2
+        ],
+        "hi_local_mm": [
+          -7.2,
+          -69,
+          -7
+        ]
+      },
+      {
+        "lo_local_mm": [
+          -10.8,
+          -70.8,
+          -13.25
+        ],
+        "hi_local_mm": [
+          -7.2,
+          -69,
+          -9.2
+        ]
+      },
+      {
+        "lo_local_mm": [
+          -10.8,
+          -79.5,
+          -13.25
+        ],
+        "hi_local_mm": [
+          -7.2,
+          -74.5,
+          -9.2
+        ]
+      },
+      {
+        "lo_local_mm": [
+          9.2,
+          -79.5,
+          -9.2
+        ],
+        "hi_local_mm": [
+          12.8,
+          -69,
+          -7
+        ]
+      },
+      {
+        "lo_local_mm": [
+          9.2,
+          -70.8,
+          -13.25
+        ],
+        "hi_local_mm": [
+          12.8,
+          -69,
+          -9.2
+        ]
+      },
+      {
+        "lo_local_mm": [
+          9.2,
+          -79.5,
+          -13.25
+        ],
+        "hi_local_mm": [
+          12.8,
+          -74.5,
+          -9.2
+        ]
+      }
+    ],
+    "changes_confined_to_two_original_fork_cuts": true,
+    "all_other_occurrence_statistics_transforms_appearances_visibility_unchanged": true,
+    "occurrences": 340,
+    "joints_unchanged": 8,
+    "added_material_collisions_with_installed_visible_parts": [],
+    "overlaps_with_hidden_superseded_reference_parts": [
+      {
+        "path": "P17 Service base shell r6 - clear microphone opening:1",
+        "body": "P17 base shell r6",
+        "volume_cm3": 0.03801600000000016,
+        "visible": false
+      },
+      {
+        "path": "P41 Front microphone grille plate r0:1",
+        "body": "Body1",
+        "volume_cm3": 0.07020000000000004,
+        "visible": false
+      }
+    ],
+    "case_shift_samples": [
+      {
+        "rearward_shift_mm": 1.9,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.0,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.1,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.2,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.3,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.4,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.5,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.6,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.7,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.8,
+        "collisions": []
+      },
+      {
+        "rearward_shift_mm": 2.9,
+        "collisions": []
+      }
+    ],
+    "tape": "Back face opposite microphones to existing cradle rear wall. Thickness under1mm per user; no pad added, no support-height change. Actual tape bond and cable fit unqualified.",
+    "plug_access": "Existing closed end windows unchanged; actual USB extension fit remains unresolved. Install bare case before connecting; no claim of connected insertion clearance.",
+    "native_sha256": "5e98a5bf33d5957dde082711f3d4aaead0e607c86a38a71dc62857631adf5946"
+  },
+  "limits": "Only two tie slits closed. Tape on rear case face opposite microphones, under1mm per owner. Case reference stays nominal; modeled case envelope clears sampled rearward seating shifts1.9\u20132.9mm. Physical tape adhesion and actual USB connector fit remain unqualified. No added tape pad or support-height change."
+}

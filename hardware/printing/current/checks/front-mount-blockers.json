@@ -1,0 +1,86 @@
+[
+  {
+    "name": "R23 front nut channel X-27 Z8.7",
+    "id": 200,
+    "center": [
+      -27,
+      89.2,
+      34
+    ],
+    "dimensions": [
+      6.2,
+      3.2,
+      72
+    ]
+  },
+  {
+    "name": "R23 front screw bore X-27 Z8.7",
+    "id": 201,
+    "center": [
+      -27,
+      90,
+      8.7
+    ],
+    "dimensions": [
+      3.8,
+      5,
+      3.8
+    ]
+  },
+  {
+    "name": "R23 front screw bore X-27 Z38.5",
+    "id": 203,
+    "center": [
+      -27,
+      90,
+      38.5
+    ],
+    "dimensions": [
+      3.8,
+      5,
+      3.8
+    ]
+  },
+  {
+    "name": "R23 front nut channel X51 Z8.7",
+    "id": 204,
+    "center": [
+      51,
+      89.2,
+      34
+    ],
+    "dimensions": [
+      6.2,
+      3.2,
+      72
+    ]
+  },
+  {
+    "name": "R23 front screw bore X51 Z8.7",
+    "id": 205,
+    "center": [
+      51,
+      90,
+      8.7
+    ],
+    "dimensions": [
+      3.8,
+      5,
+      3.8
+    ]
+  },
+  {
+    "name": "R23 front screw bore X51 Z38.5",
+    "id": 207,
+    "center": [
+      51,
+      90,
+      38.5
+    ],
+    "dimensions": [
+      3.8,
+      5,
+      3.8
+    ]
+  }
+]

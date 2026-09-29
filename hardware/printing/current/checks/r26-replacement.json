@@ -1,0 +1,35 @@
+{
+  "source_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+  "baseline_sha256": "b97bdb5e6e9564290f0c646df61fb2de83d05185c0d0db61e781c12eb304eb8f",
+  "candidate_sha256": "a618a11b87e93d3d41ea678a3f76869c386e65c5c41f48b74c9beaa8e94fe5d2",
+  "object_id": "14",
+  "recipe_instance_id": "kit-FB24-01",
+  "stl_to_mesh": [
+    0.0,
+    1.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    2.587890612915089e-08,
+    -2.5878904352794052e-08,
+    -16.0
+  ],
+  "assembly_to_W1_bed": "(Y+111.699993674, X+103.493400974, -Z-7)",
+  "frame_review": {
+    "method": "Retained previously verified FB24 selected-STL-to-raw frame. New CAD export explicitly retains prior bed-normalized STL frame; parent STL exact triangles independently rechecked against parent project.",
+    "samples": [
+      {
+        "result": "PASS parent selected STL exact oriented triangles in retained frame"
+      }
+    ],
+    "limits": "No physical fit or tape bond qualification."
+  },
+  "triangles": 125938,
+  "unchanged_instances": 70,
+  "settings": "All global, plate, object, component settings/transforms and all inherited modifiers retained exactly; only FB24 normal mesh replaced.",
+  "result": "PASS"
+}

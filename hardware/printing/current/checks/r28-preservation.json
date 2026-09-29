@@ -1,0 +1,421 @@
+{
+  "result": "PASS",
+  "unchanged_instances": 70,
+  "settings": "Exact global/plate/object/component settings, transforms and all15 inherited blockers retained; only FB01 normal mesh changed.",
+  "modifier_review": {
+    "method": "Assembly AABB non-overlap between all15 retained support blockers and eight moved cylindrical post envelopes/four rectangular pad envelopes; dimensions from accepted source/profile.",
+    "blockers": [
+      {
+        "assembly_bounds": [
+          [
+            71.0,
+            -77.9999985,
+            -9.5999999
+          ],
+          [
+            75.0,
+            -73.9999985,
+            -3.4000001
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            67.0,
+            -80.9999985,
+            -73.0
+          ],
+          [
+            85.0,
+            -70.9999985,
+            1.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            95.0,
+            -77.9999985,
+            -9.5999999
+          ],
+          [
+            99.0,
+            -73.9999985,
+            -3.4000001
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            85.0,
+            -80.9999985,
+            -73.0
+          ],
+          [
+            103.0,
+            -70.9999985,
+            1.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            -30.0999999,
+            -92.20000002,
+            -72.0
+          ],
+          [
+            -23.9000001,
+            -88.99999998000001,
+            0.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            -28.89999998,
+            -93.9,
+            -12.59999998
+          ],
+          [
+            -25.10000002,
+            -88.9,
+            -8.800000019999999
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            -28.89999998,
+            -93.9,
+            -42.39999998
+          ],
+          [
+            -25.10000002,
+            -88.9,
+            -38.60000002
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            47.9000001,
+            -92.20000002,
+            -72.0
+          ],
+          [
+            54.0999999,
+            -88.99999998000001,
+            0.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            49.10000002,
+            -93.9,
+            -12.59999998
+          ],
+          [
+            52.89999998,
+            -88.9,
+            -8.800000019999999
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            49.10000002,
+            -93.9,
+            -42.39999998
+          ],
+          [
+            52.89999998,
+            -88.9,
+            -38.60000002
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            -29.20000005,
+            82.0,
+            -17.0
+          ],
+          [
+            -22.79999995,
+            94.0,
+            -8.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            -29.20000005,
+            82.0,
+            -54.0
+          ],
+          [
+            -22.79999995,
+            94.0,
+            -45.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            54.79999995,
+            82.0,
+            -17.0
+          ],
+          [
+            61.20000005,
+            94.0,
+            -8.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            54.79999995,
+            82.0,
+            -54.0
+          ],
+          [
+            61.20000005,
+            94.0,
+            -45.0
+          ]
+        ],
+        "moved_region_intersections": []
+      },
+      {
+        "assembly_bounds": [
+          [
+            76.8,
+            81.0,
+            -73.0
+          ],
+          [
+            83.2,
+            95.0,
+            1.0
+          ]
+        ],
+        "moved_region_intersections": []
+      }
+    ],
+    "moved_regions": [
+      {
+        "name": "Pi",
+        "bounds": [
+          [
+            -78.0,
+            -1.0,
+            -17
+          ],
+          [
+            -71.0,
+            6.0,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Pi",
+        "bounds": [
+          [
+            -78.0,
+            57.0,
+            -17
+          ],
+          [
+            -71.0,
+            64.0,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Pi",
+        "bounds": [
+          [
+            -29.0,
+            -1.0,
+            -17
+          ],
+          [
+            -22.0,
+            6.0,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Pi",
+        "bounds": [
+          [
+            -29.0,
+            57.0,
+            -17
+          ],
+          [
+            -22.0,
+            64.0,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "shifter",
+        "bounds": [
+          [
+            -21.5,
+            -25.58,
+            -15
+          ],
+          [
+            -14.5,
+            -18.58,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "shifter",
+        "bounds": [
+          [
+            -21.5,
+            -15.42,
+            -15
+          ],
+          [
+            -14.5,
+            -8.42,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "shifter",
+        "bounds": [
+          [
+            -21.5,
+            -47.58,
+            -15
+          ],
+          [
+            -14.5,
+            -40.58,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "shifter",
+        "bounds": [
+          [
+            -21.5,
+            -37.42,
+            -15
+          ],
+          [
+            -14.5,
+            -30.42,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Wago pad",
+        "bounds": [
+          [
+            30.4,
+            38.7,
+            -12
+          ],
+          [
+            65.6,
+            65.3,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Wago pad",
+        "bounds": [
+          [
+            30.4,
+            8.7,
+            -12
+          ],
+          [
+            65.6,
+            35.3,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Wago pad",
+        "bounds": [
+          [
+            30.4,
+            -21.3,
+            -12
+          ],
+          [
+            65.6,
+            5.300000000000001,
+            -6
+          ]
+        ]
+      },
+      {
+        "name": "Wago pad",
+        "bounds": [
+          [
+            30.4,
+            -51.3,
+            -12
+          ],
+          [
+            65.6,
+            -24.7,
+            -6
+          ]
+        ]
+      }
+    ]
+  },
+  "preview": "Installed Bambu Studio CLI-generated K1 previews only; exact geometry/settings retained.",
+  "final_sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+  "privacy": "PASS",
+  "final_candidate_semantics": "Exactly equal"
+}

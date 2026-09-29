@@ -1,0 +1,35 @@
+{
+  "source_sha256": "23a33c7b5c2e6fa6754778d07d32e3d2661510d7dbf92606bc6894025a7fbb31",
+  "baseline_sha256": "7595d139810c4296337977d84d0e86477aebd60bd7541040b74c879cd22e0e86",
+  "candidate_sha256": "77ccfac42e4f316b1bc3fea6a42bfd483e5789eafdaf86ec2c12747dd13efd21",
+  "object_id": "32",
+  "recipe_instance_id": "kit-FB01-01",
+  "stl_to_mesh": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -6.626157941780342e-09,
+    0.0,
+    6.626157941780342e-09,
+    -1.0,
+    0.0,
+    1.1500013999819032,
+    33.49999972103876
+  ],
+  "assembly_to_K1_bed": "(X+128,110.6-Y,-Z-2), after K1 plate-origin rebase",
+  "frame_review": {
+    "method": "Retained previously verified FB01 selected-STL-to-raw frame. New CAD export explicitly retains prior bed-normalized STL frame; parent STL exact triangles independently rechecked against parent project.",
+    "samples": [
+      {
+        "result": "PASS parent selected STL exact oriented triangles in retained frame"
+      }
+    ],
+    "limits": "No physical fit or nut retention qualification."
+  },
+  "triangles": 135096,
+  "unchanged_instances": 70,
+  "settings": "All global, plate, object, component settings/transforms and all inherited modifiers retained exactly; only FB01 normal mesh replaced.",
+  "result": "PASS"
+}

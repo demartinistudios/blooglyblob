@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="215.9mm" height="279.4mm" viewBox="0 0 215.9 279.4">
+<title>BlooglyBlob eye film template: cut two, actual size</title>
+<rect width="215.9" height="279.4" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="20" y="22" font-size="4" text-anchor="start" font-weight="bold" fill="#17232b">BlooglyBlob</text>
+<text x="20" y="32" font-size="8" text-anchor="start" font-weight="bold" fill="#17232b">Eye film template</text>
+<text x="20" y="42" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Print at 100% (actual size). Turn off Fit, Shrink and Scale to page.</text>
+<text x="20" y="48" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Check the 50 mm bar and the 20 mm square with a ruler before cutting.</text>
+<text x="20" y="58" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Cut two windows from clear, flexible film (a transparency sheet works).</text>
+<text x="20" y="64" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Start with size A. If A is loose in the groove, cut B; if A is tight, cut C.</text>
+<text x="20" y="70" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Cut on the line, keep the corners smooth, and don’t crease the film.</text>
+<text x="20" y="93.2" font-size="7" text-anchor="start" font-weight="bold" fill="#17232b">A</text>
+<rect x="38.7" y="87.7" width="12.6" height="8.6" rx="4.2" ry="4.2" fill="none" stroke="black" stroke-width="0.1"/>
+<rect x="63.7" y="87.7" width="12.6" height="8.6" rx="4.2" ry="4.2" fill="none" stroke="black" stroke-width="0.1"/>
+<text x="88" y="91" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">A: 12.6 × 8.6 mm, corner radius 4.2 mm</text>
+<text x="88" y="97" font-size="3.2" text-anchor="start" font-weight="normal" fill="#51606b">Start here</text>
+<text x="20" y="117.2" font-size="7" text-anchor="start" font-weight="bold" fill="#17232b">B</text>
+<rect x="38.65" y="111.65" width="12.7" height="8.7" rx="4.25" ry="4.25" fill="none" stroke="black" stroke-width="0.1"/>
+<rect x="63.65" y="111.65" width="12.7" height="8.7" rx="4.25" ry="4.25" fill="none" stroke="black" stroke-width="0.1"/>
+<text x="88" y="115" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">B: 12.7 × 8.7 mm, corner radius 4.25 mm</text>
+<text x="88" y="121" font-size="3.2" text-anchor="start" font-weight="normal" fill="#51606b">If A is loose</text>
+<text x="20" y="141.2" font-size="7" text-anchor="start" font-weight="bold" fill="#17232b">C</text>
+<rect x="38.75" y="135.75" width="12.5" height="8.5" rx="4.15" ry="4.15" fill="none" stroke="black" stroke-width="0.1"/>
+<rect x="63.75" y="135.75" width="12.5" height="8.5" rx="4.15" ry="4.15" fill="none" stroke="black" stroke-width="0.1"/>
+<text x="88" y="139" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">C: 12.5 × 8.5 mm, corner radius 4.15 mm</text>
+<text x="88" y="145" font-size="3.2" text-anchor="start" font-weight="normal" fill="#51606b">If A is tight</text>
+<path d="M20 175H70M20 172V178M70 172V178" stroke="#17232b" stroke-width="0.35" fill="none"/>
+<text x="45" y="182" font-size="3" text-anchor="middle" font-weight="normal" fill="#17232b">50 mm</text>
+<rect x="100" y="165" width="20" height="20" fill="none" stroke="#17232b" stroke-width="0.35"/>
+<text x="126" y="176" font-size="3.2" text-anchor="start" font-weight="normal" fill="#17232b">20 × 20 mm square</text>
+<text x="20" y="200" font-size="3.4" text-anchor="start" font-weight="normal" fill="#17232b">Each window sits in the groove behind the goggle’s front lip, with a 14 × 10 mm piece</text>
+<text x="20" y="206" font-size="3.4" text-anchor="start" font-weight="normal" fill="#17232b">of 4 mm white foam behind it.</text>
+</g>
+</svg>

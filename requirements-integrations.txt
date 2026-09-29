@@ -1,0 +1,4 @@
+# Only needed on the machine running the interactive Ring authentication helper.
+ring-doorbell>=0.9
+python-dotenv>=1.0
+python-roku>=3.1

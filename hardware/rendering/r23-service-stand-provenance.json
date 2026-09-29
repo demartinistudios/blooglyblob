@@ -1,0 +1,371 @@
+{
+  "cad": {
+    "cloud_name": "Blue Glee Blob - MAIN",
+    "project": "Admin Project",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "design_revision": "R23",
+    "cloud_version": 18,
+    "release_manifest": "hardware/cad/design-control/releases/R23-current.json",
+    "release_manifest_sha256": "baf048beb54b13168d169f647b1931092b08577bfbdb18b35d290fd91c15cd25"
+  },
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d665bfe1c71b5b5ec590344c323be740e36d1d66f9f349c6fe3de4afaff4a4fc"
+  },
+  "mesh": {
+    "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
+    "sha256": "37e41c2738ec50f8b4d024a6a771e6e476a6983560f961f057b0903c55ef4219",
+    "bytes": 810573
+  },
+  "export_script": {
+    "path": "hardware/tools/cad/export_service_stand.py",
+    "sha256": "74648bd46cb936bbf8efd2cc631674d37c03339ea9cc6388efb3a4a221f6ad7e"
+  },
+  "purpose": "Supplemental accepted CAD geometry for documentation rendering; no design or print change.",
+  "coordinates": "vertices_cm are body-local; apply row-major 4x4 world occurrence transform once, then multiply cm by 10 for assembly mm.",
+  "face_format": "faces contains flat triangle vertex indices, zero-based.",
+  "tessellation": {
+    "surface_tolerance_cm": 0.002,
+    "maximum_side_length_cm": 0.15
+  },
+  "occurrence_count": 8,
+  "body_count": 8,
+  "parts": [
+    "J01",
+    "J02",
+    "J03",
+    "J04",
+    "J05",
+    "J06"
+  ],
+  "occurrences": [
+    {
+      "path": "FBJIG J01 T-bed r2 - 280 x 200 x 18:1",
+      "part_id": "J01",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 44872,
+      "triangles": 85836,
+      "native_volume_cm3": 649.5654616090408,
+      "world_bounds_mm": [
+        [
+          120.0,
+          -100.0,
+          -85.0
+        ],
+        [
+          138.00000190734863,
+          100.0,
+          195.0
+        ]
+      ],
+      "row_sha256": "1a264f9ffa98b80503f34e486f4c454e9945b04f7a2d20b84bb65b7848344448"
+    },
+    {
+      "path": "FBJIG J02 base block -68 - 58 x 30 x 13:1",
+      "part_id": "J02",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 3304,
+      "triangles": 5860,
+      "native_volume_cm3": 22.478628330588474,
+      "world_bounds_mm": [
+        [
+          106.99999809265137,
+          -83.00000190734863,
+          -63.00000190734863
+        ],
+        [
+          120.0,
+          -53.00000190734863,
+          -5.0
+        ]
+      ],
+      "row_sha256": "35253eef8e003cb769329480ded37a92ad99c365349adf82b4a2990b55ad5447"
+    },
+    {
+      "path": "FBJIG J03 base pad -68 - 58 x 30 x 2:1",
+      "part_id": "J03",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 2046,
+      "triangles": 3592,
+      "native_volume_cm3": 3.479999999999989,
+      "world_bounds_mm": [
+        [
+          105.0,
+          -83.00000190734863,
+          -63.00000190734863
+        ],
+        [
+          106.99999809265137,
+          -53.00000190734863,
+          -5.0
+        ]
+      ],
+      "row_sha256": "8839c8f2f6fd1c19a1c96781a064e12be9f67b0cfbbe516a34c8657a1a101e0b"
+    },
+    {
+      "path": "FBJIG J02 base block 68 - 58 x 30 x 13:1",
+      "part_id": "J02",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 3304,
+      "triangles": 5860,
+      "native_volume_cm3": 22.478628330588474,
+      "world_bounds_mm": [
+        [
+          106.99999809265137,
+          53.00000190734863,
+          -63.00000190734863
+        ],
+        [
+          120.0,
+          83.00000190734863,
+          -5.0
+        ]
+      ],
+      "row_sha256": "e7f16797d78fe668b74b7f5dfef22ac502a10f687c624b4ee39ed594d146c0da"
+    },
+    {
+      "path": "FBJIG J03 base pad 68 - 58 x 30 x 2:1",
+      "part_id": "J03",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 2046,
+      "triangles": 3592,
+      "native_volume_cm3": 3.479999999999989,
+      "world_bounds_mm": [
+        [
+          105.0,
+          53.00000190734863,
+          -63.00000190734863
+        ],
+        [
+          106.99999809265137,
+          83.00000190734863,
+          -5.0
+        ]
+      ],
+      "row_sha256": "34cbfb8fa89a5ebfbb09eb60a627c4405ffde6fd815d562994b689eb843ccd0e"
+    },
+    {
+      "path": "FBJIG J04 wood head riser 70 x 34 x 36:1",
+      "part_id": "J04",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 7406,
+      "triangles": 13604,
+      "native_volume_cm3": 85.07210182153038,
+      "world_bounds_mm": [
+        [
+          50.0,
+          -17.000000476837158,
+          128.00000190734863
+        ],
+        [
+          120.0,
+          17.000000476837158,
+          163.99999618530273
+        ]
+      ],
+      "row_sha256": "ae6bcc91ea9c281fc7fbfe87900254875c5fe6585d828f78ac453672359cb36f"
+    },
+    {
+      "path": "FBJIG J05 printed head saddle:1",
+      "part_id": "J05",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 3419,
+      "triangles": 5732,
+      "native_volume_cm3": 12.806468301495839,
+      "world_bounds_mm": [
+        [
+          27.999999523162842,
+          -17.000000476837158,
+          128.00000190734863
+        ],
+        [
+          50.0,
+          17.000000476837158,
+          163.99999618530273
+        ]
+      ],
+      "row_sha256": "86f5bd3fa65efd105fb4ef7eaa9fc2f00490447d99e2e9ee006021fa0ab9794b"
+    },
+    {
+      "path": "FBJIG J06 head pad - 4mm contour allowance:1",
+      "part_id": "J06",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "body_visible": false,
+      "vertices": 2882,
+      "triangles": 4744,
+      "native_volume_cm3": 5.749514774722818,
+      "world_bounds_mm": [
+        [
+          27.999999523162842,
+          -17.000000476837158,
+          128.00000190734863
+        ],
+        [
+          50.0,
+          17.000000476837158,
+          163.99999618530273
+        ]
+      ],
+      "row_sha256": "7fbca00560b32f6df9d4804ba48b6789409ce34fdf199c69277e2c2172d393cf"
+    }
+  ],
+  "unchanged": {
+    "visibility": true,
+    "transforms": true,
+    "body_volumes": true,
+    "document_clean": true,
+    "cloud_version": 18
+  },
+  "record_note": "Original R23 stand geometry reused after comparison with current native occurrence transforms, volumes and bounds. Export script relocated with its repository-root locator adjusted; no retessellation."
+}

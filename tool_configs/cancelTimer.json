@@ -1,0 +1,14 @@
+{
+    "name": "cancelTimer",
+    "description": "Cancel a timer by ID. Call findTimers first to search and get the ID. Use 'all' only if user explicitly wants to cancel everything.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "timer_id": {
+                "type": "string",
+                "description": "The timer ID from findTimers, or 'all' to cancel everything (only use 'all' if user explicitly requests canceling all)"
+            }
+        },
+        "required": ["timer_id"]
+    }
+}

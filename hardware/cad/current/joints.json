@@ -1,0 +1,106 @@
+[
+  {
+    "name": "R removable elbow screw cap",
+    "type": 0,
+    "one": "ANDROID R_Upper:1",
+    "two": "ANDROID R_ElbowCap:1",
+    "visible": false
+  },
+  {
+    "name": "R removable sculpted upper cover",
+    "type": 0,
+    "one": "ANDROID R_Upper:1",
+    "two": "ANDROID R_Cover:1",
+    "visible": false
+  },
+  {
+    "name": "L removable elbow screw cap",
+    "type": 0,
+    "one": "ANDROID L_Upper:1",
+    "two": "ANDROID L_ElbowCap:1",
+    "visible": false
+  },
+  {
+    "name": "L removable sculpted upper cover",
+    "type": 0,
+    "one": "ANDROID L_Upper:1",
+    "two": "ANDROID L_Cover:1",
+    "visible": false
+  },
+  {
+    "name": "R centered manual elbow - screw tension",
+    "type": 1,
+    "one": "ANDROID R_Upper:1",
+    "two": "ANDROID R_Forearm:1",
+    "visible": false,
+    "rotation": 0.0,
+    "axis": [
+      1.0,
+      2.2204460492499998e-16,
+      3.697785493223492e-32
+    ],
+    "limits": [
+      -0.3490658503988659,
+      0.8726646259971648,
+      true,
+      true
+    ]
+  },
+  {
+    "name": "L centered manual elbow - screw tension",
+    "type": 1,
+    "one": "ANDROID L_Upper:1",
+    "two": "ANDROID L_Forearm:1",
+    "visible": false,
+    "rotation": 0.0,
+    "axis": [
+      1.0,
+      -2.22044604925e-16,
+      -4.9303806576313216e-32
+    ],
+    "limits": [
+      -0.9599310885968813,
+      0.2617993877991494,
+      true,
+      true
+    ]
+  },
+  {
+    "name": "R removable round wrist - magnet and printed friction",
+    "type": 1,
+    "one": "ANDROID R_Forearm:1",
+    "two": "ANDROID R_Hand:1",
+    "visible": false,
+    "rotation": 0.0,
+    "axis": [
+      2.086536767333585e-16,
+      0.34202014332593184,
+      0.9396926207858128
+    ],
+    "limits": [
+      0.0,
+      0.0,
+      false,
+      false
+    ]
+  },
+  {
+    "name": "L removable round wrist - magnet and printed friction",
+    "type": 1,
+    "one": "ANDROID L_Forearm:1",
+    "two": "ANDROID L_Hand:1",
+    "visible": false,
+    "rotation": 0.0,
+    "axis": [
+      1.2735955320390253e-16,
+      -0.8191520442890163,
+      -0.5735764363510113
+    ],
+    "limits": [
+      0.0,
+      0.0,
+      false,
+      false
+    ]
+  }
+]

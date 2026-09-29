@@ -1,0 +1,14 @@
+{
+    "name": "galacticScan",
+    "description": "Search Earth's internet for current information. Use when the user asks for specific facts, current events, weather, or real-time information you might not know. Before calling, say something fun like 'Let me scan the Earth-net!' - NEVER say the tool name aloud. Only use for factual queries, not for conversation or creative topics.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "query": {
+                "type": "string",
+                "description": "The search query - be specific and concise"
+            }
+        },
+        "required": ["query"]
+    }
+}

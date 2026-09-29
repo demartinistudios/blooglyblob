@@ -1,0 +1,236 @@
+{
+  "checked_date": "2026-09-26",
+  "scope": "Catalog URLs and three generic servo datasheets. Availability is a dated observation, not an offline CI requirement.",
+  "links": [
+    {
+      "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-neopixel-breakout.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-pixel-shifter.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://cdn-shop.adafruit.com/datasheets/R16diagram.jpg",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://cdn-shop.adafruit.com/product-files/4056/4056_PCM-A-003_TYPE_C_F-MICROUSB_B_M_30cm_SCREW.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/5b5eef3606a7bf121d519d56b11ebf12.pdf?productCode=C3162760",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-product-brief.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1259.pdf",
+      "status": "verified",
+      "method": "13-page FR series PDF retrieved by browser research; command-line GET timed out."
+    },
+    {
+      "url": "https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/EEUFR1A102",
+      "status": "verified",
+      "method": "Exact product page retrieved by browser research; command-line GET timed out."
+    },
+    {
+      "url": "https://kitronik.co.uk/products/25105-clippable-servo",
+      "status": "verified",
+      "method": "Exact product page retrieved by browser research; command-line GET returned 403."
+    },
+    {
+      "url": "https://learn.adafruit.com/adafruit-neopixel-breakout/pinouts",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://learn.adafruit.com/adafruit-pixel-shifter/pinouts",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://pages.switch-science.com/comparison/files/feetech/micro-digital/FS90MG_datasheet.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-fs90mg-datasheet.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-technical-drawing.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1152",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1426",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1479",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1663",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1669",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/4056",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/5755",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/5975",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/6066",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.adafruit.com/product/6404",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.feetechrc.com/Data/feetechrc/upload/file/20200612/6372758119731571407558713.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.kjmagnetics.com/d31-neodymium-disc-magnet",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.kjmagnetics.com/resources/pdfs/D31.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.netxl.com/wago/docs/221-415-data-sheet.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/",
+      "status": "verified",
+      "method": "Exact product page retrieved by browser research; command-line GET returned 403."
+    },
+    {
+      "url": "https://www.rhydolabz.com/documents/24/FS90MG_specs.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.schurter.com/en/datasheet/typ_FDI.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.switchcraft.com/assets/1/6/721AU_CD.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://www.switchcraft.com/sealed-unmated-dc-power-jack-2-1mm-solder-standard-material/721au/",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-415",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.waveshare.com/product/usb-to-audio.htm",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.waveshare.com/wiki/USB_TO_AUDIO",
+      "status": "verified",
+      "method": "HTTPS GET"
+    },
+    {
+      "url": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    },
+    {
+      "url": "https://yageogroup.com/content/datasheet/asset/file/YAGEO-CFR_DATASHEET",
+      "status": "verified",
+      "method": "HTTPS GET; PDF signature verified"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Additional Raspberry Pi audio and GPIO dependencies.
+pyaudio>=0.2.14
+gpiozero>=2.0
+pigpio
+rpi-ws281x>=5.0.0
+RPi.GPIO>=0.7.1

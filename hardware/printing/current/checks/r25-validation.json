@@ -1,0 +1,38 @@
+{
+  "status": "PASS bounded digital preparation; physical qualification pending",
+  "cad": "R25/cloud20",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon /0.4mm/textured PEI",
+  "changed_parts": [
+    "P35"
+  ],
+  "changed_plates": [
+    "W2"
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 70,
+  "project_sha256": "b97bdb5e6e9564290f0c646df61fb2de83d05185c0d0db61e781c12eb304eb8f",
+  "source_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+  "frame": [
+    0,
+    1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    38.909687,
+    0,
+    -66.75
+  ],
+  "geometry": "Selected oriented STL triangles match raw normal mesh in declared proper rigid frame within0.0001mm. Retained source frame corroborated against old source and old recipe surfaces plus independent bottom/rear/pin landmarks.",
+  "settings": "All settings, orientations, positions and inherited modifiers unchanged, including both P35 pin blockers.0.16mm layers,4walls,25%gyroid,5mm outer brim/0.12gap,normal/snug supports0.20Z/1.35XY. Logical material3; no physical AMS assignment.",
+  "support_review": "Actual lower52..54.3mm and upper57.7..60mm pin-seat cores have zero sampled support centerlines. Support remains in open hinge gap and horizontal lower screw passages, as in R24; those regions must be cleaned without levering against ears. R25 lower-screw sample envelope remains comparable to R24. Not claimed support-free or physically validated.",
+  "toolpath_review": "All13 W2 objects included, none skipped/outside; full-height centerlines within256mm bed, first-layer brims/spacing reviewed.0.1mm maximum centerline samples including arcs; X1C Y+2 offset applied. Not full bead-envelope proof.",
+  "other_plates": "Nine unaffected estimates inherited with exact semantic preservation; optional PETG bytes unchanged.",
+  "source_review_pending": 48,
+  "no_print_dispatched": true
+}

@@ -1,0 +1,94 @@
+[
+  {
+    "part": "FB41",
+    "source": "saved MAIN R23/cloud18",
+    "native_volume_mm3": 4867.577342763862,
+    "assembly_mm_to_bed_mm": [
+      [
+        1,
+        0,
+        0,
+        -12
+      ],
+      [
+        0,
+        0,
+        -1,
+        -25.6
+      ],
+      [
+        0,
+        1,
+        0,
+        95
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "bounds_mm": [
+      [
+        -44.00000047683716,
+        -20.400000190734865,
+        -4.577636730118684e-06
+      ],
+      [
+        43.999999046325684,
+        20.399999046325682,
+        2.000003051757801
+      ]
+    ],
+    "triangles": 10196,
+    "mesh_sha256": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+    "scope": "Unsliced replacement mesh; existing plate toolpaths invalid for changed parts"
+  },
+  {
+    "part": "FB01",
+    "source": "saved MAIN R23/cloud18",
+    "native_volume_mm3": 340043.1326395096,
+    "assembly_mm_to_bed_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1.4
+      ],
+      [
+        0,
+        0,
+        1,
+        69
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "bounds_mm": [
+      [
+        -105.0,
+        -91.60000190734863,
+        -9.5367431640625e-07
+      ],
+      [
+        105.0,
+        93.9,
+        66.99999997019768
+      ]
+    ],
+    "triangles": 193590,
+    "mesh_sha256": "e7ac8cca3507e05eaa40950ca3b9cca6fae47392eb6e98aecd44bc53f2161d19",
+    "scope": "Unsliced replacement mesh; existing plate toolpaths invalid for changed parts"
+  }
+]

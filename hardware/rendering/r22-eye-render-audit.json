@@ -1,0 +1,300 @@
+{
+  "mesh_sha256": "07df5c2061454ea01ed595a2c1b99fb212546e8cb7cfc21d19410bfb41a68c8c",
+  "views": {
+    "eye-exploded": {
+      "source": "r22-visible-meshes.json.gz",
+      "eye": "GS11 / robot-right",
+      "coordinate_basis": "P06 occurrence 1 local mm",
+      "camera": [
+        -1,
+        0.52,
+        1
+      ],
+      "offsets_mm": {
+        "GS11": [
+          0,
+          0,
+          -23
+        ],
+        "P06": [
+          0,
+          0,
+          13
+        ],
+        "E03": [
+          0,
+          0,
+          29
+        ]
+      },
+      "parts": [
+        "GS11",
+        "EYEFOAM",
+        "P06",
+        "E03"
+      ],
+      "film": "dimensioned zero-thickness illustration",
+      "marks": [
+        [
+          "1  Housing",
+          [
+            -10,
+            0,
+            -23
+          ],
+          80,
+          170
+        ],
+        [
+          "2  Clear film",
+          [
+            0,
+            0,
+            -13.2
+          ],
+          380,
+          760
+        ],
+        [
+          "3  Foam",
+          [
+            0,
+            0,
+            2
+          ],
+          540,
+          170
+        ],
+        [
+          "4  P06 cassette",
+          [
+            9,
+            0,
+            19
+          ],
+          780,
+          760
+        ],
+        [
+          "5  LED board",
+          [
+            0,
+            0,
+            39
+          ],
+          1030,
+          170
+        ]
+      ]
+    },
+    "eye-housing-rear": {
+      "source": "r22-visible-meshes.json.gz",
+      "eye": "GS11 / robot-right",
+      "coordinate_basis": "P06 occurrence 1 local mm",
+      "camera": [
+        -0.35,
+        -1.0,
+        1.4
+      ],
+      "offsets_mm": {},
+      "parts": [
+        "GS11"
+      ],
+      "film": null,
+      "marks": [
+        [
+          "Nut channel",
+          [
+            -9,
+            -5,
+            -1.8
+          ],
+          70,
+          160
+        ],
+        [
+          "Nut channel",
+          [
+            9,
+            -5,
+            -1.8
+          ],
+          1030,
+          160
+        ],
+        [
+          "Short tapered locator",
+          [
+            -9,
+            4,
+            1
+          ],
+          40,
+          755
+        ],
+        [
+          "1 mm bearing roof",
+          [
+            9,
+            0,
+            -0.5
+          ],
+          975,
+          755
+        ]
+      ]
+    },
+    "eye-cassette-front": {
+      "source": "r22-visible-meshes.json.gz",
+      "eye": "GS11 / robot-right",
+      "coordinate_basis": "P06 occurrence 1 local mm",
+      "camera": [
+        -0.4,
+        0.45,
+        -1.7
+      ],
+      "offsets_mm": {},
+      "parts": [
+        "P06"
+      ],
+      "film": null,
+      "marks": [
+        [
+          "M2 board nut",
+          [
+            0,
+            4.318,
+            5.2
+          ],
+          70,
+          160
+        ],
+        [
+          "M2 board nut",
+          [
+            0,
+            -4.318,
+            5.2
+          ],
+          930,
+          745
+        ],
+        [
+          "Light opening",
+          [
+            0,
+            0,
+            4.2
+          ],
+          1030,
+          160
+        ],
+        [
+          "Main mounting hole",
+          [
+            9,
+            0,
+            4.2
+          ],
+          40,
+          745
+        ]
+      ]
+    },
+    "eye-board-rear": {
+      "source": "r22-visible-meshes.json.gz",
+      "eye": "GS11 / robot-right",
+      "coordinate_basis": "P06 occurrence 1 local mm",
+      "camera": [
+        0.15,
+        0.35,
+        1.8
+      ],
+      "offsets_mm": {},
+      "parts": [
+        "P06",
+        "E03"
+      ],
+      "film": null,
+      "marks": [
+        [
+          "M2 \u00d7 6 \u00b7 board",
+          [
+            0,
+            4.318,
+            10.57
+          ],
+          540,
+          160
+        ],
+        [
+          "M2 \u00d7 6 \u00b7 board",
+          [
+            0,
+            -4.318,
+            10.57
+          ],
+          535,
+          770
+        ],
+        [
+          "M2 \u00d7 10 + washer",
+          [
+            -9,
+            0,
+            7.5
+          ],
+          45,
+          335
+        ],
+        [
+          "M2 \u00d7 10 + washer",
+          [
+            9,
+            0,
+            7.5
+          ],
+          1030,
+          335
+        ]
+      ]
+    },
+    "eye-led-front": {
+      "source": "r22-visible-meshes.json.gz",
+      "eye": "GS11 / robot-right",
+      "coordinate_basis": "P06 occurrence 1 local mm",
+      "camera": [
+        -0.2,
+        0.3,
+        -1.8
+      ],
+      "offsets_mm": {},
+      "parts": [
+        "E03"
+      ],
+      "film": null,
+      "marks": [
+        [
+          "Single LED",
+          [
+            0,
+            0,
+            7.6
+          ],
+          1050,
+          340
+        ],
+        [
+          "Board screw hole",
+          [
+            0,
+            4.318,
+            9
+          ],
+          70,
+          170
+        ]
+      ]
+    }
+  }
+}

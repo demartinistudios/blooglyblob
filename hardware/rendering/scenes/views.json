@@ -1,0 +1,4471 @@
+{
+  "r16/base-empty": {
+    "output": "assets/r16/base-empty.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.7,
+        0.8,
+        -1.6
+      ],
+      "title": "R16 / STRUCTURAL SHELL \u2014 BOTTOM OPENING",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-populated": {
+    "output": "assets/r16/base-populated.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / FIXED ELECTRONICS \u2014 COVER REMOVED",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "exclude": [
+        "FB02"
+      ],
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FBREF Pi PCB:1",
+        "FB32 Audio lid reused:1",
+        "FBREF Capacitor C1:1",
+        "FBREF Capacitor C2:1",
+        "FBREF Fuse F1:1",
+        "FBREF Fuse F2:1",
+        "FBREF Shifter S1:1",
+        "FBREF Shifter S2:1",
+        "FBREF Speaker 1:1",
+        "FBREF Speaker 2:1",
+        "FBREF WAGO W1:1",
+        "FBREF WAGO W4:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-cover": {
+    "output": "assets/r16/base-cover.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "R16 / ONLY THE UNWIRED COVER MOVES",
+      "footer": "Only FB02 is separated \u2022 electronics and feet stay on FB01 \u2022 no wire connects to cover",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB02": [
+          0,
+          0,
+          -125
+        ]
+      },
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FB02 Decorative bottom cover:1",
+        "FBREF Rubber foot 95 -82.5:1",
+        "FBREF Pi PCB:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-audio": {
+    "output": "assets/r16/base-audio.png",
+    "view": {
+      "select": [
+        "FB24",
+        "FB32",
+        "E14",
+        "FB41"
+      ],
+      "camera": [
+        0.5,
+        -1,
+        -1.4
+      ],
+      "title": "R16 / AUDIO CRADLE \u2014 BOTTOM ACCESS",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB32": [
+          0,
+          0,
+          -25
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-pi": {
+    "output": "assets/r16/base-pi.png",
+    "view": {
+      "select": [
+        "E09"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / PI \u2014 OPERATING SIDE FACES THE OPENING",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-shifters": {
+    "output": "assets/r16/base-shifters.png",
+    "view": {
+      "select": [
+        "E15"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / SIGNAL BOARDS \u2014 S1 REAR, S2 FRONT",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-wago": {
+    "output": "assets/r16/base-wago.png",
+    "view": {
+      "select": [
+        "E06"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "WAGOs \u2014 four flat tape faces",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-fuses": {
+    "output": "assets/r16/base-fuses.png",
+    "view": {
+      "select": [
+        "FB01",
+        "E07",
+        "E08"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "Fuses and capacitors \u2014 placement in the open base",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-speakers": {
+    "output": "assets/r16/base-speakers.png",
+    "view": {
+      "select": [
+        "FB19",
+        "E16"
+      ],
+      "camera": [
+        -1.8,
+        -0.6,
+        -0.35
+      ],
+      "title": "R16 / SPEAKER AND GRILLE \u2014 ONE SIDE",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "roots": [
+        "FB19 Speaker grille 1:1",
+        "FBREF Speaker 1:1"
+      ],
+      "offset": {
+        "E16": [
+          -25,
+          0,
+          0
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-button": {
+    "output": "assets/r16/base-button.png",
+    "view": {
+      "select": [
+        "FB20",
+        "E17"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.6
+      ],
+      "title": "R16 / BUTTON INSERT \u2014 FRONT CORNER",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-inlet": {
+    "output": "assets/r16/base-inlet.png",
+    "view": {
+      "select": [
+        "FB03",
+        "FB21",
+        "E18"
+      ],
+      "camera": [
+        0.6,
+        1.8,
+        -0.45
+      ],
+      "title": "R16 / REAR VENT AND INLET",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-microphone": {
+    "output": "assets/r16/base-microphone.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB41"
+      ],
+      "camera": [
+        -0.4,
+        -1.8,
+        -0.35
+      ],
+      "title": "R16 / FRONT MICROPHONE GRILLE",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB41": [
+          0,
+          -24,
+          0
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-feet": {
+    "output": "assets/r16/base-feet.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "Feet \u2014 four outer post faces",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "feature_labels": [
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            82.5,
+            -69
+          ]
+        }
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-frame": {
+    "output": "assets/r16/base-frame.png",
+    "view": {
+      "select": [
+        "FB01",
+        "P01",
+        "P02"
+      ],
+      "camera": [
+        0.65,
+        -1,
+        -1.1
+      ],
+      "title": "R16 / BODY TO FIXED BASE",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-nuts": {
+    "output": "assets/r16/base-nuts.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / NUT LOCATIONS \u2014 COVER AND BODY",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -99,
+            -68,
+            -65
+          ],
+          "nut": [
+            -99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -99,
+            68,
+            -65
+          ],
+          "nut": [
+            -99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            99,
+            -68,
+            -65
+          ],
+          "nut": [
+            99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            99,
+            68,
+            -65
+          ],
+          "nut": [
+            99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 5,
+          "head": [
+            0,
+            -26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            -26.5,
+            6.2
+          ]
+        },
+        {
+          "n": 6,
+          "head": [
+            0,
+            26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            26.5,
+            6.2
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3, 4: Cover \u2014 M3 \u00d7 12 mm",
+        "5, 6: Body to base \u2014 M3 \u00d7 16 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-pi-joints": {
+    "output": "assets/r16/base-pi-joints.png",
+    "view": {
+      "select": [
+        "E09"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / PI MOUNTING \u2014 FOUR M2 \u00d7 12",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -74.5,
+            2.5,
+            -18.6
+          ],
+          "nut": [
+            -74.5,
+            2.5,
+            -16
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -74.5,
+            60.5,
+            -18.6
+          ],
+          "nut": [
+            -74.5,
+            60.5,
+            -16
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            -25.5,
+            2.5,
+            -18.6
+          ],
+          "nut": [
+            -25.5,
+            2.5,
+            -16
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            -25.5,
+            60.5,
+            -18.6
+          ],
+          "nut": [
+            -25.5,
+            60.5,
+            -16
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3, 4: Pi \u2014 M2 \u00d7 12 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-shifter-joints": {
+    "output": "assets/r16/base-shifter-joints.png",
+    "view": {
+      "select": [
+        "E15"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / SIGNAL BOARD MOUNTING",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -18,
+            -22.08,
+            -16.6
+          ],
+          "nut": [
+            -18,
+            -22.08,
+            -14
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -18,
+            -11.920000000000002,
+            -16.6
+          ],
+          "nut": [
+            -18,
+            -11.920000000000002,
+            -14
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            -18,
+            -44.08,
+            -16.6
+          ],
+          "nut": [
+            -18,
+            -44.08,
+            -14
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            -18,
+            -33.92,
+            -16.6
+          ],
+          "nut": [
+            -18,
+            -33.92,
+            -14
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2: S1 \u2014 M2 \u00d7 10 mm",
+        "3, 4: S2 \u2014 M2 \u00d7 10 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-audio-joints": {
+    "output": "assets/r16/base-audio-joints.png",
+    "view": {
+      "select": [
+        "FB24"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "Audio cradle \u2014 three M3 \u00d7 6 screws",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -62,
+            -78.2,
+            -9.2
+          ],
+          "nut": [
+            -62,
+            -78.2,
+            -5.4
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            0,
+            -78.2,
+            -9.2
+          ],
+          "nut": [
+            0,
+            -78.2,
+            -5.4
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            62,
+            -78.2,
+            -9.2
+          ],
+          "nut": [
+            62,
+            -78.2,
+            -5.4
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3: Audio cradle \u2014 M3 \u00d7 6 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-cover-joints": {
+    "output": "assets/r16/base-cover-joints.png",
+    "view": {
+      "select": [
+        "FB02"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R16 / FOUR INDEPENDENT COVER SCREWS",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -99,
+            -68,
+            -65
+          ],
+          "nut": [
+            -99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -99,
+            68,
+            -65
+          ],
+          "nut": [
+            -99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            99,
+            -68,
+            -65
+          ],
+          "nut": [
+            99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            99,
+            68,
+            -65
+          ],
+          "nut": [
+            99,
+            68,
+            -60.6
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3, 4: Cover \u2014 M3 \u00d7 12 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/base-shifter-detail": {
+    "output": "assets/r16/base-shifter-detail.png",
+    "view": {
+      "select": [
+        "E15"
+      ],
+      "camera": [
+        0.5,
+        0.8,
+        -1.5
+      ],
+      "title": "R16 / S1 SIGNAL BOARD \u2014 CLOSE VIEW",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "roots": [
+        "FBREF Shifter S1:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB01": {
+    "output": "assets/r16/part-FB01.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "occ": {
+        "FB01": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB02": {
+    "output": "assets/r16/part-FB02.png",
+    "view": {
+      "select": [
+        "FB02"
+      ],
+      "occ": {
+        "FB02": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB03": {
+    "output": "assets/r16/part-FB03.png",
+    "view": {
+      "select": [
+        "FB03"
+      ],
+      "occ": {
+        "FB03": [
+          0
+        ]
+      },
+      "camera": [
+        0.6,
+        1.8,
+        0.5
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB19": {
+    "output": "assets/r16/part-FB19.png",
+    "view": {
+      "select": [
+        "FB19"
+      ],
+      "occ": {
+        "FB19": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -0.6,
+        0.4
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB20": {
+    "output": "assets/r16/part-FB20.png",
+    "view": {
+      "select": [
+        "FB20"
+      ],
+      "occ": {
+        "FB20": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.3,
+        0.5
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB21": {
+    "output": "assets/r16/part-FB21.png",
+    "view": {
+      "select": [
+        "FB21"
+      ],
+      "occ": {
+        "FB21": [
+          0
+        ]
+      },
+      "camera": [
+        0.6,
+        1.8,
+        0.5
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB24": {
+    "output": "assets/r16/part-FB24.png",
+    "view": {
+      "select": [
+        "FB24"
+      ],
+      "occ": {
+        "FB24": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB32": {
+    "output": "assets/r16/part-FB32.png",
+    "view": {
+      "select": [
+        "FB32"
+      ],
+      "occ": {
+        "FB32": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-FB41": {
+    "output": "assets/r16/part-FB41.png",
+    "view": {
+      "select": [
+        "FB41"
+      ],
+      "occ": {
+        "FB41": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.3,
+        0.5
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/part-J05": {
+    "output": "assets/r16/part-J05.png",
+    "view": {
+      "select": [
+        "J05"
+      ],
+      "camera": [
+        -1.5,
+        -0.8,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/overview-front": {
+    "output": "assets/r16/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R16 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/overview-back": {
+    "output": "assets/r16/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R16 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/overview-poster": {
+    "output": "assets/r16/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R16 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R16 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r16/overview-colors-rear": {
+    "output": "assets/r16/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R16 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R16 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r16-render-audit.json",
+    "source_audit_sha256": "0f5ff7197029eb4a17138728c0a3b19f84044401f74215f5595ecdc65f24c06a"
+  },
+  "r17/base-empty": {
+    "output": "assets/r17/base-empty.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.7,
+        0.8,
+        -1.6
+      ],
+      "title": "R17 / STRUCTURAL SHELL \u2014 BOTTOM OPENING",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-populated": {
+    "output": "assets/r17/base-populated.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R17 / FIXED ELECTRONICS \u2014 COVER REMOVED",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "exclude": [
+        "FB02"
+      ],
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FBREF Pi PCB:1",
+        "FB32 Audio lid reused:1",
+        "FBREF Capacitor C1:1",
+        "FBREF Capacitor C2:1",
+        "FBREF Fuse F1:1",
+        "FBREF Fuse F2:1",
+        "FBREF Shifter S1:1",
+        "FBREF Shifter S2:1",
+        "FBREF Speaker 1:1",
+        "FBREF Speaker 2:1",
+        "FBREF WAGO W1:1",
+        "FBREF WAGO W4:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-cover": {
+    "output": "assets/r17/base-cover.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "R17 / ONLY THE UNWIRED COVER MOVES",
+      "footer": "Only FB02 is separated \u2022 electronics and feet stay on FB01 \u2022 no wire connects to cover",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB02": [
+          0,
+          0,
+          -125
+        ]
+      },
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FB02 Decorative bottom cover:1",
+        "FBREF Rubber foot 95 -82.5:1",
+        "FBREF Pi PCB:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-audio": {
+    "output": "assets/r17/base-audio.png",
+    "view": {
+      "select": [
+        "FB24",
+        "FB32",
+        "E14",
+        "FB41"
+      ],
+      "camera": [
+        0.5,
+        -1,
+        -1.4
+      ],
+      "title": "Audio module and lid \u2014 bottom access",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB32": [
+          0,
+          0,
+          -25
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-inlet": {
+    "output": "assets/r17/base-inlet.png",
+    "view": {
+      "select": [
+        "FB03",
+        "FB21",
+        "E18"
+      ],
+      "camera": [
+        0.6,
+        1.8,
+        -0.45
+      ],
+      "title": "R17 / REAR VENT AND INLET",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-microphone": {
+    "output": "assets/r17/base-microphone.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB41"
+      ],
+      "camera": [
+        1.4,
+        -1.4,
+        -0.45
+      ],
+      "title": "R17 / FRONT MICROPHONE GRILLE",
+      "footer": "FB41 separated forward for visibility \u2022 spacing is illustrative, not installation travel",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB41": [
+          0,
+          -220,
+          0
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-feet": {
+    "output": "assets/r17/base-feet.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "Feet \u2014 four outer post faces",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "feature_labels": [
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            82.5,
+            -69
+          ]
+        }
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-frame": {
+    "output": "assets/r17/base-frame.png",
+    "view": {
+      "select": [
+        "FB01",
+        "P01",
+        "P02"
+      ],
+      "camera": [
+        0.65,
+        -1,
+        -1.1
+      ],
+      "title": "R17 / BODY TO FIXED BASE",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/base-nuts": {
+    "output": "assets/r17/base-nuts.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R17 / NUT LOCATIONS \u2014 COVER AND BODY",
+      "footer": "Looking into bottom opening \u2022 front follows compass \u2022 technical colors aid visibility",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -99,
+            -68,
+            -65
+          ],
+          "nut": [
+            -99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -99,
+            68,
+            -65
+          ],
+          "nut": [
+            -99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            99,
+            -68,
+            -65
+          ],
+          "nut": [
+            99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            99,
+            68,
+            -65
+          ],
+          "nut": [
+            99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 5,
+          "head": [
+            0,
+            -26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            -26.5,
+            6.2
+          ]
+        },
+        {
+          "n": 6,
+          "head": [
+            0,
+            26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            26.5,
+            6.2
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3, 4: Cover \u2014 M3 \u00d7 12 mm",
+        "5, 6: Body to base \u2014 M3 \u00d7 16 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/part-FB01": {
+    "output": "assets/r17/part-FB01.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "occ": {
+        "FB01": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R17 / CURRENT ASSEMBLY"
+    },
+    "thumbnail": true,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/part-FB03": {
+    "output": "assets/r17/part-FB03.png",
+    "view": {
+      "select": [
+        "FB03"
+      ],
+      "occ": {
+        "FB03": [
+          0
+        ]
+      },
+      "camera": [
+        0.6,
+        1.8,
+        0.5
+      ],
+      "title": "R17 / CURRENT ASSEMBLY"
+    },
+    "thumbnail": true,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/part-FB41": {
+    "output": "assets/r17/part-FB41.png",
+    "view": {
+      "select": [
+        "FB41"
+      ],
+      "occ": {
+        "FB41": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.3,
+        0.5
+      ],
+      "title": "R17 / CURRENT ASSEMBLY"
+    },
+    "thumbnail": true,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/overview-front": {
+    "output": "assets/r17/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R17 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/overview-back": {
+    "output": "assets/r17/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R17 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/overview-poster": {
+    "output": "assets/r17/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R17 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R17 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/overview-colors-rear": {
+    "output": "assets/r17/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R17 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R17 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/front-grille-detail": {
+    "output": "assets/r17/front-grille-detail.png",
+    "view": {
+      "select": [
+        "FB41"
+      ],
+      "camera": [
+        0.02,
+        -1.8,
+        0.08
+      ],
+      "title": "R17 / FRONT GRILLE \u2014 13 LONG + 2 SHORT AT EACH END",
+      "footer": "2.6 mm slit width \u2022 4 mm pitch \u2022 matching shell openings required"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r17/rear-grille-detail": {
+    "output": "assets/r17/rear-grille-detail.png",
+    "view": {
+      "select": [
+        "FB03"
+      ],
+      "camera": [
+        -0.02,
+        1.8,
+        0.08
+      ],
+      "title": "R17 / REAR GRILLE \u2014 18 LONG + 2 SHORT AT EACH END",
+      "footer": "2.6 mm slit width \u2022 4 mm pitch \u2022 matching shell openings required"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r17-render-audit.json",
+    "source_audit_sha256": "3c853ddb5ff83c8757327bca7601a149f7b1bad277e11814943470cacaa1b291"
+  },
+  "r18/step-01": {
+    "output": "assets/r18/step-01.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R18 / CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-09": {
+    "output": "assets/r18/step-09.png",
+    "view": {
+      "select": [
+        "GS20",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "highlight": [
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "title": "GOGGLES AND STRAPS \u2022 installed positions; dry-fit before bonding"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-11": {
+    "output": "assets/r18/step-11.png",
+    "view": {
+      "select": [
+        "GS20",
+        "A04",
+        "A05"
+      ],
+      "offset": {
+        "A04": [
+          0,
+          0,
+          12
+        ],
+        "A05": [
+          0,
+          0,
+          30
+        ]
+      },
+      "title": "R18 / HEAD AND CARRIER"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-12": {
+    "output": "assets/r18/step-12.png",
+    "view": {
+      "select": [
+        "P06",
+        "GS11",
+        "GS12",
+        "E03",
+        "P30",
+        "E04",
+        "P08"
+      ],
+      "angle": "rear",
+      "title": "R18 / HEAD AND CARRIER"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-13": {
+    "output": "assets/r18/step-13.png",
+    "view": {
+      "select": [
+        "GS20",
+        "P08",
+        "P14",
+        "A04",
+        "A05",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "offset": {
+        "GS20": [
+          0,
+          0,
+          28
+        ],
+        "GS11": [
+          0,
+          0,
+          28
+        ],
+        "GS12": [
+          0,
+          0,
+          28
+        ],
+        "A04": [
+          0,
+          0,
+          28
+        ],
+        "A05": [
+          0,
+          0,
+          28
+        ],
+        "GS01": [
+          0,
+          0,
+          28
+        ],
+        "GS02": [
+          0,
+          0,
+          28
+        ],
+        "GS03": [
+          0,
+          0,
+          28
+        ],
+        "M2\u00d78": [
+          0,
+          0,
+          28
+        ]
+      },
+      "highlight": [
+        "GS20"
+      ],
+      "title": "R18 / HEAD AND CARRIER"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-34": {
+    "output": "assets/r18/step-34.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R18 / CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/part-GS20": {
+    "output": "assets/r18/part-GS20.png",
+    "view": {
+      "select": [
+        "GS20"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/overview-front": {
+    "output": "assets/r18/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R18 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/overview-back": {
+    "output": "assets/r18/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R18 / COMPLETE CURRENT ASSEMBLY"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/overview-poster": {
+    "output": "assets/r18/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R18 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R18 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/overview-colors-rear": {
+    "output": "assets/r18/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R18 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R18 geometry \u2022 RGB preview approximates textured copper \u2022 display pose"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-straps-installed": {
+    "output": "assets/r18/head-straps-installed.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.65
+      ],
+      "title": "R18 / SEPARATE GOGGLES AND STRAPS",
+      "footer": "Accepted R18 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-straps-rear": {
+    "output": "assets/r18/head-straps-rear.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        0.85,
+        1.6,
+        0.65
+      ],
+      "title": "R18 / THREE STRAP SECTIONS \u2014 REAR",
+      "footer": "Accepted R18 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-straps-separated": {
+    "output": "assets/r18/head-straps-separated.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "angle": "front",
+      "title": "R18 / HEAD PARTS \u2014 SEPARATED FOR IDENTIFICATION",
+      "offset": {
+        "GS11": [
+          -8,
+          -20,
+          0
+        ],
+        "GS12": [
+          8,
+          -20,
+          0
+        ],
+        "GS01": [
+          15,
+          0,
+          0
+        ],
+        "GS02": [
+          -15,
+          0,
+          0
+        ],
+        "GS03": [
+          0,
+          18,
+          0
+        ]
+      },
+      "footer": "Accepted R18 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/step-07": {
+    "output": "assets/r18/step-07.png",
+    "view": {
+      "select": [
+        "P04",
+        "E01",
+        "P14",
+        "P08"
+      ],
+      "occ": {
+        "E01": [
+          2
+        ]
+      },
+      "highlight": [
+        "P14",
+        "P08"
+      ],
+      "offset": {
+        "P08": [
+          0,
+          0,
+          22
+        ],
+        "P14": [
+          0,
+          0,
+          10
+        ]
+      },
+      "title": "R18 / HEAD AND CARRIER"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/part-P08": {
+    "output": "assets/r18/part-P08.png",
+    "view": {
+      "select": [
+        "P08"
+      ],
+      "camera": [
+        0.7,
+        -1,
+        1.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-fastener-0": {
+    "output": "assets/r18/head-fastener-0.png",
+    "view": {
+      "select": [
+        "GS20",
+        "M2\u00d78"
+      ],
+      "roots": [
+        "GS20 Head - separate goggles and strap sockets:1",
+        "REF HEAD nominal M2x8 button screw 0deg:1"
+      ],
+      "camera": [
+        2.0,
+        0.0,
+        0.18
+      ],
+      "title": "R18 / RECESSED BUTTON HEAD \u2014 ROBOT-LEFT / +X",
+      "frame_world_bounds": [
+        [
+          33.0,
+          -7.0,
+          119.3
+        ],
+        [
+          47.0,
+          7.0,
+          131.3
+        ]
+      ],
+      "footer": "Visible metal crown \u2022 nominally 0.25 mm below tangent \u2022 actual hardware fit unverified"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-fastener-90": {
+    "output": "assets/r18/head-fastener-90.png",
+    "view": {
+      "select": [
+        "GS20",
+        "M2\u00d78"
+      ],
+      "roots": [
+        "GS20 Head - separate goggles and strap sockets:1",
+        "REF HEAD nominal M2x8 button screw 90deg:1"
+      ],
+      "camera": [
+        1.2246467991473532e-16,
+        2.0,
+        0.18
+      ],
+      "title": "R18 / RECESSED BUTTON HEAD \u2014 REAR / +Y",
+      "frame_world_bounds": [
+        [
+          -6.999999999999997,
+          33.0,
+          119.3
+        ],
+        [
+          7.000000000000003,
+          47.0,
+          131.3
+        ]
+      ],
+      "footer": "Visible metal crown \u2022 nominally 0.25 mm below tangent \u2022 actual hardware fit unverified",
+      "compass_label_offsets": {
+        "FRONT": [
+          -70,
+          -8
+        ],
+        "BACK": [
+          8,
+          5
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-fastener-180": {
+    "output": "assets/r18/head-fastener-180.png",
+    "view": {
+      "select": [
+        "GS20",
+        "M2\u00d78"
+      ],
+      "roots": [
+        "GS20 Head - separate goggles and strap sockets:1",
+        "REF HEAD nominal M2x8 button screw 180deg:1"
+      ],
+      "camera": [
+        -2.0,
+        2.4492935982947064e-16,
+        0.18
+      ],
+      "title": "R18 / RECESSED BUTTON HEAD \u2014 ROBOT-RIGHT / \u2212X",
+      "frame_world_bounds": [
+        [
+          -47.0,
+          -6.999999999999995,
+          119.3
+        ],
+        [
+          -33.0,
+          7.000000000000005,
+          131.3
+        ]
+      ],
+      "footer": "Visible metal crown \u2022 nominally 0.25 mm below tangent \u2022 actual hardware fit unverified"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-nut-access": {
+    "output": "assets/r18/head-nut-access.png",
+    "view": {
+      "select": [
+        "P08",
+        "M2 nut"
+      ],
+      "camera": [
+        0.7,
+        1,
+        1.7
+      ],
+      "title": "R18 / THREE ORDINARY M2 NUTS \u2014 TOP ACCESS",
+      "footer": "Shell omitted \u2022 nuts accessed from above \u2022 P14-to-P08 M3\u00d78 screws unchanged"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r18/head-fastener-cutaway": {
+    "output": "assets/r18/head-fastener-cutaway.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "camera": [
+        0.8,
+        -1.5,
+        0.55
+      ],
+      "title": "R18 / HEAD JOINT \u2014 M2 BUTTON SCREW AND ORDINARY NUT",
+      "footer": "Uncapped CAD section \u2022 gold = nominal hardware \u2022 no washer or plug \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r18-render-audit.json",
+    "source_audit_sha256": "290191c0215e41ccf1c1a30c4c27de94cd3acef3762ab2e5b9af4da4a85a091e"
+  },
+  "r19/step-01": {
+    "output": "assets/r19/step-01.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-34": {
+    "output": "assets/r19/step-34.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/overview-front": {
+    "output": "assets/r19/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R19 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/overview-back": {
+    "output": "assets/r19/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R19 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/overview-poster": {
+    "output": "assets/r19/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R19 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R19 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-09": {
+    "output": "assets/r19/step-09.png",
+    "view": {
+      "select": [
+        "GS20",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "highlight": [
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "title": "GOGGLES AND STRAPS \u2022 installed positions; dry-fit before bonding"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-13": {
+    "output": "assets/r19/step-13.png",
+    "view": {
+      "select": [
+        "GS20",
+        "P08",
+        "P14",
+        "A04",
+        "A05",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "offset": {
+        "GS20": [
+          0,
+          0,
+          28
+        ],
+        "GS11": [
+          0,
+          0,
+          28
+        ],
+        "GS12": [
+          0,
+          0,
+          28
+        ],
+        "A04": [
+          0,
+          0,
+          28
+        ],
+        "A05": [
+          0,
+          0,
+          28
+        ],
+        "GS01": [
+          0,
+          0,
+          28
+        ],
+        "GS02": [
+          0,
+          0,
+          28
+        ],
+        "GS03": [
+          0,
+          0,
+          28
+        ]
+      },
+      "highlight": [
+        "GS20"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-GS01": {
+    "output": "assets/r19/part-GS01.png",
+    "view": {
+      "select": [
+        "GS01"
+      ],
+      "occ": {
+        "GS01": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-GS02": {
+    "output": "assets/r19/part-GS02.png",
+    "view": {
+      "select": [
+        "GS02"
+      ],
+      "occ": {
+        "GS02": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-GS03": {
+    "output": "assets/r19/part-GS03.png",
+    "view": {
+      "select": [
+        "GS03"
+      ],
+      "occ": {
+        "GS03": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/overview-colors-rear": {
+    "output": "assets/r19/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R19 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R19 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/head-straps-installed": {
+    "output": "assets/r19/head-straps-installed.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.65
+      ],
+      "title": "R19 / SEPARATE GOGGLES AND STRAPS",
+      "footer": "Accepted R19 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/head-straps-rear": {
+    "output": "assets/r19/head-straps-rear.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        0.85,
+        1.6,
+        0.65
+      ],
+      "title": "R19 / THREE STRAP SECTIONS \u2014 REAR",
+      "footer": "Accepted R19 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/head-straps-separated": {
+    "output": "assets/r19/head-straps-separated.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "angle": "front",
+      "title": "R19 / HEAD PARTS \u2014 SEPARATED FOR IDENTIFICATION",
+      "offset": {
+        "GS11": [
+          -8,
+          -20,
+          0
+        ],
+        "GS12": [
+          8,
+          -20,
+          0
+        ],
+        "GS01": [
+          15,
+          0,
+          0
+        ],
+        "GS02": [
+          -15,
+          0,
+          0
+        ],
+        "GS03": [
+          0,
+          18,
+          0
+        ]
+      },
+      "footer": "Accepted R19 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-06": {
+    "output": "assets/r19/step-06.png",
+    "view": {
+      "select": [
+        "P14",
+        "AR01"
+      ],
+      "explode": 20
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-16": {
+    "output": "assets/r19/step-16.png",
+    "view": {
+      "select": [
+        "P03",
+        "E01",
+        "AR01",
+        "AR04"
+      ],
+      "occ": {
+        "E01": [
+          0,
+          1
+        ]
+      },
+      "highlight": [
+        "AR01",
+        "AR04"
+      ],
+      "offset": {
+        "AR01": [
+          18,
+          0,
+          0
+        ],
+        "AR04": [
+          -18,
+          0,
+          0
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-17": {
+    "output": "assets/r19/step-17.png",
+    "view": {
+      "select": [
+        "AR01",
+        "AR02"
+      ],
+      "camera": [
+        1.5,
+        -1.6,
+        0.7
+      ],
+      "title": "CENTERED FORK ELBOW \u2022 M3\u00d714 screw from outside",
+      "hardware": [
+        {
+          "seat": [
+            54.14,
+            0,
+            56
+          ],
+          "axis": [
+            -1,
+            0,
+            0
+          ],
+          "length": 14,
+          "diameter": 3,
+          "nut": [
+            42.04,
+            0,
+            56
+          ]
+        }
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-18": {
+    "output": "assets/r19/step-18.png",
+    "view": {
+      "select": [
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR08",
+        "AR10"
+      ],
+      "camera": [
+        1.8,
+        -0.9,
+        0.6
+      ],
+      "offset": {
+        "AR03": [
+          0,
+          -6.84,
+          -18.79
+        ],
+        "AR08": [
+          24,
+          10,
+          0
+        ],
+        "AR10": [
+          27,
+          -8,
+          0
+        ]
+      },
+      "title": "ROBOT-LEFT ARM \u2022 mirror for robot-right"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/step-30": {
+    "output": "assets/r19/step-30.png",
+    "view": {
+      "select": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B09",
+        "P35"
+      ],
+      "angle": "top",
+      "offset": {
+        "B09": [
+          0,
+          0,
+          16
+        ]
+      },
+      "title": "BELT \u2022 pins separated upward; links in installed positions"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-B01": {
+    "output": "assets/r19/part-B01.png",
+    "view": {
+      "select": [
+        "B01"
+      ],
+      "occ": {
+        "B01": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-B02": {
+    "output": "assets/r19/part-B02.png",
+    "view": {
+      "select": [
+        "B02"
+      ],
+      "occ": {
+        "B02": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-B03": {
+    "output": "assets/r19/part-B03.png",
+    "view": {
+      "select": [
+        "B03"
+      ],
+      "occ": {
+        "B03": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-B04": {
+    "output": "assets/r19/part-B04.png",
+    "view": {
+      "select": [
+        "B04"
+      ],
+      "occ": {
+        "B04": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-B09": {
+    "output": "assets/r19/part-B09.png",
+    "view": {
+      "select": [
+        "B09"
+      ],
+      "occ": {
+        "B09": [
+          0
+        ]
+      },
+      "camera": [
+        0.8,
+        -1.4,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR01": {
+    "output": "assets/r19/part-AR01.png",
+    "view": {
+      "select": [
+        "AR01"
+      ],
+      "occ": {
+        "AR01": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR02": {
+    "output": "assets/r19/part-AR02.png",
+    "view": {
+      "select": [
+        "AR02"
+      ],
+      "occ": {
+        "AR02": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR03": {
+    "output": "assets/r19/part-AR03.png",
+    "view": {
+      "select": [
+        "AR03"
+      ],
+      "occ": {
+        "AR03": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR10": {
+    "output": "assets/r19/part-AR10.png",
+    "view": {
+      "select": [
+        "AR10"
+      ],
+      "occ": {
+        "AR10": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR04": {
+    "output": "assets/r19/part-AR04.png",
+    "view": {
+      "select": [
+        "AR04"
+      ],
+      "occ": {
+        "AR04": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR05": {
+    "output": "assets/r19/part-AR05.png",
+    "view": {
+      "select": [
+        "AR05"
+      ],
+      "occ": {
+        "AR05": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR06": {
+    "output": "assets/r19/part-AR06.png",
+    "view": {
+      "select": [
+        "AR06"
+      ],
+      "occ": {
+        "AR06": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR11": {
+    "output": "assets/r19/part-AR11.png",
+    "view": {
+      "select": [
+        "AR11"
+      ],
+      "occ": {
+        "AR11": [
+          0
+        ]
+      },
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/part-AR07": {
+    "output": "assets/r19/part-AR07.png",
+    "view": {
+      "select": [
+        "AR07"
+      ],
+      "camera": [
+        1.8,
+        -1.2,
+        0.6
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r19/wrist-round": {
+    "output": "assets/r19/wrist-round.png",
+    "view": {
+      "select": [
+        "AR02",
+        "AR03"
+      ],
+      "camera": [
+        1.8,
+        -0.9,
+        0.6
+      ],
+      "offset": {
+        "AR03": [
+          0,
+          -6.84,
+          -18.79
+        ]
+      },
+      "title": "R19 / ROUND MAGNETIC WRIST",
+      "footer": "Manual rotation; straight pull for removal \u2022 physical fit and retention untested"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r19-render-audit.json",
+    "source_audit_sha256": "5700abeea1d545d2101c67c48fdafb94f53a7363e98eada2a7e6896df76ee6c4"
+  },
+  "r20/step-01": {
+    "output": "assets/r20/step-01.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/step-34": {
+    "output": "assets/r20/step-34.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/overview-front": {
+    "output": "assets/r20/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R20 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/overview-back": {
+    "output": "assets/r20/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R20 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/overview-poster": {
+    "output": "assets/r20/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R20 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R20 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/overview-colors-rear": {
+    "output": "assets/r20/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R20 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R20 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/step-10": {
+    "output": "assets/r20/step-10.png",
+    "view": {
+      "select": [
+        "P30",
+        "P31",
+        "E04",
+        "MOUTHFOAM"
+      ],
+      "camera": [
+        1.4,
+        0.9,
+        0.75
+      ],
+      "offset": {
+        "P31": [
+          0,
+          8,
+          0
+        ],
+        "E04": [
+          0,
+          24,
+          0
+        ],
+        "P30": [
+          0,
+          40,
+          0
+        ]
+      },
+      "title": "MOUTH STACK \u2022 dome omitted for access"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/step-12": {
+    "output": "assets/r20/step-12.png",
+    "view": {
+      "select": [
+        "P06",
+        "GS11",
+        "GS12",
+        "E03",
+        "P30",
+        "E04",
+        "P08"
+      ],
+      "angle": "rear"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/step-37": {
+    "output": "assets/r20/step-37.png",
+    "view": {
+      "select": [
+        "P30",
+        "P31",
+        "E04",
+        "MOUTHFOAM"
+      ],
+      "camera": [
+        1.4,
+        0.9,
+        -0.4
+      ],
+      "offset": {
+        "P30": [
+          0,
+          8,
+          -10
+        ],
+        "E04": [
+          0,
+          8,
+          -10
+        ],
+        "P31": [
+          0,
+          16,
+          -22
+        ],
+        "MOUTHFOAM": [
+          0,
+          16,
+          -22
+        ]
+      },
+      "title": "MOUTH SERVICE \u2022 dome removed; support every part"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/part-P30": {
+    "output": "assets/r20/part-P30.png",
+    "view": {
+      "select": [
+        "P30"
+      ],
+      "camera": [
+        1,
+        0.7,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/part-P31": {
+    "output": "assets/r20/part-P31.png",
+    "view": {
+      "select": [
+        "P31"
+      ],
+      "camera": [
+        1,
+        0.7,
+        0.7
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r20/mouth-installed": {
+    "output": "assets/r20/mouth-installed.png",
+    "view": {
+      "select": [
+        "P30",
+        "P31",
+        "E04",
+        "MOUTHFOAM"
+      ],
+      "camera": [
+        1,
+        0.9,
+        -0.6
+      ],
+      "title": "R20 / MOUTH ASSEMBLY FROM INSIDE THE HEAD",
+      "footer": "Head omitted \u2022 gray cassette, black separator and one continuous diffuser"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r20-render-audit.json",
+    "source_audit_sha256": "8b11250dc9c57191b7fa0232f5490a3396efe38c4c0868afc19489769ffb94f5"
+  },
+  "r21/base-empty": {
+    "output": "assets/r21/base-empty.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.7,
+        0.8,
+        -1.6
+      ],
+      "title": "R21 / STRUCTURAL SHELL \u2014 BOTTOM OPENING",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-populated": {
+    "output": "assets/r21/base-populated.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R21 / FIXED ELECTRONICS \u2014 COVER REMOVED",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "exclude": [
+        "FB02"
+      ],
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FBREF Pi PCB:1",
+        "FB32 Audio lid reused:1",
+        "FBREF Capacitor C1:1",
+        "FBREF Capacitor C2:1",
+        "FBREF Fuse F1:1",
+        "FBREF Fuse F2:1",
+        "FBREF Shifter S1:1",
+        "FBREF Shifter S2:1",
+        "FBREF Speaker 1:1",
+        "FBREF Speaker 2:1",
+        "FBREF WAGO W1:1",
+        "FBREF WAGO W4:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-cover": {
+    "output": "assets/r21/base-cover.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB02",
+        "FB03",
+        "FB19",
+        "FB20",
+        "FB21",
+        "FB24",
+        "FB32",
+        "FB41",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E25"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "R21 / ONLY THE UNWIRED COVER MOVES",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB02": [
+          0,
+          0,
+          -125
+        ]
+      },
+      "label_roots": [
+        "FB01 Structural base:1",
+        "FB02 Decorative bottom cover:1",
+        "FBREF Rubber foot 95 -82.5:1",
+        "FBREF Pi PCB:1"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-microphone": {
+    "output": "assets/r21/base-microphone.png",
+    "view": {
+      "select": [
+        "FB01",
+        "FB41"
+      ],
+      "camera": [
+        1.4,
+        -1.4,
+        -0.45
+      ],
+      "title": "R21 / FRONT MICROPHONE GRILLE",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "offset": {
+        "FB41": [
+          0,
+          -220,
+          0
+        ]
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-feet": {
+    "output": "assets/r21/base-feet.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.8,
+        -1.4,
+        -0.7
+      ],
+      "title": "Feet \u2014 four outer post faces",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "feature_labels": [
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            -95,
+            82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            -82.5,
+            -69
+          ]
+        },
+        {
+          "text": "Foot",
+          "point": [
+            95,
+            82.5,
+            -69
+          ]
+        }
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-frame": {
+    "output": "assets/r21/base-frame.png",
+    "view": {
+      "select": [
+        "FB01",
+        "P01",
+        "P02"
+      ],
+      "camera": [
+        0.65,
+        -1,
+        -1.1
+      ],
+      "title": "R21 / BODY TO FIXED BASE",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      }
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/base-nuts": {
+    "output": "assets/r21/base-nuts.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "Cover and frame screw locations",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view",
+      "labels_by_root": {
+        "FBREF Capacitor C1:1": "C1",
+        "FBREF Capacitor C2:1": "C2",
+        "FBREF Fuse F1:1": "F1",
+        "FBREF Fuse F2:1": "F2",
+        "FBREF Shifter S1:1": "S1",
+        "FBREF Shifter S2:1": "S2",
+        "FBREF WAGO W1:1": "W1",
+        "FBREF WAGO W2:1": "W2",
+        "FBREF WAGO W3:1": "W3",
+        "FBREF WAGO W4:1": "W4"
+      },
+      "markers": [
+        {
+          "n": 1,
+          "head": [
+            -99,
+            -68,
+            -65
+          ],
+          "nut": [
+            -99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 2,
+          "head": [
+            -99,
+            68,
+            -65
+          ],
+          "nut": [
+            -99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 3,
+          "head": [
+            99,
+            -68,
+            -65
+          ],
+          "nut": [
+            99,
+            -68,
+            -60.6
+          ]
+        },
+        {
+          "n": 4,
+          "head": [
+            99,
+            68,
+            -65
+          ],
+          "nut": [
+            99,
+            68,
+            -60.6
+          ]
+        },
+        {
+          "n": 5,
+          "head": [
+            0,
+            -26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            -26.5,
+            6.2
+          ]
+        },
+        {
+          "n": 6,
+          "head": [
+            0,
+            26.5,
+            -6
+          ],
+          "nut": [
+            0,
+            26.5,
+            6.2
+          ]
+        }
+      ],
+      "legend": [
+        "1, 2, 3, 4: Cover \u2014 M3 \u00d7 12 mm",
+        "5, 6: Body to base \u2014 M3 \u00d7 16 mm"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/part-FB01": {
+    "output": "assets/r21/part-FB01.png",
+    "view": {
+      "select": [
+        "FB01"
+      ],
+      "occ": {
+        "FB01": [
+          0
+        ]
+      },
+      "camera": [
+        0.12,
+        0.3,
+        -1.8
+      ],
+      "title": "R21 / CURRENT ASSEMBLY",
+      "footer": "Black shell lightened for cavity visibility \u2022 technical CAD view"
+    },
+    "thumbnail": true,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/overview-front": {
+    "output": "assets/r21/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R21 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/overview-back": {
+    "output": "assets/r21/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R21 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/overview-poster": {
+    "output": "assets/r21/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R21 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R21 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/overview-colors-rear": {
+    "output": "assets/r21/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R21 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R21 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/step-01": {
+    "output": "assets/r21/step-01.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r21/step-34": {
+    "output": "assets/r21/step-34.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear"
+    },
+    "thumbnail": false,
+    "source_audit_name": "r21-render-audit.json",
+    "source_audit_sha256": "58271a5746bda7010c699586bc40039cb6d81a8a06885fb195a0825d3785a1ff"
+  },
+  "r22/overview-front": {
+    "output": "assets/r22/overview-front.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R22 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07",
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/overview-back": {
+    "output": "assets/r22/overview-back.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R22 / COMPLETE CURRENT ASSEMBLY",
+      "exclude": [
+        "AR07",
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/overview-poster": {
+    "output": "assets/r22/overview-poster.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "title": "R22 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R22 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07",
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/overview-colors-rear": {
+    "output": "assets/r22/overview-colors-rear.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "title": "R22 / ACCEPTED COLOR SCHEME",
+      "footer": "Accepted R22 geometry \u2022 RGB preview approximates textured copper \u2022 display pose",
+      "exclude": [
+        "AR07",
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-01": {
+    "output": "assets/r22/step-01.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "front",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-09": {
+    "output": "assets/r22/step-09.png",
+    "view": {
+      "select": [
+        "GS20",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "highlight": [
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "title": "GOGGLES AND STRAPS \u2022 installed positions; dry-fit before bonding",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-12": {
+    "output": "assets/r22/step-12.png",
+    "view": {
+      "select": [
+        "P06",
+        "GS11",
+        "GS12",
+        "E03",
+        "P30",
+        "E04",
+        "P08"
+      ],
+      "angle": "rear",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-13": {
+    "output": "assets/r22/step-13.png",
+    "view": {
+      "select": [
+        "GS20",
+        "P08",
+        "P14",
+        "A04",
+        "A05",
+        "GS11",
+        "GS12",
+        "GS01",
+        "GS02",
+        "GS03"
+      ],
+      "offset": {
+        "GS20": [
+          0,
+          0,
+          28
+        ],
+        "GS11": [
+          0,
+          0,
+          28
+        ],
+        "GS12": [
+          0,
+          0,
+          28
+        ],
+        "A04": [
+          0,
+          0,
+          28
+        ],
+        "A05": [
+          0,
+          0,
+          28
+        ],
+        "GS01": [
+          0,
+          0,
+          28
+        ],
+        "GS02": [
+          0,
+          0,
+          28
+        ],
+        "GS03": [
+          0,
+          0,
+          28
+        ]
+      },
+      "highlight": [
+        "GS20"
+      ],
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-34": {
+    "output": "assets/r22/step-34.png",
+    "view": {
+      "select": [
+        "all"
+      ],
+      "angle": "rear",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/head-straps-installed": {
+    "output": "assets/r22/head-straps-installed.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.65
+      ],
+      "title": "R22 / SEPARATE GOGGLES AND STRAPS",
+      "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/head-straps-rear": {
+    "output": "assets/r22/head-straps-rear.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20",
+        "M2\u00d78",
+        "M2 nut"
+      ],
+      "camera": [
+        0.85,
+        1.6,
+        0.65
+      ],
+      "title": "R22 / THREE STRAP SECTIONS \u2014 REAR",
+      "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/head-straps-separated": {
+    "output": "assets/r22/head-straps-separated.png",
+    "view": {
+      "select": [
+        "GS01",
+        "GS02",
+        "GS03",
+        "GS11",
+        "GS12",
+        "GS20"
+      ],
+      "angle": "front",
+      "title": "R22 / HEAD PARTS \u2014 SEPARATED FOR IDENTIFICATION",
+      "offset": {
+        "GS11": [
+          -8,
+          -20,
+          0
+        ],
+        "GS12": [
+          8,
+          -20,
+          0
+        ],
+        "GS01": [
+          15,
+          0,
+          0
+        ],
+        "GS02": [
+          -15,
+          0,
+          0
+        ],
+        "GS03": [
+          0,
+          18,
+          0
+        ]
+      },
+      "footer": "Accepted R22 geometry \u2022 chosen finish colors are illustrative \u2022 physical fit pending",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/step-18": {
+    "output": "assets/r22/step-18.png",
+    "view": {
+      "select": [
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR08",
+        "AR10"
+      ],
+      "camera": [
+        1.8,
+        -0.9,
+        0.6
+      ],
+      "offset": {
+        "AR03": [
+          0,
+          -6.84,
+          -18.79
+        ],
+        "AR08": [
+          24,
+          10,
+          0
+        ],
+        "AR10": [
+          27,
+          -8,
+          0
+        ]
+      },
+      "title": "ROBOT-LEFT ARM \u2022 mirror for robot-right",
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": false,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/part-GS11": {
+    "output": "assets/r22/part-GS11.png",
+    "view": {
+      "select": [
+        "GS11"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r22/part-GS12": {
+    "output": "assets/r22/part-GS12.png",
+    "view": {
+      "select": [
+        "GS12"
+      ],
+      "camera": [
+        -0.85,
+        -1.6,
+        0.85
+      ],
+      "exclude": [
+        "AR10",
+        "AR11"
+      ]
+    },
+    "thumbnail": true,
+    "source_audit_name": "r22-render-audit.json",
+    "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  }
+}

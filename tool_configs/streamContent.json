@@ -1,0 +1,27 @@
+{
+    "name": "streamContent",
+    "description": "Play a movie or TV show. Use for 'put on X', 'play X on Netflix', 'watch X'. For specific episodes, use episode_query with keywords like 'the one about pirates' or 'the camping episode'. For random episodes, set random_episode=true.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Name of the movie or TV show"
+            },
+            "service": {
+                "type": "string",
+                "enum": ["netflix", "disney+", "apple_tv", "hulu", "amazon", "max", "peacock", "paramount+", "any"],
+                "description": "Streaming service. Use 'any' to auto-detect."
+            },
+            "random_episode": {
+                "type": "boolean",
+                "description": "If true, play a random episode (for TV shows)"
+            },
+            "episode_query": {
+                "type": "string",
+                "description": "Keywords to find a specific episode by topic. Examples: 'pirates', 'camping', 'birthday party', 'the one where they go to the beach'"
+            }
+        },
+        "required": ["title"]
+    }
+}

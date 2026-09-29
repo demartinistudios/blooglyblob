@@ -1,0 +1,8 @@
+{
+  "name": "blooglyblob-guide-checks",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser checks for the locally built assembly guide",
+  "scripts": {"check": "node browser-check.cjs"},
+  "devDependencies": {"playwright": "1.58.2"}
+}

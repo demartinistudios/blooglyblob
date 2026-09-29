@@ -1,0 +1,77 @@
+[
+  {
+    "plate": "K1",
+    "index": "2",
+    "extruder_type": "0",
+    "nozzle_volume_type": "0",
+    "printer_model_id": "",
+    "nozzle_diameters": "0.4",
+    "timelapse_type": "0",
+    "prediction": "44648",
+    "weight": "290.04",
+    "first_layer_time": "0.000000",
+    "outside": "false",
+    "support_used": "true",
+    "label_object_enabled": "true",
+    "enable_filament_dynamic_map": "false",
+    "has_filament_switcher": "false",
+    "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+    "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0",
+    "objects": [
+      {
+        "identify_id": "4635",
+        "name": "FB01-1 | Black",
+        "skipped": "false"
+      },
+      {
+        "identify_id": "4646",
+        "name": "P30-1 | Black",
+        "skipped": "false"
+      },
+      {
+        "identify_id": "4657",
+        "name": "P31-1 | Black",
+        "skipped": "false"
+      }
+    ],
+    "warnings": [
+      {
+        "msg": "bed_temperature_too_high_than_filament",
+        "level": "3",
+        "error_code": "1000C001"
+      }
+    ],
+    "full_height_centerline_bounds_mm": [
+      18.538,
+      13.638,
+      237.462,
+      254.4085743548808
+    ],
+    "new_mount_core_samples": {
+      "101,38.5": {
+        "bore_support": 0,
+        "nut_support": 0,
+        "bore_model": 0,
+        "nut_model": 0
+      },
+      "101,8.7": {
+        "bore_support": 0,
+        "nut_support": 2,
+        "bore_model": 0,
+        "nut_model": 0
+      },
+      "179,38.5": {
+        "bore_support": 0,
+        "nut_support": 0,
+        "bore_model": 0,
+        "nut_model": 0
+      },
+      "179,8.7": {
+        "bore_support": 0,
+        "nut_support": 0,
+        "bore_model": 0,
+        "nut_model": 0
+      }
+    }
+  }
+]

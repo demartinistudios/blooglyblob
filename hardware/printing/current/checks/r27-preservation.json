@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "unchanged_instances": 70,
+  "settings": "Exact global/plate/object/component settings and transforms retained; all14 inherited blockers unchanged; one full-height power-slot access blocker added.",
+  "new_blockers": [
+    {
+      "name": "R27 power slots clear access column",
+      "id": 3000,
+      "assembly_bounds": [
+        [
+          76.8,
+          81,
+          -73
+        ],
+        [
+          83.2,
+          95,
+          1
+        ]
+      ],
+      "component_center": [
+        80,
+        -89.4,
+        34
+      ],
+      "dimensions": [
+        6.4,
+        14,
+        74
+      ],
+      "purpose": "Full-height exclusion prevents supports generated above either slot descending through the nut-loading path. Small bridges require physical cleanup review."
+    }
+  ],
+  "preview": "Installed Bambu Studio CLI-generated K1 previews only; no native geometry/settings rewrite adopted.",
+  "final_sha256": "b5df527fdbf1d3e99b111b504c391d5fa003ebf816fc61e7872203d5a0bf6eba",
+  "privacy": "PASS",
+  "final_candidate_semantics": "Exactly equal"
+}

@@ -1,0 +1,3199 @@
+{
+  "authority": {
+    "cloud_name": "Blue Glee Blob - MAIN",
+    "project": "Admin Project",
+    "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "design_revision": "R22",
+    "cloud_version": 17,
+    "acceptance_record_name": "R22.json",
+    "acceptance_record_sha256": "0caa53c5174400c06be90665e2bdba9db519910d4205772050ddf8751aa69cee"
+  },
+  "palette": {
+    "R7 A05 accepted finish": {
+      "rgb": [
+        173,
+        217,
+        232
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "R7 A04 accepted finish": {
+      "rgb": [
+        48,
+        59,
+        150
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Backpack black - display only": {
+      "rgb": [
+        35,
+        36,
+        40
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(10,10,10)": {
+      "rgb": [
+        10,
+        10,
+        10
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Frame prototype - display only": {
+      "rgb": [
+        208,
+        216,
+        221
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(160,160,160)": {
+      "rgb": [
+        160,
+        160,
+        160
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Head carrier - display only": {
+      "rgb": [
+        235,
+        195,
+        140
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Eye foam white - display only": {
+      "rgb": [
+        246,
+        246,
+        243
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Backpack ivory - display only": {
+      "rgb": [
+        235,
+        228,
+        208
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(228,180,12)": {
+      "rgb": [
+        228,
+        180,
+        12
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(251,212,169)": {
+      "rgb": [
+        251,
+        212,
+        169
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(250,220,148)": {
+      "rgb": [
+        250,
+        220,
+        148
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(94,94,94)": {
+      "rgb": [
+        94,
+        94,
+        94
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(82,82,82)": {
+      "rgb": [
+        82,
+        82,
+        82
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Purchased servo reference - display only": {
+      "rgb": [
+        160,
+        195,
+        230
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(255,255,255)": {
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(179,179,179)": {
+      "rgb": [
+        179,
+        179,
+        179
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Backpack copper plastic - display only": {
+      "rgb": [
+        205,
+        132,
+        77
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Dome carrier yellow - display only": {
+      "rgb": [
+        232,
+        173,
+        35
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(128,128,128)": {
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Backpack copper - display only": {
+      "rgb": [
+        184,
+        107,
+        60
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(51,51,51)": {
+      "rgb": [
+        51,
+        51,
+        51
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Dome blue - display only": {
+      "rgb": [
+        48,
+        59,
+        150
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Eye bezel black - display only": {
+      "rgb": [
+        25,
+        25,
+        25
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(90,190,90)": {
+      "rgb": [
+        90,
+        190,
+        90
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Steel - Satin": {
+      "rgb": [
+        160,
+        160,
+        160
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(209,209,209)": {
+      "rgb": [
+        209,
+        209,
+        209
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(220,220,210)": {
+      "rgb": [
+        220,
+        220,
+        210
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Arm layout - display only": {
+      "rgb": [
+        235,
+        198,
+        145
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Shoulder carrier - display only": {
+      "rgb": [
+        150,
+        184,
+        158
+      ],
+      "exact": true,
+      "property": "metal_f0",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(246,246,243)": {
+      "rgb": [
+        246,
+        246,
+        243
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(191,191,191)": {
+      "rgb": [
+        191,
+        191,
+        191
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Eye retainer gray - display only": {
+      "rgb": [
+        179,
+        179,
+        179
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(120,110,70)": {
+      "rgb": [
+        120,
+        110,
+        70
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "Opaque(245,245,246)": {
+      "rgb": [
+        245,
+        245,
+        246
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "GS r1 warm tan strap": {
+      "rgb": [
+        145,
+        91,
+        48
+      ],
+      "exact": true,
+      "property": "opaque_albedo",
+      "basis": "Read-only accepted MAIN appearance property; RGB alone does not reproduce material/lighting."
+    },
+    "GS r1 copper goggles": {
+      "rgb": [
+        184,
+        107,
+        60
+      ],
+      "exact": false,
+      "property": null,
+      "basis": "Illustrative approximation from existing Backpack copper metal_f0; textured Copper - Raw cannot be reduced to the white surface_albedo tint."
+    }
+  },
+  "assignments": [
+    {
+      "path": "REF Foam wrap r2 - narrow seam and knife slits:1",
+      "body": "REF Foam wrap r2 - narrow seam and knife slits",
+      "part_id": null,
+      "accepted_appearance": "Eye foam white - display only",
+      "chosen_appearance": "Eye foam white - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        246,
+        246,
+        243
+      ],
+      "chosen_rgb": [
+        246,
+        246,
+        243
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P01 Foam collar r1 - rotating horn screw clearance:1",
+      "body": "P01 collar - print two",
+      "part_id": "P01",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P02 Upright r3 - modular accessory mounting:1",
+      "body": "P02 upright - print two",
+      "part_id": "P02",
+      "accepted_appearance": "Frame prototype - display only",
+      "chosen_appearance": "Frame prototype - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        208,
+        216,
+        221
+      ],
+      "chosen_rgb": [
+        208,
+        216,
+        221
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF FS90MG-CL - Kitronik 25105 drawing:1",
+      "body": "Kitronik 25105 envelope - verify physical fit",
+      "part_id": null,
+      "accepted_appearance": "Purchased servo reference - display only",
+      "chosen_appearance": "Purchased servo reference - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P03 Twin shoulder carrier r1 - side entry:1",
+      "body": "P03 side-entry carrier r1",
+      "part_id": "P03",
+      "accepted_appearance": "Shoulder carrier - display only",
+      "chosen_appearance": "Shoulder carrier - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        150,
+        184,
+        158
+      ],
+      "chosen_rgb": [
+        150,
+        184,
+        158
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P04 Head servo carrier r1 - side entry:1",
+      "body": "P04 side-entry carrier r1",
+      "part_id": "P04",
+      "accepted_appearance": "Head carrier - display only",
+      "chosen_appearance": "Head carrier - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        235,
+        195,
+        140
+      ],
+      "chosen_rgb": [
+        235,
+        195,
+        140
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P06 Eye cassette r3 - common washer stack and cable ties:1",
+      "body": "Foam retainer and board carrier",
+      "part_id": "P06",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Eye Plastazote patches 14 x 10 x 4 - not printed:1",
+      "body": "Plastazote 16 x 4 mm - verify fit",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P01 Foam collar r1 - rotating horn screw clearance:2",
+      "body": "P01 collar - print two",
+      "part_id": "P01",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P02 Upright r3 - modular accessory mounting:2",
+      "body": "P02 upright - print two",
+      "part_id": "P02",
+      "accepted_appearance": "Frame prototype - display only",
+      "chosen_appearance": "Frame prototype - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        208,
+        216,
+        221
+      ],
+      "chosen_rgb": [
+        208,
+        216,
+        221
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF FS90MG-CL - Kitronik 25105 drawing:2",
+      "body": "Kitronik 25105 envelope - verify physical fit",
+      "part_id": null,
+      "accepted_appearance": "Purchased servo reference - display only",
+      "chosen_appearance": "Purchased servo reference - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF FS90MG-CL - Kitronik 25105 drawing:3",
+      "body": "Kitronik 25105 envelope - verify physical fit",
+      "part_id": null,
+      "accepted_appearance": "Purchased servo reference - display only",
+      "chosen_appearance": "Purchased servo reference - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb": [
+        160,
+        195,
+        230
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P06 Eye cassette r3 - common washer stack and cable ties:2",
+      "body": "Foam retainer and board carrier",
+      "part_id": "P06",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Eye Plastazote patches 14 x 10 x 4 - not printed:2",
+      "body": "Plastazote 16 x 4 mm - verify fit",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+Board:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(120,110,70)",
+      "chosen_appearance": "Opaque(120,110,70)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        120,
+        110,
+        70
+      ],
+      "chosen_rgb": [
+        120,
+        110,
+        70
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:1",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:1",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+0603-NO:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+WS2812B-NARROW:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(179,179,179)",
+      "chosen_appearance": "Opaque(179,179,179)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+JST_SH3:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:2",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:2",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:2",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:3",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:3",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+_0402NO:3",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:2+PCB Component:1+JST_SH3:2",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+Board:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(120,110,70)",
+      "chosen_appearance": "Opaque(120,110,70)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        120,
+        110,
+        70
+      ],
+      "chosen_rgb": [
+        120,
+        110,
+        70
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:1",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:1",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+0603-NO:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+WS2812B-NARROW:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(179,179,179)",
+      "chosen_appearance": "Opaque(179,179,179)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+JST_SH3:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:2",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:2",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:2",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:3",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(51,51,51)",
+      "chosen_appearance": "Opaque(51,51,51)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb": [
+        51,
+        51,
+        51
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:3",
+      "body": "Body2",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+_0402NO:3",
+      "body": "Body3",
+      "part_id": null,
+      "accepted_appearance": "Opaque(209,209,209)",
+      "chosen_appearance": "Opaque(209,209,209)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb": [
+        209,
+        209,
+        209
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Adafruit 5975 source STEP - hidden:3+PCB Component:1+JST_SH3:2",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P08 Dome carrier r2 - openable head harness entry:1",
+      "body": "Rotating dome carrier - horn adapter pending",
+      "part_id": "P08",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P09 Foam seam backing r0 - hard stop:1",
+      "body": "Foam seam backing - print two",
+      "part_id": "P09",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P10 Foam seam cover r0 - removable:1",
+      "body": "P10 Foam seam cover r0 - removable - print three",
+      "part_id": "P10",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P11 Two-pebble bracket r2 - head screw and driver clearance:1",
+      "body": "Two-pebble holder - tie wires only",
+      "part_id": "P11",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P12 Forward-angled rear LEDs and seam backing r1:1",
+      "body": "Middle seam backing with two light pads",
+      "part_id": "P12",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P13 Open body wire guide r0 - front service mount:1",
+      "body": "Lay-in wire guide - do not clamp coating",
+      "part_id": "P13",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair:1",
+      "body": "Body1",
+      "part_id": "P14",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P09 Foam seam backing r0 - hard stop:3",
+      "body": "Foam seam backing - print two",
+      "part_id": "P09",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P10 Foam seam cover r0 - removable:2",
+      "body": "P10 Foam seam cover r0 - removable - print three",
+      "part_id": "P10",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P10 Foam seam cover r0 - removable:3",
+      "body": "P10 Foam seam cover r0 - removable - print three",
+      "part_id": "P10",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:2",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:3",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:4",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P11 Two-pebble bracket r2 - head screw and driver clearance:3",
+      "body": "Two-pebble holder - tie wires only",
+      "part_id": "P11",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:5",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Pebble 12 x 5 x 3.37 - cable included:6",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P30 Mouth cassette EXP inset r4 - internal clamp seats:1",
+      "body": "Body1",
+      "part_id": "P30",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb": [
+        150,
+        150,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs:1",
+      "body": "Body1",
+      "part_id": "P31",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb": [
+        40,
+        40,
+        43
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Mouth1426 PCB and components - source layout nominal heights:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "REF Mouth Plastazote EXP inset r4 - recessed continuous diffuser:1",
+      "body": "Body1",
+      "part_id": null,
+      "accepted_appearance": "Eye foam white - display only",
+      "chosen_appearance": "Eye foam white - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        246,
+        246,
+        243
+      ],
+      "chosen_rgb": [
+        246,
+        246,
+        243
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P34 Curved backpack carrier r1:1",
+      "body": "P34 Backpack mounting carrier r0",
+      "part_id": "P34",
+      "accepted_appearance": "Backpack ivory - display only",
+      "chosen_appearance": "Backpack ivory - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        235,
+        228,
+        208
+      ],
+      "chosen_rgb": [
+        235,
+        228,
+        208
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P35 Body-hugging backpack shell r1:1",
+      "body": "P35 Plain backpack shell and cradles r0",
+      "part_id": "P35",
+      "accepted_appearance": "Backpack ivory - display only",
+      "chosen_appearance": "Backpack ivory - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        235,
+        228,
+        208
+      ],
+      "chosen_rgb": [
+        235,
+        228,
+        208
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P36 Copper thruster barrel r1 - print two:1",
+      "body": "P36 Copper thruster barrel r0 - print two",
+      "part_id": "P36",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P37 Recessed nozzle plug r1 - print two:1",
+      "body": "P37 Recessed nozzle plug r0 - print two",
+      "part_id": "P37",
+      "accepted_appearance": "Backpack black - display only",
+      "chosen_appearance": "Backpack black - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        35,
+        36,
+        40
+      ],
+      "chosen_rgb": [
+        35,
+        36,
+        40
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "P38 Right backpack elbow r2 - seated terminal:1",
+      "body": "P38 Right backpack elbow r2 - seated terminal",
+      "part_id": "P38",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P39 Left backpack elbow r2 - seated terminal:1",
+      "body": "P39 Left backpack elbow r2 - seated terminal",
+      "part_id": "P39",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P40 Top roll copper half-band r1:1",
+      "body": "P40 Top roll copper half-band r0",
+      "part_id": "P40",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P36 Copper thruster barrel r1 - print two:2",
+      "body": "P36 Copper thruster barrel r0 - print two",
+      "part_id": "P36",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "P37 Recessed nozzle plug r1 - print two:2",
+      "body": "P37 Recessed nozzle plug r0 - print two",
+      "part_id": "P37",
+      "accepted_appearance": "Backpack black - display only",
+      "chosen_appearance": "Backpack black - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        35,
+        36,
+        40
+      ],
+      "chosen_rgb": [
+        35,
+        36,
+        40
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "A04 Antenna r3 - flush patch and replaceable coil:1",
+      "body": "A04 accepted r3",
+      "part_id": "A04",
+      "accepted_appearance": "R7 A04 accepted finish",
+      "chosen_appearance": "R7 A04 accepted finish",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "A05 Unlit ball r3 - replaceable:1",
+      "body": "A05 accepted r3",
+      "part_id": "A05",
+      "accepted_appearance": "R7 A05 accepted finish",
+      "chosen_appearance": "R7 A05 accepted finish",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        173,
+        217,
+        232
+      ],
+      "chosen_rgb": [
+        173,
+        217,
+        232
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B01 Belt r4 - Right side:1",
+      "body": "B01 r4 exact",
+      "part_id": "B01",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B02 Belt r4 - Right outer:1",
+      "body": "B02 r4 exact",
+      "part_id": "B02",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B02 Belt r4 - Right inner:1",
+      "body": "B02 r4 exact",
+      "part_id": "B02",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B03 Belt r5 - Framed buckle:1",
+      "body": "B03 r4 mechanics + accepted r5 framed face",
+      "part_id": "B03",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B02 Belt r4 - Left inner:1",
+      "body": "B02 r4 exact",
+      "part_id": "B02",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B02 Belt r4 - Left outer:1",
+      "body": "B02 r4 exact",
+      "part_id": "B02",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B04 Belt r4 - Left side:1",
+      "body": "B04 r4 exact",
+      "part_id": "B04",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 1:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 2:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 3:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 4:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 5:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 6:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 7:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "B09 Belt r4 - 2.5 mm pin 8:1",
+      "body": "B09 2.5 mm three-notch pin",
+      "part_id": "B09",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID R_Upper:1",
+      "body": "R_Upper",
+      "part_id": "AR01",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID R_Cover:1",
+      "body": "R_Cover",
+      "part_id": "AR08",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID R_Forearm:1",
+      "body": "R_Forearm",
+      "part_id": "AR02",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID R_Hand:1",
+      "body": "R_Hand",
+      "part_id": "AR03",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID R_ElbowCap:1",
+      "body": "R_ElbowCap",
+      "part_id": "AR10",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID L_Upper:1",
+      "body": "L_Upper",
+      "part_id": "AR04",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID L_Cover:1",
+      "body": "L_Cover",
+      "part_id": "AR09",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID L_Forearm:1",
+      "body": "L_Forearm",
+      "part_id": "AR05",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID L_Hand:1",
+      "body": "L_Hand",
+      "part_id": "AR06",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "ANDROID L_ElbowCap:1",
+      "body": "L_ElbowCap",
+      "part_id": "AR11",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "GS01 Right tan strap - matched edge bevels:1",
+      "body": "GS01 Right tan strap - matched edge bevels",
+      "part_id": "GS01",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "GS02 Left tan strap - matched edge bevels:1",
+      "body": "GS02 Left tan strap - matched edge bevels",
+      "part_id": "GS02",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "GS03 Rear tan strap - matched edge bevels:1",
+      "body": "GS03 Rear tan strap - matched edge bevels",
+      "part_id": "GS03",
+      "accepted_appearance": "Opaque(160,160,160)",
+      "chosen_appearance": "Opaque(160,160,160)",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "GS11 Left copper goggle housing - concealed strap junction:1",
+      "body": "GS11 Left copper goggle housing - concealed strap junction",
+      "part_id": "GS11",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "GS12 Right copper goggle housing - concealed strap junction:1",
+      "body": "GS12 Right copper goggle housing - concealed strap junction",
+      "part_id": "GS12",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false
+    },
+    {
+      "path": "GS20 Head - separate goggles and strap sockets:1",
+      "body": "GS20 Head - separate goggles and strap sockets",
+      "part_id": "GS20",
+      "accepted_appearance": "Dome blue - display only",
+      "chosen_appearance": "Dome blue - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb": [
+        48,
+        59,
+        150
+      ],
+      "chosen_rgb_exact": true
+    },
+    {
+      "path": "FB01 Structural base:1",
+      "body": "FB01 Structural base",
+      "part_id": "FB01",
+      "accepted_appearance": "Eye bezel black - display only",
+      "chosen_appearance": "Eye bezel black - display only",
+      "chosen_rgb": [
+        40,
+        40,
+        43
+      ],
+      "accepted_rgb": [
+        25,
+        25,
+        25
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB02 Decorative bottom cover:1",
+      "body": "FB02 Decorative bottom cover",
+      "part_id": "FB02",
+      "accepted_appearance": "Eye bezel black - display only",
+      "chosen_appearance": "Eye bezel black - display only",
+      "chosen_rgb": [
+        25,
+        25,
+        25
+      ],
+      "accepted_rgb": [
+        25,
+        25,
+        25
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB03 Rear ventilation panel:1",
+      "body": "FB03 Rear ventilation panel",
+      "part_id": "FB03",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB19 Speaker grille 1:1",
+      "body": "Body1",
+      "part_id": "FB19",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB19 Speaker grille 2:1",
+      "body": "Body1",
+      "part_id": "FB19",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB20 Button insert reused:1",
+      "body": "Body1",
+      "part_id": "FB20",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB21 Inlet plate reused:1",
+      "body": "Body1",
+      "part_id": "FB21",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB24 Audio cradle - captive lid nuts:1",
+      "body": "FB24 Audio cradle - captive lid nuts",
+      "part_id": "FB24",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB26 WAGO pressure pad 1:1",
+      "body": "Body1",
+      "part_id": "FB26",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB26 WAGO pressure pad 2:1",
+      "body": "Body1",
+      "part_id": "FB26",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB26 WAGO pressure pad 3:1",
+      "body": "Body1",
+      "part_id": "FB26",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB26 WAGO pressure pad 4:1",
+      "body": "Body1",
+      "part_id": "FB26",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB32 Audio lid reused:1",
+      "body": "Body1",
+      "part_id": "FB32",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FB41 Microphone grille reused:1",
+      "body": "Body1",
+      "part_id": "FB41",
+      "accepted_appearance": "GS r1 copper goggles",
+      "chosen_appearance": "GS r1 copper goggles",
+      "chosen_rgb": [
+        184,
+        107,
+        60
+      ],
+      "accepted_rgb": [
+        184,
+        107,
+        60
+      ],
+      "chosen_rgb_exact": false,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Audio module:1",
+      "body": "Body1",
+      "part_id": "E14",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Button:1",
+      "body": "Body1",
+      "part_id": "E17",
+      "accepted_appearance": "Eye foam white - display only",
+      "chosen_appearance": "Eye foam white - display only",
+      "chosen_rgb": [
+        246,
+        246,
+        243
+      ],
+      "accepted_rgb": [
+        246,
+        246,
+        243
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Capacitor C1:1",
+      "body": "Body1",
+      "part_id": "E08",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Capacitor C2:1",
+      "body": "Body1",
+      "part_id": "E08",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Fuse F1:1",
+      "body": "Body1",
+      "part_id": "E07",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Fuse F2:1",
+      "body": "Body1",
+      "part_id": "E07",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Inlet:1",
+      "body": "Body1",
+      "part_id": "E18",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Pi GPIO:1",
+      "body": "Body1",
+      "part_id": "E09",
+      "accepted_appearance": "Eye bezel black - display only",
+      "chosen_appearance": "Eye bezel black - display only",
+      "chosen_rgb": [
+        25,
+        25,
+        25
+      ],
+      "accepted_rgb": [
+        25,
+        25,
+        25
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Pi PCB:1",
+      "body": "Body1",
+      "part_id": "E09",
+      "accepted_appearance": "Shoulder carrier - display only",
+      "chosen_appearance": "Shoulder carrier - display only",
+      "chosen_rgb": [
+        150,
+        184,
+        158
+      ],
+      "accepted_rgb": [
+        150,
+        184,
+        158
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Pi SD:1",
+      "body": "Body1",
+      "part_id": "E09",
+      "accepted_appearance": "Eye bezel black - display only",
+      "chosen_appearance": "Eye bezel black - display only",
+      "chosen_rgb": [
+        25,
+        25,
+        25
+      ],
+      "accepted_rgb": [
+        25,
+        25,
+        25
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Pi USB:1",
+      "body": "Body1",
+      "part_id": "E09",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Rubber foot -95 -82.5:1",
+      "body": "FBREF Rubber foot -95 -82.5",
+      "part_id": "E25",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Rubber foot -95 82.5:1",
+      "body": "FBREF Rubber foot -95 82.5",
+      "part_id": "E25",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Rubber foot 95 -82.5:1",
+      "body": "FBREF Rubber foot 95 -82.5",
+      "part_id": "E25",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Rubber foot 95 82.5:1",
+      "body": "FBREF Rubber foot 95 82.5",
+      "part_id": "E25",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Shifter S1:1",
+      "body": "Aggregate of 53 source bodies",
+      "part_id": "E15",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Shifter S2:1",
+      "body": "Aggregate of 53 source bodies",
+      "part_id": "E15",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Speaker 1:1",
+      "body": "Body1",
+      "part_id": "E16",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF Speaker 2:1",
+      "body": "Body1",
+      "part_id": "E16",
+      "accepted_appearance": "Eye retainer gray - display only",
+      "chosen_appearance": "Eye retainer gray - display only",
+      "chosen_rgb": [
+        179,
+        179,
+        179
+      ],
+      "accepted_rgb": [
+        179,
+        179,
+        179
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF WAGO W1:1",
+      "body": "Body1",
+      "part_id": "E06",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF WAGO W2:1",
+      "body": "Body1",
+      "part_id": "E06",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF WAGO W3:1",
+      "body": "Body1",
+      "part_id": "E06",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "FBREF WAGO W4:1",
+      "body": "Body1",
+      "part_id": "E06",
+      "accepted_appearance": "Dome carrier yellow - display only",
+      "chosen_appearance": "Dome carrier yellow - display only",
+      "chosen_rgb": [
+        232,
+        173,
+        35
+      ],
+      "accepted_rgb": [
+        232,
+        173,
+        35
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2x8 button screw 0deg:1",
+      "body": "Nominal M2x8 button screw - NOT FOR PRINT",
+      "part_id": "M2\u00d78",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2 nut 0deg:1",
+      "body": "Nominal M2 nut - NOT FOR PRINT",
+      "part_id": "M2 nut",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2x8 button screw 90deg:1",
+      "body": "Nominal M2x8 button screw - NOT FOR PRINT",
+      "part_id": "M2\u00d78",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2 nut 90deg:1",
+      "body": "Nominal M2 nut - NOT FOR PRINT",
+      "part_id": "M2 nut",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2x8 button screw 180deg:1",
+      "body": "Nominal M2x8 button screw - NOT FOR PRINT",
+      "part_id": "M2\u00d78",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    },
+    {
+      "path": "REF HEAD nominal M2 nut 180deg:1",
+      "body": "Nominal M2 nut - NOT FOR PRINT",
+      "part_id": "M2 nut",
+      "accepted_appearance": "Steel - Satin",
+      "chosen_appearance": "Steel - Satin",
+      "chosen_rgb": [
+        160,
+        160,
+        160
+      ],
+      "accepted_rgb": [
+        160,
+        160,
+        160
+      ],
+      "chosen_rgb_exact": true,
+      "chosen_overrides_accepted": false
+    }
+  ],
+  "source": "Accepted R18 body appearances; unchanged R16 material RGB palette.",
+  "limitation": "Flat RGB cannot reproduce textured copper. Native release screenshots preserve the accepted material appearance."
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS bounded digital preparation; physical qualification pending",
+  "cad": "R27/cloud22",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon /0.4mm/textured PEI",
+  "changed_parts": [
+    "FB01"
+  ],
+  "changed_plates": [
+    "K1"
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 70,
+  "project_sha256": "b5df527fdbf1d3e99b111b504c391d5fa003ebf816fc61e7872203d5a0bf6eba",
+  "source_sha256": "23a33c7b5c2e6fa6754778d07d32e3d2661510d7dbf92606bc6894025a7fbb31",
+  "frame": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -6.626157941780342e-09,
+    0.0,
+    6.626157941780342e-09,
+    -1.0,
+    0.0,
+    1.1500013999819032,
+    33.49999972103876
+  ],
+  "geometry": "Selected oriented STL triangles match raw normal mesh in retained rigid frame within0.0001mm. Parent source frame independently rechecked.",
+  "settings": "Global/plate/object/component settings and transforms retained.14 inherited blockers unchanged, one power-slot full-height blocker added. Roof-down,0.20mm,4walls,25%gyroid,5mm outer brim/0.12gap,normal/snug supports0.20Z/0.40XY,PLA220C/60C. Logical material2; no physical AMS mapping.",
+  "support_review": "Nine changed rear/power/audio slot and straight10mm approach regions contain zero sampled support centerlines. Initial slice had power-slot support; narrow full-height blocker removes support descending from above. Front/speaker geometry and inherited blockers unchanged. Small roof bridges and adjacent support removal need physical review. Not bead-envelope proof, nut/glue/torque qualification or full collision proof.",
+  "toolpath_review": "All3 K1 objects included, none skipped/outside. Full-height extrusion centerlines within256mm bed; first-layer brims and spacing visually reviewed.0.1mm maximum support sampling including arcs; X1C Y+2 offset applied. Flow calibration stays off because prior layout intersects calibration region.",
+  "other_plates": "Nine unchanged plate estimates inherited,70 other instances preserved exactly; optional PETG project bytes unchanged.",
+  "source_review_pending": 48,
+  "no_print_dispatched": true
+}

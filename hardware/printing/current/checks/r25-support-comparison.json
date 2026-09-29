@@ -1,0 +1,140 @@
+[
+  {
+    "revision": "R24",
+    "results": [
+      {
+        "side": -1,
+        "region": "lower actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": -1,
+        "region": "upper actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": -1,
+        "region": "gap",
+        "samples": 1161
+      },
+      {
+        "side": -1,
+        "region": "lower screw access",
+        "samples": 2539,
+        "bounds": [
+          [
+            -29.871964538461526,
+            25.070881739409145,
+            48.2
+          ],
+          [
+            -26.211003000000005,
+            34.807,
+            51.760000000000005
+          ]
+        ]
+      },
+      {
+        "side": 1,
+        "region": "lower actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": 1,
+        "region": "upper actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": 1,
+        "region": "gap",
+        "samples": 1172
+      },
+      {
+        "side": 1,
+        "region": "lower screw access",
+        "samples": 2553,
+        "bounds": [
+          [
+            26.210514231546938,
+            25.419532904892584,
+            48.2
+          ],
+          [
+            29.87195853846154,
+            34.807,
+            51.760000000000005
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "revision": "R25",
+    "results": [
+      {
+        "side": -1,
+        "region": "lower actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": -1,
+        "region": "upper actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": -1,
+        "region": "gap",
+        "samples": 1163
+      },
+      {
+        "side": -1,
+        "region": "lower screw access",
+        "samples": 2730,
+        "bounds": [
+          [
+            -29.843695307692286,
+            25.072280842648112,
+            48.2
+          ],
+          [
+            -26.216003,
+            34.807,
+            51.760000000000005
+          ]
+        ]
+      },
+      {
+        "side": 1,
+        "region": "lower actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": 1,
+        "region": "upper actual pin seat",
+        "samples": 0
+      },
+      {
+        "side": 1,
+        "region": "gap",
+        "samples": 1171
+      },
+      {
+        "side": 1,
+        "region": "lower screw access",
+        "samples": 2752,
+        "bounds": [
+          [
+            26.140997,
+            25.402375324799124,
+            48.2
+          ],
+          [
+            29.8436893076923,
+            34.807,
+            51.760000000000005
+          ]
+        ]
+      }
+    ]
+  }
+]

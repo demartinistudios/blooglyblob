@@ -1,0 +1,29 @@
+{
+  "status": "PASS bounded digital preparation; visual approval and physical print/fit pending",
+  "cad": "R24/cloud19",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon / 0.4mm nozzle / textured PEI",
+  "changed_parts": [
+    "FB01",
+    "FB24"
+  ],
+  "removed_part": "FB26 x4",
+  "affected_plates": [
+    1,
+    2,
+    3
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 69,
+  "project_sha256": "ad4a8e6f8ee501cef4fe587701e624fb2122f6ced2f97eca0c102b4cfee7a197",
+  "geometry": "Losslessly welded selected STL triangles in declared rigid frames. Normal meshes match within maintained 0.0001mm comparison tolerance. After desktop save, inherited source-matrix metadata and preset display IDs were explicitly restored before strict semantic comparison. Fresh native previews retained; privacy cleanup changes no process.",
+  "settings": "Global, plate and all surviving object settings preserved; existing modifiers retained; only four rear FB01 support blockers added. No AMS synchronization or physical slot assignment.",
+  "support_check": "Four rear cup/bore blockers remove prior trapped support. Sampled nominal paths for 8 M2 board nuts, 4 M3 cover nuts, 4 rear nuts and both audio fork cores contain no support. Rear bores and nominal hex seats also sampled against model paths. Inherited front bores remain clear; two accessible edge-support samples above lower channel termination remain as in R23.",
+  "toolpath_review": "Complete W1/K1/W2 sliced, all objects present, none skipped/outside; full-height centerline bounds checked with X1C Y+2 machine offset. First-layer layouts and rear/front support projections inspected. Centerlines are not full bead-envelope proof.",
+  "slice_binding": "W1/W2 sliced from desktop.3mf; K1 from rear-blocker candidate. All final whole-project geometry/settings/placements compared to those inputs, with K1-only blocker additions explicitly reviewed. Final desktop roundtrip is semantically identical; no reorientation/rearrangement.",
+  "warning": "Existing generic PLA bed-temperature warning retained; temperatures are unchanged.",
+  "physical_limits": "Rear roof bridging/cleanup, real nut insertion and glued-nut pull-out, tape grade/thickness/adhesion, tie mount fit/bond and complete audio restraint route require physical qualification.",
+  "source_review_pending": 49,
+  "no_print_dispatched": true
+}

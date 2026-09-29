@@ -1,0 +1,2783 @@
+[
+  {
+    "id": "A04",
+    "name": "Antenna coil",
+    "exact": "A04 Antenna r3 - flush patch and replaceable coil",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Threaded antenna coil with a flush base. Clean support away from both threads before fitting.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-A04.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "11"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/A04.stl",
+        "label": "Raw STL \u2014 A04"
+      }
+    ]
+  },
+  {
+    "id": "A05",
+    "name": "Antenna ball",
+    "exact": "A05 \u2014 replaceable threaded antenna ball r3",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Antenna ball. Print one: PLA, or the optional clear PETG version from Printing. Clear filament prints translucent rather than glass-clear. Hold the ball while removing its brim, clear loose debris from the thread and screw it onto A04 by hand without forcing it.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-A05.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "11"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/A05.stl",
+        "label": "Raw STL \u2014 A05"
+      }
+    ]
+  },
+  {
+    "id": "AR01",
+    "name": "Robot-left upper arm",
+    "exact": "Right sculpted upper arm",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Suggested finish: copper. Rounded supports reinforce the elbow fork. Check the fork\u2019s strength and the horn fit with your filament; silk PLA can be weaker.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR01.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "16",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR01.stl",
+        "label": "Raw STL \u2014 AR01"
+      }
+    ]
+  },
+  {
+    "id": "AR02",
+    "name": "Robot-left forearm",
+    "exact": "Right poseable forearm",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-left forearm. Print with the wrist opening up. Remove support gently, then check the elbow tongue and round wrist socket. Takes one magnet, with polarity matched to its hand.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR02.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "17"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR02.stl",
+        "label": "Raw STL \u2014 AR02"
+      }
+    ]
+  },
+  {
+    "id": "AR03",
+    "name": "Robot-left relaxed hand",
+    "exact": "Right relaxed hand",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Suggested finish: blue. The round magnetic wrist turns by hand and printed friction holds the pose; there\u2019s no O-ring or click positions. Print fingers up, wrist peg down. Clean the support out of the hand carefully.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR03.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "18"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR03.stl",
+        "label": "Raw STL \u2014 AR03"
+      }
+    ]
+  },
+  {
+    "id": "AR04",
+    "name": "Robot-right upper arm",
+    "exact": "Left sculpted upper arm",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Suggested finish: copper. Rounded supports reinforce the elbow fork. Check the fork\u2019s strength and the horn fit with your filament; silk PLA can be weaker.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR04.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "16",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR04.stl",
+        "label": "Raw STL \u2014 AR04"
+      }
+    ]
+  },
+  {
+    "id": "AR05",
+    "name": "Robot-right forearm",
+    "exact": "Left poseable forearm",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-right forearm. Print with the wrist opening up. Remove support gently, then check the elbow tongue and round wrist socket. Takes one magnet, with polarity matched to its hand.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR05.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "17"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR05.stl",
+        "label": "Raw STL \u2014 AR05"
+      }
+    ]
+  },
+  {
+    "id": "AR06",
+    "name": "Robot-right relaxed hand",
+    "exact": "Left relaxed hand",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Suggested finish: blue. The round magnetic wrist turns by hand and printed friction holds the pose; there\u2019s no O-ring or click positions. Print fingers up, wrist peg down. Clean the support out of the hand carefully.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR06.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "18"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR06.stl",
+        "label": "Raw STL \u2014 AR06"
+      }
+    ]
+  },
+  {
+    "id": "AR07",
+    "name": "Pointing hand, robot-left (optional)",
+    "exact": "Right pointing hand",
+    "qty": 0,
+    "optional": 1,
+    "category": "Printed",
+    "description": "Optional pointing hand for the robot-left forearm (AR02). It replaces AR03; only two hands are fitted at a time. Needs one extra 3/16 \u00d7 1/16 inch magnet. Print fingers up, wrist peg down, and check magnet polarity and clearance before gluing.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR07.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "18"
+    ],
+    "optional_label": "Optional alternate hand",
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR07.stl",
+        "label": "Raw STL \u2014 AR07"
+      }
+    ]
+  },
+  {
+    "id": "AR08",
+    "name": "Robot-left shoulder cover",
+    "exact": "Right sculpted upper cover",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Covers the robot-left shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:18} and fit it for good in {step:servo-position}.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-AR08.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "18",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR08.stl",
+        "label": "Raw STL \u2014 AR08"
+      }
+    ]
+  },
+  {
+    "id": "AR09",
+    "name": "Robot-right shoulder cover",
+    "exact": "Left sculpted upper cover",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Covers the robot-right shoulder servo. Suggested finish: blue. You\u2019ll test-fit it in {step:18} and fit it for good in {step:servo-position}.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-AR09.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "18",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/AR09.stl",
+        "label": "Raw STL \u2014 AR09"
+      }
+    ]
+  },
+  {
+    "id": "AR10",
+    "name": "Robot-left elbow cap",
+    "exact": "Right elbow screw cap",
+    "qty": 0,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Cosmetic elbow screw cap. Not used in this build: leave the elbow screw exposed. The cap doesn\u2019t hold the screw or nut.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR10.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [],
+    "omitted": true,
+    "additional_links": []
+  },
+  {
+    "id": "AR11",
+    "name": "Robot-right elbow cap",
+    "exact": "Left elbow screw cap",
+    "qty": 0,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Cosmetic elbow screw cap. Not used in this build: leave the elbow screw exposed. The cap doesn\u2019t hold the screw or nut.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-AR11.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [],
+    "omitted": true,
+    "additional_links": []
+  },
+  {
+    "id": "B01",
+    "name": "Robot-left rear belt link",
+    "exact": "B01 Belt r4 - Right side",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-left rear belt link; attaches to the backpack. Suggested finish: medium gray.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-B01.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "30"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/B01.stl",
+        "label": "Raw STL \u2014 B01"
+      }
+    ]
+  },
+  {
+    "id": "B02",
+    "name": "Front belt link",
+    "exact": "B02 Belt r4 - Left outer",
+    "qty": 4,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Front belt link; four are used. Suggested finish: medium gray.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-B02.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "30"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/B02.stl",
+        "label": "Raw STL \u2014 B02"
+      }
+    ]
+  },
+  {
+    "id": "B03",
+    "name": "Belt buckle",
+    "exact": "B03 Belt r5 - Framed buckle",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Belt buckle; its frame faces outward. Suggested finish: medium gray.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-B03.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "30"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/B03.stl",
+        "label": "Raw STL \u2014 B03"
+      }
+    ]
+  },
+  {
+    "id": "B04",
+    "name": "Robot-right rear belt link",
+    "exact": "B04 Belt r4 - Left side",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-right rear belt link; attaches to the backpack. Suggested finish: medium gray.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-B04.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "30"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/B04.stl",
+        "label": "Raw STL \u2014 B04"
+      }
+    ]
+  },
+  {
+    "id": "B09",
+    "name": "Belt pin",
+    "exact": "B09 Belt r4 - 2.5 mm pin 8",
+    "qty": 8,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Eight 2.5 mm belt pins, marked with three notches on the head. Insert from above and keep the joint gaps clear. Suggested finish: medium gray.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-B09.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "30"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/B09.stl",
+        "label": "Raw STL \u2014 B09"
+      }
+    ]
+  },
+  {
+    "id": "P01",
+    "name": "Round foam collar",
+    "exact": "P01 Foam collar r1 - rotating horn screw clearance",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Two collars hold the body foam around the frame. Dry-fit the foam before closing the seam.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P01.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "03",
+      "05"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P01.stl",
+        "label": "Raw STL \u2014 P01"
+      }
+    ]
+  },
+  {
+    "id": "P02",
+    "name": "Frame upright",
+    "exact": "P02 Upright r3 - modular accessory mounting",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "One of the two vertical frame posts (front and rear). The servo brackets, collars, light brackets and backpack carrier fasten to them.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P02.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "03"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P02.stl",
+        "label": "Raw STL \u2014 P02"
+      }
+    ]
+  },
+  {
+    "id": "P03",
+    "name": "Shoulder-servo bracket",
+    "exact": "P03 Twin shoulder carrier r1 - side entry",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds both shoulder servos. Slide the wired servos in from the side before attaching the bracket to the frame.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P03.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "04"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P03.stl",
+        "label": "Raw STL \u2014 P03"
+      }
+    ]
+  },
+  {
+    "id": "P04",
+    "name": "Head-servo bracket",
+    "exact": "P04 Head servo carrier r1 - side entry",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds the head servo. Slide the wired servo in from the side before attaching the bracket to the frame.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P04.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "05"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P04.stl",
+        "label": "Raw STL \u2014 P04"
+      }
+    ]
+  },
+  {
+    "id": "P06",
+    "name": "Eye LED cassette",
+    "exact": "P06 Eye cassette r3 - common washer stack and cable ties",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds one eye LED board behind the foam. Two M2 nuts load on its flat (foam) side; both eyes use the same cassette.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P06.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "eye-boards"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P06.stl",
+        "label": "Raw STL \u2014 P06"
+      }
+    ]
+  },
+  {
+    "id": "P08",
+    "name": "Rotating head shelf",
+    "exact": "P08 Dome carrier r2 - openable head harness entry",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Rotating shelf that carries the head. The three M2 nuts for the head screws load into pockets from above before the head goes on; nuts are 4 mm across flats \u00d7 1.6 mm thick, so measure yours. The open side entry takes the head cable, and open reliefs let the head lift off. Take care cleaning support from the thin 1.7 mm web. The horn adapter (P14) joins this shelf with three M3\u00d78 screws.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r18/part-P08.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "07",
+      "13",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P08.stl",
+        "label": "Raw STL \u2014 P08"
+      }
+    ]
+  },
+  {
+    "id": "P09",
+    "name": "Rear seam backing",
+    "exact": "P09 Foam seam backing r0 - hard stop",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Backs the lower and upper rear seams of the body foam; the seam covers screw onto it.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P09.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "15"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P09.stl",
+        "label": "Raw STL \u2014 P09"
+      }
+    ]
+  },
+  {
+    "id": "P10",
+    "name": "Rear seam cover",
+    "exact": "P10 Foam seam cover r0 - removable",
+    "qty": 3,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Print three in white PLA (the drawings show them gray). Let them cool and support each thin cover while removing its brim, then check the screw hole and curved fit. The lower cover uses an M3\u00d716 screw; the middle and upper covers share the backpack carrier\u2019s two M3\u00d718 screws.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P10.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "15"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P10.stl",
+        "label": "Raw STL \u2014 P10"
+      }
+    ]
+  },
+  {
+    "id": "P11",
+    "name": "Front body-light bracket",
+    "exact": "P11 Two-pebble bracket r2 - head screw and driver clearance",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds two body lights facing forward. One fits at the lower front of the frame and one at the upper front.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P11.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "14"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P11.stl",
+        "label": "Raw STL \u2014 P11"
+      }
+    ]
+  },
+  {
+    "id": "P12",
+    "name": "Rear body-light bracket and seam backing",
+    "exact": "P12 Forward-angled rear LEDs and seam backing r1",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds the two rear body lights, angled forward and slightly outward, and backs the middle rear seam.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P12.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "14"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P12.stl",
+        "label": "Raw STL \u2014 P12"
+      }
+    ]
+  },
+  {
+    "id": "P13",
+    "name": "Body wire guide",
+    "exact": "P13 Open body wire guide r0 - front service mount",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Keeps the body wires apart at the middle front of the frame.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P13.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "14"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P13.stl",
+        "label": "Raw STL \u2014 P13"
+      }
+    ]
+  },
+  {
+    "id": "P14",
+    "name": "Head horn adapter",
+    "exact": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Joins the head servo\u2019s horn to the head shelf (P08) with three M3\u00d78 screws.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P14.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "07",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P14.stl",
+        "label": "Raw STL \u2014 P14"
+      }
+    ]
+  },
+  {
+    "id": "FB01",
+    "name": "Electronics enclosure",
+    "exact": "FB01 \u2014 electronics enclosure with round front grille seats",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Main enclosure with open nut recesses for the boards, cover, grilles, power plate and audio cradle, plus four raised WAGO tape faces. Glue the nuts in before fitting components. Wire bundles use bought adhesive tie squares. Keep threads, seating faces, vents and microphone opening clear.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r21/part-FB01.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-base-nuts",
+      "fb-panels",
+      "fb-shell",
+      "fb-boards",
+      "fb-wagos",
+      "fb-audio-cradle",
+      "fb-fuses-capacitors",
+      "03"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB01.stl",
+        "label": "Raw STL \u2014 FB01"
+      }
+    ]
+  },
+  {
+    "id": "FB02",
+    "name": "Bottom cover",
+    "exact": "FB02 Decorative bottom cover",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "3 mm bottom cover with six ventilation slots under the Pi. No wires, parts or feet attach to it. It must sit flat by hand before you tighten its four M3\u00d712 screws.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB02.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-close"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB02.stl",
+        "label": "Raw STL \u2014 FB02"
+      }
+    ]
+  },
+  {
+    "id": "FB19",
+    "name": "Side speaker grille",
+    "exact": "FB19 Speaker grille 2",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Side grille with a sound sleeve for one speaker. Fasten through the grille boss and speaker tab, then the M3 washer and nut. Leave about 30 mm of cable slack so the grille can come off before unplugging.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB19.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-speakers",
+      "fb-side-panels"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB19.stl",
+        "label": "Raw STL \u2014 FB19"
+      }
+    ]
+  },
+  {
+    "id": "FB20",
+    "name": "Button insert",
+    "exact": "FB20 Button insert reused",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Copper insert that holds the illuminated button. Check that the button terminals clear the enclosure\u2019s foot column, and check the retaining nut, M3 nut slots and screw paths before tightening.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB20.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-inlet-button"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB20.stl",
+        "label": "Raw STL \u2014 FB20"
+      }
+    ]
+  },
+  {
+    "id": "FB21",
+    "name": "Power inlet plate",
+    "exact": "FB21 Inlet plate reused",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Rear-left plate for the power jack, on the robot\u2019s left. Prepare and insulate the jack leads before fitting it.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB21.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-inlet"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB21.stl",
+        "label": "Raw STL \u2014 FB21"
+      }
+    ]
+  },
+  {
+    "id": "FB03",
+    "name": "Rear vent",
+    "exact": "FB03 \u2014 R17 Rear ventilation panel",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Rear vent: 94 \u00d7 48 \u00d7 2 mm, with 18 long slots and two short slots at each end. Slots are 2.6 mm wide on a 4 mm pitch; long slots are 24 mm high and short slots 18 mm. Four M3\u00d712 screws and nuts. Keep all slots clear.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r17/part-FB03.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-panels"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB03.stl",
+        "label": "Raw STL \u2014 FB03"
+      }
+    ]
+  },
+  {
+    "id": "FB24",
+    "name": "Audio cradle",
+    "exact": "FB24 Audio cradle - captive lid nuts",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Audio cradle with a solid rear wall for taping the back of the module case. Load the two M2 lid nuts and fit all three M3\u00d76 mounting screws before inserting the module.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB24.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-audio-cradle",
+      "fb-audio"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB24.stl",
+        "label": "Raw STL \u2014 FB24"
+      }
+    ]
+  },
+  {
+    "id": "P30",
+    "name": "Mouth LED cassette",
+    "exact": "P30 Mouth cassette EXP inset r4 - internal clamp seats",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Holds the mouth LED board. Print it in black; the drawings show it gray for clarity. Check the cleaned print and the fit of the board and screws before assembly.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r20/part-P30.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "10"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P30.stl",
+        "label": "Raw STL \u2014 P30"
+      }
+    ]
+  },
+  {
+    "id": "P31",
+    "name": "Mouth light separator",
+    "exact": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Black PLA separator with a roof, floor, side walls and seven dividers that form eight channels, one per LED. It holds one continuous foam strip behind the smile opening. No seal or inserts are needed. Check the clearance and light bleed once assembled.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r20/part-P31.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "10"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P31.stl",
+        "label": "Raw STL \u2014 P31"
+      }
+    ]
+  },
+  {
+    "id": "FB32",
+    "name": "Audio cradle lid",
+    "exact": "FB32 Audio lid reused",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Lid for the audio cradle. Load its two M2 nuts in FB24 before inserting the module, then fit two M2\u00d78 screws.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r16/part-FB32.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-audio"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB32.stl",
+        "label": "Raw STL \u2014 FB32"
+      }
+    ]
+  },
+  {
+    "id": "P34",
+    "name": "Curved backpack carrier",
+    "exact": "P34 Curved backpack carrier r1",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Curved plate on the rear upright that the backpack shell screws onto. Load its four side-entry nuts before fitting it.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P34.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "28"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P34.stl",
+        "label": "Raw STL \u2014 P34"
+      }
+    ]
+  },
+  {
+    "id": "P35",
+    "name": "Backpack shell",
+    "exact": "P35 Body-hugging backpack shell r1",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Backpack shell with reinforced belt docks. Support the belt tabs while removing supports from the hinge gaps and screw passages; clear the pin holes before assembly.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P35.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P35.stl",
+        "label": "Raw STL \u2014 P35"
+      }
+    ]
+  },
+  {
+    "id": "P36",
+    "name": "Backpack tank",
+    "exact": "P36 Copper thruster barrel r1 - print two",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "One of the two backpack tanks. Each is held in the shell by one M3\u00d78 screw.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P36.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P36.stl",
+        "label": "Raw STL \u2014 P36"
+      }
+    ]
+  },
+  {
+    "id": "P37",
+    "name": "Nozzle plug",
+    "exact": "P37 Recessed nozzle plug r1 - print two",
+    "qty": 2,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Plugs the bottom nozzle of a backpack tank; glued in after dry-fitting.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P37.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P37.stl",
+        "label": "Raw STL \u2014 P37"
+      }
+    ]
+  },
+  {
+    "id": "P38",
+    "name": "Robot-left backpack elbow",
+    "exact": "P38 Right backpack elbow r2 - seated terminal",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-left backpack elbow. Remove support from both pins and the curved seat, and dry-fit before gluing. Print this file; don\u2019t mirror P39.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r13/part-P38.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P38.stl",
+        "label": "Raw STL \u2014 P38"
+      }
+    ]
+  },
+  {
+    "id": "P39",
+    "name": "Robot-right backpack elbow",
+    "exact": "P39 Left backpack elbow r2 - seated terminal",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-right backpack elbow. Remove support from both pins and the curved seat, and dry-fit before gluing. Print this file; don\u2019t mirror P38.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r13/part-P39.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P39.stl",
+        "label": "Raw STL \u2014 P39"
+      }
+    ]
+  },
+  {
+    "id": "P40",
+    "name": "Backpack top band",
+    "exact": "P40 Top roll copper half-band r1",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Band across the top of the backpack; glued in after dry-fitting.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/part-P40.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "29"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P40.stl",
+        "label": "Raw STL \u2014 P40"
+      }
+    ]
+  },
+  {
+    "id": "FB41",
+    "name": "Front microphone grille",
+    "exact": "FB41 \u2014 2 mm front microphone grille",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Front microphone grille: 88 \u00d7 40.8 \u00d7 2 mm, with 13 long slots and two short slots at each end. Four M3\u00d76 screws and ordinary M3 nuts, without washers. Use it with the enclosure from the same download set. Keep the microphone ports clear.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r17/part-FB41.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "fb-panels"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/FB41.stl",
+        "label": "Raw STL \u2014 FB41"
+      }
+    ]
+  },
+  {
+    "id": "GS20",
+    "name": "Head shell",
+    "exact": "GS20 Head - separate goggles and strap sockets",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Head shell, fastened to the shelf P08 by three M2\u00d78 button-head screws and M2 nuts, with no washers or plugs. The screw recesses are \u00d84.0 \u00d7 1.55 mm for \u00d83.5 \u00d7 1.3 mm heads; check your screws. Clear the support before fitting the eyes, antenna and straps.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r18/part-GS20.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "09",
+      "eye-boards",
+      "13",
+      "servo-position"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS20.stl",
+        "label": "Raw STL \u2014 GS20"
+      }
+    ]
+  },
+  {
+    "id": "GS11",
+    "name": "Robot-right copper goggle housing",
+    "exact": "GS11 \u2014 R22 side-loaded captive-nut goggle housing",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-right copper goggle housing. Two M2 nuts slide into side channels under thin printed ledges (\u201croofs\u201d), and a short tapered peg aligns it. Don\u2019t glue it. Check nut insertion, screw grip and roof strength with your print.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r22/part-GS11.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "08",
+      "09"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS11.stl",
+        "label": "Raw STL \u2014 GS11"
+      }
+    ]
+  },
+  {
+    "id": "GS12",
+    "name": "Robot-left copper goggle housing",
+    "exact": "GS12 \u2014 R22 side-loaded captive-nut goggle housing",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-left copper goggle housing. Two M2 nuts slide into side channels under thin printed ledges (\u201croofs\u201d), and a short tapered peg aligns it. Don\u2019t glue it. Check nut insertion, screw grip and roof strength with your print.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r22/part-GS12.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "08",
+      "09"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS12.stl",
+        "label": "Raw STL \u2014 GS12"
+      }
+    ]
+  },
+  {
+    "id": "GS01",
+    "name": "Robot-left gray head strap",
+    "exact": "GS01 Right tan strap - matched edge bevels",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-left head strap with two locating pegs. Dry-fit with the other two straps, leaving the thin seams between straps open. Check that the eyes still come out before gluing the pegs. The pegs locate the strap; they don\u2019t snap in.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-GS01.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "eye-boards"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS01.stl",
+        "label": "Raw STL \u2014 GS01"
+      }
+    ]
+  },
+  {
+    "id": "GS02",
+    "name": "Robot-right gray head strap",
+    "exact": "GS02 Left tan strap - matched edge bevels",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Robot-right head strap with two locating pegs. Dry-fit with the other two straps, leaving the thin seams between straps open. Check that the eyes still come out before gluing the pegs. The pegs locate the strap; they don\u2019t snap in.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-GS02.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "eye-boards"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS02.stl",
+        "label": "Raw STL \u2014 GS02"
+      }
+    ]
+  },
+  {
+    "id": "GS03",
+    "name": "Rear gray head strap",
+    "exact": "GS03 Rear tan strap - matched edge bevels",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Rear head strap with two locating pegs. Dry-fit with both rear seams open, then glue only the pegs. Keep glue away from the removable eye joints.",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "image": "assets/r19/part-GS03.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "eye-boards"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/GS03.stl",
+        "label": "Raw STL \u2014 GS03"
+      }
+    ]
+  },
+  {
+    "id": "E01",
+    "name": "Kitronik 25105 / FS90MG-CL servo",
+    "exact": "Kitronik 25105 / FS90MG-CL servo",
+    "qty": 3,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Use this servo and its supplied round horn. Remove the clips for the bracket. Generic FS90MG or SG90 horns may have a different spline and may not fit.",
+    "link": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E01.svg",
+    "steps": [
+      "servo-cables",
+      "04",
+      "05"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://kitronik.co.uk/products/25105-clippable-servo",
+        "label": "Kitronik 25105 clippable servo and supplied accessories"
+      },
+      {
+        "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-fs90mg-datasheet.pdf",
+        "label": "Kitronik FS90MG-CL servo datasheet"
+      },
+      {
+        "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-technical-drawing.pdf",
+        "label": "Kitronik 25105 servo technical drawing"
+      }
+    ]
+  },
+  {
+    "id": "E02",
+    "name": "Servo horn (supplied)",
+    "exact": "Supplied round disk horn + center screw",
+    "qty": 3,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Comes with each servo. The horn measures \u00d823.55 mm; drill only one opposite pair of holes, about 18 mm apart, to 2.2 mm. The long splined side faces the servo. Its center screw is listed separately (CENTER).",
+    "link": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E02.svg",
+    "steps": [
+      "06",
+      "07",
+      "16",
+      "servo-position"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://kitronik.co.uk/products/25105-clippable-servo",
+        "label": "Kitronik 25105 clippable servo and supplied accessories"
+      },
+      {
+        "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-fs90mg-datasheet.pdf",
+        "label": "Kitronik FS90MG-CL servo datasheet"
+      },
+      {
+        "url": "https://resources.kitronik.co.uk/pdf/25105-kitronik-clippable-servo-technical-drawing.pdf",
+        "label": "Kitronik 25105 servo technical drawing"
+      }
+    ]
+  },
+  {
+    "id": "E03",
+    "name": "Adafruit 5975 NeoPixel eye board",
+    "exact": "Adafruit 5975 NeoPixel eye board",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Single 5050 RGB LED on the front and JST-SH IN/OUT sockets on the back. About 12.3 \u00d7 11.3 \u00d7 6.2 mm. The drawings use the manufacturer\u2019s board model.",
+    "link": "https://www.adafruit.com/product/5975",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E03.svg",
+    "steps": [
+      "eye-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://learn.adafruit.com/adafruit-neopixel-breakout/pinouts",
+        "label": "Adafruit 5975 NeoPixel breakout guide with pinouts and schematic"
+      },
+      {
+        "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-neopixel-breakout.pdf",
+        "label": "Adafruit 5975 NeoPixel breakout guide with pinouts and schematic"
+      }
+    ]
+  },
+  {
+    "id": "E04",
+    "name": "Adafruit 1426 RGB NeoPixel stick",
+    "exact": "Adafruit 1426 RGB NeoPixel stick",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Eight RGB LEDs (not RGBW or WWA), about 51.1 \u00d7 10.2 \u00d7 3.2 mm. Needs soldered DIN and power leads.",
+    "link": "https://www.adafruit.com/product/1426",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E04.svg",
+    "steps": [
+      "12",
+      "10"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide",
+        "label": "NeoPixel family wiring, power and download reference"
+      }
+    ]
+  },
+  {
+    "id": "E05",
+    "name": "Adafruit 6026 NeoPixel Pebble strand",
+    "exact": "Adafruit 6026",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Adafruit NeoPixel Pebble / Seed LED strand: 100 lights about 100 mm (4 inches) apart on 10 m of thin solid wire, with a three-pin JST-SM connector at each end. You use six lights cut from the input end; keep the rest for spares. Each light is a small resin-coated \u201cpebble\u201d.",
+    "link": "https://www.adafruit.com/product/6026",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E05.svg",
+    "steps": [
+      "light-input",
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "label": "Adafruit 6026 strand manufacturer drawing",
+        "url": "https://cdn-shop.adafruit.com/product-files/6026/P6026-P010100NA3SA1-C21280-001.pdf"
+      },
+      {
+        "label": "Adafruit seed-pixel wire identification",
+        "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide/seed-pixels"
+      },
+      {
+        "label": "Adafruit pebble strand lead colors",
+        "url": "https://learn.adafruit.com/icicle-crown-with-pebble-pixels-wled?view=all"
+      }
+    ]
+  },
+  {
+    "id": "E06",
+    "name": "WAGO 221-415 lever connector",
+    "exact": "WAGO 221-415 five-position lever block",
+    "qty": 4,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "30 \u00d7 18.6 \u00d7 8.4 mm, with five orange levers on a clear housing. One wire per port, stripped to the mark, levers toward the open bottom. The drawings show only its outline.",
+    "link": "https://www.digikey.com/en/products/detail/wago-corporation/221-415/13549457",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E06.svg",
+    "steps": [
+      "fb-wagos",
+      "fb-power"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-415",
+        "label": "WAGO 221-415 manufacturer product specifications"
+      },
+      {
+        "url": "https://www.netxl.com/wago/docs/221-415-data-sheet.pdf",
+        "label": "WAGO 221-415 datasheet (WAGO PDF hosted by NetXL)"
+      }
+    ]
+  },
+  {
+    "id": "E07",
+    "name": "Schurter FDI 8601.2001.08 fuse holder",
+    "exact": "Schurter FDI 8601.2001.08 fuseholder",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "5\u00d720 mm fuse holder with factory-fitted 18 AWG leads; body up to 48 mm long \u00d7 \u00d816 mm. The bare 8601.2000 and the larger 6.3\u00d732 versions don\u2019t substitute.",
+    "link": "https://www.digikey.com/en/products/detail/schurter-inc/8601-2001-08/2647189",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E07.svg",
+    "steps": [
+      "fb-servo-power",
+      "fb-light-power",
+      "fb-fuses-capacitors"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.schurter.com/en/datasheet/typ_FDI.pdf",
+        "label": "SCHURTER FDI fuseholder datasheet"
+      }
+    ]
+  },
+  {
+    "id": "F1",
+    "name": "Eaton BK1-S505H-3.15-R time-delay fuse",
+    "exact": "Eaton BK1-S505H-3.15-R time-delay fuse",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "5\u00d720 mm time-delay fuse, 3.15 A, for the servo supply. It won\u2019t necessarily protect a stalled servo.",
+    "link": "https://www.digikey.com/en/products/detail/eaton-electronics-division/BK1-S505H-3-15-R/3042436",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/F1.svg",
+    "steps": [
+      "fb-servo-power",
+      "fb-fuses-capacitors"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://datasheet.lcsc.com/datasheet/pdf/5b5eef3606a7bf121d519d56b11ebf12.pdf?productCode=C3162760",
+        "label": "Eaton S505H time-delay fuses"
+      }
+    ]
+  },
+  {
+    "id": "F2",
+    "name": "Eaton BK1-S505H-1-R time-delay fuse",
+    "exact": "Eaton BK1-S505H-1-R time-delay fuse",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "5\u00d720 mm time-delay fuse, 1 A, for the lighting. Use this exact fuse. It protects the wiring and won\u2019t blow at exactly 1 A.",
+    "link": "https://www.digikey.com/en/products/detail/eaton-electronics-division/BK1-S505H-1-R/3042403",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/F2.svg",
+    "steps": [
+      "fb-light-power",
+      "fb-fuses-capacitors"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://datasheet.lcsc.com/datasheet/pdf/5b5eef3606a7bf121d519d56b11ebf12.pdf?productCode=C3162760",
+        "label": "Eaton S505H time-delay fuses"
+      }
+    ]
+  },
+  {
+    "id": "E08",
+    "name": "Panasonic EEU-FR1A102 capacitor",
+    "exact": "Panasonic EEU-FR1A102 capacitor",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "1000 \u00b5F, 10 V, about \u00d810 \u00d7 16 mm with 5 mm lead spacing. The distributor allows up to 17.5 mm seated height, so check your part and its lead clearance. Keep the negative stripe and top vent visible, and insulate the lead extensions.",
+    "link": "https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FR1A102/9921022",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E08.svg",
+    "steps": [
+      "fb-servo-power",
+      "fb-light-power",
+      "fb-fuses-capacitors"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/EEUFR1A102",
+        "label": "Panasonic EEUFR1A102 product specifications"
+      },
+      {
+        "url": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1259.pdf",
+        "label": "Panasonic FR series datasheet"
+      }
+    ]
+  },
+  {
+    "id": "E09",
+    "name": "Raspberry Pi 3 Model A+ / Adafruit 4027",
+    "exact": "Raspberry Pi 3 Model A+ / Adafruit 4027",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "512 MB, 65 \u00d7 56 mm, with one USB-A socket, micro-B power and the 40-pin GPIO header. The drawings show a dimensioned outline, not every component. Buy it from Adafruit or any Raspberry Pi approved reseller.",
+    "link": "https://www.adafruit.com/product/4027",
+    "verification": "Exact product specified; any approved reseller",
+    "image": "assets/cartoons/E09.svg",
+    "steps": [
+      "software-prepare",
+      "software-connect",
+      "software-install",
+      "fb-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.raspberrypi.com/resellers/",
+        "label": "Raspberry Pi approved resellers"
+      },
+      {
+        "url": "https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/",
+        "label": "Raspberry Pi 3 Model A+ official product page"
+      },
+      {
+        "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-product-brief.pdf",
+        "label": "Raspberry Pi 3 Model A+ product brief"
+      },
+      {
+        "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf",
+        "label": "Raspberry Pi 3 Model A+ mechanical drawing"
+      },
+      {
+        "url": "https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf",
+        "label": "Raspberry Pi 3 Model A+ reduced schematics"
+      }
+    ]
+  },
+  {
+    "id": "E10",
+    "name": "Adafruit 1663 JST-SM three-pin pair",
+    "exact": "Adafruit 1663 JST-SM three-pin pair",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Two plug-and-socket sets: BASE\u2192BODY and HEAD. 22 AWG leads. Check the +5 V, GND and DATA pin order by continuity.",
+    "link": "https://www.adafruit.com/product/1663",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E10.svg",
+    "steps": [
+      "fb-light-power",
+      "light-input",
+      "12",
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E11",
+    "name": "JST-SH three-pin lead (eye leads)",
+    "exact": "Adafruit 5755 JST-SH to header donor",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Three-pin JST-SH (1.0 mm pitch) plug to male header pins, about 100 mm long; Adafruit 5755 is one example. One is the first eye\u2019s IN lead; the other\u2019s data wire runs from the second eye to the mouth. Insulate the unused red and black wires separately.",
+    "link": "https://www.adafruit.com/product/5755",
+    "verification": "Any lead that meets the description",
+    "image": "assets/cartoons/E11.svg",
+    "steps": [
+      "12"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E12",
+    "name": "Adafruit 6404 JST-SH cable (between the eyes)",
+    "exact": "Adafruit 6404 JST-SH plug\u2013plug cable",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "100 mm cable between the two eyes. Use the 200 mm #6406 only if your routing needs it.",
+    "link": "https://www.adafruit.com/product/6404",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E12.svg",
+    "steps": [
+      "12"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E13",
+    "name": "SanDisk High Endurance 32 GB microSD card",
+    "exact": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "A dedicated microSD card for the robot. The software isn\u2019t preinstalled.",
+    "link": "https://www.amazon.com/dp/B07P14QHB7",
+    "verification": "Specified model; check the part number on the listing",
+    "image": "assets/cartoons/E13.svg",
+    "steps": [
+      "software-prepare",
+      "software-connect",
+      "fb-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
+        "label": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA"
+      },
+      {
+        "url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
+        "label": "SanDisk High Endurance microSD family datasheet"
+      }
+    ]
+  },
+  {
+    "id": "E14",
+    "name": "Waveshare USB audio module (18833)",
+    "exact": "Waveshare USB TO AUDIO 18833",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "53 \u00d7 23.5 \u00d7 14.6 mm case with built-in microphones and a four-pin speaker output. Keep it in its case. The drawings show an approximate outline.",
+    "link": "https://www.amazon.com/dp/B08R38TXXL",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E14.svg",
+    "steps": [
+      "software-configure",
+      "software-install",
+      "fb-audio"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.waveshare.com/product/usb-to-audio.htm",
+        "label": "Waveshare USB TO AUDIO 18833 product and included cable"
+      },
+      {
+        "url": "https://www.waveshare.com/wiki/USB_TO_AUDIO",
+        "label": "Waveshare USB TO AUDIO manufacturer wiki and interfaces"
+      }
+    ]
+  },
+  {
+    "id": "E15",
+    "name": "Adafruit 6066 Pixel Shifter",
+    "exact": "Adafruit 6066 Pixel Shifter",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "25.5 \u00d7 15 \u00d7 10.2 mm, two terminal rows, 10.16 mm mounting-hole spacing. Cut the Neo jumper on both S1 and S2; !D5 is unused. The terminal names are in the Electrical reference.",
+    "link": "https://www.adafruit.com/product/6066",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E15.svg",
+    "steps": [
+      "fb-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://learn.adafruit.com/adafruit-pixel-shifter/pinouts",
+        "label": "Adafruit Pixel Shifter pinouts and full guide"
+      },
+      {
+        "url": "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-pixel-shifter.pdf",
+        "label": "Adafruit Pixel Shifter pinouts and full guide"
+      }
+    ]
+  },
+  {
+    "id": "E16",
+    "name": "Adafruit 1669 enclosed speaker",
+    "exact": "Adafruit 1669 enclosed speaker",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Buy one pair: two 3 W, 4 \u03a9 speakers with their four-pin cable, 64 \u00d7 24 mm mounting pattern. The build uses M3\u00d712 screws through the grille and speaker tab, with one washer under each nut. Check that the screw tips clear the speaker body.",
+    "link": "https://www.adafruit.com/product/1669",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E16.svg",
+    "steps": [
+      "fb-speakers",
+      "fb-audio"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E17",
+    "name": "Adafruit 1479 white momentary illuminated button",
+    "exact": "Adafruit 1479 white momentary illuminated button",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "18 \u00d7 18 \u00d7 29.4 mm with a retaining nut and separate switch and LED terminals. The drawings\u2019 tabs don\u2019t show polarity.",
+    "link": "https://www.adafruit.com/product/1479",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E17.svg",
+    "steps": [
+      "fb-inlet-button"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://cdn-shop.adafruit.com/datasheets/R16diagram.jpg",
+        "label": "Adafruit 16 mm button mechanical and terminal diagram"
+      }
+    ]
+  },
+  {
+    "id": "E18",
+    "name": "Switchcraft 721AU solder-lug panel jack",
+    "exact": "Switchcraft 721AU solder-lug panel jack",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "2.1 mm center pin, supplied nut and washer, 5/16-32 bushing in a \u00d88.00 mm hole. Check center and sleeve continuity and full nut engagement.",
+    "link": "https://www.digikey.com/en/products/detail/switchcraft-inc/721AU/27691023",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E18.svg",
+    "steps": [
+      "fb-inlet"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.switchcraft.com/sealed-unmated-dc-power-jack-2-1mm-solder-standard-material/721au/",
+        "label": "Switchcraft 721AU product specifications"
+      },
+      {
+        "url": "https://www.switchcraft.com/assets/1/6/721AU_CD.pdf",
+        "label": "Switchcraft 721AU customer drawing and terminal schematic"
+      }
+    ]
+  },
+  {
+    "id": "E19",
+    "name": "Adafruit 1152 quick-connect wire pair",
+    "exact": "Adafruit 1152 quick-connect wire pair",
+    "qty": 2,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Two pairs (four 0.11 inch terminals): one for the button switch and one for its LED.",
+    "link": "https://www.adafruit.com/product/1152",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E19.svg",
+    "steps": [
+      "fb-inlet-button"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E20",
+    "name": "Mean Well GST40A05-P1J supply",
+    "exact": "Mean Well GST40A05-P1J supply",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "External regulated 5 V, 5 A supply with the 05-P1J plug. Use exactly this supply: the Pi lead and the wiring before the fuses rely on its built-in overload shutdown, so never substitute a higher-current supply. No mains wiring goes inside the robot. First used in {step:light-input}.",
+    "link": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST40A05-P1J/7703701",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E20.svg",
+    "steps": [
+      "light-input",
+      "35"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
+        "label": "MEAN WELL GST40A specification"
+      }
+    ]
+  },
+  {
+    "id": "E21",
+    "name": "Mean Well YP12_YC12 mains cord (US)",
+    "exact": "Mean Well YP12_YC12 US mains cord",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "US plug (NEMA 5-15P) to IEC C13. Any sound, grounded cord you already have will do. Choose the right cord for your region; it stays outside the robot.",
+    "link": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/YP12-YC12/7707223",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E21.svg",
+    "steps": [
+      "light-input",
+      "35"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
+        "label": "MEAN WELL PowerNex accessory catalog with YP12+YC12 cord"
+      }
+    ]
+  },
+  {
+    "id": "E22",
+    "name": "Adafruit 4056 cable (for the Pi power lead)",
+    "exact": "Adafruit 4056 micro-B power donor",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Keep the micro-B end and no more than 150 mm of cable; cut off the USB-C end. 24 AWG power wires. The plug\u2019s overmold is about 27.5 \u00d7 10 \u00d7 8 mm.",
+    "link": "https://www.adafruit.com/product/4056",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/E22.svg",
+    "steps": [
+      "fb-power"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://cdn-shop.adafruit.com/product-files/4056/4056_PCM-A-003_TYPE_C_F-MICROUSB_B_M_30cm_SCREW.pdf",
+        "label": "Adafruit 4056 cable drawing"
+      }
+    ]
+  },
+  {
+    "id": "E23",
+    "name": "USB-A extension cable",
+    "exact": "USB-A male\u2013female data extension",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Start with the cable supplied with the audio module and keep it to 200 mm or less after routing. A replacement must be a data cable, not a charge-only one or a power-injection Y lead.",
+    "link": "https://www.waveshare.com/product/usb-to-audio.htm",
+    "verification": "Check the included cable",
+    "image": "assets/cartoons/E23.svg",
+    "steps": [
+      "software-configure",
+      "software-install",
+      "fb-audio",
+      "fb-signals"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E24",
+    "name": "GPIO jumper leads (2.54 mm female)",
+    "exact": "Twelve 24 AWG GPIO connections",
+    "qty": 12,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Twelve short 24 AWG Pi-header leads with 2.54 mm female contacts. They carry signals, grounds and low-current shifter/button-LED supplies; they do not supply the Pi, servos or lighting strand.",
+    "link": "",
+    "verification": "Choose any product that meets the description",
+    "image": "assets/cartoons/E24.svg",
+    "steps": [
+      "fb-inlet-button",
+      "fb-signals"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "E25",
+    "name": "Four matching adhesive rubber feet",
+    "exact": "Four matching adhesive rubber feet fitting the \u00d814 mm post faces",
+    "qty": 4,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "Choose four equal-height adhesive rubber feet whose entire adhesive face fits on the enclosure\u2019s \u00d814 mm post faces. Stick them to those posts, never the removable cover. Check adhesion and that the robot stands level with the cover clear of the bench.",
+    "link": "",
+    "verification": "Choose any product that meets the description",
+    "image": "assets/cartoons/E25.svg",
+    "steps": [
+      "fb-shell"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "R1",
+    "name": "Yageo CFR-25JB-52-1K resistor",
+    "exact": "Yageo CFR-25JB-52-1K resistor",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "1 k\u03a9, \u00b15%, \u00bc W. In the button LED\u2019s positive lead. Packs usually contain extras.",
+    "link": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-1K/96",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/R1.svg",
+    "steps": [
+      "fb-inlet-button"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://yageogroup.com/content/datasheet/asset/file/YAGEO-CFR_DATASHEET",
+        "label": "YAGEO CFR carbon-film resistor family datasheet"
+      }
+    ]
+  },
+  {
+    "id": "R2",
+    "name": "Yageo CFR-25JB-52-330R resistor",
+    "exact": "Yageo CFR-25JB-52-330R resistor",
+    "qty": 1,
+    "optional": 0,
+    "category": "Purchased",
+    "description": "330 \u03a9, \u00b15%, \u00bc W. In the data lead near body light 0 DIN. Packs usually contain extras.",
+    "link": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-330R/1636",
+    "verification": "Exact product specified",
+    "image": "assets/cartoons/R2.svg",
+    "steps": [
+      "light-input",
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://yageogroup.com/content/datasheet/asset/file/YAGEO-CFR_DATASHEET",
+        "label": "YAGEO CFR carbon-film resistor family datasheet"
+      }
+    ]
+  },
+  {
+    "id": "C01",
+    "name": "Clear eye film",
+    "exact": "Flexible clear front-eye film",
+    "qty": 2,
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Any clear, flexible transparency sheet. Cut two 12.6 \u00d7 8.6 mm rounded rectangles with 4.2 mm corners with the template. It must lie flat with its edge captured, without forcing the lip.",
+    "link": "",
+    "verification": "Any suitable sheet",
+    "image": "assets/cartoons/C01.svg",
+    "steps": [
+      "08",
+      "09"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C02",
+    "name": "Eye diffuser foam",
+    "exact": "White Plastazote eye patches",
+    "qty": 2,
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Two 14 \u00d7 10 mm patches cut from white 4 mm Plastazote LD45. They sit behind the clear eye films.",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
+    "image": "assets/cartoons/C02.svg",
+    "steps": [
+      "08",
+      "09"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+        "label": "Zotefoams Plastazote LD45 product information"
+      }
+    ]
+  },
+  {
+    "id": "C03",
+    "name": "Mouth diffuser foam",
+    "exact": "White Plastazote mouth strip",
+    "qty": 1,
+    "optional": 0,
+    "category": "Consumable",
+    "description": "One continuous strip of white 4 mm Plastazote LD45, 7.4 mm high. Cut it long, curve it into the pocket and trim to fit. (It follows a 37.8 mm radius across a 49.6 mm chord; the chord isn\u2019t the strip length.)",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
+    "image": "assets/cartoons/C03.svg",
+    "steps": [
+      "10"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+        "label": "Zotefoams Plastazote LD45 product information"
+      }
+    ]
+  },
+  {
+    "id": "C04",
+    "name": "Body diffuser foam",
+    "exact": "White Plastazote body wrap",
+    "qty": 1,
+    "optional": 0,
+    "category": "Consumable",
+    "description": "White 4 mm Plastazote LD45, cut from the template: 224.8 \u00d7 114.3 mm with a 2 mm rear seam. Cut slightly long and trim after dry-fitting. One sheet can supply the body, mouth and eye pieces if it\u2019s big enough for all the templates.",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "verification": "White Plastazote LD45, 4 mm; dry-fit the cut pieces",
+    "image": "assets/cartoons/C04.svg",
+    "steps": [
+      "15"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+        "label": "Zotefoams Plastazote LD45 product information"
+      }
+    ]
+  },
+  {
+    "id": "C05",
+    "name": "18 AWG stranded copper wire",
+    "exact": "18 AWG stranded copper wire",
+    "qty": "1 red/black wire kit",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "For the power inlet, the W3\u2013W4 ground link and the F1 output extension (start with about 200 mm and trim to about 230 mm finished). The inlet return may need 150\u2013160 mm. The linked kit has 3 m of each color, far more than you need. Cut after dry-routing. H2 uses its own specified wire.",
+    "link": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
+    "verification": "Example product; cut to fit",
+    "image": "assets/cartoons/C05.svg",
+    "steps": [
+      "fb-inlet",
+      "fb-power",
+      "fb-servo-power",
+      "fb-light-power"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C06",
+    "name": "22 AWG stranded copper wire",
+    "exact": "22 AWG stranded copper wire",
+    "qty": "1 multicolor wire assortment",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Head power, capacitor leads, lighting and servo extensions. Use red, black and a separate color for signals. Cut each run after dry-routing, leaving service slack.",
+    "link": "https://www.adafruit.com/product/3111",
+    "verification": "Example product",
+    "image": "assets/cartoons/C06.svg",
+    "steps": [
+      "fb-light-power",
+      "servo-cables",
+      "12",
+      "14",
+      "33"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C07",
+    "name": "Cable ties, 2.5 mm",
+    "exact": "2.5 mm narrow nylon cable ties",
+    "qty": "About 40\u201350",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "2.5 mm nylon ties for body lights, wiring bundles and component retention. Use longer ties where the complete loop needs them; trim the tails. Support fuse holders and capacitor bodies without squeezing them or covering vents. Adhesive squares provide base tie points.",
+    "link": "https://www.amazon.com/dp/B0DR8KSVQD",
+    "verification": "Example product; check the size",
+    "image": "assets/cartoons/C07.svg",
+    "steps": [
+      "fb-fuses-capacitors",
+      "14",
+      "33"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C08",
+    "name": "Disc magnets, 3/16 \u00d7 1/16 inch",
+    "exact": "3/16\u00d71/16 inch disc magnets",
+    "qty": 4,
+    "optional": 1,
+    "category": "Consumable",
+    "description": "One in each forearm and each fitted hand; the optional pointing hand needs one more. K&J D31 matches the specified size. Match polarity before gluing and let the adhesive fully cure before fitting the hands.",
+    "link": "https://www.kjmagnetics.com/d31-neodymium-disc-magnet",
+    "verification": "K&J D31, 3/16 \u00d7 1/16 inch",
+    "image": "assets/cartoons/C08.svg",
+    "steps": [
+      "18"
+    ],
+    "status": "Check it when it arrives",
+    "optional_label": "Add 1 only for the optional pointing hand",
+    "additional_links": [
+      {
+        "url": "https://www.kjmagnetics.com/resources/pdfs/D31.pdf",
+        "label": "K&J D31 magnet dimensional drawing"
+      }
+    ]
+  },
+  {
+    "id": "C09",
+    "name": "Two-part epoxy for PLA and metal",
+    "exact": "Two-part epoxy compatible with PLA and nickel-plated magnets",
+    "qty": "Small amount",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "For magnets, enclosure nuts, backpack attachments and head-strap pegs. Mix and cure according to the label; keep nut threads and seating faces clear. CA gel (C18) is an optional quicker-setting alternative for retaining nuts. Never glue the copper eye housings, their seams or the removable arm covers.",
+    "link": "",
+    "verification": "Choose a suitable adhesive",
+    "image": "assets/cartoons/C09.svg",
+    "steps": [
+      "fb-base-nuts",
+      "eye-boards",
+      "18",
+      "29"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "label": "Magnet manufacturer\u2019s adhesive guidance",
+        "url": "https://www.kjmagnetics.com/faq.asp"
+      }
+    ]
+  },
+  {
+    "id": "C10",
+    "name": "Audio lid lining, 1 mm",
+    "exact": "Nonconductive closed-cell foam",
+    "qty": "1 mm sheet offcuts",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Nonconductive closed-cell foam for the audio lid lining. Keep microphone holes, plugs and ventilation clear.",
+    "link": "",
+    "verification": "Choose any product that meets the description",
+    "image": "assets/cartoons/C10.svg",
+    "steps": [
+      "fb-audio"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C12",
+    "name": "Heat-shrink tubing",
+    "exact": "Heat-shrink tubing / Adafruit 344 example",
+    "qty": "As fitted",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Insulates splices, the jack, capacitor and resistor leads, and unused wires. Choose sizes before soldering. The F1 extension joint needs a sleeve that fits in about \u00d84 \u00d7 20 mm.",
+    "link": "https://www.adafruit.com/product/344",
+    "verification": "Example product; choose sizes for your joints",
+    "image": "assets/cartoons/C12.svg",
+    "steps": [
+      "fb-inlet-button",
+      "fb-inlet",
+      "fb-power",
+      "fb-servo-power",
+      "fb-light-power",
+      "fb-fuses-capacitors",
+      "light-input",
+      "servo-cables",
+      "12",
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C13",
+    "name": "PLA filament, 1.75 mm",
+    "exact": "PLA filament, 1.75 mm",
+    "qty": "Enough for all plates",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Use the slicer profile for your spool, in the colors you like. The Printing page lists the current filament estimate for each plate and the full set; allow extra for setup and reprints.",
+    "link": "",
+    "verification": "See Printing for settings",
+    "image": "assets/cartoons/C13.svg",
+    "steps": [
+      "02"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "C14",
+    "name": "Solder, flux and wire labels",
+    "exact": "Solder, flux and wire labels",
+    "qty": "As used",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "For the prepared leads and adapters. Insulate and strain-relieve every joint, and label both ends with the circuit name.",
+    "link": "",
+    "verification": "General workshop supplies",
+    "image": "assets/cartoons/C14.svg",
+    "steps": [
+      "fb-inlet-button",
+      "fb-inlet",
+      "fb-servo-power",
+      "fb-light-power",
+      "light-input",
+      "servo-cables",
+      "12",
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T01",
+    "name": "Flush cutters",
+    "exact": "Flush cutters",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Trims supports, brims and wires. Cut supports where they meet the part, not partway along a printed finger.",
+    "link": "https://www.adafruit.com/product/152",
+    "verification": "Example tool",
+    "image": "assets/cartoons/T01.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T02",
+    "name": "Soldering iron, stand and fume extraction",
+    "exact": "Soldering station, stand and ventilation",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Temperature-controlled iron with a stand, plus fume extraction (not included in the linked kit). The kit\u2019s stripper only covers 22\u201330 AWG, not 18 AWG.",
+    "link": "https://www.adafruit.com/product/136",
+    "verification": "Example tool",
+    "image": "assets/cartoons/T02.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T03",
+    "name": "Multimeter with continuity",
+    "exact": "Multimeter with continuity",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "For checking wire continuity with power disconnected and supply polarity in DC-voltage mode.",
+    "link": "https://www.adafruit.com/product/2034",
+    "verification": "Example tool",
+    "image": "assets/cartoons/T03.svg",
+    "steps": [
+      "01",
+      "light-input"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T04",
+    "name": "Wire stripper covering 18\u201328 AWG",
+    "exact": "Wire stripper covering 18\u201328 AWG",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "One or more strippers covering both the power wires and the fine leads. Don\u2019t nick the strands.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T04.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T05",
+    "name": "Small drivers, hex keys and fine pliers",
+    "exact": "Small hex/terminal drivers and fine pliers",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Drivers that fit the M2 and M3 screws, 2.5 mm hex tools, fine pliers and a small terminal screwdriver. Check access before tightening.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T05.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T06",
+    "name": "Caliper / metric ruler",
+    "exact": "Caliper / metric ruler",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Measures screw length, head size, washers, tabs, magnets and printed fits.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T06.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T07",
+    "name": "Deburring knife, small files, mat, safety glasses",
+    "exact": "Deburring knife, small files, mat, safety glasses",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Removes burrs without enlarging functional surfaces.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T07.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T08",
+    "name": "Hand drill and 2.2 mm bit",
+    "exact": "2.2 mm drill and controlled hand drill",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Only for drilling one opposite pair of horn holes, off the servo.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T08.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T09",
+    "name": "Heat gun or other heat-shrink tool",
+    "exact": "Heat source suitable for heat-shrink",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "Shrinks insulation without damaging nearby plastic or wire.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T09.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "T10",
+    "name": "microSD reader and computer",
+    "exact": "microSD reader and setup computer",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "For writing the Pi\u2019s software to the microSD card.",
+    "link": "",
+    "verification": "Any tool that meets the description",
+    "image": "assets/cartoons/T10.svg",
+    "steps": [
+      "01"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x14",
+    "name": "M3\u00d714",
+    "exact": "M3\u00d714",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 socket-head cap screw, 14 mm long (DIN 912 / ISO 4762). Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Any DIN 912 / ISO 4762 socket-head screw of this size",
+    "image": "assets/cartoons/M3x14.svg",
+    "steps": [
+      "17"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "N3",
+    "name": "M3 hex nut",
+    "exact": "Ordinary M3 hex nut",
+    "qty": 62,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick, not nylon-insert locknuts. Rear-vent and cover nuts are glued into open cups; keep threads clear.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/N3.svg",
+    "steps": [
+      "fb-base-nuts",
+      "fb-speakers",
+      "fb-inlet-button",
+      "03",
+      "04",
+      "05",
+      "07",
+      "14",
+      "15",
+      "17",
+      "28",
+      "29"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M2x6",
+    "name": "M2\u00d76",
+    "exact": "M2\u00d76",
+    "qty": 16,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M2x6.svg",
+    "steps": [
+      "04",
+      "05",
+      "07",
+      "eye-boards",
+      "16"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "N2",
+    "name": "M2 hex nut",
+    "exact": "Ordinary M2 hex nut",
+    "qty": 37,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "37 standard M2 hex nuts, not nylon-insert locknuts. Nominal 4 mm across flats \u00d7 1.6 mm thick; check printed fit. Eight board nuts are glued into open pockets before fitting the boards.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/N2.svg",
+    "steps": [
+      "fb-base-nuts",
+      "fb-audio-cradle",
+      "04",
+      "05",
+      "07",
+      "09",
+      "eye-boards",
+      "10",
+      "16",
+      "servo-position"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x16",
+    "name": "M3\u00d716",
+    "exact": "M3\u00d716",
+    "qty": 7,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x16.svg",
+    "steps": [
+      "03",
+      "04",
+      "15"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x20",
+    "name": "M3\u00d720",
+    "exact": "M3\u00d720",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x20.svg",
+    "steps": [
+      "05"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x10",
+    "name": "M3\u00d710",
+    "exact": "M3\u00d710",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x10.svg",
+    "steps": [
+      "05"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x8",
+    "name": "M3\u00d78",
+    "exact": "M3\u00d78",
+    "qty": 7,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x8.svg",
+    "steps": [
+      "fb-inlet-button",
+      "07",
+      "29"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M2x10",
+    "name": "M2\u00d710",
+    "exact": "M2\u00d710",
+    "qty": 8,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M2x10.svg",
+    "steps": [
+      "fb-boards",
+      "eye-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "W2",
+    "name": "M2 washer, thin metal (BFirst MFWZ002)",
+    "exact": "BFirst MFWZ002 thin M2 washer",
+    "qty": 4,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Metal washers, 2.31 mm ID \u00d7 4.37 mm OD \u00d7 0.25 mm. Four, at the eyes only.",
+    "link": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
+    "verification": "Exact washer specified",
+    "image": "assets/cartoons/W2.svg",
+    "steps": [
+      "eye-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M2x8",
+    "name": "M2\u00d78",
+    "exact": "M2\u00d70.4, 8 mm under-head length",
+    "qty": 9,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Nine: four for the mouth, two for the audio lid and three button heads for the head. Head seats require \u00d83.5 \u00d7 1.3 mm button heads, no washers or plugs; measure the actual screw and test its fit.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Kadrick B0BX96SMW4 kit includes M2\u00d78 button heads; measure the head",
+    "image": "assets/cartoons/M2x8.svg",
+    "steps": [
+      "fb-audio",
+      "10",
+      "servo-position"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x10CS",
+    "name": "M3\u00d710 countersunk",
+    "exact": "M3\u00d710 countersunk",
+    "qty": 3,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
+    "link": "https://www.amazon.com/dp/B01E9NNZOQ",
+    "verification": "Fastenere; check for a \u00d86 mm, 90\u00b0 head",
+    "image": "assets/cartoons/M3x10CS.svg",
+    "steps": [
+      "14"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x6",
+    "name": "M3\u00d76",
+    "exact": "M3\u00d76",
+    "qty": 7,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x6.svg",
+    "steps": [
+      "fb-panels",
+      "fb-audio-cradle"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M2x12",
+    "name": "M2\u00d712",
+    "exact": "M2\u00d712",
+    "qty": 4,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M2x12.svg",
+    "steps": [
+      "fb-boards"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x12",
+    "name": "M3\u00d712",
+    "exact": "M3\u00d712",
+    "qty": 30,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm; compare with the actual-size screw key.",
+    "link": "",
+    "verification": "Check against the actual-size screw key",
+    "image": "assets/cartoons/M3x12.svg",
+    "steps": [
+      "fb-panels",
+      "fb-side-panels",
+      "fb-speakers",
+      "fb-inlet",
+      "29",
+      "fb-close"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "W3",
+    "name": "M3 washer (BFirst MFWZ003)",
+    "exact": "BFirst MFWZ003 M3 washer",
+    "qty": 8,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "3.20 mm ID \u00d7 7.01 mm OD \u00d7 0.53 mm. Eight, for the speakers only.",
+    "link": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
+    "verification": "Exact washer specified",
+    "image": "assets/cartoons/W3.svg",
+    "steps": [
+      "fb-speakers"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "M3x18",
+    "name": "M3\u00d718",
+    "exact": "M3\u00d718",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Two, for the backpack carrier. A suitable screw is Vital Parts HSC912-M3-18-A2: fully threaded A2 stainless DIN 912, M3 \u00d7 0.5, 18 mm long, \u00d85.5 \u00d7 3.0 mm head, 2.5 mm hex. It\u2019s sold individually, so order two. Measure them and dry-fit before assembly.",
+    "link": "https://www.vital-parts.co.uk/socket-cap-screws-din-912/13258-hsc912-m3-18-a2",
+    "verification": "Size match; measure and check the fit",
+    "image": "assets/cartoons/M3x18.svg",
+    "steps": [
+      "28"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "label": "US supplier alternative: BelMetric BSH3X18SS (select Full Thread, 18 mm; confirm dimensions and quantity)",
+        "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/"
+      }
+    ]
+  },
+  {
+    "id": "CENTER",
+    "name": "Servo center screw (supplied)",
+    "exact": "Supplied servo center screw",
+    "qty": 3,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Three, one with each servo. Keep each with its horn; there\u2019s no standard replacement, so don\u2019t substitute a generic M2 screw.",
+    "link": "",
+    "verification": "Supplied with each servo (E01)",
+    "image": "assets/cartoons/CENTER.svg",
+    "steps": [
+      "servo-position"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": []
+  },
+  {
+    "id": "J05",
+    "name": "Service-stand head saddle (optional)",
+    "exact": "J05 head saddle",
+    "qty": 0,
+    "optional": 1,
+    "category": "Printed",
+    "description": "The only 3D-printed part of the padded service stand. Print one PLA saddle; cut the base, two support blocks and head riser from wood, then add soft foam. See the stand materials list for sizes, screws and tools.",
+    "image": "assets/r16/part-J05.png",
+    "link": "",
+    "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
+    "verification": "Compare your cleaned print with the picture.",
+    "optional_label": "Optional service-fixture part",
+    "steps": [
+      "fb-stand"
+    ],
+    "additional_links": []
+  },
+  {
+    "id": "C16",
+    "name": "Double-sided mounting tape",
+    "exact": "Double-sided mounting tape",
+    "qty": "Four WAGO pieces + one audio patch",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Four cut pieces for the WAGOs and one patch for the back of the audio case. The audio patch must be under 1 mm thick; use a separate thinner tape if needed. Choose tape compatible with both surfaces. WAGO levers must open fully and clear the cover. Follow the maker\u2019s surface preparation, pressure and bonding-time instructions.",
+    "steps": [
+      "fb-wagos",
+      "fb-audio"
+    ],
+    "link": "https://gorillatough.com/product/heavy-duty-mounting-tape",
+    "image": "assets/cartoons/C16.svg",
+    "verification": "Manufacturer product example; check the grade, thickness and intended surfaces",
+    "status": "Check before assembly",
+    "additional_links": []
+  },
+  {
+    "id": "C17",
+    "name": "Adhesive cable-tie squares, 1 inch",
+    "exact": "25.4 \u00d7 25.4 mm adhesive-backed cable-tie mounts",
+    "qty": "As routed",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "Nominal 1 \u00d7 1-inch squares with their own adhesive backing and slots accepting 2.5 mm ties. Choose an adhesive suitable for the printed plastic. Each square needs full contact with a flat interior surface; no mounting screws or printed pads are needed. Count the mounts after laying out the wire bundles, and check that each bond holds without obstructing vents or service access.",
+    "steps": [
+      "fb-fuses-capacitors",
+      "33"
+    ],
+    "link": "",
+    "image": "assets/cartoons/C17.svg",
+    "verification": "Confirm fit and adhesive compatibility before use",
+    "status": "Check before assembly",
+    "additional_links": []
+  },
+  {
+    "id": "C18",
+    "name": "Optional CA gel for nut pockets",
+    "exact": "PLA/metal-compatible cyanoacrylate gel glue",
+    "qty": 0,
+    "optional": 1,
+    "category": "Consumable",
+    "description": "Optional gel superglue for retaining the 8 M2 and 25 M3 enclosure nuts instead of mixing epoxy. Apply a tiny dab to each nut\u2019s exposed outside edge, keeping threads, screw bores and seating faces clear. Choose a PLA/metal-compatible gel and follow its full cure time. The pocket walls resist rotation.",
+    "steps": [
+      "fb-base-nuts"
+    ],
+    "link": "",
+    "image": "assets/cartoons/C18.svg",
+    "verification": "Confirm fit and adhesive compatibility before use",
+    "status": "Check before assembly",
+    "additional_links": []
+  },
+  {
+    "id": "T13",
+    "name": "5 V micro-USB bench supply",
+    "exact": "Regulated 5 V micro-USB supply rated at least 2.5 A",
+    "qty": 1,
+    "optional": 0,
+    "category": "Tool",
+    "description": "For the bare Pi and loose USB audio module during software setup. Use a regulated 5 V micro-USB supply rated at least 2.5 A; borrow an existing suitable Pi supply if you have one. Disconnect it before installing the Pi in the enclosure.",
+    "link": "",
+    "verification": "Any supply that meets the description",
+    "steps": [
+      "01",
+      "software-connect",
+      "software-install"
+    ],
+    "additional_links": []
+  }
+]

@@ -1,0 +1,91 @@
+name: Contributor checks
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: contributor-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  software:
+    name: Software (${{ matrix.python-version }})
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12', '3.13']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install pinned development dependencies
+        run: python -m pip install -c requirements/dev.txt -r requirements-dev.txt
+      - name: Check installed dependencies
+        run: python -m pip check
+      - name: Formatting
+        run: make dev-format-check DEV_PYTHON=python
+      - name: Lint
+        run: make dev-lint DEV_PYTHON=python
+      - name: Types
+        run: make dev-typecheck DEV_PYTHON=python
+      - name: Tests with branch coverage
+        if: matrix.python-version == '3.12'
+        run: make dev-coverage DEV_PYTHON=python
+      - name: Tests
+        if: matrix.python-version != '3.12'
+        run: make dev-test DEV_PYTHON=python
+      - name: Save coverage report
+        if: always() && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: software-coverage
+          path: coverage.xml
+          retention-days: 7
+          if-no-files-found: ignore
+      - run: python -m pip wheel --no-deps --no-build-isolation --wheel-dir /tmp/wheels .
+      - name: Verify installed resources outside checkout
+        run: |
+          python -m pip install --no-deps --target /tmp/blooglyblob-installed /tmp/wheels/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/blooglyblob-installed python - <<'PYTHON'
+          from pathlib import Path
+          import blooglyblob
+          import importlib.util
+          assert all(importlib.util.find_spec(name) is None for name in ("pi", "server", "client"))
+          from blooglyblob.tools.registry import ToolRegistry
+          from blooglyblob.ai.voice_profile import default_voice, default_greeting
+          root = Path(blooglyblob.__file__).parent.parent
+          assert root == Path('/tmp/blooglyblob-installed')
+          registry = ToolRegistry()
+          registry.load_from_configs()
+          assert {'goToSleep', 'danceMode', 'setTimer'} <= set(registry.tool_names)
+          assert default_voice() and default_greeting()
+          for name in ('songs/dance_song.wav', 'songs/dance_song_beats.json', 'sounds/alert_16k.wav'):
+              assert (root / name).is_file(), name
+          PYTHON
+
+  hardware:
+    name: Hardware and guide
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: hardware/tools/guide/package-lock.json
+      - name: Public repository boundary
+        run: make publication-check HOST_PYTHON=python
+      - name: Hardware tooling tests
+        run: make hardware-test HOST_PYTHON=python
+      - name: Hardware invariants
+        run: make hardware-check HOST_PYTHON=python
+      - name: Install locked browser dependencies and Linux system packages
+        run: make guide-setup GUIDE_SYSTEM_DEPS=1
+      - name: Build and verify the guide
+        run: make guide-browser HOST_PYTHON=python

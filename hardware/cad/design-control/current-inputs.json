@@ -1,0 +1,741 @@
+{
+  "schema_version": 3,
+  "purpose": "Mandatory R28 current CAD, printing, catalog, assembly and rendering inputs; no selected delivery. FB01/K1 bounded digital review complete; physical qualification and48 unrelated source reviews remain separate.",
+  "files": [
+    {
+      "path": "hardware/assembly/electrical.json",
+      "sha256": "8cf13eed927a467053da979dc7166c0cf04701877c51d71da1617983b241fb2e",
+      "bytes": 6205
+    },
+    {
+      "path": "hardware/assembly/hardware.json",
+      "sha256": "b34d21463870b2c6f14e9bf5df8f28b625a8aa4c35f3af8dfec403007d93fb58",
+      "bytes": 3892
+    },
+    {
+      "path": "hardware/assembly/interfaces.json",
+      "sha256": "aab5307fd712148e29e58ad9fe2ab62a59d1d98b26012dba57c2e8270f7469cc",
+      "bytes": 1391
+    },
+    {
+      "path": "hardware/cad/CURRENT-NOTES.md",
+      "sha256": "cec8b96d1bc1340d3523c384bccae00da568d5d891cd8a6188ba526f1ef717d4",
+      "bytes": 2899
+    },
+    {
+      "path": "hardware/cad/current/assembly.f3d",
+      "sha256": "2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8",
+      "bytes": 15495649
+    },
+    {
+      "path": "hardware/cad/current/evidence/audio-tape-r26.json",
+      "sha256": "b8b2dc10354ef187973910652d24a4a774fb19cd75d763d38552a4120b9e0ee6",
+      "bytes": 4817
+    },
+    {
+      "path": "hardware/cad/current/evidence/base-mounts-r24.json",
+      "sha256": "317a21b6d01f173eb20c327f0dfbd3f3412cdcdf9a76bd4285a80a65e99bf0a0",
+      "bytes": 1979
+    },
+    {
+      "path": "hardware/cad/current/evidence/base-slots-r27.json",
+      "sha256": "f2c864678fbb15fc485ddc60c9280f488e24050fb609490641e0d68570ebf0c9",
+      "bytes": 21129
+    },
+    {
+      "path": "hardware/cad/current/evidence/front-grille-mesh-validation-r23.json",
+      "sha256": "2e17299b29081c5461bf389f2432e4f3974c87393c25e9b6356ddc4e7aedbb08",
+      "bytes": 511
+    },
+    {
+      "path": "hardware/cad/current/evidence/jetpack-root-r25.json",
+      "sha256": "50bb25b6a98169a64893c93a47a12d737fb1ef8b9da15b7c0e81e9e453267b0c",
+      "bytes": 2350
+    },
+    {
+      "path": "hardware/cad/current/evidence/meshes.json",
+      "sha256": "fe74210908672406cf8cdd1f0a9c704f5d17c3671254bbfd81f4849df96e88ec",
+      "bytes": 2786
+    },
+    {
+      "path": "hardware/cad/current/evidence/straight-row-r28.json",
+      "sha256": "69de1a75147130376b6c78d1017685946dab2ab96b7a9447895a8a2191413fad",
+      "bytes": 8452
+    },
+    {
+      "path": "hardware/cad/current/frames/audio-tape-r26.json",
+      "sha256": "8cbc8a8f0fe3cd71ec75a20fb8c908f2b5b7a32ad4d78e83ed365acb5197959d",
+      "bytes": 1127
+    },
+    {
+      "path": "hardware/cad/current/frames/base-mounts-r24.json",
+      "sha256": "992b583751ff7a7759d6c6255b7bf782722e6499166f33f991629b68e542ee5b",
+      "bytes": 2501
+    },
+    {
+      "path": "hardware/cad/current/frames/base-slots-r27.json",
+      "sha256": "c5cea2830f8953f9bd883b9ea073e2cd04d750adb9af06ce2f71d2d5df4fd4fe",
+      "bytes": 1064
+    },
+    {
+      "path": "hardware/cad/current/frames/front-grille-bed-transforms-r23.json",
+      "sha256": "54a1b884c9aca61d3fd1595bb21a0598b29f0f69ed7a4bfb7b0ad1e3d8317b59",
+      "bytes": 1619
+    },
+    {
+      "path": "hardware/cad/current/frames/goggle-source-meshes.json",
+      "sha256": "fe74210908672406cf8cdd1f0a9c704f5d17c3671254bbfd81f4849df96e88ec",
+      "bytes": 2786
+    },
+    {
+      "path": "hardware/cad/current/frames/jetpack-root-r25.json",
+      "sha256": "152d33a3f584db6de6ac4a4e35e9d899f3b4b9a2fdef6efb77e8fce79c123b8a",
+      "bytes": 1318
+    },
+    {
+      "path": "hardware/cad/current/frames/mesh-and-bed-transforms.json",
+      "sha256": "87c809ff181dcd88e7d6f142adea82a72e40486ecb202530316b0150779766d1",
+      "bytes": 2126
+    },
+    {
+      "path": "hardware/cad/current/frames/straight-row-r28.json",
+      "sha256": "ab69f0750742d3545e82715ccaede21a77e4d1c3d48eeb8aacbc8af288a5885e",
+      "bytes": 1064
+    },
+    {
+      "path": "hardware/cad/current/joints.json",
+      "sha256": "c091d6695f1db283040a2470755fd35ed7174a2cb07fd192005a4af466c09d64",
+      "bytes": 2123
+    },
+    {
+      "path": "hardware/cad/current/native-meshes.json",
+      "sha256": "15a39003dbebf597108bb99b4cd67f064c0265f88926402fd88aed2b24d04c37",
+      "bytes": 35778627
+    },
+    {
+      "path": "hardware/cad/current/release-assembly.json",
+      "sha256": "c43880d38c47f58294e585cd0ccc8349f4445b5f03792530370ea5a6ff325c58",
+      "bytes": 480240
+    },
+    {
+      "path": "hardware/cad/current/stl/A04.stl",
+      "sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+      "bytes": 3919484
+    },
+    {
+      "path": "hardware/cad/current/stl/A05.stl",
+      "sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "bytes": 790184
+    },
+    {
+      "path": "hardware/cad/current/stl/AR01.stl",
+      "sha256": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
+      "bytes": 3230284
+    },
+    {
+      "path": "hardware/cad/current/stl/AR02.stl",
+      "sha256": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
+      "bytes": 2825784
+    },
+    {
+      "path": "hardware/cad/current/stl/AR03.stl",
+      "sha256": "2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
+      "bytes": 13162584
+    },
+    {
+      "path": "hardware/cad/current/stl/AR04.stl",
+      "sha256": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
+      "bytes": 3230784
+    },
+    {
+      "path": "hardware/cad/current/stl/AR05.stl",
+      "sha256": "208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
+      "bytes": 2828684
+    },
+    {
+      "path": "hardware/cad/current/stl/AR06.stl",
+      "sha256": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
+      "bytes": 13180184
+    },
+    {
+      "path": "hardware/cad/current/stl/AR07.stl",
+      "sha256": "0d5fee811569bdf85bad0bcf4ad7358deb119bd861bf5f27e7f52be623758f85",
+      "bytes": 14332384
+    },
+    {
+      "path": "hardware/cad/current/stl/AR08.stl",
+      "sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+      "bytes": 968984
+    },
+    {
+      "path": "hardware/cad/current/stl/AR09.stl",
+      "sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+      "bytes": 968984
+    },
+    {
+      "path": "hardware/cad/current/stl/B01.stl",
+      "sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+      "bytes": 67284
+    },
+    {
+      "path": "hardware/cad/current/stl/B02.stl",
+      "sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "bytes": 91084
+    },
+    {
+      "path": "hardware/cad/current/stl/B03.stl",
+      "sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+      "bytes": 119484
+    },
+    {
+      "path": "hardware/cad/current/stl/B04.stl",
+      "sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+      "bytes": 47284
+    },
+    {
+      "path": "hardware/cad/current/stl/B09.stl",
+      "sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "bytes": 45684
+    },
+    {
+      "path": "hardware/cad/current/stl/FB01.stl",
+      "sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+      "bytes": 6842684
+    },
+    {
+      "path": "hardware/cad/current/stl/FB02.stl",
+      "sha256": "c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
+      "bytes": 90684
+    },
+    {
+      "path": "hardware/cad/current/stl/FB03.stl",
+      "sha256": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
+      "bytes": 68284
+    },
+    {
+      "path": "hardware/cad/current/stl/FB19.stl",
+      "sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+      "bytes": 142484
+    },
+    {
+      "path": "hardware/cad/current/stl/FB20.stl",
+      "sha256": "63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
+      "bytes": 68084
+    },
+    {
+      "path": "hardware/cad/current/stl/FB21.stl",
+      "sha256": "6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
+      "bytes": 64284
+    },
+    {
+      "path": "hardware/cad/current/stl/FB24.stl",
+      "sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+      "bytes": 6296984
+    },
+    {
+      "path": "hardware/cad/current/stl/FB26.stl",
+      "sha256": "4d664997b219be51d6b20085bf8eaf0a7cc10365f44a537545fa6fa331e92120",
+      "bytes": 13884
+    },
+    {
+      "path": "hardware/cad/current/stl/FB32.stl",
+      "sha256": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+      "bytes": 25084
+    },
+    {
+      "path": "hardware/cad/current/stl/FB41.stl",
+      "sha256": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+      "bytes": 509884
+    },
+    {
+      "path": "hardware/cad/current/stl/GS01.stl",
+      "sha256": "5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
+      "bytes": 177884
+    },
+    {
+      "path": "hardware/cad/current/stl/GS02.stl",
+      "sha256": "b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
+      "bytes": 176784
+    },
+    {
+      "path": "hardware/cad/current/stl/GS03.stl",
+      "sha256": "e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
+      "bytes": 150684
+    },
+    {
+      "path": "hardware/cad/current/stl/GS11.stl",
+      "sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+      "bytes": 432384
+    },
+    {
+      "path": "hardware/cad/current/stl/GS12.stl",
+      "sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+      "bytes": 432384
+    },
+    {
+      "path": "hardware/cad/current/stl/GS20.stl",
+      "sha256": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
+      "bytes": 2346584
+    },
+    {
+      "path": "hardware/cad/current/stl/P01.stl",
+      "sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "bytes": 106484
+    },
+    {
+      "path": "hardware/cad/current/stl/P02.stl",
+      "sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "bytes": 85084
+    },
+    {
+      "path": "hardware/cad/current/stl/P03.stl",
+      "sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+      "bytes": 67084
+    },
+    {
+      "path": "hardware/cad/current/stl/P04.stl",
+      "sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+      "bytes": 35884
+    },
+    {
+      "path": "hardware/cad/current/stl/P06.stl",
+      "sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "bytes": 85284
+    },
+    {
+      "path": "hardware/cad/current/stl/P08.stl",
+      "sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+      "bytes": 261684
+    },
+    {
+      "path": "hardware/cad/current/stl/P09.stl",
+      "sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "bytes": 21884
+    },
+    {
+      "path": "hardware/cad/current/stl/P10.stl",
+      "sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "bytes": 20284
+    },
+    {
+      "path": "hardware/cad/current/stl/P11.stl",
+      "sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "bytes": 38884
+    },
+    {
+      "path": "hardware/cad/current/stl/P12.stl",
+      "sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+      "bytes": 30784
+    },
+    {
+      "path": "hardware/cad/current/stl/P13.stl",
+      "sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+      "bytes": 37284
+    },
+    {
+      "path": "hardware/cad/current/stl/P14.stl",
+      "sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+      "bytes": 115884
+    },
+    {
+      "path": "hardware/cad/current/stl/P30.stl",
+      "sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+      "bytes": 331684
+    },
+    {
+      "path": "hardware/cad/current/stl/P31.stl",
+      "sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+      "bytes": 223984
+    },
+    {
+      "path": "hardware/cad/current/stl/P34.stl",
+      "sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+      "bytes": 105684
+    },
+    {
+      "path": "hardware/cad/current/stl/P35.stl",
+      "sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+      "bytes": 8319684
+    },
+    {
+      "path": "hardware/cad/current/stl/P36.stl",
+      "sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+      "bytes": 256284
+    },
+    {
+      "path": "hardware/cad/current/stl/P37.stl",
+      "sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "bytes": 55384
+    },
+    {
+      "path": "hardware/cad/current/stl/P38.stl",
+      "sha256": "c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
+      "bytes": 597584
+    },
+    {
+      "path": "hardware/cad/current/stl/P39.stl",
+      "sha256": "003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
+      "bytes": 597584
+    },
+    {
+      "path": "hardware/cad/current/stl/P40.stl",
+      "sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+      "bytes": 22684
+    },
+    {
+      "path": "hardware/cad/current/stl/README.txt",
+      "sha256": "e5a9217fb0fac1c925d53698374d7f1e387edfe52ee68d1b66364a9e4b3e7bc3",
+      "bytes": 515
+    },
+    {
+      "path": "hardware/cad/current/stl/mesh-provenance.json",
+      "sha256": "1f927ee46b27f120f9581c860b737b07bfbf58cbe142ebceb755a10151682553",
+      "bytes": 10565
+    },
+    {
+      "path": "hardware/cad/current/stl/quantities.json",
+      "sha256": "413a590744c3e2fdc0860430f0f3564244c50a5f6d6e5b0852c59c107dcf36ef",
+      "bytes": 650
+    },
+    {
+      "path": "hardware/catalog/aliases.json",
+      "sha256": "6815224c3d8a0795a95af7c206a74fe7155c316dcb3a06bca9f1933daa50a7c1",
+      "bytes": 1445
+    },
+    {
+      "path": "hardware/catalog/parts.json",
+      "sha256": "375e5bfd75c3db8cfa30b2f86a6eb62e0e7f08c429e1d830db06977c08dfb747",
+      "bytes": 41944
+    },
+    {
+      "path": "hardware/catalog/supplies.json",
+      "sha256": "f2195786d47a23f096bdca70074ad24a2c1166f0412f705b2d5d1581aa5edbe1",
+      "bytes": 14605
+    },
+    {
+      "path": "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+      "sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
+      "bytes": 508417
+    },
+    {
+      "path": "hardware/printing/current/BlooglyBlob-R28-PLA-Production.3mf",
+      "sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+      "bytes": 22422002
+    },
+    {
+      "path": "hardware/printing/current/PUBLISHED.json",
+      "sha256": "ce8bc917b9a27427656aa52580795b81881d780cd16eebb7a8d6581745c4ec3d",
+      "bytes": 9082
+    },
+    {
+      "path": "hardware/printing/current/README.md",
+      "sha256": "525d9b938f5ee364461b2fa07b3478b6fcb1a4482184d82ba777f93dbf2da6ce",
+      "bytes": 7313
+    },
+    {
+      "path": "hardware/printing/current/checks/first-layers.png",
+      "sha256": "1e6d85db3d058700be56183ff8f03b6e7478bfd844d40c8edc5ca49b6f3a3ee9",
+      "bytes": 310693
+    },
+    {
+      "path": "hardware/printing/current/checks/front-mount-blockers.json",
+      "sha256": "d62e8ee4e18482226bef17c1b0bf344f52006619d8dec2062cf61dcea4a78147",
+      "bytes": 1087
+    },
+    {
+      "path": "hardware/printing/current/checks/mesh-replacement.json",
+      "sha256": "d92aa161d7a223e935ebce8b3f1cd14cf421defd86c014e9e412df9317617b3b",
+      "bytes": 1458
+    },
+    {
+      "path": "hardware/printing/current/checks/mount-support-sections.png",
+      "sha256": "63ddd9b390f350b58c27b930c43620a246328e702353c2d9196d4e0bb39717b9",
+      "bytes": 102024
+    },
+    {
+      "path": "hardware/printing/current/checks/project-comparison.json",
+      "sha256": "8629762153c3ef127cf9fdf88d27edbfafee4e280e889f31ca30379cc7d37d5f",
+      "bytes": 16244
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-desktop-normalization.json",
+      "sha256": "995ed4b9dac496864a055ece27cc7ba9b274c01a3b80e89e4d2f96bd70c84473",
+      "bytes": 31302
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-first-layers.png",
+      "sha256": "2cd44a05c36e887cd83b12c80af7ad6ecc3d2a287c7bf6d6bb548e68aba3da99",
+      "bytes": 469370
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-front-audit.json",
+      "sha256": "1015f32533f40dbe9fd62f1dbfffc0d31d375bc00a2267d4ead4b8c23ab5af3c",
+      "bytes": 1715
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-front-support-sections.png",
+      "sha256": "ac6314dfb96fcb5f165275a771e33bf136e9d4c637a10de57c49aa0264e579a2",
+      "bytes": 102087
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-project-comparison.json",
+      "sha256": "ea718e4d079dd97f756fc5ad67136071e77c6057eaa3b129bbd965779547e36f",
+      "bytes": 3647
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-rear-audit.json",
+      "sha256": "a1711879a1146b793e434be33e5caa7911bb5576a5c5fb70fe50d46e8a11a27d",
+      "bytes": 1717
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-rear-blockers.json",
+      "sha256": "5f59d5a021c4935ed0a99bc54c31ad468a216d10d78967f9c572899d0df966c0",
+      "bytes": 1845
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-rear-support-sections.png",
+      "sha256": "a7a8a6a84ebd32662bb8b08c39a3c422d6d33f37c0300738ee52f49cbd8640be",
+      "bytes": 113733
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-slice-audit.json",
+      "sha256": "638e5f521d4a7b653f8619cbc739f7a278ce501668da84fd9f11050350094b31",
+      "bytes": 14952
+    },
+    {
+      "path": "hardware/printing/current/checks/r24-validation.json",
+      "sha256": "df47cbc4000fa47282a89ea4c6316ba2d55c379e71274a4430c93dbf70de7f87",
+      "bytes": 2375
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-desktop-normalization.json",
+      "sha256": "cb788567fcd9530c580c41c334005b306bf2ccf257d89d2113e04d1a812e522b",
+      "bytes": 31321
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-first-layer.png",
+      "sha256": "d84d51c3cc3008bed5d684bfa894b5c92e2a51ed2b170a1c5b98149d99a39e01",
+      "bytes": 197266
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-replacement.json",
+      "sha256": "75955883518d1c44ba0e678d9ba203c076541d7de71645eadf42f8fa96747a2f",
+      "bytes": 1357
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-root-support.png",
+      "sha256": "8ae6d071bf272c866bb55ff51bbf2aef832a3d46f7fb0baf45230fa29bd2d4d0",
+      "bytes": 242562
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-roundtrip.json",
+      "sha256": "fb935f0e09591932e67a23d3bd6b19ddb397195952b0d6ddd334cfeb0710dd83",
+      "bytes": 2472
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-slice-audit.json",
+      "sha256": "33a831eb687164a3a0d8e670dc7967079312165239fe7e5bfbbdec91d62d8f25",
+      "bytes": 5999
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-support-comparison.json",
+      "sha256": "0ace64ba3120a3bd2cd601dadf9dfd8ffe00eb5eee2d7d866f2dbecf431339ce",
+      "bytes": 2618
+    },
+    {
+      "path": "hardware/printing/current/checks/r25-validation.json",
+      "sha256": "01d9818d8ffd21cb650efefa7774bfe82fa34d096ef9e5c4c659aa27edcf6d56",
+      "bytes": 1913
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-cradle-support.png",
+      "sha256": "22500f143126dc66eef7d8b37fe25f883a87db3db721cb096a65ace4298e8b72",
+      "bytes": 124029
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-desktop-normalization.json",
+      "sha256": "cb788567fcd9530c580c41c334005b306bf2ccf257d89d2113e04d1a812e522b",
+      "bytes": 31321
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-first-layer.png",
+      "sha256": "c2f1afda768c508077e81d1532dd336257f1042b38aca8ca66520b076badcbf9",
+      "bytes": 257785
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-preset-identity.json",
+      "sha256": "007824ba78fbf7f4384b92b5f5e8fe58a93acf7b602885d96e34449088426644",
+      "bytes": 2926
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-replacement.json",
+      "sha256": "c3b92d0afb4e67be800b6fcf1af7c19abf22f46d873194b7c33ec93957047066",
+      "bytes": 1225
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-roundtrip.json",
+      "sha256": "098f15a3b068b47c53930420bd3095ae6261bb1f6282a3ab5e52c914e858fa80",
+      "bytes": 2472
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-slice-audit.json",
+      "sha256": "ce8e2259ea9dfd265248362f7c4a6e4e0a0459bb50420ea5d1dfdfd02e3fcc66",
+      "bytes": 2513
+    },
+    {
+      "path": "hardware/printing/current/checks/r26-validation.json",
+      "sha256": "a1a05e0e395d9c781c7183525f04daaa1aa8c072f3df67d7bd2b47ff62856671",
+      "bytes": 1913
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-first-layer.png",
+      "sha256": "9f665718ef86f4e1de4054b182eb7e8cdcaae9ec9646c24de9eac8cc49c3cf97",
+      "bytes": 201267
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-mount-support.png",
+      "sha256": "3ced55f383d2564d494f4619b827c76006ac413d2ff9b4758e75f4cd0d2a6463",
+      "bytes": 48135
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-power-blockers.json",
+      "sha256": "3ef4c67fb75790afcf4bcc204d718be4808ade56a53d90af93a6077db6116d61",
+      "bytes": 513
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-preservation.json",
+      "sha256": "b12c787524f53d53b7ee8a40a54814ad11687be39f3d7c89e20f8b932ba3fd12",
+      "bytes": 1083
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-replacement.json",
+      "sha256": "4ef1ec29f7aafc696764b3976152500c7cab8dda52565c1a5823c4f3d35dd8ab",
+      "bytes": 1266
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-slice-audit.json",
+      "sha256": "ddb73fe9d9383d34fb6fe0e830dc04a6c4716c4c702c69d157ce0e4614845565",
+      "bytes": 4053
+    },
+    {
+      "path": "hardware/printing/current/checks/r27-validation.json",
+      "sha256": "d4851e2dbb161b23d4b9aaa0e31b3209f162b8fc03e97829bf24b54c9919fef9",
+      "bytes": 2112
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-first-layer.png",
+      "sha256": "5ea3fe301a103b6480bc53b2224f8e7ffb77fa237b89d2f1e6c15a8525e6d39f",
+      "bytes": 201506
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-mount-support.png",
+      "sha256": "113798acbfb6307a38d71cca75908ed15d694e0976ef5a1289049bf39d4d8adb",
+      "bytes": 85789
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-preservation.json",
+      "sha256": "b4c4b99826c219c76215ce8e55edbb302910b669f0f9b6ceb284477d840ac6ac",
+      "bytes": 7631
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-replacement.json",
+      "sha256": "3931234df132f848f9d492e85757387449a8cfe7cba571e9e329ecbdc5d2878d",
+      "bytes": 1266
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-slice-audit.json",
+      "sha256": "867a33ee37f33d0813cb728968221c73c6b81451b28e2400aa829bb7a2af41bb",
+      "bytes": 7412
+    },
+    {
+      "path": "hardware/printing/current/checks/r28-validation.json",
+      "sha256": "48f32c6215446f075b985debe9179bb3beb84f873c9b98ea7df4d1ca46842a0f",
+      "bytes": 2084
+    },
+    {
+      "path": "hardware/printing/current/checks/slice-audit.json",
+      "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
+      "bytes": 3776
+    },
+    {
+      "path": "hardware/printing/current/checks/validation.json",
+      "sha256": "dfeabf0f48a97bf6070cca606c994624fc20278e3c0fa7a48fb905c4bec939e7",
+      "bytes": 1776
+    },
+    {
+      "path": "hardware/printing/current/live-source-check.json",
+      "sha256": "c53a2059c99c0cd0dfd2041b9f677c57b8aa6565599b092ae8ecd671abe20d5f",
+      "bytes": 469
+    },
+    {
+      "path": "hardware/printing/current/manifest.json",
+      "sha256": "4108adbb26ddd99b03b77ac82eff6740e19e47488d7afc14ef18f9be857b5806",
+      "bytes": 624166
+    },
+    {
+      "path": "hardware/printing/current/object-settings.csv",
+      "sha256": "d549298179575b9d0fe4f958fb9df9f94b65695df17f5757c53facd204b0d107",
+      "bytes": 8034
+    },
+    {
+      "path": "hardware/printing/current/planned-settings.json",
+      "sha256": "467d9c3d39b4b4e9b71d2ded42d62ad7be3eebae9be93d96c884aabfdf209679",
+      "bytes": 85130
+    },
+    {
+      "path": "hardware/printing/current/source-provenance.json",
+      "sha256": "8234a17db4f48c64bb42c86ae16210e8e8389f78962e7b34c680bc6170f118ef",
+      "bytes": 438315
+    },
+    {
+      "path": "hardware/printing/recipes/project-privacy.json",
+      "sha256": "6d9523c4935fe3a37e3bc7e4312b20c81e48fe2c75b7b6d2b7f030b08378211b",
+      "bytes": 522
+    },
+    {
+      "path": "hardware/printing/recipes/projects.json",
+      "sha256": "b5fd4c4ccb9bfb91ea483d77a2dcaa2132ce07eef2bec6b89f614615cc8dd6ca",
+      "bytes": 27341
+    },
+    {
+      "path": "hardware/printing/recipes/semantic-contract.json",
+      "sha256": "c130390246c2a70e3219d0fb8f2baaadd4f979894c5fc4846b628c9f890ddb95",
+      "bytes": 171947
+    },
+    {
+      "path": "hardware/rendering/r22-colors.json",
+      "sha256": "260bef8897f30e5733d368bc1e9274bfc11189d2a75a5c0ae9844a10803eb40d",
+      "bytes": 77175
+    },
+    {
+      "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
+      "sha256": "37e41c2738ec50f8b4d024a6a771e6e476a6983560f961f057b0903c55ef4219",
+      "bytes": 810573
+    },
+    {
+      "path": "hardware/rendering/r23-service-stand-provenance.json",
+      "sha256": "026f9dfab36be91547bc8190aaa153124c3d2efc3d87a6a26ebb5bfd4be8644e",
+      "bytes": 8191
+    },
+    {
+      "path": "hardware/rendering/r28-visible-meshes.json.gz",
+      "sha256": "8f7c52afd64b3962cc9eef8f69ad90fe9bb51ec145518273083bf01dc25f470b",
+      "bytes": 19886894
+    },
+    {
+      "path": "hardware/rendering/scenes/views.json",
+      "sha256": "dd21504b5fd6a5a92b4c65d13b02436528068b6c3b34d7b50bc0f3cb4dc7baf5",
+      "bytes": 106106
+    },
+    {
+      "path": "hardware/rendering/source-lock.json",
+      "sha256": "b531b91ae5b3515559469dd4441861aac8fdf3094f8f9aa1485720482489116d",
+      "bytes": 3369
+    },
+    {
+      "path": "hardware/tools/cad/export_service_stand.py",
+      "sha256": "74648bd46cb936bbf8efd2cc631674d37c03339ea9cc6388efb3a4a221f6ad7e",
+      "bytes": 5338
+    }
+  ]
+}

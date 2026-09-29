@@ -1,0 +1,298 @@
+[
+ {
+  "id": "W1",
+  "name": "Plate 1 \u00b7 White",
+  "purpose": "production",
+  "parts": [
+   "P02",
+   "P03",
+   "P04",
+   "P06",
+   "P08",
+   "P14",
+   "FB24",
+   "FB32"
+  ],
+  "quantities": {
+   "P02": 1,
+   "P03": 1,
+   "P04": 1,
+   "P06": 1,
+   "P08": 1,
+   "P14": 1,
+   "FB24": 1,
+   "FB32": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 1
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "3 h 31 min",
+   "grams": 64.88
+  }
+ },
+ {
+  "id": "K1",
+  "name": "Plate 2 \u00b7 Black",
+  "purpose": "production",
+  "parts": [
+   "FB01",
+   "P30",
+   "P31"
+  ],
+  "quantities": {
+   "FB01": 1,
+   "P30": 1,
+   "P31": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 2
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "12 h 14 min",
+   "grams": 289.52
+  }
+ },
+ {
+  "id": "W2",
+  "name": "Plate 3 \u00b7 White",
+  "purpose": "production",
+  "parts": [
+   "P02",
+   "P06",
+   "P09",
+   "P10",
+   "P11",
+   "P12",
+   "P13",
+   "P34",
+   "P35"
+  ],
+  "quantities": {
+   "P02": 1,
+   "P06": 1,
+   "P09": 2,
+   "P10": 3,
+   "P11": 2,
+   "P12": 1,
+   "P13": 1,
+   "P34": 1,
+   "P35": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 3
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "4 h 11 min",
+   "grams": 65.89
+  }
+ },
+ {
+  "id": "C1",
+  "name": "Plate 4 \u00b7 Copper",
+  "purpose": "production",
+  "parts": [
+   "AR01",
+   "AR04",
+   "P01",
+   "GS11",
+   "GS12"
+  ],
+  "quantities": {
+   "AR01": 1,
+   "AR04": 1,
+   "P01": 2,
+   "GS11": 1,
+   "GS12": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 4
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "5 h 12 min",
+   "grams": 47.55
+  }
+ },
+ {
+  "id": "B1",
+  "name": "Plate 5 \u00b7 Blue",
+  "purpose": "production",
+  "parts": [
+   "AR02",
+   "AR05",
+   "AR03",
+   "AR06",
+   "AR08",
+   "AR09",
+   "A04"
+  ],
+  "quantities": {
+   "AR02": 1,
+   "AR05": 1,
+   "AR03": 1,
+   "AR06": 1,
+   "AR08": 1,
+   "AR09": 1,
+   "A04": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 5
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "2 h 33 min",
+   "grams": 23.88
+  }
+ },
+ {
+  "id": "B2",
+  "name": "Plate 6 \u00b7 Blue",
+  "purpose": "production",
+  "parts": [
+   "GS20"
+  ],
+  "quantities": {
+   "GS20": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 6
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "2 h 27 min",
+   "grams": 37.81
+  }
+ },
+ {
+  "id": "C2",
+  "name": "Plate 7 \u00b7 Copper",
+  "purpose": "production",
+  "parts": [
+   "FB03",
+   "FB19",
+   "FB20",
+   "FB21",
+   "FB41",
+   "P36",
+   "P38",
+   "P39",
+   "P40"
+  ],
+  "quantities": {
+   "FB03": 1,
+   "FB19": 2,
+   "FB20": 1,
+   "FB21": 1,
+   "FB41": 1,
+   "P36": 2,
+   "P38": 1,
+   "P39": 1,
+   "P40": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 7
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "3 h 48 min",
+   "grams": 49.08
+  }
+ },
+ {
+  "id": "G1",
+  "name": "Plate 8 \u00b7 Gray",
+  "purpose": "production",
+  "parts": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B09",
+   "GS01",
+   "GS02",
+   "GS03"
+  ],
+  "quantities": {
+   "B01": 1,
+   "B02": 4,
+   "B03": 1,
+   "B04": 1,
+   "B09": 8,
+   "GS01": 1,
+   "GS02": 1,
+   "GS03": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 8
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "51 min",
+   "grams": 8.06
+  }
+ },
+ {
+  "id": "K2",
+  "name": "Plate 9 \u00b7 Black",
+  "purpose": "production",
+  "parts": [
+   "FB02",
+   "P37"
+  ],
+  "quantities": {
+   "FB02": 1,
+   "P37": 2
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 9
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "3 h 58 min",
+   "grams": 98.51
+  }
+ },
+ {
+  "id": "T1",
+  "name": "Plate 10 \u00b7 Clear",
+  "purpose": "production",
+  "parts": [
+   "A05"
+  ],
+  "quantities": {
+   "A05": 1
+  },
+  "material": "PLA",
+  "file": "downloads/BlooglyBlob-PLA.3mf",
+  "settings": {
+   "Plate number": 10
+  },
+  "cleanup": [],
+  "estimate": {
+   "time": "19 min",
+   "grams": 1.36
+  }
+ }
+]

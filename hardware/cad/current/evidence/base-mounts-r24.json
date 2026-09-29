@@ -1,0 +1,64 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "0d1629719a14f76ad05db3c07b067b98be3f89992fd2dc0b96b0434c2040fc32",
+    "bytes": 15539784
+  },
+  "geometry": {
+    "native_sha256": "0d1629719a14f76ad05db3c07b067b98be3f89992fd2dc0b96b0434c2040fc32",
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 19,
+    "cloud_complete": true,
+    "saved_clean": true,
+    "exact_clean_integration_match": true,
+    "native_reimport_all_occurrences_exact": true,
+    "occurrences": 340,
+    "as_built_joints_preserved": 8,
+    "geometry_matches_reviewed_candidate": [
+      "FB01",
+      "FB24"
+    ],
+    "front_grille_and_unrelated_geometry_appearances_visibility_preserved": true,
+    "removed_parts": [
+      "FB25 x4 (formerly hidden)",
+      "FB26 x4"
+    ],
+    "physical_qualification": "pending"
+  },
+  "meshes": [
+    {
+      "part": "FB24",
+      "triangles": 16666,
+      "degenerate_triangles": 0,
+      "non_two_use_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "mesh_volume_mm3": 12848.560619780284,
+      "native_volume_mm3": 12852.148097532345,
+      "volume_error_fraction": 0.0002791344859112775,
+      "coordinate_comparison_mm": 1e-05,
+      "mesh_repair": false
+    },
+    {
+      "part": "FB01",
+      "triangles": 172828,
+      "degenerate_triangles": 0,
+      "non_two_use_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "mesh_volume_mm3": 313362.50965572905,
+      "native_volume_mm3": 313540.7669147139,
+      "volume_error_fraction": 0.0005685297664444701,
+      "coordinate_comparison_mm": 1e-05,
+      "mesh_repair": false
+    }
+  ],
+  "nut_paths": {
+    "result": "16 continuous nominal nut sweeps clear",
+    "board_M2_AF_mm": 4.3,
+    "board_depth_mm": 1.8,
+    "cover_M3_AF_mm": 5.8,
+    "cover_depth_mm": 2.6,
+    "rear_M3_AF_mm": 5.8,
+    "rear_depth_mm": 2.8,
+    "limits": "Nominal nut geometry only; glue pull-out, torque, printed fit and durability untested."
+  }
+}

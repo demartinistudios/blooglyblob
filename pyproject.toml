@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blooglyblob"
+version = "0.1.0"
+description = "An interactive conversational character device for Raspberry Pi"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Anthony"}
+]
+keywords = ["raspberry-pi", "conversational-ai", "llm", "speech", "interactive"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[tool.setuptools]
+license-files = ["LICENSE", "LICENSING.md", "LICENSES/CC0-1.0.txt"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["blooglyblob", "blooglyblob.*", "tool_configs", "sounds", "songs"]
+namespaces = false
+# Runtime dependencies are installed from requirements/runtime.txt and,
+# on the device, requirements/hardware.txt. Hardware-free development uses 3.12+;
+# the reference Raspberry Pi OS image uses ARM64 Python 3.13.
+
+[tool.setuptools.package-data]
+"blooglyblob.ai" = ["persona.json", "voice_profile.json"]
+tool_configs = ["*.json"]
+sounds = ["*.wav"]
+songs = ["*.wav", "*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+branch = true
+source = ["blooglyblob"]
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+# Informational: no numerical gate until a stable baseline is reviewed.
+fail_under = 0
+
+[tool.ruff]
+target-version = "py312"
+extend-exclude = ["venv", "venv-openai", "kokoro"]
+
+[tool.ruff.format]
+# Hardware-control formatting is maintained separately from software cleanup.
+exclude = ["blooglyblob/hardware/**"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+exclude = ["/venv/", "/venv-openai/", "/kokoro/"]
+
+[[tool.mypy.overrides]]
+module = ["blooglyblob.application", "blooglyblob.conversation", "blooglyblob.media"]
+check_untyped_defs = true

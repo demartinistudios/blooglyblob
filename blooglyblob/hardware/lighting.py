@@ -1,0 +1,174 @@
+"""Pure three-zone lighting, independent of servo state and physical drivers."""
+
+from colorsys import hsv_to_rgb
+from dataclasses import dataclass
+import math
+import threading
+import time
+
+from blooglyblob.audio.presentation import OutputPresentation, OutputSample
+
+RGB = tuple[int, int, int]
+BLACK = (0, 0, 0)
+EYE_COLOR = (255, 200, 150)
+SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
+MUSIC_COLORS = (
+    (4, 239, 168),
+    (0, 187, 255),
+    (57, 77, 255),
+    (137, 11, 255),
+    (217, 0, 218),
+    (255, 31, 124),
+    (255, 114, 8),
+    (255, 208, 28),
+)
+MODES = {
+    "sleeping",
+    "listening",
+    "waiting",
+    "speaking",
+    "dancing",
+    "alert",
+    "waking",
+    "goodbye",
+    "fault",
+    "stopped",
+}
+
+
+@dataclass(frozen=True)
+class LightingSnapshot:
+    mode: str
+    previous: str
+    changed: float
+    output: OutputSample
+    music: tuple[float, ...] = ()
+
+
+class LightingState:
+    """One locked snapshot for LEDs; contains no control or servo authority."""
+
+    def __init__(self, output=None):
+        self.output = output if output is not None else OutputPresentation()
+        self._lock = threading.Lock()
+        self._mode = self._previous = "sleeping"
+        self._changed = time.monotonic()
+        self._pending = set()
+        self._music = None
+        self._stopped = False
+
+    def set_mode(self, mode, *, now=None):
+        if mode not in MODES:
+            raise ValueError("Unknown lighting mode")
+        with self._lock:
+            if self._stopped or (self._mode == "fault" and mode != "stopped"):
+                return
+            if mode != self._mode:
+                self._previous, self._mode = self._mode, mode
+                self._changed = time.monotonic() if now is None else now
+            if mode in {"sleeping", "stopped"}:
+                self._pending.clear()
+            if mode == "stopped":
+                self._stopped = True
+
+    def pending(self, identity, active):
+        with self._lock:
+            if not self._stopped and identity is not None:
+                if active:
+                    self._pending.add(identity)
+                else:
+                    self._pending.discard(identity)
+
+    def music(self, analysis):
+        with self._lock:
+            self._music = analysis
+
+    def stop(self):
+        with self._lock:
+            self._stopped = True
+            self._mode = "stopped"
+            self._pending.clear()
+            self._music = None
+
+    def snapshot(self, now):
+        with self._lock:
+            mode = self._mode
+            if mode == "waking" and now - self._changed >= 0.6:
+                mode = "listening"
+            if mode == "listening" and self._pending:
+                mode = "waiting"
+            output = self.output.sample(now)
+            drives = ()
+            if mode == "dancing" and output.kind == "music" and self._music is not None:
+                drives = self._music.at(output.position)
+            return LightingSnapshot(mode, self._previous, self._changed, output, drives)
+
+
+def scale(rgb, amount):
+    return tuple(round(max(0.0, min(255.0, channel * amount))) for channel in rgb)
+
+
+def _body(mode, now):
+    if mode == "stopped":
+        return [BLACK] * 6
+    if mode == "fault":
+        return [(90, 24, 18)] * 6
+    if mode == "alert":
+        phase = now % 2.4
+        pulse = sum(
+            math.exp(-(((phase - center) / 0.15) ** 2)) for center in (0.3, 0.75)
+        )
+        return [scale((255, 132, 20), 0.12 + 0.5 * pulse)] * 6
+    if mode in {"sleeping", "dancing"}:
+        brightness = (
+            0.07 + 0.035 * (1 + math.sin(now * math.tau / 8))
+            if mode == "sleeping"
+            else 0.38
+        )
+        period = 90 if mode == "sleeping" else 36
+        return [
+            scale(
+                tuple(c * 255 for c in hsv_to_rgb((now / period + i / 8) % 1, 0.85, 1)),
+                brightness,
+            )
+            for i in range(6)
+        ]
+    color = (125, 75, 200) if mode in {"waiting", "goodbye"} else (25, 190, 165)
+    return [scale(color, 0.25 + 0.08 * math.sin(now * 0.8 + i * 0.6)) for i in range(6)]
+
+
+def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
+    mode = state.mode
+    if mode == "stopped":
+        return (BLACK,) * 16
+    body = _body(mode, now)
+    eyes = [BLACK] * 2 if mode == "sleeping" else [scale(EYE_COLOR, 0.45)] * 2
+    mouth = [BLACK] * 8
+    # Output energy alone cannot wake the robot, escape a fault or talk over music.
+    if mode not in {"sleeping", "fault", "dancing"} and state.output.kind == "speech":
+        level = state.output.level
+        if level >= 0.025:
+            for i in range(4):
+                amount = max(0.0, min(1.0, level * 4 - (3 - i)))
+                mouth[i] = mouth[7 - i] = scale(SPEECH_COLORS[i], amount * 0.75)
+            body = [scale(rgb, 0.5) for rgb in body]
+    elif mode == "dancing" and state.output.kind == "music":
+        mouth = (
+            [
+                scale(color, drive * 0.75)
+                for color, drive in zip(MUSIC_COLORS, state.music)
+            ]
+            if state.music
+            else mouth
+        )
+    if mode not in {"fault", "stopped"}:
+        elapsed = max(0.0, now - state.changed)
+        blend = min(1.0, elapsed / 0.6)
+        previous = _body(state.previous, now)
+        body = [
+            tuple(round(a + (b - a) * blend) for a, b in zip(old, new))
+            for old, new in zip(previous, body)
+        ]
+        if mode == "waking":
+            eyes = [scale(rgb, blend) for rgb in eyes]
+    return tuple(body + eyes + mouth)

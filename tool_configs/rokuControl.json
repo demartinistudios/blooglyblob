@@ -1,0 +1,19 @@
+{
+    "name": "rokuControl",
+    "description": "Control the TV with basic remote functions. Use for 'turn on/off the TV', 'volume up/down', 'pause', 'open Netflix', etc.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "action": {
+                "type": "string",
+                "enum": ["power", "volume_up", "volume_down", "mute", "play_pause", "home", "back", "up", "down", "left", "right", "select", "launch_app"],
+                "description": "Remote control action to perform"
+            },
+            "app": {
+                "type": "string",
+                "description": "App name to launch (netflix, disney+, hulu, youtube, etc.). Only used with action='launch_app'."
+            }
+        },
+        "required": ["action"]
+    }
+}

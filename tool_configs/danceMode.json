@@ -1,0 +1,8 @@
+{
+    "name": "danceMode",
+    "description": "Start a dance party! Plays music and dances with synchronized movements. Use when the user asks to dance, wants to party, or suggests having fun with music. The conversation will end during the dance, then automatically resume after. IMPORTANT: Never say internal function names - just say something exciting like 'Let's dance!' or 'Time to party!'",
+    "input_schema": {
+        "type": "object",
+        "properties": {}
+    }
+}

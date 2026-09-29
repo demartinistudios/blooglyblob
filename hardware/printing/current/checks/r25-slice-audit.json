@@ -1,0 +1,250 @@
+{
+  "scope": "Sampled support centerlines at0.1mm maximum spacing, including arcs; bed bounds include complete model/support extrusion centerlines. Does not prove bead-envelope clearance or physical cleanup/strength.",
+  "plates": [
+    {
+      "plate": "W2",
+      "project_sha256": "f9a76a362f31771c962ff061f6cffa7062ff89b588740f07852a8fc46bb80816",
+      "slice_sha256": "45b41232e119a18ab7e9c95e4cf6ebf68d9c52d6477eab7ce0c433fc5b6a9ba2",
+      "metadata": {
+        "index": "3",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "15107",
+        "weight": "65.89",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15259",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15270",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15281",
+          "name": "P09-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15292",
+          "name": "P09-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15303",
+          "name": "P10-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15314",
+          "name": "P10-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15325",
+          "name": "P10-3 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15336",
+          "name": "P11-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15347",
+          "name": "P11-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15358",
+          "name": "P12-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15369",
+          "name": "P13-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15380",
+          "name": "P34-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15403",
+          "name": "P35-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          12.886,
+          26.886
+        ],
+        [
+          237.218,
+          242.927
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 811416,
+      "protected_access_support_audit": [
+        {
+          "region": "pin bore",
+          "side": -1,
+          "radius_mm": 1.6,
+          "z_range_mm": [
+            51.95,
+            60.05
+          ],
+          "support_samples": 1163
+        },
+        {
+          "region": "lower screw access",
+          "side": -1,
+          "radius_mm": 1.9,
+          "y_range_mm": [
+            20,
+            36
+          ],
+          "support_samples": 2730,
+          "bounds": [
+            [
+              -28.59201518908762,
+              26.068325245749,
+              48.2
+            ],
+            [
+              -28.525310488385315,
+              26.14124094598253,
+              48.2
+            ],
+            [
+              -28.458423522279247,
+              26.213989486871355,
+              48.2
+            ],
+            [
+              -28.391354709662664,
+              26.286570412812893,
+              48.2
+            ],
+            [
+              -28.324104470567733,
+              26.358983269254267,
+              48.2
+            ],
+            [
+              -28.256673226162746,
+              26.431227602695216,
+              48.2
+            ],
+            [
+              -28.189061398749715,
+              26.50330296069083,
+              48.2
+            ],
+            [
+              -28.121269411761432,
+              26.575208891854487,
+              48.2
+            ]
+          ]
+        },
+        {
+          "region": "hinge gap core",
+          "side": -1,
+          "support_samples": 2247
+        },
+        {
+          "region": "pin bore",
+          "side": 1,
+          "radius_mm": 1.6,
+          "z_range_mm": [
+            51.95,
+            60.05
+          ],
+          "support_samples": 1171
+        },
+        {
+          "region": "lower screw access",
+          "side": 1,
+          "radius_mm": 1.9,
+          "y_range_mm": [
+            20,
+            36
+          ],
+          "support_samples": 2752,
+          "bounds": [
+            [
+              28.566958538461535,
+              28.457,
+              48.2
+            ],
+            [
+              28.469920076923074,
+              28.457,
+              48.2
+            ],
+            [
+              28.372881615384614,
+              28.457,
+              48.2
+            ],
+            [
+              28.275843153846154,
+              28.457,
+              48.2
+            ],
+            [
+              28.178804692307693,
+              28.457,
+              48.2
+            ],
+            [
+              28.081766230769233,
+              28.457,
+              48.2
+            ],
+            [
+              27.984727769230773,
+              28.457,
+              48.2
+            ],
+            [
+              27.887689307692312,
+              28.457,
+              48.2
+            ]
+          ]
+        },
+        {
+          "region": "hinge gap core",
+          "side": 1,
+          "support_samples": 2266
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "source_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+  "baseline_sha256": "ad4a8e6f8ee501cef4fe587701e624fb2122f6ced2f97eca0c102b4cfee7a197",
+  "candidate_sha256": "f9a76a362f31771c962ff061f6cffa7062ff89b588740f07852a8fc46bb80816",
+  "object_id": "64",
+  "recipe_instance_id": "kit-P35-01",
+  "stl_to_mesh": [
+    0,
+    1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    38.909687,
+    0,
+    -66.75
+  ],
+  "assembly_to_W2_bed": "(685.9 - Y - 614.4, X + 194.900003, Z - 30)",
+  "frame_review": {
+    "method": "Proper cardinal Z+90 rotation; flat rear Y54 maps to raw X-15.090313, assembly bottom Z30 maps to bed Z0; left/right pin centers map onto retained blockers. Old-source/old-recipe bidirectional vertices and face centroids checked, different tessellation retained as historical limit.",
+    "samples": [
+      {
+        "samples": 30496,
+        "max_distance_mm": 0.021564868820025958
+      },
+      {
+        "samples": 54088,
+        "max_distance_mm": 0.021794436149255022
+      }
+    ],
+    "limits": "Sampled frame corroboration, not continuous surface equivalence approval."
+  },
+  "triangles": 166392,
+  "unchanged_instances": 70,
+  "settings": "All global, plate, object, component settings/transforms and both pin blockers retained exactly; only P35 normal mesh replaced.",
+  "result": "PASS"
+}

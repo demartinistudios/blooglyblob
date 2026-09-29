@@ -1,0 +1,15 @@
+{
+    "name": "playAnimation",
+    "description": "Trigger a physical body animation. The animation names are internal identifiers - NEVER say them aloud in your speech. Just speak naturally while the animation plays silently. Available: wave_hello (greetings/goodbyes), celebrate (excitement), think (pondering), shrug (uncertainty), six_seven (weighing gesture for 'so-so'). Use naturally when emotions fit.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "animation": {
+                "type": "string",
+                "description": "One of: wave_hello, celebrate, think, shrug, six_seven",
+                "enum": ["wave_hello", "celebrate", "think", "shrug", "six_seven"]
+            }
+        },
+        "required": ["animation"]
+    }
+}

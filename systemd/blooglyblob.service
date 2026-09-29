@@ -1,0 +1,27 @@
+[Unit]
+Description=Blooglyblob application
+Wants=network-online.target
+Requires=pigpiod.service
+After=network-online.target sound.target pigpiod.service
+
+[Service]
+Type=notify
+NotifyAccess=main
+# The current GPIO/LED drivers require the existing root privileges.
+User=root
+Group=root
+WorkingDirectory=/opt/blooglyblob/app
+Environment=PYTHONUNBUFFERED=1
+Environment=BLOOGLYBLOB_ENV_FILE=/etc/blooglyblob/app.env
+ExecStart=/opt/blooglyblob/venv/bin/python -m blooglyblob
+Restart=on-failure
+RestartPreventExitStatus=73
+RestartSec=5
+TimeoutStartSec=30
+TimeoutStopSec=20
+KillSignal=SIGINT
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

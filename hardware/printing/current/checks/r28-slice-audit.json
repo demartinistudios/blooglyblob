@@ -1,0 +1,305 @@
+{
+  "scope": "Full-height extrusion centerline bed bounds; eight moved board-post hex recesses, bores, four pad faces and retained nine R27 nut slots and straight approach support sampling. 0.1mm maximum sampling including arcs, X1C Y+2 applied. Not full bead-envelope or physical fit proof.",
+  "plates": [
+    {
+      "plate": "K1",
+      "project_sha256": "be3a6d1ce6aefbffabc9f115f694a117bf2d2e2badc2e6091e614f49039859d2",
+      "slice_sha256": "3e5bdda44095f990b7beab4db46c06321d9ec93a1453230d126d23046241ea68",
+      "metadata": {
+        "index": "2",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "44064",
+        "weight": "289.52",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15226",
+          "name": "FB01-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15237",
+          "name": "P30-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15248",
+          "name": "P31-1 | Black",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          18.538,
+          13.639
+        ],
+        [
+          237.462,
+          254.4085526398201
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 1681584,
+      "moved_post_support_audit": [
+        {
+          "family": "Pi",
+          "center": [
+            -74.5,
+            2.5
+          ],
+          "mouth_z": -17,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "Pi",
+          "center": [
+            -74.5,
+            60.5
+          ],
+          "mouth_z": -17,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "Pi",
+          "center": [
+            -25.5,
+            2.5
+          ],
+          "mouth_z": -17,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "Pi",
+          "center": [
+            -25.5,
+            60.5
+          ],
+          "mouth_z": -17,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "shifter",
+          "center": [
+            -18,
+            -22.08
+          ],
+          "mouth_z": -15,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "shifter",
+          "center": [
+            -18,
+            -11.92
+          ],
+          "mouth_z": -15,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "shifter",
+          "center": [
+            -18,
+            -44.08
+          ],
+          "mouth_z": -15,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        },
+        {
+          "family": "shifter",
+          "center": [
+            -18,
+            -33.92
+          ],
+          "mouth_z": -15,
+          "nut_AF_mm": 4.3,
+          "nut_depth_mm": 1.8,
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bore_support_samples": 0
+        }
+      ],
+      "moved_pad_support_audit": [
+        {
+          "center": [
+            48,
+            52
+          ],
+          "pad_face_z": -12,
+          "face_adjacent_support_samples": 0
+        },
+        {
+          "center": [
+            48,
+            22
+          ],
+          "pad_face_z": -12,
+          "face_adjacent_support_samples": 0
+        },
+        {
+          "center": [
+            48,
+            -8
+          ],
+          "pad_face_z": -12,
+          "face_adjacent_support_samples": 0
+        },
+        {
+          "center": [
+            48,
+            -38
+          ],
+          "pad_face_z": -12,
+          "face_adjacent_support_samples": 0
+        }
+      ],
+      "retained_R27_mount_support_audit": [
+        {
+          "family": "rear",
+          "center": [
+            -26,
+            83.5,
+            -12.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            -26,
+            83.5,
+            -49.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            58,
+            83.5,
+            -12.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "rear",
+          "center": [
+            58,
+            83.5,
+            -49.5
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "power",
+          "center": [
+            80,
+            84,
+            -27
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "power",
+          "center": [
+            80,
+            84,
+            -53
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            -62,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            0,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        },
+        {
+          "family": "audio",
+          "center": [
+            62,
+            -78.2,
+            -7
+          ],
+          "slot_support_samples": 0,
+          "approach_support_samples": 0,
+          "bounds": null
+        }
+      ]
+    }
+  ]
+}
