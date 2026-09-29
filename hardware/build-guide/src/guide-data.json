@@ -223,7 +223,7 @@
     },
     {
       "id": "board-cover-nuts",
-      "title": "Fit the board and cover nuts",
+      "title": "Glue the board and cover nuts",
       "chapter": "Base hardware",
       "kind": "build",
       "number": 4,
@@ -258,58 +258,43 @@
       ],
       "actions": [
         "Place the empty base (FB01) upside down, with its open bottom facing up.",
-        "Fit and glue one group of nuts at a time. Start with the board nuts.",
-        "Push each nut into its pocket without glue. Match its flats to the pocket and its hole to the screw bore. Do not force it.",
-        "With a toothpick, put a tiny dab of mixed epoxy (C09) between the nut’s exposed outside edge and the pocket. You can use CA gel (C18) instead. It sets faster.",
-        "Keep glue out of threads, screw bores, sliding channels and flat mounting faces.",
-        "Keep the glued face up until the glue holds, before you turn the base.",
-        "Seat eight M2 nuts in the board pockets: four for the Pi and two for each level shifter.",
-        "Seat four M3 nuts in the bottom cover recesses, one at each corner.",
-        "Leave the bottom cover off."
+        "Seat an M2 nut in the tip of each of the eight board posts. Four are for the Pi and two for each level shifter. Match its flats to the pocket. Do not force it.",
+        "With a toothpick, put a tiny dab of mixed epoxy (C09) where each nut’s edge meets its pocket. Or use faster-setting CA gel (C18). Keep glue out of threads and off the post tips.",
+        "Seat an M3 nut in the bottom cover recess at each of the four corners. Match its flats to the recess.",
+        "Glue each nut at its outside edge, as for the board nuts. Keep glue off the faces where the cover seats.",
+        "Leave the base upside down until the glue holds. Leave the bottom cover off."
       ],
-      "check": "The eight board nuts and four cover nuts sit flat in their pockets. No glue is in their threads.",
+      "check": "The eight board nuts and four cover nuts sit flat in their pockets. No glue is in their threads or on the seating faces.",
       "panels": [
         {
-          "title": "Seat each nut without glue",
+          "title": "Glue the eight board nuts",
           "image": "assets/community/base-board-nut-entry.png",
           "caption": "",
           "actions": [
             0,
             1,
             2
-          ]
+          ],
+          "detail": {
+            "title": "Where the eight board nuts go",
+            "image": "assets/community/base-board-nut-locations.png"
+          }
         },
         {
-          "title": "Glue each nut at its edge",
-          "textOnly": true,
+          "title": "Glue the four cover nuts",
+          "image": "assets/community/base-cover-nut-entry.png",
+          "caption": "",
           "actions": [
             3,
             4,
             5
           ]
-        },
-        {
-          "title": "Fit the eight board nuts",
-          "image": "assets/community/base-board-nut-locations.png",
-          "caption": "",
-          "actions": [
-            6
-          ]
-        },
-        {
-          "title": "Fit the four cover nuts",
-          "image": "assets/community/base-cover-nut-entry.png",
-          "caption": "",
-          "actions": [
-            7,
-            8
-          ]
         }
       ]
     },
     {
-      "id": "grille-vent-nuts",
-      "title": "Fit the grille and vent nuts",
+      "id": "cradle-jack-nuts",
+      "title": "Glue the cradle, rear vent and power jack nuts",
       "chapter": "Base hardware",
       "kind": "build",
       "number": 5,
@@ -318,82 +303,7 @@
         "C09": "Small amount"
       },
       "hardware": {
-        "N3": 16
-      },
-      "hardware_allocations": [
-        {
-          "allocation_id": "joint-fb-panels",
-          "role": "preload",
-          "hardware": {
-            "N3": 8
-          }
-        },
-        {
-          "allocation_id": "joint-fb-side-panels",
-          "role": "preload",
-          "hardware": {
-            "N3": 8
-          }
-        }
-      ],
-      "commands": [],
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md"
-      ],
-      "actions": [
-        "Fit and glue these nuts as in {step:board-cover-nuts}.",
-        "From inside the base, slide four M3 nuts upward into the front grille slots.",
-        "Turn the base so the rear vent nut slots face up.",
-        "From inside, place four M3 nuts in the open slots. Line up each threaded hole with its screw bore.",
-        "On each side, slide four M3 nuts upward into the mounting channels. These eight nuts hold the side grilles’ outer holes."
-      ],
-      "check": "The front, rear and side nuts sit flat in their slots. No glue is in their threads.",
-      "panels": [
-        {
-          "title": "Fit the four front grille nuts",
-          "image": "assets/community/front-grille-nut-loading.svg",
-          "caption": "",
-          "safety": {
-            "level": "notice",
-            "text": "The plastic behind the front nuts is thin. Too much force can crack it. Support the plastic behind the nuts while you work."
-          },
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Fit the four rear vent nuts",
-          "image": "assets/community/base-rear-nut-entry.png",
-          "caption": "",
-          "actions": [
-            2,
-            3
-          ]
-        },
-        {
-          "title": "Fit the eight side grille nuts",
-          "image": "assets/community/side-grille-nut-loading.svg",
-          "caption": "",
-          "actions": [
-            4
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cradle-jack-nuts",
-      "title": "Fit the cradle and power jack nuts",
-      "chapter": "Base hardware",
-      "kind": "build",
-      "number": 6,
-      "parts": {
-        "FB01": 1,
-        "C09": "Small amount"
-      },
-      "hardware": {
-        "N3": 5
+        "N3": 9
       },
       "hardware_allocations": [
         {
@@ -401,6 +311,13 @@
           "role": "preload",
           "hardware": {
             "N3": 3
+          }
+        },
+        {
+          "allocation_id": "joint-fb-panels",
+          "role": "preload",
+          "hardware": {
+            "N3": 4
           }
         },
         {
@@ -417,19 +334,22 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "actions": [
-        "Fit and glue these nuts as in {step:board-cover-nuts}.",
-        "With the base’s open bottom facing up, place three M3 nuts in the open recesses behind the front opening.",
-        "Let the glue cure before you mount the audio cradle. The glue holds these nuts while the screws go in.",
-        "Turn the base so the power jack nut slots face up.",
-        "From inside, fit two M3 nuts. Line up their threaded holes with the screw bores of the power jack plate.",
+        "With the base (FB01) still upside down, find the three open recesses behind the front opening.",
+        "Drop an M3 nut into each recess. Match its flats to the recess.",
+        "Glue each nut at its outside edge with epoxy (C09), as in {step:board-cover-nuts}. The glue holds these nuts while the cradle screws go in.",
+        "Wait until the glue on all the upside-down nuts holds.",
+        "Rest the base on its rear wall, so the rear nut pockets face up.",
+        "From inside, place an M3 nut in each of the four pockets around the rear opening. Line up each threaded hole with its screw bore. Glue each nut at its outside edge.",
+        "At the robot-left end of the rear wall, fit two M3 nuts in the power jack pockets. Line up their threaded holes with the screw bores. Glue each nut at its outside edge.",
+        "Leave the base on its rear wall until the glue holds.",
         "Let the glue cure fully, for the time on its label.",
-        "Check gently that every nut in the base stays seated. Start a matching screw in each thread by hand. Do not drive it against the plastic.",
+        "Check gently that every glued nut stays seated. Start a matching screw in each thread by hand. Do not drive it against the plastic.",
         "Remove the test screws. Leave the base empty."
       ],
-      "check": "All 33 base nuts (8 M2 and 25 M3) stay seated. Every screw starts freely by hand. The board and cover seating faces are clear.",
+      "check": "All 21 glued nuts (8 M2 and 13 M3) stay seated. Every screw starts freely by hand. The board and cover seating faces are clear.",
       "panels": [
         {
-          "title": "Fit the three audio cradle nuts",
+          "title": "Glue the three audio cradle nuts",
           "image": "assets/community/audio-cradle-nut-loading.svg",
           "caption": "",
           "actions": [
@@ -439,21 +359,31 @@
           ]
         },
         {
-          "title": "Fit the two power jack nuts",
-          "image": "assets/community/inlet-plate-nuts.svg",
+          "title": "Glue the four rear vent nuts",
+          "image": "assets/community/base-rear-nut-entry.png",
           "caption": "",
           "actions": [
             3,
-            4
+            4,
+            5
           ]
         },
         {
-          "title": "Check every nut",
-          "textOnly": true,
+          "title": "Glue the two power jack nuts",
+          "image": "assets/community/inlet-plate-nuts.svg",
+          "caption": "",
           "actions": [
-            5,
             6,
             7
+          ]
+        },
+        {
+          "title": "Let the glue cure and test each nut",
+          "textOnly": true,
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -463,13 +393,15 @@
       "title": "Fit the front grille and rear vent",
       "chapter": "Base hardware",
       "actions": [
-        "Place the empty base (FB01) upside down, with its open bottom facing up.",
+        "Place the base (FB01) upside down, with its open bottom facing up.",
         "Find the front opening. The front microphone grille (FB41) fits here.",
         "Find the rear opening. The rear vent (FB03) fits here.",
-        "At the front opening, hold the grille against the outside of the base. Put four M3×6 screws through the grille into the fitted nuts. Use no washers.",
-        "Start all four screws by hand. Tighten them evenly.",
+        "Find the four nut channels on the inside of the front wall, around the opening. Place an M3 nut flat against the wall in each channel.",
+        "Slide each nut toward the top of the base until it stops. Do not force it. Do not glue these nuts.",
+        "At the front opening, hold the grille against the outside of the base. Put four M3×6 screws through the grille toward the nuts. Use no washers.",
+        "Press each nut against the wall with a fingertip from inside. Start its screw by hand until it catches. Tighten all four screws evenly.",
         "If a screw does not start by hand, remove it. Check that its nut is seated.",
-        "At the rear opening, hold the rear vent against the outside of the base. Put four M3×12 screws through the vent into the fitted nuts. Use no washers.",
+        "At the rear opening, hold the rear vent against the outside of the base. Put four M3×12 screws through the vent into the glued nuts. Use no washers.",
         "Start all four screws by hand. Tighten them evenly.",
         "Leave the bottom of the base open."
       ],
@@ -482,15 +414,16 @@
       },
       "hardware": {
         "M3x6": 4,
-        "M3x12": 4
+        "M3x12": 4,
+        "N3": 4
       },
-      "note": "You fitted these nuts in {step:grille-vent-nuts}.",
+      "note": "You glued the rear vent nuts in {step:cradle-jack-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 7,
+      "number": 6,
       "commands": [],
       "hardware_allocations": [
         {
@@ -498,7 +431,8 @@
           "role": "install",
           "hardware": {
             "M3x6": 4,
-            "M3x12": 4
+            "M3x12": 4,
+            "N3": 4
           }
         }
       ],
@@ -514,6 +448,15 @@
           ]
         },
         {
+          "title": "Load the four front grille nuts",
+          "image": "assets/community/front-grille-nut-loading.svg",
+          "caption": "Drawn upright: the arrow points toward the top of the base.",
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
           "title": "Fit the front microphone grille",
           "image": "assets/community/front-grille-installation.svg",
           "caption": "Front wall cut away. Arrows show each screw’s path.",
@@ -522,9 +465,9 @@
             "text": "The plastic behind the front nuts is thin. Too much force can crack it. Support the plastic behind the nuts while you work."
           },
           "actions": [
-            3,
-            4,
-            5
+            5,
+            6,
+            7
           ],
           "detail": {
             "title": "Front fastening detail",
@@ -536,9 +479,9 @@
           "image": "assets/community/rear-vent-installation.svg",
           "caption": "Rear wall cut away.",
           "actions": [
-            6,
-            7,
-            8
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -571,7 +514,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 8,
+      "number": 7,
       "commands": [],
       "hardware_allocations": [
         {
@@ -611,9 +554,12 @@
       "title": "Mount the side speaker grilles",
       "chapter": "Base hardware",
       "actions": [
-        "Pass one speaker cable through a side opening of the base. Keep the cable clear of the mounting edge.",
-        "Hold the side speaker grille (FB19) flat against the outside of the base.",
-        "Put four M3×12 screws through its outer holes into the fitted nuts. Use no washers. Repeat on the other side.",
+        "Keep the base upside down, with its open bottom facing up.",
+        "On one side, place an M3 nut flat against the side wall in each of the four channels. These nuts take the grille’s outer holes.",
+        "Slide each nut toward the top of the base until it stops. Do not force it. Do not glue these nuts.",
+        "Pass the speaker cable through the side opening. Keep the cable clear of the mounting edge.",
+        "Hold the side speaker grille (FB19) flat against the outside of the base. Put four M3×12 screws through its outer holes. Use no washers.",
+        "Press each nut against the wall with a fingertip from inside. Start its screw by hand until it catches. Tighten the four screws evenly. Repeat panels 1 and 2 on the other side.",
         "Label each speaker cable with its side: robot-left or robot-right.",
         "Leave enough cable slack to pull a grille away for service.",
         "Leave the plugs disconnected until {step:audio-module}."
@@ -624,30 +570,32 @@
         "T05": 1
       },
       "hardware": {
-        "M3x12": 8
+        "M3x12": 8,
+        "N3": 8
       },
-      "note": "You fitted these nuts in {step:grille-vent-nuts}.",
+      "note": "You attached the speakers to these grilles in {step:speaker-grilles}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 9,
+      "number": 8,
       "commands": [],
       "hardware_allocations": [
         {
           "allocation_id": "joint-fb-side-panels",
           "role": "install",
           "hardware": {
-            "M3x12": 8
+            "M3x12": 8,
+            "N3": 8
           }
         }
       ],
       "panels": [
         {
-          "title": "Fasten each grille to the base",
-          "image": "assets/community/side-grille-fastening.svg",
-          "caption": "Base cut away.",
+          "title": "Load the four side grille nuts",
+          "image": "assets/community/side-grille-nut-loading.svg",
+          "caption": "Drawn upright: the arrow points toward the top of the base.",
           "actions": [
             0,
             1,
@@ -655,12 +603,22 @@
           ]
         },
         {
-          "title": "Label the speaker cables",
-          "textOnly": true,
+          "title": "Fasten the grille to the base",
+          "image": "assets/community/side-grille-fastening.svg",
+          "caption": "Base cut away.",
           "actions": [
             3,
             4,
             5
+          ]
+        },
+        {
+          "title": "Label the speaker cables",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -670,9 +628,10 @@
       "title": "Fit the feet",
       "chapter": "Base hardware",
       "actions": [
+        "Keep the base (FB01) upside down, with its open bottom facing up.",
         "Choose four matching adhesive feet (E25) that fit on the base’s Ø14 mm post faces.",
         "Clean and dry the four post faces.",
-        "Peel the backing from one foot. Center it on a post face. Press it on firmly.",
+        "Peel the backing from one foot. Center it on a post face. Press it on firmly. Repeat for the other three feet.",
         "Let the adhesive bond for the time on its label before you load the feet.",
         "Stand the base upright. Check that it does not rock. The bottom cover must clear the feet."
       ],
@@ -689,7 +648,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 10,
+      "number": 9,
       "commands": [],
       "panels": [
         {
@@ -698,7 +657,8 @@
           "caption": "",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
@@ -706,9 +666,9 @@
           "image": "assets/community/foot-application.svg",
           "caption": "",
           "actions": [
-            2,
             3,
-            4
+            4,
+            5
           ]
         }
       ]
@@ -787,7 +747,7 @@
           ]
         }
       ],
-      "number": 11
+      "number": 10
     },
     {
       "id": "imager-choose",
@@ -833,7 +793,7 @@
           "textOnly": true
         }
       ],
-      "number": 12
+      "number": 11
     },
     {
       "id": "imager-settings",
@@ -887,7 +847,7 @@
           "caption": "Example network shown before password entry; use your own Wi-Fi details."
         }
       ],
-      "number": 13
+      "number": 12
     },
     {
       "id": "imager-write",
@@ -930,7 +890,7 @@
           }
         }
       ],
-      "number": 14
+      "number": 13
     },
     {
       "id": "pi-connect",
@@ -1005,7 +965,7 @@
           ]
         }
       ],
-      "number": 15
+      "number": 14
     },
     {
       "id": "repository-settings",
@@ -1105,7 +1065,7 @@
           ]
         }
       ],
-      "number": 16
+      "number": 15
     },
     {
       "id": "audio-settings",
@@ -1227,7 +1187,7 @@
           ]
         }
       ],
-      "number": 17
+      "number": 16
     },
     {
       "id": "software-install",
@@ -1328,7 +1288,7 @@
           ]
         }
       ],
-      "number": 18
+      "number": 17
     },
     {
       "id": "service-check",
@@ -1462,7 +1422,7 @@
           ]
         }
       ],
-      "number": 19
+      "number": 18
     },
     {
       "id": "pi-shifters",
@@ -1495,13 +1455,13 @@
         "M2x12": 4,
         "M2x10": 4
       },
-      "note": "You fitted the eight board nuts in {step:board-cover-nuts}.",
+      "note": "You glued the eight board nuts in {step:board-cover-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 20,
+      "number": 19,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1586,7 +1546,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 21,
+      "number": 20,
       "commands": [],
       "hardware_allocations": [],
       "panels": [
@@ -1652,13 +1612,13 @@
         "M3x6": 3,
         "N2": 2
       },
-      "note": "You fitted the cradle nuts in {step:cradle-jack-nuts}. The lid screws go into the lid nuts in {step:audio-module}.",
+      "note": "You glued the cradle nuts in {step:cradle-jack-nuts}. The lid screws go into the lid nuts in {step:audio-module}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 22,
+      "number": 21,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1737,7 +1697,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 23,
+      "number": 22,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1835,7 +1795,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 24,
+      "number": 23,
       "commands": [],
       "panels": [
         {
@@ -1874,16 +1834,16 @@
       "title": "Fit the front button",
       "chapter": "Base boards and controls",
       "actions": [
-        "Beneath the button opening, load two M3 nuts into the base.",
-        "Push the inner nut upward into its pocket.",
-        "Beside the foot post, slide the other nut sideways in from the button opening. Line up its flats with the pocket.",
         "On the bench, put the button (E17) through the button insert (FB20) from the outside.",
         "Tighten the button’s supplied retaining nut against the back of the insert.",
         "Push the prepared quick-connects onto their matching terminals. Cover exposed contact metal with separate insulating sleeves.",
         "Keep the connectors removable. Keep the insulated joints clear of the retaining nut.",
+        "Beneath the button opening, load two M3 nuts into the base.",
+        "Push the inner nut upward into its pocket.",
+        "Beside the foot post, slide the other nut sideways in from the button opening. Line up its flats with the pocket.",
         "Route the leads into the base. Leave enough slack to remove the insert.",
         "Hold the insert flush in its opening, clear of the screw bosses and foot post.",
-        "Fit two M3×8 screws from the outside. Use no washers. Tighten gently. Do not use the screws to pull the insert into place."
+        "Fit two M3×8 screws from the outside, with no washers. Hold each nut with a fingertip from inside until its screw catches. Tighten gently. Do not use the screws to pull the insert into place."
       ],
       "check": "All soldered joints are insulated and the switch closes only when pressed. The button insert sits flush without pinching its leads. The four labeled Pi ends stay disconnected.",
       "parts": {
@@ -1902,7 +1862,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 25,
+      "number": 24,
       "commands": [],
       "hardware_allocations": [
         {
@@ -1916,28 +1876,28 @@
       ],
       "panels": [
         {
-          "title": "Load the two base nuts",
-          "image": "assets/community/button-enclosure-nuts.svg",
-          "caption": "View from inside the base.",
-          "actions": [
-            0,
-            1,
-            2
-          ]
-        },
-        {
           "title": "Fit the button in its insert",
           "image": "assets/community/button-insert-assembly.svg",
           "caption": "",
           "actions": [
-            3,
-            4
+            0,
+            1
           ]
         },
         {
           "title": "Connect the button leads",
           "textOnly": true,
           "actions": [
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Load the two base nuts",
+          "image": "assets/community/button-enclosure-nuts.svg",
+          "caption": "View from inside the base.",
+          "actions": [
+            4,
             5,
             6
           ]
@@ -1965,8 +1925,9 @@
         "Insulate each joint and the unused switched lug separately.",
         "With the meter in continuity mode, check each lead again. Check that there is no short between center and sleeve.",
         "Let the joints cool before mounting. Leave the leads long for final routing.",
-        "Feed the prepared leads through the power jack plate (FB21). Fit J1 into the plate with its supplied washer and nut on the outside.",
+        "Push J1 through the power jack plate (FB21) from the back. Its leads stay behind the plate. Fit the supplied washer and nut on the outside.",
         "Check full thread engagement and clearance around the insulated lugs.",
+        "Feed the leads and the jack body into the base through the power jack opening.",
         "Seat the plate flush. Fasten it from outside with two M3×12 screws. Use no washers.",
         "Leave enough lead slack to remove the plate."
       ],
@@ -1985,14 +1946,14 @@
       "hardware": {
         "M3x12": 2
       },
-      "note": "You fitted the power jack nuts in {step:cradle-jack-nuts}.",
+      "note": "You glued the power jack nuts in {step:cradle-jack-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 26,
+      "number": 25,
       "commands": [],
       "panels": [
         {
@@ -2029,7 +1990,8 @@
           "caption": "",
           "actions": [
             8,
-            9
+            9,
+            10
           ]
         }
       ],
@@ -2071,7 +2033,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 27,
+      "number": 26,
       "commands": [],
       "panels": [
         {
@@ -2147,7 +2109,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 28,
+      "number": 27,
       "commands": [],
       "panels": [
         {
@@ -2212,7 +2174,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 29,
+      "number": 28,
       "commands": [],
       "panels": [
         {
@@ -2276,7 +2238,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 30,
+      "number": 29,
       "commands": [],
       "panels": [
         {
@@ -2335,7 +2297,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 31,
+      "number": 30,
       "commands": [],
       "panels": [
         {
@@ -2401,7 +2363,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 32,
+      "number": 31,
       "commands": [],
       "panels": [
         {
@@ -2453,7 +2415,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 33,
+      "number": 32,
       "commands": [],
       "panels": [
         {
@@ -2506,7 +2468,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 34,
+      "number": 33,
       "panels": [
         {
           "title": "Identify the wires and likely input",
@@ -2563,7 +2525,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 35,
+      "number": 34,
       "panels": [
         {
           "title": "Connect the prepared strand",
@@ -2632,7 +2594,7 @@
       ],
       "note": "Keep the head and arms off the servo shafts until {step:shelf-arms}.",
       "kind": "build",
-      "number": 36,
+      "number": 35,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2668,7 +2630,7 @@
       "id": "servo-cables",
       "kind": "build",
       "chapter": "Frame and servos",
-      "number": 37,
+      "number": 36,
       "title": "Prepare the three servo cables",
       "parts": {
         "E01": 3,
@@ -2742,7 +2704,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 38,
+      "number": 37,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2831,7 +2793,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 39,
+      "number": 38,
       "commands": [],
       "hardware_allocations": [
         {
@@ -2910,7 +2872,7 @@
       ],
       "note": "The drawing identifies the hole pair; it is not a drilling template.",
       "kind": "build",
-      "number": 40,
+      "number": 39,
       "commands": [],
       "panels": [
         {
@@ -2960,7 +2922,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 41,
+      "number": 40,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3016,7 +2978,7 @@
       ],
       "note": "Any clear flexible transparency sheet is suitable if it fits the groove without forcing the lip.",
       "kind": "build",
-      "number": 42,
+      "number": 41,
       "commands": [],
       "panels": [
         {
@@ -3065,7 +3027,7 @@
       ],
       "note": "Standard M2 nuts are 4 mm across flats and 1.6 mm thick.",
       "kind": "build",
-      "number": 43,
+      "number": 42,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3100,7 +3062,7 @@
       "id": "eye-boards",
       "kind": "build",
       "chapter": "Head",
-      "number": 44,
+      "number": 43,
       "title": "Fit the eye boards and straps",
       "parts": {
         "GS20": 1,
@@ -3230,7 +3192,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 45,
+      "number": 44,
       "commands": [],
       "panels": [
         {
@@ -3308,7 +3270,7 @@
       ],
       "note": "Print P30 and P31 in black PLA. Black plastic is not electrical insulation.",
       "kind": "build",
-      "number": 46,
+      "number": 45,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3376,7 +3338,7 @@
       ],
       "note": "You can leave the antenna off until {step:secure-wiring} to protect it while assembling.",
       "kind": "build",
-      "number": 47,
+      "number": 46,
       "commands": [],
       "panels": [
         {
@@ -3412,7 +3374,7 @@
       ],
       "note": "Head screw seats suit Ø3.5 × 1.3 mm button heads and M2 nuts 4 mm across flats × 1.6 mm thick; check your fasteners.",
       "kind": "build",
-      "number": 48,
+      "number": 47,
       "commands": [],
       "panels": [
         {
@@ -3472,7 +3434,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 49,
+      "number": 48,
       "commands": [],
       "panels": [
         {
@@ -3539,7 +3501,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 50,
+      "number": 49,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3599,7 +3561,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 51,
+      "number": 50,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3664,7 +3626,7 @@
       ],
       "note": "The arms go onto their shafts only after all three servos reach the fit pose in {step:fit-position}.",
       "kind": "build",
-      "number": 52,
+      "number": 51,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3719,7 +3681,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 53,
+      "number": 52,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3772,7 +3734,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 54,
+      "number": 53,
       "commands": [],
       "panels": [
         {
@@ -3842,7 +3804,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 55,
+      "number": 54,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3906,7 +3868,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 56,
+      "number": 55,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3972,7 +3934,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 57,
+      "number": 56,
       "commands": [],
       "panels": [
         {
@@ -4023,7 +3985,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 58,
+      "number": 57,
       "commands": [],
       "panels": [
         {
@@ -4074,7 +4036,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 59,
+      "number": 58,
       "commands": [],
       "panels": [
         {
@@ -4117,7 +4079,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 60,
+      "number": 59,
       "commands": [],
       "panels": [
         {
@@ -4165,7 +4127,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 61,
+      "number": 60,
       "commands": [],
       "panels": [
         {
@@ -4217,7 +4179,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 62,
+      "number": 61,
       "panels": [
         {
           "title": "Command the fit pose",
@@ -4261,7 +4223,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 63,
+      "number": 62,
       "hardware_allocations": [
         {
           "allocation_id": "joint-servo-position",
@@ -4325,7 +4287,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 64,
+      "number": 63,
       "hardware_allocations": [
         {
           "allocation_id": "joint-servo-position",
@@ -4375,7 +4337,7 @@
       "id": "first-movement",
       "kind": "build",
       "chapter": "Close up and test",
-      "number": 65,
+      "number": 64,
       "title": "Check the first movement",
       "parts": {},
       "hardware": {},
@@ -4425,7 +4387,7 @@
       "parts": {},
       "source": [],
       "kind": "build",
-      "number": 66,
+      "number": 65,
       "commands": [],
       "panels": [
         {
@@ -4465,14 +4427,14 @@
       "hardware": {
         "M3x12": 4
       },
-      "note": "The four cover nuts were fitted in {step:board-cover-nuts}.",
+      "note": "You glued the four cover nuts in {step:board-cover-nuts}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 67,
+      "number": 66,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4522,7 +4484,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 68,
+      "number": 67,
       "commands": [],
       "panels": [
         {

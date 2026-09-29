@@ -191,14 +191,16 @@ fs.mkdirSync(OUT,{recursive:false});
   const plateQuantities={};for(const plate of data.prints)for(const [id,n] of Object.entries(plate.quantities))plateQuantities[id]=(plateQuantities[id]||0)+n;
   assert.deepEqual(plateQuantities,Object.fromEntries(installed.map(p=>[p.id,p.qty])));
   assert.ok(build.find(s=>s.id==='speaker-grilles').number < build.find(s=>s.id==='side-grilles').number,'attach speakers on the bench before mounting side grilles');
-  // The three nut steps together preload every enclosure nut before any part fastens into them.
-  const nutSteps=['board-cover-nuts','grille-vent-nuts','cradle-jack-nuts'].map(id=>build.find(s=>s.id===id));
+  // The two glue steps preload every glued base nut before any part fastens into them.
+  // Front and side grille nuts are not glued: each grille step loads its own nuts.
+  const nutSteps=['board-cover-nuts','cradle-jack-nuts'].map(id=>build.find(s=>s.id===id));
   const preloaded={};for(const step of nutSteps)for(const [id,n] of Object.entries(step.hardware))preloaded[id]=(preloaded[id]||0)+n;
-  assert.deepEqual(preloaded,{N2:8,N3:25});
-  assert.deepEqual(nutSteps.map(s=>s.number),[nutSteps[0].number,nutSteps[0].number+1,nutSteps[0].number+2]);
+  assert.deepEqual(preloaded,{N2:8,N3:13});
+  assert.equal(nutSteps[1].number,nutSteps[0].number+1);
   for(const id of ['front-grille-rear-vent','side-grilles','pi-shifters','audio-cradle','power-jack','bottom-cover']){
-   const step=build.find(s=>s.id===id);assert.ok(step.number>nutSteps[2].number);
-   assert.ok(!step.hardware.N3,'enclosure M3 nuts must be preloaded: '+id);
+   const step=build.find(s=>s.id===id);assert.ok(step.number>nutSteps[1].number);
+   const loaded={'front-grille-rear-vent':4,'side-grilles':8}[id];
+   assert.equal(step.hardware.N3,loaded,'grille steps load their own M3 nuts; other base nuts are glued first: '+id);
    if(id==='pi-shifters')assert.ok(!step.hardware.N2);
   }
   // Loading keeps saved progress, stock and unrelated fields exactly as stored.
@@ -206,7 +208,7 @@ fs.mkdirSync(OUT,{recursive:false});
   await page.evaluate(({KEY,existing})=>localStorage.setItem(KEY,JSON.stringify(existing)),{KEY,existing});
   await page.reload();assert.deepEqual(await page.evaluate(KEY=>JSON.parse(localStorage.getItem(KEY)),KEY),existing);
   const steps=new Set(data.guide.steps.map(s=>s.id));
-  const shots=['step-board-cover-nuts','step-grille-vent-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service','before-you-start'];
+  const shots=['step-board-cover-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service','before-you-start'];
   shots.push(...SETUP.map(id=>'step-'+id),...SOFTWARE_TOPICS.map(id=>'software/'+id));
   for(const r of shots.filter(r=>r.startsWith('step-')))assert.ok(steps.has(r.slice(5)),'screenshot route missing: '+r);
   const routes=['start','before-you-start','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];

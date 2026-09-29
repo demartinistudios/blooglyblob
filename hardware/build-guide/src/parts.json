@@ -663,14 +663,13 @@
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Main enclosure with open nut recesses for the boards, cover, grilles, power plate and audio cradle, plus four raised WAGO tape faces. Glue the nuts in before fitting components. Wire bundles use bought adhesive tie squares. Keep threads, seating faces, vents and microphone opening clear.",
+    "description": "Main enclosure with open nut recesses for the boards, cover, grilles, power plate and audio cradle, plus four raised WAGO tape faces. Glue its nuts in before fitting components, except the front and side grille nuts. Wire bundles use bought adhesive tie squares. Keep threads, seating faces, vents and microphone opening clear.",
     "status": "Print it from this release\u2019s files, then clean it and dry-fit it before assembly.",
     "image": "assets/r21/part-FB01.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
       "board-cover-nuts",
-      "grille-vent-nuts",
       "cradle-jack-nuts",
       "front-grille-rear-vent",
       "feet",
@@ -2086,7 +2085,6 @@
     "image": "assets/cartoons/C09.svg",
     "steps": [
       "board-cover-nuts",
-      "grille-vent-nuts",
       "cradle-jack-nuts",
       "eye-boards",
       "hands-shoulder-covers",
@@ -2470,9 +2468,10 @@
     "image": "assets/cartoons/N3.svg",
     "steps": [
       "board-cover-nuts",
-      "grille-vent-nuts",
       "cradle-jack-nuts",
+      "front-grille-rear-vent",
       "speaker-grilles",
+      "side-grilles",
       "button",
       "frame-uprights",
       "shoulder-servos",
@@ -2833,10 +2832,9 @@
     "qty": 0,
     "optional": 1,
     "category": "Consumable",
-    "description": "Optional gel superglue for retaining the 8 M2 and 25 M3 enclosure nuts instead of mixing epoxy. Apply a tiny dab to each nut\u2019s exposed outside edge, keeping threads, screw bores and seating faces clear. Choose a PLA/metal-compatible gel and follow its full cure time. The pocket walls resist rotation.",
+    "description": "Optional gel superglue for retaining the 8 M2 and 13 M3 glued enclosure nuts instead of mixing epoxy. Apply a tiny dab to each nut\u2019s exposed outside edge, keeping threads, screw bores and seating faces clear. Choose a PLA/metal-compatible gel and follow its full cure time. The pocket walls resist rotation.",
     "steps": [
       "board-cover-nuts",
-      "grille-vent-nuts",
       "cradle-jack-nuts"
     ],
     "link": "",
