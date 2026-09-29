@@ -7,10 +7,40 @@ import unittest
 from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
+import consistency
 import diagrams
 
 ROOT = Path(__file__).resolve().parents[3]
 NS = {'s': 'http://www.w3.org/2000/svg'}
+SVG = '{http://www.w3.org/2000/svg}'
+
+# Retired names (INSTRUCTION-DESIGN.md "Names"): the guide's banned terms plus
+# the connector names a figure can show. LEFT, RIGHT and HEAD remain the labels
+# written on the servo cables, and BODY LIGHT and HEAD LIGHT on the connectors.
+RETIRED = [(term, re.compile(pattern, 0 if case else re.I))
+           for term, pattern, case, scope in consistency.WRITING['banned'] if scope == 'text']
+RETIRED += [(term, re.compile(pattern)) for term, pattern in (
+    ('BODY (label)', r'\bBODY\b(?![- ]LIGHT\b)'),
+    ('HEAD (label)', r'\bHEAD\b(?![- ](?:LIGHT|SERVO|servo)\b)'),
+    ('pixel', r'(?i)\bpixels?\b'),
+    ('Pixel Shifter', r'(?i)\bpixel shifters?\b'),
+    ('lighting lead', r'(?i)\blighting (?:lead|harness)\b'),
+)]
+SERVO_LABELS = {'HEAD', 'HEAD · servo hookup', 'HEAD positive (+)', 'HEAD return (−)', 'C5 → HEAD'}
+
+
+def retired_names(text):
+    """Retired terms in one visible label; the servo cable label HEAD is allowed."""
+    found = [term for term, pattern in RETIRED if pattern.search(text)]
+    if text in SERVO_LABELS:
+        found.remove('HEAD (label)')
+    return found
+
+
+def labels(root):
+    """Visible text, descriptions and nested titles; the root title is the file name."""
+    top = root.find(SVG + 'title')
+    return [e.text or '' for e in root.iter() if e.tag in (SVG + 'text', SVG + 'desc', SVG + 'title') and e is not top]
 
 
 class CircuitDiagramTests(unittest.TestCase):
@@ -35,8 +65,8 @@ class CircuitDiagramTests(unittest.TestCase):
             text = self.texts(f'circuits/{block}-reference.svg')
             # Recombine the sole wrapped cell, then compare all five entries,
             # not just presence of strings somewhere in the image.
-            if 'H3 return,' in text:
-                i = text.index('H3 return,')
+            if 'Base-half GND,' in text:
+                i = text.index('Base-half GND,')
                 text[i:i+2] = [' '.join(text[i:i+2])]
             start = text.index('1')
             self.assertEqual(text[start:start+10], [s for n, label in enumerate(row[1:], 1) for s in (str(n), label)])
@@ -68,12 +98,12 @@ class CircuitDiagramTests(unittest.TestCase):
         # named component. An accidentally moved terminal fails against JSON.
         canonical = {(row[0].split()[0], n): label for row in self.canonical['power']['rows'] for n, label in enumerate(row[1:], 1)}
         cases = [
-            (diagrams.inlet_circuit, (), ['J1 center', 'J1 sleeve']),
-            (diagrams.pi_power_circuit, (), ['H2 Pi +', 'H2 Pi return']),
+            (diagrams.power_jack_circuit, (), ['J1 center', 'J1 sleeve']),
+            (diagrams.pi_power_circuit, (), ['Pi power lead +', 'Pi power lead return']),
             (diagrams.f1_circuit, (), ['F1 input', 'F1 output']),
             (diagrams.c1_circuit, (), ['C1 +', 'C1 −']),
             (diagrams.ground_circuit, (), ['18 AWG link to W4/1', 'Link from W3/3']),
-            (diagrams.f2_circuit, (), ['F2 input', 'H3 return, including C2 −']),
+            (diagrams.f2_circuit, (), ['F2 input', 'Base-half GND, including C2 −']),
         ]
         for name, port, signal in [('LEFT', 2, 'S1 C5'), ('RIGHT', 3, 'S2 D5'), ('HEAD', 4, 'S2 C5')]:
             cases.append((diagrams.servo_circuit, (name, port, signal), [f'{name} servo +', f'{name} servo return']))
@@ -162,6 +192,28 @@ class CircuitDiagramTests(unittest.TestCase):
         with self.assertRaises(KeyError):
             diagrams.resistor(diagrams.Svg(420, 200, 'test'), 20, 120, 'R9')
         self.assertEqual(diagrams.RESISTORS['R2'][1], ('#d06924', '#d06924', '#7c4a31'))
+
+    def test_generated_labels_use_approved_names(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(diagrams, 'OUT', Path(temp)):
+            diagrams.servo_fit_position()
+            fit = Path(temp) / 'servo-fit-pose.svg'
+            self.assertEqual(fit.read_bytes(), (ROOT / 'hardware/build-guide/src/assets/servo-fit-pose.svg').read_bytes())
+            files = [(fit.name, ET.parse(fit).getroot())]
+        files += [(str(f.relative_to(self.out)), ET.parse(f).getroot()) for f in sorted(self.out.rglob('*.svg'))]
+        found = [(name, text, retired_names(text)) for name, root in files for text in labels(root) if retired_names(text)]
+        self.assertEqual(found, [])
+
+    def test_retired_name_check_catches_connector_labels(self):
+        for text in ('H3 · base', 'BASE→BODY', 'Test through the BODY plug', 'HEAD DATA → 5755',
+                     'HEAD · JST-SM', 'J1 · enclosure inlet', 'Keep all 100 pixels together', 'Gently pull-check.'):
+            self.assertTrue(retired_names(text), text)
+        for text in ('HEAD', 'HEAD positive (+)', 'C5 → HEAD', 'BODY LIGHT', 'HEAD LIGHT', 'S2.C5 to HEAD-SERVO.SIG', 'W1.2 to pi-power.+'):
+            self.assertEqual(retired_names(text), [], text)
+
+    def test_electrical_tables_use_approved_names(self):
+        cells = [cell for table in ('power', 'signal') for row in self.canonical[table]['rows'] for cell in row]
+        cells += self.canonical['diagram'].splitlines()
+        self.assertEqual([(cell, retired_names(cell)) for cell in cells if retired_names(cell)], [])
 
     def test_committed_outputs_match_generator_and_phone_type_floor(self):
         # Generation and checked-in outputs must agree, and the 420-unit view

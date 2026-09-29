@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
-      "sha256": "8cf13eed927a467053da979dc7166c0cf04701877c51d71da1617983b241fb2e",
-      "bytes": 6205
+      "sha256": "e8a4716309be9d184de1ebd7d370261b2aeb7ad9f9c953610f2a9f5532c27a7c",
+      "bytes": 6286
     },
     {
       "path": "hardware/assembly/hardware.json",
