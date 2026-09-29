@@ -2200,6 +2200,7 @@
       "servo-fuse-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
+      "secure-base-wiring",
       "body-light-input",
       "servo-cables",
       "head-harness",
@@ -2411,7 +2412,10 @@
     "steps": [
       "workbench",
       "button-leads",
+      "power-wiring",
       "servo-fuse-capacitor",
+      "light-fuse-capacitor",
+      "body-light-input",
       "servo-cables",
       "head-harness"
     ],
