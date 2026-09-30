@@ -5377,32 +5377,55 @@
       "parts": {},
       "hardware": {},
       "actions": [
-        "Stand the robot upright with the cover off and room around it. Clear fingers, tools and cables, then power it on.",
-        "The application moves the servos to the same rest pose you just fitted, so expect little movement.",
-        "Press the button and talk to the robot, then ask it to dance. Watch the HEAD lighting loop as the head turns: it must stay loose without catching a horn, screw or edge. Check the other cables for rubbing, stretching or contact with moving parts.",
-        "If anything binds or strains, unplug immediately. Free the cable or refit the part using {step:fit-position}, then repeat. F1 does not protect a jammed servo."
+        "Leave the robot standing on its feet on the folded towel, with the bottom cover off.",
+        "Clear tools and cables from in front of the robot and around its head. The arms swing forward up to level. The head turns about 45° each side.",
+        "At the robot-right end of the rear face, push the barrel plug fully into the power jack (J1). Lead its cable straight back, away from the arms.",
+        "Plug the mains cord into the wall. Let the Pi boot.",
+        "The head and arms barely move as the application starts. They are already at the fit position.",
+        "Press the front button. Talk with the robot. Ask it to dance.",
+        "The head turns smoothly. The arms swing clear of the body and the supply cable.",
+        "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once. Free the cable. Take off a part that hits. Repeat {step:fit-position} before you refit it."
       ],
-      "check": "Conversation and dance movements clear the body, head and wiring.",
-      "note": "Software limits arms from hanging down to roughly level forward, and the head to about 45° either side. Correct mechanical horn positioning is still required.",
+      "check": "The head and arms move through a conversation and a dance without touching the body or any cable.",
+      "note": "",
       "source": [],
       "commands": [],
       "panels": [
         {
-          "title": "Start from the fitted rest pose",
+          "title": "Clear the space around the robot",
           "image": "assets/servo-fit-pose.svg",
-          "caption": "The arms start hanging down; the head starts facing forward.",
+          "caption": "Fit position, in a front view and a side view.",
           "actions": [
             0,
             1
           ]
         },
         {
-          "title": "Watch a conversation and a dance",
-          "image": "assets/r22/main-front.png",
-          "caption": "Check clearance around both arms, hands, head and cables.",
+          "title": "Switch on the power",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "image": "assets/circuits/robot-power-connection.svg",
+          "caption": "Barrel plug and power jack, from the side.",
           "actions": [
             2,
-            3
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Watch a conversation and a dance",
+          "safety": {
+            "level": "notice",
+            "text": "The servo fuse (F1) does not blow when a servo jams. A jammed servo keeps pushing and can overheat. Unplug the supply as soon as a part binds."
+          },
+          "image": "assets/r22/main-front.png",
+          "caption": "The assembled robot, from the front.",
+          "actions": [
+            5,
+            6,
+            7
           ]
         }
       ]
@@ -5410,13 +5433,21 @@
     {
       "id": "secure-wiring",
       "chapter": "Close up and test",
-      "title": "Secure the wiring before closing",
+      "title": "Shut down and secure the wiring",
       "actions": [
-        "After the movement check, shut down with make pi-ssh and sudo poweroff. Wait for the green light to stop, unplug the supply and support the robot in its padded stand.",
-        "Close every WAGO lever. Check that plugs are fully seated, insulation covers the joints and cable ties support the wires without pulling on connections.",
-        "Tuck loose wires and tie locks away from the screw holes and foot posts. Keep them at least 4 mm from the inside face of the bottom cover."
+        "Open the Pi shell with the first command. Shut the Pi down with the second command.",
+        "Stack folded towels higher than the barrel plug is long. Beside them, stack towels about 4 cm higher.",
+        "Hold the base with both hands. Lay the robot on its back, base on the lower stack and backpack on the higher one. Keep the power jack end past the edge.",
+        "The open bottom faces you, and the barrel plug hangs clear. The head touches nothing. The arms may swing back onto the towels.",
+        "Through the open bottom, wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall.",
+        "At the robot-right end, unplug the barrel plug from the power jack (J1).",
+        "If you left the antenna off in {step:antenna}, fit it now as in that step.",
+        "Hold the head still with your other hand while you turn the coil.",
+        "Push the slack of the servo cables and body-half wires into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
+        "Keep all wires and tie locks clear of the four corners, where the cover screws go in.",
+        "Take a photo of the wiring through the open bottom. Keep it for repairs."
       ],
-      "check": "Connections are seated and insulated, and the cover can close without pressing on the wiring.",
+      "check": "The robot lies on its back, shut down and unplugged. No wire or tie lock sits within 4 mm of the cover seat or near a corner screw.",
       "note": "",
       "hardware": {},
       "parts": {},
@@ -5426,20 +5457,63 @@
       "commands": [],
       "panels": [
         {
-          "title": "Support the unplugged robot",
-          "image": "assets/r16/service-stand.png",
-          "caption": "",
+          "title": "Shut down the Pi",
           "actions": [
             0
+          ],
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
           ]
         },
         {
-          "title": "Secure the wires and clear the cover",
-          "image": "assets/community/base-routing-access.svg",
-          "caption": "",
+          "title": "Lay the robot on its back",
+          "image": "assets/r16/service-stand.png",
+          "caption": "The robot on wooden supports, open bottom toward the viewer, head and arms clear.",
           "actions": [
             1,
-            2
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Unplug the supply",
+          "textOnly": true,
+          "actions": [
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Fit the antenna",
+          "image": "assets/r18/step-11.png",
+          "caption": "The coil and ball above the head’s threaded socket.",
+          "actions": [
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Clear the wiring from the cover",
+          "image": "assets/community/base-routing-access.svg",
+          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -5449,12 +5523,17 @@
       "title": "Fit the bottom cover",
       "chapter": "Close up and test",
       "actions": [
-        "Keep the robot unplugged and supported in its padded stand.",
-        "Check that no wire crosses the cover edge or a screw hole.",
-        "Seat FB02 around the foot posts. If it resists, remove it and correct the obstruction; do not pull it down with screws.",
-        "Fasten the cover, then stand the robot upright on all four feet with its vents clear."
+        "With the robot on its back, fit the four corner holes of the bottom cover (FB02) over the foot posts.",
+        "Press it in by hand until it sits flat on the four corner faces.",
+        "If it does not sit flat, lift it off. Move the wire or tie lock that holds it up.",
+        "Hold the cover flat with one hand. With the other, start an M3×12 screw by hand into the glued nut at each corner.",
+        "Tighten each screw only until the cover is held firmly.",
+        "If a screw turns without tightening, its nut is loose. Remove the cover. Glue that nut again as in {step:board-cover-nuts}.",
+        "Hold the base with both hands. Keep your hands off the head and arms.",
+        "Lift the robot off the towels. Stand it on its four feet on the bench.",
+        "The arms hang straight down, and the robot stands level."
       ],
-      "check": "The cover sits flat without pressing on wiring and the robot rests level on its feet.",
+      "check": "The cover sits flat, held by four screws, and the robot stands level on its feet.",
       "parts": {
         "FB02": 1,
         "T05": 1
@@ -5462,7 +5541,7 @@
       "hardware": {
         "M3x12": 4
       },
-      "note": "You glued the four cover nuts in {step:board-cover-nuts}.",
+      "note": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
@@ -5482,9 +5561,13 @@
       ],
       "panels": [
         {
-          "title": "Seat the cover by hand",
+          "title": "Seat the bottom cover",
+          "safety": {
+            "level": "notice",
+            "text": "A cover pulled in by its screws presses on the wiring. The wires can be pinched, and the cover can crack. Seat it flat by hand before you fit a screw."
+          },
           "image": "assets/r21/base-cover.png",
-          "caption": "All electronics and feet stay on FB01; nothing attaches to FB02.",
+          "caption": "The base from below, with the cover lowered away from it.",
           "actions": [
             0,
             1,
@@ -5492,11 +5575,22 @@
           ]
         },
         {
-          "title": "Fit all four screws",
+          "title": "Screw on the cover",
           "image": "assets/r16/base-cover-joints.png",
-          "caption": "Four M3×12 screws into the glued M3 nuts.",
+          "caption": "The cover from outside. Numbers 1 to 4 mark the screw positions.",
           "actions": [
-            3
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Stand the robot upright",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -5506,9 +5600,16 @@
       "title": "Try your finished robot",
       "chapter": "Close up and test",
       "actions": [
-        "Stand the robot upright with its vents clear. Connect the supply to the robot, then the wall, and wait for the Pi to boot. Press the front button and have a short conversation. Check that it hears you and that speech sounds clear.",
-        "Ask it to wave and play its dance. Check that the head and arms move freely, cables stay clear of the joints, and the body and eye lights respond.",
-        "If something does not work, use Troubleshooting below. Shut down the Pi and unplug the supply before opening the base or adjusting wiring."
+        "At the robot-right end of the rear face, push the barrel plug fully into the power jack (J1).",
+        "Leave the rear vent and side grilles uncovered. Plug the mains cord into the wall. Let the Pi boot.",
+        "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
+        "Open the Pi shell with the first command. Press the front button. Talk with the robot.",
+        "Between its replies, raise the level with the second command. Use your card ID for `Device`. Repeat until its speech is clear and comfortable.",
+        "The robot answers what you say. Each run raises both channels by 3 dB. After the first run, both report `[-37.00dB]`.",
+        "Save the level with the first command below. Leave the shell with `exit`.",
+        "Press the front button. Ask the robot to wave. Ask it to dance.",
+        "The head and arms move freely, and the body and eye lights respond. The music plays without rattles or buzzing.",
+        "If the base rattles or buzzes, see {step:audio-service}. For other faults, use Troubleshooting. Shut down and unplug before you open the base."
       ],
       "check": "Conversation, sound, movement and lighting work with the cover fitted.",
       "parts": {},
@@ -5523,12 +5624,70 @@
       "commands": [],
       "panels": [
         {
-          "title": "Try conversation and movement",
-          "image": "assets/r22/main-front.png",
+          "title": "Switch on the closed robot",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "image": "assets/circuits/robot-power-connection.svg",
+          "caption": "Barrel plug and power jack, from the side.",
           "actions": [
             0,
             1,
             2
+          ]
+        },
+        {
+          "title": "Set the speaker level",
+          "actions": [
+            3,
+            4,
+            5
+          ],
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "amixer -c Device -- sset Speaker playback 3dB+"
+              ],
+              "context": "pi",
+              "label": "Use your USB card ID"
+            }
+          ]
+        },
+        {
+          "title": "Save the speaker level",
+          "actions": [
+            6
+          ],
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "sudo alsactl store Device",
+                "exit"
+              ],
+              "context": "pi",
+              "label": "Use your USB card ID"
+            }
+          ]
+        },
+        {
+          "title": "Try movement and lights",
+          "image": "assets/r22/main-front.png",
+          "caption": "The assembled robot, from the front.",
+          "actions": [
+            7,
+            8,
+            9
           ],
           "links": [
             {
