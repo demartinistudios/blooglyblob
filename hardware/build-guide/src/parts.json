@@ -1410,7 +1410,8 @@
     "image": "assets/cartoons/F1.svg",
     "steps": [
       "servo-fuse-capacitor",
-      "secure-base-wiring"
+      "secure-base-wiring",
+      "all-lights-test"
     ],
     "status": "Check it when it arrives",
     "additional_links": [

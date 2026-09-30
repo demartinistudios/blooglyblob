@@ -4908,22 +4908,32 @@
       "id": "all-lights-test",
       "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
-      "safety": {
-        "level": "warning",
-        "text": "Keep the supply plug reachable. Never open a WAGO lever with power connected."
-      },
       "actions": [
-        "Support the robot on its stand with the cover off, head on the bench and HEAD connected. Keep head and arms off the servo shafts; fit F1 T3.15 A and F2 T1 A.",
-        "Connect the specified supply to the robot, then the wall. Bare servo shafts may turn to their rest positions.",
-        "After boot, check make pi-status shows “active (running)”. Run make pi-ssh, then vcgencmd get_throttled; expect throttled=0x0. Type exit. If it reports a warning, use Troubleshooting before continuing.",
-        "Run make pi-test-neopixels. Check that all 16 lights appear in order and show red, green and blue. If a light is missing or out of order, check its input and output connections.",
-        "Run make pi-ssh, then sudo poweroff. Wait for the green light to stop flashing and unplug the supply."
+        "Read the marking on the servo fuse (F1). It must read T3.15 A.",
+        "Through the open bottom, fit it in the holder labeled F1.",
+        "If it reads T1 A, the fuses are swapped. Swap them so F1 holds T3.15 A and F2 holds T1 A.",
+        "Find the power jack (J1) on the rear face of the base, at the robot-right end, on your left. It faces down into the towel.",
+        "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels’ edge.",
+        "Lift the body at the backpack. Add towels under the backpack until the robot lies level. Add towels under the head until it lines up with the top of the body.",
+        "Move the head shelf and head harness clear of the head servo shaft. Nothing may touch the three servo shafts.",
+        "Reach under the robot-right end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
+        "If the plug or its cable touches the bench, raise the robot by one more towel at each support.",
+        "Plug the mains cord into the wall. Let the Pi boot.",
+        "The three servo shafts may turn as the application starts.",
+        "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
+        "On your computer, in the repository folder, run the command below.",
+        "Each light turns on alone, in order: body 0–5, first eye 6, second eye 7 and mouth 8–15. Next, all 16 show red, green and blue.",
+        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light’s input and output connections.",
+        "Run the first command below. The output shows `active (running)`.",
+        "Open the Pi shell with the second command. Run `vcgencmd get_throttled`. It must print `throttled=0x0`. Type `exit`. Leave the robot powered.",
+        "If either output differs, use Troubleshooting before you go on."
       ],
-      "check": "All 16 lights show the correct order and colors, and the Pi starts without a power warning.",
+      "check": "All 16 lights lit in order and showed red, green and blue. The service is active (running) and the Pi reports throttled=0x0. The robot stays powered.",
       "hardware": {},
       "parts": {
         "E20": 1,
-        "E21": 1
+        "E21": 1,
+        "F1": 1
       },
       "source": [
         "hardware/assembly/electrical.json"
@@ -4933,32 +4943,128 @@
       "commands": [],
       "panels": [
         {
-          "title": "Power the robot",
-          "image": "assets/circuits/robot-power-connection.svg",
-          "caption": "Keep the head and arms off the servo shafts.",
+          "title": "Fit the servo fuse",
+          "safety": {
+            "level": "warning",
+            "text": "The two fuses look alike. A T3.15 A fuse in the light fuse holder (F2) would let a light fault overheat the thin wires. Read the fuse marking before you fit it."
+          },
+          "textOnly": true,
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
-          "title": "Check startup and all 16 lights",
-          "image": "assets/circuits/head-data.svg",
-          "caption": "Body 0–5 → first eye 6 → second eye 7 → mouth 8–15.",
+          "title": "Raise the robot so the power jack hangs clear",
+          "textOnly": true,
           "actions": [
-            2,
             3,
-            4
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Connect the barrel plug",
+          "image": "assets/circuits/robot-power-connection.svg",
+          "caption": "Barrel plug and power jack, from the side.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Switch on the power",
+          "safety": {
+            "level": "warning",
+            "text": "This is the first power-up with the servos and head connected. A wiring fault could overheat parts and cause burns or fire. Keep the wall plug within reach."
+          },
+          "textOnly": true,
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Run the light test",
+          "image": "assets/circuits/head-data.svg",
+          "caption": "Head data path, from the head half through both eyes to the mouth.",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-test-neopixels"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            }
           ],
-          "commands": [
-            "make pi-status",
-            "make pi-test-neopixels"
+          "actions": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Check the service and the supply voltage",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-status"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "output",
+              "lines": [
+                "active (running)"
+              ],
+              "label": "Expected service state"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "vcgencmd get_throttled"
+              ],
+              "context": "pi"
+            },
+            {
+              "kind": "output",
+              "lines": [
+                "throttled=0x0"
+              ],
+              "label": "Expected result"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "exit"
+              ],
+              "context": "pi"
+            }
           ],
           "links": [
             {
               "label": "Troubleshooting",
               "url": "#troubleshooting"
             }
+          ],
+          "actions": [
+            15,
+            16,
+            17
           ]
         }
       ]
@@ -4968,11 +5074,17 @@
       "chapter": "First power-up",
       "title": "Set the fit position",
       "actions": [
-        "Stand the robot upright, cover off, with the prepared head shelf, head and arms nearby. Keep the horns off all three shafts.",
-        "Power up and wait for the Pi. Run make pi-servo-fit on your computer; it stops the application, positions all three servos and holds them.",
-        "When movement stops, type STOP and press Enter. Run make pi-ssh, then sudo poweroff; wait for the green light to stop and unplug. Do not turn the shafts by hand."
+        "With the robot still powered from {step:all-lights-test}, run the command below on your computer.",
+        "It stops the application and holds the fit position: head facing forward, arms hanging straight down. The shafts barely move, because the application set this position at startup.",
+        "If you shut the robot down, power it up again as in {step:all-lights-test}.",
+        "When the output asks, type STOP and press Enter.",
+        "The output says the servo pulses stopped and the application stays stopped.",
+        "If it says the servo output release is unconfirmed, unplug the supply from the wall at once.",
+        "Open the Pi shell. Shut the Pi down with the second command.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-right end and unplug the barrel plug from the power jack (J1).",
+        "Do not turn the three servo shafts by hand. Keep the supply unplugged until {step:first-movement}."
       ],
-      "check": "",
+      "check": "The servos are at the fit position. The Pi is shut down and the supply is unplugged.",
       "note": "",
       "hardware": {},
       "parts": {},
@@ -4984,16 +5096,73 @@
       "number": 61,
       "panels": [
         {
-          "title": "Command the fit pose",
+          "title": "Hold the fit position",
           "image": "assets/servo-fit-pose.svg",
-          "caption": "Head centered; both shoulder shafts positioned for arms hanging down.",
+          "caption": "Fit position, in a front view and a side view.",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-servo-fit"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "output",
+              "lines": [
+                "Holding the fit pose. Keep the head and arms off the shafts.",
+                "Type STOP then Enter to release the servos:"
+              ],
+              "label": "Output while the servos hold"
+            }
+          ],
           "actions": [
             0,
             1,
             2
+          ]
+        },
+        {
+          "title": "Release the servos",
+          "codeBlocks": [
+            {
+              "kind": "output",
+              "lines": [
+                "Servo pulses stopped. The application stays stopped. Shut down and unplug before fitting parts."
+              ],
+              "label": "Output after STOP"
+            }
           ],
-          "commands": [
-            "make pi-servo-fit"
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Shut down and unplug",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
