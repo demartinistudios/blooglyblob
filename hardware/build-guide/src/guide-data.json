@@ -159,7 +159,7 @@
         "Check how the eyes, eye housings and head shelf (P08) fit the head shell (GS20).",
         "Set aside cracked, warped or delaminated parts for reprinting."
       ],
-      "check": "The base, its grilles and the rear vent are clean. Their screw holes, nut pockets and cable paths are clear. You know which plate holds the next parts.",
+      "check": "The base, its grilles and the rear vent are clean. Their screw holes, nut pockets and cable paths are clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -261,7 +261,7 @@
         "With a toothpick, put a tiny dab of mixed epoxy (C09) where each nut’s edge meets its pocket. Or use faster-setting CA gel (C18). Keep glue out of threads and off the post tips.",
         "Seat an M3 nut in the bottom cover recess at each of the four corners. Match its flats to the recess.",
         "Glue each nut at its outside edge, as for the board nuts. Keep glue off the faces where the cover seats.",
-        "Leave the base upside down until the glue holds. Leave the bottom cover off."
+        "Leave the base upside down until the glue holds."
       ],
       "check": "The eight board nuts and four cover nuts sit flat in their pockets. No glue is in their threads or on the seating faces.",
       "panels": [
@@ -636,7 +636,7 @@
         "Clean and dry the four post faces.",
         "Peel the backing from one foot. Center it on a post face. Press it on firmly. Repeat for the other three feet.",
         "Let the adhesive bond for the time on its label before you load the feet.",
-        "Stand the base upright. Check that it does not rock. The bottom cover must clear the feet."
+        "Stand the base upright. Check that it does not rock."
       ],
       "check": "The base stands level on four firmly bonded feet.",
       "parts": {
@@ -1470,7 +1470,7 @@
         "If it shows stopped or failed, read the log in the next panel. Do not mark setup complete.",
         "Run the command below. It follows the application log.",
         "If the log reports a missing key or audio device, correct the installed settings in panel 3. Editing `config/app.env` on your computer does not change the file on the Pi.",
-        "Press Ctrl+C to stop following the log. Do not run microphone, lighting or servo tests here. Those checks follow hardware assembly.",
+        "Press Ctrl+C to stop following the log.",
         "If the service runs without configuration errors, skip this panel.",
         "For a configuration error, open the Pi shell. Edit `/etc/blooglyblob/app.env` with `sudoedit`. Correct the key or device name. Save and close the editor. Type `exit`.",
         "Back on your computer, restart the service. Check its status again.",
@@ -2590,9 +2590,7 @@
         "Both LED contacts and every joint are insulated.",
         "Plug the USB extension (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
-        "No speaker wire connects to the ground WAGOs (W3, W4).",
-        "Route the USB cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle.",
-        "Bend the cable so the bottom cover (FB02) closes without pressing on it. Do not pull sideways on either socket."
+        "Route the USB cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle. Do not pull sideways on either socket."
       ],
       "check": "All twelve Pi header connections match their physical pin numbers. The switch, button light and speaker circuits are separate. The USB cable bends without pulling on either socket.",
       "parts": {
@@ -2633,8 +2631,7 @@
           "caption": "The Pi’s USB-A socket, the extension and the audio module.",
           "actions": [
             5,
-            6,
-            7
+            6
           ]
         },
         {
@@ -2642,8 +2639,7 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail with the base and part of the Pi left out.",
           "actions": [
-            8,
-            9
+            7
           ]
         }
       ]
@@ -2665,7 +2661,7 @@
         "Where wires run together, such as the eight GPIO leads, tie them to the nearest square. Tie the F2 output end so that cutting one tie frees it. Trim the tails.",
         "Keep the SD card, WAGO levers, fuse caps, plugs and vents reachable. Leave each tie lock where you can cut it."
       ],
-      "check": "The fuse holders, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds. The bottom cover clears every wire and tie.",
+      "check": "The fuse holders, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds.",
       "parts": {
         "FB01": 1,
         "E07": 2,
@@ -2687,7 +2683,7 @@
       "commands": [],
       "panels": [
         {
-          "title": "Check where the fuses and capacitors lie",
+          "title": "Lay out the fuses and capacitors",
           "image": "assets/community/saddles.png",
           "caption": "Oblique view into the open base. Only the fuses and capacitors are drawn.",
           "actions": [
@@ -2743,7 +2739,7 @@
         "Fit F2 for the light test. It stays fitted. Check W1 against W3 again in continuity mode. It must not beep steadily. If it does, remove F2. Fix the short before you go on.",
         "Compare the level shifter (S1, S2) and button wiring with their diagrams. Check that every WAGO lever is closed and every terminal is tight.",
         "Check the polarity of the servo capacitor (C1) and light capacitor (C2). Check that every joint is insulated. Check that neither speaker’s negative wire connects to ground.",
-        "Remove wire offcuts and debris. Check the board nuts, screw tips and plug access. Check that nothing will press on the bottom cover (FB02)."
+        "Remove wire offcuts and debris."
       ],
       "check": "The unpowered checks pass. F1 is out of its holder and F2 (T1 A) is fitted.",
       "parts": {
