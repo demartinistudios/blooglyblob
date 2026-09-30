@@ -5754,7 +5754,7 @@
       "hardware": {},
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
-        "Wait until the SSH session closes. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "After the SSH session disconnects, wait at least 30 seconds. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
         "Leave the robot standing on its feet. In front of it, stack folded towels until their top lines up with the top of the body.",
         "Hold the head still with one hand. With the other, remove the three M2×8 screws, on the two sides and the back.",
         "Lift the head straight up a few centimetres. With your other hand, reach in behind the mouth LED cassette (P30). Pull the joined head light connector down below the rim.",
@@ -5945,7 +5945,7 @@
       "hardware": {},
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
-        "Wait until the SSH session closes. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "After the SSH session disconnects, wait at least 30 seconds. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
         "Leave the robot standing on its feet on the bench.",
         "Hold the forearm with one hand. With the other, pull the hand straight out by its palm.",
         "To refit it, push it into the wrist socket, pressing on the palm. Turn it to a pose.",
@@ -5954,7 +5954,9 @@
         "Slide the shoulder cover off the upper arm.",
         "Hold the upper arm still. Remove the center screw from its horn.",
         "Pull the arm straight off the shaft. Its horn stays screwed to the arm.",
-        "If the shaft turned while the arm was off, push the barrel plug back into J1. Reset the shaft as in the last panel of {step:first-movement}.",
+        "If the shaft turned while the arm was off, clear tools from around the robot. Push the barrel plug back into J1. Plug the supply into the wall.",
+        "Run the command below. When the output asks, type STOP, as in {step:fit-position}.",
+        "Shut down and unplug as in the first panel of this step.",
         "Refit the arm hanging straight down, as in {step:shelf-arms}. Slide the shoulder cover back on."
       ],
       "check": "Each serviced hand and elbow holds its pose. Both arms hang straight down, with their shoulder covers on.",
@@ -6029,12 +6031,34 @@
           ]
         },
         {
+          "title": "Reset a turned shaft",
+          "textOnly": true,
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-servo-fit"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            }
+          ],
+          "actions": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
           "title": "Refit an arm",
           "image": "assets/community/arm-center-screw-left.svg",
           "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side. Label 1 marks the center screw.",
           "actions": [
-            10,
-            11
+            13
           ]
         }
       ],
@@ -6049,7 +6073,7 @@
       "chapter": "Service",
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
-        "Wait until the SSH session closes. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "After the SSH session disconnects, wait at least 30 seconds. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
         "Stack folded towels on the bench. Beside them, stack towels about 4 cm higher.",
         "Hold the base with both hands. Lay the robot gently on its back, base on the lower stack and backpack on the higher one.",
         "The bottom cover faces you. The robot’s weight rests only on the base and backpack. The head touches nothing.",
@@ -6398,11 +6422,12 @@
         "For the head servo, take off the head as in {step:head-open}. Remove the center screw from the head shelf. Lift the shelf off, sliding the head light cable out of its side entry.",
         "Open the base as in {step:base-open}. Find the servo’s cable by its label: LEFT, RIGHT or HEAD.",
         "Release its three wires. LEFT: servo power WAGO (W2/2), servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT: W2/3, W4/3 and level shifter (S2) D5. HEAD: W2/4, W4/4 and S2 C5.",
-        "Cut the tie in the harness opening. Stand the robot on its feet, with the cover off. Open the body as in {step:body-light-service}.",
-        "For an arm servo, fold the foam’s rear end on that side forward, off the shaft. The two ear screws face outward, above and below the shaft.",
-        "For the head servo, remove the two M3×10 screws from the upper foam collar (P01). Lift the collar off over the head light cable.",
-        "Remove the servo’s two M2×6 ear screws. Leave their nuts in the bracket’s pockets.",
+        "Cut the tie in the harness opening. Stand the robot on its feet, with the cover off. Open the body as in the second panel of {step:body-light-service}.",
+        "For an arm servo, fold that side’s foam end forward, off the shaft. For the head servo, remove two M3×10 screws from the upper foam collar (P01). Lift it off over the head light cable.",
+        "Above and below an arm servo’s shaft, or on top of the head servo’s ears, remove the two M2×6 screws. Leave their nuts in the bracket’s pockets.",
         "Slide an arm servo out of the bracket’s open side, toward the back. Lift the head servo straight up. Pull the servo cable up out of the base.",
+        "If an arm-servo nut dropped, find it in the open base. Press it back into its pocket with fine pliers, through the bracket’s open side.",
+        "If a head-servo nut dropped, find it in the open base. Remove the bracket’s two M3×20 screws, holding their nuts. Re-seat the nut on the bench. Refit the bracket as in {step:head-servo}.",
         "Prepare the new servo’s cable as in {step:servo-cables}. Slide a new arm servo in from the back, shaft outward, cable toward the middle. Lower a new head servo in from above, shaft up.",
         "Rest its ears on the supports. Put an M2×6 screw through each ear into its nut. Tighten until the servo sits firm. Leave its horn off.",
         "Run its cable down the frame into the base. For the head servo, thread the head light cable up through the upper collar. Refit the collar as in {step:head-servo}.",
@@ -6474,7 +6499,8 @@
           "textOnly": true,
           "actions": [
             12,
-            13
+            13,
+            14
           ]
         },
         {
@@ -6482,9 +6508,9 @@
           "image": "assets/servo-fit-pose.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
-            14,
             15,
-            16
+            16,
+            17
           ],
           "safety": {
             "level": "caution",
@@ -6605,7 +6631,7 @@
         "Lift out the strand with its input harness: the body half, the data resistor (R2) and the head power pair.",
         "For spare lights, move the input harness to the end marked INPUT, as in {step:body-light-input}. For a new strand, move it to the likely input, found as in that step.",
         "Lay the robot on its back. Raise it as in the second panel of {step:all-lights-test}. Put the body’s towels under both foam collars. Take out the servo fuse (F1).",
-        "Test the new strand’s input as in {step:body-light-test}, with the head light connector unplugged. Leave the servo cables connected. With F1 out, they get no power.",
+        "Test the new strand’s input as in {step:body-light-test}, with the head light connector unplugged. With F1 out, the servos get no power.",
         "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
         "Lay the head light cable into the head shelf’s side entry from the side, as in {step:shelf-arms}.",
         "Close the foam wrap as in {step:body-diffuser}. Refit the carrier, backpack and belt as in {step:backpack-carrier}, {step:backpack} and {step:belt}.",
