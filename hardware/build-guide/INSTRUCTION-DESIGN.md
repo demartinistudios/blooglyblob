@@ -460,32 +460,37 @@ keys (T05)
 
 *Caption:* Drawn upright: the arrow points toward the top of the base.
 
-**Panel 3: Fit the front microphone grille**
+**Panel 3: Start the first grille screw**
 
 > **NOTICE** The plastic behind the front nuts is thin. Too much force can
 > crack it. Support the plastic behind the nuts while you work.
 
 1. At the front opening, hold the grille against the outside of the base. Put
-   four M3×6 screws through the grille toward the nuts. Use no washers.
-2. Press each nut against the wall with a fingertip from inside. Start its
-   screw by hand until it catches. Tighten all four screws evenly.
+   one M3×6 screw through a grille hole. Use no washers.
+2. With your other hand, press that hole's nut against the wall from inside.
+   Turn the screw by hand until it catches.
+
+*Caption:* Front wall cut away. Arrows show each screw's path.
+
+**Panel 4: Fasten the front microphone grille**
+
+1. Repeat for the other three holes, one screw at a time. Tighten all four
+   screws evenly.
 
 *Result:* The grille sits flat against the base.
 
 *Recovery:* If a screw does not start by hand, remove it. Check that its nut is
 seated.
 
-*Caption:* Front wall cut away. Arrows show each screw's path.
-
-**Panel 4: Hold a rear vent nut in its pocket**
+**Panel 5: Hold a rear vent nut in its pocket**
 
 1. Through the open bottom, place an M3 nut in one of the four pockets around
    the rear opening. Match its flats to the pocket. Hold it there with a
    fingertip. Do not glue it.
 
-*Caption:* Ignore the glue label in this picture. These nuts are not glued.
+*Caption:* One rear vent pocket, before and after its nut is seated.
 
-**Panel 5: Fit the rear vent**
+**Panel 6: Fit the rear vent**
 
 1. With your other hand, hold the rear vent against the outside of the base.
    Put an M3×12 screw through the vent into that nut. Use no washer. Turn it by
@@ -562,7 +567,7 @@ insulated wires are separate.
 | --- | --- | --- |
 | Longest sentence (20 or fewer words) | 18 | 15 |
 | Longest action (35 or fewer words) | 34 | 18 |
-| Panels (6 or fewer) | 5 | 3 |
+| Panels (6 or fewer) | 6 | 3 |
 | IDs and labels named on first use | FB01, FB41, FB03 | E07, E08, F1, C1, W1, W2, W3 |
 | Banned terms | none | none |
 | Captions repeating an action | none | none |
