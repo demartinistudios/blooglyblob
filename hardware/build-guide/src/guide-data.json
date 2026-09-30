@@ -152,7 +152,7 @@
         "Clear the P35 pin holes.",
         "In the base (FB01), clear the small support lips from the front nut-entry channels.",
         "Clear the screw holes and cable slots in the base. Clear the nut pockets for the boards, bottom cover, audio cradle, rear vent, button and power jack plate. Clear the side grille nut channels.",
-        "Smooth rough edges at the central wire hole. Do not enlarge the hole.",
+        "Smooth rough edges at the harness opening, the central hole in the base’s top wall. Do not enlarge it.",
         "On the audio cradle (FB24), clear the end windows and lid-nut slots.",
         "Clear support from the horn recesses in both upper arms (AR01, AR04).",
         "Test-fit the real screws, nuts and mating parts. Do not force them. Test-fit means fitting parts without glue or final tightening, and removing them afterwards.",
@@ -355,7 +355,7 @@
       "title": "Fit the front grille and rear vent",
       "chapter": "Base hardware",
       "actions": [
-        "Place the base (FB01) upside down, with its open bottom facing up.",
+        "Keep the base (FB01) upside down, with its open bottom facing up.",
         "Find the front opening. The front microphone grille (FB41) fits here.",
         "Find the rear opening. The rear vent (FB03) fits here.",
         "Find the four nut channels on the inside of the front wall, around the opening. Place an M3 nut flat against the wall in each channel.",
@@ -479,7 +479,7 @@
         "From the outside, insert four M3×12 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
         "Hold each nut while you tighten its screw until snug. Keep the speaker tabs flat.",
         "The speaker sits flat against the grille. Its tabs are not bent.",
-        "Repeat for the second speaker. Leave both speaker cables unplugged."
+        "Repeat for the second speaker."
       ],
       "check": "Both speakers are held firmly against their grilles. Screw tips clear the speaker housing and cables.",
       "parts": {
@@ -555,8 +555,7 @@
         "The grille sits flat against the base.",
         "Repeat panels 1 to 3 on the other side.",
         "Label each speaker cable with its side: robot-left or robot-right.",
-        "Leave enough cable slack to pull a grille away for service.",
-        "Leave the plugs disconnected until {step:audio-module}."
+        "Leave enough cable slack to pull a grille away for service."
       ],
       "check": "Both grilles sit flat. The speakers and cables are inside the base, with no cable pinched under an edge.",
       "parts": {
@@ -620,8 +619,7 @@
           "textOnly": true,
           "actions": [
             9,
-            10,
-            11
+            10
           ]
         }
       ]
@@ -1349,7 +1347,6 @@
         "On your computer, in the repository folder, run the command below.",
         "The output must name your Pi 3, aarch64 or arm64, Python 3.13 and trixie.",
         "If it rejects the model or OS, correct the choices in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}. Do not continue past a failed check.",
-        "Keep servo and lighting circuits disconnected. Only the USB audio module connects to the Pi now.",
         "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot.",
         "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
         "If it ends with “Installation complete”, continue to {step:service-check}.",
@@ -1393,8 +1390,7 @@
           "title": "Install the application",
           "actions": [
             3,
-            4,
-            5
+            4
           ],
           "codeBlocks": [
             {
@@ -1410,18 +1406,18 @@
         {
           "title": "Read how provisioning ended",
           "actions": [
+            5,
             6,
-            7,
-            8
+            7
           ],
           "textOnly": true
         },
         {
           "title": "Reboot only if provisioning asks",
           "actions": [
+            8,
             9,
-            10,
-            11
+            10
           ],
           "codeBlocks": [
             {
@@ -1476,7 +1472,7 @@
         "Back on your computer, restart the service. Check its status again.",
         "From your computer, open the Pi shell. Shut the Pi down with the second command. The SSH session disconnects.",
         "Wait for the Pi’s green activity light to stop flashing. Unplug the bench supply (T13) from the Pi.",
-        "Unplug the USB extension (E23) from the Pi. Unplug the audio module (E14) from the extension."
+        "Unplug the USB-A extension cable (E23) from the Pi. Unplug the audio module (E14) from the extension."
       ],
       "check": "The application runs with its USB audio device. The Pi is shut down, unplugged and ready to mount.",
       "note": "You mount the unpowered Pi in {step:pi-shifters}.",
@@ -2149,7 +2145,7 @@
         "Let the joints cool before mounting. Leave the leads long for final routing.",
         "Push J1 through the power jack plate (FB21) from the back. Its leads stay behind the plate. Fit the supplied washer and nut on the outside.",
         "Check full thread engagement and clearance around the insulated lugs.",
-        "Place the base (FB01) upside down. Feed the leads and the jack body into the base through the power jack opening.",
+        "Keep the base (FB01) upside down. Feed the leads and the jack body into the base through the power jack opening.",
         "Seat the plate flush against the outside of the base. The jack body holds it loosely in its opening.",
         "Through the open bottom, place an M3 nut in the pocket nearer the open bottom. Match its flats to the pocket. Hold it there with a fingertip. Do not glue it.",
         "With your other hand, put an M3×12 screw through the plate into that nut. Use no washer. Turn it by hand until it catches.",
@@ -2542,8 +2538,8 @@
       "chapter": "Base wiring",
       "actions": [
         "Take the remaining eight GPIO jumper leads (E24). They connect the Pi to the two level shifters (S1, S2).",
-        "Keep the 2.54 mm female socket on one end of each lead. That end goes on the Pi.",
-        "Cut off any connector at the other end. Strip only enough for the bare wire to fit fully inside a screw terminal.",
+        "Keep the 2.54 mm female socket on one end of each lead. That end goes on the Pi. Test-route four leads from the Pi header to S1 and four to S2.",
+        "Cut each lead where it reaches, leaving slack to route and tie it. Strip only enough for the bare wire to fit fully inside a screw terminal.",
         "Find pin 1, marked at the microSD end of the header. Connect pin 1 to S1 V. Connect pin 6 to S1 G. Connect pin 12 to S1 DAT. Connect pin 32 to S1 CLK.",
         "For each lead, hold the socket by its plastic body. Push it straight down onto its Pi pin. Push the bare end fully into its S1 terminal. Tighten the terminal screw.",
         "Connect the base-half DATA wire to S1 D5. Label S1 C5 LEFT. Leave S1 !D5 and the output G terminal empty.",
@@ -2612,7 +2608,7 @@
       "actions": [
         "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
         "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED − lead, labeled 20, onto pin 20 (GND).",
-        "Plug the USB extension (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
+        "Plug the USB-A extension cable (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
         "Route the USB cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle. Do not pull sideways on either socket."
       ],
@@ -2680,7 +2676,7 @@
         "Each body is held by its tie, not by its wires.",
         "Route every wire around both frame-screw positions. Keep the harness opening clear. The three servo cables and the body half of the body light connector pass through it later.",
         "Where wires run together, such as the eight GPIO leads, tie them to the nearest square. Tie the F2 output end so that cutting one tie frees it. Trim the tails.",
-        "Keep the SD card, WAGO levers, fuse caps, plugs and vents reachable. Leave each tie lock where you can cut it."
+        "Keep the microSD card, WAGO levers, fuse caps, plugs and vents reachable. Leave each tie lock where you can cut it."
       ],
       "check": "The fuse holders, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds.",
       "parts": {
@@ -3050,7 +3046,7 @@
       },
       "actions": [
         "Rest the base (FB01) on its robot-left side on a folded towel. Turn its open bottom toward you. The top wall now faces away from you.",
-        "Inside the base, move any wire away from the screw holes in front of and behind the central opening. Keep the opening clear.",
+        "Inside the base, move any wire away from the screw holes in front of and behind the harness opening. Keep the opening clear.",
         "Slide an M3 nut into the slot near the foot of each frame upright (P02). When fitted, the slots face away from the other upright.",
         "With one hand, hold a foam collar (P01) on the outside of the top wall. Line up its two tabs with the screw holes.",
         "With the same hand, hold one upright on its tab, slots facing outward. With the other hand, put an M3×16 screw from inside through the top wall and collar into the upright.",
@@ -3125,7 +3121,7 @@
         "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo’s part card.",
         "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
         "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
-        "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the central opening into the base.",
+        "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the harness opening into the base.",
         "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
         "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
         "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12).",
@@ -4009,7 +4005,7 @@
         "Count six pebbles from the end marked INPUT. Cut the wire midway between the sixth and seventh pebbles.",
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
-        "Test-route the body half of the body light connector down the frame. Pass it through the central opening to the base half in the base.",
+        "Test-route the body half of the body light connector down the frame. Pass it through the harness opening to the base half in the base.",
         "Test-route the head power pair up the frame, through the upper foam collar (P01). Mark it about 10 cm above the collar. That reaches into the head, with a turning loop below the shelf.",
         "If either cable is short, extend it on the bench without disturbing the input joints.",
         "On the bench, remove the caps from the head power pair. Trim the pair at the mark.",
@@ -4204,7 +4200,7 @@
       },
       "actions": [
         "Slide an M3 nut into the lower side slot on the robot-right face of the rear upright.",
-        "Run the three servo cables and the body half of the body light connector down the frame. Pass them through the central opening into the base.",
+        "Run the three servo cables and the body half of the body light connector down the frame. Pass them through the harness opening into the base.",
         "Keep them clear of the rear seam and of sharp edges.",
         "Cut the body foam (C04) from the body foam template: 224.8 × 114.3 mm, from 4 mm foam. Cut it slightly long.",
         "Cut the two knife slits marked on the template, one to each shoulder. Remove no foam.",
@@ -6343,7 +6339,7 @@
       "chapter": "Service",
       "actions": [
         "Open the base as in {step:base-open}.",
-        "For the audio module or its cradle, unplug the USB extension cable and both speaker plugs from the module. Pull each by its plug body.",
+        "For the audio module or its cradle, unplug the USB-A extension cable and both speaker plugs from the module. Pull each by its plug body.",
         "Remove the two M2×8 lid screws. Lift off the audio cradle lid (FB32).",
         "Hold the cradle. Release the module’s case from its tape as the tape’s instructions say. Lift the module out.",
         "For the cradle, remove its three M3×6 screws, including the middle one under the module.",

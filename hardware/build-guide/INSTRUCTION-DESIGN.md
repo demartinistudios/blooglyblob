@@ -341,6 +341,7 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 | One LED bead on the body strand (E05) | pebble | — | — |
 | A place in the lighting data chain: body 0–5, eyes 6–7, mouth 8–15 | light 0 to light 15 | — | pixel (except in software output) |
 | FB01 and everything mounted in it | base | — | enclosure, electronics enclosure |
+| Central hole in the base's top wall, between the two frame screws, where the servo cables and body light connector enter | harness opening | — | central opening, central wire hole |
 
 Retired names must not appear in guide text, captions, diagram labels, part
 cards or generator labels once the rewrite is complete.
