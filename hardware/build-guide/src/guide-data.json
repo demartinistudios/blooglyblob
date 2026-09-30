@@ -4000,9 +4000,9 @@
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
         "Test-route the body half of the body light connector down the frame. Pass it through the central opening to the base half in the base.",
-        "Test-route the head power pair up the frame, through the upper foam collar (P01). Leave slack to lift the head and unplug the head light connector.",
-        "Mark each wire where it reaches with that slack. If a wire is short, extend it on the bench. Leave the input joints intact.",
-        "On the bench, remove the caps from the head power pair. Trim the pair at your marks.",
+        "Test-route the head power pair up the frame, through the upper foam collar (P01). Mark the pair where it reaches with slack to lift the head and unplug the head light connector.",
+        "If either cable is short, extend it on the bench without disturbing the input joints.",
+        "On the bench, remove the caps from the head power pair. Trim the pair at the mark.",
         "Take the body half of the head light connector (E10) from {step:head-harness}. Solder its +5 V and GND wires to the matching head power pair wires.",
         "Solder its DATA wire to the outgoing DATA wire after light 5.",
         "Insulate each joint separately. Insulate the two unused outgoing power wires after light 5 separately.",
@@ -4050,10 +4050,16 @@
           ]
         },
         {
-          "title": "Insulate the joints and check the power contacts",
+          "title": "Insulate the joints",
           "textOnly": true,
           "actions": [
-            9,
+            9
+          ]
+        },
+        {
+          "title": "Check the power contacts",
+          "textOnly": true,
+          "actions": [
             10,
             11
           ]
@@ -4083,8 +4089,8 @@
         "At the lower slot, hold a front body-light bracket (P11) on the upright, countersunk hole facing forward. Put an M3×10 countersunk screw through it into the nut.",
         "Fit the second P11 at the upper slot the same way. Fit the body wire guide (P13) at the middle slot. Tighten all three screws.",
         "If a screw does not catch, check that its nut is fully in the slot.",
-        "Hold the rear body-light bracket (P12) on the back of the rear upright, over the middle nut. Line up the holes.",
-        "Turn it so both pads face forward. They angle 10° outward.",
+        "Turn the rear body-light bracket (P12) so both pads face forward. They angle 10° outward.",
+        "Hold it on the back of the rear upright, over the middle nut. Line up the holes.",
         "Tape it to the upright with low-tack tape.",
         "Place a pebble on each of the six pads, LED facing away from the pad.",
         "At each pebble, pass two 2.5 mm cable ties (C07) through the pad slots. Put one on each side of the resin.",
@@ -4192,13 +4198,11 @@
         "Keep them clear of the rear seam and of sharp edges.",
         "Cut the body foam (C04) from the body foam template: 224.8 × 114.3 mm, from 4 mm foam. Cut it slightly long.",
         "Cut the two knife slits marked on the template, one to each shoulder. Remove no foam.",
-        "Test-fit the foam between the two foam collars (P01), with its front center at the front upright.",
-        "Trim both ends until they meet at the rear upright with a 2 mm gap. Keep the edge notches full size.",
-        "Wrap the foam again. Leave both shoulder horn seats clear.",
-        "Lift the foam edges at the lower nut. Slide a rear seam backing (P09) behind them. Line up its hole with the upright’s hole.",
-        "With one hand, press a rear seam cover (P10) over the seam there. It holds P09 against the upright.",
-        "With the other hand, drive an M3×16 screw through P10 and P09 into the nut. Tighten it.",
-        "Slide the second P09 behind the foam edges at the upper nut. Tape it to the upright with low-tack tape.",
+        "Test-fit the foam between the two foam collars (P01), front center at the front upright. Trim both ends to a 2 mm gap at the rear upright. Keep the edge notches full size.",
+        "Hold a rear seam backing (P09) on the back of the rear upright, over the upper nut. Line up the holes. Tape it there with low-tack tape.",
+        "Wrap the foam again, over the taped backing. Leave both shoulder horn seats clear.",
+        "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright’s hole.",
+        "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3×16 screw through P10 and P09 into the nut and tighten it.",
         "Fit the other two P10 covers over the seam at the middle and upper nuts. The rear body-light bracket (P12) backs the middle one."
       ],
       "check": "The foam sits in both collars without stretching. Its ends meet at the rear seam, and the lower cover is screwed.",
@@ -4237,38 +4241,36 @@
           ]
         },
         {
-          "title": "Cut the body foam from the template",
+          "title": "Cut the foam and trim it to fit",
           "textOnly": true,
           "actions": [
             3,
-            4
+            4,
+            5
           ]
         },
         {
-          "title": "Wrap and trim the foam",
+          "title": "Tape the upper seam backing",
+          "textOnly": true,
+          "actions": [
+            6
+          ]
+        },
+        {
+          "title": "Wrap the foam",
           "image": "assets/r16/step-15.png",
           "caption": "The wrapped body from the rear, with the seam covers drawn apart from the seam.",
           "actions": [
-            5,
-            6,
             7
           ]
         },
         {
-          "title": "Fasten the lower seam cover",
+          "title": "Fit the three seam covers",
           "textOnly": true,
           "actions": [
             8,
             9,
             10
-          ]
-        },
-        {
-          "title": "Fit the upper backing and the other covers",
-          "textOnly": true,
-          "actions": [
-            11,
-            12
           ]
         }
       ]
