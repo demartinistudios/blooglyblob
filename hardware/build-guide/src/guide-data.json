@@ -4288,15 +4288,17 @@
         "N2": 4
       },
       "actions": [
-        "Seat a drilled horn in AR01’s inner round recess. Slide two M2 nuts through the side channels and fasten the drilled hole pair.",
-        "Fit the other horn in AR04 with two M2×6 screws and nuts. Keep both arms off the shafts and save their center screws."
+        "Lay the robot-left upper arm (AR01) with its inner round recess facing up. Slide an M2 nut into each side channel until it stops.",
+        "Seat a drilled servo horn (E02) in the recess, splined hub up. Drive an M2×6 screw through each drilled hole into its nut.",
+        "If a screw does not catch, push its nut further into the channel.",
+        "Fit the other horn to the robot-right upper arm (AR04) the same way, with two M2×6 screws and nuts."
       ],
-      "check": "Both horns sit flat and their center holes are accessible.",
+      "check": "Both horns sit flat in their recesses, splined hub up, and each horn’s center hole is clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "The arms go onto their shafts only after all three servos reach the fit pose in {step:fit-position}.",
+      "note": "",
       "kind": "build",
       "number": 51,
       "commands": [],
@@ -4312,19 +4314,21 @@
       ],
       "panels": [
         {
-          "title": "Robot-left arm AR01",
+          "title": "Fit a horn to the robot-left upper arm",
           "image": "assets/community/arm-horn-left.png",
-          "caption": "Two M2×6 screws into side-loaded M2 nuts.",
+          "caption": "Above, an M2 nut entering a side channel. Below, the horn in the inner recess with its two screws.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Robot-right arm AR04",
+          "title": "Fit a horn to the robot-right upper arm",
           "image": "assets/community/arm-horn-right.png",
-          "caption": "Repeat with the matching arm; keep both center holes open.",
+          "caption": "The same two views for the robot-right upper arm.",
           "actions": [
-            1
+            3
           ]
         }
       ]
@@ -4343,15 +4347,18 @@
         "N3": 2
       },
       "actions": [
-        "Load an M3 nut into each upper arm’s inner elbow pocket. Put the forearm tongue between the fork cheeks and insert the M3×14 screw from outside.",
-        "Tighten until the elbow holds a pose but still bends smoothly by hand through 0–70°. Do not squeeze the fork cheeks to force the fit; leave the screw exposed."
+        "Slide the tongue of the robot-left forearm (AR02) between the fork cheeks of the robot-left upper arm (AR01). Line up the holes.",
+        "From the outer side, push an M3×14 screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
+        "Hold the nut in its pocket with a fingertip. Turn the screw until it catches.",
+        "Tighten the screw until the elbow holds a pose but still bends smoothly by hand through 0–70°.",
+        "Build the robot-right elbow the same way, from the robot-right upper arm (AR04) and forearm (AR05)."
       ],
-      "check": "Both elbows hold their pose and adjust without binding or cracking.",
+      "check": "Both elbows hold a pose and bend by hand without binding. Neither fork is cracked.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "You adjust the elbow stiffness at this screw in {step:arm-service}.",
       "kind": "build",
       "number": 52,
       "commands": [],
@@ -4367,12 +4374,25 @@
       ],
       "panels": [
         {
-          "title": "Fit the adjustable elbow screws",
+          "title": "Pin the robot-left elbow",
           "image": "assets/r19/step-17.png",
-          "caption": "AR01 + AR02 left; AR04 + AR05 right. One M3×14 screw and M3 nut per elbow.",
+          "caption": "The robot-left elbow, with its screw and nut drawn out of the fork.",
           "actions": [
             0,
-            1
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Set the stiffness and build the robot-right elbow",
+          "textOnly": true,
+          "safety": {
+            "level": "notice",
+            "text": "Overtightening squeezes the fork cheeks together. The fork can crack. Stop tightening once the elbow holds a pose."
+          },
+          "actions": [
+            3,
+            4
           ]
         }
       ]
@@ -4392,14 +4412,21 @@
       },
       "hardware": {},
       "actions": [
-        "Dry-fit all four magnets and check that each forearm–hand pair attracts. Mark the forearm mating faces A and the hand mating faces B, as shown; these are temporary marks for opposite poles. Repeat for both arms.",
-        "Use the two-part epoxy to glue the magnets into their recesses. Keep the parts apart until it has fully cured.",
-        "Push each hand in by its palm and turn it to a pose. Check it seats fully and stays on. To remove it, pull the palm straight out.",
-        "Optional AR07 replaces the robot-left AR03 hand and needs one additional magnet with the same hand polarity.",
-        "Test-fit AR08, then remove it so the servo center screw remains accessible.",
-        "Test-fit AR09 and remove it too. Keep both arms on the bench."
+        "Let the four disc magnets (C08), 3/16 × 1/16 inch, snap together into one column. Add a fifth if you fit the optional pointing hand.",
+        "Slide the magnets off the top one at a time. Mark the top face of the first two A. Turn each of the rest over. Mark its top face B.",
+        "Each A face now attracts each B face. The A faces go out of the forearms, and the B faces out of the hands.",
+        "Put a small amount of two-part epoxy (C09) in the magnet seat of the robot-left forearm (AR02). Keep it off the wrist socket walls and end stops.",
+        "Press in an A magnet, A face out. Glue an A magnet into the robot-right forearm (AR05) the same way.",
+        "Glue a B magnet into the wrist peg of the robot-left relaxed hand (AR03) the same way, B face out. Keep epoxy off the outside of the peg.",
+        "Do the same for the robot-right relaxed hand (AR06). The optional robot-left pointing hand (AR07) replaces AR03. It takes the fifth magnet, also B face out.",
+        "Lay the arms and hands apart, so the magnets cannot pull each other out. Let the epoxy cure for the time on its label.",
+        "Push AR03 into the AR02 wrist socket, pressing on the palm. Turn it to a pose. Fit AR06 into AR05 the same way.",
+        "Each hand sits fully in its socket. The magnet holds it on, and friction holds its angle.",
+        "Slide the robot-left shoulder cover (AR08) onto the outer face of the robot-left upper arm (AR01). Pull it off again.",
+        "Test-fit the robot-right shoulder cover (AR09) on the robot-right upper arm (AR04) the same way.",
+        "Each cover slides fully on and pulls off by hand. The center screws go in through this face in {step:shelf-arms}."
       ],
-      "check": "Hands hold their pose and both shoulder covers fit and remove freely.",
+      "check": "Each hand holds its pose on its forearm. Both shoulder covers fit their upper arms and are off again.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4410,44 +4437,50 @@
       "commands": [],
       "panels": [
         {
-          "title": "Check the magnet pairs",
+          "title": "Mark the magnet faces",
+          "textOnly": true,
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Glue an A magnet into each forearm",
           "image": "assets/r19/wrist-socket.png",
-          "caption": "One 3/16 × 1/16-inch disc magnet in each forearm and hand.",
+          "caption": "Above, the A magnet over the forearm seat. Below, a cutaway of the seated magnet.",
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Glue and let the magnets cure",
-          "image": "assets/r19/wrist-peg.png",
-          "caption": "Keep glue off the wrist peg, socket and end stops.",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Seat each hand by its palm",
-          "image": "assets/r19/wrist-round.png",
-          "caption": "The magnet retains the hand; friction holds its angle.",
-          "actions": [
-            2,
-            3
-          ]
-        },
-        {
-          "title": "Try the left cover",
-          "image": "assets/community/shoulder-cover-left.svg",
-          "caption": "AR08 is robot-left.",
-          "actions": [
+            3,
             4
           ]
         },
         {
-          "title": "Try the right cover",
-          "image": "assets/community/shoulder-cover-right.svg",
-          "caption": "AR09 is robot-right.",
+          "title": "Glue a B magnet into each hand",
+          "image": "assets/r19/wrist-peg.png",
+          "caption": "Above, the B magnet under the hand seat. Below, a cutaway of the seated magnet.",
           "actions": [
-            5
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Seat each hand on its forearm",
+          "image": "assets/r19/wrist-round.png",
+          "caption": "The robot-left relaxed hand above the robot-left forearm’s wrist socket.",
+          "actions": [
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Test-fit the shoulder covers",
+          "image": "assets/community/shoulder-cover-left.svg",
+          "caption": "The robot-left shoulder cover sliding onto the upper arm.",
+          "actions": [
+            10,
+            11,
+            12
           ]
         }
       ]
