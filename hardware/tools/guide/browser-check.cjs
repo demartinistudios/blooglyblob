@@ -191,16 +191,16 @@ fs.mkdirSync(OUT,{recursive:false});
   const plateQuantities={};for(const plate of data.prints)for(const [id,n] of Object.entries(plate.quantities))plateQuantities[id]=(plateQuantities[id]||0)+n;
   assert.deepEqual(plateQuantities,Object.fromEntries(installed.map(p=>[p.id,p.qty])));
   assert.ok(build.find(s=>s.id==='speaker-grilles').number < build.find(s=>s.id==='side-grilles').number,'attach speakers on the bench before mounting side grilles');
-  // The two glue steps preload every glued base nut before any part fastens into them.
-  // Front and side grille nuts are not glued: each grille step loads its own nuts.
+  // The two glue steps preload every glued base nut (board, cover, audio cradle) before any part fastens into them.
+  // Grille, rear vent and power jack nuts are not glued: each of those steps fits its own nuts.
   const nutSteps=['board-cover-nuts','cradle-jack-nuts'].map(id=>build.find(s=>s.id===id));
   const preloaded={};for(const step of nutSteps)for(const [id,n] of Object.entries(step.hardware))preloaded[id]=(preloaded[id]||0)+n;
-  assert.deepEqual(preloaded,{N2:8,N3:13});
+  assert.deepEqual(preloaded,{N2:8,N3:7});
   assert.equal(nutSteps[1].number,nutSteps[0].number+1);
   for(const id of ['front-grille-rear-vent','side-grilles','pi-shifters','audio-cradle','power-jack','bottom-cover']){
    const step=build.find(s=>s.id===id);assert.ok(step.number>nutSteps[1].number);
-   const loaded={'front-grille-rear-vent':4,'side-grilles':8}[id];
-   assert.equal(step.hardware.N3,loaded,'grille steps load their own M3 nuts; other base nuts are glued first: '+id);
+   const loaded={'front-grille-rear-vent':8,'side-grilles':8,'power-jack':2}[id];
+   assert.equal(step.hardware.N3,loaded,'grille, rear vent and power jack steps fit their own M3 nuts; other base nuts are glued first: '+id);
    if(id==='pi-shifters')assert.ok(!step.hardware.N2);
   }
   // Loading keeps saved progress, stock and unrelated fields exactly as stored.

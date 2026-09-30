@@ -294,7 +294,7 @@
     },
     {
       "id": "cradle-jack-nuts",
-      "title": "Glue the cradle, rear vent and power jack nuts",
+      "title": "Glue the audio cradle nuts",
       "chapter": "Base hardware",
       "kind": "build",
       "number": 5,
@@ -303,7 +303,7 @@
         "C09": "Small amount"
       },
       "hardware": {
-        "N3": 9
+        "N3": 3
       },
       "hardware_allocations": [
         {
@@ -311,20 +311,6 @@
           "role": "preload",
           "hardware": {
             "N3": 3
-          }
-        },
-        {
-          "allocation_id": "joint-fb-panels",
-          "role": "preload",
-          "hardware": {
-            "N3": 4
-          }
-        },
-        {
-          "allocation_id": "joint-fb-inlet-button",
-          "role": "preload",
-          "hardware": {
-            "N3": 2
           }
         }
       ],
@@ -337,16 +323,11 @@
         "With the base (FB01) still upside down, find the three open recesses behind the front opening.",
         "Drop an M3 nut into each recess. Match its flats to the recess.",
         "Glue each nut at its outside edge with epoxy (C09), as in {step:board-cover-nuts}. The glue holds these nuts while the cradle screws go in.",
-        "Wait until the glue on all the upside-down nuts holds.",
-        "Rest the base on its rear wall, so the rear nut pockets face up.",
-        "From inside, place an M3 nut in each of the four pockets around the rear opening. Line up each threaded hole with its screw bore. Glue each nut at its outside edge.",
-        "At the robot-left end of the rear wall, fit two M3 nuts in the power jack pockets. Line up their threaded holes with the screw bores. Glue each nut at its outside edge.",
-        "Leave the base on its rear wall until the glue holds.",
-        "Let the glue cure fully, for the time on its label.",
+        "Leave the base upside down. Let the glue cure fully, for the time on its label.",
         "Check gently that every glued nut stays seated. Start a matching screw in each thread by hand. Do not drive it against the plastic.",
         "Remove the test screws. Leave the base empty."
       ],
-      "check": "All 21 glued nuts (8 M2 and 13 M3) stay seated. Every screw starts freely by hand. The board and cover seating faces are clear.",
+      "check": "All 15 glued nuts (8 M2 and 7 M3) stay seated. Every screw starts freely by hand. The board and cover seating faces are clear.",
       "panels": [
         {
           "title": "Glue the three audio cradle nuts",
@@ -359,31 +340,12 @@
           ]
         },
         {
-          "title": "Glue the four rear vent nuts",
-          "image": "assets/community/base-rear-nut-entry.png",
-          "caption": "",
+          "title": "Let the glue cure and test each nut",
+          "textOnly": true,
           "actions": [
             3,
             4,
             5
-          ]
-        },
-        {
-          "title": "Glue the two power jack nuts",
-          "image": "assets/community/inlet-plate-nuts.svg",
-          "caption": "",
-          "actions": [
-            6,
-            7
-          ]
-        },
-        {
-          "title": "Let the glue cure and test each nut",
-          "textOnly": true,
-          "actions": [
-            8,
-            9,
-            10
           ]
         }
       ]
@@ -401,9 +363,9 @@
         "At the front opening, hold the grille against the outside of the base. Put four M3×6 screws through the grille toward the nuts. Use no washers.",
         "Press each nut against the wall with a fingertip from inside. Start its screw by hand until it catches. Tighten all four screws evenly.",
         "If a screw does not start by hand, remove it. Check that its nut is seated.",
-        "At the rear opening, hold the rear vent against the outside of the base. Put four M3×12 screws through the vent into the glued nuts. Use no washers.",
-        "Start all four screws by hand. Tighten them evenly.",
-        "Leave the bottom of the base open."
+        "Through the open bottom, place an M3 nut in one of the four pockets around the rear opening. Match its flats to the pocket. Hold it there with a fingertip. Do not glue it.",
+        "With your other hand, hold the rear vent against the outside of the base. Put an M3×12 screw through the vent into that nut. Use no washer. Turn it by hand until it catches.",
+        "Repeat for the other three pockets, one nut at a time. Tighten all four screws evenly. Leave the bottom of the base open."
       ],
       "check": "Both parts sit flat. Each nut stays seated and the plastic around it is not cracked.",
       "parts": {
@@ -415,9 +377,9 @@
       "hardware": {
         "M3x6": 4,
         "M3x12": 4,
-        "N3": 4
+        "N3": 8
       },
-      "note": "You glued the rear vent nuts in {step:cradle-jack-nuts}.",
+      "note": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -432,7 +394,7 @@
           "hardware": {
             "M3x6": 4,
             "M3x12": 4,
-            "N3": 4
+            "N3": 8
           }
         }
       ],
@@ -475,11 +437,18 @@
           }
         },
         {
+          "title": "Hold a rear vent nut in its pocket",
+          "image": "assets/community/base-rear-nut-entry.png",
+          "caption": "Ignore the glue label in this picture. These nuts are not glued.",
+          "actions": [
+            8
+          ]
+        },
+        {
           "title": "Fit the rear vent",
           "image": "assets/community/rear-vent-installation.svg",
           "caption": "Rear wall cut away.",
           "actions": [
-            8,
             9,
             10
           ]
@@ -2060,8 +2029,11 @@
         "Let the joints cool before mounting. Leave the leads long for final routing.",
         "Push J1 through the power jack plate (FB21) from the back. Its leads stay behind the plate. Fit the supplied washer and nut on the outside.",
         "Check full thread engagement and clearance around the insulated lugs.",
-        "Feed the leads and the jack body into the base through the power jack opening.",
-        "Seat the plate flush. Fasten it from outside with two M3×12 screws. Use no washers.",
+        "Place the base (FB01) upside down. Feed the leads and the jack body into the base through the power jack opening.",
+        "Seat the plate flush against the outside of the base. The jack body holds it loosely in its opening.",
+        "Through the open bottom, place an M3 nut in the pocket nearer the open bottom. Match its flats to the pocket. Hold it there with a fingertip. Do not glue it.",
+        "With your other hand, put an M3×12 screw through the plate into that nut. Use no washer. Turn it by hand until it catches.",
+        "Repeat for the other pocket. Reach past the jack body to hold its nut. Tighten both screws evenly.",
         "Leave enough lead slack to remove the plate."
       ],
       "check": "The jack cannot rotate. The center and sleeve leads are labeled and insulated. The plate comes off without pulling a joint.",
@@ -2077,9 +2049,10 @@
         "T05": 1
       },
       "hardware": {
-        "M3x12": 2
+        "M3x12": 2,
+        "N3": 2
       },
-      "note": "You glued the power jack nuts in {step:cradle-jack-nuts}.",
+      "note": "",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
@@ -2118,13 +2091,29 @@
           ]
         },
         {
+          "title": "Seat the power jack plate",
+          "textOnly": true,
+          "actions": [
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Hold a power jack nut in its pocket",
+          "image": "assets/community/inlet-plate-nuts.svg",
+          "caption": "Seen from inside the base, with the jack hidden.",
+          "actions": [
+            10
+          ]
+        },
+        {
           "title": "Fasten the power jack plate",
           "image": "assets/community/inlet-plate-fastening.svg",
           "caption": "",
           "actions": [
-            8,
-            9,
-            10
+            11,
+            12,
+            13
           ]
         }
       ],
@@ -2133,7 +2122,8 @@
           "allocation_id": "joint-fb-inlet-button",
           "role": "install",
           "hardware": {
-            "M3x12": 2
+            "M3x12": 2,
+            "N3": 2
           }
         }
       ]

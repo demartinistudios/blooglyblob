@@ -433,13 +433,13 @@ The front nuts are loaded in this step, right before their screws, and are not
 glued. Each front channel is open on the inside of the base, so a screw would
 push a loose nut out. The nut only needs holding until its screw catches. After
 that, the screw clamps the wall between the grille and the nut. A fingertip
-holds it, so it needs no glue. The rear vent nuts are glued in an earlier step:
-they are loaded with the base on its rear wall, and the base must be turned
-before their screws go in.
+holds it, so it needs no glue. The rear vent nuts are not glued either. Each is
+placed right before its screw and held with a fingertip through the open
+bottom until the screw catches.
 
-**You need:** base (FB01) with its rear vent nuts glued · front microphone
-grille (FB41) · rear vent (FB03) · four M3×6 screws · four M3×12 screws · four
-M3 nuts · small drivers and hex keys (T05)
+**You need:** base (FB01) · front microphone grille (FB41) · rear vent (FB03) ·
+four M3×6 screws · four M3×12 screws · eight M3 nuts · small drivers and hex
+keys (T05)
 
 **Panel 1: Find the two openings**
 
@@ -477,12 +477,21 @@ seated.
 
 *Caption:* Front wall cut away. Arrows show each screw's path.
 
-**Panel 4: Fit the rear vent**
+**Panel 4: Hold a rear vent nut in its pocket**
 
-1. At the rear opening, hold the rear vent against the outside of the base.
-   Put four M3×12 screws through the vent into the glued nuts. Use no washers.
-2. Start all four screws by hand. Tighten them evenly.
-3. Leave the bottom of the base open.
+1. Through the open bottom, place an M3 nut in one of the four pockets around
+   the rear opening. Match its flats to the pocket. Hold it there with a
+   fingertip. Do not glue it.
+
+*Caption:* Ignore the glue label in this picture. These nuts are not glued.
+
+**Panel 5: Fit the rear vent**
+
+1. With your other hand, hold the rear vent against the outside of the base.
+   Put an M3×12 screw through the vent into that nut. Use no washer. Turn it by
+   hand until it catches.
+2. Repeat for the other three pockets, one nut at a time. Tighten all four
+   screws evenly. Leave the bottom of the base open.
 
 *Result:* The vent sits flat against the base.
 
@@ -490,8 +499,6 @@ seated.
 
 **Check:** Both parts sit flat. Each nut stays seated and the plastic around it
 is not cracked.
-
-**Note:** You glued the rear vent nuts in {step:cradle-jack-nuts}.
 
 ### Example 2: Wire the servo fuse and capacitor (wiring)
 
@@ -553,9 +560,9 @@ insulated wires are separate.
 
 | Limit | Example 1 | Example 2 |
 | --- | --- | --- |
-| Longest sentence (20 or fewer words) | 15 | 15 |
-| Longest action (35 or fewer words) | 28 | 18 |
-| Panels (6 or fewer) | 4 | 3 |
+| Longest sentence (20 or fewer words) | 18 | 15 |
+| Longest action (35 or fewer words) | 34 | 18 |
+| Panels (6 or fewer) | 5 | 3 |
 | IDs and labels named on first use | FB01, FB41, FB03 | E07, E08, F1, C1, W1, W2, W3 |
 | Banned terms | none | none |
 | Captions repeating an action | none | none |
