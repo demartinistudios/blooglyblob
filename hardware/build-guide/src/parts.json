@@ -2132,7 +2132,6 @@
       "power-wiring",
       "servo-fuse-capacitor",
       "light-fuse-capacitor",
-      "secure-base-wiring",
       "body-light-input",
       "servo-cables",
       "head-harness",
@@ -2172,9 +2171,12 @@
     "steps": [
       "button-leads",
       "power-jack",
+      "power-wiring",
       "servo-fuse-capacitor",
       "light-fuse-capacitor",
+      "shifter-wiring",
       "body-light-input",
+      "body-light-test",
       "servo-cables",
       "head-harness",
       "body-light-strand"
