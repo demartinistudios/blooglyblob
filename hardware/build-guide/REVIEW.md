@@ -5,7 +5,11 @@ The guide uses R28 / Fusion cloud24 inputs. The
 from physical build qualification. A verified entry applies to the recorded
 revision; changing a surface or its inputs requires a fresh review.
 
-The current review covered:
+The build guide clarity overhaul (2026-09-29/30) rewrote every surface, so all
+surfaces are pending. They need a fresh review and a bench walk-through. The
+review described below applies to the guide before that overhaul.
+
+The previous review covered:
 
 - Assembly order, mating orientation, fastener entry and access before closure.
 - Part/supply cards, hardware quantities, plate previews and generated downloads.

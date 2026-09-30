@@ -80,6 +80,9 @@ record `reviewed_revision`, reviewer and evidence. The checker validates the
 checklist entries; it does not infer freshness or perform the human review.
 There is no automatic fingerprint or repository-wide dependency graph.
 
+To test the guide with builders who have not seen it, use the
+[cold-reader test protocol](COLD-READER-PROTOCOL.md).
+
 `consistency.py check` checks quantities, references and documented commands.
 Pending manual review permits local previews. `consistency.py check --publication`
 also requires the release checklist; it does not establish physical fit.
