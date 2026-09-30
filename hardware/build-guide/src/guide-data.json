@@ -3415,11 +3415,14 @@
         "Hold the head horn adapter (P14) flange up. Slide an M2 nut into each of the two side slots in its hub.",
         "Hold a drilled horn (E02) in the recess under the adapter. Its flat disk goes against the adapter. Its long splined hub faces away, toward the servo.",
         "Line up the drilled holes with the nuts. Put an M2×6 screw up through each hole into its nut. Tighten both. Keep the horn’s center screw aside.",
-        "Lower the adapter’s hub through the center of the head shelf (P08). Its flange rests on the shelf. Line up the three holes.",
-        "Put an M3×8 screw up through the shelf and flange at each hole. Hold an M3 nut on each screw above the flange. Tighten all three.",
-        "Keep the shelf’s open cable entry clear."
+        "Hold the head shelf (P08) off the bench, with its three M3 nut pockets facing down. Lower the adapter’s hub through the shelf’s center from above.",
+        "Rest the flange on the shelf. Line up its three holes with the shelf’s holes.",
+        "Drop an M3×8 screw down through the flange and shelf at each hole. The screw heads rest on the flange.",
+        "Keep the shelf level in one hand. With a fingertip of that hand, press an M3 nut up into the pocket under one screw.",
+        "With your other hand, turn that screw with a hex key until it catches the nut. Repeat for the other two screws.",
+        "Tighten all three screws. Keep the shelf’s open cable entry clear."
       ],
-      "check": "The horn, adapter and shelf are secure on the bench. The cable entry and the horn’s center hole are clear.",
+      "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The cable entry and the horn’s center hole are clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3457,13 +3460,22 @@
           ]
         },
         {
-          "title": "Screw the adapter to the head shelf",
+          "title": "Seat the adapter in the head shelf",
           "image": "assets/community/head-shelf-fastening.svg",
           "caption": "The adapter above the shelf, with the three screw positions.",
           "actions": [
             3,
             4,
             5
+          ]
+        },
+        {
+          "title": "Fit the nuts under the shelf",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -3919,8 +3931,8 @@
       },
       "hardware": {},
       "actions": [
-        "Hold the head and the shelf separately. Test-fit an M2 nut in each of the three pockets on top of the head shelf (P08).",
-        "Test-fit an M2×8 button-head screw in each of the three screw recesses in the head shell (GS20). Use no washers or plugs.",
+        "Hold the head and the shelf separately. Test-fit an M2 nut in each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
+        "Test-fit an M2×8 button-head screw in each of the head shell (GS20) recesses, on its two sides and back. Use no washers or plugs.",
         "The recesses suit Ø3.5 × 1.3 mm heads. The pockets suit nuts 4 mm across flats and 1.6 mm thick. Set them aside for {step:head-shoulder-covers}.",
         "Hold the head on the shelf. Lay the head harness wires into the shelf’s open side entry, from the side. Keep them clear of the horn screws.",
         "Leave the head half below the shelf. Do not force the plug through a closed hole. This path is separate from the head servo cable.",
