@@ -1214,7 +1214,7 @@
         "In each command below, use your card ID for `Device`, not the card number. That number can change after a reboot. Run the three commands in order to read, set and save the Speaker level.",
         "Both channels report `[-40.00dB]`, a low starting level.",
         "If the Speaker control or its dB scale is missing, stop. Inspect the controls with `alsamixer -c Device` before you continue.",
-        "You adjust the level gradually in the later speaker check. After a reboot, recheck it with `amixer -c Device sget Speaker`.",
+        "You read it again after a reboot and set it by ear in {step:finished-robot}.",
         "Type `exit` to return to your computer.",
         "On your computer, open `config/app.env`. Set `AUDIO_INPUT_DEVICE` and `AUDIO_OUTPUT_DEVICE` to the USB name you noted. If a line starts with `#`, remove the `#`.",
         "Use the same name for both. The module provides the microphone and the speaker. A missing or ambiguous name stops startup. The application never picks another device.",
@@ -4803,7 +4803,7 @@
         "In the base, find the base half and the body half of the body light connector.",
         "Line up the latch with its catch. Push the halves straight together until the latch clicks.",
         "Pull gently on the two housings. They must stay latched.",
-        "Gather the three servo cables and the body-half wires inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
+        "Gather the three servo cables and the input harness inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
         "If no tie square is within reach, stick one down as in {step:secure-base-wiring}. Let it bond before you tie to it.",
         "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
@@ -4812,7 +4812,7 @@
         "The head harness and the head light cable hang slack between the head and the body.",
         "If either is tight, move the head closer."
       ],
-      "check": "Both light connectors are latched. The servo cables and body-half wires are tied inside the harness opening, with slack to each terminal.",
+      "check": "Both light connectors are latched. The servo cables and input harness are tied inside the harness opening, with slack to each terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4912,11 +4912,11 @@
         "Read the marking on the servo fuse (F1). It must read T3.15 A.",
         "Through the open bottom, fit it in the holder labeled F1.",
         "If it reads T1 A, the fuses are swapped. Swap them so F1 holds T3.15 A and F2 holds T1 A.",
-        "Find the power jack (J1) on the rear face of the base, at the robot-right end, on your left. It faces down into the towel.",
+        "Find the power jack (J1) on the rear face of the base, at the robot-left end, on your right. It faces down into the towel.",
         "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels’ edge.",
         "Lift the body at the backpack. Add towels under the backpack until the robot lies level. Add towels under the head until it lines up with the top of the body.",
         "Move the head shelf and head harness clear of the head servo shaft. Nothing may touch the three servo shafts.",
-        "Reach under the robot-right end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
+        "Reach under the robot-left end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
         "If the plug or its cable touches the bench, raise the robot by one more towel at each support.",
         "Plug the mains cord into the wall. Let the Pi boot.",
         "The three servo shafts may turn as the application starts.",
@@ -5081,7 +5081,7 @@
         "The output says the servo pulses stopped and the application stays stopped.",
         "If it says the servo output release is unconfirmed, unplug the supply from the wall at once.",
         "Open the Pi shell. Shut the Pi down with the second command.",
-        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-right end and unplug the barrel plug from the power jack (J1).",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-left end and unplug the barrel plug from the power jack (J1).",
         "Do not turn the three servo shafts by hand. Keep the supply unplugged until {step:first-movement}."
       ],
       "check": "The servos are at the fit position. The Pi is shut down and the supply is unplugged.",
@@ -5379,12 +5379,15 @@
       "actions": [
         "Leave the robot standing on its feet on the folded towel, with the bottom cover off.",
         "Clear tools and cables from in front of the robot and around its head. The arms swing forward up to level. The head turns about 45° each side.",
-        "At the robot-right end of the rear face, push the barrel plug fully into the power jack (J1). Lead its cable straight back, away from the arms.",
+        "At the robot-left end of the rear face, push the barrel plug fully into the power jack (J1). Lead its cable straight back, away from the arms.",
         "Plug the mains cord into the wall. Let the Pi boot.",
         "The head and arms barely move as the application starts. They are already at the fit position.",
-        "Press the front button. Talk with the robot. Ask it to dance.",
-        "The head turns smoothly. The arms swing clear of the body and the supply cable.",
-        "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once. Free the cable. Take off a part that hits. Repeat {step:fit-position} before you refit it."
+        "Press the front button. Talk with the robot. Ask it to dance. Watch the gap under the head as it turns.",
+        "The head turns smoothly. In the gap, the head light cable stays loose and catches on nothing. The arms swing clear of the body and the supply cable.",
+        "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once. Free the cable. Take off a part that hits.",
+        "If you took off a part, plug the supply back into the wall. Run the command below and type STOP, as in {step:fit-position}.",
+        "Shut down and unplug as in the first three panels of {step:secure-wiring}.",
+        "Lift the robot by the base onto its feet on the towel. Refit the part as in {step:shelf-arms} or {step:head-shoulder-covers}. Repeat this step."
       ],
       "check": "The head and arms move through a conversation and a dance without touching the body or any cable.",
       "note": "",
@@ -5418,7 +5421,7 @@
           "title": "Watch a conversation and a dance",
           "safety": {
             "level": "notice",
-            "text": "The servo fuse (F1) does not blow when a servo jams. A jammed servo keeps pushing and can overheat. Unplug the supply as soon as a part binds."
+            "text": "The servo fuse (F1) does not blow when a servo jams. A jammed servo keeps pushing and can overheat. Keep the wall plug within reach while the robot moves."
           },
           "image": "assets/r22/main-front.png",
           "caption": "The assembled robot, from the front.",
@@ -5426,6 +5429,28 @@
             5,
             6,
             7
+          ]
+        },
+        {
+          "title": "Reset a part you took off",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-servo-fit"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            }
+          ],
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -5437,13 +5462,13 @@
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
         "Stack folded towels higher than the barrel plug is long. Beside them, stack towels about 4 cm higher.",
-        "Hold the base with both hands. Lay the robot on its back, base on the lower stack and backpack on the higher one. Keep the power jack end past the edge.",
+        "Hold the base with both hands. Lay the robot on its back, base on the lower stack and backpack on the higher one. Keep the power jack end, on your right, past the edge.",
         "The open bottom faces you, and the barrel plug hangs clear. The head touches nothing. The arms may swing back onto the towels.",
         "Through the open bottom, wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall.",
-        "At the robot-right end, unplug the barrel plug from the power jack (J1).",
+        "At the robot-left end, on your right, unplug the barrel plug from the power jack (J1).",
         "If you left the antenna off in {step:antenna}, fit it now as in that step.",
         "Hold the head still with your other hand while you turn the coil.",
-        "Push the slack of the servo cables and body-half wires into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
+        "Push the slack of the servo cables and the input harness into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
         "Keep all wires and tie locks clear of the four corners, where the cover screws go in.",
         "Take a photo of the wiring through the open bottom. Keep it for repairs."
       ],
@@ -5482,7 +5507,7 @@
         {
           "title": "Lay the robot on its back",
           "image": "assets/r16/service-stand.png",
-          "caption": "The robot on wooden supports, open bottom toward the viewer, head and arms clear.",
+          "caption": "The robot lying on a wooden stand, open bottom toward the viewer, head resting on a block.",
           "actions": [
             1,
             2,
@@ -5600,14 +5625,16 @@
       "title": "Try your finished robot",
       "chapter": "Close up and test",
       "actions": [
-        "At the robot-right end of the rear face, push the barrel plug fully into the power jack (J1).",
+        "At the robot-left end of the rear face, push the barrel plug fully into the power jack (J1).",
         "Leave the rear vent and side grilles uncovered. Plug the mains cord into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
-        "Open the Pi shell with the first command. Press the front button. Talk with the robot.",
-        "Between its replies, raise the level with the second command. Use your card ID for `Device`. Repeat until its speech is clear and comfortable.",
-        "The robot answers what you say. Each run raises both channels by 3 dB. After the first run, both report `[-37.00dB]`.",
-        "Save the level with the first command below. Leave the shell with `exit`.",
-        "Press the front button. Ask the robot to wave. Ask it to dance.",
+        "Open the Pi shell with the first command. Read the speaker level with the second. Use your card ID for `Device`.",
+        "Both channels report `[-40.00dB]`, the level you saved in {step:audio-settings}.",
+        "If they report another level, the saved level did not load. Set and save −40 dB again as in {step:audio-settings}.",
+        "Press the front button. Keep talking with the robot while you set the level.",
+        "The robot answers what you say.",
+        "If speech is too quiet, run the first command below. If it is too loud, run the second. Each run changes the level by 3 dB. Save a changed level with the third.",
+        "Type `exit` to leave the Pi shell. Press the front button. Ask the robot to wave. Ask it to dance.",
         "The head and arms move freely, and the body and eye lights respond. The music plays without rattles or buzzing.",
         "If the base rattles or buzzes, see {step:audio-service}. For other faults, use Troubleshooting. Shut down and unplug before you open the base."
       ],
@@ -5638,7 +5665,7 @@
           ]
         },
         {
-          "title": "Set the speaker level",
+          "title": "Check the speaker level",
           "actions": [
             3,
             4,
@@ -5656,7 +5683,7 @@
             {
               "kind": "command",
               "lines": [
-                "amixer -c Device -- sset Speaker playback 3dB+"
+                "amixer -c Device sget Speaker"
               ],
               "context": "pi",
               "label": "Use your USB card ID"
@@ -5664,16 +5691,33 @@
           ]
         },
         {
-          "title": "Save the speaker level",
+          "title": "Set the level by ear",
           "actions": [
-            6
+            6,
+            7,
+            8
           ],
           "codeBlocks": [
             {
               "kind": "command",
               "lines": [
-                "sudo alsactl store Device",
-                "exit"
+                "amixer -c Device -- sset Speaker playback 3dB+"
+              ],
+              "context": "pi",
+              "label": "Use your USB card ID"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "amixer -c Device -- sset Speaker playback 3dB-"
+              ],
+              "context": "pi",
+              "label": "Use your USB card ID"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo alsactl store Device"
               ],
               "context": "pi",
               "label": "Use your USB card ID"
@@ -5685,9 +5729,9 @@
           "image": "assets/r22/main-front.png",
           "caption": "The assembled robot, from the front.",
           "actions": [
-            7,
-            8,
-            9
+            9,
+            10,
+            11
           ],
           "links": [
             {
