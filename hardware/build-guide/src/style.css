@@ -679,8 +679,6 @@ a[download]::before { content: ""; display: inline-block; width: 1.15em; height:
 .software-command { min-width: 0; }
 .software-command > p { font-size: 14px; line-height: 1.65; margin: -6px 0 14px; }
 .software-tests { margin-top: 24px; }
-.software-help dt { font-weight: 700; margin-top: 22px; }
-.software-help dd { margin: 7px 0 0; max-width: 75ch; }
 @container (max-width: 760px) {
  .setup-step .action-panel-screenshot .action-panel-body { grid-template-columns: 1fr; }
  .setup-step .action-panel-screenshot .diagram { justify-self: start; max-width: 520px; }
