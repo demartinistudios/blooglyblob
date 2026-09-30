@@ -4494,20 +4494,19 @@
         "T05": 1
       },
       "hardware": {
-        "M3x18": 2,
-        "N3": 4
+        "M3x18": 2
       },
       "actions": [
-        "Load all four side-entry nuts before fitting the shell; they receive its four screws in the next step.",
-        "Place P34 against the middle and upper seam covers. Align the stacked holes and start both screws into the nuts loaded in {step:body-diffuser}.",
-        "Tighten evenly, then remove the temporary tape. Keep the shell off until both carrier screws are secure."
+        "Hold the curved backpack carrier (P34) against the middle and upper rear seam covers (P10), hollow side in. Line up its two center holes with theirs.",
+        "With the other hand, drive an M3×18 screw through each center hole into its rear upright nut. Tighten both evenly.",
+        "If a screw does not catch, line up the holes in the cover and backing behind it."
       ],
-      "check": "Both screws pass through the full stack, the carrier follows the body curve and its four shell nuts remain seated.",
+      "check": "Each screw holds the carrier, a seam cover and a backing. The rear body-light bracket (P12) backs the middle cover, and a rear seam backing (P09) the top one. The carrier follows the body curve.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "You loaded the two rear upright nuts in {step:body-lights}.",
       "kind": "build",
       "number": 54,
       "commands": [],
@@ -4516,25 +4515,17 @@
           "allocation_id": "joint-28",
           "role": "install",
           "hardware": {
-            "M3x18": 2,
-            "N3": 4
+            "M3x18": 2
           }
         }
       ],
       "panels": [
         {
-          "title": "Load four shell nuts",
-          "image": "assets/community/carrier-side-nuts.svg",
-          "caption": "Four M3 nuts enter the carrier from its sides.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Fasten carrier to frame",
+          "title": "Screw the carrier to the rear upright",
           "image": "assets/community/carrier-frame-fastening.svg",
-          "caption": "Two M3×18 screws pass through P34, seam covers and P12 or upper P09 into the rear upright.",
+          "caption": "The rear upright from behind, foam hidden, with the carrier, seam covers and backings drawn apart.",
           "actions": [
+            0,
             1,
             2
           ]
@@ -4558,15 +4549,26 @@
       "hardware": {
         "M3x8": 2,
         "M3x12": 4,
-        "N3": 2
+        "N3": 6
       },
       "actions": [
-        "Seat the tanks in P35 and fasten them before fitting the nozzle plugs.",
-        "Fit each elbow’s lower pin into its tank dome and side pin into the rolled top edge. Dry-fit P37 nozzle plugs and P40 top band without force.",
-        "When all parts seat and the tank screws remain accessible, glue the plugs, elbows and top band with the two-part epoxy. Allow full cure.",
-        "Fit the shell and all four screws. Keep the two lower belt docks clear."
+        "Lay the backpack shell (P35) rear face down. The rear face has the four counterbored screw holes.",
+        "Slide a backpack tank (P36) through the two rings at each side, dome end toward the rolled top edge.",
+        "Turn each tank until the hole in its wall lines up under the hole in the tab above it.",
+        "Drop an M3×8 screw into one tab hole, so its tip enters the tank.",
+        "Through the tank’s open end, hold an M3 nut in the pocket under the screw tip with fine pliers. Tighten the screw into it. Fasten the other tank the same way.",
+        "If a screw does not catch, check that the nut sits flat in its pocket.",
+        "Push a nozzle plug (P37) into the open end of each tank. It closes the tank nut access. Fit the backpack top band (P40) over the middle of the rolled top edge.",
+        "Fit the robot-left backpack elbow (P38): lower pin into its tank’s dome hole, side pin into the rolled top edge. Fit the robot-right elbow (P39) the same way.",
+        "Each part seats without force, and both tank screws can still be reached.",
+        "Take off the plugs, elbows and top band. Glue each back in place with a small amount of two-part epoxy (C09).",
+        "Let the epoxy cure for the time on its label.",
+        "Stand behind the robot. Slide an M3 nut into each of the four side channels of the backpack carrier (P34). Push each in until it stops.",
+        "Hold the backpack on the carrier, belt docks at the bottom. Line up its four rear holes with the carrier nuts.",
+        "With the other hand, drive an M3×12 screw through each hole into its nut. Keep the two lower belt docks clear.",
+        "If a screw does not catch, push its nut further into the channel."
       ],
-      "check": "Tanks and details are secure, and the shell removes backward after its four screws are removed.",
+      "check": "The tanks, plugs, elbows and top band are secure. The shell comes off backward once its four screws are removed.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4584,32 +4586,69 @@
             "M3x12": 4,
             "N3": 2
           }
+        },
+        {
+          "allocation_id": "joint-28",
+          "role": "install",
+          "hardware": {
+            "N3": 4
+          }
         }
       ],
       "panels": [
         {
-          "title": "Fasten both tanks first",
-          "image": "assets/community/tank-fastening.svg",
-          "caption": "One M3×8 screw and M3 nut per P36 tank.",
+          "title": "Slide in both tanks",
+          "textOnly": true,
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Dry-fit the details",
-          "image": "assets/r16/step-29.png",
-          "caption": "P38 is the left elbow; P39 is the right. Lower pins point down, side pins inward.",
-          "actions": [
+            0,
             1,
             2
           ]
         },
         {
-          "title": "Fasten the shell to P34",
-          "image": "assets/community/backpack-shell-fastening.svg",
-          "caption": "Four M3×12 screws into the preloaded carrier nuts.",
+          "title": "Screw in each tank",
+          "image": "assets/community/tank-fastening.svg",
+          "caption": "A cutaway of one tank joint: the screw in the shell tab and the nut pocket inside the tank.",
           "actions": [
-            3
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Test-fit the plugs, elbows and top band",
+          "image": "assets/r16/step-29.png",
+          "caption": "The backpack from behind, with the plugs, elbows and top band drawn out of place.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Glue the plugs, elbows and top band",
+          "textOnly": true,
+          "actions": [
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Load the four carrier nuts",
+          "image": "assets/community/carrier-side-nuts.svg",
+          "caption": "The carrier on its own, with a nut beside each side channel.",
+          "actions": [
+            11
+          ]
+        },
+        {
+          "title": "Screw the backpack to the carrier",
+          "image": "assets/community/backpack-shell-fastening.svg",
+          "caption": "The finished backpack drawn back from the carrier, with its four screws.",
+          "actions": [
+            12,
+            13,
+            14
           ]
         }
       ]
@@ -4627,12 +4666,16 @@
       },
       "hardware": {},
       "actions": [
-        "Arrange the seven links in the pictured order with the buckle frame facing outward. Use B09 pins, identified by three small head notches.",
-        "Nest each knuckle in the next fork and insert a B09 pin from above. Six pins join the seven links.",
-        "Nest each rear link between the tabs on P35 and insert the remaining two B09 pins from above. Keep the links free to pivot.",
-        "Check every joint pivots and each head sits just below the top edge. To open later, support each rear link and push its pin upward from below with a spare pin."
+        "Lay the seven belt links flat in a U, as pictured from above. Keep the open end away from you.",
+        "Put the robot-left rear belt link (B01) at the right end. Add two front belt links (B02), the belt buckle (B03), two more B02 and the robot-right rear belt link (B04).",
+        "Face the buckle frame outward.",
+        "Nest each link’s knuckle in the next link’s fork. Push a belt pin (B09) down through each joint, head up. The head has three small notches.",
+        "Six pins join the seven links.",
+        "Bring the belt around the body from the front. Nest the end of each rear link between the tabs of a lower belt dock on the backpack shell (P35).",
+        "Push the last two B09 pins down through the docks.",
+        "Every joint pivots, and each pin head sits slightly below the top edge."
       ],
-      "check": "The belt pivots without cracking and both rear joints open without bending the side bands.",
+      "check": "Every belt joint pivots without cracking. Each rear joint opens when its pin is pushed up from below with a spare pin. The rear link must be supported then, so its side band does not bend.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4643,28 +4686,32 @@
       "commands": [],
       "panels": [
         {
-          "title": "Arrange the seven links",
+          "title": "Lay out the seven links",
           "image": "assets/community/belt-link-order.svg",
-          "caption": "Starting at left rear: B01 → B02 → B02 → B03 → B02 → B02 → B04.",
+          "caption": "The belt from above, open end at the top.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Insert the pins from above",
+          "title": "Pin the links together",
           "image": "assets/community/belt-pin-insertion.svg",
-          "caption": "B02–B02 joint shown; use the same pin direction for the six link joints.",
+          "caption": "One joint between two front belt links, with its pin above the fork.",
           "actions": [
-            1
+            3,
+            4
           ]
         },
         {
-          "title": "Pin both ends to the backpack",
+          "title": "Pin the belt to the backpack",
           "image": "assets/community/backpack-belt-pin.svg",
-          "caption": "P35 and B01 shown; repeat with B04 on the other side.",
+          "caption": "The robot-left rear belt link in its dock on the shell, with its pin above.",
           "actions": [
-            2,
-            3
+            5,
+            6,
+            7
           ]
         }
       ]
