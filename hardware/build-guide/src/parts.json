@@ -2024,8 +2024,7 @@
       "light-fuse-capacitor",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "servo-connections"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2207,6 +2206,7 @@
       "servo-cables",
       "head-harness",
       "body-light-strand",
+      "light-connections",
       "power-parts-service"
     ],
     "status": "Check it when it arrives",
@@ -2262,7 +2262,6 @@
       "body-light-test",
       "head-harness",
       "body-light-strand",
-      "light-connections",
       "power-up-inspection",
       "power-parts-service"
     ],

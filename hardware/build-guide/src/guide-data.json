@@ -4723,47 +4723,68 @@
       "chapter": "Final wiring",
       "title": "Connect the three servo cables",
       "parts": {
-        "C06": "As routed",
         "T05": 1
       },
       "hardware": {},
       "actions": [
-        "Support the robot in its stand. Bring the BASE→BODY lighting lead and three separately labeled servo cables through the smooth central opening into the enclosure. Keep each cable identifiable; connect LEFT to the shown ports.",
-        "Connect RIGHT, then gently pull-check both WAGO wires and its signal wire.",
-        "Connect the head servo. Keep its cable distinct from the separate HEAD lighting plug."
+        "Lay the robot on its back on a folded towel. Turn it so the open bottom of the base faces you.",
+        "Put a second folded towel under the backpack to support the body. Only the base and the backpack touch the towels.",
+        "Find the left arm servo cable (LEFT) in the harness opening. Insert its supply wire into W2/2. Insert its ground wire into W4/2.",
+        "On the level shifter (S1), connect its signal wire to S1 C5, labeled LEFT. Tighten the terminal screw.",
+        "Pull gently on each of the three wires. Each must stay in its port or terminal.",
+        "Insert the supply wire of the right arm servo cable (RIGHT) into W2/3. Insert its ground wire into W4/3.",
+        "On the level shifter (S2), connect its signal wire to S2 D5, labeled RIGHT. Pull gently on each wire. Each must stay in place.",
+        "Insert the supply wire of the head servo cable (HEAD) into W2/4. Insert its ground wire into W4/4.",
+        "Connect its signal wire to S2 C5, labeled HEAD. Pull gently on each wire. Each must stay in place."
       ],
-      "check": "",
+      "check": "Each servo’s supply wire is in W2 and its ground wire is in W4. Its signal wire is in its labeled level shifter terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
-      "note": "",
+      "note": "You labeled the servo cables and found their wires in {step:servo-cables}. You labeled the level shifter terminals in {step:shifter-wiring}.",
       "kind": "build",
       "number": 57,
       "commands": [],
       "panels": [
         {
-          "title": "Land the left servo",
-          "image": "assets/circuits/servo-left.svg",
-          "caption": "LEFT: W2/2 +5 V, W4/2 GND, S1 C5 signal.",
+          "title": "Lay the robot on its back",
+          "textOnly": true,
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Land the right servo",
-          "image": "assets/circuits/servo-right.svg",
-          "caption": "RIGHT: W2/3 +5 V, W4/3 GND, S2 D5 signal.",
-          "actions": [
+            0,
             1
           ]
         },
         {
-          "title": "Land the head servo",
-          "image": "assets/circuits/servo-head.svg",
-          "caption": "HEAD servo: W2/4 +5 V, W4/4 GND, S2 C5 signal.",
+          "title": "Connect the left arm servo",
+          "image": "assets/circuits/servo-left.svg",
+          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
+          "safety": {
+            "level": "notice",
+            "text": "A servo with its supply and ground wires swapped can be damaged at power-up. Insert each supply wire into the servo power WAGO (W2). Insert each ground wire into the servo ground WAGO (W4)."
+          },
           "actions": [
-            2
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Connect the right arm servo",
+          "image": "assets/circuits/servo-right.svg",
+          "caption": "Connection view of the RIGHT cable at W2, W4 and S2.",
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Connect the head servo",
+          "image": "assets/circuits/servo-head.svg",
+          "caption": "Connection view of the HEAD cable at W2, W4 and S2.",
+          "actions": [
+            7,
+            8
           ]
         }
       ]
@@ -4775,15 +4796,23 @@
       "parts": {
         "C07": "As routed",
         "C17": "As routed",
-        "T03": 1
+        "T01": 1
       },
       "hardware": {},
       "actions": [
-        "Connect BASE→BODY. H3 DATA already lands on S1 D5; F2 and C2 stay in the base. Support the head separately on the bench and connect HEAD without letting a cable carry its weight.",
-        "Check labels and connector mapping, closed levers and no sustained +5 V-to-ground short. A meter cannot check data through an LED; the next light test checks the full chain.",
-        "Secure stationary bundles with P13 and adhesive tie mounts, leaving the HEAD lighting loop free to turn and both lighting latches reachable. Leave enough service slack to reach servo terminals without pulling a splice. Keep splices off bends, clear of moving horns, and away from WAGO levers, SD card, microphone and frame screws."
+        "In the base, find the base half and the body half of the body light connector.",
+        "Line up the latch with its catch. Push the halves straight together until the latch clicks.",
+        "Pull gently on the two housings. They must stay latched.",
+        "Gather the three servo cables and the body-half wires inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
+        "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
+        "If no tie square is within reach, stick one down as in {step:secure-base-wiring}. Let it bond before you tie to it.",
+        "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
+        "Leave the head shelf on the head harness, between the head and the body.",
+        "At the top of the body, plug the head half of the head light connector into its body half. Seat it the same way.",
+        "The head harness and the head light cable hang slack between the head and the body.",
+        "If either is tight, move the head closer."
       ],
-      "check": "All three servos match their labels, lighting plugs are seated and no cable or joint takes tension.",
+      "check": "Both light connectors are latched. The servo cables and body-half wires are tied inside the harness opening, with slack to each terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4794,20 +4823,40 @@
       "commands": [],
       "panels": [
         {
-          "title": "Seat the lighting plugs",
+          "title": "Connect the body light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "BASE→BODY supplies the body; HEAD continues power and data to the head lighting.",
+          "caption": "The two halves of a light connector, lined up and then latched.",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
-          "title": "Keep moving cables free",
-          "image": "assets/community/head-cable-entry.svg",
-          "caption": "Keep slack at plugs and the head, clear of screws and the open shelf entry.",
+          "title": "Tie the cables inside the harness opening",
+          "image": "assets/community/base-routing-access.svg",
+          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
           "actions": [
-            2
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Rest the head beside the body",
+          "textOnly": true,
+          "actions": [
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Connect the head light connector",
+          "textOnly": true,
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -4815,18 +4864,18 @@
     {
       "id": "power-up-inspection",
       "chapter": "Final wiring",
-      "title": "Inspect before power-up",
+      "title": "Check for shorts before power-up",
       "parts": {
         "T03": 1
       },
       "hardware": {},
       "actions": [
-        "Check connector polarity, capacitor polarity and that neither speaker output joins ground.",
-        "Remove F1 and check no direct W1-to-W2 bypass exists. Refit T3.15 A and confirm that the path now passes through it; confirm F2 is T1 A.",
-        "Inspect WAGO levers, terminals, screw tips, nuts, washers and every cable crossing. Remove all wire offcuts and debris.",
-        "Keep head and arms off the shafts and supported separately. Check the frame is stable and take a wiring photo for future repairs."
+        "With the meter in continuity mode, check the servo power WAGO (W2) against the servo ground WAGO (W4). It may beep briefly while a capacitor charges. It must not beep steadily.",
+        "Check the input WAGO (W1) against the ground WAGO (W3) the same way. With the light fuse (F2) fitted, this includes the body and head lights.",
+        "If either check beeps steadily, find and fix the short before you go on.",
+        "Pick any wire offcuts and loose strands out of the base."
       ],
-      "check": "No sustained shorts, reversed connections, loose joints or trapped wires; servos are mounted with bare shafts.",
+      "check": "Neither W2 to W4 nor W1 to W3 beeps steadily. The base holds no wire offcuts.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4837,20 +4886,19 @@
       "commands": [],
       "panels": [
         {
-          "title": "Recheck power after the new wiring",
+          "title": "Check the servo and light branches for shorts",
           "image": "assets/power-diagram.svg",
-          "caption": "Remove F1 to distinguish a fuse path from an accidental direct link.",
+          "caption": "Reference schematic of the three power branches from W1.",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
-          "title": "Check connectors and fasteners",
-          "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "No loose strands, partially seated plugs or pinched wires.",
+          "title": "Clear out the base",
+          "textOnly": true,
           "actions": [
-            2,
             3
           ]
         }
