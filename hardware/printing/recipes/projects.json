@@ -735,16 +735,16 @@
     }
   ],
   "cad": {
-    "design_revision": "R28",
+    "design_revision": "R29",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 24,
-    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
-    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+    "cloud_version": 25,
+    "release_manifest": "hardware/cad/design-control/releases/R29-batch-20260930.json",
+    "release_manifest_sha256": "c0664b8c3e63815507e428aa4d94cba43546d2c8bde31483c5703f22a4126a57"
   },
   "semantic_contract": {
     "path": "hardware/printing/recipes/semantic-contract.json",
-    "sha256": "c130390246c2a70e3219d0fb8f2baaadd4f979894c5fc4846b628c9f890ddb95",
-    "bytes": 171947
+    "sha256": "5c2a9da7344763cc4984df7b25e2069485fbb3f43fd1978a655ef8bac44ecbe0",
+    "bytes": 171702
   },
-  "cad_update_status": "R28 FB01 installed and K1 reviewed;48 unrelated independent source reviews pending; no dispatch or physical qualification."
+  "cad_update_status": "R29 CAD accepted; P08/P14/FB24/FB32/P35/P36 project replacement and full affected-plate review pending. Existing project bytes and unrelated source reviews preserved."
 }

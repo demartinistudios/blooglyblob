@@ -1,6 +1,6 @@
 {
-  "status": "R28/cloud24 CAD and editable print package:71 required pieces/51 types. FB01 only replaced, K1 bounded review complete; independent source and physical qualification gates remain separate.",
-  "cad": "R28",
+  "status": "R29 CAD accepted; six changed part designs require print-project replacement and affected guide updates. Physical qualification remains separate.",
+  "cad": "R29",
   "parts": [
     {
       "part_id": "A04",
@@ -624,7 +624,7 @@
       "part_id": "FB24",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/FB24.stl",
-      "geometry_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+      "geometry_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
       "instances": [
         {
           "id": "FB24-1",
@@ -641,8 +641,8 @@
       ],
       "guide_image": "assets/r16/part-FB24.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
-      "qualification": "User explicitly authorized direct MAIN promotion of closed audio tie slits for rear-face tape retention. Printed fit, tape adhesion, service removal and actual cable connector fit remain untested.",
-      "geometry_revision": "sha256:3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
       "guide_review_step_ids": [
         "print-cleanup",
         "board-cover-nuts",
@@ -651,13 +651,13 @@
         "audio-module",
         "audio-service"
       ],
-      "print_project_status": "R26 selected slit-closed cradle STL installed; full W1 re-sliced, source frame/settings preserved. No tape pad/height change. Actual tape bond, cleanup and USB connector fit remain unqualified."
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "FB32",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/FB32.stl",
-      "geometry_sha256": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+      "geometry_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
       "instances": [
         {
           "id": "FB32-1",
@@ -669,13 +669,14 @@
         "audio-module"
       ],
       "guide_image": "assets/r16/part-FB32.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check support removal, hardware fit and routing before assembly.",
-      "geometry_revision": "sha256:a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
       "guide_review_step_ids": [
         "audio-module",
         "audio-service"
-      ]
+      ],
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "FB41",
@@ -1024,7 +1025,7 @@
       "part_id": "P08",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P08.stl",
-      "geometry_sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+      "geometry_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
       "instances": [
         {
           "id": "P08-1",
@@ -1041,9 +1042,9 @@
         "head-shoulder-covers"
       ],
       "guide_image": "assets/r18/part-P08.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
       "guide_review_step_ids": [
         "print-cleanup",
         "head-shelf",
@@ -1052,7 +1053,8 @@
         "shelf-arms",
         "head-shoulder-covers",
         "head-open"
-      ]
+      ],
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "P09",
@@ -1210,7 +1212,7 @@
       "part_id": "P14",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P14.stl",
-      "geometry_sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+      "geometry_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
       "instances": [
         {
           "id": "P14-1",
@@ -1225,15 +1227,16 @@
         "head-shoulder-covers"
       ],
       "guide_image": "assets/part-P14.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
       "guide_review_step_ids": [
         "head-shelf",
         "fit-position",
         "shelf-arms",
         "head-shoulder-covers"
-      ]
+      ],
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "P30",
@@ -1319,7 +1322,7 @@
       "part_id": "P35",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P35.stl",
-      "geometry_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+      "geometry_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
       "instances": [
         {
           "id": "P35-1",
@@ -1334,21 +1337,21 @@
       ],
       "guide_image": "assets/part-P35.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
-      "qualification": "User visual approval of thicker jetpack hinge roots. Physical strength, printed fit, support cleanup and durability remain untested.",
-      "geometry_revision": "sha256:2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
       "guide_review_step_ids": [
         "print-cleanup",
         "backpack",
         "belt",
         "body-light-service"
       ],
-      "print_project_status": "R25 selected STL installed in maintained project; full W2 re-sliced. Actual pin-seat cores clear in sampled paths; accessible hinge-gap/lower screw support needs cleanup. Physical strength/fit unqualified."
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "P36",
       "quantity": 2,
       "geometry_path": "hardware/cad/current/stl/P36.stl",
-      "geometry_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+      "geometry_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
       "instances": [
         {
           "id": "P36-1",
@@ -1365,12 +1368,13 @@
         "backpack"
       ],
       "guide_image": "assets/part-P36.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
       "guide_review_step_ids": [
         "backpack"
-      ]
+      ],
+      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
     },
     {
       "part_id": "P37",

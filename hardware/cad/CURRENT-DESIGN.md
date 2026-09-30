@@ -2,14 +2,14 @@
 
 Open **Blue Glee Blob - MAIN** in Fusion → Admin Project.
 
-Accepted design **R28**, exact cloud version **v24**.
+Accepted design **R29**, exact cloud version **v25**.
 Permanent file ID: `urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg`.
 
 ## CAD acceptance record
 
 Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.
 
-R28/cloud24 selects the straight WAGO row, Raspberry Pi and paired level-shifter mounts, and relocated fuse. Current print projects and guide use this geometry. Digital checks do not establish physical fit or complete harness qualification. See hardware/cad/CURRENT-NOTES.md.
+Approved head fastening rotation(P08/P14), measured USB opening and relocated lid fastening(FB24/FB32), and glued canister simplification(P35/P36). Same permanent MAIN lineage, cloud25. Print-project replacement and guide updates pending; physical qualification separate. See hardware/cad/CURRENT-NOTES.md.
 
 ## Current inputs
 

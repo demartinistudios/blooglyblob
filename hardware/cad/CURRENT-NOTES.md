@@ -1,6 +1,6 @@
 # Current hardware notes
 
-The registry selects R28, Fusion cloud version 24. The native assembly, STL
+The registry selects R29, Fusion cloud version 25. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
@@ -20,13 +20,21 @@ nuts. Hold the grille, rear-vent and power-jack nuts until their screws catch;
 do not glue them. Fastener counts and allocations are maintained in
 [hardware.json](../assembly/hardware.json).
 
+## Head shelf
+
+P08/P14 use the same three M3 × 8 screws and M3 nuts with the fastening
+pattern rotated 60 degrees. Assemble this joint on the bench before installing
+the head/mouth. The head shell and P31 remain unchanged.
+
 ## Audio cradle
 
 FB24 has a solid rear tape surface. Attach the USB module's rear face, opposite
 the microphones, to that surface with tape under 1 mm thick. Do not cut open the
 closed rear slits. Keep microphones exposed and follow the guide's module-first
 installation sequence. Actual tape adhesion and USB connector clearance remain
-physical qualification items.
+physical qualification items. R29 enlarges the USB opening to 15.5 × 17.6 mm
+and moves the left lid fastening 12.85 mm rearward onto a matching lid tab.
+FB24 and FB32 change; the two M2 × 8 lid screws and base mounting stay the same.
 
 ## Backpack
 
@@ -35,16 +43,30 @@ P35 includes 1.5 mm hinge-root blends and tapered ribs extending outward up to
 forcing the ears apart. Printed strength and support removal require physical
 qualification.
 
+P36 canisters now have smooth 2 mm walls without internal fastening nuts.
+The two corresponding P35 screw passages are closed. Bond the canisters at
+the ring contact surfaces and bond the existing elbow/nozzle joints with
+suitable epoxy. The two canister M3 × 8 screws and two M3 nuts are eliminated;
+the backpack-to-carrier screws and belt joints remain removable.
+
+## R29 downstream work
+
+CAD is accepted. P08/P14/FB24/FB32/P35/P36 print-project replacement, full
+affected-plate slicing/support review, and guide images/instructions/supply
+allocation updates are pending. Existing print projects still contain the prior
+geometry for those parts; do not treat them as R29-ready. The guide agent will
+apply the two-screw/two-nut reduction to the maintained allocation and parts lists.
+
 ## Current print and rendering evidence
 
 The [print procedure](../printing/current/README.md) describes selected projects,
 settings and support removal. Its `checks/` directory retains compact digital
 review evidence for the current geometry and inherited recipes. Whole-plate
-estimates are predictions. Current K1 support inspection covers the moved board
+estimates are predictions. Prior K1 support inspection covers the moved board
 posts, nut recesses and WAGO mounting bands; W1 and W2 retain their documented
 cradle and backpack reviews.
 
-The [render source lock](../rendering/source-lock.json) selects the R28 assembly
+The [render source lock](../rendering/source-lock.json) selects the R29 assembly
 mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.

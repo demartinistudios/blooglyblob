@@ -2992,8 +2992,8 @@
       "bodies": [
         {
           "name": "Rotating dome carrier - horn adapter pending",
-          "volume": 8.44976084095211,
-          "area": 80.02918283910078,
+          "volume": 8.449760840952116,
+          "area": 80.02918283910077,
           "solid": true,
           "lumps": 1,
           "faces": 121,
@@ -3065,6 +3065,55 @@
       ]
     },
     {
+      "path": "P09 Foam seam backing r0 - hard stop:3",
+      "component": "P09 Foam seam backing r0 - hard stop",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        8.1,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Foam seam backing - print two",
+          "volume": 0.6812187303851274,
+          "area": 8.90886314899157,
+          "solid": true,
+          "lumps": 1,
+          "faces": 16,
+          "edges": 38,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -0.7027415149640266,
+              3.0999999999999996,
+              0.0
+            ],
+            [
+              0.7027415149640266,
+              3.84,
+              1.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "P10 Foam seam cover r0 - removable:1",
       "component": "P10 Foam seam cover r0 - removable",
       "transform": [
@@ -3080,6 +3129,104 @@
         0.0,
         1.0,
         1.3,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "P10 Foam seam cover r0 - removable - print three",
+          "volume": 0.4582724877153257,
+          "area": 7.000691165529738,
+          "solid": true,
+          "lumps": 1,
+          "faces": 7,
+          "edges": 14,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -0.8316467632710374,
+              3.756086786817814,
+              0.0
+            ],
+            [
+              0.8316467632710374,
+              4.0,
+              1.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P10 Foam seam cover r0 - removable:2",
+      "component": "P10 Foam seam cover r0 - removable",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        3.7,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "P10 Foam seam cover r0 - removable - print three",
+          "volume": 0.4582724877153257,
+          "area": 7.000691165529738,
+          "solid": true,
+          "lumps": 1,
+          "faces": 7,
+          "edges": 14,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -0.8316467632710374,
+              3.756086786817814,
+              0.0
+            ],
+            [
+              0.8316467632710374,
+              4.0,
+              1.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P10 Foam seam cover r0 - removable:3",
+      "component": "P10 Foam seam cover r0 - removable",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        8.1,
         0.0,
         0.0,
         0.0,
@@ -3212,398 +3359,6 @@
       ]
     },
     {
-      "path": "TEST Accessory post coupon r0 - seam and pebble mounts:1",
-      "component": "TEST Accessory post coupon r0 - seam and pebble mounts",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 1.4328230225560863,
-          "area": 10.360761035643954,
-          "solid": true,
-          "lumps": 1,
-          "faces": 13,
-          "edges": 28,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.5,
-              -0.45,
-              2.220446049250313e-16
-            ],
-            [
-              0.5,
-              0.45,
-              1.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P12 Forward-angled rear LEDs and seam backing r1:1",
-      "component": "P12 Forward-angled rear LEDs and seam backing r1",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        4.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Middle seam backing with two light pads",
-          "volume": 3.9284926456532467,
-          "area": 38.766372266904305,
-          "solid": true,
-          "lumps": 1,
-          "faces": 76,
-          "edges": 230,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -2.4393654271085454,
-              1.9034462756331485,
-              -1.1
-            ],
-            [
-              2.4393654271085454,
-              3.84,
-              1.1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P13 Open body wire guide r0 - front service mount:1",
-      "component": "P13 Open body wire guide r0 - front service mount",
-      "transform": [
-        -1.0,
-        -1.2246467991473532e-16,
-        0.0,
-        0.0,
-        1.2246467991473532e-16,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        4.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Lay-in wire guide - do not clamp coating",
-          "volume": 2.125400464964608,
-          "area": 26.20317664427927,
-          "solid": true,
-          "lumps": 1,
-          "faces": 78,
-          "edges": 214,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -1.94,
-              2.43,
-              -0.8
-            ],
-            [
-              1.94,
-              3.38,
-              0.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair:1",
-      "component": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        11.694,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 8.170992617703472,
-          "area": 49.76883957920808,
-          "solid": true,
-          "lumps": 1,
-          "faces": 37,
-          "edges": 86,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -2.3,
-              -2.3,
-              6.938893903907228e-18
-            ],
-            [
-              2.3,
-              2.3,
-              1.1359999999999977
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "TEST Horn locating seat r0 - NO torque attachment:1",
-      "component": "TEST Horn locating seat r0 - NO torque attachment",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        18.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.9736014523943323,
-          "area": 13.723299808155456,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 6,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -1.29,
-              -1.29,
-              0.0
-            ],
-            [
-              1.29,
-              1.29,
-              0.30999999999999994
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P09 Foam seam backing r0 - hard stop:3",
-      "component": "P09 Foam seam backing r0 - hard stop",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        8.1,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Foam seam backing - print two",
-          "volume": 0.6812187303851274,
-          "area": 8.90886314899157,
-          "solid": true,
-          "lumps": 1,
-          "faces": 16,
-          "edges": 38,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.7027415149640266,
-              3.0999999999999996,
-              0.0
-            ],
-            [
-              0.7027415149640266,
-              3.84,
-              1.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P10 Foam seam cover r0 - removable:2",
-      "component": "P10 Foam seam cover r0 - removable",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        3.7,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "P10 Foam seam cover r0 - removable - print three",
-          "volume": 0.4582724877153257,
-          "area": 7.000691165529738,
-          "solid": true,
-          "lumps": 1,
-          "faces": 7,
-          "edges": 14,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.8316467632710374,
-              3.756086786817814,
-              0.0
-            ],
-            [
-              0.8316467632710374,
-              4.0,
-              1.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P10 Foam seam cover r0 - removable:3",
-      "component": "P10 Foam seam cover r0 - removable",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        8.1,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "P10 Foam seam cover r0 - removable - print three",
-          "volume": 0.4582724877153257,
-          "area": 7.000691165529738,
-          "solid": true,
-          "lumps": 1,
-          "faces": 7,
-          "edges": 14,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.8316467632710374,
-              3.756086786817814,
-              0.0
-            ],
-            [
-              0.8316467632710374,
-              4.0,
-              1.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "REF Pebble 12 x 5 x 3.37 - cable included:2",
       "component": "REF Pebble 12 x 5 x 3.37 - cable included",
       "transform": [
@@ -3647,6 +3402,55 @@
               0.25,
               0.337,
               1.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "TEST Accessory post coupon r0 - seam and pebble mounts:1",
+      "component": "TEST Accessory post coupon r0 - seam and pebble mounts",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 1.4328230225560863,
+          "area": 10.360761035643954,
+          "solid": true,
+          "lumps": 1,
+          "faces": 13,
+          "edges": 28,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -0.5,
+              -0.45,
+              2.220446049250313e-16
+            ],
+            [
+              0.5,
+              0.45,
+              1.8
             ]
           ]
         }
@@ -3898,6 +3702,202 @@
       ]
     },
     {
+      "path": "P12 Forward-angled rear LEDs and seam backing r1:1",
+      "component": "P12 Forward-angled rear LEDs and seam backing r1",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        4.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Middle seam backing with two light pads",
+          "volume": 3.9284926456532467,
+          "area": 38.766372266904305,
+          "solid": true,
+          "lumps": 1,
+          "faces": 76,
+          "edges": 230,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -2.4393654271085454,
+              1.9034462756331485,
+              -1.1
+            ],
+            [
+              2.4393654271085454,
+              3.84,
+              1.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P13 Open body wire guide r0 - front service mount:1",
+      "component": "P13 Open body wire guide r0 - front service mount",
+      "transform": [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0,
+        0.0,
+        1.2246467991473532e-16,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        4.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Lay-in wire guide - do not clamp coating",
+          "volume": 2.125400464964608,
+          "area": 26.20317664427927,
+          "solid": true,
+          "lumps": 1,
+          "faces": 78,
+          "edges": 214,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -1.94,
+              2.43,
+              -0.8
+            ],
+            [
+              1.94,
+              3.38,
+              0.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair:1",
+      "component": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        11.694,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 8.17099261770347,
+          "area": 49.76883957920808,
+          "solid": true,
+          "lumps": 1,
+          "faces": 37,
+          "edges": 86,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -2.3,
+              -2.3,
+              0.0
+            ],
+            [
+              2.3,
+              2.3,
+              1.1359999999999975
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "TEST Horn locating seat r0 - NO torque attachment:1",
+      "component": "TEST Horn locating seat r0 - NO torque attachment",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        18.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.9736014523943323,
+          "area": 13.723299808155456,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 6,
+          "visible": true,
+          "appearance": "Steel - Satin",
+          "bounds": [
+            [
+              -1.29,
+              -1.29,
+              0.0
+            ],
+            [
+              1.29,
+              1.29,
+              0.30999999999999994
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "TEST Horn adapter r1 - flange down print copy:1",
       "component": "TEST Horn adapter r1 - flange down print copy",
       "transform": [
@@ -4045,6 +4045,55 @@
       ]
     },
     {
+      "path": "P15 Shoulder disk hub r1 - short concealed arm mount:2",
+      "component": "P15 Shoulder disk hub r1 - short concealed arm mount",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -4.064,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye bezel black - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 4.616229757790709,
+          "area": 32.61684872529787,
+          "solid": true,
+          "lumps": 1,
+          "faces": 47,
+          "edges": 116,
+          "visible": true,
+          "appearance": "Eye bezel black - display only",
+          "bounds": [
+            [
+              -1.5,
+              -2.9,
+              0.0
+            ],
+            [
+              1.5,
+              1.5000000000000004,
+              0.6
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "TEST Superseded teardrop blade r0 - apparent elbow rejected:1",
       "component": "TEST Superseded teardrop blade r0 - apparent elbow rejected",
       "transform": [
@@ -4053,6 +4102,55 @@
         1.0,
         4.664,
         1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome blue - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 2.905270202704353,
+          "area": 23.79756381372392,
+          "solid": true,
+          "lumps": 1,
+          "faces": 8,
+          "edges": 16,
+          "visible": true,
+          "appearance": "Dome blue - display only",
+          "bounds": [
+            [
+              -1.2,
+              -6.5,
+              0.0
+            ],
+            [
+              1.2,
+              -1.3999999999999995,
+              0.30000000000000004
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "TEST Superseded teardrop blade r0 - apparent elbow rejected:2",
+      "component": "TEST Superseded teardrop blade r0 - apparent elbow rejected",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -4.664,
+        -1.0,
         0.0,
         0.0,
         0.0,
@@ -4241,6 +4339,55 @@
       ]
     },
     {
+      "path": "TEST Superseded continuous arm r1 - plain tip:2",
+      "component": "TEST Superseded continuous arm r1 - plain tip",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -4.664,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome blue - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 5.898317768740758,
+          "area": 46.26204569895744,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 18,
+          "visible": true,
+          "appearance": "Dome blue - display only",
+          "bounds": [
+            [
+              -1.5,
+              -6.5,
+              0.0
+            ],
+            [
+              1.5,
+              1.5,
+              0.30000000000000004
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "P16 Blob hand arm r3 - integral clearance pads:1",
       "component": "P16 Blob hand arm r3 - integral clearance pads",
       "transform": [
@@ -4249,6 +4396,55 @@
         1.0,
         4.814,
         1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome blue - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 6.032202597057124,
+          "area": 47.921430780275294,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 15,
+          "visible": true,
+          "appearance": "Dome blue - display only",
+          "bounds": [
+            [
+              -1.600645882089492,
+              -6.8999999999999995,
+              -0.15
+            ],
+            [
+              1.6006458820894889,
+              1.4999999999999991,
+              0.30000000000000004
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P16 Blob hand arm r3 - integral clearance pads:2",
+      "component": "P16 Blob hand arm r3 - integral clearance pads",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -4.814,
+        -1.0,
         0.0,
         0.0,
         0.0,
@@ -4437,6 +4633,55 @@
       ]
     },
     {
+      "path": "P19 Speaker grille r2 - perimeter seal sleeve print two:2",
+      "component": "P19 Speaker grille r2 - perimeter seal sleeve print two",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -8.5,
+        -1.0,
+        0.0,
+        0.0,
+        -0.8,
+        0.0,
+        1.0,
+        0.0,
+        -2.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "GS r1 copper goggles",
+      "bodies": [
+        {
+          "name": "P19 Speaker grille and slotted mount r1 - print two",
+          "volume": 8.217610234264384,
+          "area": 114.14797113469974,
+          "solid": true,
+          "lumps": 1,
+          "faces": 140,
+          "edges": 416,
+          "visible": true,
+          "appearance": "GS r1 copper goggles",
+          "bounds": [
+            [
+              -4.4,
+              -2.4,
+              -0.6
+            ],
+            [
+              4.4,
+              2.4,
+              0.20000000000000007
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF BASE Speaker1669 envelope - housing offset unverified:1",
       "component": "REF BASE Speaker1669 envelope - housing offset unverified",
       "transform": [
@@ -4445,6 +4690,55 @@
         1.0,
         8.5,
         1.0,
+        0.0,
+        0.0,
+        -0.8,
+        0.0,
+        1.0,
+        0.0,
+        -2.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "REF BASE Speaker1669 envelope - housing offset unverified",
+          "volume": 35.699999999999996,
+          "area": 76.0,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -3.5,
+              -1.5,
+              -1.98
+            ],
+            [
+              3.5,
+              1.5,
+              -0.28000000000000025
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE Speaker1669 envelope - housing offset unverified:2",
+      "component": "REF BASE Speaker1669 envelope - housing offset unverified",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        -8.5,
+        -1.0,
         0.0,
         0.0,
         -0.8,
@@ -4976,6 +5270,153 @@
       ]
     },
     {
+      "path": "REF BASE WAGO221-415 candidate - holder pending:2",
+      "component": "REF BASE WAGO221-415 candidate - holder pending",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        3.7,
+        0.0,
+        1.0,
+        0.0,
+        -0.7,
+        0.0,
+        0.0,
+        1.0,
+        -4.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome carrier yellow - display only",
+      "bodies": [
+        {
+          "name": "REF BASE WAGO221-415 candidate - holder pending",
+          "volume": 4.687200000000001,
+          "area": 19.3248,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Dome carrier yellow - display only",
+          "bounds": [
+            [
+              -1.5,
+              -0.93,
+              0.0
+            ],
+            [
+              1.5,
+              0.93,
+              0.8400000000000001
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE WAGO221-415 candidate - holder pending:3",
+      "component": "REF BASE WAGO221-415 candidate - holder pending",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        3.7,
+        0.0,
+        1.0,
+        0.0,
+        2.1,
+        0.0,
+        0.0,
+        1.0,
+        -4.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome carrier yellow - display only",
+      "bodies": [
+        {
+          "name": "REF BASE WAGO221-415 candidate - holder pending",
+          "volume": 4.687200000000001,
+          "area": 19.3248,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Dome carrier yellow - display only",
+          "bounds": [
+            [
+              -1.5,
+              -0.93,
+              0.0
+            ],
+            [
+              1.5,
+              0.93,
+              0.8400000000000001
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE WAGO221-415 candidate - holder pending:4",
+      "component": "REF BASE WAGO221-415 candidate - holder pending",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        3.7,
+        0.0,
+        1.0,
+        0.0,
+        4.9,
+        0.0,
+        0.0,
+        1.0,
+        -4.6,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome carrier yellow - display only",
+      "bodies": [
+        {
+          "name": "REF BASE WAGO221-415 candidate - holder pending",
+          "volume": 4.687200000000001,
+          "area": 19.3248,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Dome carrier yellow - display only",
+          "bounds": [
+            [
+              -1.5,
+              -0.93,
+              0.0
+            ],
+            [
+              1.5,
+              0.93,
+              0.8400000000000001
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF BASE PixelShifter6066 envelope - retainers pending:1",
       "component": "REF BASE PixelShifter6066 envelope - retainers pending",
       "transform": [
@@ -4987,6 +5428,55 @@
         1.0,
         0.0,
         -1.7,
+        0.0,
+        0.0,
+        1.0,
+        -2.4,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Shoulder carrier - display only",
+      "bodies": [
+        {
+          "name": "REF BASE PixelShifter6066 envelope - retainers pending",
+          "volume": 3.9015,
+          "area": 15.911999999999997,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Shoulder carrier - display only",
+          "bounds": [
+            [
+              -1.275,
+              -0.75,
+              0.0
+            ],
+            [
+              1.275,
+              0.75,
+              1.02
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 envelope - retainers pending:2",
+      "component": "REF BASE PixelShifter6066 envelope - retainers pending",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        3.7,
+        0.0,
+        1.0,
+        0.0,
+        0.7,
         0.0,
         0.0,
         1.0,
@@ -5564,6 +6054,153 @@
       ]
     },
     {
+      "path": "REF BASE Rubber foot - proposed10 x 3mm:2",
+      "component": "REF BASE Rubber foot - proposed10 x 3mm",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -5.7,
+        0.0,
+        1.0,
+        0.0,
+        4.5,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye bezel black - display only",
+      "bodies": [
+        {
+          "name": "REF BASE Rubber foot - proposed10 x 3mm",
+          "volume": 0.23561944901924517,
+          "area": 2.5132741228718367,
+          "solid": true,
+          "lumps": 1,
+          "faces": 3,
+          "edges": 2,
+          "visible": true,
+          "appearance": "Eye bezel black - display only",
+          "bounds": [
+            [
+              -0.5,
+              -0.5,
+              -5.5
+            ],
+            [
+              0.5,
+              0.5,
+              -5.199999999999999
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE Rubber foot - proposed10 x 3mm:3",
+      "component": "REF BASE Rubber foot - proposed10 x 3mm",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        5.7,
+        0.0,
+        1.0,
+        0.0,
+        -4.5,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye bezel black - display only",
+      "bodies": [
+        {
+          "name": "REF BASE Rubber foot - proposed10 x 3mm",
+          "volume": 0.23561944901924517,
+          "area": 2.5132741228718367,
+          "solid": true,
+          "lumps": 1,
+          "faces": 3,
+          "edges": 2,
+          "visible": true,
+          "appearance": "Eye bezel black - display only",
+          "bounds": [
+            [
+              -0.5,
+              -0.5,
+              -5.5
+            ],
+            [
+              0.5,
+              0.5,
+              -5.199999999999999
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE Rubber foot - proposed10 x 3mm:4",
+      "component": "REF BASE Rubber foot - proposed10 x 3mm",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        5.7,
+        0.0,
+        1.0,
+        0.0,
+        4.5,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye bezel black - display only",
+      "bodies": [
+        {
+          "name": "REF BASE Rubber foot - proposed10 x 3mm",
+          "volume": 0.23561944901924517,
+          "area": 2.5132741228718367,
+          "solid": true,
+          "lumps": 1,
+          "faces": 3,
+          "edges": 2,
+          "visible": true,
+          "appearance": "Eye bezel black - display only",
+          "bounds": [
+            [
+              -0.5,
+              -0.5,
+              -5.5
+            ],
+            [
+              0.5,
+              0.5,
+              -5.199999999999999
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+Board (1):1",
       "component": "Board (1)",
       "transform": [
@@ -5624,6 +6261,55 @@
         3.06161699786838e-16,
         0.0,
         1.2192,
+        0.0,
+        0.0,
+        1.0,
+        0.15700000000000003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.002496102400000001,
+          "area": 0.11499296000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 14,
+          "edges": 36,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.1,
+              -0.0625,
+              0.0
+            ],
+            [
+              0.1,
+              0.0625,
+              0.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+0805-NO:2",
+      "component": "0805-NO",
+      "transform": [
+        3.06161699786838e-16,
+        -1.0,
+        0.0,
+        0.9588,
+        1.0,
+        3.06161699786838e-16,
+        0.0,
+        0.87,
         0.0,
         0.0,
         1.0,
@@ -5769,6 +6455,331 @@
         0.508,
         -1.0,
         -4.28626379701574e-16,
+        0.0,
+        0.762,
+        0.0,
+        0.0,
+        1.0,
+        0.15700000000000003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.007332923740927139,
+          "area": 0.4365598514904758,
+          "solid": true,
+          "lumps": 1,
+          "faces": 32,
+          "edges": 79,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.279,
+              -0.16000000000000103,
+              -0.35000000000000003
+            ],
+            [
+              0.47900000000000004,
+              0.280000000000023,
+              0.34
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 0.012930403949321847,
+          "area": 0.6872303855034557,
+          "solid": true,
+          "lumps": 1,
+          "faces": 19,
+          "edges": 50,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.279,
+              -0.16000000000000103,
+              0.05499999999999991
+            ],
+            [
+              0.47900000000000004,
+              0.13999999999999901,
+              0.4700000000000001
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 0.009249676421644804,
+          "area": 0.3147599529617125,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 15,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.274,
+              -0.11500000000000091,
+              0.34
+            ],
+            [
+              0.484,
+              0.09499999999999911,
+              0.77
+            ]
+          ]
+        },
+        {
+          "name": "Body4",
+          "volume": 0.007332923740927127,
+          "area": 0.43655985149047566,
+          "solid": true,
+          "lumps": 1,
+          "faces": 32,
+          "edges": 79,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.025000000000000102,
+              -0.16000000000000103,
+              -0.35000000000000003
+            ],
+            [
+              0.225,
+              0.280000000000023,
+              0.34
+            ]
+          ]
+        },
+        {
+          "name": "Body5",
+          "volume": 0.012930403949321836,
+          "area": 0.6872303855034557,
+          "solid": true,
+          "lumps": 1,
+          "faces": 19,
+          "edges": 50,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.025000000000000102,
+              -0.16000000000000103,
+              0.05499999999999991
+            ],
+            [
+              0.225,
+              0.13999999999999901,
+              0.4700000000000001
+            ]
+          ]
+        },
+        {
+          "name": "Body6",
+          "volume": 0.009249676421644815,
+          "area": 0.3147599529617127,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 15,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              0.01999999999999999,
+              -0.11500000000000091,
+              0.34
+            ],
+            [
+              0.23,
+              0.09499999999999911,
+              0.77
+            ]
+          ]
+        },
+        {
+          "name": "Body7",
+          "volume": 0.007332923740927136,
+          "area": 0.43655985149047594,
+          "solid": true,
+          "lumps": 1,
+          "faces": 32,
+          "edges": 79,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.229,
+              -0.16000000000000103,
+              -0.35000000000000003
+            ],
+            [
+              -0.028999999999999887,
+              0.280000000000023,
+              0.34
+            ]
+          ]
+        },
+        {
+          "name": "Body8",
+          "volume": 0.012930403949321857,
+          "area": 0.6872303855034558,
+          "solid": true,
+          "lumps": 1,
+          "faces": 19,
+          "edges": 50,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.229,
+              -0.16000000000000103,
+              0.05499999999999991
+            ],
+            [
+              -0.028999999999999887,
+              0.13999999999999901,
+              0.4700000000000001
+            ]
+          ]
+        },
+        {
+          "name": "Body9",
+          "volume": 0.00924967642164476,
+          "area": 0.3147599529617124,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 15,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.234,
+              -0.11500000000000081,
+              0.34
+            ],
+            [
+              -0.023999999999999994,
+              0.09499999999999921,
+              0.77
+            ]
+          ]
+        },
+        {
+          "name": "Body10",
+          "volume": 0.007332923740927138,
+          "area": 0.4365598514904759,
+          "solid": true,
+          "lumps": 1,
+          "faces": 32,
+          "edges": 79,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.47900000000000004,
+              -0.16000000000000103,
+              -0.35000000000000003
+            ],
+            [
+              -0.279,
+              0.280000000000023,
+              0.34
+            ]
+          ]
+        },
+        {
+          "name": "Body11",
+          "volume": 0.01293040394932185,
+          "area": 0.6872303855034558,
+          "solid": true,
+          "lumps": 1,
+          "faces": 19,
+          "edges": 50,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.47900000000000004,
+              -0.16000000000000103,
+              0.05499999999999991
+            ],
+            [
+              -0.279,
+              0.13999999999999901,
+              0.4700000000000001
+            ]
+          ]
+        },
+        {
+          "name": "Body12",
+          "volume": 0.009249676421644806,
+          "area": 0.31475995296171244,
+          "solid": true,
+          "lumps": 1,
+          "faces": 9,
+          "edges": 15,
+          "visible": true,
+          "appearance": "Opaque(220,220,210)",
+          "bounds": [
+            [
+              -0.484,
+              -0.11500000000000081,
+              0.34
+            ],
+            [
+              -0.274,
+              0.09499999999999921,
+              0.77
+            ]
+          ]
+        },
+        {
+          "name": "Body13",
+          "volume": 0.2120851980730464,
+          "area": 7.301717666255269,
+          "solid": true,
+          "lumps": 1,
+          "faces": 156,
+          "edges": 438,
+          "visible": true,
+          "appearance": "Opaque(90,190,90)",
+          "bounds": [
+            [
+              -0.532,
+              -0.31500000000000106,
+              -1.1102230246251602e-16
+            ],
+            [
+              0.528,
+              0.30499999999999905,
+              0.850000000000002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+1X04_2.54MMTERMINAL:2",
+      "component": "1X04_2.54MMTERMINAL",
+      "transform": [
+        3.06161699786838e-16,
+        -1.0,
+        0.0,
+        2.032,
+        1.0,
+        3.06161699786838e-16,
         0.0,
         0.762,
         0.0,
@@ -6367,6 +7378,196 @@
       ]
     },
     {
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+_0402NO (1):2",
+      "component": "_0402NO (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.5875000000000001,
+        0.0,
+        1.0,
+        0.0,
+        0.6668000000000001,
+        0.0,
+        0.0,
+        1.0,
+        0.15700000000000003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.00011040000000000003,
+          "area": 0.013816000000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(51,51,51)",
+          "bounds": [
+            [
+              -0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              -0.048,
+              -0.025,
+              0.0
+            ],
+            [
+              -0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.048,
+              0.025,
+              0.048
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+_0402NO (1):3",
+      "component": "_0402NO (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.5875000000000001,
+        0.0,
+        1.0,
+        0.0,
+        0.5588000000000001,
+        0.0,
+        0.0,
+        1.0,
+        0.15700000000000003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.00011040000000000003,
+          "area": 0.013816000000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(51,51,51)",
+          "bounds": [
+            [
+              -0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              -0.048,
+              -0.025,
+              0.0
+            ],
+            [
+              -0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.048,
+              0.025,
+              0.048
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+SC70-5:1",
       "component": "SC70-5",
       "transform": [
@@ -6557,21 +7758,120 @@
       ]
     },
     {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+0805-NO:2",
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1",
+      "component": "REF BASE PixelShifter6066 - manufacturer STEP",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": []
+    },
+    {
+      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1",
+      "component": "REF 6066 SOURCE - Adafruit STEP - hidden",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": null,
+      "bodies": []
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+Board (1):1",
+      "component": "Board (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        2.43,
+        0.0,
+        1.0,
+        0.0,
+        -2.462,
+        0.0,
+        0.0,
+        1.0,
+        -2.05,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.5716622676616823,
+          "area": 9.344919707520262,
+          "solid": true,
+          "lumps": 1,
+          "faces": 31,
+          "edges": 66,
+          "visible": true,
+          "appearance": "Opaque(120,110,70)",
+          "bounds": [
+            [
+              5.55111512312578e-17,
+              0.0,
+              0.0
+            ],
+            [
+              2.54,
+              1.524,
+              0.15700000000000003
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0805-NO:1",
       "component": "0805-NO",
       "transform": [
         3.06161699786838e-16,
         -1.0,
         0.0,
-        0.9588,
+        3.3698,
         1.0,
         3.06161699786838e-16,
         0.0,
-        0.87,
+        -1.2428000000000001,
         0.0,
         0.0,
         1.0,
-        0.15700000000000003,
+        -1.8929999999999998,
         0.0,
         0.0,
         0.0,
@@ -6606,21 +7906,168 @@
       ]
     },
     {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+1X04_2.54MMTERMINAL:2",
-      "component": "1X04_2.54MMTERMINAL",
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0805-NO:2",
+      "component": "0805-NO",
       "transform": [
         3.06161699786838e-16,
         -1.0,
         0.0,
-        2.032,
+        3.3888000000000003,
         1.0,
         3.06161699786838e-16,
         0.0,
-        0.762,
+        -1.592,
         0.0,
         0.0,
         1.0,
-        0.15700000000000003,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.002496102400000001,
+          "area": 0.11499296000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 14,
+          "edges": 36,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.1,
+              -0.0625,
+              0.0
+            ],
+            [
+              0.1,
+              0.0625,
+              0.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+SOT23-6:1",
+      "component": "SOT23-6",
+      "transform": [
+        -4.28626379701574e-16,
+        1.0,
+        0.0,
+        3.7254000000000005,
+        -1.0,
+        -4.28626379701574e-16,
+        0.0,
+        -1.5794000000000001,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.004974138718777132,
+          "area": 0.250905405302713,
+          "solid": true,
+          "lumps": 1,
+          "faces": 98,
+          "edges": 256,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.145,
+              -0.13999999999999999,
+              0.0
+            ],
+            [
+              0.145,
+              0.13999999999999999,
+              0.11000000000000001
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0603-NO_WIDE:1",
+      "component": "0603-NO_WIDE",
+      "transform": [
+        3.06161699786838e-16,
+        -1.0,
+        0.0,
+        4.0112000000000005,
+        1.0,
+        3.06161699786838e-16,
+        0.0,
+        -1.5857,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.0011499216000000008,
+          "area": 0.06880396000000003,
+          "solid": true,
+          "lumps": 1,
+          "faces": 14,
+          "edges": 36,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.08000000000000002,
+              -0.045000000000000005,
+              0.0
+            ],
+            [
+              0.08000000000000002,
+              0.045000000000000005,
+              0.08000000000000002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+1X04_2.54MMTERMINAL:1",
+      "component": "1X04_2.54MMTERMINAL",
+      "transform": [
+        -4.28626379701574e-16,
+        1.0,
+        0.0,
+        2.938,
+        -1.0,
+        -4.28626379701574e-16,
+        0.0,
+        -1.7000000000000002,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
         0.0,
         0.0,
         0.0,
@@ -6931,1431 +8378,15 @@
       ]
     },
     {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+_0402NO (1):2",
-      "component": "_0402NO (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        1.5875000000000001,
-        0.0,
-        1.0,
-        0.0,
-        0.6668000000000001,
-        0.0,
-        0.0,
-        1.0,
-        0.15700000000000003,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.00011040000000000003,
-          "area": 0.013816000000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(51,51,51)",
-          "bounds": [
-            [
-              -0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              -0.048,
-              -0.025,
-              0.0
-            ],
-            [
-              -0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.048,
-              0.025,
-              0.048
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1+_0402NO (1):3",
-      "component": "_0402NO (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        1.5875000000000001,
-        0.0,
-        1.0,
-        0.0,
-        0.5588000000000001,
-        0.0,
-        0.0,
-        1.0,
-        0.15700000000000003,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.00011040000000000003,
-          "area": 0.013816000000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(51,51,51)",
-          "bounds": [
-            [
-              -0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              -0.048,
-              -0.025,
-              0.0
-            ],
-            [
-              -0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.048,
-              0.025,
-              0.048
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1+REF BASE PixelShifter6066 - manufacturer STEP:1",
-      "component": "REF BASE PixelShifter6066 - manufacturer STEP",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": []
-    },
-    {
-      "path": "REF 6066 SOURCE - Adafruit STEP - hidden:1",
-      "component": "REF 6066 SOURCE - Adafruit STEP - hidden",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": []
-    },
-    {
-      "path": "P15 Shoulder disk hub r1 - short concealed arm mount:2",
-      "component": "P15 Shoulder disk hub r1 - short concealed arm mount",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -4.064,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        9.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye bezel black - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 4.616229757790709,
-          "area": 32.61684872529787,
-          "solid": true,
-          "lumps": 1,
-          "faces": 47,
-          "edges": 116,
-          "visible": true,
-          "appearance": "Eye bezel black - display only",
-          "bounds": [
-            [
-              -1.5,
-              -2.9,
-              0.0
-            ],
-            [
-              1.5,
-              1.5000000000000004,
-              0.6
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "TEST Superseded teardrop blade r0 - apparent elbow rejected:2",
-      "component": "TEST Superseded teardrop blade r0 - apparent elbow rejected",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -4.664,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        9.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome blue - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 2.905270202704353,
-          "area": 23.79756381372392,
-          "solid": true,
-          "lumps": 1,
-          "faces": 8,
-          "edges": 16,
-          "visible": true,
-          "appearance": "Dome blue - display only",
-          "bounds": [
-            [
-              -1.2,
-              -6.5,
-              0.0
-            ],
-            [
-              1.2,
-              -1.3999999999999995,
-              0.30000000000000004
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "TEST Superseded continuous arm r1 - plain tip:2",
-      "component": "TEST Superseded continuous arm r1 - plain tip",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -4.664,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        9.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome blue - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 5.898317768740758,
-          "area": 46.26204569895744,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 18,
-          "visible": true,
-          "appearance": "Dome blue - display only",
-          "bounds": [
-            [
-              -1.5,
-              -6.5,
-              0.0
-            ],
-            [
-              1.5,
-              1.5,
-              0.30000000000000004
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P16 Blob hand arm r3 - integral clearance pads:2",
-      "component": "P16 Blob hand arm r3 - integral clearance pads",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -4.814,
-        -1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        9.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome blue - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 6.032202597057124,
-          "area": 47.921430780275294,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 15,
-          "visible": true,
-          "appearance": "Dome blue - display only",
-          "bounds": [
-            [
-              -1.600645882089492,
-              -6.8999999999999995,
-              -0.15
-            ],
-            [
-              1.6006458820894889,
-              1.4999999999999991,
-              0.30000000000000004
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P19 Speaker grille r2 - perimeter seal sleeve print two:2",
-      "component": "P19 Speaker grille r2 - perimeter seal sleeve print two",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -8.5,
-        -1.0,
-        0.0,
-        0.0,
-        -0.8,
-        0.0,
-        1.0,
-        0.0,
-        -2.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "GS r1 copper goggles",
-      "bodies": [
-        {
-          "name": "P19 Speaker grille and slotted mount r1 - print two",
-          "volume": 8.217610234264384,
-          "area": 114.14797113469974,
-          "solid": true,
-          "lumps": 1,
-          "faces": 140,
-          "edges": 416,
-          "visible": true,
-          "appearance": "GS r1 copper goggles",
-          "bounds": [
-            [
-              -4.4,
-              -2.4,
-              -0.6
-            ],
-            [
-              4.4,
-              2.4,
-              0.20000000000000007
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Speaker1669 envelope - housing offset unverified:2",
-      "component": "REF BASE Speaker1669 envelope - housing offset unverified",
-      "transform": [
-        0.0,
-        0.0,
-        -1.0,
-        -8.5,
-        -1.0,
-        0.0,
-        0.0,
-        -0.8,
-        0.0,
-        1.0,
-        0.0,
-        -2.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "REF BASE Speaker1669 envelope - housing offset unverified",
-          "volume": 35.699999999999996,
-          "area": 76.0,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -3.5,
-              -1.5,
-              -1.98
-            ],
-            [
-              3.5,
-              1.5,
-              -0.28000000000000025
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE WAGO221-415 candidate - holder pending:2",
-      "component": "REF BASE WAGO221-415 candidate - holder pending",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        3.7,
-        0.0,
-        1.0,
-        0.0,
-        -0.7,
-        0.0,
-        0.0,
-        1.0,
-        -4.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "REF BASE WAGO221-415 candidate - holder pending",
-          "volume": 4.687200000000001,
-          "area": 19.3248,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -1.5,
-              -0.93,
-              0.0
-            ],
-            [
-              1.5,
-              0.93,
-              0.8400000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE WAGO221-415 candidate - holder pending:3",
-      "component": "REF BASE WAGO221-415 candidate - holder pending",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        3.7,
-        0.0,
-        1.0,
-        0.0,
-        2.1,
-        0.0,
-        0.0,
-        1.0,
-        -4.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "REF BASE WAGO221-415 candidate - holder pending",
-          "volume": 4.687200000000001,
-          "area": 19.3248,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -1.5,
-              -0.93,
-              0.0
-            ],
-            [
-              1.5,
-              0.93,
-              0.8400000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE WAGO221-415 candidate - holder pending:4",
-      "component": "REF BASE WAGO221-415 candidate - holder pending",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        3.7,
-        0.0,
-        1.0,
-        0.0,
-        4.9,
-        0.0,
-        0.0,
-        1.0,
-        -4.6,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "REF BASE WAGO221-415 candidate - holder pending",
-          "volume": 4.687200000000001,
-          "area": 19.3248,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -1.5,
-              -0.93,
-              0.0
-            ],
-            [
-              1.5,
-              0.93,
-              0.8400000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 envelope - retainers pending:2",
-      "component": "REF BASE PixelShifter6066 envelope - retainers pending",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        3.7,
-        0.0,
-        1.0,
-        0.0,
-        0.7,
-        0.0,
-        0.0,
-        1.0,
-        -2.4,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Shoulder carrier - display only",
-      "bodies": [
-        {
-          "name": "REF BASE PixelShifter6066 envelope - retainers pending",
-          "volume": 3.9015,
-          "area": 15.911999999999997,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Shoulder carrier - display only",
-          "bounds": [
-            [
-              -1.275,
-              -0.75,
-              0.0
-            ],
-            [
-              1.275,
-              0.75,
-              1.02
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Rubber foot - proposed10 x 3mm:2",
-      "component": "REF BASE Rubber foot - proposed10 x 3mm",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -5.7,
-        0.0,
-        1.0,
-        0.0,
-        4.5,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye bezel black - display only",
-      "bodies": [
-        {
-          "name": "REF BASE Rubber foot - proposed10 x 3mm",
-          "volume": 0.23561944901924517,
-          "area": 2.5132741228718367,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Eye bezel black - display only",
-          "bounds": [
-            [
-              -0.5,
-              -0.5,
-              -5.5
-            ],
-            [
-              0.5,
-              0.5,
-              -5.199999999999999
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Rubber foot - proposed10 x 3mm:3",
-      "component": "REF BASE Rubber foot - proposed10 x 3mm",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        5.7,
-        0.0,
-        1.0,
-        0.0,
-        -4.5,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye bezel black - display only",
-      "bodies": [
-        {
-          "name": "REF BASE Rubber foot - proposed10 x 3mm",
-          "volume": 0.23561944901924517,
-          "area": 2.5132741228718367,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Eye bezel black - display only",
-          "bounds": [
-            [
-              -0.5,
-              -0.5,
-              -5.5
-            ],
-            [
-              0.5,
-              0.5,
-              -5.199999999999999
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Rubber foot - proposed10 x 3mm:4",
-      "component": "REF BASE Rubber foot - proposed10 x 3mm",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        5.7,
-        0.0,
-        1.0,
-        0.0,
-        4.5,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye bezel black - display only",
-      "bodies": [
-        {
-          "name": "REF BASE Rubber foot - proposed10 x 3mm",
-          "volume": 0.23561944901924517,
-          "area": 2.5132741228718367,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Eye bezel black - display only",
-          "bounds": [
-            [
-              -0.5,
-              -0.5,
-              -5.5
-            ],
-            [
-              0.5,
-              0.5,
-              -5.199999999999999
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P24 Internal audio cradle r1 - front grille seal:1",
-      "component": "P24 Internal audio cradle r1 - front grille seal",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 13.065952097532367,
-          "area": 145.02571093215255,
-          "solid": true,
-          "lumps": 1,
-          "faces": 93,
-          "edges": 278,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -6.65,
-              -6.95,
-              -4.8999999999999995
-            ],
-            [
-              6.65,
-              -4.88,
-              -1.6999999999999997
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P25 WAGO saddle r2 - side loaded clamp nut print four:1",
-      "component": "P25 WAGO saddle r2 - side loaded clamp nut print four",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        3.7,
-        0.0,
-        1.0,
-        0.0,
-        -3.5,
-        0.0,
-        0.0,
-        1.0,
-        -4.9,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 2.067486302937972,
-          "area": 25.685368134870465,
-          "solid": true,
-          "lumps": 1,
-          "faces": 26,
-          "edges": 60,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -1.7600000000000002,
-              -1.33,
-              0.0
-            ],
-            [
-              2.0,
-              1.33,
-              0.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P26 WAGO pressure pad r1 - print four:1",
-      "component": "P26 WAGO pressure pad r1 - print four",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        5.29,
-        0.0,
-        1.0,
-        0.0,
-        -3.5,
-        0.0,
-        0.0,
-        1.0,
-        -4.4,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.030119203733493707,
-          "area": 0.8694690230273854,
-          "solid": true,
-          "lumps": 1,
-          "faces": 8,
-          "edges": 14,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -0.06,
-              -0.45,
-              -0.15
-            ],
-            [
-              0.06,
-              0.45,
-              0.15
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P27 Rear fuse rack r3 - lower holder and removable upper shelf:1",
-      "component": "P27 Rear fuse rack r3 - lower holder and removable upper shelf",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 6.682125026821518,
-          "area": 73.0983896501163,
-          "solid": true,
-          "lumps": 1,
-          "faces": 111,
-          "edges": 297,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -3.88,
-              4.220000000000001,
-              -4.7
-            ],
-            [
-              4.569999999999999,
-              6.83,
-              -0.9000000000000004
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Schurter FDI 8601.2001.08 - max body:1",
-      "component": "REF BASE Schurter FDI 8601.2001.08 - max body",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -0.4500000000000002,
-        0.0,
-        1.0,
-        0.0,
-        5.85,
-        0.0,
-        0.0,
-        1.0,
-        -3.35,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 9.650972631827432,
-          "area": 28.14867017616454,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -2.4,
-              -0.8,
-              -0.8
-            ],
-            [
-              2.4,
-              0.8,
-              0.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P28 Capacitor saddle r2 - accessible screws and open vents:1",
-      "component": "P28 Capacitor saddle r2 - accessible screws and open vents",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -5.11,
-        0.0,
-        1.0,
-        0.0,
-        0.6,
-        0.0,
-        0.0,
-        1.0,
-        -4.9,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 1.9277057607854826,
-          "area": 30.959721236017746,
-          "solid": true,
-          "lumps": 1,
-          "faces": 34,
-          "edges": 88,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -1.5,
-              -1.15,
-              0.0
-            ],
-            [
-              1.5,
-              1.15,
-              1.4
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Panasonic EEU-FR1A102 - capacitor body:1",
-      "component": "REF BASE Panasonic EEU-FR1A102 - capacitor body",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -5.8100000000000005,
-        0.0,
-        1.0,
-        0.0,
-        0.6,
-        0.0,
-        0.0,
-        1.0,
-        -4.2,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 1.2566370614358635,
-          "area": 6.5973445725385655,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -0.5,
-              -0.5,
-              0.0
-            ],
-            [
-              0.5,
-              0.5,
-              1.6
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+Board (1):1",
-      "component": "Board (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        2.43,
-        0.0,
-        1.0,
-        0.0,
-        -2.462,
-        0.0,
-        0.0,
-        1.0,
-        -2.05,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.5716622676616823,
-          "area": 9.344919707520262,
-          "solid": true,
-          "lumps": 1,
-          "faces": 31,
-          "edges": 66,
-          "visible": true,
-          "appearance": "Opaque(120,110,70)",
-          "bounds": [
-            [
-              5.55111512312578e-17,
-              0.0,
-              0.0
-            ],
-            [
-              2.54,
-              1.524,
-              0.15700000000000003
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0805-NO:1",
-      "component": "0805-NO",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        3.3698,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        -1.2428000000000001,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.002496102400000001,
-          "area": 0.11499296000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 14,
-          "edges": 36,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.1,
-              -0.0625,
-              0.0
-            ],
-            [
-              0.1,
-              0.0625,
-              0.1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+SOT23-6:1",
-      "component": "SOT23-6",
-      "transform": [
-        -4.28626379701574e-16,
-        1.0,
-        0.0,
-        3.7254000000000005,
-        -1.0,
-        -4.28626379701574e-16,
-        0.0,
-        -1.5794000000000001,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.004974138718777132,
-          "area": 0.250905405302713,
-          "solid": true,
-          "lumps": 1,
-          "faces": 98,
-          "edges": 256,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.145,
-              -0.13999999999999999,
-              0.0
-            ],
-            [
-              0.145,
-              0.13999999999999999,
-              0.11000000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0603-NO_WIDE:1",
-      "component": "0603-NO_WIDE",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        4.0112000000000005,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        -1.5857,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.0011499216000000008,
-          "area": 0.06880396000000003,
-          "solid": true,
-          "lumps": 1,
-          "faces": 14,
-          "edges": 36,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.08000000000000002,
-              -0.045000000000000005,
-              0.0
-            ],
-            [
-              0.08000000000000002,
-              0.045000000000000005,
-              0.08000000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+1X04_2.54MMTERMINAL:1",
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+1X04_2.54MMTERMINAL:2",
       "component": "1X04_2.54MMTERMINAL",
       "transform": [
-        -4.28626379701574e-16,
-        1.0,
-        0.0,
-        2.938,
+        3.06161699786838e-16,
         -1.0,
-        -4.28626379701574e-16,
+        0.0,
+        4.462,
+        1.0,
+        3.06161699786838e-16,
         0.0,
         -1.7000000000000002,
         0.0,
@@ -8954,6 +8985,196 @@
       ]
     },
     {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+_0402NO (1):2",
+      "component": "_0402NO (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        4.0175,
+        0.0,
+        1.0,
+        0.0,
+        -1.7952000000000001,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.00011040000000000003,
+          "area": 0.013816000000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(51,51,51)",
+          "bounds": [
+            [
+              -0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              -0.048,
+              -0.025,
+              0.0
+            ],
+            [
+              -0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.048,
+              0.025,
+              0.048
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+_0402NO (1):3",
+      "component": "_0402NO (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        4.0175,
+        0.0,
+        1.0,
+        0.0,
+        -1.9032,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.00011040000000000003,
+          "area": 0.013816000000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(51,51,51)",
+          "bounds": [
+            [
+              -0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              -0.048,
+              -0.025,
+              0.0
+            ],
+            [
+              -0.023000000000000003,
+              0.025,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 5.9999999999999995e-05,
+          "area": 0.0097,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(209,209,209)",
+          "bounds": [
+            [
+              0.023000000000000003,
+              -0.025,
+              0.0
+            ],
+            [
+              0.048,
+              0.025,
+              0.048
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+SC70-5:1",
       "component": "SC70-5",
       "transform": [
@@ -9144,17 +9365,91 @@
       ]
     },
     {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+0805-NO:2",
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2",
+      "component": "REF BASE PixelShifter6066 - manufacturer STEP",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        2.43,
+        0.0,
+        1.0,
+        0.0,
+        -2.462,
+        0.0,
+        0.0,
+        1.0,
+        -2.05,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": null,
+      "bodies": []
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+Board (1):1",
+      "component": "Board (1)",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        2.43,
+        0.0,
+        1.0,
+        0.0,
+        -0.06200000000000001,
+        0.0,
+        0.0,
+        1.0,
+        -2.05,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.5716622676616823,
+          "area": 9.344919707520262,
+          "solid": true,
+          "lumps": 1,
+          "faces": 31,
+          "edges": 66,
+          "visible": true,
+          "appearance": "Opaque(120,110,70)",
+          "bounds": [
+            [
+              5.55111512312578e-17,
+              0.0,
+              0.0
+            ],
+            [
+              2.54,
+              1.524,
+              0.15700000000000003
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0805-NO:1",
       "component": "0805-NO",
       "transform": [
         3.06161699786838e-16,
         -1.0,
         0.0,
-        3.3888000000000003,
+        3.3698,
         1.0,
         3.06161699786838e-16,
         0.0,
-        -1.592,
+        1.1572,
         0.0,
         0.0,
         1.0,
@@ -9193,17 +9488,164 @@
       ]
     },
     {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+1X04_2.54MMTERMINAL:2",
-      "component": "1X04_2.54MMTERMINAL",
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0805-NO:2",
+      "component": "0805-NO",
       "transform": [
         3.06161699786838e-16,
         -1.0,
         0.0,
-        4.462,
+        3.3888000000000003,
         1.0,
         3.06161699786838e-16,
         0.0,
-        -1.7000000000000002,
+        0.8079999999999999,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.002496102400000001,
+          "area": 0.11499296000000002,
+          "solid": true,
+          "lumps": 1,
+          "faces": 14,
+          "edges": 36,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.1,
+              -0.0625,
+              0.0
+            ],
+            [
+              0.1,
+              0.0625,
+              0.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SOT23-6:1",
+      "component": "SOT23-6",
+      "transform": [
+        -4.28626379701574e-16,
+        1.0,
+        0.0,
+        3.7254000000000005,
+        -1.0,
+        -4.28626379701574e-16,
+        0.0,
+        0.8206,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.004974138718777132,
+          "area": 0.250905405302713,
+          "solid": true,
+          "lumps": 1,
+          "faces": 98,
+          "edges": 256,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.145,
+              -0.13999999999999999,
+              0.0
+            ],
+            [
+              0.145,
+              0.13999999999999999,
+              0.11000000000000001
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0603-NO_WIDE:1",
+      "component": "0603-NO_WIDE",
+      "transform": [
+        3.06161699786838e-16,
+        -1.0,
+        0.0,
+        4.0112000000000005,
+        1.0,
+        3.06161699786838e-16,
+        0.0,
+        0.8143,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.0011499216000000008,
+          "area": 0.06880396000000003,
+          "solid": true,
+          "lumps": 1,
+          "faces": 14,
+          "edges": 36,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.08000000000000002,
+              -0.045000000000000005,
+              0.0
+            ],
+            [
+              0.08000000000000002,
+              0.045000000000000005,
+              0.08000000000000002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+1X04_2.54MMTERMINAL:1",
+      "component": "1X04_2.54MMTERMINAL",
+      "transform": [
+        -4.28626379701574e-16,
+        1.0,
+        0.0,
+        2.938,
+        -1.0,
+        -4.28626379701574e-16,
+        0.0,
+        0.7,
         0.0,
         0.0,
         1.0,
@@ -9518,426 +9960,15 @@
       ]
     },
     {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+_0402NO (1):2",
-      "component": "_0402NO (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        4.0175,
-        0.0,
-        1.0,
-        0.0,
-        -1.7952000000000001,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.00011040000000000003,
-          "area": 0.013816000000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(51,51,51)",
-          "bounds": [
-            [
-              -0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              -0.048,
-              -0.025,
-              0.0
-            ],
-            [
-              -0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.048,
-              0.025,
-              0.048
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2+_0402NO (1):3",
-      "component": "_0402NO (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        4.0175,
-        0.0,
-        1.0,
-        0.0,
-        -1.9032,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.00011040000000000003,
-          "area": 0.013816000000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(51,51,51)",
-          "bounds": [
-            [
-              -0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              -0.048,
-              -0.025,
-              0.0
-            ],
-            [
-              -0.023000000000000003,
-              0.025,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 5.9999999999999995e-05,
-          "area": 0.0097,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(209,209,209)",
-          "bounds": [
-            [
-              0.023000000000000003,
-              -0.025,
-              0.0
-            ],
-            [
-              0.048,
-              0.025,
-              0.048
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:2",
-      "component": "REF BASE PixelShifter6066 - manufacturer STEP",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        2.43,
-        0.0,
-        1.0,
-        0.0,
-        -2.462,
-        0.0,
-        0.0,
-        1.0,
-        -2.05,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": []
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+Board (1):1",
-      "component": "Board (1)",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        2.43,
-        0.0,
-        1.0,
-        0.0,
-        -0.06200000000000001,
-        0.0,
-        0.0,
-        1.0,
-        -2.05,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.5716622676616823,
-          "area": 9.344919707520262,
-          "solid": true,
-          "lumps": 1,
-          "faces": 31,
-          "edges": 66,
-          "visible": true,
-          "appearance": "Opaque(120,110,70)",
-          "bounds": [
-            [
-              5.55111512312578e-17,
-              0.0,
-              0.0
-            ],
-            [
-              2.54,
-              1.524,
-              0.15700000000000003
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0805-NO:1",
-      "component": "0805-NO",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        3.3698,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        1.1572,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.002496102400000001,
-          "area": 0.11499296000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 14,
-          "edges": 36,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.1,
-              -0.0625,
-              0.0
-            ],
-            [
-              0.1,
-              0.0625,
-              0.1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SOT23-6:1",
-      "component": "SOT23-6",
-      "transform": [
-        -4.28626379701574e-16,
-        1.0,
-        0.0,
-        3.7254000000000005,
-        -1.0,
-        -4.28626379701574e-16,
-        0.0,
-        0.8206,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.004974138718777132,
-          "area": 0.250905405302713,
-          "solid": true,
-          "lumps": 1,
-          "faces": 98,
-          "edges": 256,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.145,
-              -0.13999999999999999,
-              0.0
-            ],
-            [
-              0.145,
-              0.13999999999999999,
-              0.11000000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0603-NO_WIDE:1",
-      "component": "0603-NO_WIDE",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        4.0112000000000005,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        0.8143,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.0011499216000000008,
-          "area": 0.06880396000000003,
-          "solid": true,
-          "lumps": 1,
-          "faces": 14,
-          "edges": 36,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.08000000000000002,
-              -0.045000000000000005,
-              0.0
-            ],
-            [
-              0.08000000000000002,
-              0.045000000000000005,
-              0.08000000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+1X04_2.54MMTERMINAL:1",
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+1X04_2.54MMTERMINAL:2",
       "component": "1X04_2.54MMTERMINAL",
       "transform": [
-        -4.28626379701574e-16,
-        1.0,
-        0.0,
-        2.938,
+        3.06161699786838e-16,
         -1.0,
-        -4.28626379701574e-16,
+        0.0,
+        4.462,
+        1.0,
+        3.06161699786838e-16,
         0.0,
         0.7,
         0.0,
@@ -10536,570 +10567,6 @@
       ]
     },
     {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SC70-5:1",
-      "component": "SC70-5",
-      "transform": [
-        -4.28626379701574e-16,
-        1.0,
-        0.0,
-        3.7190000000000003,
-        -1.0,
-        -4.28626379701574e-16,
-        0.0,
-        0.5412,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.0031710453279217643,
-          "area": 0.16496760628571447,
-          "solid": true,
-          "lumps": 1,
-          "faces": 63,
-          "edges": 164,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.109669521000707,
-              -0.111526539115468,
-              0.0
-            ],
-            [
-              0.110330478999293,
-              0.10847346088453202,
-              0.1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SK6805_1515:1",
-      "component": "SK6805_1515",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        4.0175,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        1.0937000000000001,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.0009800000000000004,
-          "area": 0.08180000000000003,
-          "solid": true,
-          "lumps": 1,
-          "faces": 26,
-          "edges": 60,
-          "visible": true,
-          "appearance": "Opaque(255,255,255)",
-          "bounds": [
-            [
-              -0.07500000000000001,
-              -0.07500000000000001,
-              0.0
-            ],
-            [
-              0.07500000000000001,
-              0.07500000000000001,
-              0.048
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 2.5000000000000005e-05,
-          "area": 0.007000000000000001,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(250,220,148)",
-          "bounds": [
-            [
-              -0.065,
-              -0.065,
-              0.0
-            ],
-            [
-              -0.015,
-              -0.015,
-              0.010000000000000002
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 2.5000000000000005e-05,
-          "area": 0.007000000000000001,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(250,220,148)",
-          "bounds": [
-            [
-              0.015,
-              0.015,
-              0.0
-            ],
-            [
-              0.065,
-              0.065,
-              0.010000000000000002
-            ]
-          ]
-        },
-        {
-          "name": "Body4",
-          "volume": 2.5000000000000005e-05,
-          "area": 0.007000000000000001,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(250,220,148)",
-          "bounds": [
-            [
-              -0.065,
-              0.015,
-              0.0
-            ],
-            [
-              -0.015,
-              0.065,
-              0.010000000000000002
-            ]
-          ]
-        },
-        {
-          "name": "Body5",
-          "volume": 2.5000000000000005e-05,
-          "area": 0.007000000000000001,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Opaque(250,220,148)",
-          "bounds": [
-            [
-              0.015,
-              -0.065,
-              0.0
-            ],
-            [
-              0.065,
-              -0.015,
-              0.010000000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+0805-NO:2",
-      "component": "0805-NO",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        3.3888000000000003,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        0.8079999999999999,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.002496102400000001,
-          "area": 0.11499296000000002,
-          "solid": true,
-          "lumps": 1,
-          "faces": 14,
-          "edges": 36,
-          "visible": true,
-          "appearance": "Opaque(160,160,160)",
-          "bounds": [
-            [
-              -0.1,
-              -0.0625,
-              0.0
-            ],
-            [
-              0.1,
-              0.0625,
-              0.1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+1X04_2.54MMTERMINAL:2",
-      "component": "1X04_2.54MMTERMINAL",
-      "transform": [
-        3.06161699786838e-16,
-        -1.0,
-        0.0,
-        4.462,
-        1.0,
-        3.06161699786838e-16,
-        0.0,
-        0.7,
-        0.0,
-        0.0,
-        1.0,
-        -1.8929999999999998,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 0.007332923740927139,
-          "area": 0.4365598514904758,
-          "solid": true,
-          "lumps": 1,
-          "faces": 32,
-          "edges": 79,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.279,
-              -0.16000000000000103,
-              -0.35000000000000003
-            ],
-            [
-              0.47900000000000004,
-              0.280000000000023,
-              0.34
-            ]
-          ]
-        },
-        {
-          "name": "Body2",
-          "volume": 0.012930403949321847,
-          "area": 0.6872303855034557,
-          "solid": true,
-          "lumps": 1,
-          "faces": 19,
-          "edges": 50,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.279,
-              -0.16000000000000103,
-              0.05499999999999991
-            ],
-            [
-              0.47900000000000004,
-              0.13999999999999901,
-              0.4700000000000001
-            ]
-          ]
-        },
-        {
-          "name": "Body3",
-          "volume": 0.009249676421644804,
-          "area": 0.3147599529617125,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 15,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.274,
-              -0.11500000000000091,
-              0.34
-            ],
-            [
-              0.484,
-              0.09499999999999911,
-              0.77
-            ]
-          ]
-        },
-        {
-          "name": "Body4",
-          "volume": 0.007332923740927127,
-          "area": 0.43655985149047566,
-          "solid": true,
-          "lumps": 1,
-          "faces": 32,
-          "edges": 79,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.025000000000000102,
-              -0.16000000000000103,
-              -0.35000000000000003
-            ],
-            [
-              0.225,
-              0.280000000000023,
-              0.34
-            ]
-          ]
-        },
-        {
-          "name": "Body5",
-          "volume": 0.012930403949321836,
-          "area": 0.6872303855034557,
-          "solid": true,
-          "lumps": 1,
-          "faces": 19,
-          "edges": 50,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.025000000000000102,
-              -0.16000000000000103,
-              0.05499999999999991
-            ],
-            [
-              0.225,
-              0.13999999999999901,
-              0.4700000000000001
-            ]
-          ]
-        },
-        {
-          "name": "Body6",
-          "volume": 0.009249676421644815,
-          "area": 0.3147599529617127,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 15,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              0.01999999999999999,
-              -0.11500000000000091,
-              0.34
-            ],
-            [
-              0.23,
-              0.09499999999999911,
-              0.77
-            ]
-          ]
-        },
-        {
-          "name": "Body7",
-          "volume": 0.007332923740927136,
-          "area": 0.43655985149047594,
-          "solid": true,
-          "lumps": 1,
-          "faces": 32,
-          "edges": 79,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.229,
-              -0.16000000000000103,
-              -0.35000000000000003
-            ],
-            [
-              -0.028999999999999887,
-              0.280000000000023,
-              0.34
-            ]
-          ]
-        },
-        {
-          "name": "Body8",
-          "volume": 0.012930403949321857,
-          "area": 0.6872303855034558,
-          "solid": true,
-          "lumps": 1,
-          "faces": 19,
-          "edges": 50,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.229,
-              -0.16000000000000103,
-              0.05499999999999991
-            ],
-            [
-              -0.028999999999999887,
-              0.13999999999999901,
-              0.4700000000000001
-            ]
-          ]
-        },
-        {
-          "name": "Body9",
-          "volume": 0.00924967642164476,
-          "area": 0.3147599529617124,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 15,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.234,
-              -0.11500000000000081,
-              0.34
-            ],
-            [
-              -0.023999999999999994,
-              0.09499999999999921,
-              0.77
-            ]
-          ]
-        },
-        {
-          "name": "Body10",
-          "volume": 0.007332923740927138,
-          "area": 0.4365598514904759,
-          "solid": true,
-          "lumps": 1,
-          "faces": 32,
-          "edges": 79,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.47900000000000004,
-              -0.16000000000000103,
-              -0.35000000000000003
-            ],
-            [
-              -0.279,
-              0.280000000000023,
-              0.34
-            ]
-          ]
-        },
-        {
-          "name": "Body11",
-          "volume": 0.01293040394932185,
-          "area": 0.6872303855034558,
-          "solid": true,
-          "lumps": 1,
-          "faces": 19,
-          "edges": 50,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.47900000000000004,
-              -0.16000000000000103,
-              0.05499999999999991
-            ],
-            [
-              -0.279,
-              0.13999999999999901,
-              0.4700000000000001
-            ]
-          ]
-        },
-        {
-          "name": "Body12",
-          "volume": 0.009249676421644806,
-          "area": 0.31475995296171244,
-          "solid": true,
-          "lumps": 1,
-          "faces": 9,
-          "edges": 15,
-          "visible": true,
-          "appearance": "Opaque(220,220,210)",
-          "bounds": [
-            [
-              -0.484,
-              -0.11500000000000081,
-              0.34
-            ],
-            [
-              -0.274,
-              0.09499999999999921,
-              0.77
-            ]
-          ]
-        },
-        {
-          "name": "Body13",
-          "volume": 0.2120851980730464,
-          "area": 7.301717666255269,
-          "solid": true,
-          "lumps": 1,
-          "faces": 156,
-          "edges": 438,
-          "visible": true,
-          "appearance": "Opaque(90,190,90)",
-          "bounds": [
-            [
-              -0.532,
-              -0.31500000000000106,
-              -1.1102230246251602e-16
-            ],
-            [
-              0.528,
-              0.30499999999999905,
-              0.850000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+_0402NO (1):2",
       "component": "_0402NO (1)",
       "transform": [
@@ -11290,6 +10757,196 @@
       ]
     },
     {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SC70-5:1",
+      "component": "SC70-5",
+      "transform": [
+        -4.28626379701574e-16,
+        1.0,
+        0.0,
+        3.7190000000000003,
+        -1.0,
+        -4.28626379701574e-16,
+        0.0,
+        0.5412,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.0031710453279217643,
+          "area": 0.16496760628571447,
+          "solid": true,
+          "lumps": 1,
+          "faces": 63,
+          "edges": 164,
+          "visible": true,
+          "appearance": "Opaque(160,160,160)",
+          "bounds": [
+            [
+              -0.109669521000707,
+              -0.111526539115468,
+              0.0
+            ],
+            [
+              0.110330478999293,
+              0.10847346088453202,
+              0.1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE PixelShifter6066 - manufacturer STEP:3+SK6805_1515:1",
+      "component": "SK6805_1515",
+      "transform": [
+        3.06161699786838e-16,
+        -1.0,
+        0.0,
+        4.0175,
+        1.0,
+        3.06161699786838e-16,
+        0.0,
+        1.0937000000000001,
+        0.0,
+        0.0,
+        1.0,
+        -1.8929999999999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.0009800000000000004,
+          "area": 0.08180000000000003,
+          "solid": true,
+          "lumps": 1,
+          "faces": 26,
+          "edges": 60,
+          "visible": true,
+          "appearance": "Opaque(255,255,255)",
+          "bounds": [
+            [
+              -0.07500000000000001,
+              -0.07500000000000001,
+              0.0
+            ],
+            [
+              0.07500000000000001,
+              0.07500000000000001,
+              0.048
+            ]
+          ]
+        },
+        {
+          "name": "Body2",
+          "volume": 2.5000000000000005e-05,
+          "area": 0.007000000000000001,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(250,220,148)",
+          "bounds": [
+            [
+              -0.065,
+              -0.065,
+              0.0
+            ],
+            [
+              -0.015,
+              -0.015,
+              0.010000000000000002
+            ]
+          ]
+        },
+        {
+          "name": "Body3",
+          "volume": 2.5000000000000005e-05,
+          "area": 0.007000000000000001,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(250,220,148)",
+          "bounds": [
+            [
+              0.015,
+              0.015,
+              0.0
+            ],
+            [
+              0.065,
+              0.065,
+              0.010000000000000002
+            ]
+          ]
+        },
+        {
+          "name": "Body4",
+          "volume": 2.5000000000000005e-05,
+          "area": 0.007000000000000001,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(250,220,148)",
+          "bounds": [
+            [
+              -0.065,
+              0.015,
+              0.0
+            ],
+            [
+              -0.015,
+              0.065,
+              0.010000000000000002
+            ]
+          ]
+        },
+        {
+          "name": "Body5",
+          "volume": 2.5000000000000005e-05,
+          "area": 0.007000000000000001,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Opaque(250,220,148)",
+          "bounds": [
+            [
+              0.015,
+              -0.065,
+              0.0
+            ],
+            [
+              0.065,
+              -0.015,
+              0.010000000000000002
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF BASE PixelShifter6066 - manufacturer STEP:3",
       "component": "REF BASE PixelShifter6066 - manufacturer STEP",
       "transform": [
@@ -11313,6 +10970,104 @@
       "visible": false,
       "appearance": null,
       "bodies": []
+    },
+    {
+      "path": "P24 Internal audio cradle r1 - front grille seal:1",
+      "component": "P24 Internal audio cradle r1 - front grille seal",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 13.065952097532367,
+          "area": 145.02571093215255,
+          "solid": true,
+          "lumps": 1,
+          "faces": 93,
+          "edges": 278,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -6.65,
+              -6.95,
+              -4.8999999999999995
+            ],
+            [
+              6.65,
+              -4.88,
+              -1.6999999999999997
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P25 WAGO saddle r2 - side loaded clamp nut print four:1",
+      "component": "P25 WAGO saddle r2 - side loaded clamp nut print four",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        3.7,
+        0.0,
+        1.0,
+        0.0,
+        -3.5,
+        0.0,
+        0.0,
+        1.0,
+        -4.9,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 2.067486302937972,
+          "area": 25.685368134870465,
+          "solid": true,
+          "lumps": 1,
+          "faces": 26,
+          "edges": 60,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -1.7600000000000002,
+              -1.33,
+              0.0
+            ],
+            [
+              2.0,
+              1.33,
+              0.8
+            ]
+          ]
+        }
+      ]
     },
     {
       "path": "P25 WAGO saddle r2 - side loaded clamp nut print four:2",
@@ -11456,6 +11211,55 @@
               2.0,
               1.33,
               0.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P26 WAGO pressure pad r1 - print four:1",
+      "component": "P26 WAGO pressure pad r1 - print four",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        5.29,
+        0.0,
+        1.0,
+        0.0,
+        -3.5,
+        0.0,
+        0.0,
+        1.0,
+        -4.4,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 0.030119203733493707,
+          "area": 0.8694690230273854,
+          "solid": true,
+          "lumps": 1,
+          "faces": 8,
+          "edges": 14,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -0.06,
+              -0.45,
+              -0.15
+            ],
+            [
+              0.06,
+              0.45,
+              0.15
             ]
           ]
         }
@@ -11609,6 +11413,104 @@
       ]
     },
     {
+      "path": "P27 Rear fuse rack r3 - lower holder and removable upper shelf:1",
+      "component": "P27 Rear fuse rack r3 - lower holder and removable upper shelf",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 6.682125026821518,
+          "area": 73.0983896501163,
+          "solid": true,
+          "lumps": 1,
+          "faces": 111,
+          "edges": 297,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -3.88,
+              4.220000000000001,
+              -4.7
+            ],
+            [
+              4.569999999999999,
+              6.83,
+              -0.9000000000000004
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE Schurter FDI 8601.2001.08 - max body:1",
+      "component": "REF BASE Schurter FDI 8601.2001.08 - max body",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -0.4500000000000002,
+        0.0,
+        1.0,
+        0.0,
+        5.85,
+        0.0,
+        0.0,
+        1.0,
+        -3.35,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome carrier yellow - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 9.650972631827432,
+          "area": 28.14867017616454,
+          "solid": true,
+          "lumps": 1,
+          "faces": 3,
+          "edges": 2,
+          "visible": true,
+          "appearance": "Dome carrier yellow - display only",
+          "bounds": [
+            [
+              -2.4,
+              -0.8,
+              -0.8
+            ],
+            [
+              2.4,
+              0.8,
+              0.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "path": "REF BASE Schurter FDI 8601.2001.08 - max body:2",
       "component": "REF BASE Schurter FDI 8601.2001.08 - max body",
       "transform": [
@@ -11652,6 +11554,104 @@
               2.4,
               0.8,
               0.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P28 Capacitor saddle r2 - accessible screws and open vents:1",
+      "component": "P28 Capacitor saddle r2 - accessible screws and open vents",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -5.11,
+        0.0,
+        1.0,
+        0.0,
+        0.6,
+        0.0,
+        0.0,
+        1.0,
+        -4.9,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Eye retainer gray - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 1.9277057607854826,
+          "area": 30.959721236017746,
+          "solid": true,
+          "lumps": 1,
+          "faces": 34,
+          "edges": 88,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -1.5,
+              -1.15,
+              0.0
+            ],
+            [
+              1.5,
+              1.15,
+              1.4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF BASE Panasonic EEU-FR1A102 - capacitor body:1",
+      "component": "REF BASE Panasonic EEU-FR1A102 - capacitor body",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -5.8100000000000005,
+        0.0,
+        1.0,
+        0.0,
+        0.6,
+        0.0,
+        0.0,
+        1.0,
+        -4.2,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": false,
+      "appearance": "Dome carrier yellow - display only",
+      "bodies": [
+        {
+          "name": "Body1",
+          "volume": 1.2566370614358635,
+          "area": 6.5973445725385655,
+          "solid": true,
+          "lumps": 1,
+          "faces": 3,
+          "edges": 2,
+          "visible": true,
+          "appearance": "Dome carrier yellow - display only",
+          "bounds": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              1.6
             ]
           ]
         }
@@ -12271,12 +12271,12 @@
       "bodies": [
         {
           "name": "P35 Plain backpack shell and cradles r0",
-          "volume": 19.234823634063034,
-          "area": 176.50079264269604,
+          "volume": 19.339187342015293,
+          "area": 175.72042102754435,
           "solid": true,
           "lumps": 1,
-          "faces": 197,
-          "edges": 487,
+          "faces": 191,
+          "edges": 479,
           "visible": true,
           "appearance": "Backpack ivory - display only",
           "bounds": [
@@ -12320,18 +12320,18 @@
       "bodies": [
         {
           "name": "P36 Copper thruster barrel r0 - print two",
-          "volume": 4.755628252656539,
-          "area": 50.40340471393497,
+          "volume": 4.723057079091007,
+          "area": 48.48519739211442,
           "solid": true,
           "lumps": 1,
-          "faces": 23,
-          "edges": 49,
+          "faces": 6,
+          "edges": 6,
           "visible": true,
           "appearance": "GS r1 copper goggles",
           "bounds": [
             [
               1.9999999999999998,
-              3.499999999999999,
+              3.5,
               3.3000000000000003
             ],
             [
@@ -12369,18 +12369,18 @@
       "bodies": [
         {
           "name": "P36 Copper thruster barrel r0 - print two",
-          "volume": 4.755628252656539,
-          "area": 50.40340471393497,
+          "volume": 4.723057079091007,
+          "area": 48.48519739211442,
           "solid": true,
           "lumps": 1,
-          "faces": 23,
-          "edges": 49,
+          "faces": 6,
+          "edges": 6,
           "visible": true,
           "appearance": "GS r1 copper goggles",
           "bounds": [
             [
               1.9999999999999998,
-              3.499999999999999,
+              3.5,
               3.3000000000000003
             ],
             [
@@ -14868,8 +14868,8 @@
       "bodies": [
         {
           "name": "FB24 Audio cradle - captive lid nuts",
-          "volume": 13.216756097532349,
-          "area": 144.12851093215255,
+          "volume": 13.054913660929724,
+          "area": 142.5700475692066,
           "solid": true,
           "lumps": 1,
           "faces": 85,
@@ -14884,8 +14884,8 @@
             ],
             [
               6.6499999999999995,
-              -6.9,
-              -0.6999999999999984
+              -6.300000000000001,
+              -0.7000000000000002
             ]
           ]
         }
@@ -14917,24 +14917,24 @@
       "bodies": [
         {
           "name": "Body1",
-          "volume": 4.403292122231862,
-          "area": 49.34754064119351,
+          "volume": 4.530364230035481,
+          "area": 50.9110864183021,
           "solid": true,
           "lumps": 1,
-          "faces": 12,
-          "edges": 28,
+          "faces": 15,
+          "edges": 37,
           "visible": true,
           "appearance": "Eye retainer gray - display only",
           "bounds": [
             [
               -5.199999999999999,
               -8.97,
-              -4.15
+              -4.1499999999999995
             ],
             [
               5.5,
-              -6.9,
-              -3.95
+              -6.199999999999999,
+              -3.9499999999999993
             ]
           ]
         }

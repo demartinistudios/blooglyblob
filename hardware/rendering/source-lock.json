@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "cad": {
-    "design_revision": "R28",
+    "design_revision": "R29",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 24,
-    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
-    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+    "cloud_version": 25,
+    "release_manifest": "hardware/cad/design-control/releases/R29-batch-20260930.json",
+    "release_manifest_sha256": "c0664b8c3e63815507e428aa4d94cba43546d2c8bde31483c5703f22a4126a57"
   },
   "scene_review_cad": {
     "cloud_name": "Blue Glee Blob - MAIN",
@@ -34,15 +34,15 @@
   "files": [
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "8f7c52afd64b3962cc9eef8f69ad90fe9bb51ec145518273083bf01dc25f470b"
+      "sha256": "26b56874b81e137fa3da068c02328ffc7441b21201c972340b705fb482464423"
     },
     {
       "path": "hardware/cad/current/native-meshes.json",
-      "sha256": "15a39003dbebf597108bb99b4cd67f064c0265f88926402fd88aed2b24d04c37"
+      "sha256": "a42d17d56768750eaaa6cea082b2cc0003298c11439ca65398418df5ddb4c1cc"
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "c43880d38c47f58294e585cd0ccc8349f4445b5f03792530370ea5a6ff325c58"
+      "sha256": "fcf5682cb318eabb7a054d734024037948b735d57a09fab7c121dd4514f9d764"
     },
     {
       "path": "hardware/cad/current/joints.json",
@@ -66,6 +66,6 @@
     }
   ],
   "frames": "Body-local cm, occurrence transform once, then cm to mm. Bed-normalized print geometry has separate frames.",
-  "scene_review": "R28/cloud24 dimension review: Pi +38Y; S1/S2 centers(-18,-17/-39); Wago row X48 rear-to-front W1/W3/W2/W4 at52/22/-8/-38; F1 moved, capacitor axes Y. Updated board/nut/crop markers and recognition helpers. Output visual review tracked separately in guide record.",
+  "scene_review": "R29 native geometry selected. R28 scene review retained as historical baseline; affected head/audio/backpack scenes require Guide review. Mesh filename retained; authority is cad binding.",
   "reference_frame_check": "Fuse and capacitor rows freshly exported from clean saved cloud19: body-local vertices and actual occurrence transform. Replaces legacy baked-coordinate rows; no geometry or CAD save change."
 }

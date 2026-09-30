@@ -216,22 +216,9 @@
           "object_id": "10",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
-          "source_status": "verified_triangle_geometry",
-          "stl_to_mesh": [
-            3.044348106939765e-10,
-            -0.9999999999999998,
-            0.0,
-            0.9999999999999998,
-            3.044348106939765e-10,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            -4.485313787050416e-09,
-            -7.606530516568455e-09,
-            -4.0999999
-          ],
+          "source_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
           "invariants": {
             "printable": true,
             "settings_sha256": "d11836d4205f5c63d75bafcbe77c9486194f3ec76c46a753d1aa4f3894022d29",
@@ -270,7 +257,8 @@
                 ]
               }
             ]
-          }
+          },
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-P14-01",
@@ -278,7 +266,7 @@
           "object_id": "12",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+          "source_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
           "source_status": "pending_manual_review",
           "stl_to_mesh": null,
           "invariants": {
@@ -320,7 +308,7 @@
               }
             ]
           },
-          "source_review_reason": "Different tessellation: selected STL 2316 triangles, recipe 3878; independent surface/frame review required"
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-FB24-01",
@@ -328,22 +316,9 @@
           "object_id": "14",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
-          "source_status": "verified_triangle_geometry",
-          "stl_to_mesh": [
-            0.0,
-            1.0,
-            0.0,
-            -1.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            2.587890612915089e-08,
-            -2.5878904352794052e-08,
-            -16.0
-          ],
+          "source_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
           "invariants": {
             "printable": true,
             "settings_sha256": "d11836d4205f5c63d75bafcbe77c9486194f3ec76c46a753d1aa4f3894022d29",
@@ -382,7 +357,8 @@
                 ]
               }
             ]
-          }
+          },
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-FB32-01",
@@ -390,22 +366,9 @@
           "object_id": "16",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
-          "source_status": "verified_triangle_geometry",
-          "stl_to_mesh": [
-            -0.9999999999999994,
-            -3.73018053251295e-08,
-            0.0,
-            -3.73018053251295e-08,
-            0.9999999999999994,
-            0.0,
-            0.0,
-            0.0,
-            -1.0,
-            -2.9654949429414046e-07,
-            3.721990129434971e-06,
-            1.0
-          ],
+          "source_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
           "invariants": {
             "printable": true,
             "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
@@ -444,7 +407,8 @@
                 ]
               }
             ]
-          }
+          },
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-FB01-01",
@@ -1523,22 +1487,9 @@
           "object_id": "64",
           "plate_id": "W2",
           "plate_number": 3,
-          "source_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
-          "source_status": "verified_triangle_geometry",
-          "stl_to_mesh": [
-            0,
-            1,
-            0,
-            -1,
-            0,
-            0,
-            0,
-            0,
-            1,
-            38.909687,
-            0,
-            -66.75
-          ],
+          "source_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+          "source_status": "pending_manual_review",
+          "stl_to_mesh": null,
           "invariants": {
             "printable": true,
             "settings_sha256": "20a353f74c77d9d12426c936b79b61287e251db64722052353abe0d91489834c",
@@ -1615,7 +1566,8 @@
                 ]
               }
             ]
-          }
+          },
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-AR01-01",
@@ -3287,7 +3239,7 @@
           "object_id": "134",
           "plate_id": "C2",
           "plate_number": 7,
-          "source_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
           "source_status": "pending_manual_review",
           "stl_to_mesh": null,
           "invariants": {
@@ -3329,7 +3281,7 @@
               }
             ]
           },
-          "source_review_reason": "Different tessellation: selected STL 5124 triangles, recipe 13002; independent surface/frame review required"
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-P36-02",
@@ -3337,7 +3289,7 @@
           "object_id": "136",
           "plate_id": "C2",
           "plate_number": 7,
-          "source_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+          "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
           "source_status": "pending_manual_review",
           "stl_to_mesh": null,
           "invariants": {
@@ -3379,7 +3331,7 @@
               }
             ]
           },
-          "source_review_reason": "Different tessellation: selected STL 5124 triangles, recipe 13002; independent surface/frame review required"
+          "source_review_reason": "R29 accepted geometry differs from retained project. Replace this instance, preserve intended bed placement, and review full affected plate/supports."
         },
         {
           "recipe_instance_id": "kit-P38-01",
