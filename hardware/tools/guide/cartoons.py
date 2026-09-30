@@ -1096,8 +1096,8 @@ def button(p):
     p.prism(circle(0, 0, 7.6, 48), 28.2, 29.4, '#e9ecef', '#b9c0c6', detail=lens)
 
 
-def panel_jack(p):
-    """Switchcraft 721AU sealed 2.1 mm DC panel jack: nickel threaded bushing with nut and
+def power_jack(p):
+    """Switchcraft 721AU sealed 2.1 mm solder-lug power jack: nickel threaded bushing with nut and
     washer, black body, two solder-eyelet lugs."""
     r_body = 6.4
     for dy in (-2.6, 2.6):
@@ -1633,7 +1633,7 @@ ITEMS = {
     'E06': (wago, 'WAGO 221-415 lever connector', None, None),
     'E07': (fuse_holder, 'Schurter FDI in-line fuse holder with leads', None, None),
     'E17': (button, 'Adafruit 1479 illuminated pushbutton', None, None),
-    'E18': (panel_jack, 'Switchcraft 721AU DC panel jack', None, None),
+    'E18': (power_jack, 'Switchcraft 721AU solder-lug power jack', None, None),
     'E25': (rubber_feet, 'Adhesive rubber feet', None, None),
     'C01': (clear_film, 'Clear eye film', None, None),
     'C02': (eye_foam, 'Eye diffuser foam patches', None, None),

@@ -100,7 +100,15 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
    wire crossing from a soldered branch, show the actual wire-entry face, and keep
    connector contact order separate from illustrative wire colors. Pair a complete
    connection view with a close-up when stripping, soldering or clamping needs one.
-10. **Make detail optional, not the instruction.** Parts lists and references may
+10. **Draw what the builder will see.** A picture shows the state its panel
+    leaves, in the same pose and support the actions describe. Do not cram
+    several stages into one drawing or use opposed arrows; when order matters,
+    add small numbered callouts. Draw tools as tools: a meter probe has a tip
+    and a handle, so it cannot be mistaken for a soldered wire. A render that
+    contradicts its actions, such as one showing a retired stand, is recorded
+    as a picture mismatch until it is re-rendered, and its caption says what it
+    shows.
+11. **Make detail optional, not the instruction.** Parts lists and references may
     expand on demand. The operation, required dimensions and safety information
     remain visible. Preserve keyboard navigation, readable contrast, image
     descriptions, zoom controls and printable output.
@@ -124,14 +132,15 @@ Build notes glossary, using the wording in [Names](#names).
 
 ### Limits
 
-Automated checks enforce these limits. They report warnings while the guide is
-being rewritten and errors once the rewrite is complete.
+Automated checks enforce these limits as errors: `consistency.py check`,
+`make guide-build` and `make check` fail on any violation.
 
 | Rule | Limit |
 | --- | --- |
 | Words in one sentence | 20 or fewer |
 | Words in one action (all its sentences) | 35 or fewer |
 | Panels in one step | 6 or fewer |
+| Actions in one panel | 1 to 3 |
 | Instructions in one sentence | 1 |
 | Part ID first used in a step | Plain name first, ID in parentheses |
 | Banned terms | None of the terms in [Banned terms](#banned-terms) |
@@ -140,9 +149,11 @@ being rewritten and errors once the rewrite is complete.
 Count words by splitting on spaces. A size or value with its unit counts as
 one word when it has no space, such as `M3×6`, `W1/3` or `T3.15`. A step link
 such as `{step:body-lights}` counts as one word. A command counts as one word.
+The one-instruction check skips quoted software messages and code spans.
 
-Simple mechanical steps should stay short: one to three panels, each with up to
-five actions. A step that needs more than six panels is two steps.
+Simple mechanical steps should stay short: one to three panels. An action is one
+to three short sentences; a panel holds one to three actions. A step that needs
+more than six panels is two steps.
 
 ### Sentences
 
@@ -187,6 +198,16 @@ five actions. A step that needs more than six panels is two steps.
    in {step:board-cover-nuts}."). Never put an instruction, caution or fact the
    builder needs in a note.
 
+### No pointless ceremony
+
+Cut checks, confirmations, test-fits, reminders and result lines that have no
+consequence at that point in the build. A "make sure the bottom cover closes"
+check in the middle of the build is ceremony: nothing the builder can do then
+depends on it. Say a real constraint once, in the step where it is acted on,
+and link back to it rather than repeating it. Keep a check when it catches a
+fault while it is still cheap to fix, such as a continuity test before a part
+is mounted. Keep every required safety message.
+
 ### Physical sense
 
 A rewrite must make physical sense at the bench, not only read well. For each
@@ -196,12 +217,19 @@ operation, check:
   faces in that position;
 - whether a nut or part can fall out, slide or turn before it is fastened, and
   what holds it until then;
-- what each hand is doing, and whether the builder can reach the part;
+- what each hand is doing, and whether the builder can reach the part (never
+  three hands);
 - whether an earlier step leaves access for this one, and whether this step
   blocks a later one.
 
+There is no service stand. When the robot must lie down, rest it on something
+soft, such as folded towels. Say which way it lies and keep weight off the
+head, arms and servos. In powered steps, keep moving parts clear so the robot
+cannot tip.
+
 Check against the step's pictures, `hardware/cad/CURRENT-NOTES.md` and the CAD
-geometry. Question inherited steps: an instruction is not correct because the
+geometry. CAD is the source of truth for fastening details: screw direction,
+nut pockets and which part holds which nut. Question inherited steps: an instruction is not correct because the
 old text had it. When the sources do not settle a doubt, keep the current
 wording, record the doubt in the work record and flag it to the owner. Do not
 carry it over silently or guess a new procedure.
@@ -313,7 +341,6 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 | One LED bead on the body strand (E05) | pebble | — | — |
 | A place in the lighting data chain: body 0–5, eyes 6–7, mouth 8–15 | light 0 to light 15 | — | pixel (except in software output) |
 | FB01 and everything mounted in it | base | — | enclosure, electronics enclosure |
-| Wooden parts of the service stand | stand board and stand blocks | — | stand base |
 
 Retired names must not appear in guide text, captions, diagram labels, part
 cards or generator labels once the rewrite is complete.
@@ -372,7 +399,6 @@ the part card changes to match.
 | GS11 | robot-right eye housing | Robot-right copper goggle housing |
 | GS12 | robot-left eye housing | Robot-left copper goggle housing |
 | GS20 | head shell | same |
-| J05 | head saddle (optional) | Service-stand head saddle (optional) |
 | P01 | foam collar | Round foam collar |
 | P02 | frame upright | same |
 | P03 | shoulder-servo bracket | same |
@@ -414,15 +440,16 @@ each with the name or wording given.
 | HEAD (as a connector), HEAD tails | head light connector, head power pair |
 | H2 | Pi power lead |
 | pigtail | input harness, or the named lead |
+| service stand, stand board, stand blocks | folded towels; say which way the robot lies |
 | simply, just, easily, carefully, please, make sure, note that | delete |
 | warning, caution, be careful, danger (outside a safety entry, except when quoting a message the software shows) | a safety entry |
 | not to scale, illustrative, does not show (in a caption) | delete |
 
 ## Worked examples
 
-These rewrite two current steps to the standard. They show the target form
-only; the guide data changes when each chapter is rewritten. Every quantity,
-size, port and value from the current steps is kept.
+These show the target form on two steps, written before the chapter rewrites.
+The guide's own steps are now the reference for content. Each numbered line
+here is one sentence; in the guide data, one to three sentences make one action.
 
 ### Example 1: Fit the front grille and rear vent (mechanical)
 

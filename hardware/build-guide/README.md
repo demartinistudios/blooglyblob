@@ -64,7 +64,7 @@ relevant dependencies, or was reviewed:
 
 Prefer bench preparation before installation: solder, insulate, label and check
 loose components or harnesses before fastening them to printed parts. Where
-length depends on the assembly, dry-route and mark first, then return to the
+length depends on the assembly, test-route and mark first, then return to the
 bench for hot work. Finish soldered harnesses before plugging them into mounted
 boards; keep final routing, restraint and connector seating in the installation
 step. Review access before closing covers or fitting parts that obstruct tools.

@@ -2000,7 +2000,8 @@
         },
         {
           "title": "Check the switch pair",
-          "textOnly": true,
+          "image": "assets/circuits/button-switch-check.svg",
+          "caption": "Rear view of the button, with meter probes on the switch tabs.",
           "actions": [
             2,
             3
@@ -2098,7 +2099,7 @@
         {
           "title": "Fit the button in its insert",
           "image": "assets/circuits/button-insert-thread.svg",
-          "caption": "Side view, with the outside of the insert on the left.",
+          "caption": "Side view of the fitted button, with the outside of the insert on the left. Numbers mark the order.",
           "actions": [
             0,
             1
@@ -2184,7 +2185,7 @@
       "panels": [
         {
           "title": "Identify the jack lugs",
-          "image": "assets/circuits/inlet-terminals.svg",
+          "image": "assets/circuits/power-jack-lugs.svg",
           "caption": "Rear (solder) view of the power jack.",
           "actions": [
             0,
@@ -2253,7 +2254,7 @@
       "title": "Connect the power jack, Pi power lead and ground",
       "chapter": "Base wiring",
       "actions": [
-        "Test-route the J1 center lead to the input WAGO (W1/1). Test-route the sleeve lead to the ground WAGO (W3/1). Cut each lead where it reaches.",
+        "Test-route the J1 center lead to the input WAGO (W1/1): run it along its final path without fixing it. Test-route the sleeve lead to the ground WAGO (W3/1). Cut each lead where it reaches.",
         "Strip 11 mm from each lead. Do not tin it. Open the lever at W1/1. Push the bare center lead fully in. Close the lever.",
         "Insert the sleeve lead into W3/1 the same way. Each WAGO 221-415 port takes one wire. Pull gently on each wire. It must stay in the port.",
         "Cut the USB-C end off the Pi power lead (E22). Keep the micro-B plug. Leave the cable long for now. Label the lead PI POWER.",
@@ -2294,7 +2295,7 @@
             "level": "caution",
             "text": "Swapped leads from the power jack (J1) reverse the supply to every part. When powered, a capacitor can then vent and the Pi can fail. Insert each lead into the port named below."
           },
-          "image": "assets/circuits/inlet.svg",
+          "image": "assets/circuits/power-jack-leads.svg",
           "caption": "Rear view of the power jack, with each lead traced to its port.",
           "detail": {
             "title": "Inserting a wire into a WAGO",
@@ -2409,7 +2410,7 @@
             "level": "warning",
             "text": "A wire from W1 straight to W2 bypasses the servo fuse. A fault could then overheat the wires and cause burns or fire. Connect W1 to W2 only through F1."
           },
-          "image": "assets/circuits/f1-land.svg",
+          "image": "assets/circuits/f1-connect.svg",
           "caption": "Connection view of W1, F1 and W2.",
           "actions": [
             6,
@@ -2525,7 +2526,7 @@
             "level": "warning",
             "text": "A wire from W1 to the base half that skips F2 bypasses the light fuse. A fault could then overheat the thin light wires and cause fire. Connect the base half to W1 only through F2."
           },
-          "image": "assets/circuits/f2-land.svg",
+          "image": "assets/circuits/f2-connect.svg",
           "caption": "Connection view of W1, F2, the base half and W3.",
           "actions": [
             9,
@@ -4579,12 +4580,12 @@
         "With the other hand, drive an M3×12 screw through each hole into its nut. Keep the two lower belt docks clear.",
         "If a screw does not catch, push its nut further into the channel."
       ],
-      "check": "The tanks, plugs, elbows and top band are secure. The shell comes off backward once its four screws are removed.",
+      "check": "The tanks, plugs, elbows and top band are secure.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "You take the backpack shell off in {step:body-light-service}.",
       "kind": "build",
       "number": 55,
       "commands": [],
@@ -4686,12 +4687,12 @@
         "Push the last two B09 pins down through the docks.",
         "Every joint pivots, and each pin head sits slightly below the top edge."
       ],
-      "check": "Every belt joint pivots without cracking. Each rear joint opens when its pin is pushed up from below with a spare pin. The rear link must be supported then, so its side band does not bend.",
+      "check": "Every belt joint pivots without cracking.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "You open the rear belt joints in {step:body-light-service}.",
       "kind": "build",
       "number": 56,
       "commands": [],
@@ -5104,7 +5105,7 @@
       "panels": [
         {
           "title": "Hold the fit position",
-          "image": "assets/servo-fit-pose.svg",
+          "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "codeBlocks": [
             {
@@ -5415,7 +5416,7 @@
       "panels": [
         {
           "title": "Clear the space around the robot",
-          "image": "assets/servo-fit-pose.svg",
+          "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
             0,
@@ -5526,7 +5527,7 @@
         {
           "title": "Lay the robot on its back",
           "image": "assets/r16/service-stand.png",
-          "caption": "The robot lying on a wooden stand, open bottom toward the viewer, head resting on a block.",
+          "caption": "The robot level, open bottom toward the viewer. This render shows an earlier wooden stand, with the head on a block; the towel stacks leave the head clear.",
           "actions": [
             1,
             2,
@@ -6267,7 +6268,7 @@
         },
         {
           "title": "Replace a fuse",
-          "image": "assets/circuits/f1-land.svg",
+          "image": "assets/circuits/f1-connect.svg",
           "caption": "Connection view of W1, F1 and W2.",
           "safety": {
             "level": "warning",
@@ -6295,7 +6296,7 @@
         },
         {
           "title": "Replace the light capacitor (C2)",
-          "image": "assets/circuits/f2-land.svg",
+          "image": "assets/circuits/f2-connect.svg",
           "caption": "Connection view of W1, F2, the base half and W3.",
           "safety": {
             "level": "caution",
@@ -6529,7 +6530,7 @@
         },
         {
           "title": "Set the fit position and refit the part",
-          "image": "assets/servo-fit-pose.svg",
+          "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
             15,

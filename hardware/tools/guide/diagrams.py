@@ -103,7 +103,7 @@ def servo_fit_position():
     g.text(cx - 40, 650, 'Side view (robot facing right)', size=18, anchor='middle', weight=700)
     g.text(cx + 150, by - 420, 'FRONT →', size=16, fill=MUTED, weight=700)
     g.text(1170, 690, 'The robot returns to this position whenever the application starts.', size=16, anchor='end', fill=MUTED)
-    g.save('servo-fit-pose.svg')
+    g.save('servo-fit-position.svg')
 
 
 # ------------------------------------------------------------------ phone-readable circuit actions
@@ -257,7 +257,7 @@ def power_jack_circuit():
     g.wire([(267,235),(217,205)], MUTED, 1.5)
     g.text(141, 291, 'Center +', size=22, fill=RED)
     g.text(24, 609, '18 AWG · trace each continuous wire', size=22)
-    g.save('circuits/inlet.svg')
+    g.save('circuits/power-jack-leads.svg')
 
 def pi_power_circuit():
     g = physical_action('Connect the Pi power lead', 645, 'Adafruit 4056 micro-B lead')
@@ -299,7 +299,7 @@ def f1_circuit():
     g.wire([(365,291),(392,291),(392,445),(368,445),port_point(1,415)],RED,7)
     g.text(24, 337, '18 AWG · fuse out while wiring',size=22)
     g.text(24, 481, 'No direct W1-to-W2 link.',size=22,weight=700)
-    g.save('circuits/f1-land.svg')
+    g.save('circuits/f1-connect.svg')
 
 def c1_circuit():
     g = physical_action('Connect the servo capacitor', 680)
@@ -375,7 +375,7 @@ def f2_circuit():
     g.text(24, 574, 'S1 D5',size=22,fill=BLUE)
     g.text(24, 666, 'One return wire in W3/5.',size=22)
     g.text(24, 697, 'Leave BODY LIGHT unplugged.',size=22)
-    g.save('circuits/f2-land.svg')
+    g.save('circuits/f2-connect.svg')
 
 def gpio_map(g, selected, y=140):
     """Header viewed from above the pins; USB end is at the bottom."""
@@ -599,7 +599,7 @@ def button_tab_labels(g, tabs, cx):
 
 
 def button_terminals():
-    g = action('Identify the four tabs', 470, 'Rear view · retaining nut off')
+    g = action('Identify the four tabs', 400, 'Rear view · retaining nut off')
     cx, cy = 210, 215
     tabs = button_back(g, cx, cy)
     button_tab_labels(g, tabs, cx)
@@ -608,14 +608,36 @@ def button_terminals():
         g.wire([(x, y - 12), (x + (-1 if anchor == 'start' else 1) * 40, 112), (tx + (40 if anchor == 'start' else -40), 112)], '#ae855e', 2)
         g.dot(x, y - 12, '#f4e7c4', r=3)
         g.text(tx, 104, 'LED −' if key == 'LED−' else 'LED +', size=22, fill=color, anchor=anchor, weight=700)
-    # Meter probes on the lower, wider switch pair.
-    for key, end, color in (('SW1', (126, 408), RED), ('SW2', (294, 408), BLK)):
-        x, y = tabs[key]
-        g.wire([(x, y + 12), (x - 6 if key == 'SW1' else x + 6, y + 40)], GRAY, 3)
-        g.wire([(x - 6 if key == 'SW1' else x + 6, y + 40), end], color, 9)
-    g.text(cx, 350, 'Switch', size=23, anchor='middle', weight=700)
-    g.text(cx, 452, 'Beeps only while pressed', size=22, anchor='middle')
+    (x1, y1), (x2, y2) = tabs['SW1'], tabs['SW2']
+    g.wire([(x1, y1 + 12), (x1, 334), (x2, 334), (x2, y2 + 12)], '#ae855e', 2)
+    for x, y in (tabs['SW1'], tabs['SW2']):
+        g.dot(x, y + 12, '#f4e7c4', r=3)
+    g.text(cx, 366, 'Switch pair', size=22, anchor='middle', weight=700)
     g.save('circuits/button-terminals.svg')
+
+
+def meter_probe(g, tip, end, color):
+    """A meter probe: bare metal tip on the tab, finger guard, then a thick insulated handle."""
+    import math
+    (x0, y0), (x1, y1) = tip, end
+    length = math.hypot(x1 - x0, y1 - y0)
+    ux, uy = (x1 - x0) / length, (y1 - y0) / length
+    gx, gy = x0 + ux * 46, y0 + uy * 46
+    g.wire([(x0, y0), (gx, gy)], '#b9bec3', 4)
+    g.wire([(gx - uy * 16, gy + ux * 16), (gx + uy * 16, gy - ux * 16)], color, 8)
+    g.wire([(gx, gy), (x1, y1)], color, 16)
+
+
+def button_switch_check():
+    g = action('Check the switch pair', 470, 'Rear view · meter in continuity mode')
+    cx, cy = 210, 200
+    tabs = button_back(g, cx, cy)
+    button_tab_labels(g, tabs, cx)
+    for key, end, color in (('SW1', (96, 396), RED), ('SW2', (324, 396), BLK)):
+        x, y = tabs[key]
+        meter_probe(g, (x, y + 10), end, color)
+    g.text(cx, 448, 'Beeps only while pressed', size=22, anchor='middle')
+    g.save('circuits/button-switch-check.svg')
 
 
 def button_leads_prepare():
@@ -704,34 +726,41 @@ def button_leads_led():
     g.save('circuits/button-leads-led.svg')
 
 
+def callout(g, x, y, n):
+    """A small numbered marker for the order of work."""
+    g.circle(x, y, 16, fill=BLUE, stroke=BLUE, sw=1)
+    g.text(x, y + 8, str(n), size=22, fill='#fff', anchor='middle', weight=700)
+
+
 def button_insert_threading():
-    g = action('Fit the button in its insert', 460, 'Side view · outside on the left')
-    y0 = 225
-    rows = ((y0 - 27, 20, BLK), (y0 - 9, 4, RED), (y0 + 9, 11, BLUE), (y0 + 27, 14, BLUE))
-    # Button, still outside FB20: lens, 18 mm bezel, Ø16 body, sleeved tabs.
-    g.rect(20, y0 - 30, 20, 60, fill='#e9e6dc', stroke=INK, rx=6)
-    g.rect(40, y0 - 42, 16, 84, fill='#292e36', stroke=INK, rx=3)
-    g.rect(56, y0 - 36, 80, 72, fill='#343b43', stroke=INK, rx=2)
-    for x in range(62, 132, 9):
-        g.wire([(x, y0 - 36), (x + 4, y0 + 36)], '#55585f', 2)
+    g = action('Fit the button in its insert', 450, 'Side view · outside on the left')
+    y0 = 215
     # FB20 in section: a 2 mm plate with its Ø16.2 hole.
-    for top, h in ((y0 - 90, 52), (y0 + 38, 52)):
-        g.rect(190, top, 14, h, fill='#c0845a', stroke=INK, sw=1, rx=1)
-    g.text(197, y0 - 100, 'FB20', size=22, anchor='middle', weight=700)
-    # Retaining nut, seen edge-on, with the leads through its hole.
-    g.rect(260, y0 - 52, 18, 104, fill='#b3bac0', stroke=INK, sw=1, rx=2)
-    g.text(269, y0 + 80, 'Nut', size=22, anchor='middle', weight=700)
-    for y, pin, color in rows:
-        traced_wire(g, [(150, y), (340, y)], color, 4)
-        side_socket(g, 340, y, pin)
-    for y, _, _ in rows:
-        g.rect(132, y - 5, 26, 10, fill='#47515b', stroke='#1c2126', sw=1, rx=3)
-    g.wire([(92, y0 + 62), (170, y0 + 62)], BLUE, 3, arrow=True)
-    g.wire([(300, y0 - 72), (220, y0 - 72)], BLUE, 3, arrow=True)
-    g.text(24, 350, '1 · Leads through FB20 from outside.', size=22)
-    g.text(24, 381, '2 · Button pushed into FB20.', size=22)
-    g.text(24, 412, '3 · Leads through the nut.', size=22)
-    g.text(24, 443, '4 · Nut tightened on the back.', size=22)
+    for top, h in ((y0 - 100, 60), (y0 + 40, 60)):
+        g.rect(104, top, 14, h, fill='#c0845a', stroke=INK, sw=1, rx=1)
+    g.text(111, y0 - 110, 'FB20', size=22, anchor='middle', weight=700)
+    # The button, seated from outside: lens and 18 mm bezel against the outer face,
+    # Ø16 body through the hole, retaining nut tight against the inner face.
+    g.rect(64, y0 - 30, 20, 60, fill='#e9e6dc', stroke=INK, rx=6)
+    g.rect(84, y0 - 48, 20, 96, fill='#292e36', stroke=INK, rx=3)
+    g.rect(104, y0 - 36, 108, 72, fill='#343b43', stroke=INK, rx=2)
+    for x in range(140, 206, 9):
+        g.wire([(x, y0 - 36), (x + 4, y0 + 36)], '#55585f', 2)
+    g.rect(118, y0 - 50, 16, 100, fill='#b3bac0', stroke=INK, sw=1, rx=2)
+    # Sleeved tabs, then the four labeled Pi ends out of the back.
+    rows = ((y0 - 27, 20, BLK), (y0 - 9, 4, RED), (y0 + 9, 11, BLUE), (y0 + 27, 14, BLUE))
+    for i, (y, pin, color) in enumerate(rows):
+        sy = 150 + i * 44
+        traced_wire(g, [(250, y), (290, y), (326, sy), (340, sy)], color, 4)
+        side_socket(g, 340, sy, pin)
+    for y, pin, _ in rows:
+        g.rect(212, y - 6, 58 if pin == 4 else 40, 12, fill='#47515b', stroke='#1c2126', sw=1, rx=3)
+    callout(g, 360, 112, 1)
+    callout(g, 74, y0 - 72, 2)
+    callout(g, 152, y0 + 76, 3)
+    g.text(24, 382, '1 · Pi ends through FB20 from outside', size=22)
+    g.text(24, 413, '2 · Button pushed in after them', size=22)
+    g.text(24, 444, '3 · Nut on the back, tightened', size=22)
     g.save('circuits/button-insert-thread.svg')
 
 
@@ -1383,7 +1412,7 @@ def power_jack_terminals():
         if covered:
             g.rect(95, y - 17, 128, 36, fill='#424b55', rx=6)
     lines(g, 837, 'Cover the full lug and bare wire.', 'Insulate both joints separately;', 'cap the unused shunt lug too.')
-    g.save('circuits/inlet-terminals.svg')
+    g.save('circuits/power-jack-lugs.svg')
 
 
 def tie_mount():
@@ -1482,7 +1511,7 @@ def circuit_actions():
     connector_seating(); eye_connector(); power_overview()
     strand_wire_identification(); strand_test_connection(); strand_input_result()
     supply_polarity_test(); robot_power_connection()
-    power_jack_terminals(); button_terminals(); button_leads_prepare()
+    power_jack_terminals(); button_terminals(); button_switch_check(); button_leads_prepare()
     button_leads_switch(); button_leads_led(); button_leads_done(); button_insert_threading(); tie_mount()
 
 

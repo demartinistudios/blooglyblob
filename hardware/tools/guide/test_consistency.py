@@ -240,7 +240,7 @@ def words(count, word='bolt'):
 
 
 class WritingTests(unittest.TestCase):
-    """Writing-standard rules report warnings; U18 of the clarity plan makes them errors."""
+    """Writing-standard rules; check() reports every finding as an error."""
 
     def setUp(self):
         self.parts = [dict(id='FB41', category='Printed', name='Front microphone grille'),
@@ -351,6 +351,26 @@ class WritingTests(unittest.TestCase):
                 self.assertEqual(len(self.warnings('one-instruction')), 1)
         self.step['actions'][0] = 'Start the screws by hand. Then tighten them.'
         self.assertEqual(self.warnings('one-instruction'), [])
+
+    def test_quoted_messages_and_code_do_not_count_as_joined_instructions(self):
+        for text in ('Wait for “Done; reboot now”.', 'Run `sync; sync` on the Pi.', 'Wait for "Saved, then closed".'):
+            self.step['actions'][0] = text
+            with self.subTest(text=text):
+                self.assertEqual(self.warnings('one-instruction'), [])
+        self.step['actions'][0] = 'Wait for “Done”; then reboot.'
+        self.assertEqual(len(self.warnings('one-instruction')), 1)
+
+    def test_retired_service_stand_is_banned(self):
+        self.step['note'] = 'Rest the robot on the service stand.'
+        self.step['check'] = 'The stand blocks hold the head.'
+        self.assertEqual(len(self.warnings('banned-term')), 2)
+        self.step['note'], self.step['check'] = '', 'Stand the robot on its feet.'
+        self.assertEqual(self.warnings('banned-term'), [])
+
+    def test_current_guide_has_no_writing_errors(self):
+        root = Path(__file__).resolve().parents[3]
+        found = c.check_writing(c.read(root, c.GUIDE + '/guide-data.json'), c.read(root, c.GUIDE + '/parts.json'))
+        self.assertEqual(found, [])
 
     def test_part_card_text_is_checked_for_banned_terms(self):
         self.parts[0]['status'] = 'Print it, then dry-fit it.'
@@ -488,12 +508,12 @@ class ReviewTests(unittest.TestCase):
         self.write(c.GUIDE + '/guide-data.json', json.dumps({'steps': [{'panels': [panel]}]}))
         self.assertEqual(c.missing_commands(self.root), ['absent', 'pi-not-a-target'])
 
-    def check_fixture(self, commands=(), warnings=()):
+    def check_fixture(self, commands=(), writing=()):
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
             for name in ('check_panels', 'check_quantities', 'check_tools', 'check_references', 'check_reference_page'):
                 stack.enter_context(patch.object(c, name))
-            stack.enter_context(patch.object(c, 'check_writing', return_value=list(warnings)))
+            stack.enter_context(patch.object(c, 'check_writing', return_value=list(writing)))
             stack.enter_context(patch.object(c, 'read', return_value={}))
             stack.enter_context(patch.object(c, 'missing_commands', return_value=list(commands)))
             stack.enter_context(patch.object(c, 'review_status', return_value={
@@ -511,13 +531,30 @@ class ReviewTests(unittest.TestCase):
         self.assertFalse(offline['ok'])
         self.assertIn('pi-servo-fit', offline['errors'][0])
 
-    def test_writing_warnings_are_reported_without_failing(self):
-        offline, _ = self.check_fixture(warnings=['sentence-length: fixture actions[0]: 25 words'])
-        self.assertTrue(offline['ok'])
-        self.assertEqual(offline['warnings'], ['sentence-length: fixture actions[0]: 25 words'])
-        offline, _ = self.check_fixture(['pi-servo-fit'], warnings=['banned-term: fixture note: simply'])
+    def test_writing_violations_are_errors_outside_publication(self):
+        offline, publication = self.check_fixture(writing=['sentence-length: fixture actions[0]: 25 words'])
         self.assertFalse(offline['ok'])
-        self.assertEqual(len(offline['warnings']), 1)
+        self.assertFalse(publication['ok'])
+        self.assertEqual(offline['errors'], ['sentence-length: fixture actions[0]: 25 words'])
+        offline, _ = self.check_fixture(['pi-servo-fit'], writing=['banned-term: fixture note: simply'])
+        self.assertFalse(offline['ok'])
+        self.assertEqual(len(offline['errors']), 2)
+
+    def test_real_sentence_over_the_limit_fails_the_check(self):
+        step = dict(id='fixture', title='Fit the grille', actions=[' '.join(['word'] * 21) + '.'], check='', note='',
+                    panels=[dict(title='Fit', image='fit.svg', caption='', actions=[0])])
+        self.write(c.GUIDE + '/references.html', '')
+        with ExitStack() as stack:
+            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_references', 'check_reference_page'):
+                stack.enter_context(patch.object(c, name))
+            stack.enter_context(patch.object(c, 'read', side_effect=lambda root, path: (
+                {'steps': [step]} if path.endswith('guide-data.json') else [] if path.endswith('parts.json') else {})))
+            stack.enter_context(patch.object(c, 'missing_commands', return_value=[]))
+            stack.enter_context(patch.object(c, 'review_status', return_value={}))
+            result = c.check(self.root)
+        self.assertFalse(result['ok'])
+        self.assertEqual(len(result['errors']), 1)
+        self.assertTrue(result['errors'][0].startswith('sentence-length: fixture actions[0]'))
 
 
 class InlinePrintSettingsTests(unittest.TestCase):

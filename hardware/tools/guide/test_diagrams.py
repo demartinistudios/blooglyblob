@@ -196,8 +196,8 @@ class CircuitDiagramTests(unittest.TestCase):
     def test_generated_labels_use_approved_names(self):
         with tempfile.TemporaryDirectory() as temp, patch.object(diagrams, 'OUT', Path(temp)):
             diagrams.servo_fit_position()
-            fit = Path(temp) / 'servo-fit-pose.svg'
-            self.assertEqual(fit.read_bytes(), (ROOT / 'hardware/build-guide/src/assets/servo-fit-pose.svg').read_bytes())
+            fit = Path(temp) / 'servo-fit-position.svg'
+            self.assertEqual(fit.read_bytes(), (ROOT / 'hardware/build-guide/src/assets/servo-fit-position.svg').read_bytes())
             files = [(fit.name, ET.parse(fit).getroot())]
         files += [(str(f.relative_to(self.out)), ET.parse(f).getroot()) for f in sorted(self.out.rglob('*.svg'))]
         found = [(name, text, retired_names(text)) for name, root in files for text in labels(root) if retired_names(text)]

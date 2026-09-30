@@ -3,7 +3,7 @@
 
 Ordinary checks validate usable inputs. --publication additionally requires the
 release checklist. Review revisions are human declarations, not inferred approval.
-Writing-standard violations are reported as warnings and do not change ok.
+Writing-standard violations are errors, so they make ok false in every mode.
 `facts` prints each step's and part card's technical tokens for before/after diffs.
 """
 import argparse
@@ -168,6 +168,7 @@ WRITING = {
         ('BODY (connector)', r'(?<!→)\bBODY\b(?! LIGHT)', True, 'text'),
         ('HEAD (connector)', r'\bHEAD (?:tails?|plugs?|latch(?:es)?|connectors?|power|lighting)\b', True, 'text'),
         ('pigtail', r'\bpigtails?\b', False, 'text'),
+        ('service stand', r'\bservice stands?\b|\bstand (?:board|blocks?)\b', False, 'text'),
         ('simply', r'\bsimply\b', False, 'text'),
         ('just', r'\bjust\b', False, 'text'),
         ('easily', r'\beasily\b', False, 'text'),
@@ -184,12 +185,16 @@ WRITING = {
         ('does not show', r'\bdoes not show\b', False, 'caption'),
     ),
     # Two instructions joined in one sentence: a semicolon, or "then" after the start.
+    # Quoted software messages and code spans are not checked.
     'joined': r';|\s\bthen\b',
     'card_fields': ('name', 'description', 'status', 'verification'),
 }
+WRITING_RULES = ('panel-count', 'sentence-length', 'one-instruction', 'action-length', 'banned-term', 'first-use',
+                 'caption-repeats-action')
 STEP_LINK = re.compile(r'\{step:[^}]+\}')
 MAKE = re.compile(r'\bmake\s+[A-Za-z][A-Za-z0-9_]*-[A-Za-z0-9_-]+')
 QUOTED = re.compile(r'“[^”]*”|"[^"]*"')
+CODE = re.compile(r'`[^`]*`')
 
 
 def sentences(text):
@@ -258,7 +263,7 @@ def named_in_parentheses(text, start):
 
 
 def check_writing(guide, parts):
-    """Return writing-standard warnings; they never change ok until the rules become errors."""
+    """Return writing-standard violations, each starting with its rule name; check() reports them as errors."""
     limits = WRITING
     ids = {p['id'] for p in parts if p.get('category') != 'Fastener'} | set(limits['labels'])
     id_pattern = re.compile(r'(?<![\w.])(' + '|'.join(sorted(map(re.escape, ids), key=len, reverse=True)) + r')(?!\w)')
@@ -277,7 +282,7 @@ def check_writing(guide, parts):
                 if count > limits['sentence_words']:
                     warnings.append(f"sentence-length: {where}: sentence {n} has {count} words "
                                     f"(limit {limits['sentence_words']})")
-                if field == 'action' and re.search(limits['joined'], sentence.strip(), re.I):
+                if field == 'action' and re.search(limits['joined'], CODE.sub(' ', QUOTED.sub(' ', sentence)).strip(), re.I):
                     warnings.append(f'one-instruction: {where}: sentence {n} joins instructions')
             if field == 'action':
                 count = word_count(text)
@@ -555,7 +560,7 @@ def review_status(root):
 
 def check(root=ROOT, publication=False):
     root = Path(root).resolve()
-    result = {'errors': [], 'warnings': [], 'blockers': [], 'review': {}}
+    result = {'errors': [], 'blockers': [], 'review': {}}
     try:
         guide = read(root, f'{GUIDE}/guide-data.json')
         parts = read(root, f'{GUIDE}/parts.json')
@@ -563,12 +568,11 @@ def check(root=ROOT, publication=False):
         check_quantities(read(root, 'hardware/assembly/hardware.json'), read(root, 'hardware/catalog/supplies.json'),
                          read(root, 'hardware/catalog/parts.json'), guide, parts)
         check_tools(guide, parts)
-        # Writing warnings do not affect ok until the clarity rewrite makes them errors.
-        result['warnings'] = check_writing(guide, parts)
+        result['errors'] = list(check_writing(guide, parts))
         check_references(root, read(root, REFERENCE), read(root, f'{GUIDE}/references/catalog.json'))
         check_reference_page((root / GUIDE / 'references.html').read_text(),
                              read(root, f'{GUIDE}/references/catalog.json'))
-        result['errors'] = [f'Guide command make {target} has no Makefile target' for target in missing_commands(root)]
+        result['errors'] += [f'Guide command make {target} has no Makefile target' for target in missing_commands(root)]
         result['review'] = review_status(root)
         for surface, row in result['review'].items():
             if row['status'] != 'verified':
@@ -598,11 +602,9 @@ def main():
         print('Guide invariants: ' + ('FAIL' if report['errors'] else 'PASS'))
         for error in report['errors']:
             print('ERROR: ' + error)
-        for warning in report['warnings']:
-            print('WARNING: ' + warning)
-        if report['warnings']:
-            rules = Counter(w.split(':', 1)[0] for w in report['warnings'])
-            print(f"Writing warnings: {len(report['warnings'])} ("
+        rules = Counter(e.split(':', 1)[0] for e in report['errors'] if e.split(':', 1)[0] in WRITING_RULES)
+        if rules:
+            print(f"Writing errors: {sum(rules.values())} ("
                   + ', '.join(f'{rule} {n}' for rule, n in sorted(rules.items())) + ')')
         if args.publication:
             for blocker in report['blockers']:
