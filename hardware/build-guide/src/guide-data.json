@@ -5753,10 +5753,20 @@
       },
       "hardware": {},
       "actions": [
-        "Shut down and unplug. Support the head, remove its three screws, and lift only far enough to unplug HEAD. Take the head to the bench without pulling an LED wire.",
-        "Keep nuts with their screws. On refitting, lay the cable in the side entry, leave slack and tighten the same screws without washers or plugs."
+        "Open the Pi shell with the first command. Shut the Pi down with the second command.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "Hold the head still with one hand. With the other, remove the three M2×8 screws, on the two sides and the back.",
+        "Leave the three M3×8 screws in the head shelf. They hold it to the head horn adapter.",
+        "Lift the head straight up a few centimetres. With your other hand, reach in behind the mouth LED cassette (P30). Pull the joined head light connector down below the rim.",
+        "Rest the head face up on folded towels in front of the robot. Turn its open underside toward the top of the body.",
+        "Press the latch on the connector. Pull the two halves apart.",
+        "Tip the three M2 nuts out of their slots at the top of the head shelf’s rim. Keep them with the three screws.",
+        "Carry the head to the bench by its shell, not by its wires.",
+        "To refit the head, rejoin the head light connector as in {step:shelf-arms}.",
+        "Load the nuts, tuck in the connector and fasten the head as in {step:head-shoulder-covers}. Use the same three screws, with no washers or plugs.",
+        "The head faces forward, held by its three screws."
       ],
-      "check": "",
+      "check": "The head is off, with its light connector unplugged and its three screws and nuts kept together.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -5767,66 +5777,167 @@
       "commands": [],
       "panels": [
         {
-          "title": "Lift the head off its shelf",
-          "image": "assets/community/head-shell-fastening.svg",
-          "caption": "Section view of one joint. Remove the three M2×8 head screws; leave the three M3×8 adapter screws fitted.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Keep the shelf nuts together",
-          "image": "assets/r18/head-nut-access.png",
-          "caption": "The three M2 nuts load from above when the head is off.",
-          "actions": [
-            1
-          ]
-        }
-      ]
-    },
-    {
-      "id": "mouth-eye-removal",
-      "chapter": "Service",
-      "title": "Remove the mouth or an eye housing",
-      "parts": {
-        "T05": 1
-      },
-      "hardware": {},
-      "actions": [
-        "Open the head as in {step:head-open}. Support P30, remove its two outer M2×8 clamp screws and move the cassette back, then down through the open rim. Release ties for slack; never pull on soldered leads.",
-        "Remove P31 and the foam afterward. Remove the two board screws only on the bench.",
-        "Unplug the eye leads, support the housing and remove its two outer M2×10 screws and washers. The central M2×6 board screws can stay.",
-        "Pull the cassette backward and slide the housing straight out, catching its nuts. Refit eyes before mouth, with nuts loaded from the housing’s upper edge and no glue."
-      ],
-      "check": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/printing/current/manifest.json"
-      ],
-      "note": "",
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Remove the mouth cassette",
-          "image": "assets/community/mouth-removal.svg",
-          "caption": "P30 and its board move backward about 8 mm, then down. P31 and foam remain until afterward.",
+          "title": "Shut down and unplug",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
           "actions": [
             0,
             1
           ]
         },
         {
-          "title": "Remove an eye housing",
-          "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "Remove the mouth first for straight access to the outer eye screws.",
+          "title": "Unscrew the head",
+          "image": "assets/community/head-shell-fastening.svg",
+          "caption": "One head screw passing through the head shell into its M2 nut in the shelf rim.",
           "actions": [
             2,
             3
           ]
+        },
+        {
+          "title": "Unplug the head light connector",
+          "textOnly": true,
+          "actions": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Set the nuts and head aside",
+          "image": "assets/r18/head-nut-access.png",
+          "caption": "The head shelf from above with the head off, showing the three M2 nuts in their slots.",
+          "actions": [
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Refit the head",
+          "textOnly": true,
+          "actions": [
+            9,
+            10,
+            11
+          ]
         }
-      ]
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "mouth-eye-removal",
+      "chapter": "Service",
+      "title": "Remove the mouth or an eye housing",
+      "parts": {
+        "T01": 1,
+        "T05": 1,
+        "C07": "As needed"
+      },
+      "hardware": {},
+      "actions": [
+        "Take off the head as in {step:head-open}.",
+        "Lay the head face-down on a folded towel. Keep it face-down until the mouth and eyes are back in.",
+        "Hold the mouth LED cassette (P30). Remove its two outer M2×8 screws. Leave the two inner screws that hold the mouth stick.",
+        "Move the cassette about 8 mm toward the back of the head. Then lift it out through the open rim.",
+        "If the leads hold the cassette back, cut the tie at the cassette. Tie them again with more slack when you refit it.",
+        "Lift out the mouth light separator (P31) and the mouth foam.",
+        "With the mouth out, unplug both plugs from the eye board. Press each plug housing, not its wires.",
+        "From inside the head, remove the eye LED cassette’s two outer M2×10 screws and their washers. Leave the two M2×6 board screws in.",
+        "Pull the cassette back into the head.",
+        "Lift the head straight up off the towel. The eye housing stays face-down on the towel.",
+        "Keep the housing’s two nuts with its screws. They sit loose in the channels at its upper edge.",
+        "Refit the eye as in {step:eye-housings} and {step:eye-boards}. Load its nuts from the housing’s upper edge, with no glue.",
+        "Refit the separator, foam and cassette as in {step:mouth}. Refit the head as in {step:head-open}."
+      ],
+      "check": "The mouth and any removed eye are back in the head, and no nut is loose inside it.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/printing/current/manifest.json"
+      ],
+      "note": "",
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Take the head to the bench",
+          "textOnly": true,
+          "actions": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Remove the mouth cassette",
+          "image": "assets/community/mouth-removal.svg",
+          "caption": "The mouth cassette moving back from the separator, then down through the open rim.",
+          "safety": {
+            "level": "notice",
+            "text": "Pulling on a soldered lead can break its joint inside the insulation. The light then fails. Move the cassette by its plastic, never by its leads."
+          },
+          "actions": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Lift out the separator and foam",
+          "textOnly": true,
+          "actions": [
+            5
+          ]
+        },
+        {
+          "title": "Unfasten the eye cassette",
+          "image": "assets/community/eye-cassette-fastening.svg",
+          "caption": "Cutaway of the head wall (blue) between a housing and its cassette.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Lift the head off the eye housing",
+          "image": "assets/community/eye-housing-nuts.svg",
+          "caption": "One housing from behind, with the two nut channels at its upper edge.",
+          "actions": [
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Refit the eye, then the mouth",
+          "textOnly": true,
+          "actions": [
+            11,
+            12
+          ]
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
     },
     {
       "id": "arm-service",
@@ -5837,11 +5948,19 @@
       },
       "hardware": {},
       "actions": [
-        "Shut down and unplug. Support the forearm and pull a hand straight out by its palm, never by a finger.",
-        "Adjust elbow stiffness at its exposed M3×14 screw; the joint should hold a pose and still bend smoothly by hand.",
-        "Remove the shoulder cover to access the servo center screw. If a horn comes off, use {step:fit-position} to refit it."
+        "Open the Pi shell with the first command. Shut the Pi down with the second command.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "Hold the forearm with one hand. With the other, pull the hand straight out by its palm.",
+        "To refit it, push it into the wrist socket, pressing on the palm. Turn it to a pose.",
+        "At the elbow’s outer side, turn the M3×14 screw a little at a time.",
+        "The elbow holds a pose but still bends smoothly by hand through 0–70°.",
+        "Slide the shoulder cover off the upper arm.",
+        "Hold the upper arm still. Remove the center screw from its horn.",
+        "Pull the arm straight off the shaft. Its horn stays screwed to the arm.",
+        "If the shaft turned while the arm was off, repeat {step:fit-position} before you refit the arm.",
+        "Refit the arm hanging straight down, as in {step:shelf-arms}. Slide the shoulder cover back on."
       ],
-      "check": "Removed parts are supported and fasteners stay together for refitting.",
+      "check": "Each serviced hand and elbow holds its pose. Both arms hang straight down, with their shoulder covers on.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -5852,404 +5971,797 @@
       "commands": [],
       "panels": [
         {
+          "title": "Shut down and unplug",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
+          "actions": [
+            0,
+            1
+          ]
+        },
+        {
           "title": "Remove a hand",
           "image": "assets/r19/wrist-round.png",
-          "caption": "",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Adjust an elbow",
-          "image": "assets/r19/step-17.png",
-          "caption": "",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Reach the shoulder center screw",
-          "image": "assets/community/shoulder-cover-left.svg",
-          "caption": "The right shoulder opens in the same way.",
-          "actions": [
-            2
-          ]
-        }
-      ]
-    },
-    {
-      "id": "base-open",
-      "title": "Open the base and remove boards",
-      "chapter": "Service",
-      "actions": [
-        "Shut down, unplug and support base, head and arms in the padded stand. Remove the four cover screws and lift FB02 off.",
-        "For the SD card, release a nearby tie if needed and grip the card through its access gap; leave the Pi mounted.",
-        "For the Pi, label and unplug power, USB and GPIO leads, then remove its screws. Repair any loose nut bond with the board out and let it cure.",
-        "Label and release its wires, then remove its two screws. Cut the Neo jumper on either replacement board (S1 or S2) before fitting it.",
-        "Label and release its wires. Support the connector and follow the tape maker’s removal method; do not lever against a printed pad. Refit with fresh tape and check the bond before wiring.",
-        "Recheck any changed wiring, seat FB02 by hand and refit its four screws. Stand the robot upright for a function check."
-      ],
-      "check": "The repair is checked, all cables are supported and the cover closes without pressing on them.",
-      "parts": {
-        "T05": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Remove the cover",
-          "image": "assets/r21/base-cover.png",
-          "caption": "Four M3×12 screws release FB02; nothing is connected to it.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Reach the SD card or remove the Pi",
-          "image": "assets/r16/base-pi-joints.png",
-          "caption": "Four M2×12 screws secure the Pi.",
-          "actions": [
-            1,
-            2
-          ]
-        },
-        {
-          "title": "Remove a shifter",
-          "image": "assets/r16/base-shifter-joints.png",
-          "caption": "Two M2×10 screws per shifter.",
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Remove a WAGO",
-          "image": "assets/community/wago-tape-back.svg",
-          "caption": "Release wires before separating the tape bond.",
-          "actions": [
-            4
-          ]
-        },
-        {
-          "title": "Close after repair",
-          "image": "assets/r21/base-cover.png",
-          "caption": "Restore insulation, labels and strain relief before closing.",
-          "actions": [
-            5
-          ]
-        }
-      ]
-    },
-    {
-      "id": "power-parts-service",
-      "title": "Replace a fuse, capacitor or power jack",
-      "chapter": "Service",
-      "actions": [
-        "Shut down, unplug and confirm capacitor voltage has discharged before touching power wiring. Label connections before releasing them.",
-        "Cut retaining ties as needed, shielding wires from the cutter. Open the holder in your hand and fit the same fuse value. Release a WAGO wire if needed for slack; never pull a holder by its wires.",
-        "Release its two WAGO wires and retaining ties. Prepare the replacement on the bench, insulate each polarity, then refit with its vent uncovered and body supported.",
-        "Unplug BASE→BODY and release the lighting lead for bench work. Preserve C2 polarity and separate insulation, then support the repaired body and wires with fresh ties.",
-        "Release the J1 leads at W1/1 and W3/1 and their restraint, then remove the plate screws. Do not twist the solder lugs.",
-        "Recheck polarity, continuity, fuse values and insulation before powering the repaired base."
-      ],
-      "check": "Specified fuses, correct polarity, insulation and wire restraint are restored.",
-      "parts": {
-        "T01": 1,
-        "T02": 1,
-        "T03": 1,
-        "T05": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Replace F1 or F2",
-          "image": "assets/circuits/f1-land.svg",
-          "caption": "F1 is T3.15 A; F2 is T1 A.",
+          "caption": "The robot-left relaxed hand above the robot-left forearm’s wrist socket.",
           "safety": {
-            "level": "warning",
-            "text": "Never increase a fuse value."
+            "level": "notice",
+            "text": "The printed fingers are thin. Pulling on one can snap it off. Pull the hand out by its palm."
           },
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Replace C1",
-          "image": "assets/circuits/c1.svg",
-          "caption": "C1 + → W2/5; striped negative → W3/4.",
-          "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Replace C2 or its lighting branch",
-          "image": "assets/circuits/f2-land.svg",
-          "caption": "C2 is soldered into H3 on the base side of BASE→BODY.",
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Remove the inlet plate",
-          "image": "assets/r17/base-inlet.png",
-          "caption": "Two M3×12 screws release FB21 and its jack together.",
-          "actions": [
-            4,
-            5
-          ]
-        }
-      ]
-    },
-    {
-      "id": "audio-service",
-      "title": "Service audio, speakers or button",
-      "chapter": "Service",
-      "actions": [
-        "With power unplugged, disconnect USB and speaker plugs by their bodies. Remove the two lid screws and lid. Support the case and cradle while releasing the tape according to the tape maker’s removal instructions; then lift out the module.",
-        "Remove the empty cradle only after the module. If any of its three base nuts comes loose, refit and glue it as shown in {step:cradle-jack-nuts}; let the glue cure before reinstalling the cradle. Replace the tape before refitting the case as shown in {step:audio-module}.",
-        "Support the grille, remove the outer screws and move it only as far as its cable slack allows. Unplug the speaker and replace it on the bench, preserving tab washers and nuts.",
-        "Keep switch and LED wires labeled separately. On refitting, seat the retaining nut in its recess and let the insert sit flush before tightening.",
-        "Keep microphone and speaker openings clear, restore the lid foam, then test sound with the robot upright."
-      ],
-      "check": "The serviced parts are secure, plugs seat fully and all sound openings remain clear.",
-      "parts": {
-        "T05": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Remove the audio module",
-          "image": "assets/r17/base-audio.png",
-          "caption": "Two M2×8 lid screws release FB32.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Remove the cradle",
-          "image": "assets/community/audio-cradle-fasteners.png",
-          "caption": "Three M3×6 screws; the middle one is beneath the module.",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Remove a speaker",
-          "image": "assets/community/speaker-fastening-action.svg",
-          "caption": "Four outer M3×12 screws release the grille; four inner screws hold its speaker.",
-          "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Remove the button",
-          "image": "assets/r16/base-button.png",
-          "caption": "Disconnect four quick-connect bodies, then remove two M3×8 plate screws.",
-          "actions": [
-            3,
-            4
-          ]
-        }
-      ]
-    },
-    {
-      "id": "servo-replacement",
-      "title": "Replace a servo",
-      "chapter": "Service",
-      "actions": [
-        "Shut down, unplug and open the base in the service stand. Identify the cable by labels and disconnect only the servo being replaced.",
-        "For a right-shoulder replacement, release these three labeled connections.",
-        "For a head-servo replacement, release these three connections; the separate HEAD lighting plug is not a servo lead.",
-        "Release cable ties as needed. Support the arm or head, remove the center screw and lift its horn off without forcing the shaft.",
-        "Remove bracket-to-frame screws if access requires it, then the two M2 ear screws and nuts. Slide the servo sideways out of the open bracket.",
-        "Prepare its cable as in {step:servo-cables}, mount and reconnect the new servo, and leave its horn off.",
-        "Follow {step:fit-position}: command the fit pose, STOP, shut down and unplug, then refit the horn and part. Repeat {step:first-movement}."
-      ],
-      "check": "The replacement is secure, the horn was fitted at the commanded pose and all movement is clear.",
-      "parts": {
-        "T05": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Disconnect LEFT if replacing it",
-          "image": "assets/circuits/servo-left.svg",
-          "caption": "LEFT: W2/2, W4/2 and S1 C5.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "RIGHT connection reference",
-          "image": "assets/circuits/servo-right.svg",
-          "caption": "RIGHT: W2/3, W4/3 and S2 D5.",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "HEAD connection reference",
-          "image": "assets/circuits/servo-head.svg",
-          "caption": "HEAD servo: W2/4, W4/4 and S2 C5.",
-          "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Remove the horn and servo",
-          "image": "assets/community/shoulder-servo-removal.svg",
-          "caption": "Shoulder bracket shown. Both shoulder and head servos use two M2×6 ear screws; support the attached part before removing its horn center screw.",
-          "actions": [
-            3,
-            4
-          ]
-        },
-        {
-          "title": "Refit in the commanded pose",
-          "image": "assets/servo-fit-pose.svg",
-          "caption": "A replacement needs the same positioning sequence as the original build.",
-          "actions": [
-            5,
-            6
-          ]
-        }
-      ]
-    },
-    {
-      "id": "head-light-service",
-      "title": "Replace an eye board or mouth stick",
-      "chapter": "Service",
-      "actions": [
-        "Shut down and unplug power. Support the head, remove its three M2×8 screws and lift only far enough to unplug HEAD before taking it to the bench.",
-        "Remove the mouth as in {step:mouth-eye-removal} for tool access. Unplug the eye leads and remove the two M2×6 board screws. Keep the cassette fitted if its board nuts stay seated; if a nut moves, withdraw the cassette and reseat it on the bench.",
-        "Fit the replacement board with LED toward foam and sockets inward, preserving IN/OUT. For housing or cassette replacement, remove the two outer screws as in {step:mouth-eye-removal}. Refit the eyes before the mouth.",
-        "Remove P30 as in {step:mouth-eye-removal}, then replace and solder the Adafruit 1426 on the bench. Connect +5 V, GND and DIN only; DOUT remains unused."
-      ],
-      "check": "",
-      "parts": {
-        "T02": 1,
-        "T05": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Disconnect the lighting plugs",
-          "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "HEAD isolates head lighting; BASE→BODY isolates the body from the base.",
-          "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Replace an eye board",
-          "image": "assets/community/eye-board-fastening.svg",
-          "caption": "Adafruit 5975 has separate IN and OUT sockets.",
-          "actions": [
-            1,
-            2
-          ]
-        },
-        {
-          "title": "Replace the mouth stick",
-          "image": "assets/circuits/mouth-solder.svg",
-          "caption": "Retain the dedicated 22 AWG head power pair; mouth power does not pass through eye leads.",
-          "actions": [
-            3
-          ]
-        }
-      ]
-    },
-    {
-      "id": "body-light-service",
-      "title": "Replace the body lights",
-      "chapter": "Service",
-      "actions": [
-        "Shut down and unplug power. Unplug BASE→BODY and HEAD, open the foam seam and release ties. Remove the strand with its head power feed.",
-        "For six replacement lights from your marked saved remainder, retain the marked input direction. Transfer the existing BODY connector, R2 and HEAD power feed on the bench, using the input joints in {step:body-light-input}; then follow {step:body-light-strand} for cutting, output joins and mounting.",
-        "For an entirely new strand, transfer the BODY/R2 harness and its HEAD power tails to the likely input as in {step:body-light-input}. Keep the HEAD connector unplugged; do not dismantle the head harness or buy another connector pair.",
-        "Remove F1 and label and disconnect all three servo cables using {step:servo-replacement}. Follow the input test in {step:body-light-test}, leaving the prepared input harness attached after a passing test. Then build the six-light section as in {step:body-light-strand}.",
-        "Restore the labeled servo connections and F1, and repeat the unpowered checks and all-16-light test before closing."
-      ],
-      "check": "Replaced lights follow the correct power and data paths, and no wire carries the weight of a removed part.",
-      "parts": {
-        "T02": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "service",
-      "number": null,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Replace the body strand",
-          "image": "assets/community/pebble-wire-restraint.svg",
-          "caption": "Six pebbles form one strand; two ties per pebble retain wires outside the resin.",
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Test a new replacement strand",
-          "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "Test through the permanent BODY/R2 input; keep HEAD unplugged.",
           "actions": [
             2,
             3
           ]
         },
         {
-          "title": "Restore and test the complete chain",
-          "image": "assets/circuits/head-data.svg",
-          "caption": "",
+          "title": "Adjust an elbow",
+          "image": "assets/r19/step-17.png",
+          "caption": "The robot-left elbow, with its screw and nut drawn out of the fork.",
+          "safety": {
+            "level": "notice",
+            "text": "Overtightening squeezes the fork cheeks together. The fork can crack. Stop tightening once the elbow holds a pose."
+          },
           "actions": [
-            4
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Take off an arm",
+          "image": "assets/community/shoulder-cover-left.svg",
+          "caption": "The robot-left shoulder cover and upper arm.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Refit an arm",
+          "image": "assets/community/arm-center-screw-left.svg",
+          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side. Label 1 marks the center screw.",
+          "actions": [
+            9,
+            10
           ]
         }
-      ]
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "base-open",
+      "title": "Open the base and remove boards",
+      "chapter": "Service",
+      "actions": [
+        "Open the Pi shell with the first command. Shut the Pi down with the second command.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
+        "Stack folded towels on the bench. Beside them, stack towels about 4 cm higher.",
+        "Hold the base with both hands. Lay the robot gently on its back, base on the lower stack and backpack on the higher one.",
+        "The bottom cover faces you. The robot’s weight rests only on the base and backpack. The head touches nothing.",
+        "Remove the four M3×12 screws from the corners of the bottom cover (FB02). Lift the cover off.",
+        "Nothing is connected to the cover.",
+        "For the microSD card, cut any tie in the way. Grip the card through its access gap and pull it out. Leave the Pi mounted.",
+        "For the Pi, label and unplug its power lead, USB cable and GPIO leads. Remove its four M2×12 screws.",
+        "For a level shifter (S1 or S2), label its wires. Release them from its terminals. Remove its two M2×10 screws.",
+        "Label each wire in the WAGO. Open its lever and pull the wire out.",
+        "Hold the WAGO. Release it from its tape as the tape’s instructions say.",
+        "Fit a new WAGO with fresh tape (C16) as in {step:wagos}. Open and close each lever to check the bond before you insert wires.",
+        "Refit each board as in {step:pi-shifters}. On a new level shifter, cut the Neo jumper first.",
+        "If a board screw turns without tightening, its nut is loose. Remove the board. Glue the nut again as in {step:board-cover-nuts}. Let the glue cure.",
+        "Reconnect each wire by its label and your wiring photo. Close the base as in {step:bottom-cover}."
+      ],
+      "check": "Every released wire is back in its labeled place. The cover sits flat, held by its four screws.",
+      "parts": {
+        "T01": 1,
+        "T05": 1,
+        "C07": "As needed",
+        "C16": "As needed"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Shut down and unplug",
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
+          "actions": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Lay the robot on its back",
+          "textOnly": true,
+          "actions": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Remove the bottom cover",
+          "image": "assets/r21/base-cover.png",
+          "caption": "The base from below, with the cover lowered away from it.",
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Reach the microSD card or remove a board",
+          "image": "assets/r16/base-pi-joints.png",
+          "caption": "The Pi through the open bottom, with its four screw positions numbered.",
+          "detail": {
+            "title": "Level shifter screw positions",
+            "image": "assets/r16/base-shifter-joints.png"
+          },
+          "actions": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Replace a WAGO",
+          "image": "assets/community/wago-tape-back.svg",
+          "caption": "",
+          "safety": {
+            "level": "notice",
+            "text": "Levering a WAGO off can break its printed pad. A new WAGO then cannot bond flat. Remove it only by the tape maker’s method."
+          },
+          "actions": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Refit the parts and close the base",
+          "textOnly": true,
+          "actions": [
+            13,
+            14,
+            15
+          ]
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "power-parts-service",
+      "title": "Replace a fuse, capacitor or power jack",
+      "chapter": "Service",
+      "actions": [
+        "Open the base as in {step:base-open}.",
+        "Set the meter to DC volts. Measure from the input WAGO (W1) to the ground WAGO (W3). Measure from the servo power WAGO (W2) to the servo ground WAGO (W4).",
+        "Both readings are close to 0 V. The capacitors have discharged.",
+        "Cut the fuse holder’s tie if you need slack. If that is not enough, release one of its wires from its WAGO. Keep the cutter blade away from the wires.",
+        "Lift the holder by its body, not its leads. Open it in your hand. Fit a new fuse of the same rating.",
+        "Close the holder. Tie it to its tie square with a new cable tie (C07).",
+        "Label the two wires of the servo capacitor (C1). Cut its tie. Release its positive wire from W2/5. Release its negative wire from W3/4.",
+        "On the bench, prepare a new C1 as in {step:servo-fuse-capacitor}. Cover each leg with its own heat-shrink (C12).",
+        "Insert its positive wire into W2/5. Insert its negative wire into W3/4. Tie its body down with the vent end uncovered.",
+        "Unplug the body light connector. Release the base-half GND wire from W3/5. Release the base-half DATA wire from level shifter (S1) terminal D5.",
+        "Release the F2 input end from W1/4. On the bench, replace the light capacitor (C2) as in {step:light-fuse-capacitor}.",
+        "Refit F2 and the base half as in {step:light-fuse-capacitor} and {step:shifter-wiring}. Tie them down with new cable ties.",
+        "Release the power jack (J1) leads from W1/1 and W3/1. Add towels under the base and backpack until a small driver fits under the base’s robot-left end. Keep that end past the towels’ edge.",
+        "From below, remove the two M3×12 screws of the power jack plate (FB21). Its nuts stay in their pockets. Lift out the plate with J1.",
+        "On the bench, fit a new J1 as in {step:power-jack}. Hold the jack body so its solder lugs do not twist. Refit the plate and insert its leads as in {step:power-wiring}.",
+        "Take out both fuses. Repeat the power path and short checks in {step:base-check}.",
+        "Fit the T3.15 A fuse in F1 and the T1 A fuse in F2.",
+        "Close the base as in {step:bottom-cover}."
+      ],
+      "check": "F1 holds T3.15 A and F2 holds T1 A. Each replaced part has the right polarity, insulated joints and its body tied down.",
+      "parts": {
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T05": 1,
+        "C07": "As needed",
+        "C12": "As fitted"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Check that the capacitors have discharged",
+          "textOnly": true,
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Replace a fuse",
+          "image": "assets/circuits/f1-land.svg",
+          "caption": "Connection view of W1, F1 and W2.",
+          "safety": {
+            "level": "warning",
+            "text": "A fuse of a higher rating may not blow on a fault. The wires could then overheat and cause fire. Fit T3.15 A in the servo fuse (F1) and T1 A in the light fuse (F2)."
+          },
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Replace the servo capacitor (C1)",
+          "image": "assets/circuits/c1.svg",
+          "caption": "Connection view of C1, W2 and W3.",
+          "safety": {
+            "level": "caution",
+            "text": "The servo capacitor (C1) is polarized. Connected backwards, it can overheat and vent when powered. Connect its striped negative leg to the ground WAGO (W3/4)."
+          },
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Replace the light capacitor (C2)",
+          "image": "assets/circuits/f2-land.svg",
+          "caption": "Connection view of W1, F2, the base half and W3.",
+          "safety": {
+            "level": "caution",
+            "text": "The light capacitor (C2) is polarized. Connected backwards, it can overheat and vent when powered. Join its striped negative leg to the base-half GND wire."
+          },
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Replace the power jack (J1)",
+          "image": "assets/r17/base-inlet.png",
+          "caption": "The power jack plate (FB21) and power jack (E18), from outside.",
+          "safety": {
+            "level": "caution",
+            "text": "Swapped leads from the power jack (J1) reverse the supply to every part. When powered, a capacitor can then vent and the Pi can fail. Insert the center lead into W1/1 and the sleeve lead into W3/1."
+          },
+          "actions": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Check the wiring and close the base",
+          "textOnly": true,
+          "actions": [
+            15,
+            16,
+            17
+          ],
+          "safety": {
+            "level": "warning",
+            "text": "The two fuses look alike. A T3.15 A fuse in the F2 holder would let a light fault overheat the thin wires. Read each fuse’s marking before you fit it."
+          }
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "audio-service",
+      "title": "Service audio, speakers or button",
+      "chapter": "Service",
+      "actions": [
+        "Open the base as in {step:base-open}.",
+        "Unplug the USB extension cable and both speaker plugs from the audio module. Pull each by its plug body.",
+        "Remove the two M2×8 lid screws. Lift off the audio cradle lid (FB32).",
+        "Hold the cradle. Release the module’s case from its tape as the tape’s instructions say. Lift the module out.",
+        "Take out the module first. Remove the cradle’s three M3×6 screws, including the middle one under the module.",
+        "Lift out the audio cradle (FB24). Set it down open side up, so its two M2 lid nuts stay in their pockets.",
+        "If a cradle nut turns or comes loose, glue it again as in {step:cradle-jack-nuts}. Let the glue cure before you refit the cradle.",
+        "Unplug that speaker’s plug from the audio module. Pull it by its plug body.",
+        "Through the open bottom, hold a grille nut with a fingertip. From outside, remove its M3×12 screw. Repeat for the other three outer screws.",
+        "Lift away the side speaker grille (FB19) with its speaker. On the bench, replace the speaker as in {step:speaker-grilles}. Keep its four washers and nuts.",
+        "Pull the four quick-connects off the button terminals. Keep the switch pair and the LED pair apart.",
+        "Through the open bottom, hold a nut beside the button opening. From outside, remove its M3×8 screw. Repeat for the second screw.",
+        "Lift out the button insert (FB20) with the button. Refit it as in {step:button}.",
+        "Refit the removed parts as in their build steps. Tape the module in with a new tape patch (C16), as in {step:audio-module}.",
+        "Line the lid with its foam again. Keep the microphone and speaker openings clear.",
+        "Close the base as in {step:bottom-cover}. Test the sound as in {step:finished-robot}."
+      ],
+      "check": "The serviced parts are secure, every plug is seated and the sound openings are clear. The robot answers what you say.",
+      "parts": {
+        "T05": 1,
+        "C16": "One patch, under 1 mm thick"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Open the base",
+          "textOnly": true,
+          "actions": [
+            0
+          ]
+        },
+        {
+          "title": "Remove the audio module",
+          "image": "assets/r17/base-audio.png",
+          "caption": "The audio cradle behind the front grille, with the module and lid.",
+          "actions": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Remove the cradle",
+          "image": "assets/community/audio-cradle-fasteners.png",
+          "caption": "The audio cradle and its three screws.",
+          "actions": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Remove a speaker",
+          "image": "assets/community/speaker-fastening-action.svg",
+          "caption": "Rear view of a speaker on its grille, with all four screws fastened.",
+          "actions": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Remove the button",
+          "image": "assets/r16/base-button.png",
+          "caption": "The button in its insert, from below.",
+          "actions": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Close the base and test the sound",
+          "textOnly": true,
+          "actions": [
+            13,
+            14,
+            15
+          ],
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          }
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "servo-replacement",
+      "title": "Replace a servo",
+      "chapter": "Service",
+      "actions": [
+        "For an arm servo, take off the arm as in {step:arm-service}.",
+        "For the head servo, take off the head as in {step:head-open}. Hold the head shelf (P08) still. Remove the horn’s center screw from its middle.",
+        "Lift the shelf straight off the shaft, without prying. Slide the head light cable out of its side entry.",
+        "Open the base as in {step:base-open}. Find the servo’s cable by its label: LEFT, RIGHT or HEAD.",
+        "Release its three wires. LEFT: servo power WAGO (W2/2), servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT: W2/3, W4/3 and level shifter (S2) D5. HEAD: W2/4, W4/4 and S2 C5.",
+        "Cut the tie in the harness opening. Stand the robot on its feet, with the cover off.",
+        "Open the body as in {step:body-light-service}. Pull the servo cable up out of the base.",
+        "Remove the servo’s two M2×6 ear screws and their nuts. If you cannot reach them, remove the bracket’s frame screws first.",
+        "Slide the servo out of the bracket’s open side.",
+        "Prepare the new servo’s cable as in {step:servo-cables}. Mount the servo as in {step:shoulder-servos} or {step:head-servo}. Leave its horn off.",
+        "Run its cable down into the base. Keep the head light cable clear of the head servo shaft. Close the body as in {step:body-light-service}.",
+        "Connect the cable as in {step:servo-connections}, with the robot on its back. Tie it in the harness opening. Close the base as in {step:bottom-cover}.",
+        "Stand the robot on its feet. At the robot-left end of the rear face, push the barrel plug into the power jack (J1). Plug the supply into the wall.",
+        "When the Pi has booted, run the first command on your computer. When the output asks, type STOP and press Enter.",
+        "Shut the Pi down with the next two commands. Wait for its green activity light to stop flashing. Unplug the supply from the wall and from J1.",
+        "Refit the arm or the head shelf as in {step:shelf-arms}. Do not turn the shaft by hand first.",
+        "Refit the head or the shoulder cover as in {step:head-shoulder-covers}.",
+        "Check the movement as in {step:first-movement}."
+      ],
+      "check": "The new servo was at the fit position when its part went back on. The head and arms move without touching the body or any cable.",
+      "parts": {
+        "T01": 1,
+        "T04": 1,
+        "T05": 1,
+        "C07": "As needed"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Take the part off the servo",
+          "image": "assets/community/head-center-screw.svg",
+          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Disconnect the servo cable",
+          "image": "assets/circuits/servo-left.svg",
+          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Remove the servo",
+          "image": "assets/community/shoulder-servo-removal.svg",
+          "caption": "The shoulder-servo bracket (P03), with one servo and its two ear screws.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Fit and connect the new servo",
+          "image": "assets/community/shoulder-servo-insertion.svg",
+          "caption": "Both servos entering the open side, shafts pointing outward.",
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Set the fit position",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-servo-fit"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "output",
+              "lines": [
+                "Holding the fit pose. Keep the head and arms off the shafts.",
+                "Type STOP then Enter to release the servos:"
+              ],
+              "label": "Output while the servos hold"
+            },
+            {
+              "kind": "output",
+              "lines": [
+                "Servo pulses stopped. The application stays stopped. Shut down and unplug before fitting parts."
+              ],
+              "label": "Output after STOP"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
+          "actions": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Refit the part and check the movement",
+          "image": "assets/servo-fit-pose.svg",
+          "caption": "Fit position, in a front view and a side view.",
+          "actions": [
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "head-light-service",
+      "title": "Replace an eye board or mouth stick",
+      "chapter": "Service",
+      "actions": [
+        "Take off the head as in {step:head-open}. Lay it face-down on a folded towel.",
+        "Remove the mouth as in {step:mouth-eye-removal}. It blocks the tools for the eye boards.",
+        "Unplug both plugs from the eye board. Remove its two M2×6 screws. Lift the board off its eye LED cassette (P06).",
+        "If a cassette nut moves, take out the cassette as in {step:mouth-eye-removal}. Reseat the nut on the bench.",
+        "Fit the new eye board (Adafruit 5975) as in {step:eye-boards}, LED facing into the light opening. Plug each lead back into the same IN or OUT socket.",
+        "On the bench, unsolder the three mouth leads from the old mouth stick. Remove its two inner M2×8 screws and nuts.",
+        "Solder the leads to the new mouth stick (Adafruit 1426): +5 V, GND and DIN. Leave DOUT unused. Insulate each joint.",
+        "Screw the stick to the mouth LED cassette (P30) as in {step:mouth}. Mouth power stays on its own 22 AWG leads, not the eye leads.",
+        "Refit the mouth as in {step:mouth}. Tie its leads at the cassette with slack.",
+        "Refit the head as in {step:head-open}.",
+        "Stand the robot on its feet. At the robot-left end of the rear face, push the barrel plug into the power jack (J1). Plug the supply into the wall.",
+        "When the Pi has booted, run the command below on your computer.",
+        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light’s plugs and joints."
+      ],
+      "check": "Each light turns on alone, in order: body 0–5, first eye 6, second eye 7 and mouth 8–15. Next, all 16 show red, green and blue.",
+      "parts": {
+        "T01": 1,
+        "T02": 1,
+        "T05": 1,
+        "C07": "As needed"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Take out the mouth",
+          "textOnly": true,
+          "actions": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Replace an eye board",
+          "image": "assets/community/eye-board-fastening.svg",
+          "caption": "The board side of a cassette.",
+          "actions": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Replace the mouth stick",
+          "image": "assets/circuits/mouth-solder.svg",
+          "caption": "The mouth stick and its three used pads.",
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Refit the mouth and head",
+          "textOnly": true,
+          "actions": [
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Test the lights",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "codeBlocks": [
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-test-neopixels"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            }
+          ],
+          "actions": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
+    },
+    {
+      "id": "body-light-service",
+      "title": "Replace the body lights",
+      "chapter": "Service",
+      "actions": [
+        "Take off the head as in {step:head-open}.",
+        "Open the base as in {step:base-open}. Unplug the body light connector.",
+        "Cut the tie that bundles the cables in the harness opening. Stand the robot on its feet, with the cover off.",
+        "Stand behind the robot. At each lower belt dock, support the rear belt link so it does not bend. Push the belt pin (B09) up from below.",
+        "Lift off the belt. Hold the backpack shell (P35). Remove its four M3×12 screws. Pull it straight back off the carrier.",
+        "Remove the two M3×18 carrier screws and the lower M3×16 seam screw. Lift off the curved backpack carrier (P34), three seam covers (P10) and two seam backings (P09). Ease the foam out of both collars.",
+        "Cut the two ties at each light, including the two on the rear body-light bracket (P12). Keep the cutter blade away from the wires.",
+        "Pull the body half of the body light connector up out of the base. Pull the head light cable down through the upper foam collar.",
+        "Lift out the strand with its input harness: the body half, the data resistor (R2) and the head power pair.",
+        "For spare lights, move the input harness to the end marked INPUT, as in {step:body-light-input}.",
+        "For a new strand, move it to the likely input instead. Lay the robot on its back, with towels under the body. Take out the servo fuse (F1). Disconnect the three servo cables.",
+        "Test the new strand’s input as in {step:body-light-test}, with the head light connector unplugged.",
+        "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
+        "Close the foam wrap as in {step:body-diffuser}.",
+        "Refit the carrier, backpack and belt as in {step:backpack-carrier}, {step:backpack} and {step:belt}.",
+        "Lay the robot on its back as in {step:base-open}. Reconnect both light connectors as in {step:light-connections}.",
+        "Refit F1 and any servo cables you released, as in {step:servo-connections}. Repeat the checks in {step:power-up-inspection}.",
+        "Test all 16 lights as in {step:all-lights-test}. Close the base as in {step:bottom-cover}. Refit the head as in {step:head-open}."
+      ],
+      "check": "All 16 lights pass the light test in order. No wire carries the weight of a part.",
+      "parts": {
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T04": 1,
+        "T05": 1,
+        "C07": "As needed",
+        "C12": "As fitted",
+        "C14": "As used"
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Unplug both light connectors",
+          "image": "assets/circuits/jst-sm-seat.svg",
+          "caption": "A JST-SM pair apart and seated.",
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Open the body",
+          "image": "assets/community/backpack-shell-fastening.svg",
+          "caption": "The finished backpack drawn back from the carrier, with its four screws.",
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Take out the old strand",
+          "image": "assets/community/pebble-wire-restraint.svg",
+          "caption": "One pad with its pebble, and a tie on each side of the resin.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Prepare the new lights",
+          "image": "assets/circuits/cut-six.svg",
+          "caption": "The first six pebbles from INPUT, with the cut point after the sixth.",
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Fit the new lights and close the body",
+          "image": "assets/community/body-brackets.png",
+          "caption": "Both uprights with every body-light bracket fitted, front at the lower right.",
+          "actions": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Reconnect and test all 16 lights",
+          "image": "assets/circuits/head-data.svg",
+          "caption": "Head data path, from the head half through both eyes to the mouth.",
+          "safety": {
+            "level": "caution",
+            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
+          },
+          "actions": [
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "safety": {
+        "level": "warning",
+        "text": "A powered robot can short a loose wire, and its servos can move without warning. That can cause burns, fire or pinched fingers. Shut down the Pi and unplug the supply before you start."
+      }
     }
   ],
   "totals": {

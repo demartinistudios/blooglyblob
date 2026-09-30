@@ -2044,7 +2044,13 @@
     "steps": [
       "secure-base-wiring",
       "body-lights",
-      "light-connections"
+      "light-connections",
+      "mouth-eye-removal",
+      "base-open",
+      "power-parts-service",
+      "servo-replacement",
+      "head-light-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2135,7 +2141,9 @@
       "body-light-input",
       "servo-cables",
       "head-harness",
-      "body-light-strand"
+      "body-light-strand",
+      "power-parts-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2179,7 +2187,8 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand"
+      "body-light-strand",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2208,7 +2217,12 @@
       "head-harness",
       "body-light-strand",
       "light-connections",
-      "power-parts-service"
+      "mouth-eye-removal",
+      "base-open",
+      "power-parts-service",
+      "servo-replacement",
+      "head-light-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2264,7 +2278,8 @@
       "head-harness",
       "body-light-strand",
       "power-up-inspection",
-      "power-parts-service"
+      "power-parts-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2291,7 +2306,9 @@
       "body-light-input",
       "servo-cables",
       "head-harness",
-      "body-light-strand"
+      "body-light-strand",
+      "servo-replacement",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2341,7 +2358,8 @@
       "power-parts-service",
       "audio-service",
       "servo-replacement",
-      "head-light-service"
+      "head-light-service",
+      "body-light-service"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2810,7 +2828,9 @@
     "description": "Four cut pieces for the WAGOs and one patch for the back of the audio case. The audio patch must be under 1 mm thick; use a separate thinner tape if needed. Choose tape compatible with both surfaces. WAGO levers must open fully and clear the cover. Follow the maker\u2019s surface preparation, pressure and bonding-time instructions.",
     "steps": [
       "wagos",
-      "audio-module"
+      "audio-module",
+      "base-open",
+      "audio-service"
     ],
     "link": "https://gorillatough.com/product/heavy-duty-mounting-tape",
     "image": "assets/cartoons/C16.svg",
