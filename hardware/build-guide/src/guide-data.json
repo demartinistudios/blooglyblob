@@ -3930,13 +3930,11 @@
         "Hold the head and the shelf separately. Test-fit an M2 nut in each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
         "Test-fit an M2×8 button-head screw in each of the head shell (GS20) recesses, on its two sides and back. Use no washers or plugs.",
         "The recesses suit Ø3.5 × 1.3 mm heads. The pockets suit nuts 4 mm across flats and 1.6 mm thick. Set them aside for {step:head-shoulder-covers}.",
-        "Hold the head on the shelf. Lay the head harness wires into the shelf’s open side entry, from the side. Keep them clear of the horn screws.",
-        "Leave the head half below the shelf. Do not force the plug through a closed hole. This path is separate from the head servo cable.",
-        "Leave a relaxed loop below the shelf. The head turns with the servo while the body stays still.",
-        "Lift the head a little off the shelf. Check that you can reach and release the head light connector latch. Keep the wires clear of the horn and screw tips.",
-        "Take the head off the shelf. Keep both off the servo until after {step:fit-position}."
+        "Hold the head upright. Through its open underside, reach in behind the mouth LED cassette (P30). Set the head half on top of the cassette. The joined head light connector sits there.",
+        "Pull the head half back out until its latch is below the head’s rim. Leave it out for {step:light-connections}.",
+        "If an LED board or a tied joint pulls, redo the ties at the cassettes with more slack."
       ],
-      "check": "The fasteners fit freely. The head harness can turn and unplug without pulling on an LED board.",
+      "check": "The fasteners fit freely. The head half pulls out below the head’s rim without pulling on an LED board.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3958,22 +3956,12 @@
           ]
         },
         {
-          "title": "Lay the harness into the shelf entry",
-          "image": "assets/community/head-cable-entry-detail.svg",
-          "caption": "The shelf’s side entry, with the harness laid in from the side.",
+          "title": "Check the head half’s slack",
+          "textOnly": true,
           "actions": [
             3,
-            4
-          ]
-        },
-        {
-          "title": "Leave slack to turn and lift the head",
-          "image": "assets/community/head-cable-entry.svg",
-          "caption": "An example loop below the shelf.",
-          "actions": [
-            5,
-            6,
-            7
+            4,
+            5
           ]
         }
       ]
@@ -4000,7 +3988,7 @@
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
         "Test-route the body half of the body light connector down the frame. Pass it through the central opening to the base half in the base.",
-        "Test-route the head power pair up the frame, through the upper foam collar (P01). Mark the pair where it reaches with slack to lift the head and unplug the head light connector.",
+        "Test-route the head power pair up the frame, through the upper foam collar (P01). Mark it about 10 cm above the collar. That reaches into the head, with a turning loop below the shelf.",
         "If either cable is short, extend it on the bench without disturbing the input joints.",
         "On the bench, remove the caps from the head power pair. Trim the pair at the mark.",
         "Take the body half of the head light connector (E10) from {step:head-harness}. Solder its +5 V and GND wires to the matching head power pair wires.",
@@ -4807,7 +4795,6 @@
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
         "If no tie square is within reach, stick one down as in {step:secure-base-wiring}. Let it bond before you tie to it.",
         "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
-        "Leave the head shelf on the head harness, between the head and the body.",
         "At the top of the body, plug the head half of the head light connector into its body half. Seat it the same way.",
         "The head harness and the head light cable hang slack between the head and the body.",
         "If either is tight, move the head closer."
@@ -4846,17 +4833,16 @@
           "title": "Rest the head beside the body",
           "textOnly": true,
           "actions": [
-            6,
-            7
+            6
           ]
         },
         {
           "title": "Connect the head light connector",
           "textOnly": true,
           "actions": [
+            7,
             8,
-            9,
-            10
+            9
           ]
         }
       ]
@@ -4915,7 +4901,7 @@
         "Find the power jack (J1) on the rear face of the base, at the robot-left end, on your right. It faces down into the towel.",
         "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels’ edge.",
         "Lift the body at the backpack. Add towels under the backpack until the robot lies level. Add towels under the head until it lines up with the top of the body.",
-        "Move the head shelf and head harness clear of the head servo shaft. Nothing may touch the three servo shafts.",
+        "Lay the head light cable clear of the head servo shaft. Nothing may touch the three servo shafts.",
         "Reach under the robot-left end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
         "If the plug or its cable touches the bench, raise the robot by one more towel at each support.",
         "Plug the mains cord into the wall. Let the Pi boot.",
@@ -5173,13 +5159,13 @@
       "title": "Attach the head shelf and arms",
       "actions": [
         "Press the latch on the head light connector. Pull the two halves apart.",
-        "Lift the head shelf (P08) off the head harness. Move the head and the shelf aside.",
+        "Move the head aside, clear of the robot.",
         "Lift the robot off the towels, one hand under the base and one under the backpack. Keep your hands off the three servo shafts.",
         "Stand it on its feet on a folded towel.",
         "In front of the robot, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
         "At the top of the body, push the head half into the body half until the latch clicks. Pull gently on the two housings. They must stay latched.",
         "If either cable is tight, move the head closer.",
-        "Turn the shelf so its side with no nut pocket faces front. Lay the head harness wires into its open side entry, clear of the horn screws. Keep the connector below the shelf.",
+        "Turn the head shelf (P08) so its side with no nut pocket faces front. Lay the head light cable into its side entry from the side, clear of the horn screws.",
         "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17° apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
         "Hold the shelf still with one hand. With the other, drive the horn’s own center screw down through the head horn adapter’s center. Tighten it. Do not use an M2 screw.",
         "Face the robot’s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
@@ -5255,7 +5241,11 @@
             7,
             8,
             9
-          ]
+          ],
+          "detail": {
+            "title": "Lay the cable into the side entry",
+            "image": "assets/community/head-cable-entry-detail.svg"
+          }
         },
         {
           "title": "Attach the robot-left arm",
@@ -5285,8 +5275,9 @@
       "title": "Fasten the head and shoulder covers",
       "actions": [
         "Drop an M2 nut into each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
-        "Lift the head off the towels. Hold it upright over the shelf, face forward, its screw holes above the nut pockets.",
-        "Lower it straight onto the shelf, without twisting it. Push the harness slack down through the side entry, into a relaxed loop below the shelf.",
+        "Lift the head off the towels. Hold it upright a few centimetres above the shelf, face forward, its screw holes above the nut pockets.",
+        "With your other hand, push the joined head light connector up into the head. Rest it on top of the mouth LED cassette (P30).",
+        "Lower the head straight onto the shelf, without twisting it. Push the head light cable slack down through the side entry, into a relaxed loop below the shelf.",
         "If the head does not sit level, lift it. Free the trapped wire.",
         "Hold the head still with one hand. With the other, start an M2×8 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
         "Tighten each screw only until the shell is held firmly.",
@@ -5294,7 +5285,7 @@
         "Hold the robot-left upper arm (AR01) still. Slide the robot-left shoulder cover (AR08) fully onto its outer face, over the center screw.",
         "Fit the robot-right shoulder cover (AR09) on the robot-right upper arm (AR04) the same way."
       ],
-      "check": "The head is held by its three screws and faces forward. Both arms hang straight down, with their shoulder covers on. The head harness has slack below the shelf.",
+      "check": "The head is held by its three screws and faces forward. Both arms hang straight down, with their shoulder covers on. The head light cable has slack below the shelf.",
       "note": "",
       "hardware": {
         "M2x8": 3,
@@ -5326,18 +5317,25 @@
         {
           "title": "Load the head nuts",
           "image": "assets/community/head-cable-entry.svg",
-          "caption": "The head shelf from above, with the harness in its side entry and the three nut pockets.",
+          "caption": "The head shelf from above, with the head light cable in its side entry and the three nut pockets.",
           "actions": [
             0
+          ]
+        },
+        {
+          "title": "Tuck the head light connector into the head",
+          "textOnly": true,
+          "actions": [
+            1,
+            2
           ]
         },
         {
           "title": "Lower the head onto the shelf",
           "textOnly": true,
           "actions": [
-            1,
-            2,
-            3
+            3,
+            4
           ]
         },
         {
@@ -5345,9 +5343,9 @@
           "image": "assets/community/head-shell-fastening.svg",
           "caption": "One head screw passing through the head shell into its M2 nut in the shelf rim.",
           "actions": [
-            4,
             5,
-            6
+            6,
+            7
           ]
         },
         {
@@ -5355,7 +5353,7 @@
           "image": "assets/community/shoulder-cover-left.svg",
           "caption": "The robot-left shoulder cover sliding onto the upper arm.",
           "actions": [
-            7
+            8
           ]
         },
         {
@@ -5363,7 +5361,7 @@
           "image": "assets/community/shoulder-cover-right.svg",
           "caption": "The robot-right shoulder cover sliding onto the upper arm.",
           "actions": [
-            8
+            9
           ]
         }
       ]
