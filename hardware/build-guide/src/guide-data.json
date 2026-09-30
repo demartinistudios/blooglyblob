@@ -5172,12 +5172,25 @@
       "chapter": "Head and arm mounting",
       "title": "Attach the head shelf and arms",
       "actions": [
-        "With the shelf front toward the robot front, seat its horn on the nearest spline tooth and fit the center screw. Never pull a misaligned horn onto the spline with the screw.",
-        "Seat the left arm’s horn on the nearest spline tooth with the arm hanging down. Fit its supplied center screw.",
-        "Seat and fasten the right arm the same way, using its supplied center screw."
+        "Press the latch on the head light connector. Pull the two halves apart.",
+        "Lift the head shelf (P08) off the head harness. Move the head and the shelf aside.",
+        "Lift the robot off the towels, one hand under the base and one under the backpack. Keep your hands off the three servo shafts.",
+        "Stand it on its feet on a folded towel.",
+        "In front of the robot, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
+        "At the top of the body, push the head half into the body half until the latch clicks. Pull gently on the two housings. They must stay latched.",
+        "If either cable is tight, move the head closer.",
+        "Turn the shelf so its side with no nut pocket faces front. Lay the head harness wires into its open side entry, clear of the horn screws. Keep the connector below the shelf.",
+        "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17° apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
+        "Hold the shelf still with one hand. With the other, drive the horn’s own center screw down through the head horn adapter’s center. Tighten it. Do not use an M2 screw.",
+        "Face the robot’s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
+        "Set its horn on the shaft, with the arm hanging nearest straight down. Turn the arm, not the shaft, to mesh them. Press it on. Do not bend the arm to correct a small offset.",
+        "Hold the upper arm still. Drive its horn’s center screw through the upper arm’s outer face. Tighten it.",
+        "At the robot-right shoulder, on your left, attach the robot-right upper arm (AR04) the same way.",
+        "Both arms hang straight down, and the shelf front faces forward.",
+        "If a shaft turned while you worked, take its part off. Repeat {step:fit-position} before you refit it."
       ],
-      "check": "",
-      "note": "A 21-tooth spline gives about 17° between teeth. Pick the closest tooth; do not force a horn or bend an arm to correct the small remaining offset.",
+      "check": "The head shelf faces forward and both arms hang straight down, each held by its center screw. The head rests in front of the robot, its light connector latched.",
+      "note": "",
       "hardware": {
         "CENTER": 3
       },
@@ -5206,27 +5219,62 @@
       ],
       "panels": [
         {
-          "title": "Attach the head shelf",
-          "image": "assets/community/head-center-screw.svg",
-          "caption": "Use the servo’s supplied center screw, not an M2 screw.",
+          "title": "Unplug the head light connector",
+          "textOnly": true,
           "actions": [
-            0
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Stand the robot upright",
+          "textOnly": true,
+          "actions": [
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Rejoin the head light connector",
+          "textOnly": true,
+          "actions": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Attach the head shelf",
+          "safety": {
+            "level": "notice",
+            "text": "A horn forced onto the spline, or pulled on by its screw, can strip its teeth. The part then slips on its servo. Seat each horn by hand before you fit its screw."
+          },
+          "image": "assets/community/head-center-screw.svg",
+          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "actions": [
+            7,
+            8,
+            9
           ]
         },
         {
           "title": "Attach the robot-left arm",
           "image": "assets/community/arm-center-screw-left.svg",
-          "caption": "AR01 hangs straight down at the fit pose.",
+          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side. Label 1 marks the center screw.",
           "actions": [
-            1
+            10,
+            11,
+            12
           ]
         },
         {
           "title": "Attach the robot-right arm",
           "image": "assets/community/arm-center-screw-right.svg",
-          "caption": "AR04 hangs straight down at the fit pose.",
+          "caption": "The robot-right arm on its shoulder servo, seen from the robot-right side. Label 1 marks the center screw.",
           "actions": [
-            2
+            13,
+            14,
+            15
           ]
         }
       ]
@@ -5236,12 +5284,17 @@
       "chapter": "Head and arm mounting",
       "title": "Fasten the head and shoulder covers",
       "actions": [
-        "Place the three M2 nuts in P08 from above. Keep the HEAD plug seated and accessible, then lower the head without trapping its cable.",
-        "Start all three head screws by hand and tighten just enough to secure the shell.",
-        "Fit AR08 after checking the left arm center screw is secure.",
-        "Fit AR09 and check both arms hang down and the head faces forward."
+        "Drop an M2 nut into each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
+        "Lift the head off the towels. Hold it upright over the shelf, face forward, its screw holes above the nut pockets.",
+        "Lower it straight onto the shelf, without twisting it. Push the harness slack down through the side entry, into a relaxed loop below the shelf.",
+        "If the head does not sit level, lift it. Free the trapped wire.",
+        "Hold the head still with one hand. With the other, start an M2×8 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
+        "Tighten each screw only until the shell is held firmly.",
+        "If a screw does not catch, lift the head off. Check that its nut stands on edge in its pocket.",
+        "Hold the robot-left upper arm (AR01) still. Slide the robot-left shoulder cover (AR08) fully onto its outer face, over the center screw.",
+        "Fit the robot-right shoulder cover (AR09) on the robot-right upper arm (AR04) the same way."
       ],
-      "check": "All three center screws are fitted, the head is secure and the cable has slack.",
+      "check": "The head is held by its three screws and faces forward. Both arms hang straight down, with their shoulder covers on. The head harness has slack below the shelf.",
       "note": "",
       "hardware": {
         "M2x8": 3,
@@ -5271,35 +5324,46 @@
       ],
       "panels": [
         {
-          "title": "Route HEAD and load the nuts",
+          "title": "Load the head nuts",
           "image": "assets/community/head-cable-entry.svg",
-          "caption": "Lay the cable into P08’s open side entry and leave turning/lifting slack.",
+          "caption": "The head shelf from above, with the harness in its side entry and the three nut pockets.",
           "actions": [
             0
           ]
         },
         {
+          "title": "Lower the head onto the shelf",
+          "textOnly": true,
+          "actions": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
           "title": "Fasten the head",
           "image": "assets/community/head-shell-fastening.svg",
-          "caption": "Three M2×8 button-head screws, no washers or plugs.",
+          "caption": "One head screw passing through the head shell into its M2 nut in the shelf rim.",
           "actions": [
-            1
+            4,
+            5,
+            6
           ]
         },
         {
-          "title": "Close the left shoulder",
+          "title": "Fit the robot-left shoulder cover",
           "image": "assets/community/shoulder-cover-left.svg",
-          "caption": "AR08 covers the robot-left center screw.",
+          "caption": "The robot-left shoulder cover sliding onto the upper arm.",
           "actions": [
-            2
+            7
           ]
         },
         {
-          "title": "Close the right shoulder",
+          "title": "Fit the robot-right shoulder cover",
           "image": "assets/community/shoulder-cover-right.svg",
-          "caption": "AR09 covers the robot-right center screw.",
+          "caption": "The robot-right shoulder cover sliding onto the upper arm.",
           "actions": [
-            3
+            8
           ]
         }
       ]
