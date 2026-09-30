@@ -84,16 +84,6 @@
     },
     {
       "parts": [
-        "E19"
-      ],
-      "title": "Adafruit 1152 quick-connect wire pair — official product specifications",
-      "publisher": "Adafruit",
-      "url": "https://www.adafruit.com/product/1152",
-      "checked": "2026-09-26",
-      "reference_id": "ref-009"
-    },
-    {
-      "parts": [
         "E22"
       ],
       "title": "Adafruit 4056 micro-B power — official product specifications",

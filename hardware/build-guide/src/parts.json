@@ -1720,21 +1720,6 @@
     ]
   },
   {
-    "id": "E19",
-    "name": "Adafruit 1152 quick-connect wire pair",
-    "exact": "Adafruit 1152 quick-connect wire pair",
-    "qty": 2,
-    "optional": 0,
-    "category": "Purchased",
-    "description": "Two pairs, four 0.11 inch terminals in all. One pair is for the button switch and one for its LED.",
-    "link": "https://www.adafruit.com/product/1152",
-    "verification": "Exact product specified",
-    "image": "assets/cartoons/E19.svg",
-    "steps": [],
-    "status": "Check it when it arrives",
-    "additional_links": []
-  },
-  {
     "id": "E20",
     "name": "Mean Well GST40A05-P1J supply",
     "exact": "Mean Well GST40A05-P1J supply",
@@ -1825,12 +1810,12 @@
   },
   {
     "id": "E24",
-    "name": "GPIO jumper leads (2.54 mm female)",
-    "exact": "Twelve 24 AWG GPIO connections",
+    "name": "GPIO jumper leads, 30 cm (2.54 mm female)",
+    "exact": "Twelve 30 cm 24 AWG GPIO jumper leads",
     "qty": 12,
     "optional": 0,
     "category": "Purchased",
-    "description": "Twelve short 24 AWG Pi-header leads with 2.54 mm female contacts. They carry signals, grounds and low-current supplies for the level shifters and button LED. They do not supply the Pi, servos or lights.",
+    "description": "Twelve 30 cm 24 AWG Pi-header leads with 2.54 mm female contacts. The four button leads need the full length. They carry signals, grounds and low-current supplies for the level shifters and button LED. They do not supply the Pi, servos or lights.",
     "link": "",
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/E24.svg",
@@ -2047,6 +2032,7 @@
       "mouth-eye-removal",
       "base-open",
       "power-parts-service",
+      "audio-service",
       "servo-replacement",
       "head-light-service",
       "body-light-service"
@@ -2220,6 +2206,7 @@
       "mouth-eye-removal",
       "base-open",
       "power-parts-service",
+      "audio-service",
       "servo-replacement",
       "head-light-service",
       "body-light-service"

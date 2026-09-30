@@ -163,14 +163,6 @@
       "quantity_scope": "required-build-supply"
     },
     {
-      "id": "E19",
-      "exact": "Adafruit 1152 quick-connect wire pair",
-      "category": "Purchased",
-      "optional": 0,
-      "qty": 2,
-      "quantity_scope": "required-build-supply"
-    },
-    {
       "id": "E20",
       "exact": "Mean Well GST40A05-P1J supply",
       "category": "Purchased",
@@ -204,7 +196,7 @@
     },
     {
       "id": "E24",
-      "exact": "Twelve 24 AWG GPIO connections",
+      "exact": "Twelve 30 cm 24 AWG GPIO jumper leads",
       "category": "Purchased",
       "optional": 0,
       "qty": 12,

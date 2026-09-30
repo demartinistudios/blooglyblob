@@ -641,51 +641,98 @@ def button_leads_prepare():
     g.save('circuits/button-leads-prepare.svg')
 
 
+def button_top(g, y0, spread):
+    """The button lying on one bezel flat, seen from above: lens left, tabs pointing right.
+
+    Only the top pair of tabs shows; `spread` is half their spacing (enlarged)."""
+    g.rect(22, y0 - 40, 26, 80, fill='#e9e6dc', stroke=INK, rx=8)             # lens
+    g.rect(48, y0 - 58, 22, 116, fill='#292e36', stroke=INK, rx=4)            # 18 mm bezel
+    g.rect(70, y0 - 50, 118, 100, fill='#343b43', stroke=INK, rx=2)           # Ø16 body
+    for x in range(78, 184, 9):
+        g.wire([(x, y0 - 50), (x + 4, y0 + 50)], '#55585f', 2)
+    tabs = (y0 - spread, y0 + spread)
+    for y in tabs:
+        g.rect(188, y - 4, 34, 8, fill='#c9d0d4', stroke='#f6f6ee', sw=1, rx=1)
+    return tabs
+
+
+def side_socket(g, x, y, pin):
+    """2.54 mm female socket at a lead's Pi end, lying along the lead, with its pin label."""
+    g.rect(x, y - 8, 34, 16, fill='#303740', rx=2)
+    g.text(x + 64, y + 8, str(pin), size=22, anchor='end', weight=700)
+
+
 def button_leads_switch():
-    g = action('Solder the switch leads', 500, 'Rear view · switch pair')
-    cx, cy = 210, 225
-    tabs = button_back(g, cx, cy)
-    button_tab_labels(g, tabs, cx)
-    for key, pin in (('SW1', 11), ('SW2', 14)):
-        x, y = tabs[key]
-        traced_wire(g, [(x, y + 20), (x, 370)], BLUE)
-        tab_sleeve(g, x, y)
-        pi_socket(g, x, 370, pin)
-    g.text(cx, 118, 'LED pair stays bare', size=22, anchor='middle', fill=MUTED)
-    g.text(24, 485, 'Either lead fits either switch tab.', size=22)
+    g = action('Solder the switch leads', 440, 'From above · switch pair on top')
+    y0 = 215
+    tabs = button_top(g, y0, 26)
+    for y, pin in zip(tabs, (11, 14)):
+        traced_wire(g, [(222, y), (330, y)], BLUE, 4)
+        g.rect(184, y - 8, 56, 16, fill='#47515b', stroke='#1c2126', sw=1, rx=4)   # shrunk sleeve
+        side_socket(g, 330, y, pin)
+    g.text(205, 146, 'Switch tabs', size=22, anchor='middle', weight=700)
+    g.text(205, 310, 'Button on a bezel flat', size=22, anchor='middle', fill=MUTED)
+    g.text(24, 386, 'Either lead fits either switch tab.', size=22)
+    g.text(24, 418, 'LED pair underneath, still bare.', size=22, fill=MUTED)
     g.save('circuits/button-leads-switch.svg')
 
 
 def button_leads_led():
-    g = action('Solder the LED leads', 520, 'Rear view · sleeves pushed back')
-    cx, cy = 210, 215
-    tabs = button_back(g, cx, cy)
-    button_tab_labels(g, tabs, cx)
-    for key in ('SW1', 'SW2'):
-        x, y = tabs[key]
-        traced_wire(g, [(x, y + 20), (x, 390)], '#8e969e')
-        tab_sleeve(g, x, y)
-    for key, pin in (('SW1', 11), ('SW2', 14)):
-        pi_socket(g, tabs[key][0], 390, pin)
+    g = action('Solder the LED leads', 470, 'From above · LED pair on top')
+    y0 = 225
+    plus, minus = button_top(g, y0, 18)
+    g.text(206, plus - 12, '+', size=24, anchor='middle', weight=700, fill=RED)
+    g.text(206, minus + 30, '−', size=24, anchor='middle', weight=700)
     # LED −: lead 20 soldered straight to the tab; its sleeve waits on the lead.
-    x, y = tabs['LED−']
-    traced_wire(g, [(x, y), (52, y), (52, 390)], BLK)
-    joint(g, x, y, BLK)
-    loose_sleeve(g, 52, 300)
-    pi_socket(g, 52, 390, 20)
-    # LED +: R1 soldered to the tab; lead 4 soldered to its free leg.
-    x, y = tabs['LED+']
-    g.wire([(x, y), (x + 20, y)], GRAY, 3)
-    small_resistor(g, x + 20, y, 'R1')
-    g.wire([(x + 60, y), (x + 76, y)], GRAY, 3)
-    traced_wire(g, [(x + 76, y), (368, y), (368, 390)], RED)
-    joint(g, x, y, RED)
-    joint(g, x + 76, y, RED)
-    loose_sleeve(g, 368, 300)
-    pi_socket(g, 368, 390, 4)
-    g.label(x + 40, 116, 'R1 · 1 kΩ', size=22, anchor='middle', weight=700)
-    g.wire([(x + 40, 124), (x + 40, y - 10)], '#ae855e', 2)
+    traced_wire(g, [(214, minus), (330, minus)], BLK, 4)
+    joint(g, 214, minus, BLK)
+    g.rect(262, minus - 7, 30, 14, fill='#6b7580', stroke='#1c2126', sw=1, rx=4)
+    side_socket(g, 330, minus, 20)
+    # LED +: R1 in line with the tab, pointing straight back; lead 4 on its free leg.
+    g.wire([(206, plus), (234, plus)], GRAY, 3)
+    small_resistor(g, 234, plus, 'R1', 36)
+    g.wire([(270, plus), (282, plus)], GRAY, 3)
+    traced_wire(g, [(282, plus), (330, plus)], RED, 4)
+    joint(g, 282, plus, RED)
+    g.rect(292, plus - 7, 34, 14, fill='#6b7580', stroke='#1c2126', sw=1, rx=4)
+    side_socket(g, 330, plus, 4)
+    g.label(252, 140, 'R1 · 1 kΩ', size=22, anchor='middle', weight=700)
+    g.wire([(252, 146), (252, plus - 10)], '#ae855e', 2)
+    g.text(24, 350, 'R1 points straight back', size=22)
+    g.text(24, 381, 'in line with the + tab.', size=22)
+    g.text(24, 422, 'Sleeves pushed back on 20 and 4.', size=22, fill=MUTED)
     g.save('circuits/button-leads-led.svg')
+
+
+def button_insert_threading():
+    g = action('Fit the button in its insert', 460, 'Side view · outside on the left')
+    y0 = 225
+    rows = ((y0 - 27, 20, BLK), (y0 - 9, 4, RED), (y0 + 9, 11, BLUE), (y0 + 27, 14, BLUE))
+    # Button, still outside FB20: lens, 18 mm bezel, Ø16 body, sleeved tabs.
+    g.rect(20, y0 - 30, 20, 60, fill='#e9e6dc', stroke=INK, rx=6)
+    g.rect(40, y0 - 42, 16, 84, fill='#292e36', stroke=INK, rx=3)
+    g.rect(56, y0 - 36, 80, 72, fill='#343b43', stroke=INK, rx=2)
+    for x in range(62, 132, 9):
+        g.wire([(x, y0 - 36), (x + 4, y0 + 36)], '#55585f', 2)
+    # FB20 in section: a 2 mm plate with its Ø16.2 hole.
+    for top, h in ((y0 - 90, 52), (y0 + 38, 52)):
+        g.rect(190, top, 14, h, fill='#c0845a', stroke=INK, sw=1, rx=1)
+    g.text(197, y0 - 100, 'FB20', size=22, anchor='middle', weight=700)
+    # Retaining nut, seen edge-on, with the leads through its hole.
+    g.rect(260, y0 - 52, 18, 104, fill='#b3bac0', stroke=INK, sw=1, rx=2)
+    g.text(269, y0 + 80, 'Nut', size=22, anchor='middle', weight=700)
+    for y, pin, color in rows:
+        traced_wire(g, [(150, y), (340, y)], color, 4)
+        side_socket(g, 340, y, pin)
+    for y, _, _ in rows:
+        g.rect(132, y - 5, 26, 10, fill='#47515b', stroke='#1c2126', sw=1, rx=3)
+    g.wire([(92, y0 + 62), (170, y0 + 62)], BLUE, 3, arrow=True)
+    g.wire([(300, y0 - 72), (220, y0 - 72)], BLUE, 3, arrow=True)
+    g.text(24, 350, '1 · Leads through FB20 from outside.', size=22)
+    g.text(24, 381, '2 · Button pushed into FB20.', size=22)
+    g.text(24, 412, '3 · Leads through the nut.', size=22)
+    g.text(24, 443, '4 · Nut tightened on the back.', size=22)
+    g.save('circuits/button-insert-thread.svg')
 
 
 def button_leads_done():
@@ -726,18 +773,24 @@ def button_rear(g, x, y):
     return tabs
 
 
+def r1_end_on(g, x, y):
+    """R1 seen end-on: it points straight back from the LED + tab, toward the viewer, under its sleeve."""
+    g.circle(x, y, 14, fill='#47515b', stroke='#1c2126', sw=1)
+    g.circle(x, y, 7, fill='#e5c798', stroke=INK, sw=1)
+
+
 def button_switch():
     g=physical_action('Connect the button switch',685,'Button rear · LED pair above switch')
-    points=header_board(g,{11:BLUE,14:BLK})
+    points=header_board(g,{11:BLUE,14:BLUE})
     tabs=button_rear(g,285,305)
     # The LED leads are drawn as stubs; they connect in the next panel.
-    for key in ('LED−','LED+'):
-        tx,ty=tabs[key]
-        g.wire([(tx,ty-15),(tx,ty-35)],'#8e969e',5)
-        tab_sleeve(g,tx,ty)
+    lx,ly=tabs['LED−']
+    g.wire([(lx,ly-15),(lx,ly-35)],BLK,5)
+    tab_sleeve(g,lx,ly)
+    r1_end_on(g,*tabs['LED+'])
     sw1,sw2=tabs['SW1'],tabs['SW2']
     traced_wire(g,[points[11],(154,251),(154,452),(sw1[0],452),(sw1[0],sw1[1])],BLUE)
-    traced_wire(g,[points[14],(178,271),(178,478),(sw2[0],478),(sw2[0],sw2[1])],BLK)
+    traced_wire(g,[points[14],(178,271),(178,478),(sw2[0],478),(sw2[0],sw2[1])],BLUE)
     for tx,ty in (sw1,sw2): tab_sleeve(g,tx,ty)
     header_labels(g,points)
     g.text(24,626,'Pin 11 · GPIO17 → switch',size=22)
@@ -752,18 +805,17 @@ def button_led():
     # The switch leads are drawn as stubs; they connect in the previous panel.
     for key in ('SW1','SW2'):
         tx,ty=tabs[key]
-        g.wire([(tx,ty+33),(tx,ty+55)],'#8e969e',5)
+        g.wire([(tx,ty+33),(tx,ty+55)],BLUE,5)
         tab_sleeve(g,tx,ty)
     lx,ly=tabs['LED−']
     traced_wire(g,[points[20],(151,331),(151,ly),(lx,ly)],BLK)
     tab_sleeve(g,lx,ly)
     px,py=tabs['LED+']
-    # R1 is soldered to the LED + tab; one sleeve covers the tab, R1 and both joints.
-    g.wire([(px,py),(px+14,py)],GRAY,3)
-    small_resistor(g,px+14,py,'R1',34)
-    traced_wire(g,[points[4],(170,171),(170,236),(396,236),(396,py),(px+48,py)],RED)
-    g.add(f'<rect x="{px-9}" y="{py-15}" width="66" height="30" rx="5" fill="#47515b" opacity=".55" stroke="#1c2126" stroke-width="1"/>')
-    g.label(px+31,222,'R1 · 1 kΩ',size=22,anchor='middle',weight=700)
+    # R1 points straight back from the LED + tab (toward the viewer); lead 4 leaves its free leg.
+    traced_wire(g,[points[4],(170,171),(170,236),(396,236),(396,py),(px,py)],RED)
+    r1_end_on(g,px,py)
+    g.label(px+40,222,'R1 · 1 kΩ',size=22,anchor='middle',weight=700)
+    g.wire([(px+30,228),(px+8,py-12)],'#ae855e',2)
     header_labels(g,points)
     g.text(24,625,'Pi pin 4 · +5 V → R1 → LED +',size=22)
     g.text(24,657,'Pi pin 20 · GND → LED −',size=22)
@@ -1431,7 +1483,7 @@ def circuit_actions():
     strand_wire_identification(); strand_test_connection(); strand_input_result()
     supply_polarity_test(); robot_power_connection()
     power_jack_terminals(); button_terminals(); button_leads_prepare()
-    button_leads_switch(); button_leads_led(); button_leads_done(); tie_mount()
+    button_leads_switch(); button_leads_led(); button_leads_done(); button_insert_threading(); tie_mount()
 
 
 def main():
