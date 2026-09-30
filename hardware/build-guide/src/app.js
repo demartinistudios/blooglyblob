@@ -58,12 +58,26 @@ function commandCard(block){
  return `<div class="code-card" data-kind="${escape(kind)}"><div class="code-card-header"><div><span class="code-context">${context}</span>${block.label?`<strong class="code-label">${escape(block.label)}</strong>`:''}</div>${canCopy?`<button type="button" data-copy-code aria-label="Copy ${kind==='config'?'example':'command'}${block.label?' · '+escape(block.label):''}">Copy ${kind==='config'?'example':'command'}</button>`:''}</div><pre class="code-content" tabindex="0" aria-label="${escape(block.label||context)}"><code>${block.lines.map(escape).join('\n')}</code></pre>${canCopy?'<p class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>':''}</div>`;
 }
 function safety(value){return (value?(Array.isArray(value)?value:[value]):[]).map(e=>`<div class="safety safety-${escape(e.level)}" data-level="${escape(e.level)}" role="note"><strong class="safety-label">${escape(e.level.toUpperCase())}</strong><span class="safety-text">${rich(e.text)}</span></div>`).join('')}
+function printInstructions(s){
+ if(state.slicer!=='other')return actionPanels(s);
+ return actionPanels({...s,actions:[
+  'Import the STLs for the parts listed on plates 2 and 7.',
+  'Use the quantities, orientations and per-part settings above.',
+  'Use profiles for your printer and filament.',
+  'Recreate the supports and blockers shown in the supplied project; STLs contain geometry only.',
+  'Slice and inspect each batch before printing.',
+  'Print the base, then its panels and grilles. Print the remaining parts as you build.'
+ ],panels:[
+  {title:'Load the STL files',textOnly:true,actions:[0,1,2]},
+  {title:'Slice and print',textOnly:true,actions:[3,4,5]}
+ ]});
+}
 function actionPanels(s){
  const panels=s.panels;
  return `<div class="action-sequence">${panels.map((panel,i)=>`<section class="action-panel${/^assets\/circuits\//.test(panel.image)?' action-panel-circuit':''}${/^assets\/setup\//.test(panel.image)?' action-panel-screenshot':''}${panel.image?'':' action-panel-command'}"><div class="action-panel-heading"><span aria-hidden="true">${i+1}</span><h2>${escape(panel.title)}</h2></div><div class="action-panel-body">${panel.image?diagram(panel.image,panel.title):''}<div class="action-copy">${safety(panel.safety)}<ol class="instructions">${panel.actions.map(n=>`<li>${rich(s.actions[n])}</li>`).join('')}</ol>${(panel.codeBlocks||(panel.commands?.length?[{kind:'command',context:'computer',lines:panel.commands}]:[])).map(commandCard).join('')}${panel.caption?`<p class="action-note">${rich(panel.caption)}</p>`:''}${panel.links?.length?`<ul class="panel-links">${panel.links.map(link=>`<li><a href="${escape(link.url)}"${/^https:/.test(link.url)?' target="_blank" rel="noreferrer"':''}>${escape(link.label)}${/^https:/.test(link.url)?' ↗':''}</a></li>`).join('')}</ul>`:''}${panel.detail?`<details class="action-detail"><summary>${escape(panel.detail.title)}</summary>${diagram(panel.detail.image,panel.detail.title)}</details>`:''}</div></div></section>`).join('')}</div>`;
 }
 function stepHTML(s,all=false,partId){
- return `<article class="${[all?'full-print':'',s.chapter==='Pi software'?'setup-step':''].filter(Boolean).join(' ')}"><div class="step-head"><div><p class="eyebrow">${s.kind==='service'?'Service reference':escape(s.chapter)+' · Step '+s.number+' of '+buildSteps.length}</p><h1 tabindex="-1">${escape(s.title)}</h1></div>${s.number?`<span class="step-number" aria-hidden="true">${s.number}</span>`:''}</div>${s.id==='print-plates'?printResources(partId):benchList(s)}${s.id==='body-light-input'?harnessOverview():''}${s.safety?`<div class="step-safety">${safety(s.safety)}</div>`:''}${actionPanels(s)}${s.id==='print-plates'?printTemplates():''}${s.note?`<div class="notice step-note">${rich(s.note)}</div>`:''}${s.check?`<div class="check"><strong>Ready to continue</strong>${rich(s.check)}</div>`:''}${templates[s.id]?`<p><a class="button" href="${templates[s.id][0]}" download>${templates[s.id][1]}</a> Print at 100% and check the scale bar.</p>`:''}${s.id==='fit-position'?servoTable():''}${stepLinks(s)}${stepNavigation(s)}</article>`;
+ return `<article ${s.id==='print-plates'?`data-print-slicer="${state.slicer==='other'?'other':'bambu'}"`: ''} class="${[all?'full-print':'',s.chapter==='Pi software'?'setup-step':''].filter(Boolean).join(' ')}"><div class="step-head"><div><p class="eyebrow">${s.kind==='service'?'Service reference':escape(s.chapter)+' · Step '+s.number+' of '+buildSteps.length}</p><h1 tabindex="-1">${escape(s.title)}</h1></div>${s.number?`<span class="step-number" aria-hidden="true">${s.number}</span>`:''}</div>${s.id==='print-plates'?printResources(partId):benchList(s)}${s.id==='body-light-input'?harnessOverview():''}${s.safety?`<div class="step-safety">${safety(s.safety)}</div>`:''}${s.id==='print-plates'?printInstructions(s):actionPanels(s)}${s.id==='print-plates'?printTemplates():''}${s.note?`<div class="notice step-note">${rich(s.note)}</div>`:''}${s.check?`<div class="check"><strong>Ready to continue</strong>${rich(s.check)}</div>`:''}${templates[s.id]?`<p><a class="button" href="${templates[s.id][0]}" download>${templates[s.id][1]}</a> Print at 100% and check the scale bar.</p>`:''}${s.id==='fit-position'?servoTable():''}${stepLinks(s)}${stepNavigation(s)}</article>`;
 }
 
 function start(){
@@ -146,8 +160,10 @@ function printResources(partId){
  const match=partMap[partId],selected=match?prints.filter(p=>p.parts.includes(partId)):[];
  const context=match?`<p class="notice info">${escape(partId)} · ${escape(match.name)}: ${selected.length?selected.map(p=>escape(p.name)).join(', '):'not on the supplied plates'}. <a href="#step-print-plates">Show the full printing step</a></p>`:'';
  return `<p class="lede">${printedPieceCount} printed pieces / ${parts.filter(p=>p.category==='Printed'&&p.qty>0).length} types on ten PLA plates. Start with the base and its panels and grilles. Print the rest as you build.</p>
- <div class="actions"><a class="button primary" href="downloads/BlooglyBlob-PLA.3mf" download>Bambu project · all plates</a><a class="button" href="downloads/BlooglyBlob-STL.zip" download>All STL files (ZIP)</a><a class="button" href="downloads/BlooglyBlob-PETG-ball.3mf" download>Optional PETG ball</a></div>
- <p class="fine">Choose your own colors. Print one antenna ball: PLA on plate 10 or the optional clear PETG version. For STLs, use the settings and orientations below in your own slicer.</p>
+ <fieldset class="slicer-choice"><legend>Slicer</legend>${[['bambu','Bambu Studio'],['other','Other slicer']].map(([value,label])=>`<label><input type="radio" name="slicer" value="${value}" ${value===(state.slicer==='other'?'other':'bambu')?'checked':''}>${label}</label>`).join('')}</fieldset>
+ <div class="actions"><a data-slicer="bambu" class="button primary" href="downloads/BlooglyBlob-PLA.3mf" download>Bambu project · all plates</a><a class="button" href="downloads/BlooglyBlob-STL.zip" download>All STL files (ZIP)</a><a data-slicer="bambu" class="button" href="downloads/BlooglyBlob-PETG-ball.3mf" download>Optional PETG ball</a></div>
+ <p class="fine">Choose your own colors. Print one antenna ball: PLA on plate 10 or the optional clear PETG version.</p>
+ <p class="fine" data-slicer="other"><a href="downloads/BlooglyBlob-PLA.3mf" download>Project reference (3MF)</a> · Layouts and estimates below use the supplied Bambu project.</p>
  ${context}${plateSettings()}
  <p class="fine">Optional pointing hand: <a href="downloads/stl/AR07.stl" download>AR07 STL</a> · print fingers up, wrist peg down.</p>`;
 }
@@ -323,7 +339,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('toggle',e=>{if(!e.target.matches('.reference-topic'))return;const control=document.querySelector(`[aria-controls="${e.target.id}"]`);control?.setAttribute('aria-expanded',String(e.target.open));if(!e.target.open&&e.target.contains(document.activeElement))control?.focus()},true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open')){closeMenu();$('#menu').focus()}});
-document.addEventListener('change',e=>{const s=e.target.dataset.step,p=e.target.dataset.stock;if(s){state.steps=e.target.checked?[...new Set([...state.steps,s])]:state.steps.filter(x=>x!==s);save()}if(p){state.stock=e.target.checked?[...new Set([...state.stock,p])]:state.stock.filter(x=>x!==p);save()}});
+document.addEventListener('change',e=>{if(e.target.name==='slicer'){state.slicer=e.target.value;save();const article=e.target.closest('[data-print-slicer]');article.dataset.printSlicer=state.slicer;article.querySelector('.action-sequence').outerHTML=printInstructions(stepMap['print-plates']);return;}const s=e.target.dataset.step,p=e.target.dataset.stock;if(s){state.steps=e.target.checked?[...new Set([...state.steps,s])]:state.steps.filter(x=>x!==s);save()}if(p){state.stock=e.target.checked?[...new Set([...state.stock,p])]:state.stock.filter(x=>x!==p);save()}});
 $('#detail-size').onclick=()=>{const large=$('#zoom-image').classList.toggle('detail-size');$('#zoom').classList.toggle('large',large);$('#detail-size').textContent=large?'Fit to screen':'Larger view';$('#detail-size').setAttribute('aria-pressed',String(large))};
 $('#close-zoom').onclick=()=>$('#zoom').close();$('#zoom').addEventListener('click',e=>{if(e.target===$('#zoom'))$('#zoom').close()});
 $('#menu').onclick=()=>{const open=document.body.classList.toggle('menu-open');$('#menu').setAttribute('aria-expanded',String(open));if(open)document.querySelector('nav a.active')?.scrollIntoView({block:'nearest'})};

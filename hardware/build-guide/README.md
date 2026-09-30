@@ -41,6 +41,8 @@ including links that locate a particular part’s plate. Plate layouts, individu
 STL links and settings expand within that step using the main content of
 `src/repeat-build.html`, bundled at build time. Edit that one authored source;
 the standalone URL remains available for bookmarks and non-JavaScript readers.
+The printing step offers Bambu Studio and other-slicer instructions; the choice
+is saved with browser progress. Shared layouts and per-part settings stay available.
 
 It checks package metadata and local references. Keep `src/` limited to authored
 pages, text, data, diagrams, templates and pictures; do not add alternate guide

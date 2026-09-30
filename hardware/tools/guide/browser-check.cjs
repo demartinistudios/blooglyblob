@@ -186,6 +186,26 @@ fs.mkdirSync(OUT,{recursive:false});
   const download=await downloadEvent;
   assert.equal(download.suggestedFilename(),'screw-key-letter.pdf');
   assert.equal(new URL(page.url()).hash,'#hardware');
+  // Slicer choice changes only printing guidance and survives navigation/reload.
+  for(const width of [1440,360]){
+   await page.setViewportSize({width,height:1000});
+   await page.goto(BASE+'#step-print-plates');
+   const progress=await page.locator('#progress-count').innerText();
+   await page.getByRole('radio',{name:'Other slicer',exact:true}).check();
+   assert.ok((await page.locator('.action-sequence').innerText()).includes('Import the STLs'));
+   assert.ok(!/AMS|timelapse|flow dynamics/.test(await page.locator('#page').innerText()));
+   await page.locator('#plate-settings > summary').click();
+   assert.ok(!/Synchronize filament list from AMS/.test(await page.locator('#page').innerText()));
+   assert.ok(await page.getByRole('link',{name:'Project reference (3MF)',exact:true}).isVisible());
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'other slicer overflow '+width);
+   await capture({path:path.join(OUT,'other-slicer-'+width+'.png'),fullPage:true});
+   await page.goto(BASE+'#step-print-cleanup');await page.goto(BASE+'#step-print-plates');await page.reload();
+   assert.ok(await page.getByRole('radio',{name:'Other slicer',exact:true}).isChecked());
+   assert.equal(await page.locator('#progress-count').innerText(),progress,'slicer choice preserves progress');
+   await page.getByRole('radio',{name:'Other slicer',exact:true}).focus();await page.keyboard.press('ArrowLeft');
+   assert.ok(await page.getByRole('radio',{name:'Bambu Studio',exact:true}).isChecked());
+   assert.ok((await page.locator('.action-sequence').innerText()).includes('Synchronize filament list from AMS'));
+  }
   // The service stand is retired (owner decision Q3): no stand step, saddle part or downloads.
   assert.ok(!data.parts.some(p=>p.id==='J05'),'retired stand saddle part');
   const installed=data.parts.filter(p=>p.category==='Printed'&&p.qty);
