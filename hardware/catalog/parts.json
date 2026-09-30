@@ -1,12 +1,12 @@
 {
-  "status": "R29/cloud25 CAD and editable print package:71 required pieces/51 types. Seven normal meshes replaced on W1/W2/C2;41 inherited independent source comparisons and physical qualification remain separate.",
+  "status": "R29/cloud25:71 required pieces/51 types; all72 required/optional source mesh comparisons verified. Physical qualification remains separate.",
   "cad": "R29",
   "parts": [
     {
       "part_id": "A04",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/A04.stl",
-      "geometry_sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+      "geometry_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
       "instances": [
         {
           "id": "A04-1",
@@ -20,7 +20,7 @@
       "guide_image": "assets/part-A04.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+      "geometry_revision": "sha256:3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
       "guide_review_step_ids": [
         "antenna"
       ]

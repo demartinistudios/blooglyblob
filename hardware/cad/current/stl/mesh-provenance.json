@@ -128,8 +128,9 @@
   {
     "id": "A04",
     "source": "hardware/cad/current/stl/A04.stl",
-    "sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
-    "source_design_revision": "R21"
+    "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+    "source_design_revision": "R29",
+    "export_evidence": "hardware/cad/current/evidence/print-sources-r29.json"
   },
   {
     "id": "A05",

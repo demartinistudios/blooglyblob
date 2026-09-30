@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+    "design_revision": "R29",
+    "cloud_version": 25
+  },
+  "source_frame": "body-local millimetres; identity transform",
+  "retained_sources": {
+    "method": "Every oriented source triangle compared against read-only HighQuality tessellation of the named accepted native body; coordinate tolerance 0.0001 mm. Existing source bytes retained.",
+    "parts": [
+      {
+        "part_id": "A05",
+        "sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+        "native_occurrence": "A05 Unlit ball r3 - replaceable:1",
+        "native_volume_mm3": 917.159918713137,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "AR08",
+        "sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+        "native_occurrence": "ANDROID R_Cover:1",
+        "native_volume_mm3": 4162.799479139901,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "AR09",
+        "sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+        "native_occurrence": "ANDROID L_Cover:1",
+        "native_volume_mm3": 4159.556030505977,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "B01",
+        "sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+        "native_occurrence": "B01 Belt r4 - Right side:1",
+        "native_volume_mm3": 566.6225768675873,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "B02",
+        "sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+        "native_occurrence": "B02 Belt r4 - Right outer:1",
+        "native_volume_mm3": 626.7331207729218,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "B03",
+        "sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+        "native_occurrence": "B03 Belt r5 - Framed buckle:1",
+        "native_volume_mm3": 669.3494448946612,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "B04",
+        "sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+        "native_occurrence": "B04 Belt r4 - Left side:1",
+        "native_volume_mm3": 528.133886182579,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "B09",
+        "sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+        "native_occurrence": "B09 Belt r4 - 2.5 mm pin 1:1",
+        "native_volume_mm3": 39.015097167429836,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P01",
+        "sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+        "native_occurrence": "P01 Foam collar r1 - rotating horn screw clearance:1",
+        "native_volume_mm3": 7861.65690711265,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P02",
+        "sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+        "native_occurrence": "P02 Upright r3 - modular accessory mounting:1",
+        "native_volume_mm3": 8984.562454201738,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P03",
+        "sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+        "native_occurrence": "P03 Twin shoulder carrier r1 - side entry:1",
+        "native_volume_mm3": 14165.414389576172,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P04",
+        "sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+        "native_occurrence": "P04 Head servo carrier r1 - side entry:1",
+        "native_volume_mm3": 2362.707168223077,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P06",
+        "sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+        "native_occurrence": "P06 Eye cassette r3 - common washer stack and cable ties:1",
+        "native_volume_mm3": 791.7727273922526,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P09",
+        "sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+        "native_occurrence": "P09 Foam seam backing r0 - hard stop:1",
+        "native_volume_mm3": 681.2187303851274,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P10",
+        "sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+        "native_occurrence": "P10 Foam seam cover r0 - removable:1",
+        "native_volume_mm3": 458.27248771532567,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P11",
+        "sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+        "native_occurrence": "P11 Two-pebble bracket r2 - head screw and driver clearance:1",
+        "native_volume_mm3": 3539.599963025501,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P12",
+        "sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+        "native_occurrence": "P12 Forward-angled rear LEDs and seam backing r1:1",
+        "native_volume_mm3": 3928.4926456532467,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P13",
+        "sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+        "native_occurrence": "P13 Open body wire guide r0 - front service mount:1",
+        "native_volume_mm3": 2125.400464964608,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P34",
+        "sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+        "native_occurrence": "P34 Curved backpack carrier r1:1",
+        "native_volume_mm3": 9326.579238185921,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P37",
+        "sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+        "native_occurrence": "P37 Recessed nozzle plug r1 - print two:1",
+        "native_volume_mm3": 1324.9996883744323,
+        "unmatched_edges": 0
+      },
+      {
+        "part_id": "P40",
+        "sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+        "native_occurrence": "P40 Top roll copper half-band r1:1",
+        "native_volume_mm3": 97.93286182028376,
+        "unmatched_edges": 0
+      }
+    ],
+    "frame_verification": "Named native bodies and original export/import transforms establish source coordinates. Fourteen historical native STL witnesses byte-match fresh direct High STL exports; A05 retains its documented identity STEP import/copy frame. Cover native bodies contain baked assembly coordinates and require their explicit inverse transform for print preparation."
+  },
+  "antenna_export": {
+    "part_id": "A04",
+    "path": "hardware/cad/current/stl/A04.stl",
+    "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+    "superseded_sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+    "native_occurrence": "A04 Antenna r3 - flush patch and replaceable coil:1",
+    "native_body": "A04 accepted r3",
+    "method": "Fusion native STL export; MeshRefinementHigh; binary; MillimeterDistanceUnits",
+    "native_volume_mm3": 3662.2024512460152,
+    "mesh": {
+      "triangles": 98700,
+      "unique_exact_vertices": 49352,
+      "unmatched_edges": 0,
+      "winding_consistent": true,
+      "watertight": true,
+      "volume": 3658.812676940413,
+      "bounds": [
+        [
+          -8.949999809265137,
+          -8.949999809265137,
+          34.5
+        ],
+        [
+          8.949999809265137,
+          8.949999809265137,
+          77.80000305175781
+        ]
+      ]
+    },
+    "mesh_repair": false,
+    "reason": "Direct native STL export replaces a tessellation with open helical seam edges."
+  },
+  "limitations": [
+    "Source correspondence and mesh topology do not establish physical print quality or fit.",
+    "Print-project source frames, orientation, supports and toolpaths require separate checks."
+  ]
+}

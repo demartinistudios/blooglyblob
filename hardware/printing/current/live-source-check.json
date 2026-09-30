@@ -1,14 +1,15 @@
 {
   "cad": "R29/cloud25",
-  "changed_sources": {
-    "P08": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
-    "P14": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
-    "FB24": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
-    "FB32": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
-    "P35": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
-    "P36": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "original_path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa"
   },
-  "unchanged_geometry_basis": "64 other instances retained exactly; four arm frame bindings corrected without geometry changes;41 inherited different-tessellation comparisons remain pending.",
-  "native_source": "Registry-selected accepted MAIN native SHA d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
-  "validation": "checks/r29-replacement.json"
+  "source_comparisons_verified": 72,
+  "pending_source_comparisons": 0,
+  "validation": "checks/r29-mesh-consistency-validation.json",
+  "selected_A04_source": {
+    "path": "hardware/cad/current/stl/A04.stl",
+    "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01"
+  }
 }

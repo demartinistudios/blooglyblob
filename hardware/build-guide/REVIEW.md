@@ -34,6 +34,7 @@ instructions, rather than treating a successful render as evidence of fit.
 
 Physical assembly, tape and glue retention, actual connector clearance and cable
 slack, acoustic behavior and complete powered operation remain unqualified.
-Separate pending print-source comparisons are not cleared by guide review.
+All 72 print-source comparisons now pass the separate print recipe checks.
+The STL downloads, plate previews and estimates are derived from those inputs.
 See [current hardware notes](../cad/CURRENT-NOTES.md) and the
 [release checklist](../../../docs/release/checklist.md).

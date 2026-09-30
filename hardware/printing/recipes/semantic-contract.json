@@ -5,7 +5,7 @@
   "projects": [
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
-      "project_sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
       "role": "required",
       "global_settings_sha256": "75f3692f66601635b2bd6fd47cf33842ff0d01e655983482a919b7c025c7be26",
       "plate_settings_sha256": "52196ae61ea1d730eefda90957cc69a98270923920347b2e93a890d5a71a8474",
@@ -17,8 +17,21 @@
           "plate_id": "W1",
           "plate_number": 1,
           "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.9999999997361686,
+            1.6339744823845592e-07,
+            0.0,
+            -1.0005208101036687e-23,
+            6.123233994121266e-17,
+            1.0,
+            1.6339744823845592e-07,
+            -0.9999999997361686,
+            6.123233995736766e-17,
+            -9.338164417727057e-06,
+            57.15000151080094,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "d48748687ef2a3f6306db914f5e1cbfe1105181062840947dabaf0d1ba708f2d",
@@ -40,7 +53,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
-                "mesh_sha256": "6bbc8ad7f029a22999df19ef4d988080bc0e94950a0008016d699b48046bfb5e",
+                "mesh_sha256": "a51362109bfffc09ed1f2046cd181e825b6867ed3a38d9c1339651d1bda0ce5d",
                 "transform": [
                   1.0,
                   0.0,
@@ -57,8 +70,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1700 triangles, recipe 2814; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P03-01",
@@ -67,8 +79,21 @@
           "plate_id": "W1",
           "plate_number": 1,
           "source_sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123233995736766e-17,
+            1.0,
+            0.0,
+            -6.123233995736766e-17,
+            3.749399456654644e-33,
+            1.0,
+            1.0,
+            -6.123233995736766e-17,
+            6.123233995736766e-17,
+            0.0,
+            0.0,
+            9.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
@@ -90,7 +115,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "c2512d555478bb57cca67589006a88f6cb33a2a28edc3504c66867f2a7020843",
-                "mesh_sha256": "ce159d259567ef44438e6debf0f5f5cffa0f701ba1860140184b11a6ead62b48",
+                "mesh_sha256": "e3a534ae7ff5186f56d367a9c01f3551923a5cfcea4863e1ad44f3006be8f4d5",
                 "transform": [
                   1.0,
                   0.0,
@@ -107,8 +132,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1340 triangles, recipe 2156; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P04-01",
@@ -117,8 +141,21 @@
           "plate_id": "W1",
           "plate_number": 1,
           "source_sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123233995736766e-17,
+            1.0,
+            0.0,
+            1.0,
+            -6.123233995736766e-17,
+            1.2246467991473532e-16,
+            1.2246467991473532e-16,
+            -7.498798913309288e-33,
+            -1.0,
+            0.0,
+            0.0,
+            -1.499999999999996
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "679fe83b7e9fc1cf7b6ded01e3423502dba6a1cd7135719b1309b8384ec840ca",
@@ -140,7 +177,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
-                "mesh_sha256": "00c56478c3908c3b941d9bd7f3e40967c3cd8b9c4358cc874863de0525779180",
+                "mesh_sha256": "eaca083511463b6c0676ddc0ce3e9390ac49c63593f370fb56a86cca2719f0db",
                 "transform": [
                   1.0,
                   0.0,
@@ -157,8 +194,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 716 triangles, recipe 1148; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P06-01",
@@ -167,8 +203,21 @@
           "plate_id": "W1",
           "plate_number": 1,
           "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.6339744823845592e-07,
+            0.9999999997361686,
+            0.0,
+            -0.9999999997361686,
+            -1.6339744823845592e-07,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0048590093661777e-14,
+            1.0048593377490275e-14,
+            -6.5999999
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "d48748687ef2a3f6306db914f5e1cbfe1105181062840947dabaf0d1ba708f2d",
@@ -190,7 +239,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "74ddb29c48b5ed12ae8d0f4195465f5263a0462976d26126a4b3b5dd3aa5da00",
-                "mesh_sha256": "73a3c1b087b3e3eb7a7bb10670e053da1fcb00ce3a33a49bee04f1e72bdb02f6",
+                "mesh_sha256": "0edb2d8cc64f15f3cae2fa9795c680b9fc1b4ad4f8f82b30b42d36151c9a573e",
                 "transform": [
                   1.0,
                   0.0,
@@ -207,8 +256,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1704 triangles, recipe 3320; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P08-01",
@@ -1031,8 +1079,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.9999999997361686,
+            1.6339744823845592e-07,
+            0.0,
+            -1.0005208101036687e-23,
+            6.123233994121266e-17,
+            1.0,
+            1.6339744823845592e-07,
+            -0.9999999997361686,
+            6.123233995736766e-17,
+            -9.338164417727057e-06,
+            57.15000151080094,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "c65fb6ed55021c17cf759a69f2a25cce24fef12a4eb279ff7decbf9a65f04edd",
@@ -1054,7 +1115,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "6badd8b12019e02da0a94ed3c1883c7c476ddb22218afe293619d964e4460b6f",
-                "mesh_sha256": "6bbc8ad7f029a22999df19ef4d988080bc0e94950a0008016d699b48046bfb5e",
+                "mesh_sha256": "a51362109bfffc09ed1f2046cd181e825b6867ed3a38d9c1339651d1bda0ce5d",
                 "transform": [
                   1.0,
                   0.0,
@@ -1071,8 +1132,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1700 triangles, recipe 2814; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P06-02",
@@ -1081,8 +1141,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.6339744823845592e-07,
+            0.9999999997361686,
+            0.0,
+            -0.9999999997361686,
+            -1.6339744823845592e-07,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0048590093661777e-14,
+            1.0048593377490275e-14,
+            -6.5999999
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "c65fb6ed55021c17cf759a69f2a25cce24fef12a4eb279ff7decbf9a65f04edd",
@@ -1104,7 +1177,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "74ddb29c48b5ed12ae8d0f4195465f5263a0462976d26126a4b3b5dd3aa5da00",
-                "mesh_sha256": "73a3c1b087b3e3eb7a7bb10670e053da1fcb00ce3a33a49bee04f1e72bdb02f6",
+                "mesh_sha256": "0edb2d8cc64f15f3cae2fa9795c680b9fc1b4ad4f8f82b30b42d36151c9a573e",
                 "transform": [
                   1.0,
                   0.0,
@@ -1121,8 +1194,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1704 triangles, recipe 3320; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P09-01",
@@ -1131,8 +1203,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17,
+            1.0,
+            0.0,
+            -1.0,
+            6.123233995736766e-17,
+            0.0,
+            9.0,
+            -34.700000765878904
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1154,7 +1239,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "08dab4d79db545cb64e3eed33abb728be4048e6d5ecd4e0290e0c06f43ef0b71",
-                "mesh_sha256": "f7f287c2ab749f5f1a4996c0f3540eebf86c25280520e00747b2d3af14163bdb",
+                "mesh_sha256": "d2801f7f37d8625e1e02f125b90971527b8a6e3f2b7b593977c182afc4bde8ab",
                 "transform": [
                   1.0,
                   0.0,
@@ -1171,8 +1256,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 436 triangles, recipe 1080; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P09-02",
@@ -1181,8 +1265,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123233995736766e-17,
+            1.0,
+            0.0,
+            -6.123233995736766e-17,
+            3.749399456654644e-33,
+            1.0,
+            1.0,
+            -6.123233995736766e-17,
+            6.123233995736766e-17,
+            -9.0,
+            5.51091059616309e-16,
+            -34.700000765878904
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1204,7 +1301,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "08dab4d79db545cb64e3eed33abb728be4048e6d5ecd4e0290e0c06f43ef0b71",
-                "mesh_sha256": "88d8fd903d4e10fa02b0faf030c91c7f4919d34d2e3509924e22a8c7b1cf6be5",
+                "mesh_sha256": "04946be99a3d155f53e6cddc243c36634b9a5c2371ccc24d509f3cfe938baf8e",
                 "transform": [
                   1.0,
                   0.0,
@@ -1221,8 +1318,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 436 triangles, recipe 1080; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P10-01",
@@ -1231,8 +1327,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            -38.78043369558142,
+            -9.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
@@ -1254,7 +1363,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
-                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "mesh_sha256": "4d138b8265d373f3e9d869f36dabe2706e4ac92b90cde8b4fcfa58371e68ab5c",
                 "transform": [
                   1.0,
                   0.0,
@@ -1271,8 +1380,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P10-02",
@@ -1281,8 +1389,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            -38.78043369558142,
+            -9.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
@@ -1304,7 +1425,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
-                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "mesh_sha256": "4d138b8265d373f3e9d869f36dabe2706e4ac92b90cde8b4fcfa58371e68ab5c",
                 "transform": [
                   1.0,
                   0.0,
@@ -1321,8 +1442,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P10-03",
@@ -1331,8 +1451,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            -38.78043369558142,
+            -9.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "2c93f4a34bf6c2a32d6e1bb68889a010eee417f9ec997916b0fe9241fc16706d",
@@ -1354,7 +1487,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "edb0c00099f0d0e806bee74321c08d38df654322443018b563350874b3915832",
-                "mesh_sha256": "851adf0923d72d35b8b9f1bcae35e321d6cdfd4c0112b26b40bbb158ee0dd78f",
+                "mesh_sha256": "4d138b8265d373f3e9d869f36dabe2706e4ac92b90cde8b4fcfa58371e68ab5c",
                 "transform": [
                   1.0,
                   0.0,
@@ -1371,8 +1504,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 404 triangles, recipe 812; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P11-01",
@@ -1381,8 +1513,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123234e-17,
+            1.0,
+            0.0,
+            -1.0,
+            6.123234e-17,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            25.77499961853026,
+            0.0,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1404,7 +1549,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
-                "mesh_sha256": "cb163b599c7f20ca7e543c962c8447d172596bc878dc706e24babbefd4092522",
+                "mesh_sha256": "cb1522821ef9e8e65751f33f15b85067c0765fc1b64a61c7604d0877fa0f7ae8",
                 "transform": [
                   1.0,
                   0.0,
@@ -1421,8 +1566,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 776 triangles, recipe 1120; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P11-02",
@@ -1431,8 +1575,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123234e-17,
+            1.0,
+            0.0,
+            -1.0,
+            6.123234e-17,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            25.77499961853026,
+            0.0,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1454,7 +1611,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
-                "mesh_sha256": "cb163b599c7f20ca7e543c962c8447d172596bc878dc706e24babbefd4092522",
+                "mesh_sha256": "cb1522821ef9e8e65751f33f15b85067c0765fc1b64a61c7604d0877fa0f7ae8",
                 "transform": [
                   1.0,
                   0.0,
@@ -1471,8 +1628,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 776 triangles, recipe 1120; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P12-01",
@@ -1481,8 +1637,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            -28.71723175048828,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1504,7 +1673,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "f0656790db4da1be41af188167bb3b665d9533a5611a03d6bf2c0f134fac3292",
-                "mesh_sha256": "274be3ba5e55d50173f6a60da14696eb78ea196f9eba00d0753668db0fe6cf83",
+                "mesh_sha256": "8885bddef440832b9d5b297536f00bd4b880d5e54ca0a9dce142e991294c8e87",
                 "transform": [
                   1.0,
                   0.0,
@@ -1521,8 +1690,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 614 triangles, recipe 828; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P13-01",
@@ -1531,8 +1699,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123234e-17,
+            1.0,
+            0.0,
+            -1.0,
+            6.123234e-17,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            29.049999237060547,
+            0.0,
+            0.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "384e11e134f4e88034ea064f5d46b9f5aaadf9ec3af2b2ce9cc6933682d9ab4f",
@@ -1554,7 +1735,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "9a69a7aa035cfc3436b37519d589b46c22743e18a208bf80379e3b4ab0da9432",
-                "mesh_sha256": "132855ffcee190a9424b8c6b44b09413034be085453c163d661dcad6d3e1ba68",
+                "mesh_sha256": "ac12b8045052dcd73618883013395f5b61db29cf2526e46cdcd12e3c4f66c8ca",
                 "transform": [
                   1.0,
                   0.0,
@@ -1571,8 +1752,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 744 triangles, recipe 1072; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P34-01",
@@ -1581,8 +1761,21 @@
           "plate_id": "W2",
           "plate_number": 3,
           "source_sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17,
+            -1.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17,
+            0.0,
+            -63.0,
+            40.33030319427734
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "22d8042daa8914059ad12d1dceb5699e0423d9773d18420420cc6d8b1177e3aa",
@@ -1604,7 +1797,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "fc3c83b26882770d24d18aa892761a461c926ab39ff145fe6570bc018ef25779",
-                "mesh_sha256": "517404726dc647104caa3dcdc46239667b4265c447504de67dbfb9852189d0f6",
+                "mesh_sha256": "2092143737453faee3a42aaea9d61ebe426138e8e459a9be0142f293b8f3dfb6",
                 "transform": [
                   1.0,
                   0.0,
@@ -1621,8 +1814,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 2112 triangles, recipe 3516; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P35-01",
@@ -2159,8 +2351,21 @@
           "plate_id": "C1",
           "plate_number": 4,
           "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.25746724013730443,
+            0.9662870282006502,
+            0.0,
+            -0.9662870282006502,
+            0.25746724013730443,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0028148250729112937,
+            1.6999482888402188e-06,
+            -1.5
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "c125758edefcb14d6c752f6f33defc17e360738d3426d397379bdd27a348f073",
@@ -2182,7 +2387,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "fa39b98b134a38b550cca9b07a8e7971e6890e59682b8b588c114f2c07f10fe0",
-                "mesh_sha256": "2539959fe1672ebf74ee770ba78d174c27abad8c73e04e53ca72ba4c76504c05",
+                "mesh_sha256": "737ced0f4f5a78557f0673cd84bf49627024ccc82f6d841406880005efbf5f8e",
                 "transform": [
                   1.0,
                   0.0,
@@ -2199,8 +2404,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 2128 triangles, recipe 3292; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P01-02",
@@ -2209,8 +2413,21 @@
           "plate_id": "C1",
           "plate_number": 4,
           "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.25746724013730443,
+            0.9662870282006502,
+            0.0,
+            -0.9662870282006502,
+            0.25746724013730443,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0028148250729112937,
+            1.6999482888402188e-06,
+            -1.5
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "c125758edefcb14d6c752f6f33defc17e360738d3426d397379bdd27a348f073",
@@ -2232,7 +2449,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "fa39b98b134a38b550cca9b07a8e7971e6890e59682b8b588c114f2c07f10fe0",
-                "mesh_sha256": "2539959fe1672ebf74ee770ba78d174c27abad8c73e04e53ca72ba4c76504c05",
+                "mesh_sha256": "737ced0f4f5a78557f0673cd84bf49627024ccc82f6d841406880005efbf5f8e",
                 "transform": [
                   1.0,
                   0.0,
@@ -2249,8 +2466,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 2128 triangles, recipe 3292; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-GS11-01",
@@ -2821,8 +3037,21 @@
           "plate_id": "B1",
           "plate_number": 5,
           "source_sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            -0.00029659271487503247,
+            -83.52772217175327,
+            -53.24000009073487
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "0670b4e3a991610ad14837d04040cc103f92d0d73d1b826d3923937b588a3b4d",
@@ -2844,7 +3073,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "e0b708a6d7451ad0d531de2bc98cbd5cd4bbc4d6d878b3ae627790304c293c64",
-                "mesh_sha256": "930a92d9c215dd9e41abcdce13717919a8ecbee1bfde404da24530670425ba7e",
+                "mesh_sha256": "3cfca836fbb18495a20d7eda246e45f0ad73c64d90fb394bbdda5596089cbc2e",
                 "transform": [
                   1.0,
                   0.0,
@@ -2861,8 +3090,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 19378 triangles, recipe 71626; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-AR09-01",
@@ -2871,8 +3099,21 @@
           "plate_id": "B1",
           "plate_number": 5,
           "source_sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.0,
+            0.0,
+            -1.0,
+            -1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.00029659271245918717,
+            -83.52772217175327,
+            -53.24000009073487
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "0670b4e3a991610ad14837d04040cc103f92d0d73d1b826d3923937b588a3b4d",
@@ -2894,7 +3135,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "e0b708a6d7451ad0d531de2bc98cbd5cd4bbc4d6d878b3ae627790304c293c64",
-                "mesh_sha256": "2325fd4d5c1c9029acc3d82d078da3534d02efecffa92b11588cd6a3134b987a",
+                "mesh_sha256": "292b7fc34b7c694a828202cde68b38ef859dba628d3672c3f8f5f6a42da8ca2b",
                 "transform": [
                   1.0,
                   0.0,
@@ -2911,8 +3152,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 19378 triangles, recipe 71626; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-A04-01",
@@ -2920,9 +3160,22 @@
           "object_id": "118",
           "plate_id": "B1",
           "plate_number": 5,
-          "source_sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.12241153246730818,
+            -0.9924794288643998,
+            0.0,
+            0.9924794288643998,
+            0.12241153246730818,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            -56.15000155175781
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "07477adfb5d97375cf4dd2e8099445be97dd6c7ce83eda57171cee45ebd50ca2",
@@ -2944,7 +3197,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "df52fcc1b5a682af661b8478f33cad34cd463f5ce854b2b31e23c44bccda574b",
-                "mesh_sha256": "edf833eef4556438fae20288ac00eeedef1df1de17ef422bad2484b3808a8a35",
+                "mesh_sha256": "93195524331cd266465d0a33ee586890ee54bfd5e1a0f5713685bf8cf592f9fd",
                 "transform": [
                   1.0,
                   0.0,
@@ -2999,8 +3252,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 78388 triangles, recipe 98700; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-GS20-01",
@@ -3691,8 +3943,21 @@
           "plate_id": "C2",
           "plate_number": 7,
           "source_sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            6.123233995736766e-17,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            6.123233995736766e-17,
+            -96.4183120727539,
+            -50.29999923706055,
+            -5.329070518200751e-15
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "7d6f95f53f93461ae7ac903ea77e0ba94a3c8301d43fdc6b0641b0ba1c0f2732",
@@ -3714,7 +3979,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "41433bb83a1e1a920569ab2bb1fceef2b0b53c2d0a9064f2b921f3ab943b28cf",
-                "mesh_sha256": "6c49e7b2e6119bde10b970b7dde7afa42f29154a2fc4fef480e2759c4ee6bb3a",
+                "mesh_sha256": "549aa90dcf2c27c0aad48b5efd3bd1fd80a29493e3dafda1939d078d232cbcfb",
                 "transform": [
                   1.0,
                   0.0,
@@ -3731,8 +3996,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 452 triangles, recipe 612; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B01-01",
@@ -3741,8 +4005,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.8191518617627355,
+            -0.5735766964829624,
+            0.0,
+            0.5735766964829624,
+            -0.8191518617627355,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            35.383656834047464,
+            1.0710062917434647e-05,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -3764,7 +4041,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2a428009b8254b3d994c4bb46b5f2b3a7c2d7421473df30eedc124d5efa39c01",
-                "mesh_sha256": "5fdd3ebe68f1ec897b993663c4ef8c766ca8db20b85908df92bca72dd7fadd98",
+                "mesh_sha256": "6ce4dbb0f4f25edcad012fe6b8e7e640b23d003133700a0ced50411c15bf04b6",
                 "transform": [
                   1.0,
                   0.0,
@@ -3819,8 +4096,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1344 triangles, recipe 7068; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B02-01",
@@ -3829,8 +4105,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.9781476749118289,
+            -0.207911339852429,
+            0.0,
+            0.207911339852429,
+            -0.9781476749118289,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            40.64947912826466,
+            -1.4384462343720127e-05,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -3852,7 +4141,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
-                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "mesh_sha256": "4d3661f0223b79c374a615b69ecaf03c2ea134e52d3f42341c6d03d6074258c3",
                 "transform": [
                   1.0,
                   0.0,
@@ -3907,8 +4196,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B02-02",
@@ -3917,8 +4205,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.20791133985242904,
+            0.9781476749118289,
+            0.0,
+            -0.9781476749118289,
+            -0.20791133985242904,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -1.4384462341231065e-05,
+            -40.64947912826466,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -3940,7 +4241,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "5dc77af595c6754985359f4074c01d6fa65757a4a68f979976abf569cce27b4c",
-                "mesh_sha256": "e0a98d02d915f1545448d1e61bd7c2fb23cb629bcfec9814f8d8b32b099a9ab9",
+                "mesh_sha256": "e36b86b24904e10dc50b5bd2b3aa00e51d106cf5c6eba6af7a3b29f44160b9f6",
                 "transform": [
                   1.0,
                   0.0,
@@ -3995,8 +4296,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B02-03",
@@ -4005,8 +4305,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.9781476749118289,
+            -0.207911339852429,
+            0.0,
+            0.207911339852429,
+            -0.9781476749118289,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            40.64947912826466,
+            -1.4384462343720127e-05,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4028,7 +4341,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
-                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "mesh_sha256": "4d3661f0223b79c374a615b69ecaf03c2ea134e52d3f42341c6d03d6074258c3",
                 "transform": [
                   1.0,
                   0.0,
@@ -4083,8 +4396,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B02-04",
@@ -4093,8 +4405,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.9781476749118289,
+            -0.207911339852429,
+            0.0,
+            0.207911339852429,
+            -0.9781476749118289,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            40.64947912826466,
+            -1.4384462343720127e-05,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4116,7 +4441,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2650a38a25243be37fe46ba82ebc21cb1189c5761581f09e05568c8bc4d5529b",
-                "mesh_sha256": "804665b5e16684ce49ae68288b5c837a436a29e8832b10e5168853c6de7965fb",
+                "mesh_sha256": "4d3661f0223b79c374a615b69ecaf03c2ea134e52d3f42341c6d03d6074258c3",
                 "transform": [
                   1.0,
                   0.0,
@@ -4171,8 +4496,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1820 triangles, recipe 7372; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B03-01",
@@ -4181,8 +4505,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.2079115367383953,
+            -0.9781476332576069,
+            0.0,
+            0.9781476332576069,
+            0.2079115367383953,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            6.11875256486234e-06,
+            41.12599374748817,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4204,7 +4541,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "15839d61dfba9e2552cc8cf5a55063d7fdc135dd87dbed5f99d3698a182f66d2",
-                "mesh_sha256": "88f70a2834e1354f8268f7dbb822e5eef8acc94e9a33cb6b2a109175c4c38464",
+                "mesh_sha256": "879c08820632d234814f0e36fca143efe06fe084bbbbfc65dfaae01384e11ca3",
                 "transform": [
                   1.0,
                   0.0,
@@ -4259,8 +4596,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 2388 triangles, recipe 9828; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B04-01",
@@ -4269,8 +4605,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -0.8191518617627355,
+            -0.5735766964829624,
+            0.0,
+            0.5735766964829624,
+            -0.8191518617627355,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            35.38365865688183,
+            1.0702951019711136e-05,
+            -4.0
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4292,7 +4641,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "5a9daed4ddac3635df5cdded96c320dd77b87b5613b7b83a89bb55506eb73f2d",
-                "mesh_sha256": "17ebe64638214fb6be72392d2837ce4f8a955ef860b072d50e6433b0b435696b",
+                "mesh_sha256": "cd1350f409a3fd6fc56530f13ee01310df0047a3df318b5b4f5378b401294043",
                 "transform": [
                   1.0,
                   0.0,
@@ -4347,8 +4696,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 944 triangles, recipe 4368; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-01",
@@ -4357,8 +4705,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4380,7 +4741,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4397,8 +4758,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-02",
@@ -4407,8 +4767,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4430,7 +4803,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4447,8 +4820,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-03",
@@ -4457,8 +4829,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4480,7 +4865,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4497,8 +4882,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-04",
@@ -4507,8 +4891,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4530,7 +4927,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4547,8 +4944,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-05",
@@ -4557,8 +4953,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4580,7 +4989,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4597,8 +5006,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-06",
@@ -4607,8 +5015,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4630,7 +5051,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4647,8 +5068,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-07",
@@ -4657,8 +5077,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4680,7 +5113,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4697,8 +5130,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-B09-08",
@@ -4707,8 +5139,21 @@
           "plate_id": "G1",
           "plate_number": 8,
           "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            -1.0,
+            -1.2246468e-16,
+            0.0,
+            -1.2246468e-16,
+            1.0,
+            1.2246467991473532e-16,
+            -1.4997597837060488e-32,
+            1.2246467991473532e-16,
+            -1.0,
+            -0.013195169694427022,
+            0.0,
+            4.074999954632569
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "a53257d0be9e902331cf375205a6c814b8864a61b51e751168d4851ea7407c2d",
@@ -4730,7 +5175,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "36802640f06e5d23827f00b9c7055447065a2ba963cc3658fa91df8d36719b85",
-                "mesh_sha256": "f323637f418c039183d15fa15920f698b37b71ed5c22104580d534f7515224f9",
+                "mesh_sha256": "7e3dde06b4a85e1a1cec6bb925d22efe5e0f5a65c5fca04c2272031a542fc576",
                 "transform": [
                   1.0,
                   0.0,
@@ -4747,8 +5192,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 912 triangles, recipe 4624; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-GS01-01",
@@ -5005,8 +5449,21 @@
           "plate_id": "K2",
           "plate_number": 9,
           "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -28.00068473815918,
+            -43.0,
+            -31.5
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "12b291ea967c1f90c5ae1e0da62fc644449b4d19408da8bebf5dd5bbe14d79c3",
@@ -5028,7 +5485,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2f16ceed2f1d60043fa033a784eb8444f171459ff5dfc20373349815e41921da",
-                "mesh_sha256": "7ab09ee4151411c8e47da1679d39fe5e3ec7aed2fff7b2f0655e348ba988e2de",
+                "mesh_sha256": "1f3ac8f994966f9e8184267e20d3e4d566db5a52a3fdec325d1a6f945806d3a7",
                 "transform": [
                   1.0,
                   0.0,
@@ -5045,8 +5502,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1106 triangles, recipe 2564; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-P37-02",
@@ -5055,8 +5511,21 @@
           "plate_id": "K2",
           "plate_number": 9,
           "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -28.00068473815918,
+            -43.0,
+            -31.5
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "12b291ea967c1f90c5ae1e0da62fc644449b4d19408da8bebf5dd5bbe14d79c3",
@@ -5078,7 +5547,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "2f16ceed2f1d60043fa033a784eb8444f171459ff5dfc20373349815e41921da",
-                "mesh_sha256": "7ab09ee4151411c8e47da1679d39fe5e3ec7aed2fff7b2f0655e348ba988e2de",
+                "mesh_sha256": "1f3ac8f994966f9e8184267e20d3e4d566db5a52a3fdec325d1a6f945806d3a7",
                 "transform": [
                   1.0,
                   0.0,
@@ -5095,8 +5564,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 1106 triangles, recipe 2564; independent surface/frame review required"
+          }
         },
         {
           "recipe_instance_id": "kit-A05-01",
@@ -5105,8 +5573,21 @@
           "plate_id": "T1",
           "plate_number": 10,
           "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.4632957339471513,
+            -0.8862037368139345,
+            0.0,
+            0.8862037368139345,
+            0.4632957339471513,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            9.020553605907873e-08,
+            -2.937040014591254e-07,
+            -78.25
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "39d149c005ebf6b5004236d841390aa4f8e1f2000082ef64c6d40b20c5f8150d",
@@ -5128,7 +5609,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "705825674231abebcaa89f51f473d1f1a3d8f9014b00460a5da5c737cdd2ec14",
-                "mesh_sha256": "578bfa0dcf5a0f816d19919f0bf851ef372be3b3b3df16464676d11c95814c39",
+                "mesh_sha256": "d9d91b75411dee583389b92bdb27f2aa9c3b0be026b095700c0f54717e1be4f0",
                 "transform": [
                   1.0,
                   0.0,
@@ -5164,14 +5645,13 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 15802 triangles, recipe 26936; independent surface/frame review required"
+          }
         }
       ]
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
-      "project_sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
+      "project_sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797",
       "role": "replacement",
       "global_settings_sha256": "0374cc33a4b1a2e88cc2bcc3d087253c69024254c6125d9e963de0f0a7af2427",
       "plate_settings_sha256": "0973dccfde1d78b4c63a9bad10369066ffef9ff9b9a6b618b4e07edda1b8cfcf",
@@ -5183,8 +5663,21 @@
           "plate_id": "PETG-A05",
           "plate_number": 1,
           "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
-          "source_status": "pending_manual_review",
-          "stl_to_mesh": null,
+          "source_status": "verified_triangle_geometry",
+          "stl_to_mesh": [
+            0.4632957339471513,
+            -0.8862037368139345,
+            0.0,
+            0.8862037368139345,
+            0.4632957339471513,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            9.020553605907873e-08,
+            -2.937040014591254e-07,
+            -78.25
+          ],
           "invariants": {
             "printable": true,
             "settings_sha256": "60f7688f3479331e9cdcf83353105d0a9be8a1d79e473e68cafe0b2fbe104992",
@@ -5206,7 +5699,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "beffe8c958b9b030c55b46b43b9525a8ae2126647a4b7d6f5500e727cade5f13",
-                "mesh_sha256": "578bfa0dcf5a0f816d19919f0bf851ef372be3b3b3df16464676d11c95814c39",
+                "mesh_sha256": "d9d91b75411dee583389b92bdb27f2aa9c3b0be026b095700c0f54717e1be4f0",
                 "transform": [
                   1.0,
                   0.0,
@@ -5242,8 +5735,7 @@
                 ]
               }
             ]
-          },
-          "source_review_reason": "Different tessellation: selected STL 15802 triangles, recipe 26936; independent surface/frame review required"
+          }
         }
       ],
       "replacement": {
@@ -5256,9 +5748,9 @@
     }
   ],
   "review_evidence": {
-    "status": "R29 full W1/W2/C2 bounded review; seven other plates and optional PETG retained.41 independent different-tessellation comparisons and physical qualification pending.",
-    "support_scope": "Five localized W1 support blockers keep the three downward P08 nut pockets and moved FB24 nut loading slot/screw bore clear. Sampled P08/P14 M3 bore cores, moved FB24 slot/bore and USB window, four actual P35 pin-seat cores, and both P36 through-bore cores contain zero support centerlines. P35 hinge-gap supports and FB24 accessible end/right-boss supports remain for cleanup. Pin-seat ranges52\u201354.3mm and57.7\u201360mm come from accepted mesh surfaces; support at57.52mm is in the hinge gap below the upper seat. Small blocked pocket roofs require physical bridge/fit verification. All8 W1,13 W2 and11 C2 objects sliced with no skipped/outside objects. Full-height extrusion centerlines inside256mm bed. Fresh Bambu previews and first-layer paths visually reviewed: retained separation/brims, flat lid with new tab, upright tanks.0.1mm maximum support sample spacing including G2/G3 arcs; X1C Y+2 offset applied. W2/C2 were sliced before W1-only blockers; their exact plate semantics/global profiles remain unchanged.",
-    "estimates_sha256": "af1934d7167a3b2d69bc84a46795fe5dcbaab44baffce0d9979dd4f2c9604d39",
+    "status": "All72source comparisons verified; eight required plates+optional PETG fully re-sliced; K1/B2 preserved. Physical qualification separate.",
+    "support_scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly. All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes.",
+    "estimates_sha256": "35b20fece03ce506a787b7c202dd6298a43079a172de8e1ece019eb1255e2414",
     "files": [
       {
         "path": "hardware/printing/current/checks/validation.json",
@@ -5423,11 +5915,23 @@
       {
         "path": "hardware/printing/current/checks/r29-validation.json",
         "sha256": "951a3cc872ba79005a93dc1edce50564852a4b0b087963ceb62416951a9634d7"
+      },
+      {
+        "path": "hardware/printing/current/checks/r29-mesh-consistency-frames.json",
+        "sha256": "99920ede7d2fd97d468f77608e9441ba146c09c81f70294e7bf7a25867f0ce80"
+      },
+      {
+        "path": "hardware/printing/current/checks/r29-mesh-consistency-support.json",
+        "sha256": "fcb9f15967742494e05d4c9182ef92cee18b90dc377923b06de367ac66f9ee3f"
+      },
+      {
+        "path": "hardware/printing/current/checks/r29-mesh-consistency-validation.json",
+        "sha256": "f5196bd70fec96d4b8b4e8fe85160aff9778737eacaedf1609f32a9478d025e5"
       }
     ],
     "inputs": {
       "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf": {
-        "project_sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+        "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
         "sources": {
           "kit-P02-01": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
           "kit-P03-01": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
@@ -5465,7 +5969,7 @@
           "kit-AR06-01": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
           "kit-AR08-01": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
           "kit-AR09-01": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
-          "kit-A04-01": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+          "kit-A04-01": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
           "kit-GS20-01": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
           "kit-FB03-01": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
           "kit-FB19-01": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
@@ -5503,7 +6007,7 @@
         }
       },
       "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf": {
-        "project_sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
+        "project_sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797",
         "sources": {
           "optional-petg-A05-01": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be"
         }

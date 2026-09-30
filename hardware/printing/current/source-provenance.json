@@ -11592,5 +11592,12 @@
     },
     "unchanged_objects": 64,
     "record": "hardware/printing/current/checks/r29-validation.json"
+  },
+  {
+    "revision": "R29/cloud25",
+    "operation": "Selected STL mesh reuse with independently recovered retained print frames",
+    "normalized_instances": 41,
+    "verified_source_instances": 72,
+    "record": "hardware/printing/current/checks/r29-mesh-consistency-validation.json"
   }
 ]

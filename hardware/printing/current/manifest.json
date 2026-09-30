@@ -222,7 +222,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P02-1"
+      "stable_instance_key": "1:P02-1",
+      "source_stl_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "geometry_revision": "R29"
     },
     {
       "label": "P03-1 | White",
@@ -446,7 +448,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P03-1"
+      "stable_instance_key": "1:P03-1",
+      "source_stl_sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+      "geometry_revision": "R29"
     },
     {
       "label": "P04-1 | White",
@@ -670,7 +674,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P04-1"
+      "stable_instance_key": "1:P04-1",
+      "source_stl_sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+      "geometry_revision": "R29"
     },
     {
       "label": "P06-1 | White",
@@ -894,7 +900,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P06-1"
+      "stable_instance_key": "1:P06-1",
+      "source_stl_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "geometry_revision": "R29"
     },
     {
       "label": "P08-1 | White",
@@ -2697,7 +2705,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P02-1"
+      "stable_instance_key": "3:P02-1",
+      "source_stl_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "geometry_revision": "R29"
     },
     {
       "label": "P06-1 | White",
@@ -2921,7 +2931,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P06-1"
+      "stable_instance_key": "3:P06-1",
+      "source_stl_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "geometry_revision": "R29"
     },
     {
       "label": "P09-1 | White",
@@ -3145,7 +3157,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P09-1"
+      "stable_instance_key": "3:P09-1",
+      "source_stl_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "geometry_revision": "R29"
     },
     {
       "label": "P09-2 | White",
@@ -3369,7 +3383,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P09-2"
+      "stable_instance_key": "3:P09-2",
+      "source_stl_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "geometry_revision": "R29"
     },
     {
       "label": "P10-1 | White",
@@ -3593,7 +3609,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P10-1"
+      "stable_instance_key": "3:P10-1",
+      "source_stl_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "geometry_revision": "R29"
     },
     {
       "label": "P10-2 | White",
@@ -3817,7 +3835,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P10-2"
+      "stable_instance_key": "3:P10-2",
+      "source_stl_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "geometry_revision": "R29"
     },
     {
       "label": "P10-3 | White",
@@ -4041,7 +4061,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P10-3"
+      "stable_instance_key": "3:P10-3",
+      "source_stl_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "geometry_revision": "R29"
     },
     {
       "label": "P11-1 | White",
@@ -4265,7 +4287,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P11-1"
+      "stable_instance_key": "3:P11-1",
+      "source_stl_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "geometry_revision": "R29"
     },
     {
       "label": "P11-2 | White",
@@ -4489,7 +4513,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P11-2"
+      "stable_instance_key": "3:P11-2",
+      "source_stl_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "geometry_revision": "R29"
     },
     {
       "label": "P12-1 | White",
@@ -4713,7 +4739,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P12-1"
+      "stable_instance_key": "3:P12-1",
+      "source_stl_sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+      "geometry_revision": "R29"
     },
     {
       "label": "P13-1 | White",
@@ -4937,7 +4965,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P13-1"
+      "stable_instance_key": "3:P13-1",
+      "source_stl_sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+      "geometry_revision": "R29"
     },
     {
       "label": "P34-1 | White",
@@ -5161,7 +5191,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P34-1"
+      "stable_instance_key": "3:P34-1",
+      "source_stl_sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+      "geometry_revision": "R29"
     },
     {
       "label": "P35-1 | White",
@@ -6059,7 +6091,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "4:P01-1"
+      "stable_instance_key": "4:P01-1",
+      "source_stl_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "geometry_revision": "R29"
     },
     {
       "label": "P01-2 | Copper",
@@ -6283,7 +6317,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "4:P01-2"
+      "stable_instance_key": "4:P01-2",
+      "source_stl_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "geometry_revision": "R29"
     },
     {
       "label": "GS11-1 | Copper",
@@ -7851,7 +7887,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "5:AR08-1"
+      "stable_instance_key": "5:AR08-1",
+      "source_stl_sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+      "geometry_revision": "R29"
     },
     {
       "label": "AR09-1 | Blue",
@@ -8075,7 +8113,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "5:AR09-1"
+      "stable_instance_key": "5:AR09-1",
+      "source_stl_sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+      "geometry_revision": "R29"
     },
     {
       "label": "A04-1 | Blue",
@@ -8299,7 +8339,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "5:A04-1"
+      "stable_instance_key": "5:A04-1",
+      "source_stl_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+      "geometry_revision": "R29"
     },
     {
       "label": "GS20-1 | Blue",
@@ -10994,7 +11036,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "7:P40-1"
+      "stable_instance_key": "7:P40-1",
+      "source_stl_sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+      "geometry_revision": "R29"
     },
     {
       "label": "B01-1 | Gray",
@@ -11218,7 +11262,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B01-1"
+      "stable_instance_key": "8:B01-1",
+      "source_stl_sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+      "geometry_revision": "R29"
     },
     {
       "label": "B02-1 | Gray",
@@ -11442,7 +11488,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B02-1"
+      "stable_instance_key": "8:B02-1",
+      "source_stl_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "geometry_revision": "R29"
     },
     {
       "label": "B02-2 | Gray",
@@ -11666,7 +11714,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B02-2"
+      "stable_instance_key": "8:B02-2",
+      "source_stl_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "geometry_revision": "R29"
     },
     {
       "label": "B02-3 | Gray",
@@ -11890,7 +11940,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B02-3"
+      "stable_instance_key": "8:B02-3",
+      "source_stl_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "geometry_revision": "R29"
     },
     {
       "label": "B02-4 | Gray",
@@ -12114,7 +12166,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B02-4"
+      "stable_instance_key": "8:B02-4",
+      "source_stl_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "geometry_revision": "R29"
     },
     {
       "label": "B03-1 | Gray",
@@ -12338,7 +12392,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B03-1"
+      "stable_instance_key": "8:B03-1",
+      "source_stl_sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+      "geometry_revision": "R29"
     },
     {
       "label": "B04-1 | Gray",
@@ -12562,7 +12618,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B04-1"
+      "stable_instance_key": "8:B04-1",
+      "source_stl_sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-1 | Gray",
@@ -12786,7 +12844,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-1"
+      "stable_instance_key": "8:B09-1",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-2 | Gray",
@@ -13010,7 +13070,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-2"
+      "stable_instance_key": "8:B09-2",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-3 | Gray",
@@ -13234,7 +13296,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-3"
+      "stable_instance_key": "8:B09-3",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-4 | Gray",
@@ -13458,7 +13522,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-4"
+      "stable_instance_key": "8:B09-4",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-5 | Gray",
@@ -13682,7 +13748,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-5"
+      "stable_instance_key": "8:B09-5",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-6 | Gray",
@@ -13906,7 +13974,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-6"
+      "stable_instance_key": "8:B09-6",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-7 | Gray",
@@ -14130,7 +14200,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-7"
+      "stable_instance_key": "8:B09-7",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "B09-8 | Gray",
@@ -14354,7 +14426,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "8:B09-8"
+      "stable_instance_key": "8:B09-8",
+      "source_stl_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "geometry_revision": "R29"
     },
     {
       "label": "GS01-1 | Gray",
@@ -15474,7 +15548,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "9:P37-1"
+      "stable_instance_key": "9:P37-1",
+      "source_stl_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "geometry_revision": "R29"
     },
     {
       "label": "P37-2 | Black",
@@ -15698,7 +15774,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "9:P37-2"
+      "stable_instance_key": "9:P37-2",
+      "source_stl_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "geometry_revision": "R29"
     },
     {
       "label": "A05-1 | Clear",
@@ -15922,7 +16000,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "10:A05-1"
+      "stable_instance_key": "10:A05-1",
+      "source_stl_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "geometry_revision": "R29"
     }
   ],
   "plates": [
@@ -15941,10 +16021,10 @@
       },
       "piece_count": 8,
       "purpose": "White internals with R29 head-carrier/adapter hole pattern and USB-clearance audio cradle/lid; other parts retained.",
-      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 12424,
-      "estimated_grams": 64.44,
+      "estimated_seconds": 12429,
+      "estimated_grams": 64.26,
       "plate_number": 1
     },
     {
@@ -15979,10 +16059,10 @@
       },
       "piece_count": 13,
       "purpose": "White R29 backpack with filled canister screw bores; seam covers/brackets and pin blockers retained.",
-      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 15070,
-      "estimated_grams": 65.98,
+      "estimated_seconds": 15165,
+      "estimated_grams": 65.95,
       "plate_number": 3
     },
     {
@@ -15997,10 +16077,10 @@
       },
       "piece_count": 6,
       "purpose": "Matched arm cores, both foam collars and current goggles. Require satisfactory chosen-material core cleanup/fit before committing both cores.",
-      "status": "Digitally verified: sliced, geometry/settings audited; combined plate not physically qualified",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 18752,
-      "estimated_grams": 47.55,
+      "estimated_seconds": 18727,
+      "estimated_grams": 47.54,
       "plate_number": 4
     },
     {
@@ -16017,9 +16097,9 @@
       },
       "piece_count": 7,
       "purpose": "Final fingers-up hands, forearms, useful upper covers and antenna together; omit alternate orientation samples.",
-      "status": "Digitally verified: sliced, geometry/settings audited; combined plate not physically qualified",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 9206,
+      "estimated_seconds": 9207,
       "estimated_grams": 23.88,
       "plate_number": 5
     },
@@ -16053,10 +16133,10 @@
       },
       "piece_count": 11,
       "purpose": "Copper platform trim and R29 glue-retained canisters without inaccessible internal nut bosses; other copper pieces retained.",
-      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
       "estimated_seconds": 13466,
-      "estimated_grams": 48.64,
+      "estimated_grams": 48.63,
       "plate_number": 7
     },
     {
@@ -16074,10 +16154,10 @@
       },
       "piece_count": 18,
       "purpose": "One combined belt and goggle strap job as requested; rear dock and strap interface checks remain important.",
-      "status": "Digitally verified: sliced, geometry/settings audited; combined plate not physically qualified",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 3104,
-      "estimated_grams": 8.06,
+      "estimated_seconds": 3107,
+      "estimated_grams": 8.04,
       "plate_number": 8
     },
     {
@@ -16089,9 +16169,9 @@
       },
       "piece_count": 3,
       "purpose": "Keep verified Batch15 bottom cover and two jetpack plugs together; install lid after wiring checks.",
-      "status": "Digitally verified: sliced, geometry/settings audited; combined plate not physically qualified",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 14294,
+      "estimated_seconds": 14307,
       "estimated_grams": 98.51,
       "plate_number": 9
     },
@@ -16103,9 +16183,9 @@
       },
       "piece_count": 1,
       "purpose": "Antenna tip ball alone, as explicitly requested. Clear spool/process/slot to be established when preparing.",
-      "status": "Digitally verified: sliced, geometry/settings audited; combined plate not physically qualified",
+      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
       "dispatch_authorized": false,
-      "estimated_seconds": 1199,
+      "estimated_seconds": 1198,
       "estimated_grams": 1.36,
       "plate_number": 10
     }
@@ -16669,7 +16749,7 @@
       "master": "0"
     }
   ],
-  "status": "R29 seven selected replacements and full W1/W2/C2 digital review complete;41 inherited different-tessellation source comparisons and physical qualification remain pending; no dispatch",
+  "status": "All72 required/optional source-instance comparisons verified; eight affected PLA plates and optional PETG ball re-sliced after source mesh reconciliation. Physical qualification remains separate; no dispatch.",
   "master_project": "BlooglyBlob-R29-PLA-Production.3mf",
   "optional_petg_project": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
   "historical_source_hashes_verified": true,
@@ -16678,5 +16758,5 @@
     "reason": "Machine-level value retained; per-object string-vector export causes invalid XML in Bambu 2.7.1.62. Final project re-sliced after omission."
   },
   "cad_revision": "R29/cloud25",
-  "validation": "checks/r29-validation.json"
+  "validation": "checks/r29-mesh-consistency-validation.json"
 }
