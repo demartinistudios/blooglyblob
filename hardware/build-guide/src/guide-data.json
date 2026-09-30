@@ -2998,12 +2998,12 @@
         "N3": 2
       },
       "actions": [
-        "Rest the base (FB01) on its robot-left side on a folded towel. Turn its open bottom toward you.",
-        "On top of the base, hold a foam collar (P01) around the central opening. Line up its two tabs with the screw holes in front of and behind the opening.",
+        "Rest the base (FB01) on its robot-left side on a folded towel. Turn its open bottom toward you. The top wall now faces away from you.",
+        "Inside the base, move any wire away from the screw holes in front of and behind the central opening. Keep the opening clear.",
         "Slide an M3 nut into the slot near the foot of each frame upright (P02). When fitted, the slots face away from the other upright.",
-        "Hold one upright on its tab, slots facing outward. From inside the base, put an M3×16 screw through the top wall and collar into the upright.",
-        "Turn the screw by hand until it catches the nut. Fasten the other upright the same way. Tighten both screws evenly.",
-        "If a wire lies across a screw hole, move it aside first. Keep the central opening clear."
+        "With one hand, hold a foam collar (P01) on the outside of the top wall. Line up its two tabs with the screw holes.",
+        "With the same hand, hold one upright on its tab, slots facing outward. With the other hand, put an M3×16 screw from inside through the top wall and collar into the upright.",
+        "Turn the screw by hand until it catches the nut. Fasten the other upright the same way. Tighten both screws evenly."
       ],
       "check": "Both uprights are firm and parallel. The collar sits flat and no wire is trapped.",
       "source": [
@@ -3026,19 +3026,25 @@
       ],
       "panels": [
         {
-          "title": "Place the lower collar and uprights",
-          "image": "assets/r21/base-frame.png",
-          "caption": "The lower collar and uprights in place on top of the base.",
+          "title": "Lay the base on its side",
+          "textOnly": true,
           "actions": [
             0,
-            1,
+            1
+          ]
+        },
+        {
+          "title": "Load a nut in each upright foot",
+          "image": "assets/community/frame-base-fastening.svg",
+          "caption": "Cutaway of one upright foot, its collar tab and the top wall of the base.",
+          "actions": [
             2
           ]
         },
         {
-          "title": "Screw each upright to the base",
-          "image": "assets/community/frame-base-fastening.svg",
-          "caption": "Cutaway of one upright foot, its collar tab and the top wall of the base.",
+          "title": "Screw the collar and uprights to the base",
+          "image": "assets/r21/base-frame.png",
+          "caption": "The base drawn see-through, with the lower collar and one upright on its top wall.",
           "actions": [
             3,
             4,
@@ -3068,7 +3074,7 @@
         "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo’s part card.",
         "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
         "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
-        "Keep the base on its side. Hold each servo near its place on the frame. Test-route its cable down through the central opening into the base.",
+        "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the central opening into the base.",
         "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
         "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
         "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12).",
@@ -3128,16 +3134,16 @@
         "On the bench, press an M2 nut into each hex pocket on the inner faces of the shoulder-servo bracket (P03). There are four pockets.",
         "Each nut sits flat in its pocket.",
         "Hold the bracket with its open long side toward you. This side faces the robot’s back.",
-        "Slide the LEFT servo in on your left, shaft pointing left. Rest its ears on the supports. Keep its cable toward the middle of the bracket.",
-        "Fit the RIGHT servo on your right the same way.",
+        "Slide the LEFT servo in on your left, shaft pointing robot-left. Rest its ears on the supports. Keep its cable toward the middle of the bracket.",
+        "Fit the RIGHT servo on your right the same way, shaft pointing robot-right.",
         "Put an M2×6 screw through each servo ear into its nut. Fit all four before the bracket goes on the frame.",
         "Tighten each screw until its servo sits firm. Stop before the ears bow. Keep the horns off.",
         "Stand the base on its feet. Lower the bracket between the uprights, open side toward the back. Line up its holes with the round holes in the uprights.",
         "Push both rear M3×16 screws through the rear upright into the bracket, with no nuts. They hold the bracket while you work.",
         "Start at the lower front hole. Hold an M3 nut in the front access well with fine pliers. Put an M3×16 screw through the upright into it. Repeat at the upper hole.",
+        "If a nut drops through a well, find it before you go on. The wells are open at the bottom. Do not leave a loose nut in the base.",
         "Back out one rear screw until its tip leaves the rear access well. Hold a nut in the well with fine pliers. Turn the screw in until it catches.",
-        "Repeat for the other rear screw. Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal.",
-        "The wells are open at the bottom. If a nut drops through, find it before you go on."
+        "Repeat for the other rear screw. Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal."
       ],
       "check": "Neither servo rocks, all ears sit flat and the bracket is secure without bowed uprights.",
       "source": [
@@ -3191,13 +3197,20 @@
           ]
         },
         {
+          "title": "Pin the bracket between the uprights",
+          "textOnly": true,
+          "actions": [
+            7,
+            8
+          ]
+        },
+        {
           "title": "Fasten the bracket to the front upright",
           "image": "assets/community/shoulder-carrier-front.svg",
           "caption": "Section through the front upright and bracket, with both screws and nuts.",
           "actions": [
-            7,
-            8,
-            9
+            9,
+            10
           ]
         },
         {
@@ -3205,7 +3218,6 @@
           "image": "assets/community/shoulder-carrier-rear.svg",
           "caption": "Section through the rear upright and bracket.",
           "actions": [
-            10,
             11,
             12
           ]
@@ -3234,8 +3246,8 @@
         "Slide the HEAD servo into the bracket’s open side, shaft up. Rest its ears on the supports. Keep its cable pointing down.",
         "Put an M2×6 screw down through each ear into its nut. Fit both before the bracket goes on the frame.",
         "Tighten until the servo cannot rock or slide.",
-        "Hold the bracket against the robot-left side of both uprights, near their tops. Its open side faces robot-left. Line up its holes with the side holes in the uprights.",
-        "From robot-left, put an M3×20 screw through the bracket and each upright. Hold an M3 nut on it at the robot-right face with a fingertip. Tighten both screws.",
+        "Hold the bracket against the robot-left side of both uprights, near their tops, open side robot-left. From robot-left, push an M3×20 screw through the bracket and the side hole in each upright.",
+        "At the uprights’ robot-right faces, hold an M3 nut on one screw tip with a fingertip. Turn the screw until it catches. Repeat for the other screw. Tighten both screws.",
         "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
         "Slide an M3 nut into the slot near the top of each upright, from its outer face.",
         "Place the second foam collar (P01) on the upright tops, tabs over the holes. Put an M3×10 screw down through each tab into its nut. Tighten both.",
@@ -3437,7 +3449,7 @@
       "actions": [
         "Print the eye film template at full size. Cut two windows from clear film (C01): 12.6 × 8.6 mm, with 4.2 mm corner radii. The template also has small fit alternatives.",
         "Hold the robot-right eye housing (GS11) off the head. Bow the film gently into the groove behind the front lip. Let it flatten with its whole edge captured.",
-        "Do not force thick film behind the 0.6 mm lip. Any clear, flexible transparency sheet works if it fits. Fit the robot-left eye housing (GS12) the same way.",
+        "Fit the robot-left eye housing (GS12) the same way.",
         "Cut two 14 × 10 mm patches of 4 mm white Plastazote LD45 eye foam (C02).",
         "Place one patch in each housing, behind the window. Keep the mounting holes clear.",
         "Lay each housing window-down so the foam stays in place."
@@ -3456,6 +3468,10 @@
           "title": "Cut and fit the clear windows",
           "image": "assets/community/eye-film-insertion.svg",
           "caption": "One eye housing from behind, with the film going under the front lip.",
+          "safety": {
+            "level": "notice",
+            "text": "Thick film does not fit behind the 0.6 mm lip. Forcing it can crack the lip. Use a clear, flexible transparency sheet that bows in without force."
+          },
           "actions": [
             0,
             1,
@@ -3660,16 +3676,17 @@
         "Take the other three-pin JST-SM pair (E10) for the head light connector. Label both halves HEAD LIGHT. Label each wire +5 V, GND or DATA.",
         "Plug the halves together. With the meter in continuity mode, check that each wire reaches the same-labeled wire on the other half. Match by function, not by connector sex.",
         "Unplug the halves. The head half stays with the head. Keep the body half for {step:body-light-strand}.",
+        "Choose either eye as the first eye. Note its side. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
         "Place the mouth stick (E04) loosely at the mouth inside the head. Test-route three 22 AWG leads (C06) from it toward the first eye. Leave slack to fit and remove the mouth.",
-        "Take the stick out of the head. On the bench, solder the +5 V, GND and DIN leads to their pads. Leave DOUT unused.",
-        "Insulate each joint. Label each lead.",
+        "Take the stick out of the head. On the bench, solder the +5 V, GND and DIN leads to their pads. Leave DOUT unused. Insulate each joint. Label each lead.",
         "Keep every eye plug unplugged until all joints are insulated and cool. Cut the header pins off both JST-SH eye leads (E11). Keep their plugs.",
         "Join the head half’s +5 V wire, the first eye lead’s red wire and the mouth +5 V lead. Solder them in one joint at the bench.",
         "Join the three GND wires the same way, with the eye lead’s black wire. Insulate each joint separately.",
         "Solder the head half’s DATA wire to the first eye lead’s DATA wire. Insulate the joint.",
         "Solder the second eye lead’s DATA wire to the mouth DIN lead. Insulate the joint. Insulate its unused red and black wires separately.",
-        "The first eye is light 6 and the second eye is light 7. The mouth is lights 8 to 15.",
-        "With the meter, check continuity and insulation. Plug the first eye lead into either eye’s IN socket. That eye is the first eye. Press the plug housing, not its wires.",
+        "With the meter in continuity mode, touch the head half’s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
+        "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
+        "Plug the first eye lead into the first eye’s IN socket. Press the plug housing, not its wires.",
         "Connect the 100 mm eye cable (E12) from the first eye’s OUT to the second eye’s IN. Plug the second eye lead into the second eye’s OUT.",
         "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires."
       ],
@@ -3719,8 +3736,15 @@
           "caption": "The data path from the head half through both eyes to the mouth.",
           "actions": [
             9,
-            10,
-            11
+            10
+          ]
+        },
+        {
+          "title": "Check the harness for shorts",
+          "textOnly": true,
+          "actions": [
+            11,
+            12
           ]
         },
         {
@@ -3728,9 +3752,9 @@
           "image": "assets/circuits/eye-connector.svg",
           "caption": "The socket side of an eye board, with IN and OUT marked.",
           "actions": [
-            12,
             13,
-            14
+            14,
+            15
           ]
         }
       ]
