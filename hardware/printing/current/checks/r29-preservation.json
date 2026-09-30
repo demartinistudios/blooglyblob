@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "unchanged_instances": 64,
+  "settings": "Exact global/plate/object/component settings, build/component transforms and all inherited modifiers retained; seven selected normal meshes replaced and five localized W1 support blockers added. Source-frame declarations independently reviewed; no auto-arrange/orient.",
+  "preview": "Only W1/W2/C2 preview members refreshed from fresh full-plate Bambu slices.",
+  "preview_members": [
+    "Metadata/pick_1.png",
+    "Metadata/pick_3.png",
+    "Metadata/pick_7.png",
+    "Metadata/plate_1.png",
+    "Metadata/plate_3.png",
+    "Metadata/plate_7.png",
+    "Metadata/plate_no_light_1.png",
+    "Metadata/plate_no_light_3.png",
+    "Metadata/plate_no_light_7.png",
+    "Metadata/top_1.png",
+    "Metadata/top_3.png",
+    "Metadata/top_7.png"
+  ],
+  "final_sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+  "privacy": "PASS no nonempty DesignerUserId",
+  "candidate_semantics": "Exactly equal"
+}

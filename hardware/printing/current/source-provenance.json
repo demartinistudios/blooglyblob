@@ -11571,5 +11571,26 @@
     },
     "unchanged_objects": 70,
     "record": "hardware/cad/CURRENT-NOTES.md"
+  },
+  {
+    "revision": "R29/cloud25",
+    "changed_parts": [
+      "P08",
+      "P14",
+      "FB24",
+      "FB32",
+      "P35",
+      "P36"
+    ],
+    "geometry_sources": {
+      "P08": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+      "P14": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+      "FB24": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+      "FB32": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+      "P35": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+      "P36": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
+    },
+    "unchanged_objects": 64,
+    "record": "hardware/printing/current/checks/r29-validation.json"
   }
 ]

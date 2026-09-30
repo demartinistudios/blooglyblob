@@ -163,9 +163,7 @@
       "id": "joint-backpack",
       "description": "Build and attach the backpack",
       "hardware": {
-        "M3x8": 2,
-        "M3x12": 4,
-        "N3": 2
+        "M3x12": 4
       }
     },
     {

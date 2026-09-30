@@ -937,7 +937,7 @@
     "qty": 2,
     "optional": 0,
     "category": "Printed",
-    "description": "One of the two backpack tanks. One M3\u00d78 screw holds each tank in the shell.",
+    "description": "One of the two backpack tanks. Glue it to the hidden contact surfaces inside the shell\u2019s two rings. The whole backpack unscrews from its carrier for service.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P36.png",
     "link": "",
@@ -2497,7 +2497,7 @@
     "id": "N3",
     "name": "M3 hex nut",
     "exact": "Ordinary M3 hex nut",
-    "qty": 62,
+    "qty": 60,
     "optional": 0,
     "category": "Fastener",
     "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
@@ -2628,7 +2628,7 @@
     "id": "M3x8",
     "name": "M3\u00d78",
     "exact": "M3\u00d78",
-    "qty": 7,
+    "qty": 5,
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
@@ -2637,8 +2637,7 @@
     "image": "assets/cartoons/M3x8.svg",
     "steps": [
       "button",
-      "head-shelf",
-      "backpack"
+      "head-shelf"
     ],
     "status": "Check it when it arrives",
     "additional_links": []

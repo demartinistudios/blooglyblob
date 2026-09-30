@@ -28,14 +28,15 @@ recorded Bambu float roundtrip error below 0.000005 mm. Near-coincident ambiguou
 matches require review. Different tessellation is unsupported; a topology mismatch
 does not prove that the physical surfaces differ.
 
-The initial contract verifies 24 instance source meshes, including the R25 backpack, R24 shell/cradle and unchanged R23 front
-grille. Another 48 required/optional instance source comparisons remain explicitly
-pending: 44 have different tessellation and four arm instances need frame/surface
-review. Accepted recipe identity and prior digital review remain preserved. These
-pending independent checks block publication readiness; they do not authorize
-regenerating or re-saving the accepted recipes. Future manual equivalence evidence
-can resolve these blockers through the explicit reviewed disposition below; no
-accepted project needs to be rewritten merely to satisfy triangle indexing.
+The current contract verifies31 instance source meshes, including all seven R29
+replacement instances and four unchanged arm meshes with independently reviewed
+frame corrections. Another41 required/optional source comparisons remain pending
+because their selected STL and retained recipe use different tessellation.
+Accepted recipe identity and prior digital review remain preserved. These pending
+independent checks block publication readiness; they do not establish a part defect
+or authorize regenerating accepted recipes. Finite-sample surface screening has not
+been treated as equivalence approval. Use the reviewed disposition below only after
+an independent review establishes it.
 
 ## Resolve an unsupported source comparison
 
@@ -87,7 +88,7 @@ records/artifacts fail. Scratch, outside-directory and symlinked review
 inputs fail. This disposition resolves only source geometry equivalence: immutable
 project settings/modifiers/orientations, catalog demand, estimates, support review
 and physical qualification keep their existing independent requirements. No such
-approval has been added for the 48 currently pending instances.
+approval has been added for the 41 currently pending instances.
 
 For a candidate roundtrip, provide separate JSON maps with `instances` and `plates`
 objects, each mapping stable identity to its numeric Bambu ID string:

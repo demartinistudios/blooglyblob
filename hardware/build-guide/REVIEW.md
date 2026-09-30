@@ -1,39 +1,39 @@
 # Guide review scope
 
-The guide uses R28 / Fusion cloud24 inputs. The
+The guide selects R29 / Fusion cloud25 inputs. The
 [review checklist](review-status.json) records digital review by surface, separate
-from physical build qualification. A verified entry applies to the recorded
-revision; changing a surface or its inputs requires a fresh review.
+from physical build qualification. Its broad review remains pending after the
+build guide clarity overhaul; the focused updates below do not clear that review.
 
-The build guide clarity overhaul (2026-09-29/30) rewrote every surface, so all
-surfaces are pending. They need a fresh review and a bench walk-through. The
-review described below applies to the guide before that overhaul.
+The latest digital review covers the six changed part designs P08, P14, FB24,
+FB32, P35 and P36:
 
-The previous review covered:
+- Shelf and adapter fastening axes match the accepted native bores. Screws enter
+  from above and nuts sit beneath the shelf, assembled on the bench before the head.
+- Cradle and lid illustrations show the asymmetric lid fasteners and enlarged USB
+  opening. The connector illustration uses the measured loose connector envelope;
+  endpoint locators do not assert a final mated position or cable bend.
+- Tank assembly shows epoxy at the hidden ring contacts. The completed backpack
+  stays removable with its four carrier screws. Installed quantities and both
+  screw-key PDFs agree on five M3×8 screws and 60 M3 nuts.
+- The affected part cards, assembly/service close-ups, base layouts and full-robot
+  view were regenerated and visually reviewed. The base-cover view was regenerated
+  and remained identical. Unchanged local interfaces and unrelated views were
+  retained after dependency review.
 
-- Assembly order, mating orientation, fastener entry and access before closure.
-- Part/supply cards, hardware quantities, plate previews and generated downloads.
-- All 89 raster illustrations, including magnet installation, servo-horn fastening,
-  speaker and connector geometry, wire continuity, tool drawings and glue locations.
-- Electrical reference and master diagram, including button terminals and head
-  power branches, against maintained electrical tables.
-- Software commands and nine Raspberry Pi setup screenshots.
-- Stable step IDs, progress storage, navigation, responsive layout and the header
-  links at desktop and phone widths.
-
-The recorded contributor check passed software formatting, lint, types and tests,
-hardware tooling checks, guide generation and browser checks. The later header
-review covered seven widths from 320 to 1440 pixels, pointer hover and keyboard
-focus. Browser checks covered 612 route/viewport combinations, 138 links and
-316 images. These figures describe the reviewed version, not a test-count target.
+The [render source binding](../rendering/source-lock.json) records the reviewed
+coordinates and accepted CAD identity. Native-bore regression tests check the
+shelf and lid fastening axes. The guide consistency check covers allocations,
+step references and writing constraints. Print projects and their plate previews
+are maintained through the [print procedure](../printing/current/README.md).
 
 Run `make check` to verify the current checkout. It checks data consistency and
 browser behavior; it cannot determine whether every illustrated action is
-physically correct. A visual review must compare drawings with the selected CAD
-and instructions, rather than treating a successful render as evidence of fit.
+physically correct. A visual review compares drawings with the selected CAD and
+instructions, rather than treating a successful render as evidence of fit.
 
 Physical assembly, tape and glue retention, actual connector clearance and cable
 slack, acoustic behavior and complete powered operation remain unqualified.
-The separate pending print-source comparisons are not cleared by guide review.
+Separate pending print-source comparisons are not cleared by guide review.
 See [current hardware notes](../cad/CURRENT-NOTES.md) and the
 [release checklist](../../../docs/release/checklist.md).

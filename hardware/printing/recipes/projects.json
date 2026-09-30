@@ -5,8 +5,8 @@
   "policy": "Whole 3MF is the portable editable recipe: model hierarchy, transforms, modifiers, plate/object settings, resolved material settings and scripts. Member lock detects byte changes. Installed profiles are not runtime inputs to validation or staging.",
   "projects": [
     {
-      "path": "hardware/printing/current/BlooglyBlob-R28-PLA-Production.3mf",
-      "sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
+      "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
+      "sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
       "instances": 71,
       "members": [
         {
@@ -60,11 +60,6 @@
           "bytes": 6278
         },
         {
-          "path": "Metadata/plate_7.png",
-          "sha256": "0c10ae5964568ebb3dc818021e6f55348304299985dc3330c88bcdf434ea979b",
-          "bytes": 14670
-        },
-        {
           "path": "Metadata/plate_7_small.png",
           "sha256": "743c41f50468a8d964b0d8adafcd9b1284594add435a241455a335249dec99cd",
           "bytes": 5083
@@ -115,11 +110,6 @@
           "bytes": 3073
         },
         {
-          "path": "Metadata/plate_no_light_7.png",
-          "sha256": "019f02d3bb651e268cd5276a80f5497d936f8aff0a562e9a735d89a755247c91",
-          "bytes": 5915
-        },
-        {
           "path": "Metadata/plate_no_light_8.png",
           "sha256": "c1e28cef861f77b7e6debb6a0169f897b079d69d6494c10b0b9ed7cc4350116e",
           "bytes": 4412
@@ -165,16 +155,6 @@
           "bytes": 1849
         },
         {
-          "path": "Metadata/top_7.png",
-          "sha256": "8cddfe9434b2d388481bc9f9c02254aaa7d333445cafa12fdad4dd93adaf5d38",
-          "bytes": 11821
-        },
-        {
-          "path": "Metadata/pick_7.png",
-          "sha256": "da0cf8af78608b58becb8679b1d4fbe52e0ea2c9612bad69a9eb0cffb162c16c",
-          "bytes": 4214
-        },
-        {
           "path": "Metadata/top_8.png",
           "sha256": "f71b81ef9a9adab05c24bf19150d10abc5ed13a4f1ad1319f2af4c983b1d5ab6",
           "bytes": 8764
@@ -206,8 +186,8 @@
         },
         {
           "path": "3D/3dmodel.model",
-          "sha256": "461ab15302a4afd7f6461f997c71d4ad0aac6f13e2c3414e260ff6ad3452d605",
-          "bytes": 41275
+          "sha256": "ed9911c33cf4d0e4970e6dd73f11f1347bc8e3a8213f69d9336be4188b63c6b9",
+          "bytes": 42005
         },
         {
           "path": "3D/_rels/3dmodel.model.rels",
@@ -311,8 +291,8 @@
         },
         {
           "path": "3D/Objects/object_5.model",
-          "sha256": "ab817cc9aec7dde425cbb00492cdf381066b2aa2450cd88fcff740be498a3b7e",
-          "bytes": 396369
+          "sha256": "2dfb337b6c3b96b0c74133483ed02484f31f925c9cac2feddad170a2aaf2f24f",
+          "bytes": 1146592
         },
         {
           "path": "3D/Objects/object_72.model",
@@ -366,8 +346,8 @@
         },
         {
           "path": "3D/Objects/object_6.model",
-          "sha256": "9f46c9463304a8e7021916945ce5c16fd32e5eee4970ccd07df8595a9173a883",
-          "bytes": 294610
+          "sha256": "c625c665f929ea3d7d75d0f1f4d19c560e8d045f7e87090c4b5f9877f4b1006b",
+          "bytes": 756434
         },
         {
           "path": "3D/Objects/object_63.model",
@@ -421,8 +401,8 @@
         },
         {
           "path": "3D/Objects/object_49.model",
-          "sha256": "8cbf9e1a53f9ef62e1a3ca12b85a0eaa919d267992a30d4e6315c869b4213d63",
-          "bytes": 997284
+          "sha256": "31b9163e76f4d89726de5c3d8519eb2d4f57fbc7d7867bd8bdcf01799cd0daa4",
+          "bytes": 1359200
         },
         {
           "path": "3D/Objects/object_34.model",
@@ -436,8 +416,8 @@
         },
         {
           "path": "3D/Objects/object_8.model",
-          "sha256": "bce1917d280d4937ca856a470e236e255e6ba476852230deac683ca90817cca6",
-          "bytes": 34989
+          "sha256": "b179b2b915c9612a61d0ca93f9c1f42de1beb30adf2bee0e14f7785e27468200",
+          "bytes": 480227
         },
         {
           "path": "3D/Objects/object_55.model",
@@ -466,8 +446,8 @@
         },
         {
           "path": "3D/Objects/object_7.model",
-          "sha256": "fe1e44419d6681f1c6d4bc9eae4bcbc4b31da1e37646c557d0939c2b3c9bfa38",
-          "bytes": 9495789
+          "sha256": "a87e9b56505920e557c5f0ffd8b0b14ccde7783139da434f6872c4de83897078",
+          "bytes": 1506210
         },
         {
           "path": "3D/Objects/object_43.model",
@@ -476,8 +456,8 @@
         },
         {
           "path": "3D/Objects/object_25.model",
-          "sha256": "25ac50131d96970287814cb667f6281e16e45189e25b727541244d3e6b9cf29b",
-          "bytes": 12182830
+          "sha256": "c37804a1364c80c350af337655748ecf16b6d9b04fc6e7439d779a4fb89beeb8",
+          "bytes": 3432883
         },
         {
           "path": "3D/Objects/object_48.model",
@@ -491,8 +471,8 @@
         },
         {
           "path": "3D/Objects/object_50.model",
-          "sha256": "d7364ea28363fd8613c4f36e60cf45b53fb3948583f081b072d69ae3674593c9",
-          "bytes": 997284
+          "sha256": "c81337972eaf10b3d6dcff9dadf3d7df19de0de20b40f0e12a48d4d14f9a306b",
+          "bytes": 1359200
         },
         {
           "path": "3D/Objects/object_57.model",
@@ -576,8 +556,8 @@
         },
         {
           "path": "Metadata/model_settings.config",
-          "sha256": "368f4092f76e14d9e8693de59258c27ca429d06571a81e4fa32c8b705959bc3f",
-          "bytes": 930326
+          "sha256": "d2209e8c9c669a244de4c5a4c54770ade2de8a801c8bdf20eef5642424cdb3fc",
+          "bytes": 931793
         },
         {
           "path": "Metadata/cut_information.xml",
@@ -600,46 +580,6 @@
           "bytes": 673
         },
         {
-          "path": "Metadata/plate_3.png",
-          "sha256": "a0bea5f39a723e0bec3de4a0cb246020abaf84fc40b6d2b14c35032fb7e6f685",
-          "bytes": 15292
-        },
-        {
-          "path": "Metadata/plate_no_light_3.png",
-          "sha256": "5ab2120cbd4f8f2c92f2b3d33abfa10e52f14fd187d35803250f4e0faab3de7f",
-          "bytes": 4538
-        },
-        {
-          "path": "Metadata/top_3.png",
-          "sha256": "5901b5b17ab35083b2460ee79e7abdff57dcdea897507369ac49b549055bd768",
-          "bytes": 8925
-        },
-        {
-          "path": "Metadata/pick_3.png",
-          "sha256": "9a4e2dbd84423aa413a1d404ce4efd0bd4595523790b74c368850f3f82edfd8e",
-          "bytes": 4072
-        },
-        {
-          "path": "Metadata/plate_1.png",
-          "sha256": "2fcdbea6a5b2026278475ce93cbe64e9ca1b310bb4163794d8389178be1de537",
-          "bytes": 14174
-        },
-        {
-          "path": "Metadata/plate_no_light_1.png",
-          "sha256": "8ea6494bd1e0a5401422b2e4ae041db526ebd4d30905d6a3d139b6299158a607",
-          "bytes": 5291
-        },
-        {
-          "path": "Metadata/top_1.png",
-          "sha256": "ad62ccf9d5a9349e4ead96fb852c9e5d5d3da4f3141730115fd7efc5821f9f06",
-          "bytes": 8090
-        },
-        {
-          "path": "Metadata/pick_1.png",
-          "sha256": "06383d6543427a11f4ea258f823c73ddc39c10e02d82e3f10aa3e0929cbfb05a",
-          "bytes": 4873
-        },
-        {
           "path": "Metadata/plate_2.png",
           "sha256": "8d56898af28b60e11e5c8a7fc5ac860ac390235880530f50754d394c5c1f5ea4",
           "bytes": 12683
@@ -658,11 +598,71 @@
           "path": "Metadata/pick_2.png",
           "sha256": "3a70d21df509a11e6377e74ba79f58025d9df5faed889fd3a58c4a491592fc05",
           "bytes": 3038
+        },
+        {
+          "path": "Metadata/plate_1.png",
+          "sha256": "04f1fdb969b7b96765c757cc4d35c7e5ecf6a3b542d4db3ef3a8457ed740f61c",
+          "bytes": 14545
+        },
+        {
+          "path": "Metadata/plate_no_light_1.png",
+          "sha256": "3e047e586ae6c7372eb5c0cbe66b0208afa62e320212bb38335ebb81780f1643",
+          "bytes": 5400
+        },
+        {
+          "path": "Metadata/top_1.png",
+          "sha256": "df01cac5dc1e0069b5988fb03d7b8baf53ca2248bbb7e30921f47ddaf1e70c99",
+          "bytes": 8236
+        },
+        {
+          "path": "Metadata/pick_1.png",
+          "sha256": "b6ef686b8fd45d4542d54827d494d338e011bd5e281d4b4847b1119ff4495222",
+          "bytes": 4882
+        },
+        {
+          "path": "Metadata/plate_3.png",
+          "sha256": "e9d8e42574c3f289a61dd603c506a5e2baa73a7b614ba3b652916c7832b919de",
+          "bytes": 15624
+        },
+        {
+          "path": "Metadata/plate_no_light_3.png",
+          "sha256": "0c99970a64a1bd6d8a9a37025e76db56ec5637f9d4e37a1107c60c9ace6a74d4",
+          "bytes": 4692
+        },
+        {
+          "path": "Metadata/top_3.png",
+          "sha256": "13e8b150c1964c9e4cb24f45739388194662270ac4719fbcd2178afe9201bdd1",
+          "bytes": 9025
+        },
+        {
+          "path": "Metadata/pick_3.png",
+          "sha256": "405682b09876098478b9d63dfd65e08cba0d101a927bc498c614117b936f2e14",
+          "bytes": 4073
+        },
+        {
+          "path": "Metadata/plate_7.png",
+          "sha256": "c83791382f005460f9a1e0d87584a4b674c9998801cb005d01e178a4ad34da6b",
+          "bytes": 14846
+        },
+        {
+          "path": "Metadata/plate_no_light_7.png",
+          "sha256": "7763785ffac1c171c375c18aafeebeb05fd04c967201849ac6f49d19a482bc79",
+          "bytes": 6079
+        },
+        {
+          "path": "Metadata/top_7.png",
+          "sha256": "59ed9a489c04900b7523a9bad9510a9e7fbde87c84dcddda7f141275a66f4da2",
+          "bytes": 11782
+        },
+        {
+          "path": "Metadata/pick_7.png",
+          "sha256": "1d818fafcf6fa703478cf580528ff508a40fccfa8c0580c968af9819f298af1a",
+          "bytes": 4215
         }
       ]
     },
     {
-      "path": "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+      "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
       "sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
       "instances": 1,
       "members": [
@@ -743,8 +743,8 @@
   },
   "semantic_contract": {
     "path": "hardware/printing/recipes/semantic-contract.json",
-    "sha256": "5c2a9da7344763cc4984df7b25e2069485fbb3f43fd1978a655ef8bac44ecbe0",
-    "bytes": 171702
+    "sha256": "f8798c6a417d4ba173ae4b3b0758d21a5da859532b777230eb34bb3670ce8929",
+    "bytes": 177891
   },
-  "cad_update_status": "R29 CAD accepted; P08/P14/FB24/FB32/P35/P36 project replacement and full affected-plate review pending. Existing project bytes and unrelated source reviews preserved."
+  "cad_update_status": "R29 seven selected meshes installed; full W1/W2/C2 review complete. Four arm frame-only corrections verified.41 different-tessellation source reviews and physical qualification pending; no dispatch."
 }

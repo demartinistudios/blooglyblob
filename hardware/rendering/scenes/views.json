@@ -2450,8 +2450,8 @@
         1,
         1.7
       ],
-      "title": "R18 / THREE ORDINARY M2 NUTS \u2014 TOP ACCESS",
-      "footer": "Shell omitted \u2022 nuts accessed from above \u2022 P14-to-P08 M3\u00d78 screws unchanged"
+      "title": "Three head-shell M2 nuts",
+      "footer": "Nuts in the top-access pockets of P08"
     },
     "thumbnail": false,
     "source_audit_name": "r18-render-audit.json",
@@ -4467,5 +4467,45 @@
     "thumbnail": true,
     "source_audit_name": "r22-render-audit.json",
     "source_audit_sha256": "e00c4498f08f9c6a7dcfe81c706b28404185d0f3c5e5c78c0f3f3dec542a10df"
+  },
+  "r29/part-P14": {
+    "output": "assets/part-P14.png",
+    "view": {
+      "select": [
+        "P14"
+      ],
+      "occ": {
+        "P14": [
+          0
+        ]
+      },
+      "camera": [
+        0.9,
+        -1.6,
+        0.9
+      ],
+      "clean": true
+    },
+    "thumbnail": true
+  },
+  "r29/part-P36": {
+    "output": "assets/part-P36.png",
+    "view": {
+      "select": [
+        "P36"
+      ],
+      "occ": {
+        "P36": [
+          0
+        ]
+      },
+      "camera": [
+        0.9,
+        -1.6,
+        0.9
+      ],
+      "clean": true
+    },
+    "thumbnail": true
   }
 }

@@ -1118,7 +1118,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P08-1"
+      "stable_instance_key": "1:P08-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7"
     },
     {
       "label": "P14-1 | White",
@@ -1342,7 +1344,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:P14-1"
+      "stable_instance_key": "1:P14-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031"
     },
     {
       "label": "FB24-1 | White",
@@ -1566,7 +1570,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:FB24-1"
+      "stable_instance_key": "1:FB24-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57"
     },
     {
       "label": "FB32-1 | White",
@@ -1790,7 +1796,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "1:FB32-1"
+      "stable_instance_key": "1:FB32-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57"
     },
     {
       "label": "FB01-1 | Black",
@@ -5377,7 +5385,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "3:P35-1"
+      "stable_instance_key": "3:P35-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4"
     },
     {
       "label": "AR01-1 | Copper",
@@ -10084,7 +10094,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "7:P36-1"
+      "stable_instance_key": "7:P36-1",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
     },
     {
       "label": "P36-2 | Copper",
@@ -10308,7 +10320,9 @@
         "travel_jerk": "9",
         "monotonic_travel_into_wall": "0%"
       },
-      "stable_instance_key": "7:P36-2"
+      "stable_instance_key": "7:P36-2",
+      "geometry_revision": "R29",
+      "source_stl_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
     },
     {
       "label": "P38-1 | Copper",
@@ -15926,11 +15940,11 @@
         "FB32": 1
       },
       "piece_count": 8,
-      "purpose": "White internal frame/servo/head hardware and R26 audio cradle with closed tie slits; other pieces unchanged.",
-      "status": "R26 full W1 slice/layout and support review complete; physical cleanup, tape bond and connector fit pending",
+      "purpose": "White internals with R29 head-carrier/adapter hole pattern and USB-clearance audio cradle/lid; other parts retained.",
+      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
       "dispatch_authorized": false,
-      "estimated_seconds": 12660,
-      "estimated_grams": 64.88,
+      "estimated_seconds": 12424,
+      "estimated_grams": 64.44,
       "plate_number": 1
     },
     {
@@ -15964,11 +15978,11 @@
         "P35": 1
       },
       "piece_count": 13,
-      "purpose": "White reinforced R25 backpack, seam covers and remaining brackets; retained orientation and pin blockers.",
-      "status": "R25 full W2 slice and bounded support review complete; remove accessible hinge-gap/lower screw supports; physical strength/cleanup/fit pending",
+      "purpose": "White R29 backpack with filled canister screw bores; seam covers/brackets and pin blockers retained.",
+      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
       "dispatch_authorized": false,
-      "estimated_seconds": 15107,
-      "estimated_grams": 65.89,
+      "estimated_seconds": 15070,
+      "estimated_grams": 65.98,
       "plate_number": 3
     },
     {
@@ -16038,11 +16052,11 @@
         "P40": 1
       },
       "piece_count": 11,
-      "purpose": "All six platform panels/grilles and five jetpack trim pieces, after relevant mating parts can be checked.",
-      "status": "R23 whole plate digitally sliced and inspected; physical fit pending",
+      "purpose": "Copper platform trim and R29 glue-retained canisters without inaccessible internal nut bosses; other copper pieces retained.",
+      "status": "R29 full-plate slice and bounded layout/support review complete; physical cleanup/fit/strength/adhesive retention pending",
       "dispatch_authorized": false,
-      "estimated_seconds": 13692,
-      "estimated_grams": 49.08,
+      "estimated_seconds": 13466,
+      "estimated_grams": 48.64,
       "plate_number": 7
     },
     {
@@ -16655,14 +16669,14 @@
       "master": "0"
     }
   ],
-  "status": "R28 FB01 replacement and whole K1 bounded review complete; physical qualification and48 unrelated source reviews pending; no R28 dispatch",
-  "master_project": "BlooglyBlob-R28-PLA-Production.3mf",
-  "optional_petg_project": "BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+  "status": "R29 seven selected replacements and full W1/W2/C2 digital review complete;41 inherited different-tessellation source comparisons and physical qualification remain pending; no dispatch",
+  "master_project": "BlooglyBlob-R29-PLA-Production.3mf",
+  "optional_petg_project": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
   "historical_source_hashes_verified": true,
   "omitted_redundant_hardware_override": {
     "key": "print_extruder_variant",
     "reason": "Machine-level value retained; per-object string-vector export causes invalid XML in Bambu 2.7.1.62. Final project re-sliced after omission."
   },
-  "cad_revision": "R28/cloud24",
-  "validation": "checks/r28-validation.json"
+  "cad_revision": "R29/cloud25",
+  "validation": "checks/r29-validation.json"
 }

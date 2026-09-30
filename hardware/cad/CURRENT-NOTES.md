@@ -51,11 +51,15 @@ the backpack-to-carrier screws and belt joints remain removable.
 
 ## R29 downstream work
 
-CAD is accepted. P08/P14/FB24/FB32/P35/P36 print-project replacement, full
-affected-plate slicing/support review, and guide images/instructions/supply
-allocation updates are pending. Existing print projects still contain the prior
-geometry for those parts; do not treat them as R29-ready. The guide agent will
-apply the two-screw/two-nut reduction to the maintained allocation and parts lists.
+CAD is accepted. Guide images, instructions and supply allocations now reflect
+all six affected part families, including removal of two canister screws and
+two nuts. Scoped digital guide review and focused checks passed. Print preparation
+replaces all seven P08/P14/FB24/FB32/P35/P36 instances and includes full W1/W2/C2
+slicing and digital support review. Five localized W1 support blockers clear the
+P08 nut pockets and relocated audio nut slot and screw bore. Accessible cradle
+supports and backpack hinge-gap supports still require removal. Final package
+integration and combined checks are recorded in the current printing receipts;
+no physical print was dispatched as part of this preparation.
 
 ## Current print and rendering evidence
 
@@ -75,7 +79,7 @@ current assembly before reuse. A historical name does not imply a second design.
 
 Digital input checks, slicing and guide review do not establish printed fit,
 adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. The 48 independent print-source reviews currently
+complete powered operation. The 41 independent print-source reviews currently
 marked pending remain pending. See the [semantic review contract](../printing/recipes/README.md)
 and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
 is selected in the registry.

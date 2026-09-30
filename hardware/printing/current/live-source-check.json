@@ -1,9 +1,14 @@
 {
-  "cad": "R28/cloud24",
+  "cad": "R29/cloud25",
   "changed_sources": {
-    "FB01": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c"
+    "P08": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+    "P14": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+    "FB24": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+    "FB32": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+    "P35": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+    "P36": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
   },
-  "unchanged_geometry_basis": "70 other instances preserved exactly from R27;48 unrelated independent comparisons remain pending.",
-  "native_source": "Registry-selected accepted MAIN native SHA 2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8. No live Fusion mutation.",
-  "validation": "checks/r28-replacement.json"
+  "unchanged_geometry_basis": "64 other instances retained exactly; four arm frame bindings corrected without geometry changes;41 inherited different-tessellation comparisons remain pending.",
+  "native_source": "Registry-selected accepted MAIN native SHA d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+  "validation": "checks/r29-replacement.json"
 }

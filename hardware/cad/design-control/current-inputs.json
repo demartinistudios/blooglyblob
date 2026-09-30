@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "purpose": "R29 accepted CAD; six changed part designs await print replacement and guide updates. No synchronized delivery selected.",
+  "purpose": "Mandatory R29 CAD, printing, catalog, assembly and rendering inputs; no selected delivery. Seven-instance print replacement and W1/W2/C2 bounded review plus guide sync complete;41 inherited source comparisons and physical qualification remain separate.",
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
@@ -9,8 +9,8 @@
     },
     {
       "path": "hardware/assembly/hardware.json",
-      "sha256": "35ca94eeef1e485c49051fd21945305dd24008e870aa49d401cc68b2832a4caa",
-      "bytes": 4013
+      "sha256": "648cc61eac3e4455abc57c85982e129e5fd73b2fbc29e97bd48600debce60470",
+      "bytes": 3977
     },
     {
       "path": "hardware/assembly/interfaces.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "hardware/cad/CURRENT-NOTES.md",
-      "sha256": "787b6f5bc2fa9cbb4dbde11f1db5cffd41a9e8833c7c020561c13b6eb28d9fd0",
-      "bytes": 4267
+      "sha256": "572289f87c35bda89e2b6d9a7444f6e3929a87afc6ac08d395432cae87464ed2",
+      "bytes": 4573
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
@@ -414,8 +414,8 @@
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "6ecf9d648a97b7fa43765c8fe806cbafdf0e2c87df36c7d4559229217197a059",
-      "bytes": 47230
+      "sha256": "ee58f308d9fc75c72a6ba04cc050c130dea8dc878dac3172ee5beafaf7b629fb",
+      "bytes": 47717
     },
     {
       "path": "hardware/catalog/supplies.json",
@@ -423,24 +423,24 @@
       "bytes": 14444
     },
     {
-      "path": "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+      "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
       "sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
       "bytes": 508417
     },
     {
-      "path": "hardware/printing/current/BlooglyBlob-R28-PLA-Production.3mf",
-      "sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
-      "bytes": 22422002
+      "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
+      "sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+      "bytes": 20948568
     },
     {
       "path": "hardware/printing/current/PUBLISHED.json",
-      "sha256": "ce8bc917b9a27427656aa52580795b81881d780cd16eebb7a8d6581745c4ec3d",
-      "bytes": 9082
+      "sha256": "5d2be722db9fa54624a0d388ff85f012ac1dbd7d0dd59b6bb0204b180364b384",
+      "bytes": 10380
     },
     {
       "path": "hardware/printing/current/README.md",
-      "sha256": "525d9b938f5ee364461b2fa07b3478b6fcb1a4482184d82ba777f93dbf2da6ce",
-      "bytes": 7313
+      "sha256": "569d0abf93bb5404639d3f9868b626d87b6443a74e8d9b824948bb88f0b21cc4",
+      "bytes": 8363
     },
     {
       "path": "hardware/printing/current/checks/first-layers.png",
@@ -663,6 +663,46 @@
       "bytes": 2084
     },
     {
+      "path": "hardware/printing/current/checks/r29-arm-frames.json",
+      "sha256": "e9b467d56612b7b888ed85536ee1e441ca2928487932cb0ecb38e472d9f81307",
+      "bytes": 4921
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-blockers.json",
+      "sha256": "cf01c82b35e7925c8ca9b80e0bd9752334a299fc33d90d3bce1d5ed397a9be10",
+      "bytes": 1690
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-first-layer.png",
+      "sha256": "0be0c9a607a5fea33406e5bc44418eb727df6af1facf9d0961bd3a37804938be",
+      "bytes": 565623
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-frame-review.json",
+      "sha256": "c75309300a12966bf3df8b945c52bac423c75b00770db2377cd64b68aa0d74cb",
+      "bytes": 1868
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-preservation.json",
+      "sha256": "ab7499732004c82ddd02d331696250d433da526c1ee6a008c70b5a1f3e803686",
+      "bytes": 987
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-replacement.json",
+      "sha256": "5faf66e6284f3ccc19af6f7fab36ea2bcd304c8c5cbb4dff572ef55a9a521a9e",
+      "bytes": 5416
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-slice-audit.json",
+      "sha256": "60568eb1a2ea7bb1101833ad1074c01ffe2a1c81de8a8295037d4483dbf617cb",
+      "bytes": 14053
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-validation.json",
+      "sha256": "951a3cc872ba79005a93dc1edce50564852a4b0b087963ceb62416951a9634d7",
+      "bytes": 2998
+    },
+    {
       "path": "hardware/printing/current/checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -674,13 +714,13 @@
     },
     {
       "path": "hardware/printing/current/live-source-check.json",
-      "sha256": "c53a2059c99c0cd0dfd2041b9f677c57b8aa6565599b092ae8ecd671abe20d5f",
-      "bytes": 469
+      "sha256": "00f73dcaa589bf1be2ce4150f6fb756d51cf0de6ded3b94ed027ae724901f448",
+      "bytes": 900
     },
     {
       "path": "hardware/printing/current/manifest.json",
-      "sha256": "4108adbb26ddd99b03b77ac82eff6740e19e47488d7afc14ef18f9be857b5806",
-      "bytes": 624166
+      "sha256": "1d4dc8616b46ea7b61d4c6876024090f451f421a51d6991488069f751045650b",
+      "bytes": 625183
     },
     {
       "path": "hardware/printing/current/object-settings.csv",
@@ -694,8 +734,13 @@
     },
     {
       "path": "hardware/printing/current/source-provenance.json",
-      "sha256": "8234a17db4f48c64bb42c86ae16210e8e8389f78962e7b34c680bc6170f118ef",
-      "bytes": 438315
+      "sha256": "45fa35dd2c8acb046d94e829dffdd29f84cb348f868566d2c8d943832191c67d",
+      "bytes": 439082
+    },
+    {
+      "path": "hardware/printing/recipes/README.md",
+      "sha256": "13e417cdc6aac7fe4968c8e621e8c2a6c90b31144e51e01b219edfd259c3e0a0",
+      "bytes": 6681
     },
     {
       "path": "hardware/printing/recipes/project-privacy.json",
@@ -704,13 +749,13 @@
     },
     {
       "path": "hardware/printing/recipes/projects.json",
-      "sha256": "3824715f1153779a9d7a569fd23ab7fe3977cddba8005165aff58c4a7b728f24",
-      "bytes": 27392
+      "sha256": "6c3420c5f78e166d1692617b13a1c060d93619e1ea045adadf4c6b393d513d3a",
+      "bytes": 27427
     },
     {
       "path": "hardware/printing/recipes/semantic-contract.json",
-      "sha256": "5c2a9da7344763cc4984df7b25e2069485fbb3f43fd1978a655ef8bac44ecbe0",
-      "bytes": 171702
+      "sha256": "f8798c6a417d4ba173ae4b3b0758d21a5da859532b777230eb34bb3670ce8929",
+      "bytes": 177891
     },
     {
       "path": "hardware/rendering/r22-colors.json",
@@ -734,13 +779,13 @@
     },
     {
       "path": "hardware/rendering/scenes/views.json",
-      "sha256": "dd21504b5fd6a5a92b4c65d13b02436528068b6c3b34d7b50bc0f3cb4dc7baf5",
-      "bytes": 106106
+      "sha256": "7eab37e269dc2395e6c460dba9b66385d7fc94238b3a6a09cf89af976d726540",
+      "bytes": 106621
     },
     {
       "path": "hardware/rendering/source-lock.json",
-      "sha256": "b42afc0de306423d9873ff651be79d120abe86002907aa692d198261acb201c9",
-      "bytes": 3301
+      "sha256": "f3eea673683bd85cd50cf0273eed3cb15e124bb5e871b9e3f59a7b444532e582",
+      "bytes": 3909
     },
     {
       "path": "hardware/tools/cad/export_service_stand.py",

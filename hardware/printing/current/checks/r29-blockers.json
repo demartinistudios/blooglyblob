@@ -1,0 +1,82 @@
+{
+  "status": "PASS geometry and all existing settings/modifiers preserved; five localized W1 support blockers added",
+  "regions": [
+    {
+      "object_id": "10",
+      "name": "R29 P08 nut pocket",
+      "lo": [
+        11.788457268000002,
+        -12.8,
+        121.2
+      ],
+      "hi": [
+        19.388457268,
+        -5.2,
+        125.4
+      ],
+      "component_id": "2900"
+    },
+    {
+      "object_id": "10",
+      "name": "R29 P08 nut pocket",
+      "lo": [
+        -3.8,
+        14.2,
+        121.2
+      ],
+      "hi": [
+        3.8,
+        21.8,
+        125.4
+      ],
+      "component_id": "2901"
+    },
+    {
+      "object_id": "10",
+      "name": "R29 P08 nut pocket",
+      "lo": [
+        -19.388457268,
+        -12.8,
+        121.2
+      ],
+      "hi": [
+        -11.788457268000002,
+        -5.2,
+        125.4
+      ],
+      "component_id": "2902"
+    },
+    {
+      "object_id": "14",
+      "name": "R29 moved audio lid nut loading slot",
+      "lo": [
+        -50,
+        -68.2,
+        -36.4
+      ],
+      "hi": [
+        -30.5,
+        -62.8,
+        -33.0
+      ],
+      "component_id": "2903"
+    },
+    {
+      "object_id": "14",
+      "name": "R29 moved audio lid screw bore",
+      "lo": [
+        -48.7,
+        -67.2,
+        -41.6
+      ],
+      "hi": [
+        -45.3,
+        -63.8,
+        -32.8
+      ],
+      "component_id": "2904"
+    }
+  ],
+  "reason": "First slice placed support inside three bottom-facing P08 nut pockets and newly moved audio lid nut slot/bore. Small pocket roofs now bridge; physical bridge quality and nut fit remain unqualified.",
+  "candidate_sha256": "9dcc21f0cca97e3d36d1e50ba2a7ab4cbe1b9c3b223e0e08ede8723d8e5d1fd3"
+}

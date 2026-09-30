@@ -11,6 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 SRC = ROOT / 'hardware/build-guide/src'
 
+SHELF_FASTENING_CENTERS = ((15.588457268119896,-9),(0,18),(-15.588457268119896,-9))
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -31,7 +33,7 @@ def scenes():
         path = scene['output']; view = scene['view']; selected = view.get('select', ['all'])
         if path in ('assets/r18/head-fastener-cutaway.png','assets/r16/service-stand.png') or not (SRC / path).exists():
             continue
-        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r16/base-pi-joints.png','assets/r16/base-shifter-joints.png'):
+        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r16/base-pi-joints.png','assets/r16/base-shifter-joints.png'):
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
@@ -295,6 +297,11 @@ def action_diagrams(render, output):
     def screw(d,length,seat,axis):
         from guide_fasteners import screw as modeled_screw
         return modeled_screw(d,length,seat,axis)
+    def shelf_screw(seat):
+        rows=screw(3,8,seat,[0,0,-1])
+        # Owner-measured M3 head, R29 approval evidence; keep nominal threads.
+        for row in rows[1:]:row['v']=(row['v']-seat)*[5.33/5.5,5.33/5.5,3.03/3]+seat
+        return rows
     def nut(d,center,axis):
         from guide_fasteners import hex_nut
         return hex_nut(d,center,axis)
@@ -319,7 +326,7 @@ def action_diagrams(render, output):
     def svg_text(x,y,value,size=21,anchor='start'):
         return f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{ink}">{html.escape(value)}</text>'
     def emit(name,parts,camera,title,notes,marks=(),arrows=(),bounds=None,extra=''):
-        if name == 'tank-fastening':
+        if name == 'tank-ring-bond':
             from guide_closeups import pose_parts
             rotation=np.array([[1,0,0],[0,0,1],[0,-1,0]])
             parts=pose_parts(parts,rotation);camera=(rotation@camera).tolist()
@@ -396,20 +403,20 @@ def action_diagrams(render, output):
     # P14 and P08 are a bench assembly. The servo is deliberately absent.
     # The whole parts establish the three-hole orientation; the section below
     # separately reveals the underside nut pocket without hiding their shapes.
-    shelf_positions=[(0,-18),(15.588,9),(-15.588,9)]
+    shelf_positions=SHELF_FASTENING_CENTERS
     parts=chosen(['P08','P14'])
     for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)
     for x,y in shelf_positions:
-        parts+=screw(3,8,[x,y,140.3],[0,0,-1])+[nut(3,[x,y,122.8],[0,0,1])]
+        parts+=shelf_screw(np.array([x,y,140.3]))+[nut(3,[x,y,122.8],[0,0,1])]
     emit('head-shelf-fastening',parts,[.6,-1.2,1.1],'Join shelf P08 to adapter P14',
          ['3 × M3 × 8 enter from above P14','Nuts sit in the underside pockets','Brown: P14 · blue-gray: P08'],
          arrows=[([x,y,137],[x,y,129]) for x,y in shelf_positions])
-    parts=cropped(chosen(['P08','P14']),[[0,-24,120],[5,-12,130]])
+    parts=cropped(chosen(['P08','P14']),[[0,12,120],[5,24,130]])
     for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)
-    parts+=screw(3,8,[0,-18,140.3],[0,0,-1])+[nut(3,[0,-18,122.8],[0,0,1])]
-    emit('head-shelf-joint-section',parts,[-1,-.6,.3],'Join shelf P08 to adapter P14',
+    parts+=shelf_screw(np.array([0,18,140.3]))+[nut(3,[0,18,122.8],[0,0,1])]
+    emit('head-shelf-joint-section',parts,[-1,.6,.3],'Join shelf P08 to adapter P14',
          ['3 × M3 × 8 enter from above P14','M3 nuts seat underneath P08','One joint shown in section'],
-         arrows=[([0,-18,137],[0,-18,129])])
+         arrows=[([0,18,137],[0,18,129])])
     # The original measured disk is shown in a face diagram separately; here
     # the actual adapter shows both offset holes and its central servo opening.
     parts=chosen(['P14'])+[round_horn([0,0,107])]
@@ -472,13 +479,27 @@ def action_diagrams(render, output):
     emit('backpack-shell-fastening',parts,[.7,1,.4],'Attach the completed backpack',
          ['4 × M3 × 12 into the carrier nuts','Leave both lower belt docks clear'],
          [(i+1,[x,82,z]) for i,(x,z) in enumerate([(-12,40),(12,40),(-12,80),(12,80)])],arrows=[([0,64,67],[0,44,67])])
-    parts=chosen(['P35','P36'])
-    # Cutaway exposes the real tank tab and captive nut seat at z50.
-    parts=cropped(parts,[[15,22,42],[39,51,59]])
-    parts+=screw(3,8,[28,24,50],[0,1,0])+[nut(3,[28,39.8,50],[0,1,0])]
-    emit('tank-fastening',parts,[-.8,-1,.45],'Fasten each tank before its nozzle',
-         ['1 × M3 × 8 + M3 nut per tank','Screw enters from the front side','Cutaway shows one of the two joints'],
-         [('1',[28,24,50]),('2',[28,39.8,50])],arrows=[([28,24,50],[28,35,50])])
+    # Highlight the bonded surfaces inside the two rings using source triangles;
+    # no manufactured glue shape is invented.
+    shell=chosen(['P35']);parts=[]
+    for row in shell:
+        triangles=row['v'][row['f']]
+        ring=np.zeros(len(triangles),dtype=bool)
+        band=((triangles[:,:,2]>=32.999)&(triangles[:,:,2]<=38.001))|((triangles[:,:,2]>=61.999)&(triangles[:,:,2]<=67.001))
+        for x in (-28,28):
+            radial=np.linalg.norm(triangles[:,:,:2]-[x,43],axis=2)
+            ring|=(np.all(abs(radial-8.3)<.003,axis=1)&np.all(band,axis=1))
+        parts+=[dict(row,f=row['f'][~ring],guide_color=(219,218,204)),
+                dict(row,f=row['f'][ring],guide_color=(224,169,43),flat_shading=True)]
+    tanks=chosen(['P36'])
+    for row in tanks:
+        # Separate along X only for a clear view of the hidden surfaces.
+        row['v']=row['v']+[24 if row['v'][:,0].mean()>0 else -24,0,0]
+        row['guide_color']=(174,99,52)
+    parts+=tanks
+    emit('tank-ring-bond',parts,[.5,1,.85],'Bond the tanks inside both rings',
+         ['Gold: hidden ring contact surfaces','Tanks separated to show the joints'],
+         marks=[('1',[28,43,35.5]),('2',[28,43,64.5])])
     # P11 light pads and actual tie slots. No fixed tie-lock position implied.
     parts=cropped(chosen(['P11'],{'P11':[0]}),[[9,-36,8],[26,-16,36]])
     # Recognizable resin/LED/wire illustration on the accepted pad. Geometry

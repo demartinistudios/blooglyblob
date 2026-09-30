@@ -1,23 +1,23 @@
 {
-  "package": "BlooglyBlob R28 editable print set",
-  "date": "2026-09-28",
-  "status": "Digitally prepared;48 unrelated source reviews and physical qualification pending; no R28 dispatch or public deployment",
-  "cad_release": "R28/cloud24",
+  "package": "BlooglyBlob R29 editable print set",
+  "date": "2026-09-30",
+  "status": "Digitally prepared;41 independent source comparisons and physical qualification pending; no physical dispatch or deployment",
+  "cad_release": "R29/cloud25",
   "files": [
     {
-      "path": "BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
+      "path": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
       "sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
       "bytes": 508417
     },
     {
-      "path": "BlooglyBlob-R28-PLA-Production.3mf",
-      "sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
-      "bytes": 22422002
+      "path": "BlooglyBlob-R29-PLA-Production.3mf",
+      "sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+      "bytes": 20948568
     },
     {
       "path": "README.md",
-      "sha256": "525d9b938f5ee364461b2fa07b3478b6fcb1a4482184d82ba777f93dbf2da6ce",
-      "bytes": 7313
+      "sha256": "569d0abf93bb5404639d3f9868b626d87b6443a74e8d9b824948bb88f0b21cc4",
+      "bytes": 8363
     },
     {
       "path": "checks/first-layers.png",
@@ -240,6 +240,46 @@
       "bytes": 2084
     },
     {
+      "path": "checks/r29-arm-frames.json",
+      "sha256": "e9b467d56612b7b888ed85536ee1e441ca2928487932cb0ecb38e472d9f81307",
+      "bytes": 4921
+    },
+    {
+      "path": "checks/r29-blockers.json",
+      "sha256": "cf01c82b35e7925c8ca9b80e0bd9752334a299fc33d90d3bce1d5ed397a9be10",
+      "bytes": 1690
+    },
+    {
+      "path": "checks/r29-first-layer.png",
+      "sha256": "0be0c9a607a5fea33406e5bc44418eb727df6af1facf9d0961bd3a37804938be",
+      "bytes": 565623
+    },
+    {
+      "path": "checks/r29-frame-review.json",
+      "sha256": "c75309300a12966bf3df8b945c52bac423c75b00770db2377cd64b68aa0d74cb",
+      "bytes": 1868
+    },
+    {
+      "path": "checks/r29-preservation.json",
+      "sha256": "ab7499732004c82ddd02d331696250d433da526c1ee6a008c70b5a1f3e803686",
+      "bytes": 987
+    },
+    {
+      "path": "checks/r29-replacement.json",
+      "sha256": "5faf66e6284f3ccc19af6f7fab36ea2bcd304c8c5cbb4dff572ef55a9a521a9e",
+      "bytes": 5416
+    },
+    {
+      "path": "checks/r29-slice-audit.json",
+      "sha256": "60568eb1a2ea7bb1101833ad1074c01ffe2a1c81de8a8295037d4483dbf617cb",
+      "bytes": 14053
+    },
+    {
+      "path": "checks/r29-validation.json",
+      "sha256": "951a3cc872ba79005a93dc1edce50564852a4b0b087963ceb62416951a9634d7",
+      "bytes": 2998
+    },
+    {
       "path": "checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -251,13 +291,13 @@
     },
     {
       "path": "live-source-check.json",
-      "sha256": "c53a2059c99c0cd0dfd2041b9f677c57b8aa6565599b092ae8ecd671abe20d5f",
-      "bytes": 469
+      "sha256": "00f73dcaa589bf1be2ce4150f6fb756d51cf0de6ded3b94ed027ae724901f448",
+      "bytes": 900
     },
     {
       "path": "manifest.json",
-      "sha256": "4108adbb26ddd99b03b77ac82eff6740e19e47488d7afc14ef18f9be857b5806",
-      "bytes": 624166
+      "sha256": "1d4dc8616b46ea7b61d4c6876024090f451f421a51d6991488069f751045650b",
+      "bytes": 625183
     },
     {
       "path": "object-settings.csv",
@@ -271,8 +311,8 @@
     },
     {
       "path": "source-provenance.json",
-      "sha256": "8234a17db4f48c64bb42c86ae16210e8e8389f78962e7b34c680bc6170f118ef",
-      "bytes": 438315
+      "sha256": "45fa35dd2c8acb046d94e829dffdd29f84cb348f868566d2c8d943832191c67d",
+      "bytes": 439082
     }
   ]
 }

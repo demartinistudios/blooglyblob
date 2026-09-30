@@ -1,5 +1,5 @@
 {
-  "status": "R29 CAD accepted; six changed part designs require print-project replacement and affected guide updates. Physical qualification remains separate.",
+  "status": "R29/cloud25 CAD and editable print package:71 required pieces/51 types. Seven normal meshes replaced on W1/W2/C2;41 inherited independent source comparisons and physical qualification remain separate.",
   "cad": "R29",
   "parts": [
     {
@@ -651,7 +651,7 @@
         "audio-module",
         "audio-service"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "FB32",
@@ -676,7 +676,7 @@
         "audio-module",
         "audio-service"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "FB41",
@@ -1054,7 +1054,7 @@
         "head-shoulder-covers",
         "head-open"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P09",
@@ -1236,7 +1236,7 @@
         "shelf-arms",
         "head-shoulder-covers"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P30",
@@ -1345,7 +1345,7 @@
         "belt",
         "body-light-service"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P36",
@@ -1374,7 +1374,7 @@
       "guide_review_step_ids": [
         "backpack"
       ],
-      "print_project_status": "R29 geometry accepted; existing print projects retain prior geometry. Replace this part and review affected full plates."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P37",
