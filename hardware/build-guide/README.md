@@ -59,7 +59,7 @@ relevant dependencies, or was reviewed:
 
 - Steps and service/repeat-build instructions, and step IDs and their links.
 - Part/supply/plate cards, fastener allocations, quantities, estimates and downloads.
-- Models, diagrams, assembly views, custom/stand views, templates and hardware keys.
+- Models, diagrams, assembly close-ups, templates and hardware keys.
 - Wiring/reference pages, component specifications and software commands.
 
 Prefer bench preparation before installation: solder, insulate, label and check
@@ -100,7 +100,7 @@ additional local tools only when changing those assets; review generated diffs:
   into `src/`. Source identity and scene/dimension review gates must pass for the
   selected CAD revision; do not bypass them to force new pictures.
 - `hardware/tools/guide/render_hand_arm_actions.py --output NEW_DIR --font FONT`
-  renders magnet, horn, strap and saddle installation close-ups from the same checked
+  renders magnet, horn and strap installation close-ups from the same checked
   CAD source. It checks the receiving features before drawing nominal magnets and
   drilled horns, and records source hashes and dimensions. Inspect scratch images
   before using `--write`. Broad model rendering also applies these action views

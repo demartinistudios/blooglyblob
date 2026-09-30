@@ -372,7 +372,7 @@
     },
     {
       "id": "T06",
-      "exact": "Caliper / metric ruler",
+      "exact": "Caliper, metric ruler and marker",
       "category": "Tool",
       "optional": 0,
       "qty": 1,
@@ -380,7 +380,7 @@
     },
     {
       "id": "T07",
-      "exact": "Deburring knife, small files, mat, safety glasses",
+      "exact": "Deburring knife, craft knife, scissors, small files, mat and safety glasses",
       "category": "Tool",
       "optional": 0,
       "qty": 1,

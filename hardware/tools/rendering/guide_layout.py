@@ -38,7 +38,7 @@ def render_layout(render, output):
                       ('USB data',[-53.5,-3,-22],[725,470]),('POWER',[-22,53.4,-22],[425,225]),('F1',[14,-58,-22],[180,715]),
                       ('F2',[34,74,-22],[270,145]),('C1',[24,0,-20],[400,425]),
                       ('C2',[24,32,-20],[400,322]),('J1',[80,72,-40],[65,195]),('Harness',[0,0,-2],[420,395])]:body+=label(name,p,xy)
-    svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img"><title>Enclosure viewed through its open bottom: Pi USB toward front, SD toward rear, S1 above S2, W1 W3 W2 W4 rear to front</title><rect width="900" height="900" fill="#f3f7fa"/>{body}</svg>'
+    svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img"><title>Base viewed through its open bottom: Pi USB toward front, SD toward rear, S1 above S2, W1 W3 W2 W4 rear to front</title><rect width="900" height="900" fill="#f3f7fa"/>{body}</svg>'
     (output/'base-electrical-layout.svg').write_text(svg)
     # The installation locator shows only the boards being positioned, not
     # components that the builder will install in later steps.

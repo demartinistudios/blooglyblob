@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
-      "sha256": "e8a4716309be9d184de1ebd7d370261b2aeb7ad9f9c953610f2a9f5532c27a7c",
-      "bytes": 6286
+      "sha256": "c7dcce3f2a6f4ad655733844af822920dfdf05db04bc3d2bde34b55969072a5e",
+      "bytes": 6299
     },
     {
       "path": "hardware/assembly/hardware.json",
-      "sha256": "b34d21463870b2c6f14e9bf5df8f28b625a8aa4c35f3af8dfec403007d93fb58",
-      "bytes": 3892
+      "sha256": "35ca94eeef1e485c49051fd21945305dd24008e870aa49d401cc68b2832a4caa",
+      "bytes": 4013
     },
     {
       "path": "hardware/assembly/interfaces.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "hardware/cad/CURRENT-NOTES.md",
-      "sha256": "cec8b96d1bc1340d3523c384bccae00da568d5d891cd8a6188ba526f1ef717d4",
-      "bytes": 2899
+      "sha256": "474d134b5f2f557eee2cf94365e17f6465bab6f0c8492c5b31fbb47089dcf12d",
+      "bytes": 3051
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
@@ -404,13 +404,13 @@
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "375e5bfd75c3db8cfa30b2f86a6eb62e0e7f08c429e1d830db06977c08dfb747",
-      "bytes": 41944
+      "sha256": "8d595abcb3aba66159966dfd172b4b4105af3ccc5b580c3ab46ab7d9a91830ec",
+      "bytes": 46617
     },
     {
       "path": "hardware/catalog/supplies.json",
-      "sha256": "ef9e6e0e40c251294abeba1f67d5906e7f450705fca740729c5dff9173106499",
-      "bytes": 14408
+      "sha256": "0d47e5c4d11f80be034863709277b866b0990eac6a2043712f0a695915f128b4",
+      "bytes": 14444
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",

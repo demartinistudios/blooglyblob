@@ -14,8 +14,10 @@ terminal assignments. Do not infer wiring from the connector order alone.
 
 The front microphone grille uses four M3 × 6 screws and ordinary M3 nuts; the
 rear grille uses M3 × 12. Front nuts are loaded before the audio cradle.
-Rear, power-inlet and audio mounting recesses have open loading access and
-adhesive nut retention. Fastener counts and allocations are maintained in
+Rear vent, power jack and audio mounting recesses have open loading access.
+Glue only the eight board nuts, four bottom-cover nuts and three audio-cradle
+nuts. Hold the grille, rear-vent and power-jack nuts until their screws catch;
+do not glue them. Fastener counts and allocations are maintained in
 [hardware.json](../assembly/hardware.json).
 
 ## Audio cradle

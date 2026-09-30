@@ -87,6 +87,16 @@ def clipped(parts, bounds):
     return result
 
 
+def pose_parts(parts, rotation):
+    """Rigid display rotation; source triangles and assembly coordinates stay intact."""
+    result=[]
+    for mesh in parts:
+        row=dict(mesh,v=mesh['v']@rotation.T)
+        row.pop('normals',None);row.pop('corner_normals',None)
+        result.append(row)
+    return result
+
+
 def render_closeups(render, output):
     v=Views(render,output)
     ref=next(m for m in v.original if m['id']=='P06' and m['occ']==0)
@@ -124,6 +134,13 @@ def render_closeups(render, output):
     for y in [-4.318,4.318]:parts+=hardware(2,6,ep([0,y,17]),ep([0,0,-1]))+[nut(ep([0,y,5]),ep([0,0,1]))]
     v.emit('eye-board-fastening',parts,[.45,1,.5],'Screw the LED board to P06',
            ['2 × M2 × 6 · no washers','LED faces the foam opening','Both sockets face inside the head'],arrows=[(ep([0,y,16]),ep([0,y,10.57])) for y in [-4.318,4.318]])
+    wall=clipped(eye(['GS20']),[[-20,-1,-14],[20,8,14]])
+    for m in wall:m['guide_color']=(110,141,203)
+    parts=wall+eye(['GS11'],{'GS11':[0,0,-8]})
+    parts += [nut(ep([x,0,-9.8]),ep([0,0,1])) for x in [-9,9]]
+    v.emit('eye-housing-seating',parts,[.75,-1,.45],'Seat the eye housing from outside',
+           ['GS11 · one housing shown','Blue: head wall cutaway','Housing nuts already in place'],
+           arrows=[(ep([0,0,-7]),ep([0,0,-1]))])
     parts=eye(['GS11','P06','E03'],{'GS11':[0,0,-5],'P06':[0,0,9],'E03':[0,0,9]})
     wall=clipped(eye(['GS20']),[[-16,-1,-12],[16,8,12]])
     for m in wall:
@@ -169,7 +186,7 @@ def render_closeups(render, output):
     body+='<path d="M105 185V230M315 185V230" stroke="'+BG+'" stroke-width="12"/>'
     body+=text(210,145,'Flat disk against printed recess',anchor='middle')+text(210,368,'Long splined hub → servo shaft',anchor='middle')
     v.save('horn-side-orientation','Which side faces the servo?',body,
-           ['Side section · shape is schematic','Two offset screws attach the print','Center screw attaches to the shaft','Fit on the shaft only at the fit pose'])
+           ['Side section · shape is schematic','Two offset screws attach the print','Center screw attaches to the shaft','Fit on the shaft only at the fit position'])
     render.meshes=v.original
     return v.paths
 
@@ -375,6 +392,11 @@ def render_audio_closeups(render, output):
 
 
 def compact_view(render,output,name,parts,camera,title,arrows=(),labels=(),label_size=24):
+    if name in ('button-enclosure-nuts','button-plate-fastening'):
+        rotation=np.diag([1,-1,-1])
+        parts=pose_parts(parts,rotation);camera=(rotation@camera).tolist()
+        arrows=[(rotation@a,rotation@b) for a,b in arrows]
+        labels=[(label,None if point is None else rotation@point,xy) for label,point,xy in labels]
     render.meshes=parts
     points=np.concatenate([m['v'] for m in parts]);bounds=[points.min(0)-2,points.max(0)+2]
     render.render('closeup-'+name,dict(select=['all'],camera=camera,clean=True,
@@ -436,13 +458,13 @@ def render_inlet_closeups(render, output):
     for m in shell:m['guide_color']=(179,191,203)
     nuts=[hexagon([80,72,z],5.5,3,2.4) for z in [-27,-53]]
     compact('inlet-plate-nuts',shell+nuts,[.6,-1,.25],
-        'Place two M3 nuts into the open inlet slots from inside the enclosure; glue their outside edges',
+        'Place two M3 nuts into the power jack slots from inside the base; hold each until its screw catches',
         arrows=[([80,74,z],[80,84,z]) for z in [-27,-53]],
         labels=[('2 × M3 nuts',[80,72,-27],(40,55)),('FB01',[94,86,-42],(450,350))])
     parts=shell+plate+jack+moved([washer],94.75-107)+moved([jacknut],95.9-116)
     for z in [-27,-53]:parts+=hardware(3,12,[80,122.5,z],[0,-1,0])
     compact('inlet-plate-fastening',parts,[.85,1,.25],
-        'Fasten the fitted inlet plate with two M3 by 12 mm screws from outside',
+        'Fasten the fitted power jack plate with two M3 by 12 mm screws from outside',
         arrows=[([80,110,z],[80,96,z]) for z in [-27,-53]],
         labels=[('2 × M3 × 12',[80,122.5,-27],(355,52)),('FB21',[90,94,-42],(310,368))])
     render.meshes=v.original

@@ -21,12 +21,11 @@ def render_legacy_actions(render, output):
     parts = clipped(v.parts(['P04', 'P02']), [[-7,-32,93],[11,32,103]])
     for m in parts: m['guide_color'] = (126,135,169) if m['id']=='P04' else (140,159,179)
     for y in [-26.5,26.5]:
-        parts += screw(3,20,[31,y,97.8],[-1,0,0]) + [hex_nut(3,[-15,y,97.8],[1,0,0])]
-    emit('head-carrier-fastening', parts, [1,-.85,.95],
+        parts += screw(3,20,[9,y,97.8],[-1,0,0]) + [hex_nut(3,[-6.2,y,97.8],[1,0,0])]
+    emit('head-carrier-fastening', parts, [-1,-.85,.95],
          'Fasten P04 through both uprights from robot-left',
-         arrows=[([29,y,97.8],[12,y,97.8]) for y in [-26.5,26.5]],
-         labels=[('2 × M3 × 20',None,(28,36)), ('P04',[7,0,101],(405,100)),
-                 ('P02',[0,-26.5,102],(45,315)), ('M3 nuts',[-15,26.5,97.8],(360,387))])
+         labels=[('2 × M3 × 20',None,(28,36)), ('P04',[-1.27,6.6,99.3],(405,100)),
+                 ('P02',[0,-26.5,102],(45,315)), ('M3 nuts',[-6.2,26.5,97.8],(360,387))])
     parts = v.parts(['P01'],1) + clipped(v.parts(['P02']),[[-6,-32,103],[0,32,114.3]])
     for y in [-26.5,26.5]:
         parts += screw(3,10,[0,y,136],[0,0,-1]) + [hex_nut(3,[0,y,107.9],[0,0,1])]
@@ -36,11 +35,10 @@ def render_legacy_actions(render, output):
          labels=[('2 × M3 × 10',None,(28,36)),('P01',[30,0,114.3],(465,250)),
                  ('P02',[0,-29,109],(90,387))])
     parts=clipped(v.parts(['GS20','P08']),[[30,0,121],[44,6,130]])
-    parts+=screw(2,8,[53,0,125.3],[-1,0,0],head='button')
+    parts+=screw(2,8,[40.45,0,125.3],[-1,0,0],head='button')
     parts+=[hex_nut(2,[34.1,0,125.3],[1,0,0])]
     emit('head-shell-fastening',parts,[1,-1,.6],
-         'Remove the head shell screw while leaving the shelf assembly intact',
-         arrows=[([44,0,125.3],[50,0,125.3])],
+         'Head shell screw engages the nut in the shelf',
          labels=[('M2 × 8',None,(410,45)),('Head',[42,4,128],(420,365)),
                  ('P08',[32,4,128],(36,62)),('M2 nut',[34.1,0,125.3],(32,385))])
     parts=v.parts(['P03'])+v.parts(['E01'],0)

@@ -42,9 +42,8 @@ def impact(item_id):
                 views[output]=dict(scene,output=output)
     images={v['output'] for v in views.values()}
     if card and card.get('image'):images.add(card['image'])
-    if part:images.add('assets/r16/service-stand.png')
     if item_id in ('FB01','FB41','M3x6','N3'):
-        images.update(['assets/community/front-nut-entry.png','assets/community/front-grille-fastening.png'])
+        images.update(['assets/community/front-support-cleanup.svg','assets/community/front-grille-fastening.png'])
     interfaces=[x for x in read('hardware/assembly/interfaces.json')['interfaces'] if item_id in x['parts']]
     return {'item_id':item_id,'geometry_sha256':part['geometry_sha256'] if part else None,
             'instances':part.get('instances',[]) if part else [],

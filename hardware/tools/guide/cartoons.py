@@ -1481,7 +1481,7 @@ def drivers_and_pliers(p):
 
 
 def caliper(p):
-    """A digital caliper: steel beam with scale, sliding head with display, jaws to the left."""
+    """A digital caliper and a capped fine-point marker for measurements and cut lines."""
     st, st_side = '#c9ced4', '#8f969d'
     def beam():
         for i in range(0, 140, 2):
@@ -1500,16 +1500,20 @@ def caliper(p):
     p.prism(rrect(x - 2, -2, 50, 30, 3), 3, 12, '#34363c', '#1f2124', detail=head)
     p.prism(rrect(x + 26, 29.5, 10, 8, 2), 3, 9, '#c9ced4', '#8f969d')
     p.prism(rrect(160, 6.5, 14, 3, .6), 0, 2, st, st_side)
+    # Capped marker: cap meets the barrel, with a clip attached to the cap.
+    p.rod(35, 132, 76, 4.5, '#34363c', za=5, face=None, tip='round')
+    p.rod(12, 37, 76, 5, '#22242a', za=5, face=None, tip='round')
+    p.prism(rrect(15, 72, 19, 2, .6), 9, 10.5, '#606773', '#30343c')
 
 
 def deburr_kit(p):
-    """On a cutting mat: a swivel-blade deburring tool, a small file and safety glasses."""
+    """Deburring tool, file, glasses, craft knife and scissors on a cutting mat."""
     def grid():
         for i in range(0, 161, 10):
-            p.line([(i, 0), (i, 110)], 1, '#3b8f68', .9 if i % 50 else 1.6)
-        for j in range(0, 111, 10):
+            p.line([(i, 0), (i, 180)], 1, '#3b8f68', .9 if i % 50 else 1.6)
+        for j in range(0, 181, 10):
             p.line([(0, j), (160, j)], 1, '#3b8f68', .9 if j % 50 else 1.6)
-    p.prism(rrect(0, 0, 160, 110, 2), 0, 1, '#2f7a57', '#1f5a3f', detail=grid)
+    p.prism(rrect(0, 0, 160, 180, 2), 0, 1, '#2f7a57', '#1f5a3f', detail=grid)
     # deburring tool
     p.rod(14, 86, 22, 6, '#e0572e', za=7, face=None, tip='round', hi=.5)
     p.rod(86, 96, 22, 3, '#c9ced4', za=7, face=None, tip='round')
@@ -1530,6 +1534,19 @@ def deburr_kit(p):
         rim=lens(cx)
         p.line(rim+[rim[0]], 3, '#3a3c42', 2.2)
     p.wire([(74,81),(80,78),(86,81)], '#3a3c42', 2.3, z=3)
+    # Craft knife: the blade heel is held inside the metal collet.
+    p.rod(14, 87, 119, 4, '#b8c0c8', za=5, face=None, tip='round')
+    p.rod(86, 98, 119, 4.4, '#707983', za=5, face=None, tip='flat')
+    p.prism([(96,116),(126,116),(100,124),(96,124)], 4.5, 5.2, '#d4d9de', '#929ca5')
+    # Closed scissors: two blades share the pivot and continue into the handles.
+    for dy, z in [(-1.5,3),(1.5,4)]:
+        p.prism([(51,151+dy),(69,148+dy),(137,150+dy),(141,151+dy),(69,154+dy),(51,155+dy)], z, z+1, '#c2c9d1', '#7d8791')
+    p.flat(circle(70,151,2.8,24),5.2,'#59636e')
+    for cy in (141,166):
+        # Colored rims leave the finger holes open to the mat below.
+        ring=ellipse(37,cy,17,9,40)
+        p.line(ring+[ring[0]],4,'#244b79',4)
+        p.line([(51,cy),(61,153)],4,'#244b79',4)
 
 
 def pin_vise(p):
@@ -1654,8 +1671,8 @@ ITEMS = {
     'T03': (multimeter, 'Digital multimeter with leads', None, None),
     'T04': (wire_stripper, 'Wire stripper', None, None),
     'T05': (drivers_and_pliers, 'Small driver, hex key and fine pliers', None, None),
-    'T06': (caliper, 'Digital caliper', None, None),
-    'T07': (deburr_kit, 'Deburring tool, file, cutting mat and safety glasses', None, None),
+    'T06': (caliper, 'Digital caliper and marker', None, None),
+    'T07': (deburr_kit, 'Cutting and cleanup tools on a mat', None, None),
     'T08': (pin_vise, 'Pin vise and 2.2 mm drill bit', None, None),
     'T09': (heat_gun, 'Heat gun', None, None),
     'T10': (laptop_reader, 'Computer and USB microSD reader', None, None),

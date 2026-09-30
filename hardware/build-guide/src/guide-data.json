@@ -156,7 +156,7 @@
         "On the audio cradle (FB24), clear the end windows and lid-nut slots.",
         "Clear support from the horn recesses in both upper arms (AR01, AR04).",
         "Test-fit the real screws, nuts and mating parts. Do not force them. Test-fit means fitting parts without glue or final tightening, and removing them afterwards.",
-        "Check how the eyes, eye housings and head shelf (P08) fit the head shell (GS20).",
+        "Check how the eye LED cassettes (P06), eye housings and head shelf (P08) fit the head shell (GS20).",
         "Set aside cracked, warped or delaminated parts for reprinting."
       ],
       "check": "The base, its grilles and the rear vent are clean. Their screw holes, nut pockets and cable paths are clear.",
@@ -188,8 +188,8 @@
         },
         {
           "title": "Clear the base",
-          "image": "assets/community/front-nut-entry.png",
-          "caption": "Front nut-entry channel and its nut, seen from inside the base.",
+          "image": "assets/community/front-support-cleanup.svg",
+          "caption": "Front nut-entry channel, seen from inside the base.",
           "safety": {
             "level": "notice",
             "text": "The plastic behind the front nuts is thin. Too much force can crack it. Clear the channels without thinning that plastic."
@@ -236,14 +236,14 @@
       },
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-boards",
+          "allocation_id": "joint-pi-shifters",
           "role": "preload",
           "hardware": {
             "N2": 8
           }
         },
         {
-          "allocation_id": "joint-fb-close",
+          "allocation_id": "joint-bottom-cover",
           "role": "preload",
           "hardware": {
             "N3": 4
@@ -307,7 +307,7 @@
       },
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-audio-cradle",
+          "allocation_id": "joint-audio-cradle",
           "role": "preload",
           "hardware": {
             "N3": 3
@@ -393,7 +393,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-panels",
+          "allocation_id": "joint-front-grille-rear-vent",
           "role": "install",
           "hardware": {
             "M3x6": 4,
@@ -416,7 +416,7 @@
         {
           "title": "Load the four front grille nuts",
           "image": "assets/community/front-grille-nut-loading.svg",
-          "caption": "Drawn upright: the arrow points toward the top of the base.",
+          "caption": "The base is upside down. The nut enters from the open bottom.",
           "actions": [
             3,
             4,
@@ -502,7 +502,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-speakers",
+          "allocation_id": "joint-speakers",
           "role": "install",
           "hardware": {
             "M3x12": 8,
@@ -576,7 +576,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-side-panels",
+          "allocation_id": "joint-side-grilles",
           "role": "install",
           "hardware": {
             "M3x12": 8,
@@ -588,7 +588,7 @@
         {
           "title": "Load the four side grille nuts",
           "image": "assets/community/side-grille-nut-loading.svg",
-          "caption": "Drawn upright: the arrow points toward the top of the base.",
+          "caption": "The base is upside down. The nut enters from the open bottom.",
           "actions": [
             0,
             1,
@@ -1635,7 +1635,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-boards",
+          "allocation_id": "joint-pi-shifters",
           "role": "install",
           "hardware": {
             "M2x12": 4,
@@ -1707,7 +1707,8 @@
       "parts": {
         "FB01": 1,
         "E06": 4,
-        "C16": "Four cut pieces"
+        "C16": "Four cut pieces",
+        "T06": 1
       },
       "hardware": {},
       "note": "",
@@ -1793,14 +1794,14 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-audio-cradle",
+          "allocation_id": "joint-audio-cradle",
           "role": "install",
           "hardware": {
             "M3x6": 3
           }
         },
         {
-          "allocation_id": "joint-fb-audio",
+          "allocation_id": "joint-audio-module",
           "role": "preload",
           "hardware": {
             "N2": 2
@@ -1875,7 +1876,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-audio",
+          "allocation_id": "joint-audio-module",
           "role": "install",
           "hardware": {
             "M2x8": 2
@@ -1974,7 +1975,8 @@
         "T02": 1,
         "T03": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "",
@@ -2085,7 +2087,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-inlet-button",
+          "allocation_id": "joint-button-power-jack",
           "role": "install",
           "hardware": {
             "M3x8": 2,
@@ -2106,7 +2108,7 @@
         {
           "title": "Load the two base nuts",
           "image": "assets/community/button-enclosure-nuts.svg",
-          "caption": "Drawn upright, from inside the base. Arrows show how each nut enters its pocket.",
+          "caption": "The base is upside down. Arrows show how each nut enters its pocket.",
           "actions": [
             2,
             3,
@@ -2125,7 +2127,7 @@
         {
           "title": "Fasten the button insert",
           "image": "assets/community/button-plate-fastening.svg",
-          "caption": "Drawn upright, with the insert on top.",
+          "caption": "The base is upside down, with screws entering the insert from below.",
           "actions": [
             8,
             9,
@@ -2165,7 +2167,8 @@
         "T03": 1,
         "T04": 1,
         "T05": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {
         "M3x12": 2,
@@ -2238,7 +2241,7 @@
       ],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-inlet-button",
+          "allocation_id": "joint-button-power-jack",
           "role": "install",
           "hardware": {
             "M3x12": 2,
@@ -2275,7 +2278,8 @@
         "T01": 1,
         "T03": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "You soldered the power jack leads in {step:power-jack}.",
@@ -2370,7 +2374,8 @@
         "T01": 1,
         "T02": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "",
@@ -2464,7 +2469,8 @@
         "T02": 1,
         "T03": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "",
@@ -2555,7 +2561,8 @@
         "C14": "As used",
         "T01": 1,
         "T04": 1,
-        "T05": 1
+        "T05": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "You prepared the four button leads in {step:button-leads}. You cut the Neo jumpers in {step:pi-shifters}.",
@@ -2850,7 +2857,8 @@
         "T01": 1,
         "T02": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "note": "",
@@ -2908,7 +2916,7 @@
         "With the meter in continuity mode, check the body half’s +5 V and GND contacts. Each must reach its matching wire at the strand’s far end. Check that +5 V does not reach GND.",
         "Plug the body half into the base half.",
         "Use the Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
-        "Set the meter to DC volts. Put the red probe in the plug’s center. Touch the black probe to its outer sleeve.",
+        "Set the meter to DC volts. Put the red probe in the plug’s center. Touch the black probe to its outer sleeve. Keep the probe tips apart.",
         "The meter must read 5.0–5.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
         "Push the barrel plug fully into the power jack (J1). Plug the supply into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
@@ -3065,7 +3073,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-03",
+          "allocation_id": "joint-frame-uprights",
           "role": "install",
           "hardware": {
             "M3x16": 2,
@@ -3093,7 +3101,7 @@
         {
           "title": "Screw the collar and uprights to the base",
           "image": "assets/r21/base-frame.png",
-          "caption": "The base drawn see-through, with the lower collar and one upright on its top wall.",
+          "caption": "The base on its robot-left side, with the lower collar and both uprights.",
           "actions": [
             3,
             4,
@@ -3116,7 +3124,8 @@
         "T01": 1,
         "T02": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "actions": [
@@ -3206,7 +3215,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-04",
+          "allocation_id": "joint-shoulder-servos",
           "role": "install",
           "hardware": {
             "M2x6": 4,
@@ -3314,7 +3323,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-05",
+          "allocation_id": "joint-head-servo",
           "role": "install",
           "hardware": {
             "M2x6": 2,
@@ -3449,7 +3458,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-07",
+          "allocation_id": "joint-head-shelf",
           "role": "install",
           "hardware": {
             "M2x6": 2,
@@ -3477,12 +3486,16 @@
         {
           "title": "Seat the adapter in the head shelf",
           "image": "assets/community/head-shelf-fastening.svg",
-          "caption": "The adapter above the shelf, with the three screw positions.",
+          "caption": "Brown P14 seated in blue-gray P08, with three screws above their holes.",
           "actions": [
             3,
             4,
             5
-          ]
+          ],
+          "detail": {
+            "title": "Shelf joint section",
+            "image": "assets/community/head-shelf-joint-section.svg"
+          }
         },
         {
           "title": "Fit the nuts under the shelf",
@@ -3504,7 +3517,8 @@
         "GS12": 1,
         "C01": 2,
         "C02": 2,
-        "T06": 1
+        "T06": 1,
+        "T07": 1
       },
       "hardware": {},
       "actions": [
@@ -3585,7 +3599,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-09",
+          "allocation_id": "joint-eyes",
           "role": "preload",
           "hardware": {
             "N2": 4
@@ -3605,8 +3619,8 @@
         },
         {
           "title": "Seat the housings on the head",
-          "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "Cutaway of the head wall (blue) between a housing and its cassette.",
+          "image": "assets/community/eye-housing-seating.svg",
+          "caption": "One eye housing entering its socket from outside. The head wall is cut away.",
           "actions": [
             3,
             4,
@@ -3655,7 +3669,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-09",
+          "allocation_id": "joint-eyes",
           "role": "install",
           "hardware": {
             "M2x6": 4,
@@ -3730,7 +3744,9 @@
         "T02": 1,
         "T03": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "C07": "As needed",
+        "T06": 1
       },
       "hardware": {},
       "actions": [
@@ -3830,7 +3846,9 @@
         "E04": 1,
         "C03": 1,
         "T05": 1,
-        "T06": 1
+        "T06": 1,
+        "C07": "As needed",
+        "T07": 1
       },
       "hardware": {
         "M2x8": 4,
@@ -3856,7 +3874,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-10",
+          "allocation_id": "joint-mouth",
           "role": "install",
           "hardware": {
             "M2x8": 4,
@@ -3938,7 +3956,7 @@
     {
       "id": "head-light-cable",
       "chapter": "Head",
-      "title": "Prepare the head light cable and fasteners",
+      "title": "Test-fit the head fasteners and connector",
       "parts": {
         "GS20": 1,
         "P08": 1,
@@ -4000,7 +4018,8 @@
         "T02": 1,
         "T03": 1,
         "T04": 1,
-        "T09": 1
+        "T09": 1,
+        "T06": 1
       },
       "hardware": {},
       "actions": [
@@ -4116,7 +4135,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-14",
+          "allocation_id": "joint-body-lights",
           "role": "install",
           "hardware": {
             "M3x10CS": 3,
@@ -4124,7 +4143,7 @@
           }
         },
         {
-          "allocation_id": "joint-28",
+          "allocation_id": "joint-backpack-carrier",
           "role": "preload",
           "hardware": {
             "N3": 2
@@ -4194,7 +4213,8 @@
         "P09": 2,
         "P10": 3,
         "C04": 1,
-        "T05": 1
+        "T05": 1,
+        "T07": 1
       },
       "hardware": {
         "M3x16": 1,
@@ -4224,7 +4244,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-15",
+          "allocation_id": "joint-body-diffuser",
           "role": "install",
           "hardware": {
             "M3x16": 1,
@@ -4314,7 +4334,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-16",
+          "allocation_id": "joint-upper-arms",
           "role": "install",
           "hardware": {
             "M2x6": 4,
@@ -4374,7 +4394,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-17",
+          "allocation_id": "joint-elbows",
           "role": "install",
           "hardware": {
             "M3x14": 2,
@@ -4522,7 +4542,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-28",
+          "allocation_id": "joint-backpack-carrier",
           "role": "install",
           "hardware": {
             "M3x18": 2
@@ -4589,7 +4609,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-29",
+          "allocation_id": "joint-backpack",
           "role": "install",
           "hardware": {
             "M3x8": 2,
@@ -4598,7 +4618,7 @@
           }
         },
         {
-          "allocation_id": "joint-28",
+          "allocation_id": "joint-backpack-carrier",
           "role": "install",
           "hardware": {
             "N3": 4
@@ -4618,7 +4638,7 @@
         {
           "title": "Screw in each tank",
           "image": "assets/community/tank-fastening.svg",
-          "caption": "A cutaway of one tank joint: the screw in the shell tab and the nut pocket inside the tank.",
+          "caption": "One tank joint in section, with the shell rear face down and the screw entering from above.",
           "actions": [
             3,
             4,
@@ -4646,7 +4666,7 @@
         {
           "title": "Load the four carrier nuts",
           "image": "assets/community/carrier-side-nuts.svg",
-          "caption": "The carrier on its own, with a nut beside each side channel.",
+          "caption": "The carrier on the rear upright, with a nut beside each side channel.",
           "actions": [
             11
           ]
@@ -5216,7 +5236,7 @@
       "number": 62,
       "hardware_allocations": [
         {
-          "allocation_id": "joint-servo-position",
+          "allocation_id": "joint-head-arm-mounting",
           "role": "install",
           "hardware": {
             "CENTER": 3
@@ -5325,7 +5345,7 @@
       "number": 63,
       "hardware_allocations": [
         {
-          "allocation_id": "joint-servo-position",
+          "allocation_id": "joint-head-arm-mounting",
           "role": "install",
           "hardware": {
             "M2x8": 3,
@@ -5524,13 +5544,12 @@
         },
         {
           "title": "Lay the robot on its back",
-          "image": "assets/r16/service-stand.png",
-          "caption": "An earlier render: the robot level on a wooden stand, open bottom toward the viewer, head on a block.",
           "actions": [
             1,
             2,
             3
-          ]
+          ],
+          "textOnly": true
         },
         {
           "title": "Unplug the supply",
@@ -5595,7 +5614,7 @@
       "commands": [],
       "hardware_allocations": [
         {
-          "allocation_id": "joint-fb-close",
+          "allocation_id": "joint-bottom-cover",
           "role": "install",
           "hardware": {
             "M3x12": 4
@@ -5610,7 +5629,7 @@
             "text": "A cover pulled in by its screws presses on the wiring. The wires can be pinched, and the cover can crack. Seat it flat by hand before you fit a screw."
           },
           "image": "assets/r21/base-cover.png",
-          "caption": "The base from below, with the cover lowered away from it.",
+          "caption": "The base on its back, with the bottom cover separated toward the builder.",
           "actions": [
             0,
             1,
@@ -6162,7 +6181,7 @@
         {
           "title": "Remove the bottom cover",
           "image": "assets/r21/base-cover.png",
-          "caption": "The base from below, with the cover lowered away from it.",
+          "caption": "The base on its back, with the bottom cover separated toward the builder.",
           "actions": [
             5,
             6
@@ -6414,7 +6433,7 @@
         {
           "title": "Remove the button",
           "image": "assets/r16/base-button.png",
-          "caption": "The button in its insert, from below.",
+          "caption": "The button and its insert, with four insulated leads.",
           "actions": [
             10,
             11,
@@ -6437,8 +6456,8 @@
       ]
     },
     {
-      "id": "servo-replacement",
-      "title": "Replace a servo",
+      "id": "remove-servo",
+      "title": "Remove a servo",
       "chapter": "Service",
       "actions": [
         "For an arm servo, take off the arm as in {step:arm-service}.",
@@ -6450,8 +6469,81 @@
         "Above and below an arm servo’s shaft, or on top of the head servo’s ears, remove the two M2×6 screws. Leave their nuts in the bracket’s pockets.",
         "Slide an arm servo out of the bracket’s open side, toward the back. Lift the head servo straight up. Pull the servo cable up out of the base.",
         "If an arm-servo nut dropped, find it in the open base. Press it back into its pocket with fine pliers, through the bracket’s open side.",
-        "If a head-servo nut dropped, find it in the open base. Remove the bracket’s two M3×20 screws, holding their nuts. Re-seat the nut on the bench. Refit the bracket as in {step:head-servo}.",
-        "Prepare the new servo’s cable as in {step:servo-cables}. Slide a new arm servo in from the back, shaft outward, cable toward the middle. Lower a new head servo in from above, shaft up.",
+        "If a head-servo nut dropped, find it in the open base. Remove the bracket’s two M3×20 screws, holding their nuts. Re-seat the nut on the bench. Refit the bracket as in {step:head-servo}."
+      ],
+      "check": "The servo and its cable are out. The bracket nuts are back in place, ready for the replacement.",
+      "parts": {
+        "T01": 1,
+        "T05": 1
+      },
+      "hardware": {},
+      "note": "Continue with {step:fit-servo}.",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "service",
+      "number": null,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Remove the head or arm",
+          "image": "assets/community/head-center-screw.svg",
+          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "actions": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Open the base",
+          "textOnly": true,
+          "actions": [
+            2
+          ]
+        },
+        {
+          "title": "Disconnect the servo cable",
+          "image": "assets/circuits/servo-left.svg",
+          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
+          "actions": [
+            3
+          ]
+        },
+        {
+          "title": "Open the body",
+          "textOnly": true,
+          "actions": [
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Remove the ear screws",
+          "image": "assets/community/shoulder-servo-removal.svg",
+          "caption": "The shoulder-servo bracket (P03), with one servo and its two ear screws.",
+          "actions": [
+            6
+          ]
+        },
+        {
+          "title": "Take out the servo",
+          "textOnly": true,
+          "actions": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fit-servo",
+      "title": "Fit a new servo",
+      "chapter": "Service",
+      "actions": [
+        "Prepare the new servo’s cable as in {step:servo-cables}.",
+        "Slide a new arm servo in from the back, shaft outward, cable toward the middle. Lower a new head servo in from above, shaft up.",
         "Rest its ears on the supports. Put an M2×6 screw through each ear into its nut. Tighten until the servo sits firm. Leave its horn off.",
         "Run its cable down the frame into the base. For the head servo, thread the head light cable up through the upper collar. Refit the collar as in {step:head-servo}.",
         "Close the foam wrap as in {step:body-diffuser}. Refit the carrier, backpack and belt as in {step:backpack-carrier}, {step:backpack} and {step:belt}.",
@@ -6465,10 +6557,11 @@
         "T01": 1,
         "T04": 1,
         "T05": 1,
-        "C07": "As needed"
+        "C07": "As needed",
+        "E01": 1
       },
       "hardware": {},
-      "note": "",
+      "note": "Remove the old servo first: {step:remove-servo}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -6478,52 +6571,41 @@
       "commands": [],
       "panels": [
         {
-          "title": "Take off the part and open the base",
-          "image": "assets/community/head-center-screw.svg",
-          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "title": "Prepare the new cable",
+          "textOnly": true,
           "actions": [
-            0,
+            0
+          ]
+        },
+        {
+          "title": "Fit the servo",
+          "image": "assets/community/shoulder-servo-insertion.svg",
+          "caption": "Both arm servos enter from the back, shafts pointing outward.",
+          "actions": [
             1,
             2
           ]
         },
         {
-          "title": "Release the cable and open the body",
-          "image": "assets/circuits/servo-left.svg",
-          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
-          "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "title": "Remove the servo",
-          "image": "assets/community/shoulder-servo-removal.svg",
-          "caption": "The shoulder-servo bracket (P03), with one servo and its two ear screws.",
-          "actions": [
-            6,
-            7,
-            8
-          ]
-        },
-        {
-          "title": "Fit the new servo",
-          "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "Both servos entering the open side, shafts pointing outward.",
-          "actions": [
-            9,
-            10,
-            11
-          ]
-        },
-        {
-          "title": "Close the body and connect the cable",
+          "title": "Route the cable and refit the collar",
           "textOnly": true,
           "actions": [
-            12,
-            13,
-            14
+            3
+          ]
+        },
+        {
+          "title": "Close the body",
+          "textOnly": true,
+          "actions": [
+            4
+          ]
+        },
+        {
+          "title": "Connect and secure the cable",
+          "image": "assets/circuits/servo-left.svg",
+          "caption": "The LEFT cable at its two WAGOs and level shifter.",
+          "actions": [
+            5
           ]
         },
         {
@@ -6531,9 +6613,9 @@
           "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
-            15,
-            16,
-            17
+            6,
+            7,
+            8
           ],
           "safety": {
             "level": "caution",

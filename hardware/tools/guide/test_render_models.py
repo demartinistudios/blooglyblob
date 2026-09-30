@@ -177,3 +177,12 @@ class InletActionViewTests(unittest.TestCase):
             for face_y in (92.5,94.5):
                 circular=[p for p in points if abs(p[1]-face_y)<.001 and abs(math.hypot(p[0]-80,p[2]-center_z)-radius)<.001]
                 self.assertGreater(len(circular), 30)
+
+
+class CurrentGuideSceneTests(unittest.TestCase):
+    def test_frame_shows_only_lower_collar_and_both_uprights(self):
+        scene=module.scenes()['assets/r21/base-frame.png']['view']
+        self.assertEqual(scene['occ'], {'P01':[0], 'P02':[0,1]})
+
+    def test_retired_stand_is_not_an_available_guide_scene(self):
+        self.assertNotIn('assets/r16/service-stand.png', module.scenes())

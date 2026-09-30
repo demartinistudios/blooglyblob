@@ -140,14 +140,14 @@ def render_routes(render, output, parts):
                       [[-80,-90,-65],[44,14,0]]) + cables
     detail.emit('usb-audio-route-depth',usb_parts,[.55,.85,-1.4],
         'Route USB below the cradle',
-        ['Detail · Pi/enclosure partly omitted','1 Pi USB · 2 audio USB',
+        ['Detail · Pi/base partly omitted','1 Pi USB · 2 audio USB',
          'Keep the cable clear of the cover'],
         marks=[('1',[-53.5,-3,-22]),('2',[-34,-80,-26])])
     power_parts=[m for m in parts if m['id']=='E09' or
                  (m['id']=='E06' and np.mean(m['v'],axis=0)[1]>10)] + power
     detail.emit('pi-power-route-depth',power_parts,[.6,.75,-1.3],
         'Route the short power lead',
-        ['Oblique view · enclosure omitted','1 Pi POWER · 2 W1/2 · 3 W3/2',
+        ['Oblique view · base omitted','1 Pi POWER · 2 W1/2 · 3 W3/2',
          'Gentle bends; no extra service loop'],
         marks=[('1',[-22,53.4,-22]),('2',[42,42.7,-17.2]),('3',[42,12.7,-17.2])])
     paths.extend(detail.paths)
