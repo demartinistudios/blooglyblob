@@ -3996,13 +3996,20 @@
       },
       "hardware": {},
       "actions": [
-        "With the strand unplugged, count six pebbles from INPUT and cut midway between the sixth and seventh. Mark the saved remainder’s newly cut upstream end INPUT before storing it. Label the six lights 0–5.",
-        "Keep the BODY connector, R2 and HEAD power tails prepared in {step:body-light-input} attached. If input wiring has not been prepared, make it as shown there before mounting the lights; keep the confirmed INPUT direction.",
-        "Dry-route BODY down through the frame’s central opening to H3 in the enclosure, and the separate HEAD power tails up to the head’s side notch. Leave the plugs reachable and enough slack to lift the head and unplug it. Mark any extensions or trimming, then finish them on the bench; keep the existing input branches intact.",
-        "On the bench, solder the body half of HEAD to the prepared +5 V and GND tails and light 5’s outgoing DATA. Insulate each joint and the strand’s two unused outgoing power wires individually.",
-        "Check connector mapping and that +5 V is not shorted to GND before mounting the strand."
+        "Count six pebbles from the end marked INPUT. Cut the wire midway between the sixth and seventh pebbles.",
+        "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
+        "Label the six pebbles light 0 to light 5, starting at INPUT.",
+        "Test-route the body half of the body light connector down the frame. Pass it through the central opening to the base half in the base.",
+        "Test-route the head power pair up the frame, through the upper foam collar (P01). Leave slack to lift the head and unplug the head light connector.",
+        "Mark each wire where it reaches with that slack. If a wire is short, extend it on the bench. Leave the input joints intact.",
+        "On the bench, remove the caps from the head power pair. Trim the pair at your marks.",
+        "Take the body half of the head light connector (E10) from {step:head-harness}. Solder its +5 V and GND wires to the matching head power pair wires.",
+        "Solder its DATA wire to the outgoing DATA wire after light 5.",
+        "Insulate each joint separately. Insulate the two unused outgoing power wires after light 5 separately.",
+        "With the meter in continuity mode, check that the +5 V contacts of both body halves on the strand connect.",
+        "Check the two GND contacts the same way. Check that +5 V does not reach GND."
       ],
-      "check": "",
+      "check": "Lights 0 to 5 are cut from INPUT. The input harness, with the data resistor (R2), is still attached. The head light connector’s body half is soldered on and +5 V does not reach GND.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
@@ -4013,36 +4020,42 @@
       "commands": [],
       "panels": [
         {
-          "title": "Cut from the tested input end",
+          "title": "Cut six lights from the input end",
           "image": "assets/circuits/cut-six.svg",
-          "caption": "Use only the end positively marked INPUT in {step:body-light-test}.",
+          "caption": "The first six pebbles from INPUT, with the cut point after the sixth.",
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Keep the prepared input wiring",
-          "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "BODY and R2 stay attached after the input test; disconnect H3 while working.",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Route the separate HEAD power tails",
-          "image": "assets/circuits/body-power.svg",
-          "caption": "The branches are already soldered. Trim only the free ends for the HEAD connector.",
-          "actions": [
+            0,
+            1,
             2
           ]
         },
         {
-          "title": "Continue only data after light 5",
-          "image": "assets/circuits/body-output.svg",
-          "caption": "Light 5 DATA OUT joins HEAD DATA; its outgoing power wires remain unused.",
+          "title": "Test-route the two light cables",
+          "image": "assets/circuits/body-power.svg",
+          "caption": "The input harness at the strand input, with the head power pair.",
           "actions": [
             3,
-            4
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Solder the head light connector’s body half",
+          "image": "assets/circuits/body-output.svg",
+          "caption": "The output end after light 5, with DATA continuing to the head light connector.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Insulate the joints and check the power contacts",
+          "textOnly": true,
+          "actions": [
+            9,
+            10,
+            11
           ]
         }
       ]
@@ -4061,20 +4074,29 @@
       },
       "hardware": {
         "M3x10CS": 3,
-        "N3": 3
+        "N3": 5
       },
       "actions": [
-        "Fit both P11 brackets and P13 with one M3×10 countersunk screw and M3 nut each.",
-        "Hold P12 at the middle rear with low-tack tape, its pads pointing forward and 10° outward. The backpack carrier fastens it in {step:backpack-carrier}.",
-        "Place one pebble on each pad with its LED facing out. Pass two ties through the pad slots and gently secure the wire on each side of the resin.",
-        "Keep the roughly 100 mm inter-pixel wires in loose loops. Do not cinch, stretch or sharply fold them."
+        "Stand the base on its feet. Find the three side slots on the robot-right face of the rear upright (P02).",
+        "Slide an M3 nut into the middle slot until it stops. Load the upper slot the same way.",
+        "Slide an M3 nut into each of the three side slots on the robot-left face of the front upright.",
+        "At the lower slot, hold a front body-light bracket (P11) on the upright, countersunk hole facing forward. Put an M3×10 countersunk screw through it into the nut.",
+        "Fit the second P11 at the upper slot the same way. Fit the body wire guide (P13) at the middle slot. Tighten all three screws.",
+        "If a screw does not catch, check that its nut is fully in the slot.",
+        "Hold the rear body-light bracket (P12) on the back of the rear upright, over the middle nut. Line up the holes.",
+        "Turn it so both pads face forward. They angle 10° outward.",
+        "Tape it to the upright with low-tack tape.",
+        "Place a pebble on each of the six pads, LED facing away from the pad.",
+        "At each pebble, pass two 2.5 mm cable ties (C07) through the pad slots. Put one on each side of the resin.",
+        "Close each tie gently around the wire. Keep both ties off the resin and the LED.",
+        "Leave the wire between pebbles, about 100 mm, in loose loops. Do not pull it tight, stretch it or fold it sharply."
       ],
-      "check": "All joins are insulated, four lights face forward, the two rear lights angle forward and no tie crosses an LED or resin body.",
+      "check": "Four lights face forward and the two rear lights angle forward. No tie crosses an LED or resin body.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
-      "note": "",
+      "note": "The backpack carrier screws hold P12 and use the two rear upright nuts in {step:backpack-carrier}.",
       "kind": "build",
       "number": 49,
       "commands": [],
@@ -4086,25 +4108,66 @@
             "M3x10CS": 3,
             "N3": 3
           }
+        },
+        {
+          "allocation_id": "joint-28",
+          "role": "preload",
+          "hardware": {
+            "N3": 2
+          }
         }
       ],
       "panels": [
         {
-          "title": "Fit the light brackets",
-          "image": "assets/community/body-brackets.png",
-          "caption": "P11 at lower and upper front; P13 at middle front; P12 temporarily taped at middle rear.",
+          "title": "Load the two carrier nuts in the rear upright",
+          "image": "assets/community/rear-seam-nuts.svg",
+          "caption": "The rear upright from behind, with the middle (1) and upper (2) nut positions.",
           "actions": [
             0,
             1
           ]
         },
         {
-          "title": "Tie around the wires, not the LEDs",
-          "image": "assets/community/pebble-wire-restraint.svg",
-          "caption": "Two 2.5 mm ties per pebble, outside the resin body.",
+          "title": "Load the three front upright nuts",
+          "textOnly": true,
           "actions": [
-            2,
-            3
+            2
+          ]
+        },
+        {
+          "title": "Fasten the front brackets and wire guide",
+          "image": "assets/community/body-brackets.png",
+          "caption": "Both uprights with every body-light bracket fitted, front at the lower right.",
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Tape the rear body-light bracket in place",
+          "textOnly": true,
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Tie a pebble to each pad",
+          "image": "assets/community/pebble-wire-restraint.svg",
+          "caption": "One pad with its pebble, and a tie on each side of the resin.",
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Leave loose loops between the lights",
+          "textOnly": true,
+          "actions": [
+            12
           ]
         }
       ]
@@ -4121,20 +4184,29 @@
       },
       "hardware": {
         "M3x16": 1,
-        "N3": 3
+        "N3": 1
       },
       "actions": [
-        "Before wrapping the frame, seat M3 nuts in the rear upright’s middle and upper seam-cover pockets.",
-        "Cut slightly long, dry-wrap between the collars and trim. Make one slit at each shoulder without removing foam, leaving the horn seats clear.",
-        "Fit P09 at the lower and upper rear positions; P12 backs the middle. Temporarily tape the upper P09 in place.",
-        "Fit the three P10 covers, fastening only the lower one with one M3×16 screw and nut. Route the servo cables down the frame and through the central hole, clear of pinches and rough edges."
+        "Slide an M3 nut into the lower side slot on the robot-right face of the rear upright.",
+        "Run the three servo cables and the body half of the body light connector down the frame. Pass them through the central opening into the base.",
+        "Keep them clear of the rear seam and of sharp edges.",
+        "Cut the body foam (C04) from the body foam template: 224.8 × 114.3 mm, from 4 mm foam. Cut it slightly long.",
+        "Cut the two knife slits marked on the template, one to each shoulder. Remove no foam.",
+        "Test-fit the foam between the two foam collars (P01), with its front center at the front upright.",
+        "Trim both ends until they meet at the rear upright with a 2 mm gap. Keep the edge notches full size.",
+        "Wrap the foam again. Leave both shoulder horn seats clear.",
+        "Lift the foam edges at the lower nut. Slide a rear seam backing (P09) behind them. Line up its hole with the upright’s hole.",
+        "With one hand, press a rear seam cover (P10) over the seam there. It holds P09 against the upright.",
+        "With the other hand, drive an M3×16 screw through P10 and P09 into the nut. Tighten it.",
+        "Slide the second P09 behind the foam edges at the upper nut. Tape it to the upright with low-tack tape.",
+        "Fit the other two P10 covers over the seam at the middle and upper nuts. The rear body-light bracket (P12) backs the middle one."
       ],
-      "check": "The foam sits without stretching and opens at the rear seam; the two upper seam nuts are ready for the carrier.",
+      "check": "The foam sits in both collars without stretching. Its ends meet at the rear seam, and the lower cover is screwed.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "The backpack carrier screws hold the middle and upper covers in {step:backpack-carrier}.",
       "kind": "build",
       "number": 50,
       "commands": [],
@@ -4146,32 +4218,57 @@
             "M3x16": 1,
             "N3": 1
           }
-        },
-        {
-          "allocation_id": "joint-28",
-          "role": "preload",
-          "hardware": {
-            "N3": 2
-          }
         }
       ],
       "panels": [
         {
-          "title": "Load rear seam nuts first",
-          "image": "assets/community/rear-seam-nuts.svg",
-          "caption": "Middle and upper M3 nuts will receive the carrier screws later.",
+          "title": "Load the lower rear seam nut",
+          "textOnly": true,
           "actions": [
             0
           ]
         },
         {
-          "title": "Wrap and trim the foam",
-          "image": "assets/r16/step-15.png",
-          "caption": "Use the body template: 224.8 × 114.3 mm, 4 mm foam, 2 mm rear seam.",
+          "title": "Run the cables down to the base",
+          "textOnly": true,
           "actions": [
             1,
-            2,
-            3
+            2
+          ]
+        },
+        {
+          "title": "Cut the body foam from the template",
+          "textOnly": true,
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Wrap and trim the foam",
+          "image": "assets/r16/step-15.png",
+          "caption": "The wrapped body from the rear, with the seam covers drawn apart from the seam.",
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Fasten the lower seam cover",
+          "textOnly": true,
+          "actions": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Fit the upper backing and the other covers",
+          "textOnly": true,
+          "actions": [
+            11,
+            12
           ]
         }
       ]
