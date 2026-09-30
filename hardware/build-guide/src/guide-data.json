@@ -2923,16 +2923,19 @@
         "N3": 2
       },
       "actions": [
-        "Support the enclosure in the service stand. Place the lower P01 collar and both P02 uprights on its deck.",
-        "Load one M3 nut into each upright’s lower side pocket. Insert the screws upward through the enclosure and collar, then tighten evenly.",
-        "Check the collar sits flat and both uprights are parallel. Keep the central cable opening clear."
+        "Rest the base (FB01) on its robot-left side on a folded towel. Turn its open bottom toward you.",
+        "On top of the base, hold a foam collar (P01) around the central opening. Line up its two tabs with the screw holes in front of and behind the opening.",
+        "Slide an M3 nut into the slot near the foot of each frame upright (P02). When fitted, the slots face away from the other upright.",
+        "Hold one upright on its tab, slots facing outward. From inside the base, put an M3×16 screw through the top wall and collar into the upright.",
+        "Turn the screw by hand until it catches the nut. Fasten the other upright the same way. Tighten both screws evenly.",
+        "If a wire lies across a screw hole, move it aside first. Keep the central opening clear."
       ],
-      "check": "Both uprights are firm and parallel, the collar sits flat and no wire is trapped.",
+      "check": "Both uprights are firm and parallel. The collar sits flat and no wire is trapped.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
-      "note": "Keep the head and arms off the servo shafts until {step:shelf-arms}.",
+      "note": "",
       "kind": "build",
       "number": 35,
       "commands": [],
@@ -2948,20 +2951,23 @@
       ],
       "panels": [
         {
-          "title": "Place the collar and uprights",
+          "title": "Place the lower collar and uprights",
           "image": "assets/r21/base-frame.png",
-          "caption": "The uprights stand at front and back, not the sides.",
+          "caption": "The lower collar and uprights in place on top of the base.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Fasten upward from the base",
+          "title": "Screw each upright to the base",
           "image": "assets/community/frame-base-fastening.svg",
-          "caption": "Two M3×16 screws from below into two side-loaded M3 nuts.",
+          "caption": "Cutaway of one upright foot, its collar tab and the top wall of the base.",
           "actions": [
-            1,
-            2
+            3,
+            4,
+            5
           ]
         }
       ]
@@ -2984,32 +2990,46 @@
       },
       "hardware": {},
       "actions": [
-        "Identify supply, ground and signal using the Kitronik 25105 datasheet and label each cable at both ends.",
-        "Cut off the crocodile clips one wire at a time, preserving the labels. Keep the ends separate.",
-        "Hold each loose servo near its mounting position and dry-route to the assigned WAGO and shifter terminals. Mark the needed length, then solder and heat-shrink any extensions on the bench, with joints clear of moving areas.",
-        "Prepare supply and return ends for 11 mm WAGO insertion. The signal’s bare end must fit entirely inside its shifter terminal."
+        "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo’s part card.",
+        "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
+        "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
+        "Keep the base on its side. Hold each servo near its place on the frame. Test-route its cable down through the central opening into the base.",
+        "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
+        "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
+        "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12).",
+        "Strip 11 mm from each supply and ground wire for its WAGO port. Strip the signal wire so its bare end fits entirely inside its level shifter terminal."
       ],
-      "check": "All three servo cables are labeled, reach their terminals with slack and have insulated extension joints.",
-      "note": "",
+      "check": "All three servo cables are labeled at both ends and reach their ports with slack. Every extension joint is insulated.",
+      "note": "You connect the servo cables in {step:servo-connections}.",
       "source": [],
       "commands": [],
       "panels": [
         {
-          "title": "Label each servo",
+          "title": "Label the three servo cables",
           "image": "assets/cartoons/E01.svg",
-          "caption": "Prepare LEFT, RIGHT and HEAD cables before fitting the servos.",
+          "caption": "A servo as supplied, with crocodile clips on its three wires.",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
-          "title": "Make any needed extensions",
-          "image": "assets/circuits/solder-insulation.svg",
-          "caption": "Use 22 AWG extensions if a lead is thinner than 24 AWG or too short.",
+          "title": "Test-route each servo cable",
+          "textOnly": true,
           "actions": [
-            2,
-            3
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Extend and strip the wires",
+          "image": "assets/circuits/solder-insulation.svg",
+          "caption": "Bench detail of one extension joint and its heat-shrink.",
+          "actions": [
+            6,
+            7
           ]
         }
       ]
@@ -3030,13 +3050,21 @@
         "N3": 4
       },
       "actions": [
-        "On the bench, press four M2 nuts into P03’s inward-facing hex pockets.",
-        "Slide each servo sideways from the robot’s back until its ears sit on the supports, with its cable toward the body.",
-        "Fit all four ear screws before mounting P03 to the frame. Keep horns off and check each servo sits firm without bowing its ears.",
-        "Hold a loose M3 nut in each bracket access well and start both front screws. The wells do not retain these nuts by themselves.",
-        "Hold the rear nuts and fit both screws. Tighten all four evenly, keeping the uprights straight. A small gap around a servo body is normal."
+        "On the bench, press an M2 nut into each hex pocket on the inner faces of the shoulder-servo bracket (P03). There are four pockets.",
+        "Each nut sits flat in its pocket.",
+        "Hold the bracket with its open long side toward you. This side faces the robot’s back.",
+        "Slide the LEFT servo in on your left, shaft pointing left. Rest its ears on the supports. Keep its cable toward the middle of the bracket.",
+        "Fit the RIGHT servo on your right the same way.",
+        "Put an M2×6 screw through each servo ear into its nut. Fit all four before the bracket goes on the frame.",
+        "Tighten each screw until its servo sits firm. Stop before the ears bow. Keep the horns off.",
+        "Stand the base on its feet. Lower the bracket between the uprights, open side toward the back. Line up its holes with the round holes in the uprights.",
+        "Push both rear M3×16 screws through the rear upright into the bracket, with no nuts. They hold the bracket while you work.",
+        "Start at the lower front hole. Hold an M3 nut in the front access well with fine pliers. Put an M3×16 screw through the upright into it. Repeat at the upper hole.",
+        "Back out one rear screw until its tip leaves the rear access well. Hold a nut in the well with fine pliers. Turn the screw in until it catches.",
+        "Repeat for the other rear screw. Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal.",
+        "The wells are open at the bottom. If a nut drops through, find it before you go on."
       ],
-      "check": "Neither servo rocks, all ears sit flat and P03 is secure without bowed uprights.",
+      "check": "Neither servo rocks, all ears sit flat and the bracket is secure without bowed uprights.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3060,43 +3088,51 @@
       ],
       "panels": [
         {
-          "title": "Seat the servo-ear nuts",
+          "title": "Press in the servo-ear nuts",
           "image": "assets/community/shoulder-servo-nuts.svg",
-          "caption": "",
+          "caption": "One side of the bracket. The other side is the mirror image.",
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Insert both servos from the back",
-          "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "The long side of P03 is open; the shafts point outward.",
-          "actions": [
+            0,
             1
           ]
         },
         {
-          "title": "Fasten the ears first",
-          "image": "assets/community/shoulder-servo-fastening.svg",
-          "caption": "Two M2×6 screws and nuts per servo.",
+          "title": "Slide in both shoulder servos",
+          "image": "assets/community/shoulder-servo-insertion.svg",
+          "caption": "Both servos entering the open side, shafts pointing outward.",
           "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Fasten the front of P03",
-          "image": "assets/community/shoulder-carrier-front.svg",
-          "caption": "Section view: hold each loose nut while starting its screw.",
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Fasten the rear of P03",
-          "image": "assets/community/shoulder-carrier-rear.svg",
-          "caption": "Section view: hold each loose nut while starting its screw.",
-          "actions": [
+            2,
+            3,
             4
+          ]
+        },
+        {
+          "title": "Screw the servo ears to the bracket",
+          "image": "assets/community/shoulder-servo-fastening.svg",
+          "caption": "One servo with its two ear screws.",
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Fasten the bracket to the front upright",
+          "image": "assets/community/shoulder-carrier-front.svg",
+          "caption": "Section through the front upright and bracket, with both screws and nuts.",
+          "actions": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Fasten the bracket to the rear upright",
+          "image": "assets/community/shoulder-carrier-rear.svg",
+          "caption": "Section through the rear upright and bracket.",
+          "actions": [
+            10,
+            11,
+            12
           ]
         }
       ]
@@ -3119,13 +3155,18 @@
         "N3": 4
       },
       "actions": [
-        "Off the frame, press two M2 nuts into P04’s underside hex pockets.",
-        "Slide the servo through its open side, ears on the supports and cable toward the body.",
-        "Fit both ear screws before mounting the bracket. Check the servo cannot rock or slide.",
-        "Fit both screws through P04 and the uprights, holding the far-side nuts. Route the cable down the frame, clear of the head horn.",
-        "Load each upright’s upper nut pocket and fasten the second P01 collar from above. Keep the head-bracket screws reachable."
+        "On the bench, press an M2 nut into each of the two hex pockets under the head-servo bracket (P04).",
+        "Slide the HEAD servo into the bracket’s open side, shaft up. Rest its ears on the supports. Keep its cable pointing down.",
+        "Put an M2×6 screw down through each ear into its nut. Fit both before the bracket goes on the frame.",
+        "Tighten until the servo cannot rock or slide.",
+        "Hold the bracket against the robot-left side of both uprights, near their tops. Its open side faces robot-left. Line up its holes with the side holes in the uprights.",
+        "From robot-left, put an M3×20 screw through the bracket and each upright. Hold an M3 nut on it at the robot-right face with a fingertip. Tighten both screws.",
+        "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
+        "Slide an M3 nut into the slot near the top of each upright, from its outer face.",
+        "Place the second foam collar (P01) on the upright tops, tabs over the holes. Put an M3×10 screw down through each tab into its nut. Tighten both.",
+        "The head-bracket screw heads stay reachable from robot-left."
       ],
-      "check": "P04 is firm, the upper collar is level and the head shaft points upward with a clear cable path.",
+      "check": "The head-servo bracket is firm and the upper collar is level. The servo shaft points up, with a clear cable path.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3150,43 +3191,48 @@
       ],
       "panels": [
         {
-          "title": "Seat the servo-ear nuts",
+          "title": "Press in the servo-ear nuts",
           "image": "assets/community/head-servo-nuts.svg",
-          "caption": "",
+          "caption": "The bracket seen from below.",
           "actions": [
             0
           ]
         },
         {
-          "title": "Insert the head servo",
+          "title": "Slide in the head servo",
           "image": "assets/community/head-servo-insertion.svg",
-          "caption": "The servo enters P04 sideways from robot-left.",
+          "caption": "The servo entering the bracket’s open side.",
           "actions": [
             1
           ]
         },
         {
-          "title": "Fasten its ears",
+          "title": "Screw the servo ears to the bracket",
           "image": "assets/community/head-servo-fastening.svg",
-          "caption": "Two M2×6 screws enter downward from above.",
+          "caption": "Both ear screws enter from above.",
           "actions": [
-            2
+            2,
+            3
           ]
         },
         {
-          "title": "Mount P04",
+          "title": "Screw the bracket to the uprights",
           "image": "assets/community/head-carrier-fastening.svg",
-          "caption": "Two M3×20 screws enter from robot-left; loose M3 nuts sit on the far side.",
+          "caption": "The bracket and the tops of both uprights, with the two screws and nuts.",
           "actions": [
-            3
+            4,
+            5,
+            6
           ]
         },
         {
           "title": "Fit the upper collar",
           "image": "assets/community/upper-collar-fastening.svg",
-          "caption": "Two M3×10 screws downward into side-loaded M3 nuts. Uprights are cut away to show the nuts.",
+          "caption": "The upper collar with its two screws. The uprights are cut away to show the nuts.",
           "actions": [
-            4
+            7,
+            8,
+            9
           ]
         }
       ]
@@ -3198,37 +3244,31 @@
       "parts": {
         "E02": 3,
         "T07": 1,
-        "T08": 1
+        "T08": 1,
+        "T06": 1
       },
       "hardware": {},
       "actions": [
-        "Keep each round horn with its center screw. With the horn off its servo, select the opposite pair about 18 mm apart and drill those two holes to 2.2 mm.",
-        "Remove burrs and drilling debris. Leave the central spline and center hole unchanged; keep the horns off the shafts until {step:shelf-arms}.",
-        "The horn’s long splined hub faces the servo shaft; the flat disk seats against the printed part. Keep each center screw for the fit-pose step."
+        "Keep each round servo horn (E02) with its center screw. Work with each horn off its servo.",
+        "On each horn, choose one opposite hole pair about 18 mm apart. Measure it on your horn. Support the disk. Drill both holes to 2.2 mm.",
+        "Remove burrs and drilling debris. Leave the central spline and center hole unchanged."
       ],
-      "check": "Two M2 screws pass freely through each drilled pair and all three center splines are undamaged.",
+      "check": "Two M2 screws pass freely through each drilled pair. All three center splines are undamaged.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md"
       ],
-      "note": "The drawing identifies the hole pair; it is not a drilling template.",
+      "note": "The horns go on the servo shafts in {step:shelf-arms}, after {step:fit-position}.",
       "kind": "build",
       "number": 39,
       "commands": [],
       "panels": [
         {
-          "title": "Drill one opposite pair",
+          "title": "Drill one hole pair in each horn",
           "image": "assets/community/horn-drill-pair.svg",
-          "caption": "Measure the pair on your supplied horn.",
+          "caption": "Face view of a horn, with the drilled pair and its spacing.",
           "actions": [
             0,
-            1
-          ]
-        },
-        {
-          "title": "Recognize the two faces",
-          "image": "assets/community/horn-side-orientation.svg",
-          "caption": "The profile explains orientation; it is not a dimensioned horn model.",
-          "actions": [
+            1,
             2
           ]
         }
@@ -3251,16 +3291,20 @@
         "N3": 3
       },
       "actions": [
-        "Attach one drilled horn to P14. Keep its supplied center screw aside; the assembly stays off the head servo.",
-        "Place P14 over P08, fit three M3 nuts above the adapter, and insert the screws from below. Keep the open cable entry clear."
+        "Hold the head horn adapter (P14) flange up. Slide an M2 nut into each of the two side slots in its hub.",
+        "Hold a drilled horn (E02) in the recess under the adapter. Its flat disk goes against the adapter. Its long splined hub faces away, toward the servo.",
+        "Line up the drilled holes with the nuts. Put an M2×6 screw up through each hole into its nut. Tighten both. Keep the horn’s center screw aside.",
+        "Lower the adapter’s hub through the center of the head shelf (P08). Its flange rests on the shelf. Line up the three holes.",
+        "Put an M3×8 screw up through the shelf and flange at each hole. Hold an M3 nut on each screw above the flange. Tighten all three.",
+        "Keep the shelf’s open cable entry clear."
       ],
-      "check": "The horn, P14 and P08 are secure on the bench; the cable entry and horn center hole remain clear.",
+      "check": "The horn, adapter and shelf are secure on the bench. The cable entry and the horn’s center hole are clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
         "hardware/assembly/electrical.json"
       ],
-      "note": "",
+      "note": "The shelf goes on the head servo in {step:shelf-arms}.",
       "kind": "build",
       "number": 40,
       "commands": [],
@@ -3278,19 +3322,27 @@
       ],
       "panels": [
         {
-          "title": "Fasten the horn to P14",
+          "title": "Screw a horn to the horn adapter",
           "image": "assets/community/head-horn-offset-holes.svg",
-          "caption": "Two M2×6 screws and two M2 nuts use the drilled offset holes.",
+          "caption": "The adapter from below, with the horn shown as an outline.",
+          "detail": {
+            "title": "Which horn face goes where",
+            "image": "assets/community/horn-side-orientation.svg"
+          },
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Fasten P14 above the shelf",
+          "title": "Screw the adapter to the head shelf",
           "image": "assets/community/head-shelf-fastening.svg",
-          "caption": "P14’s flange sits above P08. Three M3×8 screws enter upward from the shelf underside.",
+          "caption": "The adapter above the shelf, with the three screw positions.",
           "actions": [
-            1
+            3,
+            4,
+            5
           ]
         }
       ]
@@ -3303,39 +3355,46 @@
         "GS11": 1,
         "GS12": 1,
         "C01": 2,
-        "C02": 2
+        "C02": 2,
+        "T06": 1
       },
       "hardware": {},
       "actions": [
-        "Use the eye template to cut two flexible transparency windows, 12.6 × 8.6 mm with 4.2 mm corner radii. The template has small fit alternatives.",
-        "With each housing off the head, gently bow the film into the groove behind its front lip and let it flatten with its whole edge captured. Do not force thick film behind the 0.6 mm lip.",
-        "Place a 14 × 10 mm patch of 4 mm white Plastazote LD45 behind each window. Support the housing so the foam stays in place."
+        "Print the eye film template at full size. Cut two windows from clear film (C01): 12.6 × 8.6 mm, with 4.2 mm corner radii. The template also has small fit alternatives.",
+        "Hold the robot-right eye housing (GS11) off the head. Bow the film gently into the groove behind the front lip. Let it flatten with its whole edge captured.",
+        "Do not force thick film behind the 0.6 mm lip. Any clear, flexible transparency sheet works if it fits. Fit the robot-left eye housing (GS12) the same way.",
+        "Cut two 14 × 10 mm patches of 4 mm white Plastazote LD45 eye foam (C02).",
+        "Place one patch in each housing, behind the window. Keep the mounting holes clear.",
+        "Lay each housing window-down so the foam stays in place."
       ],
-      "check": "Both windows sit flat with their edges captured and the foam is not crushed.",
+      "check": "Both windows sit flat with their edges captured. The foam is not crushed.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "Any clear flexible transparency sheet is suitable if it fits the groove without forcing the lip.",
+      "note": "",
       "kind": "build",
       "number": 41,
       "commands": [],
       "panels": [
         {
-          "title": "Capture the clear film",
+          "title": "Cut and fit the clear windows",
           "image": "assets/community/eye-film-insertion.svg",
-          "caption": "",
+          "caption": "One eye housing from behind, with the film going under the front lip.",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         },
         {
-          "title": "Place foam behind the window",
+          "title": "Place the foam behind each window",
           "image": "assets/community/eye-foam-insertion.svg",
-          "caption": "",
+          "caption": "A foam patch going into the housing behind the film.",
           "actions": [
-            2
+            3,
+            4,
+            5
           ]
         }
       ]
@@ -3355,17 +3414,20 @@
         "N2": 4
       },
       "actions": [
-        "With each housing off the head, slide one standard M2 nut into each channel, flats parallel to the front, until it sits beneath its screw-hole roof. Do not glue them or push them through the round holes.",
-        "With film and foam in place, seat GS11 and GS12 in the head. Their short tapered pegs align them; they do not snap in.",
-        "Keep the head face-down so the loose nuts and foam stay in place until the cassettes are fastened."
+        "Use standard M2 nuts, 4 mm across flats and 1.6 mm thick. Keep each housing off the head.",
+        "Slide one nut into each channel from the upper edge, flats parallel to the front. Push it until it sits beneath its screw-hole roof.",
+        "Do not push a nut through its round hole. Do not glue the nuts.",
+        "Seat the robot-right eye housing (GS11) in its socket on the head shell (GS20), from the face side. Seat the robot-left eye housing (GS12) the same way.",
+        "Their short tapered pegs align them. They do not snap in. Hold them in place with your fingers.",
+        "Turn the head face-down onto a folded towel. Keep it face-down until the eye cassettes are fastened. This keeps the loose nuts and foam in place."
       ],
-      "check": "Both housings sit without force, each has two seated nuts and the film and foam remain flat.",
+      "check": "Both housings sit without force. Each has two seated nuts. The film and foam lie flat.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "Standard M2 nuts are 4 mm across flats and 1.6 mm thick.",
+      "note": "",
       "kind": "build",
       "number": 42,
       "commands": [],
@@ -3382,18 +3444,21 @@
         {
           "title": "Load two nuts in each housing",
           "image": "assets/community/eye-housing-nuts.svg",
-          "caption": "M2 nuts slide from the upper edge beneath the thin retaining roofs.",
+          "caption": "One housing from behind, with the two nut channels at its upper edge.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Seat the housings from the face side",
+          "title": "Seat the housings on the head",
           "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "GS11 is robot-right; GS12 is robot-left. The blue cutaway shows the head wall between housing and cassette; fastening comes next.",
+          "caption": "Cutaway of the head wall (blue) between a housing and its cassette.",
           "actions": [
-            1,
-            2
+            3,
+            4,
+            5
           ]
         }
       ]
@@ -3421,15 +3486,19 @@
         "W2": 4
       },
       "actions": [
-        "Seat two M2 nuts in each cassette’s rectangular pockets above and below the light opening.",
-        "Turn the cassette over, seat the Adafruit 5975 board on its supports and fit two M2×6 screws, no washers. Tighten lightly.",
-        "From inside the head, pass each outer screw through its washer, cassette ear and head into the housing nut. Stop when the nuts seat under their roofs; do not force a bottomed-out screw.",
-        "Check that both housings sit flat, the screws hold without bottoming out and the retaining roofs remain intact. Keep all four eye sockets accessible.",
-        "Dry-fit all three straps and check they clear the eye housing joints. Glue only their locating pegs with the two-part epoxy; let it fully cure.",
-        "Check that no glue bridges the housing joints or seams. Do not clamp the rear seams shut."
+        "Press two M2 nuts into the rectangular pockets on the flat side of each eye LED cassette (P06). This side faces the foam. The nuts sit above and below the light opening.",
+        "Turn the cassette over onto the bench, so the bench holds the nuts in. Seat an eye board (E03) on its supports, LED facing into the light opening.",
+        "Its IN and OUT sockets face away from the cassette. Fit two M2×6 screws, with no washers. Tighten them lightly.",
+        "Fit the other board the same way.",
+        "Put an M2 washer on each of two M2×10 screws. From inside the head, pass them through a cassette’s outer holes and the head wall into the housing nuts.",
+        "Tighten until the nuts seat under their roofs. Do not force a screw that bottoms out. Fasten the other cassette the same way.",
+        "Fit both eyes now: the mouth blocks straight access to these screws later. All four eye sockets stay reachable.",
+        "Test-fit the robot-left head strap (GS01), robot-right head strap (GS02) and rear head strap (GS03). Check that they clear the eye housing joints.",
+        "Glue only the locating pegs with two-part epoxy (C09). Keep glue off the housing joints, the center seam and the two rear seams. Do not clamp the rear seams shut.",
+        "Let the epoxy cure fully, for the time on its label."
       ],
-      "check": "Each eye removes and refits independently, and only the strap locating pegs are glued.",
-      "note": "Finish both eyes before fitting the mouth, which blocks straight access to the outer eye screws.",
+      "check": "Each eye removes and refits independently. Only the strap locating pegs are glued. The housings sit flat and their retaining roofs are intact.",
+      "note": "",
       "source": [],
       "commands": [],
       "hardware_allocations": [
@@ -3448,49 +3517,47 @@
         {
           "title": "Load the cassette nuts",
           "image": "assets/community/eye-board-nuts.svg",
-          "caption": "Two M2 nuts go on the foam-facing side of each P06.",
+          "caption": "The foam side of an eye cassette.",
           "actions": [
             0
           ]
         },
         {
-          "title": "Attach each LED board",
+          "title": "Screw an LED board to each cassette",
           "image": "assets/community/eye-board-fastening.svg",
-          "caption": "LED toward the foam; IN and OUT sockets toward the inside of the head.",
+          "caption": "The board side of a cassette.",
           "actions": [
-            1
+            1,
+            2,
+            3
           ]
         },
         {
           "title": "Fasten each cassette into the head",
           "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "Two outer M2×10 screws with thin M2 washers per eye.",
+          "caption": "Cutaway of the head wall (blue) between the housing and cassette.",
+          "detail": {
+            "title": "Both eyes seen from inside the head",
+            "image": "assets/community/eye-installed-inside.svg"
+          },
           "actions": [
-            2
-          ]
-        },
-        {
-          "title": "Check both fitted eyes",
-          "image": "assets/community/eye-installed-inside.svg",
-          "caption": "Fit the eyes before the mouth. Short screws hold the boards; outer screws hold the cassettes.",
-          "actions": [
-            3
+            4,
+            5,
+            6
           ]
         },
         {
           "title": "Glue only the strap pegs",
           "image": "assets/r22/head-straps-installed.png",
-          "caption": "Inner faces: glue only the two locating pegs on each strap.",
+          "caption": "Inner faces of the three straps, with two locating pegs on each.",
+          "detail": {
+            "title": "The fitted straps from the rear",
+            "image": "assets/r22/head-straps-rear.png"
+          },
           "actions": [
-            4
-          ]
-        },
-        {
-          "title": "Keep the seams open",
-          "image": "assets/r22/head-straps-rear.png",
-          "caption": "The housing joints, center seam and two thin rear seams stay free of glue.",
-          "actions": [
-            5
+            7,
+            8,
+            9
           ]
         }
       ]
@@ -3515,17 +3582,23 @@
       },
       "hardware": {},
       "actions": [
-        "Dry-route the loose mouth board and harness to check reach, leaving slack for fitting and removing the mouth. Take them out of the head for soldering and heat-shrink; keep all eye plugs disconnected until the joints are insulated and cool.",
-        "Use the second E10 connector pair. Label matching +5 V, GND and DATA contacts, then check continuity through the seated pair. Remove the male header ends from both 5755 leads, keeping their JST-SH plugs.",
-        "With the mouth stick loose on the bench, solder and label separate 22 AWG +5 V, GND and DIN leads. Insulate the joints and leave DOUT unused.",
-        "Split HEAD +5 V and GND to the first eye’s IN through one Adafruit 5755 lead, and directly to the mouth’s power leads with a separate 22 AWG pair. Solder on the bench and insulate each branch separately.",
-        "Join HEAD DATA to the first 5755 lead’s DATA wire on the bench and insulate the splice. Keep its JST-SH plug disconnected for now.",
-        "On the bench, join the second 5755 lead’s DATA wire to the mouth DIN lead. Insulate the splice and its unused red and black wires separately.",
-        "Check continuity and insulation before connecting the eye plugs. Seat the first 5755 plug in the first eye’s IN; either eye can be first. Press the plug housing rather than its wires.",
-        "Use the 100 mm Adafruit 6404 cable from the first eye’s OUT to the second eye’s IN. Seat the second 5755 plug in the second eye’s OUT.",
-        "Tie the eye wires at P06 with slack, keeping joints away from bends. Support the wired mouth beside the head until {step:mouth}; do not let it hang from its wires."
+        "Take the other three-pin JST-SM pair (E10) for the head light connector. Label both halves HEAD LIGHT. Label each wire +5 V, GND or DATA.",
+        "Plug the halves together. With the meter in continuity mode, check that each wire reaches the same-labeled wire on the other half. Match by function, not by connector sex.",
+        "Unplug the halves. The head half stays with the head. Keep the body half for {step:body-light-strand}.",
+        "Place the mouth stick (E04) loosely at the mouth inside the head. Test-route three 22 AWG leads (C06) from it toward the first eye. Leave slack to fit and remove the mouth.",
+        "Take the stick out of the head. On the bench, solder the +5 V, GND and DIN leads to their pads. Leave DOUT unused.",
+        "Insulate each joint. Label each lead.",
+        "Keep every eye plug unplugged until all joints are insulated and cool. Cut the header pins off both JST-SH eye leads (E11). Keep their plugs.",
+        "Join the head half’s +5 V wire, the first eye lead’s red wire and the mouth +5 V lead. Solder them in one joint at the bench.",
+        "Join the three GND wires the same way, with the eye lead’s black wire. Insulate each joint separately.",
+        "Solder the head half’s DATA wire to the first eye lead’s DATA wire. Insulate the joint.",
+        "Solder the second eye lead’s DATA wire to the mouth DIN lead. Insulate the joint. Insulate its unused red and black wires separately.",
+        "The first eye is light 6 and the second eye is light 7. The mouth is lights 8 to 15.",
+        "With the meter, check continuity and insulation. Plug the first eye lead into either eye’s IN socket. That eye is the first eye. Press the plug housing, not its wires.",
+        "Connect the 100 mm eye cable (E12) from the first eye’s OUT to the second eye’s IN. Plug the second eye lead into the second eye’s OUT.",
+        "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires."
       ],
-      "check": "Mouth power bypasses the eye cable, all joints are insulated, the eye plugs are seated and the wired mouth remains loose for fitting next.",
+      "check": "Mouth power bypasses the eye cable. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -3536,47 +3609,53 @@
       "commands": [],
       "panels": [
         {
-          "title": "Label the HEAD connector",
+          "title": "Label and check the head light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "Use the second E10 pair for HEAD. Match contacts by function, not connector sex.",
+          "caption": "A JST-SM pair apart and seated.",
           "actions": [
             0,
-            1
-          ]
-        },
-        {
-          "title": "Solder the stick on the bench",
-          "image": "assets/circuits/mouth-solder.svg",
-          "caption": "Adafruit 1426: +5 V, GND and DIN are used; DOUT stays unused.",
-          "actions": [
+            1,
             2
           ]
         },
         {
-          "title": "Branch head power",
-          "image": "assets/circuits/head-power.svg",
-          "caption": "HEAD powers the first eye and mouth separately.",
+          "title": "Solder the mouth leads",
+          "image": "assets/circuits/mouth-solder.svg",
+          "caption": "The mouth stick and its three used pads.",
           "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Finish the data joints on the bench",
-          "image": "assets/circuits/head-data.svg",
-          "caption": "First eye 6 → second eye 7 → mouth 8–15. Finish and insulate the harness before connecting its eye plugs.",
-          "actions": [
+            3,
             4,
             5
           ]
         },
         {
-          "title": "Seat the eye plugs",
-          "image": "assets/circuits/eye-connector.svg",
-          "caption": "IN and OUT are marked on the socket side, opposite the LED. Plug in only after the soldering and heat-shrink are complete.",
+          "title": "Join the head power branches",
+          "image": "assets/circuits/head-power.svg",
+          "caption": "Power wiring only: the head half feeds the first eye and the mouth separately.",
           "actions": [
             6,
             7,
             8
+          ]
+        },
+        {
+          "title": "Join the data wires",
+          "image": "assets/circuits/head-data.svg",
+          "caption": "The data path from the head half through both eyes to the mouth.",
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Plug in the eye leads",
+          "image": "assets/circuits/eye-connector.svg",
+          "caption": "The socket side of an eye board, with IN and OUT marked.",
+          "actions": [
+            12,
+            13,
+            14
           ]
         }
       ]
@@ -3590,25 +3669,28 @@
         "P31": 1,
         "E04": 1,
         "C03": 1,
-        "T05": 1
+        "T05": 1,
+        "T06": 1
       },
       "hardware": {
         "M2x8": 4,
         "N2": 4
       },
       "actions": [
-        "With the leads prepared in {step:head-harness}, fit the mouth stick to P30 with two M2×8 screws and M2 nuts, no washers. Support the wired board while working and keep the LED faces unobstructed.",
-        "Seat both nuts in the head before bringing in the mouth assembly.",
-        "Cut a continuous 4 mm foam strip, 7.4 mm high and slightly long. Curve it into the mouth pocket and trim its ends until it lies flat without bunching or stretching.",
-        "Place P31 behind the foam and P30 behind P31. Fit the two outer M2×8 clamp screws from the rear, opposite to the board screws, into the head nuts; no washers.",
-        "Check the end LEDs align with their channels and wires, solder and screws clear P31. Leave the gaps empty and tie the wires at P30 without pulling the solder joints."
+        "Support the wired mouth stick (E04) on the bench. Hold it against the mouth LED cassette (P30), LEDs facing away from the cassette.",
+        "Put two M2×8 screws through the stick and the cassette’s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
+        "Keep the LED faces clear. The black cassette is not electrical insulation, so keep every joint covered.",
+        "Keep the head face-down on the towel. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
+        "Cut a strip of 4 mm white mouth foam (C03), 7.4 mm high and slightly long. Curve it into the mouth pocket. Trim its ends until it lies flat without bunching or stretching.",
+        "Place the mouth light separator (P31) behind the foam, curved face against it. Its eight channels face the LEDs. Place the cassette behind it.",
+        "From the rear, put an M2×8 screw through each outer cassette hole into a head nut. Use no washers. Tighten both. Tie the wires at the cassette without pulling a joint."
       ],
-      "check": "All eight LEDs align behind the smile, the foam lies flat and the cassette can be removed through the open rim.",
+      "check": "All eight LEDs align behind the smile, with the end LEDs in their channels. The gaps of about 0.7 mm to the LED faces and 2.3 mm to the board stay empty. The foam lies flat. The cassette can come out through the open rim.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "Print P30 and P31 in black PLA. Black plastic is not electrical insulation.",
+      "note": "",
       "kind": "build",
       "number": 45,
       "commands": [],
@@ -3624,36 +3706,35 @@
       ],
       "panels": [
         {
-          "title": "Screw the board to P30",
+          "title": "Screw the mouth stick to its cassette",
           "image": "assets/community/mouth-board-fastening.svg",
-          "caption": "Two M2×8 screws enter from the LED/front side into the cassette nuts.",
+          "caption": "The mouth cassette with the stick in front of it.",
           "actions": [
-            0
+            0,
+            1,
+            2
           ]
         },
         {
-          "title": "Load the head nuts",
+          "title": "Load the two head nuts",
           "image": "assets/community/mouth-head-nuts.svg",
-          "caption": "Two M2 nuts fit the hidden mouth bosses.",
+          "caption": "The lower rim of the head from inside, with the two mouth bosses.",
           "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Fit the foam and separator",
-          "image": "assets/community/mouth-clamp-fastening.svg",
-          "caption": "P31’s curved face meets the foam; the eight channel openings face the LEDs.",
-          "actions": [
-            2,
             3
           ]
         },
         {
-          "title": "Check all eight channels",
-          "image": "assets/r20/side-section.png",
-          "caption": "Leave about 0.7 mm to the LED faces and 2.3 mm to the board.",
+          "title": "Fit the foam, separator and cassette",
+          "image": "assets/community/mouth-clamp-fastening.svg",
+          "caption": "The separator and cassette, with the two outer clamp screws.",
+          "detail": {
+            "title": "One mouth channel in section",
+            "image": "assets/r20/side-section.png"
+          },
           "actions": [
-            4
+            4,
+            5,
+            6
           ]
         }
       ]
@@ -3668,26 +3749,28 @@
       },
       "hardware": {},
       "actions": [
-        "Start the large coil thread straight into the head socket and gently hand-tighten until seated.",
-        "Support the coil tip and screw the ball on straight by hand. Stop if either thread binds; do not glue them or use the ball as a handle."
+        "Start the large thread of the antenna coil (A04) straight into the socket on top of the head. Hand-tighten it gently until it seats.",
+        "Support the coil tip. Screw the antenna ball (A05) onto it straight, by hand. Do not glue the threads. Do not use the ball as a handle.",
+        "If either thread binds, stop. Clean support from the thread and try again."
       ],
-      "check": "The antenna base sits flush and the ball unscrews without twisting the coil.",
+      "check": "The antenna base sits flush. The ball unscrews without twisting the coil.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "You can leave the antenna off until {step:secure-wiring} to protect it while assembling.",
+      "note": "You can fit the antenna later, in {step:secure-wiring}, to protect it while you assemble.",
       "kind": "build",
       "number": 46,
       "commands": [],
       "panels": [
         {
-          "title": "Hand-tighten both threads",
+          "title": "Screw on the coil and ball",
           "image": "assets/r18/step-11.png",
-          "caption": "The large A04 thread fits the head; the small tip holds A05.",
+          "caption": "The coil and ball above the head’s threaded socket.",
           "actions": [
             0,
-            1
+            1,
+            2
           ]
         }
       ]
@@ -3698,47 +3781,58 @@
       "title": "Prepare the head light cable and fasteners",
       "parts": {
         "GS20": 1,
-        "P08": 1
+        "P08": 1,
+        "T06": 1
       },
       "hardware": {},
       "actions": [
-        "With head and shelf supported separately, test-fit three M2 nuts and three M2×8 button-head screws. Use no washers or plugs; set them aside for {step:head-shoulder-covers}.",
-        "Test-route the three-wire HEAD lighting cable through the shelf’s open side notch, clear of the horn screws. Lay it into the notch from the side; do not force the plug through a closed hole. This is separate from the head-servo cable.",
-        "Leave a relaxed loop between the rotating head and stationary body. Support both parts and check that the cable lets you lift the head enough to release the HEAD latch. Keep it clear of the horn and screw tips; leave the head and shelf off the servo until the fit-pose step."
+        "Hold the head and the shelf separately. Test-fit an M2 nut in each of the three pockets on top of the head shelf (P08).",
+        "Test-fit an M2×8 button-head screw in each of the three screw recesses in the head shell (GS20). Use no washers or plugs.",
+        "The recesses suit Ø3.5 × 1.3 mm heads. The pockets suit nuts 4 mm across flats and 1.6 mm thick. Set them aside for {step:head-shoulder-covers}.",
+        "Hold the head on the shelf. Lay the head harness wires into the shelf’s open side entry, from the side. Keep them clear of the horn screws.",
+        "Leave the head half below the shelf. Do not force the plug through a closed hole. This path is separate from the head servo cable.",
+        "Leave a relaxed loop below the shelf. The head turns with the servo while the body stays still.",
+        "Lift the head a little off the shelf. Check that you can reach and release the head light connector latch. Keep the wires clear of the horn and screw tips.",
+        "Take the head off the shelf. Keep both off the servo until after {step:fit-position}."
       ],
-      "check": "The fasteners fit freely and the cable can turn and unplug without pulling on an LED board.",
+      "check": "The fasteners fit freely. The head harness can turn and unplug without pulling on an LED board.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
         "hardware/assembly/electrical.json"
       ],
-      "note": "Head screw seats suit Ø3.5 × 1.3 mm button heads and M2 nuts 4 mm across flats × 1.6 mm thick; check your fasteners.",
+      "note": "",
       "kind": "build",
       "number": 47,
       "commands": [],
       "panels": [
         {
-          "title": "Test the head fasteners",
+          "title": "Test-fit the head screws and nuts",
           "image": "assets/r18/head-nut-access.png",
-          "caption": "Three M2 nuts load from above P08.",
+          "caption": "The head shelf from above, with the three nut pockets.",
           "actions": [
-            0
-          ]
-        },
-        {
-          "title": "Lay the cable into the open entry",
-          "image": "assets/community/head-cable-entry-detail.svg",
-          "caption": "The P08 entry opens at the side; lay the cable in from the side.",
-          "actions": [
-            1
-          ]
-        },
-        {
-          "title": "Leave turning and lifting slack",
-          "image": "assets/community/head-cable-entry.svg",
-          "caption": "Keep the plug latch reachable below the head.",
-          "actions": [
+            0,
+            1,
             2
+          ]
+        },
+        {
+          "title": "Lay the harness into the shelf entry",
+          "image": "assets/community/head-cable-entry-detail.svg",
+          "caption": "The shelf’s side entry, with the harness laid in from the side.",
+          "actions": [
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Leave slack to turn and lift the head",
+          "image": "assets/community/head-cable-entry.svg",
+          "caption": "An example loop below the shelf.",
+          "actions": [
+            5,
+            6,
+            7
           ]
         }
       ]

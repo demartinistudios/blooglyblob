@@ -2356,7 +2356,11 @@
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T06.svg",
     "steps": [
-      "workbench"
+      "workbench",
+      "servo-horns",
+      "eye-windows",
+      "mouth",
+      "head-light-cable"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
