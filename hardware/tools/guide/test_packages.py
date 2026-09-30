@@ -192,6 +192,14 @@ class PrintMetadataTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Print metadata'):
                     build.check_print_data(prints, self.manifest)
 
+    def test_plate_settings_total_is_truncated_manifest_total(self):
+        page = (build.SRC / 'repeat-build.html').read_text()
+        build.check_plate_total(page, self.manifest)
+        manifest = json.loads(json.dumps(self.manifest))
+        manifest['plates'][0]['estimated_seconds'] += 60
+        with self.assertRaisesRegex(ValueError, 'Estimated total'):
+            build.check_plate_total(page, manifest)
+
     def test_invalid_preflight_keeps_existing_output(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

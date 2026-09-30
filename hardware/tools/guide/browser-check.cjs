@@ -30,7 +30,7 @@ fs.mkdirSync(OUT,{recursive:false});
   page.on('request',request=>{const url=new URL(request.url());if(/^https?:$/.test(url.protocol)&&url.origin!==new URL(BASE).origin)externalRequests.add(url.href)});
   await page.goto(BASE);
   const data=await page.evaluate(()=>window.BGB);assert.ok(data.prints.length>0);
-  assert.deepEqual(Object.keys(data).sort(),['electrical','guide','parts','plateSettingsHTML','prints']);
+  assert.deepEqual(Object.keys(data).sort(),['electrical','guide','parts','plateSettingsHTML','printSeconds','prints']);
   assert.ok(!/"(exact|status|source|sources)":/.test(JSON.stringify(data)),'private fields in data.js');
   const build=data.guide.steps.filter(s=>s.kind==='build');assert.ok(build.length>0);
   // Step IDs are descriptive slugs; retired numeric and legacy IDs are gone, with no aliases.
@@ -68,11 +68,13 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.equal(await startPrimary.count(),1,'one start action');
   assert.equal(await startPrimary.getAttribute('href'),'#step-'+build[0].id);
   assert.match(await startPrimary.innerText(),/^Start step 1\b/);
-  // Print time and filament are the sums of the production plate estimates in print-data.json.
+  // Print time is the manifest total truncated to minutes, like each plate estimate; filament is the sum of the plate estimates.
   const production=data.prints.filter(p=>p.purpose==='production');
   const minutes=production.reduce((n,p)=>{const m=p.estimate.time.match(/^(?:(\d+) h)? ?(?:(\d+) min)?$/);assert.ok(m&&(m[1]||m[2]),'plate estimate '+p.id);return n+(+m[1]||0)*60+(+m[2]||0)},0);
   const grams=Math.round(production.reduce((n,p)=>n+p.estimate.grams,0));
-  assert.ok(startText.includes(`${Math.floor(minutes/60)} h ${minutes%60} min`),'print time equals the plate estimates');
+  const total=Math.floor(data.printSeconds/60),totalText=`${Math.floor(total/60)} h ${total%60} min`;
+  assert.ok(minutes<=total&&total<minutes+production.length,'print total agrees with the plate estimates');
+  assert.ok(startText.includes(totalText),'print time equals the manifest total');
   assert.ok(startText.includes(`${grams} g of PLA`)&&startText.includes(`${production.length} plates`),'filament and plate count');
   assert.ok(production.every(p=>p.material==='PLA'));
   // Owner decisions Q1 and Q2: no assembly time and no cost figure.

@@ -24,10 +24,7 @@
         "Let the paint cure for the time on its label before assembly.",
         "Gather the tools in the {tools}.",
         "Sort the screws by size.",
-        "Keep each servo’s horn and center screw together.",
-        "Solder and insulate loose parts on the bench, before you mount them.",
-        "Where wire length depends on the fit, test-route the wire first. To test-route, run the wire along its final path without fixing or soldering it.",
-        "Mark the length. Take the parts back to the bench to solder and heat-shrink them."
+        "Keep each servo’s horn and center screw together."
       ],
       "check": "Your colors are chosen, your tools are ready and your screws are sorted.",
       "source": [
@@ -58,15 +55,6 @@
             4,
             5
           ]
-        },
-        {
-          "title": "Solder on the bench first",
-          "textOnly": true,
-          "actions": [
-            6,
-            7,
-            8
-          ]
         }
       ]
     },
@@ -84,11 +72,13 @@
         "Map each plate’s material profile to one of your spools.",
         "Keep the supplied orientations, supports, support blockers and brims.",
         "Leave “Synchronize filament list from AMS” off.",
-        "Slice one plate at a time. Inspect each slice before you print it.",
-        "Turn bed leveling on. Turn timelapse off.",
-        "Print plates 2 and 7 first. They hold the base and its panels and grilles.",
+        "Slice one plate at a time. Start with plate 2, the base.",
+        "Inspect the slice before you print it.",
+        "When you send a plate to the printer, turn bed leveling on. Turn timelapse off.",
         "For plate 2, turn flow dynamics calibration off. The printer’s calibration line crosses that plate’s front brim.",
-        "Print the other plates as you build. The plate layouts above show the suggested order, the parts and the estimates."
+        "Print plate 2. Print plate 7 next, the same way. It holds the base’s panels and grilles.",
+        "Print the rest in the order the build first needs them: 1, 3, 4, 6, 8, 5, 10 and 9.",
+        "The plate layouts above list each plate’s parts and estimate."
       ],
       "check": "Plates 2 and 7 are printed with their supplied settings.",
       "source": [
@@ -118,7 +108,7 @@
           ]
         },
         {
-          "title": "Slice one plate at a time",
+          "title": "Slice plate 2",
           "textOnly": true,
           "actions": [
             5,
@@ -126,13 +116,21 @@
           ]
         },
         {
+          "title": "Set the print options",
+          "textOnly": true,
+          "actions": [
+            7,
+            8
+          ]
+        },
+        {
           "title": "Print plates 2 and 7 first",
           "image": "assets/plates/plate-2.png",
           "caption": "Plate 2 thumbnail from the supplied Bambu project.",
           "actions": [
-            7,
-            8,
-            9
+            9,
+            10,
+            11
           ]
         }
       ]
@@ -149,11 +147,11 @@
       "actions": [
         "Let each part cool before you remove its supports.",
         "Remove supports and brims in small pieces.",
-        "While you work, support thin fingers, eye housing lips, horn seats, antenna turns, threads and nut-channel ledges.",
-        "On the backpack shell (P35), support the belt tabs while you clear the hinge gaps and lower screw passages.",
+        "As you work, hold thin fingers, eye housing lips, horn seats, antenna turns, threads and nut-channel ledges from behind.",
+        "On the backpack shell (P35), hold the belt tabs while you clear the hinge gaps and lower screw passages.",
         "Clear the P35 pin holes.",
         "In the base (FB01), clear the small support lips from the front nut-entry channels.",
-        "Clear the screw holes, cable slots and exposed nut pockets in the base. The nut pockets hold the board, bottom cover, grille, power jack plate and audio cradle nuts.",
+        "Clear the screw holes and cable slots in the base. Clear the nut pockets for the boards, bottom cover, audio cradle, rear vent, button and power jack plate. Clear the side grille nut channels.",
         "Smooth rough edges at the central wire hole. Do not enlarge the hole.",
         "On the audio cradle (FB24), clear the end windows and lid-nut slots.",
         "Clear support from the horn recesses in both upper arms (AR01, AR04).",
@@ -688,8 +686,10 @@
       "actions": [
         "If you use Windows, install WSL first. Run every terminal command in this guide in WSL, including key creation, cloning and Make. Run Imager in Windows.",
         "On your computer, install Git, Make, Python 3.12 or newer, OpenSSH (ssh and scp) and Raspberry Pi Imager.",
-        "Run the commands below. Each prints a version or a path. `python3 --version` must show Python 3.12 or newer.",
-        "If this terminal environment already has an SSH key, use it. Skip the command below.",
+        "In your terminal, run the commands below.",
+        "Each prints a version or a path. `python3 --version` shows Python 3.12 or newer.",
+        "In the same terminal environment, list the files in `~/.ssh`. Look for a key pair, such as `id_ed25519` and `id_ed25519.pub`.",
+        "If you find a key pair, use it. Do not create another.",
         "If you have no key, run the command below. Follow its prompts.",
         "If `ssh-keygen` asks to overwrite an existing key, answer no. Never overwrite a key.",
         "For the default key name, display `id_ed25519.pub` with the command below. Keep the whole public-key line for Imager.",
@@ -701,11 +701,28 @@
       "source": [],
       "panels": [
         {
-          "title": "Check your computer tools",
+          "title": "Install your computer tools",
+          "textOnly": true,
           "actions": [
             0,
-            1,
-            2
+            1
+          ],
+          "links": [
+            {
+              "label": "Get Raspberry Pi Imager",
+              "url": "https://www.raspberrypi.com/software/"
+            },
+            {
+              "label": "Install WSL on Windows",
+              "url": "https://learn.microsoft.com/windows/wsl/install"
+            }
+          ]
+        },
+        {
+          "title": "Check your computer tools",
+          "actions": [
+            2,
+            3
           ],
           "codeBlocks": [
             {
@@ -720,24 +737,21 @@
               "context": "computer",
               "label": "Computer terminal"
             }
-          ],
-          "links": [
-            {
-              "label": "Get Raspberry Pi Imager",
-              "url": "https://www.raspberrypi.com/software/"
-            },
-            {
-              "label": "Install WSL on Windows",
-              "url": "https://learn.microsoft.com/windows/wsl/install"
-            }
           ]
         },
         {
-          "title": "Find or create your SSH key",
+          "title": "Find your SSH key",
+          "textOnly": true,
           "actions": [
-            3,
             4,
             5
+          ]
+        },
+        {
+          "title": "Create a key only if you have none",
+          "actions": [
+            6,
+            7
           ],
           "codeBlocks": [
             {
@@ -753,9 +767,9 @@
         {
           "title": "Display your public key",
           "actions": [
-            6,
-            7,
-            8
+            8,
+            9,
+            10
           ],
           "codeBlocks": [
             {
@@ -907,12 +921,15 @@
         "Turn on Enable SSH. Select public-key authentication. Paste your public-key line, or select its `.pub` file.",
         "If Imager suggests a key automatically, use it only if it is the key from your command environment.",
         "If you use Windows, paste the key that `cat` shows in WSL, or select its `.pub` file in WSL. Windows and WSL keep separate keys. Keep using WSL for later commands.",
-        "Leave Raspberry Pi Connect off. This build uses SSH.",
+        "Select NEXT.",
+        "If NEXT stays greyed out, check that the Public key box holds your whole public-key line.",
+        "On the Raspberry Pi Connect screen, leave Raspberry Pi Connect off. This build uses SSH.",
         "On the Write image screen, check the device, operating system and storage.",
         "Check that the summary lists five customisations: hostname, localisation, user account, Wi-Fi and SSH.",
         "Select WRITE. Leave the card in the reader until writing and verification finish.",
-        "Imager shows “Write complete!” and ejects the card. Remove the card.",
-        "If your computer still shows the card, eject it before you remove it."
+        "Imager shows “Write complete!” and ejects the card.",
+        "If your computer still shows the card, eject it.",
+        "Remove the microSD card from the reader."
       ],
       "check": "The card is written and verified. You have your hostname, username and SSH key ready.",
       "note": "You displayed your public key in {step:computer-ssh-key}.",
@@ -921,7 +938,7 @@
         {
           "title": "Enable SSH with your public key",
           "image": "assets/setup/imager-ssh.jpg",
-          "caption": "SSH screen before a key is added. NEXT stays unavailable until you add one.",
+          "caption": "SSH screen before a key is added, with NEXT greyed out.",
           "actions": [
             0,
             1,
@@ -929,9 +946,8 @@
           ]
         },
         {
-          "title": "Review your choices",
-          "image": "assets/setup/imager-review.jpg",
-          "caption": "Write image summary before writing.",
+          "title": "Leave Raspberry Pi Connect off",
+          "textOnly": true,
           "actions": [
             3,
             4,
@@ -939,13 +955,29 @@
           ]
         },
         {
+          "title": "Review your choices",
+          "image": "assets/setup/imager-review.jpg",
+          "caption": "Write image summary before writing.",
+          "actions": [
+            6,
+            7
+          ]
+        },
+        {
           "title": "Write and verify the card",
           "image": "assets/setup/imager-complete.jpg",
           "caption": "Write complete screen after verification.",
           "actions": [
-            6,
-            7,
-            8
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Remove the card",
+          "textOnly": true,
+          "actions": [
+            11
           ]
         }
       ],
@@ -1179,8 +1211,8 @@
         "On the Pi, list the sound cards with the command below.",
         "Note the USB name after “USB-Audio - ” and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
         "If no USB audio card appears, check the module and extension connections. List the cards again.",
-        "In each command below, replace `Device` with your card ID. Do not use the card number. It can change after a reboot.",
-        "Run the three commands in order. They read the Speaker control, set a low starting level of −40 dB and save it. Both channels must report `[-40.00dB]`.",
+        "In each command below, use your card ID for `Device`, not the card number. That number can change after a reboot. Run the three commands in order to read, set and save the Speaker level.",
+        "Both channels report `[-40.00dB]`, a low starting level.",
         "If the Speaker control or its dB scale is missing, stop. Inspect the controls with `alsamixer -c Device` before you continue.",
         "You adjust the level gradually in the later speaker check. After a reboot, recheck it with `amixer -c Device sget Speaker`.",
         "Type `exit` to return to your computer.",
@@ -1433,7 +1465,8 @@
       },
       "hardware": {},
       "actions": [
-        "On your computer, in the repository folder, run the command below. It must show `active (running)`.",
+        "On your computer, in the repository folder, run the command below.",
+        "The output shows `active (running)`.",
         "If it shows stopped or failed, read the log in the next panel. Do not mark setup complete.",
         "Run the command below. It follows the application log.",
         "If the log reports a missing key or audio device, correct the installed settings in panel 3. Editing `config/app.env` on your computer does not change the file on the Pi.",
@@ -1453,7 +1486,8 @@
           "title": "Confirm the service is running",
           "actions": [
             0,
-            1
+            1,
+            2
           ],
           "codeBlocks": [
             {
@@ -1476,9 +1510,9 @@
         {
           "title": "Read the log and leave it",
           "actions": [
-            2,
             3,
-            4
+            4,
+            5
           ],
           "codeBlocks": [
             {
@@ -1494,9 +1528,9 @@
         {
           "title": "Correct installed settings only if needed",
           "actions": [
-            5,
             6,
-            7
+            7,
+            8
           ],
           "codeBlocks": [
             {
@@ -1537,9 +1571,9 @@
           "image": "assets/circuits/pi-bench-power.svg",
           "caption": "Pi with the bench supply at the micro-USB power port.",
           "actions": [
-            8,
             9,
-            10
+            10,
+            11
           ],
           "codeBlocks": [
             {

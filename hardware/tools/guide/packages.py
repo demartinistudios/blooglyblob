@@ -166,7 +166,7 @@ including supports and brims (slicer estimates).
 {plate_rows}
 
 Plate numbers aren't a print order. To start building sooner, print 2 and 7, then
-9, 1, 3, 4, 6, 8, 5 and 10.
+1, 3, 4, 6, 8, 5, 10 and 9.
 
 The optional PETG ball uses Bambu's Generic PETG profile (255 °C nozzle, 70 °C
 bed). Check your spool's label before printing, and check the thread fit and

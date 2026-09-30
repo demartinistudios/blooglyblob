@@ -588,7 +588,8 @@ build.publish_staged(output, destination, backup)
         (self.dist / 'keep.txt').write_text('working preview')
         for name in build.CORE:
             (self.src / name).write_text('')
-        (self.src / 'repeat-build.html').write_text('<main id="content"><h1>Plate settings</h1><footer></footer></main>')
+        (self.src / 'repeat-build.html').write_text(
+            '<main id="content"><h1>Plate settings</h1><p>Estimated total: 0 h 0 min, 0 g.</p><footer></footer></main>')
         for name, value in [('guide-data.json', {'steps': []}), ('parts.json', []), ('print-data.json', [])]:
             (self.src / name).write_text(json.dumps(value))
         electrical = self.root / 'electrical.json'
@@ -625,7 +626,7 @@ build.publish_staged(output, destination, backup)
         self.assertTrue((self.dist / 'data.js').is_file())
 
     def test_invalid_plate_settings_preserves_previous_preview(self):
-        (self.src / 'repeat-build.html').write_text('<main>Incomplete settings page</main>')
+        (self.src / 'repeat-build.html').write_text('<main>Incomplete settings page. Estimated total: 0 h 0 min,</main>')
         with self.assertRaisesRegex(ValueError, 'Plate settings page'):
             build.build()
         self.assert_preview_preserved()
