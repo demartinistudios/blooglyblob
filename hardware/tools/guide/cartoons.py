@@ -876,22 +876,6 @@ def jst_sm_pair(p):
     jst_sm(p, 20, 0, 'plug')
 
 
-def quick_connect(p):
-    """Adafruit 1152: two wire pairs, each a JST 2-pin plug to two 0.11 in quick-connect receptacles."""
-    for k, oy in enumerate((0, 30)):
-        for j, dy in enumerate((-1.3, 1.3)):
-            ey = oy + (j * 2 - 1) * 7
-            cable(p, [(10, oy + dy), (30, oy + dy * 2), (55, ey), (70, ey)], ('#eeeeea',), 1.1)
-            def qc(loc, z):
-                p.flat(lpoly(loc, rrect(-6, -1.1, 7.4, 2.2, .5)), z, '#eceef0', op=.5)
-                for v in (-1.25, 1.25):
-                    p.line([loc(-5.8, v), loc(1.2, v)], z, '#8f969d', 1.3)
-                p.flat(lpoly(loc, rrect(2.4, -1.4, 3.2, 2.8, .6)), z, '#c3c8ce', op=.7)
-            conn(p, 76, ey, 0, 12, 3.8, 2.2, '#d6d9dd', '#9aa1a8', qc, r=.8)
-        conn(p, 5, oy, 180, 8, 6.4, 4.8, WHITE_PL, '#cfc9b9',
-             lambda loc, z: [p.flat(lpoly(loc, rrect(-3, v - .8, 2.2, 1.6, .2)), z, '#d6d0c1', op=.6) for v in (-1.3, 1.3)])
-
-
 def usb_c_panel_cable(p):
     """Adafruit 4056: panel-mount USB-C socket (two ears, M3 screws 20 mm apart) standing with
     its face up, 4.5 mm black cable, micro-B plug."""
@@ -1112,8 +1096,8 @@ def button(p):
     p.prism(circle(0, 0, 7.6, 48), 28.2, 29.4, '#e9ecef', '#b9c0c6', detail=lens)
 
 
-def panel_jack(p):
-    """Switchcraft 721AU sealed 2.1 mm DC panel jack: nickel threaded bushing with nut and
+def power_jack(p):
+    """Switchcraft 721AU sealed 2.1 mm solder-lug power jack: nickel threaded bushing with nut and
     washer, black body, two solder-eyelet lugs."""
     r_body = 6.4
     for dy in (-2.6, 2.6):
@@ -1638,7 +1622,6 @@ ITEMS = {
     'E10': (jst_sm_pair, 'Adafruit 1663 JST-SM three-pin plug and receptacle', None, None),
     'E11': (jst_eye_lead, 'JST-SH three-pin to male header lead', None, None),
     'E12': (jst_link, 'Adafruit 6404 JST-SH plug-to-plug cable', None, None),
-    'E19': (quick_connect, 'Adafruit 1152 quick-connect wire pairs', None, None),
     'E22': (usb_c_panel_cable, 'Adafruit 4056 panel USB-C to micro-B cable', None, None),
     'E23': (usb_extension, 'USB-A extension cable', None, None),
     'E24': (jumper_leads, 'GPIO jumper leads', None, None),
@@ -1650,7 +1633,7 @@ ITEMS = {
     'E06': (wago, 'WAGO 221-415 lever connector', None, None),
     'E07': (fuse_holder, 'Schurter FDI in-line fuse holder with leads', None, None),
     'E17': (button, 'Adafruit 1479 illuminated pushbutton', None, None),
-    'E18': (panel_jack, 'Switchcraft 721AU DC panel jack', None, None),
+    'E18': (power_jack, 'Switchcraft 721AU solder-lug power jack', None, None),
     'E25': (rubber_feet, 'Adhesive rubber feet', None, None),
     'C01': (clear_film, 'Clear eye film', None, None),
     'C02': (eye_foam, 'Eye diffuser foam patches', None, None),

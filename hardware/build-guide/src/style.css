@@ -38,6 +38,8 @@
   --teal: #365e48;
   --warn: #754913;
   --yellow: #fbefd6;
+  --danger: #8f1d14;
+  --danger-pale: #fbe7e3;
   --violet-pale: #eceaf4;
   --focus: #6541a2;
   --display: "Bricolage Grotesque", "Arial Rounded MT Bold", sans-serif;
@@ -184,8 +186,6 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .character-prompts q { font-size: 15px; color: var(--ink); }
 .character-build { margin-top: 64px; }
 .character-build > p { max-width: 72ch; }
-.character-build-details { margin: 16px 0; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
-.character-build-details > summary { cursor: pointer; font-weight: 650; }
 @media (max-width: 1200px) { .character-features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 801px) { .character-intro .intro-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
 @media (max-width: 600px) {
@@ -201,15 +201,14 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .stats { display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--line); }
 .stats strong { display: block; font-size: 34px; line-height: 1.2; color: var(--blue); }
 .stats span { font-size: 12px; color: var(--muted); }
-.build-path, .chapter-grid, .downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.build-path, .downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .build-path { margin: 26px 0 42px; }
-.build-path a, .chapter-card, .download-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); color: var(--ink); }
-.build-path a, .chapter-card { text-decoration: none; border-top: 3px solid var(--copper); }
-.build-path a:hover, .chapter-card:hover { border-color: var(--blue); background: var(--violet-pale); }
+.build-path a, .download-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); color: var(--ink); }
+.build-path a { text-decoration: none; border-top: 3px solid var(--copper); }
+.build-path a:hover { border-color: var(--blue); background: var(--violet-pale); }
 .build-path span { display: block; font-family: var(--mono); font-size: 11px; color: var(--copper); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
 .build-path b { display: block; font-size: 25px; line-height: 1.2; }
 .build-path p, .download-card p { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 12px 0 0; }
-.chapter-card small { display: block; color: var(--muted); margin-bottom: 6px; }
 .download-card b { display: block; margin-bottom: 10px; }
 .reader-list { padding-left: 25px; max-width: 75ch; }
 .reader-list li { padding: 7px 0 7px 5px; }
@@ -235,6 +234,16 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .check { background: var(--sage-pale); color: var(--sage); border-left-color: var(--sage); max-width: 75ch; }
 .check strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
 .step-note { margin: 20px 0 0; max-width: none; }
+/* Safety messages (INSTRUCTION-DESIGN.md "Safety messages"): the level label carries the
+   meaning, so it reads the same without color or background in print. */
+.safety { margin: 0 0 16px; padding: 12px 16px; border: 1px solid; border-left-width: 6px; border-radius: 0 9px 9px 0; font-size: 15px; line-height: 1.6; max-width: 75ch; overflow-wrap: anywhere; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.safety-label { display: block; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 2px; }
+.safety-text { display: block; }
+.safety-warning { color: var(--danger); background: var(--danger-pale); border-color: var(--danger); }
+.safety-caution { color: var(--warn); background: var(--yellow); border-color: var(--warn); }
+.safety-notice { color: var(--ink); background: var(--violet-pale); border-color: var(--blue); }
+.safety a { color: inherit; }
+.step-safety { margin: 0 0 20px; }
 .gather { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: var(--pale); border-radius: 8px; padding: 18px; }
 .gather section { min-width: 0; }
 .gather h2 { font-size: 20px; margin: 0 0 12px; }
@@ -252,6 +261,7 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .bench-list .gather { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 26px; margin-top: 14px; }
 .bench-list .gather ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); column-gap: 22px; }
 .bench-list.single .gather { grid-template-columns: 1fr; }
+@media (min-width: 1151px) { .bench-list.triple .gather { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); } }
 .bench-list > .fine { margin: 12px 2px 0; }
 .step-links { margin: 30px 0 24px; }
 .step-end { display: flex; gap: 20px; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 24px; flex-wrap: wrap; }
@@ -365,7 +375,7 @@ dialog.large .zoom-hint { display: none; }
   .intro-grid h1 { max-width: 20ch; }
   .intro-grid .diagram { max-width: 600px; }
   .intro-grid .diagram img { max-height: 430px; object-fit: contain; }
-  .chapter-grid, .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .build-path { gap: 12px; }
   .build-path a { padding: 16px; }
   .build-path b { font-size: 22px; }
@@ -397,7 +407,7 @@ dialog.large .zoom-hint { display: none; }
   .intro-grid h1 { font-size: 46px; }
   .intro-grid .diagram img { max-height: 380px; }
   .lede, .lead { font-size: 18px; }
-  .build-path, .chapter-grid, .downloads, .parts-grid, .color-views { grid-template-columns: 1fr; }
+  .build-path, .downloads, .parts-grid, .color-views { grid-template-columns: 1fr; }
   .build-path a { padding: 19px 21px; }
   .build-path span { margin-bottom: 8px; }
   .build-path b { font-size: 25px; }
@@ -476,7 +486,8 @@ dialog.large .zoom-hint { display: none; }
   .bench-list .gather, .gather { display: grid; grid-template-columns: 1fr 1fr; margin: 12px 0; padding: 10px; background: none; }
   .bench-list .gather ul { display: block; }
   .parts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .part-card, .plate, .check, .notice, tr { break-inside: avoid; }
+  .part-card, .plate, .check, .notice, .safety, tr { break-inside: avoid; }
+  .safety { font-size: 10pt; }
   .part-body h2 { font-size: 16pt; }
   .part-body p, .notice, .check { font-size: 10pt; }
   .part-card .product-photo img { height: 140px; }
@@ -512,8 +523,11 @@ dialog.large .zoom-hint { display: none; }
 .action-panel-command .action-panel-body { display: block; }
 .action-panel-command .action-copy { max-width: 72ch; }
 .action-note { margin: 10px 0 0; color: inherit; font-size: inherit; line-height: inherit; }
-.build-overview { max-width: 68ch; padding-left: 24px; }
-.build-overview li { padding: 8px 0 8px 6px; }
+/* Before you start: tools in two columns where they fit; each chapter's step range follows its name, or sits under it on narrow screens. */
+#start-tools { columns: 2 280px; column-gap: 32px; }
+#start-tools li { break-inside: avoid; }
+.chapter-steps { margin-left: 10px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+@media (max-width: 800px) { .chapter-steps { display: block; margin-left: 0; } }
 @container (max-width: 650px) { .action-panel-body { grid-template-columns: 1fr; gap: 14px; } :is(.action-panel, .harness-overview) .diagram { max-width: 360px; justify-self: center; } }
 @media (max-width: 600px) {
   .action-panel { padding-block: 16px 20px; }
@@ -665,8 +679,6 @@ a[download]::before { content: ""; display: inline-block; width: 1.15em; height:
 .software-command { min-width: 0; }
 .software-command > p { font-size: 14px; line-height: 1.65; margin: -6px 0 14px; }
 .software-tests { margin-top: 24px; }
-.software-help dt { font-weight: 700; margin-top: 22px; }
-.software-help dd { margin: 7px 0 0; max-width: 75ch; }
 @container (max-width: 760px) {
  .setup-step .action-panel-screenshot .action-panel-body { grid-template-columns: 1fr; }
  .setup-step .action-panel-screenshot .diagram { justify-self: start; max-width: 520px; }

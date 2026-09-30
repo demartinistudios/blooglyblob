@@ -122,7 +122,7 @@ def circuit():
     c = Circuit()
     for args in [
         ("PSU", "supply", 65, 1120, "5 V / 5 A supply"),
-        ("J1", "jack", 170, 1430, "J1 · inlet"),
+        ("J1", "jack", 170, 1430, "J1 · power jack"),
         ("W1", "wago-v", 250, 1130, "W1 · INPUT +5 V"),
         ("W3", "wago-v", 250, 1560, "W3 · GND"),
         ("F1", "fuse", 610, 1400, "F1 · T3.15 A"),
@@ -142,8 +142,8 @@ def circuit():
         ("LEFT", "servo", 1690, 1030, "Left arm"),
         ("RIGHT", "servo", 2010, 1030, "Right arm"),
         ("HEAD-SERVO", "servo", 2330, 1030, "Head servo"),
-        ("H3", "plug", 1380, 768, "BASE → BODY · H3"),
-        ("HEAD", "plug", 1520, 523, "HEAD · JST-SM"),
+        ("body-light", "plug", 1380, 768, "Body light connector"),
+        ("head-light", "plug", 1520, 523, "Head light connector · JST-SM"),
         ("R2", "resistor", 1480, 810, "R2 · 330 Ω"),
         ("lighting+", "joint", 1340, 780),
         ("lighting−", "joint", 1310, 840),
@@ -151,9 +151,9 @@ def circuit():
         ("body−", "joint", 1500, 750),
         ("head+", "joint", 1710, 150),
         ("head−", "joint", 1690, 450),
-        ("eye6", "eye", 1740, 230, "Eye 1 · pixel 6"),
-        ("eye7", "eye", 2020, 230, "Eye 2 · pixel 7"),
-        ("mouth", "mouth", 2240, 240, "Mouth · pixels 8–15"),
+        ("eye6", "eye", 1740, 230, "Eye 1 · light 6"),
+        ("eye7", "eye", 2020, 230, "Eye 2 · light 7"),
+        ("mouth", "mouth", 2240, 240, "Mouth · lights 8–15"),
     ]:
         c.node(*args)
     for i in range(6):
@@ -169,18 +169,18 @@ def circuit():
     C("J1.center", "W1.1", RED, [(350, 1410), (350, 1170)])
     C("J1.sleeve", "W3.1", BLK, [(370, 1450), (370, 1600)])
     # The Pi power lead is two conductors entering the single micro-USB plug.
-    c.ports["H2.+"] = (687, 1080)
-    c.ports["H2.−"] = (713, 1080)
-    C("W1.2", "H2.+", RED, [(530, 1220), (530, 1090), (687, 1090)])
-    C("W3.2", "H2.−", BLK, [(510, 1650), (510, 1110), (713, 1110)])
+    c.ports["pi-power.+"] = (687, 1080)
+    c.ports["pi-power.−"] = (713, 1080)
+    C("W1.2", "pi-power.+", RED, [(530, 1220), (530, 1090), (687, 1090)])
+    C("W3.2", "pi-power.−", BLK, [(510, 1650), (510, 1110), (713, 1110)])
     C("W1.3", "F1.in", RED, [(460, 1270), (460, 1420)])
     C("F1.out", "W2.1", RED, [(930, 1420)])
     C("W1.4", "F2.in", RED, [(490, 1320), (490, 1230)])
     C("F2.out", "lighting+.wire", RED, [(1340, 1230)])
-    C("lighting+.wire", "H3.in+", RED)
+    C("lighting+.wire", "body-light.in+", RED)
     C("C2.+", "lighting+.wire", RED, [(1197, 780)])
     C("W3.5", "lighting−.wire", BLK, [(440, 1800), (440, 1785), (1310, 1785)])
-    C("lighting−.wire", "H3.in−", BLK)
+    C("lighting−.wire", "body-light.in−", BLK)
     C("C2.−", "lighting−.wire", BLK, [(1310, 785)])
     C("W2.5", "C1.+", RED, [(1170, 1530), (680, 1530), (680, 1720), (727, 1720)])
     C("C1.−", "W3.4", BLK, [(764, 1770), (470, 1770), (470, 1750)])
@@ -223,7 +223,7 @@ def circuit():
             PURPLE if port == "V" else BLK if port == "G" else BLUE,
             [(px, via), (lane, via), (lane, ty)],
         )
-    C("S1.D5", "H3.inDATA", BLUE, [(850, 430), (850, 320), (1330, 320), (1330, 810)])
+    C("S1.D5", "body-light.inDATA", BLUE, [(850, 430), (850, 320), (1330, 320), (1330, 810)])
     C(
         "S1.C5",
         "LEFT.SIG",
@@ -244,30 +244,30 @@ def circuit():
     C("AUDIO.R+", "SPK-R.+", GREEN, [(1305, 935), (1305, 1030), (1225, 1030)])
     C("AUDIO.R−", "SPK-R.−", PURPLE, [(1320, 953), (1320, 1050), (1255, 1050)])
     # One continuous lighting network, with two detachable plugs.
-    C("H3.out+", "body+.wire", RED, [(1480, 780)])
+    C("body-light.out+", "body+.wire", RED, [(1480, 780)])
     C("body+.wire", "body0.in+", RED)
-    C("body+.wire", "HEAD.in+", RED, [(1480, 535)])
-    C("H3.out−", "body−.wire", BLK, [(1500, 840)])
+    C("body+.wire", "head-light.in+", RED, [(1480, 535)])
+    C("body-light.out−", "body−.wire", BLK, [(1500, 840)])
     C("body−.wire", "body0.in−", BLK)
-    C("body−.wire", "HEAD.in−", BLK, [(1500, 595)])
-    C("H3.outDATA", "R2.in", BLUE)
+    C("body−.wire", "head-light.in−", BLK, [(1500, 595)])
+    C("body-light.outDATA", "R2.in", BLUE)
     C("R2.out", "body0.inDATA", BLUE, [(1640, 810), (1640, 730)])
     for i in range(5):
         for port, color in [("+", RED), ("DATA", BLUE), ("−", BLK)]:
             C(f"body{i}.out{port}", f"body{i + 1}.in{port}", color)
     C(
         "body5.outDATA",
-        "HEAD.inDATA",
+        "head-light.inDATA",
         BLUE,
         [(2450, 730), (2450, 630), (1460, 630), (1460, 565)],
     )
-    C("HEAD.out+", "head+.wire", RED, [(1630, 535), (1630, 150)])
+    C("head-light.out+", "head+.wire", RED, [(1630, 535), (1630, 150)])
     C("head+.wire", "eye6.in+", RED, [(1710, 240)])
     C("head+.wire", "mouth.+", RED, [(2380, 150)])
-    C("HEAD.out−", "head−.wire", BLK, [(1650, 595), (1650, 450)])
+    C("head-light.out−", "head−.wire", BLK, [(1650, 595), (1650, 450)])
     C("head−.wire", "eye6.in−", BLK, [(1690, 280)])
     C("head−.wire", "mouth.−", BLK, [(2470, 450)])
-    C("HEAD.outDATA", "eye6.inDATA", BLUE, [(1670, 565), (1670, 260)])
+    C("head-light.outDATA", "eye6.inDATA", BLUE, [(1670, 565), (1670, 260)])
     for port, color in [("+", RED), ("DATA", BLUE), ("−", BLK)]:
         C(f"eye6.out{port}", f"eye7.in{port}", color)
     C("eye7.outDATA", "mouth.DIN", BLUE, [(2150, 260), (2150, 270)])
@@ -289,7 +289,10 @@ def draw_node(g, n, c):
     if kind == "pi":
         title_y = y - 35
     if kind == "jack":
-        label(g, x - 100, title_y, n.label, 24, weight=700)
+        # Two lines keep the name clear of the supply cable's vertical run.
+        ident, jack_name = n.label.split(" · ")
+        label(g, x - 100, title_y - 30, ident, 24, weight=700)
+        label(g, x - 100, title_y, jack_name, 24, weight=700)
     elif kind == "button":
         label(g, x - 120, title_y, n.label, 24, weight=700)
     elif kind == "speaker":
@@ -300,9 +303,9 @@ def draw_node(g, n, c):
         label(g, x, y - 60, "External supply", 21, weight=700)
     elif kind == "pi":
         pass
-    elif name == "H3":
+    elif name == "body-light":
         label(g, x, y + 144, n.label, 22, weight=700)
-    elif name == "HEAD":
+    elif name == "head-light":
         label(g, x + 190, y + 20, n.label, 22, weight=700)
     elif name == "R2":
         label(g, x + 50, y + 48, n.label, 24, weight=700)
@@ -552,25 +555,13 @@ def draw():
         21,
     )
     # Zones locate assemblies without pretending that schematic positions are CAD.
-    for x, y, w, h, title in [
-        (35, 170, 1330, 1900, "ENCLOSURE"),
-        (1430, 660, 1170, 650, "BODY / STATIONARY FRAME"),
-        (1590, 170, 1010, 320, "HEAD LIGHTING"),
+    for x, y, w, h, title, tx, ty in [
+        (35, 170, 1330, 1900, "Base", 53, 205),
+        (1430, 660, 1170, 650, "Body and stationary frame", 1448, 975),
+        (1590, 170, 1010, 320, "Head lighting", 1800, 440),
     ]:
         g.rect(x, y, w, h, fill="#f3f1eb", stroke="#d8d3c9", sw=2, rx=18)
-        label(
-            g,
-            x + 210 if title == "HEAD LIGHTING" else x + 18,
-            y + 35
-            if title == "ENCLOSURE"
-            else 975
-            if title.startswith("BODY")
-            else 440,
-            title,
-            22,
-            fill=MUTED,
-            weight=700,
-        )
+        label(g, tx, ty, title, 22, fill=MUTED, weight=700)
     # Edges are drawn beneath component bodies; contacts meet the component edge.
     for e in c.edges:
         pts = [c.ports[e.source], *e.bends, c.ports[e.target]]
@@ -586,10 +577,10 @@ def draw():
         )
         draw_node(g, n, c)
         g.add("</g>")
-    # Single H2 plug enters the Pi's single POWER socket, not a second Pi drawing.
+    # The Pi power lead's single plug enters the Pi's POWER socket, not a second Pi drawing.
     g.rect(678, 1030, 44, 50, fill="#323940", rx=6)
     g.rect(685, 1030, 30, 13, fill="#bcc5cb", rx=2)
-    label(g, 748, 1048, "H2 · micro-USB", 20, weight=700)
+    label(g, 748, 1048, "Pi power lead · micro-USB", 20, weight=700)
     label(g, 748, 1075, "≤150 mm incl. plug", 18, fill=MUTED)
     # Exposed unused output power tails are capped individually.
     for name in ["body5", "eye7"]:
@@ -600,7 +591,7 @@ def draw():
     label(g, 2170, 385, "Eye OUT + / − insulated", 19, fill=MUTED)
     label(g, 2270, 805, "Last pebble + / − insulated", 19, fill=MUTED)
     label(g, 1860, 865, "Body data → eyes → mouth", 25, weight=700)
-    label(g, 1730, 915, "Head power branches before body pixel 0.", 22, fill=MUTED)
+    label(g, 1730, 915, "Head power branches before light 0.", 22, fill=MUTED)
     label(g, 1780, 390, "JST-SH: 5755 → eyes via 6404 → 5755", 20, fill=MUTED)
     label(g, 900, 1224, "Speaker outputs stay separate from ground.", 18, fill=MUTED)
     label(
@@ -619,7 +610,7 @@ def draw():
         fill=MUTED,
     )
     g.add(
-        "<desc>One connected wiring diagram. All external wires run continuously between component terminals; no named off-sheet continuations. Pi numbers are physical header pins. HEAD and H3 are three-contact detachable lighting connectors. Three servos connect directly to WAGO power and ground and shifter signal terminals.</desc>"
+        "<desc>One connected wiring diagram. All external wires run continuously between component terminals; no named off-sheet continuations. Pi numbers are physical header pins. The body light and head light connectors are three-contact and detachable. Three servos connect directly to WAGO power and ground and shifter signal terminals.</desc>"
     )
     return g
 

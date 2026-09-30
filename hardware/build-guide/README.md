@@ -36,7 +36,7 @@ homes, without retaining source copies in the guide:
   PDFs are not stored in Git or bundled with the guide. Keep optional research
   downloads in ignored `hardware/.work/`; builds never fetch or require them.
 
-Step02 is the single printing page. Legacy `#printing` links redirect there,
+The `print-plates` step is the single printing page. `#printing` links redirect there,
 including links that locate a particular part’s plate. Plate layouts, individual
 STL links and settings expand within that step using the main content of
 `src/repeat-build.html`, bundled at build time. Edit that one authored source;
@@ -57,14 +57,14 @@ Unknown relationships require review. In the ignored local work record, name eac
 affected surface and record whether it changed, was reused with unchanged
 relevant dependencies, or was reviewed:
 
-- Steps and service/repeat-build instructions, stable IDs and progress migrations.
+- Steps and service/repeat-build instructions, and step IDs and their links.
 - Part/supply/plate cards, fastener allocations, quantities, estimates and downloads.
 - Models, diagrams, assembly views, custom/stand views, templates and hardware keys.
 - Wiring/reference pages, component specifications and software commands.
 
 Prefer bench preparation before installation: solder, insulate, label and check
 loose components or harnesses before fastening them to printed parts. Where
-length depends on the assembly, dry-route and mark first, then return to the
+length depends on the assembly, test-route and mark first, then return to the
 bench for hot work. Finish soldered harnesses before plugging them into mounted
 boards; keep final routing, restraint and connector seating in the installation
 step. Review access before closing covers or fitting parts that obstruct tools.
@@ -79,6 +79,9 @@ publication, inspect those sections against the intended release revision and
 record `reviewed_revision`, reviewer and evidence. The checker validates the
 checklist entries; it does not infer freshness or perform the human review.
 There is no automatic fingerprint or repository-wide dependency graph.
+
+To test the guide with builders who have not seen it, use the
+[cold-reader test protocol](COLD-READER-PROTOCOL.md).
 
 `consistency.py check` checks quantities, references and documented commands.
 Pending manual review permits local previews. `consistency.py check --publication`
@@ -111,7 +114,7 @@ additional local tools only when changing those assets; review generated diffs:
   and tool illustrations. Use `--out DIR` for review and naming IDs for a subset.
   Use product drawings/photos as references, consistent projection and scale,
   and do not store product photos in the repository.
-- `hardware/tools/guide/make_downloads.py` generates film, foam, stand and screw-key
+- `hardware/tools/guide/make_downloads.py` generates film, foam and screw-key
   PDF templates. It requires `rsvg-convert`.
 
 ## Browser verification and progress
@@ -132,13 +135,15 @@ Chrome executable instead of the downloaded Chromium. Reports go to a new
 ignored `hardware/.work/guide/browser-*/` directory.
 
 The check uses an isolated context, visits desktop/mobile routes, checks local
-links/images and exercises progress migrations. Inspect its report and screenshots
+links/images and checks that saved progress is read without migration. Inspect its report and screenshots
 for assembly meaning as well as layout. It does not change your browser data.
 
-Progress uses `blooglyblob-guide`, with a one-time import from `bgb-r16-guide`.
-Stable step IDs differ from displayed order. Changes that invalidate completed
-assembly or stock need narrow, idempotent migrations preserving unrelated ticks,
-settings and custom state; verify both old imports and already migrated state.
+Progress is saved in the reader's browser under `blooglyblob-guide`. Step IDs are
+descriptive slugs such as `board-cover-nuts`, and displayed numbers follow build
+order. There is no migration layer: when a step is renamed, split or removed,
+saved ticks for its old ID stay stored but no longer count, because progress
+counts only current build steps. Update every `{step:…}` reference, `#step-…`
+link and part `steps` list when a step ID changes.
 
 ## Publication readiness
 

@@ -82,6 +82,18 @@ def check_print_data(prints, manifest):
                 raise ValueError(f"Print metadata {authored['id']} {field} differs: expected {expected!r}, got {actual!r}")
 
 
+def print_seconds(manifest):
+    return sum(p['estimated_seconds'] for p in manifest['plates'])
+
+
+def check_plate_total(source, manifest):
+    """The authored plate settings total is the manifest total, truncated to minutes like each plate."""
+    hours, minutes = divmod(print_seconds(manifest) // 60, 60)
+    expected = f'Estimated total: {hours} h {minutes} min,'
+    if expected not in source:
+        raise ValueError(f'Plate settings total must read "{expected}"')
+
+
 def publish_staged(output, destination, backup):
     """Swap a validated same-filesystem tree; roll back a failed final rename."""
     had_previous = destination.exists()
@@ -132,6 +144,7 @@ def build():
     files = authored()
     data = {DATA[f]: json.loads((SRC / f).read_text()) for f in DATA}
     check_print_data(data['prints'], selected['manifest'])
+    check_plate_total((SRC / 'repeat-build.html').read_text(), selected['manifest'])
     electrical = json.loads(ELECTRICAL.read_text())
 
     report = consistency.check(ROOT)
@@ -158,7 +171,8 @@ def build():
         parts = [{k: v for k, v in p.items() if k not in PRIVATE} for p in data['parts']]
         bundle = {'guide': data['guide'], 'parts': parts, 'prints': data['prints'],
                   'electrical': {k: electrical[k] for k in ('power', 'signal')},
-                  'plateSettingsHTML': plate_settings_html((SRC / 'repeat-build.html').read_text())}
+                  'plateSettingsHTML': plate_settings_html((SRC / 'repeat-build.html').read_text()),
+                  'printSeconds': print_seconds(selected['manifest'])}
         (output / 'data.js').write_text('window.BGB = ' + json.dumps(bundle, ensure_ascii=False, separators=(',', ':')) + ';\n')
         check_links(files, [p['plate_number'] for p in selected['manifest']['plates']], output)
         count = sum(1 for p in output.rglob('*') if p.is_file())

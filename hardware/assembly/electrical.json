@@ -12,7 +12,7 @@
       [
         "W1 INPUT +5 V",
         "J1 center",
-        "H2 Pi +",
+        "Pi power lead +",
         "F1 input",
         "F2 input",
         "Empty"
@@ -28,10 +28,10 @@
       [
         "W3 GND",
         "J1 sleeve",
-        "H2 Pi return",
+        "Pi power lead return",
         "18 AWG link to W4/1",
         "C1 \u2212",
-        "H3 return, including C2 \u2212"
+        "Base-half GND, including C2 \u2212"
       ],
       [
         "W4 GND",
@@ -63,7 +63,7 @@
       [
         "12",
         "BCM18, lighting data",
-        "S1 DAT \u2192 S1 D5 \u2192 R2 \u2192 body pixel 0 DIN"
+        "S1 DAT \u2192 S1 D5 \u2192 R2 \u2192 light 0 DIN"
       ],
       [
         "32",
@@ -156,5 +156,5 @@
       ]
     ]
   },
-  "diagram": "External 5 V supply \u2192 panel jack \u2192 W1 INPUT +5V\n                                   \u251c\u2500 H2 micro-USB \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n                                   \u251c\u2500 F1 3.15 A \u2192 W2 SERVO +5V \u2192 three servos\n                                   \u2502                            \u2514\u2500 C1 1000 \u00b5F\n                                   \u2514\u2500 F2 1 A \u2192 H3 LIGHTING \u2192 body + dedicated head power pair\n                                                           \u2514\u2500 C2 1000 \u00b5F at feed; head powers eyes and mouth\n\nJack return \u2192 W3 GND \u2500\u250018 AWG link\u2500\u2500 W4 GND\nPi GPIO \u2192 two Pixel Shifters \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
+  "diagram": "External 5 V supply \u2192 power jack (J1) \u2192 W1 INPUT +5V\n                                        \u251c\u2500 Pi power lead (micro-USB) \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n                                        \u251c\u2500 F1 3.15 A \u2192 W2 SERVO +5V \u2192 three servos\n                                        \u2502                            \u2514\u2500 C1 1000 \u00b5F\n                                        \u2514\u2500 F2 1 A \u2192 base half \u2192 body light connector \u2192 body + dedicated head power pair\n                                                    \u2514\u2500 C2 1000 \u00b5F at feed; head powers eyes and mouth\n\nJack return \u2192 W3 GND \u2500\u250018 AWG link\u2500\u2500 W4 GND\nPi GPIO \u2192 two level shifters (S1, S2) \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
 }

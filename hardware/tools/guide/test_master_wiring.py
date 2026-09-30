@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 
 import diagrams
 import master_wiring as master
+from test_diagrams import labels, retired_names
 
 ROOT = Path(__file__).resolve().parents[3]
 NS = {"s": "http://www.w3.org/2000/svg"}
@@ -28,8 +29,8 @@ class MasterWiringTests(unittest.TestCase):
         destinations = {
             "J1 center": "J1.center",
             "J1 sleeve": "J1.sleeve",
-            "H2 Pi +": "H2.+",
-            "H2 Pi return": "H2.−",
+            "Pi power lead +": "pi-power.+",
+            "Pi power lead return": "pi-power.−",
             "F1 input": "F1.in",
             "F1 output": "F1.out",
             "F2 input": "F2.in",
@@ -37,7 +38,7 @@ class MasterWiringTests(unittest.TestCase):
             "C1 −": "C1.−",
             "18 AWG link to W4/1": "W4.1",
             "Link from W3/3": "W3.3",
-            "H3 return, including C2 −": "lighting−.wire",
+            "Base-half GND, including C2 −": "lighting−.wire",
         }
         for name, node in [
             ("LEFT", "LEFT"),
@@ -84,11 +85,11 @@ class MasterWiringTests(unittest.TestCase):
 
     def test_lighting_data_order_and_separate_head_power(self):
         expected = [
-            ("S1.D5", "H3.inDATA"),
-            ("H3.outDATA", "R2.in"),
+            ("S1.D5", "body-light.inDATA"),
+            ("body-light.outDATA", "R2.in"),
             ("R2.out", "body0.inDATA"),
-            ("body5.outDATA", "HEAD.inDATA"),
-            ("HEAD.outDATA", "eye6.inDATA"),
+            ("body5.outDATA", "head-light.inDATA"),
+            ("head-light.outDATA", "eye6.inDATA"),
             ("eye6.outDATA", "eye7.inDATA"),
             ("eye7.outDATA", "mouth.DIN"),
             ("F2.out", "lighting+.wire"),
@@ -98,7 +99,7 @@ class MasterWiringTests(unittest.TestCase):
         expected += [(f"body{i}.outDATA", f"body{i + 1}.inDATA") for i in range(5)]
         for suffix in ["+", "−"]:
             expected += [
-                (f"body{suffix}.wire", f"HEAD.in{suffix}"),
+                (f"body{suffix}.wire", f"head-light.in{suffix}"),
                 (f"body{suffix}.wire", f"body0.in{suffix}"),
                 (f"head{suffix}.wire", f"eye6.in{suffix}"),
                 (f"head{suffix}.wire", f"mouth.{suffix}"),
@@ -191,6 +192,20 @@ class MasterWiringTests(unittest.TestCase):
                     self.assertTrue(
                         x <= values[-2] <= x + w and y <= values[-1] <= y + h
                     )
+
+    def test_drawn_labels_use_approved_names(self):
+        root = ET.fromstring(self.drawn())
+        texts = labels(root)
+        texts += [v for e in root.iter() for k, v in e.attrib.items() if k.startswith("data-")]
+        self.assertIn("Body light connector", texts)
+        self.assertIn("Head light connector · JST-SM", texts)
+        self.assertEqual([(t, retired_names(t)) for t in texts if retired_names(t)], [])
+
+    def drawn(self):
+        with tempfile.TemporaryDirectory() as temp:
+            with patch.object(diagrams, "OUT", Path(temp)):
+                master.draw().save("master-wiring.svg")
+            return (Path(temp) / "master-wiring.svg").read_bytes()
 
     def test_svg_has_one_component_each_and_continuous_terminal_to_terminal_paths(self):
         with tempfile.TemporaryDirectory() as temp:

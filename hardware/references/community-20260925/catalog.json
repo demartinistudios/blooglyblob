@@ -116,20 +116,6 @@
       "publisher": "Adafruit"
     },
     {
-      "id": "ref-009",
-      "part_ids": [
-        "E19"
-      ],
-      "title": "Adafruit 1152 quick-connect wire pair — official product specifications",
-      "kind": "product",
-      "official_url": "https://www.adafruit.com/product/1152",
-      "checked_date": "2026-09-26",
-      "model_match": "exact-model",
-      "limitations": "Product specifications; no separate exact-product datasheet PDF found.",
-      "source_type": "manufacturer",
-      "publisher": "Adafruit"
-    },
-    {
       "id": "ref-010",
       "part_ids": [
         "E22"
@@ -859,15 +845,6 @@
       "reference_ids": [
         "ref-032",
         "ref-033"
-      ],
-      "coverage": "links-only",
-      "limitations": ""
-    },
-    {
-      "part_id": "E19",
-      "name": "Adafruit 1152 quick-connect wire pair",
-      "reference_ids": [
-        "ref-009"
       ],
       "coverage": "links-only",
       "limitations": ""

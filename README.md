@@ -28,7 +28,7 @@ and software commands together in one numbered sequence. You can read it and
 download the print files without cloning this repository.
 
 - **[Parts and supplies](https://demartinistudios.github.io/blooglyblob/#parts):** what to buy, quantities and tools.
-- **[Print the parts](https://demartinistudios.github.io/blooglyblob/#step-02):** Bambu Studio projects, raw STLs, plate layouts and print settings.
+- **[Print the parts](https://demartinistudios.github.io/blooglyblob/#step-print-plates):** Bambu Studio projects, raw STLs, plate layouts and print settings.
 - **[Set up the Raspberry Pi](docs/software/setup.md):** Raspberry Pi Imager, Wi-Fi, credentials and installation commands. This is also covered in the guide.
 
 The build uses a Raspberry Pi 3 Model A+, USB audio, speakers, NeoPixel LEDs and

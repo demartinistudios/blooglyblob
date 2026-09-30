@@ -5,83 +5,67 @@
   "surfaces": [
     {
       "surface": "instructions",
-      "status": "verified",
-      "reason": "Adhesive requirements and illustrated actions agree; magnets, horn fastening, strap glue points and stand assembly reviewed at desktop/phone size. Stable sequence retained.",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review"
+      ]
     },
     {
       "surface": "part-supply-cards",
-      "status": "verified",
-      "reason": "Epoxy is the main robot adhesive; optional CA gel is listed separately. Corrected tool, clip, reel, fuse, nut and washer cartoons agree with their cards.",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review"
+      ]
     },
     {
       "surface": "print-cards-downloads",
-      "status": "verified",
-      "reason": "All ten plate previews reviewed against the actual page background; print inputs and downloads unchanged. Prior source/download checks remain applicable.",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review"
+      ]
     },
     {
       "surface": "assembly-visuals",
-      "status": "verified",
-      "reason": "All authored illustration assets inventoried and visually reviewed. Corrected action views checked against accepted source meshes and relevant dimensions; independent final visual review passed.",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review"
+      ]
     },
     {
       "surface": "diagrams-templates",
-      "status": "verified",
-      "reason": "Electrical drawings reviewed; repaired continuous servo leads, head power branches, button tabs and speaker tails. Focused diagram tests pass; templates unchanged.",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review"
+      ]
     },
     {
       "surface": "references",
-      "status": "verified",
-      "reason": "Electrical reference and master drawing reviewed with connected terminal geometry; responsive layout and linked assets pass. Other reference content unchanged.",
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29",
-      "reviewer": "Guide source, rendered-image and browser review",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
     },
     {
       "surface": "software-commands",
-      "status": "verified",
-      "reason": "Nine setup screenshots visually reviewed; software commands unchanged from the prior verified revision.",
-      "reviewer": "Guide source, rendered-image and browser review",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29"
+      ]
     },
     {
       "surface": "progress-and-navigation",
-      "status": "verified",
-      "reason": "Studio badge is grayscale until hover or keyboard focus; header gradient spans full width. Seven-width interaction/layout checks and desktop/phone render inspection pass. Progress and step IDs unchanged.",
-      "reviewer": "Guide source, rendered-image and browser review",
+      "status": "pending",
+      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
-      ],
-      "reviewed_revision": "R28/cloud24; guide and header reviewed 2026-09-29"
+      ]
     }
   ]
 }

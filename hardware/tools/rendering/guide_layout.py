@@ -47,7 +47,7 @@ def render_layout(render, output):
                   size=[1200,1200],margin=120,frame_world_bounds=bounds.tolist()))
     png=base64.b64encode((output/'board-layout-background.png').read_bytes()).decode()
     body=f'<image width="900" height="900" href="data:image/png;base64,{png}"/>'
-    body+='<g font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#22384e"><text x="450" y="45">REAR · SD card end</text><text x="450" y="864">FRONT · microphone opening</text></g>'
+    body+='<g font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#22384e"><text x="450" y="45">REAR · microSD card end</text><text x="450" y="864">FRONT · microphone opening</text></g>'
     for name,p,xy in [('S1',[-18,-17,-25],[390,515]),('S2',[-18,-39,-25],[390,585]),
                       ('Pi',[-50,32,-25],[790,285]),('SD',[-50,66,-15],[785,140]),
                       ('USB data',[-53.5,-3,-22],[725,470]),('POWER',[-22,53.4,-22],[425,225])]:body+=label(name,p,xy)
