@@ -177,3 +177,42 @@ class InletActionViewTests(unittest.TestCase):
             for face_y in (92.5,94.5):
                 circular=[p for p in points if abs(p[1]-face_y)<.001 and abs(math.hypot(p[0]-80,p[2]-center_z)-radius)<.001]
                 self.assertGreater(len(circular), 30)
+
+
+class CurrentGuideSceneTests(unittest.TestCase):
+    def test_frame_shows_only_lower_collar_and_both_uprights(self):
+        scene=module.scenes()['assets/r21/base-frame.png']['view']
+        self.assertEqual(scene['occ'], {'P01':[0], 'P02':[0,1]})
+
+    def test_retired_stand_is_not_an_available_guide_scene(self):
+        self.assertNotIn('assets/r16/service-stand.png', module.scenes())
+
+
+class R29FasteningGeometryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        with gzip.open(module.checked_source()[0], 'rt') as stream:
+            cls.rows=json.load(stream)
+
+    def world_points(self, prefix):
+        row=next(row for row in self.rows if row['path'].startswith(prefix+' '))
+        matrix=row['transform'];vertices=row['vertices_cm']
+        return [[10*(sum(matrix[4*axis+j]*vertices[i+j] for j in range(3))+matrix[4*axis+3]) for axis in range(3)] for i in range(0,len(vertices),3)]
+
+    def test_shelf_screw_axes_follow_rotated_native_bores(self):
+        for part,face in [('P08',125.3),('P14',128.3)]:
+            points=self.world_points(part)
+            for x,y in module.SHELF_FASTENING_CENTERS:
+                bore=[p for p in points if abs(p[2]-face)<.002 and abs(math.hypot(p[0]-x,p[1]-y)-1.7)<.006]
+                self.assertGreater(len(bore),20,(part,x,y))
+
+    def test_lid_screw_axes_follow_asymmetric_native_bores(self):
+        # Read the pure coordinate declaration without importing optional renderer dependencies.
+        import ast
+        tree=ast.parse((ROOT/'hardware/tools/rendering/guide_closeups.py').read_text())
+        centers=next(ast.literal_eval(node.value) for node in tree.body if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='AUDIO_LID_CENTERS' for t in node.targets))
+        points=self.world_points('FB32')
+        for x,y in centers:
+            for face in (-41.5,-39.5):
+                bore=[p for p in points if abs(p[2]-face)<.002 and abs(math.hypot(p[0]-x,p[1]-y)-1.15)<.002]
+                self.assertGreater(len(bore),20,(x,y,face))

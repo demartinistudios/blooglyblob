@@ -1,20 +1,20 @@
 {
   "schema_version": 2,
   "cad": {
-    "design_revision": "R28",
+    "design_revision": "R29",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 24,
-    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
-    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+    "cloud_version": 25,
+    "release_manifest": "hardware/cad/design-control/releases/R29-batch-20260930.json",
+    "release_manifest_sha256": "c0664b8c3e63815507e428aa4d94cba43546d2c8bde31483c5703f22a4126a57"
   },
   "scene_review_cad": {
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R28",
-    "cloud_version": 24,
-    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
-    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+    "design_revision": "R29",
+    "cloud_version": 25,
+    "release_manifest": "hardware/cad/design-control/releases/R29-batch-20260930.json",
+    "release_manifest_sha256": "c0664b8c3e63815507e428aa4d94cba43546d2c8bde31483c5703f22a4126a57"
   },
   "roles": {
     "mesh": "hardware/rendering/r28-visible-meshes.json.gz",
@@ -34,15 +34,15 @@
   "files": [
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "8f7c52afd64b3962cc9eef8f69ad90fe9bb51ec145518273083bf01dc25f470b"
+      "sha256": "26b56874b81e137fa3da068c02328ffc7441b21201c972340b705fb482464423"
     },
     {
       "path": "hardware/cad/current/native-meshes.json",
-      "sha256": "15a39003dbebf597108bb99b4cd67f064c0265f88926402fd88aed2b24d04c37"
+      "sha256": "a42d17d56768750eaaa6cea082b2cc0003298c11439ca65398418df5ddb4c1cc"
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "c43880d38c47f58294e585cd0ccc8349f4445b5f03792530370ea5a6ff325c58"
+      "sha256": "fcf5682cb318eabb7a054d734024037948b735d57a09fab7c121dd4514f9d764"
     },
     {
       "path": "hardware/cad/current/joints.json",
@@ -62,10 +62,10 @@
     },
     {
       "path": "hardware/rendering/scenes/views.json",
-      "sha256": "dd21504b5fd6a5a92b4c65d13b02436528068b6c3b34d7b50bc0f3cb4dc7baf5"
+      "sha256": "7eab37e269dc2395e6c460dba9b66385d7fc94238b3a6a09cf89af976d726540"
     }
   ],
   "frames": "Body-local cm, occurrence transform once, then cm to mm. Bed-normalized print geometry has separate frames.",
-  "scene_review": "R28/cloud24 dimension review: Pi +38Y; S1/S2 centers(-18,-17/-39); Wago row X48 rear-to-front W1/W3/W2/W4 at52/22/-8/-38; F1 moved, capacitor axes Y. Updated board/nut/crop markers and recognition helpers. Output visual review tracked separately in guide record.",
+  "scene_review": "R29/cloud25 review against hardware/cad/current/evidence/batch-r29.json: P08/P14 \u00d83.4 bores verified at (15.588457,-9), (0,18), (-15.588457,-9), Z125.3/128.3; underside pocket roof Z124.0. FB32 \u00d82.3 bores verified at (-47,-65.5) and (50,-78.35), Z-41.5/-39.5; corresponding FB24 lid nuts updated. P35/P36 former screw/nut joint removed; actual radius8.3 ring surfaces at Z33\u201338 and62\u201367 identify epoxy bonds. Source transforms and unchanged base/head-shell/belt interfaces retained. USB views locate endpoints and a separated measured connector; no final mated position or cable-bend clearance is claimed. Affected six part cards, assembly/service views, layouts and full-robot view require regenerated assets from this binding; physical qualification remains pending.",
   "reference_frame_check": "Fuse and capacitor rows freshly exported from clean saved cloud19: body-local vertices and actual occurrence transform. Replaces legacy baked-coordinate rows; no geometry or CAD save change."
 }

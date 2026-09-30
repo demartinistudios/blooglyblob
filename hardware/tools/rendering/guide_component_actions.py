@@ -4,11 +4,30 @@ from guide_closeups import Views, compact_view, clipped
 from guide_fasteners import screw, hex_nut
 
 
+def button_leads(parts):
+    """Four illustrative soldered lead ends; no length or installed route implied."""
+    import trimesh
+    from guide_closeups import item
+    result=[]
+    for tab in parts:
+        if tab.get('component_detail') != 'button terminal':continue
+        center=tab['v'].mean(0)
+        joint=trimesh.creation.icosphere(subdivisions=2,radius=.85)
+        joint.apply_translation(center+[0,0,-1.5])
+        wire=trimesh.creation.cylinder(.65,16,sections=20)
+        wire.apply_translation(center+[0,0,-9.5])
+        sleeve=trimesh.creation.cylinder(1.05,6,sections=20)
+        sleeve.apply_translation(center+[0,0,-2.5])
+        for geometry,color in [(joint,(180,188,195)),(wire,(74,94,118)),(sleeve,(43,49,56))]:
+            row=item(geometry,'E17',color);row['component_detail']='illustrative button lead';row['root']=tab['root'];row['source']=tab['source'];result.append(row)
+    return result
+
+
 def render_component_actions(render, output):
     v=Views(render,output)
     def emit(*args,**kwargs):v.paths.append(compact_view(render,output,*args,label_size=32,**kwargs))
     def moved(rows,offset):return [dict(m,v=m['v']+offset) for m in rows]
-    button=v.parts(['E17']);plate=v.parts(['FB20'])
+    button=v.parts(['E17']);button+=button_leads(button);plate=v.parts(['FB20'])
     nut=[m for m in button if m.get('component_detail') in ('button retaining nut','nut grip')]
     body=[m for m in button if m.get('component_detail') not in ('button retaining nut','nut grip')]
     parts=plate+moved(body,[0,0,32])+moved(nut,[0,0,-30])
@@ -28,9 +47,9 @@ def render_component_actions(render, output):
         rotation=np.array([[np.cos(a),-np.sin(a),0],[np.sin(a),np.cos(a),0],[0,0,1]])
         m['v']=(m['v']-center)@rotation.T+center
     emit('button-enclosure-nuts',shell+[left,right],[.6,1,-1.2],
-         'Load the inner M3 nut upward; slide the foot-post-side M3 nut sideways from the button opening',
+         'Load the inner M3 nut from the open bottom; slide the foot-post-side M3 nut sideways from the button opening',
          arrows=[([73,-76,-15],[73,-76,-9]),([90,-76,-7.4],[96,-76,-7.4])],
-         labels=[('2 × M3 nuts',None,(28,36)),('Upward',[73,-76,-18],(425,385)),
+         labels=[('2 × M3 nuts',None,(28,36)),('Inner nut',[73,-76,-18],(425,385)),
                  ('Sideways',[88,-76,-7.4],(28,385))])
     shell=clipped(v.parts(['FB01']),[[65,-92,-13],[105,-60,1]])
     for m in shell:m['guide_color']=(173,187,199)
@@ -39,7 +58,7 @@ def render_component_actions(render, output):
     parts=shell+plate+button
     for x in [73,97]:parts+=screw(3,8,[x,-76,20],[0,0,-1])
     emit('button-plate-fastening',parts,[.6,-1,1.7],
-         'Fit the button plate and insert two M3 by 8 screws from the outside into the enclosure nuts',
+         'Fit the button plate and insert two M3 by 8 screws from the outside into the base nuts',
          arrows=[([x,-76,9],[x,-76,-1]) for x in [73,97]],
          labels=[('2 × M3 × 8',None,(28,36)),('FB20',[96,-68,-2],(425,385))])
     # Brackets are still loose on the bench. Only the three servos move;

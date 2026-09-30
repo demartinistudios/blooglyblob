@@ -4,20 +4,20 @@
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R28",
-    "cloud_version": 24,
-    "release_manifest": "hardware/cad/design-control/releases/R28-current.json",
-    "release_manifest_sha256": "eb1806715402595bd5407986611aed9dbac9eaffbba68602fad054af6364108c"
+    "design_revision": "R29",
+    "cloud_version": 25,
+    "release_manifest": "hardware/cad/design-control/releases/R29-batch-20260930.json",
+    "release_manifest_sha256": "c0664b8c3e63815507e428aa4d94cba43546d2c8bde31483c5703f22a4126a57"
   },
   "accepted_native": {
     "path": "hardware/cad/current/assembly.f3d",
     "original_path": "hardware/cad/current/assembly.f3d",
-    "sha256": "2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8"
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa"
   },
   "current_inputs": {
     "path": "hardware/cad/design-control/current-inputs.json",
-    "sha256": "79d97048be18cfc6bf8a9428048277727d8ceee508f9f72f15ca9c7bb85919be",
-    "bytes": 26609
+    "sha256": "cd9236a56fe8be198bff38ae3007f430f648f8ea59af9bca13f27696ab0e388e",
+    "bytes": 29853
   },
   "delivery": null
 }

@@ -1,0 +1,386 @@
+[
+  {
+    "part": "P08",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "P08 Dome carrier r2 - openable head harness entry:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      12.129999999999999,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "Body-local mm; print-project placement is separate.",
+    "bounds_mm": [
+      [
+        -37.55478858947754,
+        -37.69999980926514,
+        0.0
+      ],
+      [
+        37.55478858947754,
+        37.55478858947754,
+        8.199999928474426
+      ]
+    ],
+    "sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7"
+  },
+  {
+    "part": "P14",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      11.694,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "Body-local mm; print-project placement is separate.",
+    "bounds_mm": [
+      [
+        -22.999999523162842,
+        -22.99875497817993,
+        0.0
+      ],
+      [
+        22.999999523162842,
+        22.99875497817993,
+        11.360000371932983
+      ]
+    ],
+    "sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031"
+  },
+  {
+    "part": "FB24",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "FB24 Audio cradle - captive lid nuts:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.1,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0,
+        -79.3499984741211
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        -7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "description": "Retained R26 assembly-to-bed frame composed with unchanged occurrence transform.",
+    "bounds_mm": [
+      [
+        -66.50000095367432,
+        -16.34999656677246,
+        -1.1920928955078125e-07
+      ],
+      [
+        66.50000095367432,
+        10.350004196166992,
+        32.000000953674316
+      ]
+    ],
+    "sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57"
+  },
+  {
+    "part": "FB32",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "FB32 Audio lid reused:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.1,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1,
+        0,
+        0,
+        -1.5
+      ],
+      [
+        0,
+        1,
+        0,
+        79.35
+      ],
+      [
+        0,
+        0,
+        1,
+        41.5
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "Body-local mm translated by(-1.5,+79.35,+41.5); preserves the original lid source center and original bottom plane.",
+    "bounds_mm": [
+      [
+        -53.49999809265137,
+        -10.350002670288092,
+        -9.5367431640625e-07
+      ],
+      [
+        53.5,
+        17.350001907348627,
+        1.9999995231628418
+      ]
+    ],
+    "sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57"
+  },
+  {
+    "part": "P35",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "P35 Body-hugging backpack shell r1:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "Body-local mm; print-project placement is separate.",
+    "bounds_mm": [
+      [
+        -38.09999942779541,
+        23.819153308868408,
+        30.0
+      ],
+      [
+        38.09999942779541,
+        54.000000953674316,
+        103.50000381469727
+      ]
+    ],
+    "sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4"
+  },
+  {
+    "part": "P36",
+    "source": "saved MAIN R29/cloud25",
+    "source_occurrence": "P36 Copper thruster barrel r1 - print two:1",
+    "units": "mm",
+    "native_body_local_cm_to_assembly_cm": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "body_local_mm_to_source_stl_mm": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "Body-local mm; print-project placement is separate.",
+    "bounds_mm": [
+      [
+        20.0,
+        35.0012469291687,
+        32.99999952316284
+      ],
+      [
+        35.999999046325684,
+        50.99875450134277,
+        87.69155502319336
+      ]
+    ],
+    "sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
+  }
+]

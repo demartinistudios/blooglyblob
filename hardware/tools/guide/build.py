@@ -127,7 +127,7 @@ def plate_settings_html(source):
     if 0 <= notes < plates:
         machine = re.search(r'<p class="eyebrow">.*?</p>', content, re.S)
         setup = (machine.group(0) if machine else '') + content[notes:plates]
-        content = content[plates:] + '<details><summary>Printer and material notes</summary>' + setup + '</details>'
+        content = content[plates:] + '<details data-slicer="bambu"><summary>Printer and material notes</summary>' + setup + '</details>'
     content = re.sub(r'(<a href="#parts/([A-Z0-9]+)">[^<]+</a>)',
                      r'\1 <a href="downloads/stl/\2.stl" download aria-label="Download \2 STL">STL</a>', content)
     return re.sub(r'<a href="(assets/plates/[^"]+)">(<img[^>]+>)</a>',

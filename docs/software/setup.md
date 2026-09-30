@@ -242,7 +242,8 @@ preserved on reruns.
 
 ### Reboot if provisioning requests it
 
-If provisioning reports that `snd_bcm2835` is loaded, it has written an owned
+If provisioning reports “Onboard audio is loaded and conflicts with GPIO18 LEDs”,
+it has written an owned
 module blacklist and needs a reboot. GPIO18 lighting cannot share PWM with
 onboard analogue audio; see the driver's [PWM limitation](https://github.com/jgarff/rpi_ws281x#pwm).
 No application files are replaced before this prerequisite passes.

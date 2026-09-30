@@ -1,0 +1,112 @@
+{
+  "native": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+    "bytes": 15485350
+  },
+  "saved_geometry": {
+    "permanent_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 25,
+    "latest": 25,
+    "saved_unmodified": true,
+    "complete": true,
+    "all_occurrence_statistics_native_reimport_match": true,
+    "solid_count_exact_BRep_reimport": 572,
+    "joint_count": 8,
+    "parts": [
+      "P08",
+      "P14",
+      "FB24",
+      "FB32",
+      "P35",
+      "P36"
+    ],
+    "fine_mesh_surface_tolerance_cm": 0.0005,
+    "fine_mesh_max_side_cm": 0.15
+  },
+  "mesh_checks": [
+    {
+      "part": "P08",
+      "triangles": 14070,
+      "mesh_volume_mm3": 8450.225234372341,
+      "native_volume_mm3": 8449.760840952116,
+      "relative_volume_error": 5.495935671625748e-05,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    },
+    {
+      "part": "P14",
+      "triangles": 9268,
+      "mesh_volume_mm3": 8169.474091591837,
+      "native_volume_mm3": 8170.99261770347,
+      "relative_volume_error": 0.0001858435299945029,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    },
+    {
+      "part": "FB24",
+      "triangles": 18608,
+      "mesh_volume_mm3": 13054.231870358952,
+      "native_volume_mm3": 13054.913660929724,
+      "relative_volume_error": 5.222482419110705e-05,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    },
+    {
+      "part": "FB32",
+      "triangles": 5920,
+      "mesh_volume_mm3": 4530.386434151222,
+      "native_volume_mm3": 4530.364230035481,
+      "relative_volume_error": 4.901176729487172e-06,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    },
+    {
+      "part": "P35",
+      "triangles": 42188,
+      "mesh_volume_mm3": 19331.667210954598,
+      "native_volume_mm3": 19339.18734201529,
+      "relative_volume_error": 0.00038885455359107527,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    },
+    {
+      "part": "P36",
+      "triangles": 16676,
+      "mesh_volume_mm3": 4720.371825301619,
+      "native_volume_mm3": 4723.057079091007,
+      "relative_volume_error": 0.000568541464653461,
+      "non_two_use_edges": 0,
+      "winding_errors": 0,
+      "mesh_repair": false
+    }
+  ],
+  "approval_scope": "User visually accepted the head fastening, audio USB cradle and glued jetpack candidates and explicitly authorized all three batches for MAIN on2026-09-30.",
+  "parts": [
+    "P08",
+    "P14",
+    "FB24",
+    "FB32",
+    "P35",
+    "P36"
+  ],
+  "unchanged": "All occurrence transforms, original appearances/visibility, joint count and unrelated geometry preserved. Head shell, P31, base, elbows, nozzles, backpack carrier and belt unchanged.",
+  "hardware_delta": {
+    "M3x8": -2,
+    "N3": -2
+  },
+  "interface_notes": {
+    "head": "Three P08/P14 fastening positions rotated60deg at18mmradius; same3M3x8+3M3nuts. Tighten on bench with head/mouth removed.",
+    "audio": "FB24opening15.5by17.6mm; left FB32lid screw and nut boss move12.85mmrearward; same2M2x8 screws. Measured maximum plastic section8.97by16.51mm clears entrance across tape seating range. Final mated connector position/cable bend not yet measured.",
+    "jetpack": "P36bothinstances restored2mmwall at former nut boss; P35canister bores closed. Glue tanks at ring surfaces and existing elbow/nozzle joints; carrier screws/belt pivots stay removable."
+  },
+  "limits": [
+    "CAD acceptance only; printer and guide updates pending",
+    "Printed fit, strength, adhesive retention and complete cable routing unqualified"
+  ]
+}

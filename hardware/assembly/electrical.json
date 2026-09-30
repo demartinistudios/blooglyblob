@@ -128,11 +128,11 @@
       ],
       [
         "Combined real workload",
-        "On actual 3A+, run normal approved motion, 16-pixel patterns at the initial brightness ceiling, duplex conversation and theme playback together. Record inlet/Pi/dongle minimum voltage and peak/steady current. Target \u22654.85 V at Pi under the tested load, never exceed 5.25 V on the 5 V system, and no fresh undervoltage/throttle flags or USB resets. These are prototype acceptance targets, not manufacturer certification thresholds."
+        "On actual 3A+, run normal approved motion, 16-light patterns at the initial brightness ceiling, duplex conversation and theme playback together. Record power-jack/Pi/audio-module minimum voltage and peak/steady current. Target \u22654.85 V at Pi under the tested load, never exceed 5.25 V on the 5 V system, and no fresh undervoltage/throttle flags or USB resets. These are prototype acceptance targets, not manufacturer certification thresholds."
       ],
       [
         "Supply and wiring margin",
-        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing supply capacity. Confirm OEM leads, pigtails, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
+        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing supply capacity. Confirm OEM leads, connector leads, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
       ],
       [
         "Protection coordination",
@@ -140,7 +140,7 @@
       ],
       [
         "Audio",
-        "Check clean music and speech at the intended listening volume, including bass/percussion, enclosure rattles and hiss. Repeat with the bottom cover fitted; inspect the microphone openings and speaker mounting if performance changes."
+        "Check clean music and speech at the intended listening volume, including bass/percussion, base rattles and hiss. Repeat with the bottom cover fitted; inspect the microphone openings and speaker mounting if performance changes."
       ],
       [
         "Conversation",
@@ -152,7 +152,7 @@
       ],
       [
         "Lighting / service",
-        "Verify the 16-pixel address sequence, red/green/blue order and visible mouth end pixels, with no flicker during motion/audio. With external power disconnected, remove and refit the plain cover, reach the SD card, and operate each local disconnect without loading a board or pulling a wire. The character remains attached for routine base work."
+        "Verify the 16-light address sequence, red/green/blue order and visible mouth end pixels, with no flicker during motion/audio. With external power disconnected, remove and refit the plain cover, reach the SD card, and operate each local disconnect without loading a board or pulling a wire. The character remains attached for routine base work."
       ]
     ]
   },

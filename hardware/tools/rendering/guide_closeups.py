@@ -7,6 +7,7 @@ import trimesh
 
 INK = '#22384e'
 BG = '#f3f7fa'
+AUDIO_LID_CENTERS = ((-47,-65.5),(50,-78.35))
 
 
 def item(mesh, name, color=None):
@@ -87,6 +88,16 @@ def clipped(parts, bounds):
     return result
 
 
+def pose_parts(parts, rotation):
+    """Rigid display rotation; source triangles and assembly coordinates stay intact."""
+    result=[]
+    for mesh in parts:
+        row=dict(mesh,v=mesh['v']@rotation.T)
+        row.pop('normals',None);row.pop('corner_normals',None)
+        result.append(row)
+    return result
+
+
 def render_closeups(render, output):
     v=Views(render,output)
     ref=next(m for m in v.original if m['id']=='P06' and m['occ']==0)
@@ -124,6 +135,13 @@ def render_closeups(render, output):
     for y in [-4.318,4.318]:parts+=hardware(2,6,ep([0,y,17]),ep([0,0,-1]))+[nut(ep([0,y,5]),ep([0,0,1]))]
     v.emit('eye-board-fastening',parts,[.45,1,.5],'Screw the LED board to P06',
            ['2 × M2 × 6 · no washers','LED faces the foam opening','Both sockets face inside the head'],arrows=[(ep([0,y,16]),ep([0,y,10.57])) for y in [-4.318,4.318]])
+    wall=clipped(eye(['GS20']),[[-20,-1,-14],[20,8,14]])
+    for m in wall:m['guide_color']=(110,141,203)
+    parts=wall+eye(['GS11'],{'GS11':[0,0,-8]})
+    parts += [nut(ep([x,0,-9.8]),ep([0,0,1])) for x in [-9,9]]
+    v.emit('eye-housing-seating',parts,[.75,-1,.45],'Seat the eye housing from outside',
+           ['GS11 · one housing shown','Blue: head wall cutaway','Housing nuts already in place'],
+           arrows=[(ep([0,0,-7]),ep([0,0,-1]))])
     parts=eye(['GS11','P06','E03'],{'GS11':[0,0,-5],'P06':[0,0,9],'E03':[0,0,9]})
     wall=clipped(eye(['GS20']),[[-16,-1,-12],[16,8,12]])
     for m in wall:
@@ -169,7 +187,7 @@ def render_closeups(render, output):
     body+='<path d="M105 185V230M315 185V230" stroke="'+BG+'" stroke-width="12"/>'
     body+=text(210,145,'Flat disk against printed recess',anchor='middle')+text(210,368,'Long splined hub → servo shaft',anchor='middle')
     v.save('horn-side-orientation','Which side faces the servo?',body,
-           ['Side section · shape is schematic','Two offset screws attach the print','Center screw attaches to the shaft','Fit on the shaft only at the fit pose'])
+           ['Side section · shape is schematic','Two offset screws attach the print','Center screw attaches to the shaft','Fit on the shaft only at the fit position'])
     render.meshes=v.original
     return v.paths
 
@@ -226,27 +244,27 @@ def audio_module_model():
     return rows
 
 
-def audio_cable_ends(separated=True):
+def audio_cable_ends():
     """USB-A extension socket and keyed four-wire plug; short leads show exits only."""
     def box(size,center,name,color):
         mesh=trimesh.creation.box(size);mesh.apply_translation(center)
         return item(mesh,name,color)
     rows=[];dark=(39,42,47);metal=(183,193,203);cream=(228,226,212)
-    # Socket mouth faces +X, mating with the module's -X USB-A plug.
-    front=-34 if separated else -15
-    rows.append(_audio_case(front-19,front,-34,-18,-84.25,-75.75,1.2,'USB extension housing',dark))
-    rows.append(box([.2,6,13],[front+.12,-80,-26],'USB socket opening',(8,10,13)))
-    for y in [-83,-77]:rows.append(box([.35,.35,13.4],[front+.25,y,-26],'USB socket lip',metal))
-    for z in [-32.7,-19.3]:rows.append(box([.35,6,.35],[front+.25,-80,z],'USB socket lip',metal))
-    rows.append(box([.35,1.2,10.5],[front+.4,-81.4,-26],'USB socket tongue',cream))
-    for z in [-29,-27,-25,-23]:rows.append(box([.42,.2,1],[front+.45,-80.72,z],'USB socket contact',(186,143,62)))
-    for x,r,length in [(front-21,3.2,4),(front-26,1.8,6)]:
-        mesh=trimesh.creation.cylinder(r,length,sections=24);mesh.apply_transform(trimesh.geometry.align_vectors([0,0,1],[1,0,0]));mesh.apply_translation([x,-80,-26])
-        rows.append(item(mesh,'USB cable strain relief' if r>2 else 'USB cable',dark))
-    for x in [front-20,front-21.5,front-23]:
-        rows.append(box([.45,6.8,6.8],[x,-80,-26],'USB strain-relief rib',(58,62,68)))
+    # Owner measurements, R29: X length; broad face vertical Z as the socket.
+    # Draw separated for identification; the final mated gap is not measured.
+    front=-34
+    rows.append(_audio_case(front-9.23,front-.5,-26-13.17/2,-26+13.17/2,-80-5.85/2,-80+5.85/2,.25,'USB extension metal',metal))
+    rows.append(_audio_case(front-29.93,front-9.23,-26-16.51/2,-26+16.51/2,-80-8.97/2,-80+8.97/2,1.2,'USB extension housing',dark))
+    rows.append(box([.2,5.1,12.4],[front-.1,-80,-26],'USB socket opening',(8,10,13)))
+    for y in [-82.925,-77.075]:rows.append(box([.35,.35,14.6],[front-.175,y,-26],'USB socket flange',metal))
+    for z in [-32.585,-19.415]:rows.append(box([.35,5.85,.35],[front-.175,-80,z],'USB socket lip',metal))
+    rows.append(box([.35,1.2,10.5],[front-.175,-81.4,-26],'USB socket tongue',cream))
+    for z in [-29,-27,-25,-23]:rows.append(box([.42,.2,1],[front-.21,-80.72,z],'USB socket contact',(186,143,62)))
+    mesh=trimesh.creation.cylinder(2.4,10.7,sections=24)
+    mesh.apply_transform(trimesh.geometry.align_vectors([0,0,1],[1,0,0]));mesh.apply_translation([front-35.28,-80,-26])
+    rows.append(item(mesh,'USB cable strain relief',dark))
     # White four-position cable housing, with key rib and four wire exits.
-    tip=49 if separated else 39
+    tip=49
     rows.append(box([6,4,9.4],[tip+3,-80,-26],'Four-wire speaker plug',cream))
     rows.append(box([4,.65,4],[tip+3,-82.25,-26],'Speaker plug key',(198,199,186)))
     for z,color in zip([-29,-27,-25,-23],[(43,45,49),(169,48,35),(43,45,49),(169,48,35)]):
@@ -280,18 +298,19 @@ def render_audio_closeups(render, output):
     cradle=v.parts(['FB24'])
     for m in cradle:m['guide_color']=(232,230,216)
     # The lid nut slots open toward the cradle's central interior, not upward.
-    # Show the right pocket; the left receives its nut in the opposite X direction.
-    pocket=clipped(cradle, [[36,-86,-40],[58,-71,-29]])
-    center=np.array([40,-78.35,-35.2])
-    loose=nut(center,[0,0,1])
-    # Slot width is 4.3 mm in Y; align the M2 nut's 4 mm flats with those walls.
+    # The USB-end pocket is farther back; show both receiving pockets.
     turn=trimesh.transformations.rotation_matrix(np.pi/6,[0,0,1])[:3,:3]
-    loose['v']=(loose['v']-center)@turn.T+center
-    _compact(v,'audio-cradle-lid-nuts',pocket+[loose],[-1,1,-.7],
-        'Slide an M2 nut sideways from the cradle interior into the right lid pocket; repeat mirrored at the left end',
-        arrows=[([43,-78.35,-35.2],[48.5,-78.35,-35.2])],
-        labels=[('M2',[40,-78.35,-35.2],(20,390)),
-                ('FB24',[53,-77,-33],(460,45))],label_size=32)
+    loose=[];arrows=[]
+    for x,y in AUDIO_LID_CENTERS:
+        direction=1 if x>0 else -1
+        center=np.array([x-direction*10,y,-35.2]);row=nut(center,[0,0,1])
+        row['v']=(row['v']-center)@turn.T+center;loose.append(row)
+        arrows.append(([x-direction*7,y,-35.2],[x-direction*1.5,y,-35.2]))
+    _compact(v,'audio-cradle-lid-nuts',cradle+loose,[.2,1,-1.2],
+        'Slide an M2 nut from inside into each lid pocket; the left pocket is farther back',
+        arrows=arrows,
+        labels=[('USB end · M2',[-37,-65.5,-35.2],(20,390)),
+                ('Speaker end · M2',[40,-78.35,-35.2],(310,45))],label_size=32)
     # Keep the front of the enclosure visible: FB24 mounts inside it, rather
     # than being a loose bench assembly. Cut away unrelated rear/side walls.
     base=clipped(v.parts(['FB01']), [[-76,-96,-54],[76,-63,0]])
@@ -328,8 +347,8 @@ def render_audio_closeups(render, output):
     for m in lid:m['guide_color']=(219,218,204)
     mounted=context+cradle
     for x in [-62,0,62]:mounted+=hardware(3,6,[x,-78.2,-9.2],[0,0,1])
-    for x in [-47,50]:
-        center=np.array([x,-78.35,-35.2])
+    for x,y in AUDIO_LID_CENTERS:
+        center=np.array([x,y,-35.2])
         seated=nut(center,[0,0,1])
         seated['v']=(seated['v']-center)@turn.T+center
         mounted.append(seated)
@@ -338,8 +357,7 @@ def render_audio_closeups(render, output):
         arrows=[([12,-80,-50],[12,-80,-30])],
         labels=[('Front grille',[0,-94,-33],(20,45)),
                 ('Audio module',[12,-80,-52],(315,390))],label_size=32)
-    # Lid bore centers from accepted FB32 sections: Ø2.3 at X=-47 and50,
-    # Y=-78.35. Outer screw bearing face is Z=-41.5; screws enter along +Z.
+    # R29 lid bore centers: Ø2.3 at (-47,-65.5) and (50,-78.35). Outer screw bearing face is Z=-41.5; screws enter along +Z.
     taped=rearward(module+[tape],2.4)
     contact=clipped(mounted+taped,[[-2,-96,-45],[58,-62,0]])
     # The clipping helper leaves open sections. Cap the tape at its exact
@@ -354,17 +372,17 @@ def render_audio_closeups(render, output):
         arrows=[([-3,-82,-26],[-3,-70.3,-26])],
         labels=[('Tape',[-1.8,-70.05,-26],(20,45)),
                 ('Rear wall',[0,-68.9,-26],(370,390))],label_size=32)
-    parts=mounted+taped+rearward(audio_cable_ends(False),2.4)+shift(lid,-22)
+    parts=mounted+taped+shift(lid,-22)
     arrows=[]
-    for x in [-47,50]:
-        parts+=hardware(2,8,[x,-78.35,-77.5],[0,0,1])
-        arrows.append(([x,-78.35,-69],[x,-78.35,-64]))
+    for x,y in AUDIO_LID_CENTERS:
+        parts+=hardware(2,8,[x,y,-77.5],[0,0,1])
+        arrows.append(([x,y,-69],[x,y,-64]))
     _compact(v,'audio-lid-fastening',parts,camera,'Fasten the lid from below',
-        arrows=arrows,labels=[('2 × M2 × 8',[-47,-78.35,-77.5],(20,390))],label_size=32)
-    # Connector identification only: the nominal extension housing is not
-    # measured fit geometry and must not be drawn passing through FB24.
+        arrows=arrows,labels=[('2 × M2 × 8',[-47,-65.5,-77.5],(20,390))],label_size=32)
+    # Measured loose connector envelope for identification. Final mated gap
+    # remains unknown, so neither housing nor lead passes through the cradle.
     _compact(v,'audio-module-connections',module+audio_cable_ends(),[.35,-1,.5],
-             'USB and speaker connection detail; cradle omitted, connector housing clearance must be checked separately',
+             'USB and speaker connection detail with the measured loose USB extension envelope; final mated position is not shown',
              arrows=[([-32,-80,-26],[-27,-80,-26]),([47,-80,-26],[41,-80,-26])],
              labels=[('USB-A extension',[-34,-80,-26],(20,45)),
                      ('Microphones',[35.1,-87.4,-17.05],(335,45)),
@@ -375,6 +393,11 @@ def render_audio_closeups(render, output):
 
 
 def compact_view(render,output,name,parts,camera,title,arrows=(),labels=(),label_size=24):
+    if name in ('button-enclosure-nuts','button-plate-fastening'):
+        rotation=np.diag([1,-1,-1])
+        parts=pose_parts(parts,rotation);camera=(rotation@camera).tolist()
+        arrows=[(rotation@a,rotation@b) for a,b in arrows]
+        labels=[(label,None if point is None else rotation@point,xy) for label,point,xy in labels]
     render.meshes=parts
     points=np.concatenate([m['v'] for m in parts]);bounds=[points.min(0)-2,points.max(0)+2]
     render.render('closeup-'+name,dict(select=['all'],camera=camera,clean=True,
@@ -436,13 +459,13 @@ def render_inlet_closeups(render, output):
     for m in shell:m['guide_color']=(179,191,203)
     nuts=[hexagon([80,72,z],5.5,3,2.4) for z in [-27,-53]]
     compact('inlet-plate-nuts',shell+nuts,[.6,-1,.25],
-        'Place two M3 nuts into the open inlet slots from inside the enclosure; glue their outside edges',
+        'Place two M3 nuts into the power jack slots from inside the base; hold each until its screw catches',
         arrows=[([80,74,z],[80,84,z]) for z in [-27,-53]],
         labels=[('2 × M3 nuts',[80,72,-27],(40,55)),('FB01',[94,86,-42],(450,350))])
     parts=shell+plate+jack+moved([washer],94.75-107)+moved([jacknut],95.9-116)
     for z in [-27,-53]:parts+=hardware(3,12,[80,122.5,z],[0,-1,0])
     compact('inlet-plate-fastening',parts,[.85,1,.25],
-        'Fasten the fitted inlet plate with two M3 by 12 mm screws from outside',
+        'Fasten the fitted power jack plate with two M3 by 12 mm screws from outside',
         arrows=[([80,110,z],[80,96,z]) for z in [-27,-53]],
         labels=[('2 × M3 × 12',[80,122.5,-27],(355,52)),('FB21',[90,94,-42],(310,368))])
     render.meshes=v.original

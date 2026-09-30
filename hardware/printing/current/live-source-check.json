@@ -1,9 +1,15 @@
 {
-  "cad": "R28/cloud24",
-  "changed_sources": {
-    "FB01": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c"
+  "cad": "R29/cloud25",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "original_path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa"
   },
-  "unchanged_geometry_basis": "70 other instances preserved exactly from R27;48 unrelated independent comparisons remain pending.",
-  "native_source": "Registry-selected accepted MAIN native SHA 2d73343bc7cada62592843c526754b39234dd1eede7f42705b6d8f09a34133d8. No live Fusion mutation.",
-  "validation": "checks/r28-replacement.json"
+  "source_comparisons_verified": 72,
+  "pending_source_comparisons": 0,
+  "validation": "checks/r29-mesh-consistency-validation.json",
+  "selected_A04_source": {
+    "path": "hardware/cad/current/stl/A04.stl",
+    "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01"
+  }
 }

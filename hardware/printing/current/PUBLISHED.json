@@ -1,23 +1,23 @@
 {
-  "package": "BlooglyBlob R28 editable print set",
-  "date": "2026-09-28",
-  "status": "Digitally prepared;48 unrelated source reviews and physical qualification pending; no R28 dispatch or public deployment",
-  "cad_release": "R28/cloud24",
+  "package": "BlooglyBlob R29 editable print set",
+  "date": "2026-09-30",
+  "status": "All72source comparisons verified; affected slices reviewed; physical qualification and deployment separate.",
+  "cad_release": "R29/cloud25",
   "files": [
     {
-      "path": "BlooglyBlob-R28-Optional-Clear-PETG-Ball.3mf",
-      "sha256": "608c5a433fdba15d6120013a0eea2bb070c89522d65b9f866f835a9baf87b0f9",
-      "bytes": 508417
+      "path": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
+      "sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797",
+      "bytes": 349549
     },
     {
-      "path": "BlooglyBlob-R28-PLA-Production.3mf",
-      "sha256": "ecef502a7039346150d6c1c2c930bd0467a330e2b78e103ea722d7759e7ca2c6",
-      "bytes": 22422002
+      "path": "BlooglyBlob-R29-PLA-Production.3mf",
+      "sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "bytes": 19281568
     },
     {
       "path": "README.md",
-      "sha256": "525d9b938f5ee364461b2fa07b3478b6fcb1a4482184d82ba777f93dbf2da6ce",
-      "bytes": 7313
+      "sha256": "a93b8ab9de25a3b9ff63094434ab23410a684ffbc054a7f7236efa3feeca88e1",
+      "bytes": 9444
     },
     {
       "path": "checks/first-layers.png",
@@ -240,6 +240,71 @@
       "bytes": 2084
     },
     {
+      "path": "checks/r29-arm-frames.json",
+      "sha256": "e9b467d56612b7b888ed85536ee1e441ca2928487932cb0ecb38e472d9f81307",
+      "bytes": 4921
+    },
+    {
+      "path": "checks/r29-blockers.json",
+      "sha256": "cf01c82b35e7925c8ca9b80e0bd9752334a299fc33d90d3bce1d5ed397a9be10",
+      "bytes": 1690
+    },
+    {
+      "path": "checks/r29-first-layer.png",
+      "sha256": "0be0c9a607a5fea33406e5bc44418eb727df6af1facf9d0961bd3a37804938be",
+      "bytes": 565623
+    },
+    {
+      "path": "checks/r29-frame-review.json",
+      "sha256": "c75309300a12966bf3df8b945c52bac423c75b00770db2377cd64b68aa0d74cb",
+      "bytes": 1868
+    },
+    {
+      "path": "checks/r29-mesh-consistency-first-layer.png",
+      "sha256": "3b7d219fd5d450903e0092ece896d5b86592d4764cf28966bbe320dbe616c0ad",
+      "bytes": 1518955
+    },
+    {
+      "path": "checks/r29-mesh-consistency-frames.json",
+      "sha256": "99920ede7d2fd97d468f77608e9441ba146c09c81f70294e7bf7a25867f0ce80",
+      "bytes": 22563
+    },
+    {
+      "path": "checks/r29-mesh-consistency-previews.png",
+      "sha256": "fda55961c0dd56bbe6373c8758f3747740cadbe47b9e2b7299631c2e594f1832",
+      "bytes": 204790
+    },
+    {
+      "path": "checks/r29-mesh-consistency-support.json",
+      "sha256": "fcb9f15967742494e05d4c9182ef92cee18b90dc377923b06de367ac66f9ee3f",
+      "bytes": 15901
+    },
+    {
+      "path": "checks/r29-mesh-consistency-validation.json",
+      "sha256": "f5196bd70fec96d4b8b4e8fe85160aff9778737eacaedf1609f32a9478d025e5",
+      "bytes": 30443
+    },
+    {
+      "path": "checks/r29-preservation.json",
+      "sha256": "ab7499732004c82ddd02d331696250d433da526c1ee6a008c70b5a1f3e803686",
+      "bytes": 987
+    },
+    {
+      "path": "checks/r29-replacement.json",
+      "sha256": "5faf66e6284f3ccc19af6f7fab36ea2bcd304c8c5cbb4dff572ef55a9a521a9e",
+      "bytes": 5416
+    },
+    {
+      "path": "checks/r29-slice-audit.json",
+      "sha256": "60568eb1a2ea7bb1101833ad1074c01ffe2a1c81de8a8295037d4483dbf617cb",
+      "bytes": 14053
+    },
+    {
+      "path": "checks/r29-validation.json",
+      "sha256": "951a3cc872ba79005a93dc1edce50564852a4b0b087963ceb62416951a9634d7",
+      "bytes": 2998
+    },
+    {
       "path": "checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -251,13 +316,13 @@
     },
     {
       "path": "live-source-check.json",
-      "sha256": "c53a2059c99c0cd0dfd2041b9f677c57b8aa6565599b092ae8ecd671abe20d5f",
-      "bytes": 469
+      "sha256": "8a19195c536bd3a7bb9d2cdafefe16e6bf7bbe17f27f92341b144175d1a3c973",
+      "bytes": 537
     },
     {
       "path": "manifest.json",
-      "sha256": "4108adbb26ddd99b03b77ac82eff6740e19e47488d7afc14ef18f9be857b5806",
-      "bytes": 624166
+      "sha256": "a76fea9457e831d6622698bd6d61c99f86393394ca3cd0760aa229b1f2eb1e35",
+      "bytes": 630672
     },
     {
       "path": "object-settings.csv",
@@ -271,8 +336,8 @@
     },
     {
       "path": "source-provenance.json",
-      "sha256": "8234a17db4f48c64bb42c86ae16210e8e8389f78962e7b34c680bc6170f118ef",
-      "bytes": 438315
+      "sha256": "b539b1a3bbe2ef82cef6fd8959c369c11aec791d7b38fdfd481df735d8a6153b",
+      "bytes": 439372
     }
   ]
 }

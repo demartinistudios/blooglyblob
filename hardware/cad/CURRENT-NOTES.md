@@ -1,6 +1,6 @@
 # Current hardware notes
 
-The registry selects R28, Fusion cloud version 24. The native assembly, STL
+The registry selects R29, Fusion cloud version 25. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
@@ -14,9 +14,17 @@ terminal assignments. Do not infer wiring from the connector order alone.
 
 The front microphone grille uses four M3 × 6 screws and ordinary M3 nuts; the
 rear grille uses M3 × 12. Front nuts are loaded before the audio cradle.
-Rear, power-inlet and audio mounting recesses have open loading access and
-adhesive nut retention. Fastener counts and allocations are maintained in
+Rear vent, power jack and audio mounting recesses have open loading access.
+Glue only the eight board nuts, four bottom-cover nuts and three audio-cradle
+nuts. Hold the grille, rear-vent and power-jack nuts until their screws catch;
+do not glue them. Fastener counts and allocations are maintained in
 [hardware.json](../assembly/hardware.json).
+
+## Head shelf
+
+P08/P14 use the same three M3 × 8 screws and M3 nuts with the fastening
+pattern rotated 60 degrees. Assemble this joint on the bench before installing
+the head/mouth. The head shell and P31 remain unchanged.
 
 ## Audio cradle
 
@@ -24,7 +32,9 @@ FB24 has a solid rear tape surface. Attach the USB module's rear face, opposite
 the microphones, to that surface with tape under 1 mm thick. Do not cut open the
 closed rear slits. Keep microphones exposed and follow the guide's module-first
 installation sequence. Actual tape adhesion and USB connector clearance remain
-physical qualification items.
+physical qualification items. R29 enlarges the USB opening to 15.5 × 17.6 mm
+and moves the left lid fastening 12.85 mm rearward onto a matching lid tab.
+FB24 and FB32 change; the two M2 × 8 lid screws and base mounting stay the same.
 
 ## Backpack
 
@@ -33,16 +43,34 @@ P35 includes 1.5 mm hinge-root blends and tapered ribs extending outward up to
 forcing the ears apart. Printed strength and support removal require physical
 qualification.
 
+P36 canisters now have smooth 2 mm walls without internal fastening nuts.
+The two corresponding P35 screw passages are closed. Bond the canisters at
+the ring contact surfaces and bond the existing elbow/nozzle joints with
+suitable epoxy. The two canister M3 × 8 screws and two M3 nuts are eliminated;
+the backpack-to-carrier screws and belt joints remain removable.
+
+## R29 downstream work
+
+CAD is accepted. Guide images, instructions and supply allocations now reflect
+all six affected part families, including removal of two canister screws and
+two nuts. Scoped digital guide review and focused checks passed. Print preparation
+replaces all seven P08/P14/FB24/FB32/P35/P36 instances and includes full W1/W2/C2
+slicing and digital support review. Five localized W1 support blockers clear the
+P08 nut pockets and relocated audio nut slot and screw bore. Accessible cradle
+supports and backpack hinge-gap supports still require removal. Final package
+integration and combined checks are recorded in the current printing receipts;
+no physical print was dispatched as part of this preparation.
+
 ## Current print and rendering evidence
 
 The [print procedure](../printing/current/README.md) describes selected projects,
 settings and support removal. Its `checks/` directory retains compact digital
 review evidence for the current geometry and inherited recipes. Whole-plate
-estimates are predictions. Current K1 support inspection covers the moved board
+estimates are predictions. Prior K1 support inspection covers the moved board
 posts, nut recesses and WAGO mounting bands; W1 and W2 retain their documented
 cradle and backpack reviews.
 
-The [render source lock](../rendering/source-lock.json) selects the R28 assembly
+The [render source lock](../rendering/source-lock.json) selects the R29 assembly
 mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.
@@ -51,7 +79,7 @@ current assembly before reuse. A historical name does not imply a second design.
 
 Digital input checks, slicing and guide review do not establish printed fit,
 adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. The 48 independent print-source reviews currently
-marked pending remain pending. See the [semantic review contract](../printing/recipes/README.md)
+complete powered operation. All 72 required/optional print-source comparisons
+now pass; none remain pending. See the [semantic review contract](../printing/recipes/README.md)
 and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
 is selected in the registry.

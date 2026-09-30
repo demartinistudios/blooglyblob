@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import trimesh
 
-from guide_closeups import item, audio_cable_ends, _audio_case
+from guide_closeups import item, _audio_case
 
 
 def cable(points, radius, color):
@@ -107,16 +107,11 @@ def render_routes(render, output, parts):
         ('+5 V',[30,45,-46.5],[370,250]),
         ('GND',routes['H2-return']['points_mm'][15],[400,380]),
     ], crop=[50,110,810,410])]
-    usb = routes['USB-data']
-    cables = [cable(usb['points_mm'],usb['diameter_mm']/2,(45,79,113))]
-    cables += plug([-53.5,-3,-22],[-53.5,-38,-22],14,7)
-    cables += [m for m in audio_cable_ends(False) if m['id'].startswith('USB')]
-    # Continue from the reviewed path into the known extension strain relief.
-    cables.append(cable([[-46.5,-80,-26],[-44,-80,-26]],2.25,(45,79,113)))
-    paths.append(emit('usb-audio-route', 'Route the USB cable below the audio cradle, clear of the bottom cover', cables, [
+    # The fully mated position and final bend are unmeasured.
+    # Locate endpoints without asserting a cable pose.
+    paths.append(emit('usb-audio-route', 'USB endpoints in the open base', [], [
         ('Pi USB',[-53.5,-3,-22],[750,430]),
-        ('Audio USB',[-34,-80,-26],[350,790]),
-        ('Cable bend',[-63.75,-79.25,-48.5],[700,650]),
+        ('Audio USB',[-25,-80,-26],[350,790]),
     ], crop=[330,385,560,435]))
     # Access guide highlights real openings rather than inventing a complete,
     # physically untested wire harness or fixed adhesive-anchor locations.
@@ -137,17 +132,17 @@ def render_routes(render, output, parts):
     render.meshes=original
     detail=Views(render,output)
     usb_parts=clipped([m for m in parts if m['id'] in ('E09','E14','FB24')],
-                      [[-80,-90,-65],[44,14,0]]) + cables
+                      [[-80,-90,-65],[44,14,0]])
     detail.emit('usb-audio-route-depth',usb_parts,[.55,.85,-1.4],
-        'Route USB below the cradle',
-        ['Detail · Pi/enclosure partly omitted','1 Pi USB · 2 audio USB',
-         'Keep the cable clear of the cover'],
-        marks=[('1',[-53.5,-3,-22]),('2',[-34,-80,-26])])
+        'Find both USB endpoints',
+        ['Detail · Pi/base partly omitted','1 Pi USB · 2 audio USB',
+         'Leave a relaxed bend at each end'],
+        marks=[('1',[-53.5,-3,-22]),('2',[-25,-80,-26])])
     power_parts=[m for m in parts if m['id']=='E09' or
                  (m['id']=='E06' and np.mean(m['v'],axis=0)[1]>10)] + power
     detail.emit('pi-power-route-depth',power_parts,[.6,.75,-1.3],
         'Route the short power lead',
-        ['Oblique view · enclosure omitted','1 Pi POWER · 2 W1/2 · 3 W3/2',
+        ['Oblique view · base omitted','1 Pi POWER · 2 W1/2 · 3 W3/2',
          'Gentle bends; no extra service loop'],
         marks=[('1',[-22,53.4,-22]),('2',[42,42.7,-17.2]),('3',[42,12.7,-17.2])])
     paths.extend(detail.paths)

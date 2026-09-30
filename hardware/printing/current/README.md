@@ -1,7 +1,7 @@
 # Editable print recipes
 
-The current package is **R28 / Fusion cloud24**: ten color/material plates,
-71 required pieces / 51 types. Open **BlooglyBlob-R28-PLA-Production.3mf** in
+The current package is **R29 / Fusion cloud25**: ten color/material plates,
+71 required pieces / 51 types. Open **BlooglyBlob-R29-PLA-Production.3mf** in
 Bambu Studio 2.7.1.62. The optional clear PETG ball project replaces A05 on T1.
 Logical filament numbers are profiles, not physical AMS slot assignments.
 
@@ -9,14 +9,43 @@ The selected enclosure layout provides four Pi posts, four shifter posts and
 four WAGO mounting pads. See [current CAD notes](../../cad/CURRENT-NOTES.md).
 
 K1 estimate: **12h 14m 24s, 289.52 g**.
-Package estimate: **39h 8m 41s, 686.54 g**.
-Nine other plate estimates are inherited from their retained recipes; optional
-PETG is unchanged. These are slicer estimates, not measured outcomes.
+Package estimate: **39h 1m 53s, 685.50 g**.
+Eight affected PLA plates and the optional PETG ball were re-sliced after mesh
+reconciliation. K1 and B2 estimates are inherited from their unchanged recipes. These are slicer estimates, not measured outcomes.
 
-The set is digitally prepared. Independent source comparisons and physical
-qualification remain separate; use `python3 hardware/tools/validation/check.py
+The set is digitally prepared. All 72 required/optional source-instance comparisons pass exact triangle checks.
+Physical qualification remains separate; use `python3 hardware/tools/validation/check.py
 --publication` for current blockers. Support release, nut fit, adhesive retention
 and installed wiring need physical qualification before a validated-kit claim.
+
+## Source mesh reconciliation
+
+The downloadable STLs and all 72 required/optional normal meshes now agree
+triangle-for-triangle in independently reviewed frames. Forty-one retained recipe
+instances were normalized without changing their print settings, orientation,
+placement or support modifiers. A04 uses a closed native STL export from the
+unchanged R29 design. All other selected sources are retained.
+
+Belt supports remain in open clevis gaps and beneath raised hinge ears; the
+sampled 1.0 mm pin cores through solid knuckles are clear. Support the ears while
+clearing those gaps before inserting pins. Full-height blocker envelopes are not
+a promise that every open gap contains no support. Physical cleanup and fit still
+need checking.
+
+## R29 changes and cleanup
+
+P08 and P14 use the new three-screw pattern. Fit them together on the bench
+with the head and mouth removed. FB24 and FB32 provide the wider USB entrance
+and moved left lid fastener; print them as a matched pair. P35 and both P36
+canisters omit the inaccessible tank screw/nut features. Bond the hidden
+tank-to-ring contact surfaces and the existing elbow/nozzle joints; the complete
+backpack remains removable. Individual tanks become permanent.
+
+Five localized support blockers keep the underside P08 nut pockets and the moved
+audio lid nut slot/bore open. Inspect the small bridge roofs and clear stray
+threads before seating nuts. Accessible supports remain around the audio ends
+and in the backpack hinge gaps; support the ears while removing them. Do not
+cut the intentionally closed cradle tie slits or the now-filled tank screw holes.
 
 ## Audio cradle and backpack cleanup
 
@@ -27,8 +56,8 @@ not the deck or lid. Actual tape bond and USB connector/end-window fit are still
 unqualified. Keep the bare-module-first and actual-connector-fit checks in the guide.
 
 The backpack pin-seat cores remain clear in sampled paths, while
-support remains in the open hinge gap and lower screw passages. Support the ears
-while cleaning those regions before inserting pins or screws. Strength and support
+support remains in the open hinge gap. Support the ears
+while cleaning those regions before inserting pins. Strength and support
 release still require physical testing.
 
 ## Change and verify a recipe
@@ -40,7 +69,9 @@ The [manifest](manifest.json) selects the current projects and plate metadata;
 1. Record the accepted CAD/recipe baseline and affected stable instances. Copy
    the complete project into a new ignored run with
    `python3 hardware/tools/printing/projects.py prepare --output hardware/.work/printing/NEW_RUN`.
-2. Replace only affected normal meshes in Bambu Studio. Preserve unrelated
+2. Use the [candidate-only mesh helper](../recipes/README.md#replace-a-source-mesh)
+   with independently reviewed source frames, or replace affected normal meshes
+   in Bambu Studio. Preserve unrelated
    orientations, transforms, modifiers, blockers, inherited settings and object
    overrides. Reconcile persistent instance IDs if Bambu renumbers objects;
    labels alone cannot identify repeated instances.
@@ -68,9 +99,10 @@ required public build inputs.
 
 | Plate | Recipe and change | Whole-plate estimate |
 |---|---|---|
-| W1 — white, plate 1 | R26 slit-closed audio cradle in retained orientation; 0.16mm layers and existing tree support/brim settings | 3h 31m, 64.88g |
+| W1 — white, plate 1 | R29 head pair and audio cradle/lid; retained 0.16 mm layers, tree supports and brims | 3h 27m 9s, 64.26g |
 | K1 — black, plate 2 | R28 shell roof-down; 0.20mm layers, 4 walls, 25% gyroid, 5mm outer brim / 0.12mm gap; normal/snug supports, 0.20mm Z / 0.40mm XY; PLA 220°C nozzle / 60°C textured PEI | 12h 14m 24s, 289.52g |
-| W2 — white, plate 3 | R25 reinforced backpack; all settings, other pieces and pin blockers retained | 4h 11m 47s, 65.89g |
+| W2 — white, plate 3 | R29 glue-retained backpack; existing settings and pin blockers retained | 4h 12m 45s, 65.95g |
+| C2 — copper, plate 7 | R29 canisters upright; silk PLA 220°C / 55°C, 7.5 mm³/s; all other copper parts/settings retained | 3h 44m 26s, 48.63g |
 
 Use the project and object-settings.csv for each object's overrides. K1 flow
 calibration stays OFF because the layout intersects the calibration region at
@@ -80,9 +112,9 @@ Y12. The generic PLA bed-temperature warning remains. Confirm the X1 Carbon,
 The selected fingers-up/peg-down hands, side-down arm cores, front-down goggles,
 collar inner-and-outer 8mm brims, P35 pin blockers, unsupported upright P10 and
 antenna thread protection remain. Copper silk settings, including the C2
-220°C nozzle / 55°C bed and 7.5mm³/s flow limit, are preserved. Unaffected plate
-estimates are inherited rather than presented as fresh R28 slices. The optional
-PETG ball project is byte-identical to its prior recipe under the new package name.
+220°C nozzle / 55°C bed and 7.5mm³/s flow limit, are preserved. K1 and B2 plate estimates are inherited. The optional PETG ball uses the same
+selected A05 mesh as the PLA project, with its own retained PETG process and a
+fresh slice estimate of 22 m 25 s / 1.36 g.
 
 ## Support removal and assembly checks
 
@@ -104,9 +136,9 @@ none of these outcomes.
 
 manifest.json, object-settings.csv and planned-settings.json describe the selected
 recipe. source-provenance.json retains inherited recipe origins; live-source-check.json
-binds this update to the registry-selected CAD. checks/r28-* contains the current K1 review; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
+binds this update to the registry-selected CAD. checks/r29-mesh-consistency-* records current source/frame, fullplate and support review. Earlier checks/r29-* retains prior W1/W2/C2 review and arm frame corrections; checks/r28-* retains the unchanged K1 review; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
 base/cradle review. Other checks files preserve explicitly historical R23 evidence
-for inherited recipes; they are not new R28 results. PUBLISHED.json is a current
+for inherited recipes; they are not new R29 results. PUBLISHED.json is a current
 file inventory, not proof of deployment or user approval. Git preserves superseded
 project versions; current/ keeps only the selected pair.
 

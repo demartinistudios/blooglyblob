@@ -1,0 +1,830 @@
+{
+  "status": "PASS bounded digital mesh reconciliation",
+  "cad": "R29/cloud25; native unchanged",
+  "bambu_studio": "2.7.1.62",
+  "machine": "X1 Carbon /0.4mm nozzle/textured PEI",
+  "source_comparisons_verified": 72,
+  "pending_source_comparisons": 0,
+  "normalized_instances": 41,
+  "retained_instances": 31,
+  "settings": "All global,plate,object,part settings; normal/component/build transforms; every inherited modifier; and unaffected meshes preserved exactly. No physical AMS mapping. No arrangement/orientation changes.",
+  "plates": [
+    {
+      "plate": "W1",
+      "seconds": 12429,
+      "grams": 64.26,
+      "objects": 8,
+      "full_height_centerline_bounds_mm": [
+        [
+          13.580864471878794,
+          26.886
+        ],
+        [
+          239.99359684955277,
+          226.301
+        ]
+      ],
+      "slice_sha256": "bf59f55413687279e543e0b7959449930c7be21310da18ae20e4bc325455c331",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "W2",
+      "seconds": 15165,
+      "grams": 65.95,
+      "objects": 13,
+      "full_height_centerline_bounds_mm": [
+        [
+          12.886,
+          26.886
+        ],
+        [
+          237.219,
+          242.928
+        ]
+      ],
+      "slice_sha256": "73790f31f214b5b1f7b17cefbdcc4480187d1fc24ee81cd3cc0c5c71931da93f",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "C1",
+      "seconds": 18727,
+      "grams": 47.54,
+      "objects": 6,
+      "full_height_centerline_bounds_mm": [
+        [
+          15.837,
+          29.835
+        ],
+        [
+          229.63210728400784,
+          229.755
+        ]
+      ],
+      "slice_sha256": "795b484ccb05fe505b3f09bf9c4a5df7ae8405fa9296c7d5f01f7ec366036bca",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "B1",
+      "seconds": 9207,
+      "grams": 23.88,
+      "objects": 7,
+      "full_height_centerline_bounds_mm": [
+        [
+          16.027037318064195,
+          30.728441178209202
+        ],
+        [
+          130.30845115428812,
+          234.166
+        ]
+      ],
+      "slice_sha256": "b4734415786d73130854eca97f429e72b07d806e2d5d3e4e64be4f195f348ae3",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "C2",
+      "seconds": 13466,
+      "grams": 48.63,
+      "objects": 11,
+      "full_height_centerline_bounds_mm": [
+        [
+          29.386,
+          37.386
+        ],
+        [
+          232.614,
+          243.614
+        ]
+      ],
+      "slice_sha256": "32833878e52d504f474149731ad3bc3d3f5fe4b07da77143a7a197b3316fbc57",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "G1",
+      "seconds": 3107,
+      "grams": 8.04,
+      "objects": 18,
+      "full_height_centerline_bounds_mm": [
+        [
+          20.476,
+          29.070340149641794
+        ],
+        [
+          112.885,
+          229.317
+        ]
+      ],
+      "slice_sha256": "d15f8fdc25e111b927d3059234d3635707f08039ee983acc6e883ade5fca1cc8",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "K2",
+      "seconds": 14307,
+      "grams": 98.51,
+      "objects": 3,
+      "full_height_centerline_bounds_mm": [
+        [
+          18.838,
+          18.338
+        ],
+        [
+          237.162,
+          246.876
+        ]
+      ],
+      "slice_sha256": "aca087c7caea1161f758ebda29d77dce4977ea7df987c55afa9a01c1d648228e",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "T1",
+      "seconds": 1198,
+      "grams": 1.36,
+      "objects": 1,
+      "full_height_centerline_bounds_mm": [
+        [
+          21.71,
+          35.709
+        ],
+        [
+          37.287,
+          51.288
+        ]
+      ],
+      "slice_sha256": "9bfef9fc350d32f87289db8f69750152276ff4e6e52f1290c386d8448511caae",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    },
+    {
+      "plate": "PETG-A05",
+      "seconds": 1345,
+      "grams": 1.36,
+      "objects": 1,
+      "full_height_centerline_bounds_mm": [
+        [
+          120.212,
+          120.209
+        ],
+        [
+          135.788,
+          135.788
+        ]
+      ],
+      "slice_sha256": "5b9f2d66433d62ba88ac580a1c9ace694a1444e343bf12bf86d5f5b0f3617f13",
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ]
+    }
+  ],
+  "retained_plate_estimates": [
+    "K1",
+    "B2"
+  ],
+  "support_review": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly.",
+  "toolpath_review": "All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes.",
+  "limitations": [
+    "Physical fit,strength,support release,nut fit,adhesive retention and wiring remain unqualified.",
+    "Generic profile bed-temperature warning remains; no material/process settings changed.",
+    "Estimates are predictions; no physical print dispatched."
+  ],
+  "projects": [
+    {
+      "role": "required",
+      "filename": "BlooglyBlob-R29-PLA-Production.3mf",
+      "sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25"
+    },
+    {
+      "role": "replacement",
+      "filename": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
+      "sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797"
+    }
+  ],
+  "source_checks": [
+    {
+      "recipe_instance_id": "kit-P02-01",
+      "part": "P02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "triangles": 1700,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P03-01",
+      "part": "P03",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+      "triangles": 1340,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P04-01",
+      "part": "P04",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+      "triangles": 716,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P06-01",
+      "part": "P06",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "triangles": 1704,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P08-01",
+      "part": "P08",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+      "triangles": 14070,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P14-01",
+      "part": "P14",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+      "triangles": 9268,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB24-01",
+      "part": "FB24",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+      "triangles": 18608,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB32-01",
+      "part": "FB32",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+      "triangles": 5920,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB01-01",
+      "part": "FB01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+      "triangles": 136852,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P30-01",
+      "part": "P30",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+      "triangles": 6632,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P31-01",
+      "part": "P31",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+      "triangles": 4478,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P02-02",
+      "part": "P02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "triangles": 1700,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P06-02",
+      "part": "P06",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "triangles": 1704,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P09-01",
+      "part": "P09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "triangles": 436,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P09-02",
+      "part": "P09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "triangles": 436,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-01",
+      "part": "P10",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-02",
+      "part": "P10",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-03",
+      "part": "P10",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P11-01",
+      "part": "P11",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "triangles": 776,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P11-02",
+      "part": "P11",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "triangles": 776,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P12-01",
+      "part": "P12",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+      "triangles": 614,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P13-01",
+      "part": "P13",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
+      "triangles": 744,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P34-01",
+      "part": "P34",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+      "triangles": 2112,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P35-01",
+      "part": "P35",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+      "triangles": 42188,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR01-01",
+      "part": "AR01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
+      "triangles": 64604,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR04-01",
+      "part": "AR04",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
+      "triangles": 64614,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P01-01",
+      "part": "P01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "triangles": 2128,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P01-02",
+      "part": "P01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "triangles": 2128,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS11-01",
+      "part": "GS11",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+      "triangles": 8646,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS12-01",
+      "part": "GS12",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+      "triangles": 8646,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR02-01",
+      "part": "AR02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
+      "triangles": 56514,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR05-01",
+      "part": "AR05",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
+      "triangles": 56572,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR03-01",
+      "part": "AR03",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
+      "triangles": 263250,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR06-01",
+      "part": "AR06",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
+      "triangles": 263602,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR08-01",
+      "part": "AR08",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+      "triangles": 19378,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR09-01",
+      "part": "AR09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+      "triangles": 19378,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-A04-01",
+      "part": "A04",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+      "triangles": 98700,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS20-01",
+      "part": "GS20",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
+      "triangles": 46930,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB03-01",
+      "part": "FB03",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
+      "triangles": 1364,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB19-01",
+      "part": "FB19",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+      "triangles": 2848,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB19-02",
+      "part": "FB19",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+      "triangles": 2848,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB20-01",
+      "part": "FB20",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
+      "triangles": 1360,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB21-01",
+      "part": "FB21",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
+      "triangles": 1284,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB41-01",
+      "part": "FB41",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+      "triangles": 10196,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P36-01",
+      "part": "P36",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
+      "triangles": 16676,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P36-02",
+      "part": "P36",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
+      "triangles": 16676,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P38-01",
+      "part": "P38",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
+      "triangles": 11950,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P39-01",
+      "part": "P39",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
+      "triangles": 11950,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P40-01",
+      "part": "P40",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+      "triangles": 452,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B01-01",
+      "part": "B01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+      "triangles": 1344,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-01",
+      "part": "B02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-02",
+      "part": "B02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-03",
+      "part": "B02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-04",
+      "part": "B02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B03-01",
+      "part": "B03",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+      "triangles": 2388,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B04-01",
+      "part": "B04",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+      "triangles": 944,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-01",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-02",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-03",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-04",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-05",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-06",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-07",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-08",
+      "part": "B09",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS01-01",
+      "part": "GS01",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
+      "triangles": 3556,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS02-01",
+      "part": "GS02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
+      "triangles": 3534,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS03-01",
+      "part": "GS03",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
+      "triangles": 3012,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB02-01",
+      "part": "FB02",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
+      "triangles": 1812,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P37-01",
+      "part": "P37",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "triangles": 1106,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P37-02",
+      "part": "P37",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "triangles": 1106,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-A05-01",
+      "part": "A05",
+      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "triangles": 15802,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "optional-petg-A05-01",
+      "part": "A05",
+      "project_sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797",
+      "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "triangles": 15802,
+      "result": "verified_triangle_geometry"
+    }
+  ]
+}

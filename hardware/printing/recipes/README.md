@@ -28,14 +28,39 @@ recorded Bambu float roundtrip error below 0.000005 mm. Near-coincident ambiguou
 matches require review. Different tessellation is unsupported; a topology mismatch
 does not prove that the physical surfaces differ.
 
-The initial contract verifies 24 instance source meshes, including the R25 backpack, R24 shell/cradle and unchanged R23 front
-grille. Another 48 required/optional instance source comparisons remain explicitly
-pending: 44 have different tessellation and four arm instances need frame/surface
-review. Accepted recipe identity and prior digital review remain preserved. These
-pending independent checks block publication readiness; they do not authorize
-regenerating or re-saving the accepted recipes. Future manual equivalence evidence
-can resolve these blockers through the explicit reviewed disposition below; no
-accepted project needs to be rewritten merely to satisfy triangle indexing.
+The current contract verifies all 72 required/optional instance source meshes.
+The projects reuse the selected downloadable STLs with independently reviewed
+placement frames. No sampled surface-equivalence approvals are used. These checks
+establish digital consistency; physical qualification remains separate.
+
+## Replace a source mesh
+
+Use the same accepted STL for the download and its print-project instances.
+Do not make a second CAD export for the project or infer placement from its name.
+Record the STL-to-project frame independently, including repeated instances.
+
+The candidate-only helper consumes a hash-bound frame review:
+
+```sh
+python3 hardware/tools/printing/replace_meshes.py \
+  --project baseline.3mf --review frame-review.json \
+  --review-sha256 REVIEW_SHA256 --output NEW_DIRECTORY
+```
+
+The review declares `schema_version: 1`, `reviewer`, `method`, `project_sha256`,
+a complete `instance_map` from stable instance IDs to Bambu object IDs, and
+`replacements`. Each replacement supplies `recipe_instance_id`, a `source`
+with `path` and `sha256`, and the reviewed 12-number `stl_to_mesh` matrix.
+Source paths are absolute or relative to the review file.
+
+The helper checks source identity and exact triangles while preserving unrelated
+project content. It refuses unsupported mesh annotations instead of dropping
+paint. Matching a supplied frame does not establish its intended orientation:
+the independent frame review and candidate inspection establish that.
+The output is a candidate, with affected preview caches invalidated. Follow the
+[print procedure](../current/README.md#change-and-verify-a-recipe) to inspect and
+re-slice affected plates before adopting it. The helper never updates current
+files, changes Fusion, slices, or dispatches a print.
 
 ## Resolve an unsupported source comparison
 
@@ -86,8 +111,7 @@ hash-bound artifact, and declared limitations. Missing, failed, stale or edited
 records/artifacts fail. Scratch, outside-directory and symlinked review
 inputs fail. This disposition resolves only source geometry equivalence: immutable
 project settings/modifiers/orientations, catalog demand, estimates, support review
-and physical qualification keep their existing independent requirements. No such
-approval has been added for the 48 currently pending instances.
+and physical qualification keep their existing independent requirements. The current contract does not use surface-equivalence exceptions.
 
 For a candidate roundtrip, provide separate JSON maps with `instances` and `plates`
 objects, each mapping stable identity to its numeric Bambu ID string:

@@ -1,14 +1,19 @@
-"""Focused grille and enclosure fastening views from accepted meshes."""
+"""Focused grille and base fastening views from accepted meshes."""
 import base64
 import html
 import itertools
 
 import numpy as np
 
-from guide_closeups import BG, INK, Views, clipped, hardware, nut
+from guide_closeups import BG, INK, Views, clipped, hardware, nut, pose_parts
 
 
 def _compact(v, name, parts, camera, title, arrows=(), labels=(), label_size=24):
+    if name in ('front-grille-nut-loading','side-grille-nut-loading'):
+        rotation=np.diag([1,-1,-1])
+        parts=pose_parts(parts,rotation);camera=(rotation@camera).tolist()
+        arrows=[(rotation@a,rotation@b) for a,b in arrows]
+        labels=[(label,rotation@point,xy) for label,point,xy in labels]
     render = v.render
     render.meshes = parts
     points = np.concatenate([m['v'] for m in parts])
@@ -81,16 +86,16 @@ def render_context_actions(render, output):
                  arrows=arrows,
                  labels=[('4 × M3 × 12', [142, 32, -12.5], (375, 42)),
                          ('FB19', [121, -8, -31], (340, 390)),
-                         ('Enclosure', [101, 38, -30], (30, 45))])
+                         ('Base', [101, 38, -30], (30, 45))])
         # Show the nut loading separately rather than hide it behind the grille.
         inset = clipped(v.parts(['FB01']), [[94, 25, -25], [104, 39, -4]])
         for m in inset: m['guide_color'] = (177, 190, 202)
         loose = dict(upper_nut, v=upper_nut['v']+[0, 0, -10])
         _compact(v, 'side-grille-nut-loading', inset+[loose], [-1, .6, -.55],
-                 'Load the M3 nut upward into its channel',
+                 'Load the M3 nut into its channel',
                  arrows=[([98,32,-20.5],[98,32,-14])],
                  labels=[('4 × M3 per side', [98,32,-22.5], (25,40)),
-                         ('Enclosure', [101,38,-15], (370,385))])
+                         ('Base', [101,38,-15], (370,385))])
         # R27: fully exposed ceiling recess, mouth Z=-7, floor Z=-4.2.
         # Load directly along +Z; no rear well or hidden transfer tunnel.
         from guide_fasteners import hex_nut
@@ -104,12 +109,16 @@ def render_context_actions(render, output):
                          ('Open recess', [-62,-78.2,-5.4], (335,390))], label_size=32)
         front_seat = clipped(v.parts(['FB01']), [[-33,-95,-49],[-21,-83,-32]])
         for m in front_seat: m['guide_color'] = (118,132,146)
+        _compact(v, 'front-support-cleanup', front_seat, [.8,1,-.15],
+                 'Front nut-entry channel, seen from inside the base',
+                 labels=[('Nut channel',[-27,-90.6,-40.5],(25,40)),
+                         ('Entry',[-27,-90.6,-46],(410,385))],label_size=32)
         loose = hex_nut(3, [-27,-90.6,-47.5], [0,1,0])
         _compact(v, 'front-grille-nut-loading', front_seat+[loose], [.8,1,-.15],
-                 'Slide four front grille nuts upward from inside the enclosure',
+                 'Slide four front grille nuts into their channels from inside the base',
                  arrows=[([-27,-90.6,-46],[-27,-90.6,-40.5])],
                  labels=[('4 × M3 nuts', [-27,-90.6,-47.5], (25,40)),
-                         ('Slide up', [-27,-90.6,-40.5], (400,385))])
+                         ('Channel', [-27,-90.6,-40.5], (400,385))])
         # Whole front/rear grilles with the four actual CAD bore axes.
         # Show a local wall cutaway so the fastened part remains readable.
         for name, part_id, side, xs, zs, face, length in [
@@ -136,7 +145,7 @@ def render_context_actions(render, output):
                      arrows=arrows,
                      labels=[('4 × M3 × '+str(length), [xs[1], seat_y, zs[0]], (350, 36)),
                              (part_id, [sum(xs)/2, face+side*12, min(zs)+6], (240, 399)),
-                             ('Enclosure · cutaway', [min(xs)-5, side*92, -3], (18, 37))])
+                             ('Base · cutaway', [min(xs)-5, side*92, -3], (18, 37))])
     finally:
         render.meshes = v.original
     from guide_speaker_actions import render_speaker_actions

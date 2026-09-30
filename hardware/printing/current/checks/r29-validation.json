@@ -1,0 +1,39 @@
+{
+  "status": "PASS bounded digital preparation; physical qualification pending",
+  "cad": "R29/cloud25",
+  "bambu_studio": "2.7.1.62",
+  "machine": "Bambu Lab X1 Carbon /0.4mm/textured PEI",
+  "changed_parts": [
+    "P08",
+    "P14",
+    "FB24",
+    "FB32",
+    "P35",
+    "P36"
+  ],
+  "changed_plates": [
+    "W1",
+    "W2",
+    "C2"
+  ],
+  "instances": 71,
+  "types": 51,
+  "unchanged_instances": 64,
+  "project_sha256": "690d749291dcc7055553378d47b78f93b6afe7d6df1268e2a4e4752375952656",
+  "source_hashes": {
+    "P08": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+    "P14": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+    "FB24": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+    "FB32": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+    "P35": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+    "P36": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb"
+  },
+  "geometry": "All seven normal meshes match selected oriented STL triangles in declared proper rigid frames at0.0001mm. Four additional arm frame declarations verified without changing meshes.",
+  "settings": "All global/plate/object/component settings and component/build transforms retained, including all inherited modifiers, plus five reviewed W1 support blockers. W1/W2 regular PLA and C2 silk PLA.220C nozzle; beds W1=55C,W2=60C,C2=55C; flow limits12/12/7.5mm3/s. No physical AMS mapping.",
+  "support_review": "Five localized W1 support blockers keep the three downward P08 nut pockets and moved FB24 nut loading slot/screw bore clear. Sampled P08/P14 M3 bore cores, moved FB24 slot/bore and USB window, four actual P35 pin-seat cores, and both P36 through-bore cores contain zero support centerlines. P35 hinge-gap supports and FB24 accessible end/right-boss supports remain for cleanup. Pin-seat ranges52\u201354.3mm and57.7\u201360mm come from accepted mesh surfaces; support at57.52mm is in the hinge gap below the upper seat. Small blocked pocket roofs require physical bridge/fit verification.",
+  "toolpath_review": "All8 W1,13 W2 and11 C2 objects sliced with no skipped/outside objects. Full-height extrusion centerlines inside256mm bed. Fresh Bambu previews and first-layer paths visually reviewed: retained separation/brims, flat lid with new tab, upright tanks.0.1mm maximum support sample spacing including G2/G3 arcs; X1C Y+2 offset applied. W2/C2 were sliced before W1-only blockers; their exact plate semantics/global profiles remain unchanged.",
+  "warnings": "Inherited generic PLA bed-temperature warning on all three slices; actual resolved temperatures220C nozzle and W1/W2/C2 beds55/60/55C. Normal Bambu tree-support-to-organic log notices. No unexpected printability errors.",
+  "other_plates": "Seven unchanged plate estimates inherited;64 unrelated instances unchanged; optional PETG project byte-identical.",
+  "source_review_pending": 41,
+  "no_print_dispatched": true
+}

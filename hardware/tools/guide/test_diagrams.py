@@ -184,7 +184,7 @@ class CircuitDiagramTests(unittest.TestCase):
         self.assertIn('Connector sex does not show input.', identification)
         self.assertIn('colors are missing or disagree.', identification)
         result = self.texts('circuits/strand-input-result.svg')
-        self.assertIn('Keep the full strand uncut for this test', result)
+        self.assertIn('100-pebble strand · uncut', result)
         self.assertIn('Remaining 84 · should stay dark', result)
         self.assertFalse(any('cut here' in t.lower() for t in result))
 

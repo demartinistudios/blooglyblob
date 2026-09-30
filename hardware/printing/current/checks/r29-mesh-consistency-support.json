@@ -1,0 +1,615 @@
+{
+  "scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly.",
+  "belt": {
+    "result": "PASS",
+    "method": "Invert reviewed source/component/build transforms; check explicit material-bearing knuckle intervals from original belt eye geometry. Full-height blocker envelope includes open clevis gaps and undersides that intentionally carry removable supports, not only pin bores. Original audit used same radius/intervals; present sampling max0.1mm includes arcs.",
+    "limitations": "Conservative1.0mm centerline bore core; excludes boundary layers and does not prove full-bead clearance, support removal or physical fit.",
+    "source_geometry_evidence": [
+      {
+        "filename": "build_trial.py",
+        "sha256": "c5b80608b691bcca47282b5eab94a8a9dbb77a38a3c671dcd55fb541a3c3fc51"
+      },
+      {
+        "filename": "audit_print.py",
+        "sha256": "368767138bbb506339f4ea2f5a84a802e75fcac0c50c9cc19f9030ede451823d"
+      }
+    ],
+    "regions": [
+      {
+        "instance": "kit-B01-01",
+        "part": "B01",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 370,
+        "nearest_support_in_material_z_mm": 24.98346314720708
+      },
+      {
+        "instance": "kit-B01-01",
+        "part": "B01",
+        "angle_degrees": -70,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 466,
+        "nearest_support_in_material_z_mm": 17.716090667537845
+      },
+      {
+        "instance": "kit-B02-01",
+        "part": "B02",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 389,
+        "nearest_support_in_material_z_mm": 15.579239106137358
+      },
+      {
+        "instance": "kit-B02-01",
+        "part": "B02",
+        "angle_degrees": -24,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 493,
+        "nearest_support_in_material_z_mm": 14.540409417814985
+      },
+      {
+        "instance": "kit-B02-02",
+        "part": "B02",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 369,
+        "nearest_support_in_material_z_mm": 15.68538988996114
+      },
+      {
+        "instance": "kit-B02-02",
+        "part": "B02",
+        "angle_degrees": -24,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 470,
+        "nearest_support_in_material_z_mm": 14.557410481587294
+      },
+      {
+        "instance": "kit-B02-03",
+        "part": "B02",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 389,
+        "nearest_support_in_material_z_mm": 15.579239387464485
+      },
+      {
+        "instance": "kit-B02-03",
+        "part": "B02",
+        "angle_degrees": -24,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 493,
+        "nearest_support_in_material_z_mm": 14.540412100875452
+      },
+      {
+        "instance": "kit-B02-04",
+        "part": "B02",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 389,
+        "nearest_support_in_material_z_mm": 15.579470637752816
+      },
+      {
+        "instance": "kit-B02-04",
+        "part": "B02",
+        "angle_degrees": -24,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 493,
+        "nearest_support_in_material_z_mm": 14.54015083777633
+      },
+      {
+        "instance": "kit-B03-01",
+        "part": "B03",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 306,
+        "nearest_support_in_material_z_mm": 15.685659466907062
+      },
+      {
+        "instance": "kit-B03-01",
+        "part": "B03",
+        "angle_degrees": -24,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            0.2,
+            2.29
+          ],
+          [
+            5.71,
+            7.9
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 384,
+        "nearest_support_in_material_z_mm": 14.539851311032937
+      },
+      {
+        "instance": "kit-B04-01",
+        "part": "B04",
+        "angle_degrees": 0,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 364,
+        "nearest_support_in_material_z_mm": 21.010984398258888
+      },
+      {
+        "instance": "kit-B04-01",
+        "part": "B04",
+        "angle_degrees": -70,
+        "core_radius_mm": 1.0,
+        "body_local_material_z_intervals_mm": [
+          [
+            2.66,
+            5.34
+          ]
+        ],
+        "solid_knuckle_core_support_samples": 0,
+        "open_gap_or_boundary_samples": 364,
+        "nearest_support_in_material_z_mm": 39.35319374448314
+      }
+    ]
+  },
+  "antenna_and_ball": [
+    {
+      "instance": "kit-A04-01",
+      "part": "A04",
+      "plate": "B1",
+      "checks": [
+        {
+          "type": "support_blocker",
+          "global_build_bounds_mm": [
+            [
+              25.64761596,
+              -132.64149534,
+              -0.09999990412109216
+            ],
+            [
+              44.24699264,
+              -114.04211866,
+              4.800000195878908
+            ]
+          ],
+          "sample_core_radius_mm": 7.4397506720000015,
+          "z_inset_mm": 0.15,
+          "support_centerline_samples": 0
+        },
+        {
+          "type": "support_blocker",
+          "global_build_bounds_mm": [
+            [
+              31.44742136,
+              -126.84168994000001,
+              38.000000025878904
+            ],
+            [
+              38.44718724,
+              -119.84192406,
+              44.000000025878904
+            ]
+          ],
+          "sample_core_radius_mm": 2.7999063519999994,
+          "z_inset_mm": 0.15,
+          "support_centerline_samples": 0
+        }
+      ]
+    },
+    {
+      "instance": "kit-A05-01",
+      "part": "A05",
+      "plate": "T1",
+      "checks": [
+        {
+          "type": "support_blocker",
+          "global_build_bounds_mm": [
+            [
+              333.14969153787996,
+              -574.449625732041,
+              -0.10000029000000055
+            ],
+            [
+              340.24772067787995,
+              -567.351596592041,
+              10.00000009
+            ]
+          ],
+          "sample_core_radius_mm": 2.839211655999998,
+          "z_inset_mm": 0.15,
+          "support_centerline_samples": 0
+        }
+      ]
+    },
+    {
+      "instance": "optional-petg-A05-01",
+      "part": "A05",
+      "plate": "PETG-A05",
+      "checks": [
+        {
+          "type": "support_blocker",
+          "global_build_bounds_mm": [
+            [
+              124.45124053788,
+              124.450497267959,
+              -0.10000005000000023
+            ],
+            [
+              131.54926967788,
+              131.548526407959,
+              9.99999985
+            ]
+          ],
+          "sample_core_radius_mm": 2.8392116560000034,
+          "z_inset_mm": 0.15,
+          "support_centerline_samples": 0
+        }
+      ]
+    }
+  ],
+  "retained_r29_cavities": [
+    {
+      "plate": "W1",
+      "changed_part_review": [
+        {
+          "instance": "kit-P08-01",
+          "part": "P08",
+          "assembly_source_bounds_mm": [
+            [
+              -37.554786682128906,
+              -37.70000076293945,
+              121.29999999999998
+            ],
+            [
+              37.554786682128906,
+              37.554786682128906,
+              129.49999980926512
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                0,
+                18
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                -15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-P14-01",
+          "part": "P14",
+          "assembly_source_bounds_mm": [
+            [
+              -23.0,
+              -22.998754501342773,
+              116.94000000000001
+            ],
+            [
+              23.0,
+              22.998754501342773,
+              128.30000061035156
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                0,
+                18
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                -15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-FB24-01",
+          "part": "FB24",
+          "assembly_source_bounds_mm": [
+            [
+              -66.5,
+              -88.70000267028809,
+              -39.0
+            ],
+            [
+              66.5,
+              -62.00000190734863,
+              -6.9999998807907104
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "moved lid nut corridor",
+              "bounds_mm": [
+                [
+                  -49.49,
+                  -67.64,
+                  -36.09
+                ],
+                [
+                  -31,
+                  -63.36,
+                  -34.31
+                ]
+              ],
+              "support_samples": 0,
+              "support_bounds_mm": null
+            },
+            {
+              "region": "USB opening inset",
+              "bounds_mm": [
+                [
+                  -52.5,
+                  -87,
+                  -34.3
+                ],
+                [
+                  -41.5,
+                  -72.5,
+                  -17.7
+                ]
+              ],
+              "support_samples": 0,
+              "support_bounds_mm": null
+            },
+            {
+              "region": "moved M2 screw bore core r1mm",
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-FB32-01",
+          "part": "FB32",
+          "assembly_source_bounds_mm": [
+            [
+              -52.0,
+              -88.70000228881835,
+              -41.500000953674316
+            ],
+            [
+              55.0,
+              -60.999997711181635,
+              -39.50000047683716
+            ]
+          ],
+          "support_checks": []
+        }
+      ]
+    },
+    {
+      "plate": "W2",
+      "changed_part_review": [
+        {
+          "instance": "kit-P35-01",
+          "part": "P35",
+          "assembly_source_bounds_mm": [
+            [
+              -38.099998474121094,
+              23.81915283203125,
+              30.0
+            ],
+            [
+              38.099998474121094,
+              54.0,
+              103.5
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "lower pin seat",
+              "side": -1,
+              "support_samples": 0
+            },
+            {
+              "region": "upper pin seat",
+              "side": -1,
+              "support_samples": 0
+            },
+            {
+              "region": "hinge gap",
+              "side": -1,
+              "support_samples": 1163
+            },
+            {
+              "region": "lower pin seat",
+              "side": 1,
+              "support_samples": 0
+            },
+            {
+              "region": "upper pin seat",
+              "side": 1,
+              "support_samples": 0
+            },
+            {
+              "region": "hinge gap",
+              "side": 1,
+              "support_samples": 1170
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "plate": "C2",
+      "changed_part_review": [
+        {
+          "instance": "kit-P36-01",
+          "part": "P36",
+          "assembly_source_bounds_mm": [
+            [
+              20.0,
+              35.00124740600586,
+              33.0
+            ],
+            [
+              36.0,
+              50.998756408691406,
+              87.69155883789062
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "inner through-bore core r5.5mm",
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-P36-02",
+          "part": "P36",
+          "assembly_source_bounds_mm": [
+            [
+              20.0,
+              35.00124740600586,
+              33.0
+            ],
+            [
+              36.0,
+              50.998756408691406,
+              87.69155883789062
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "inner through-bore core r5.5mm",
+              "support_samples": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

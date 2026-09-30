@@ -1,0 +1,91 @@
+{
+  "replacement_frames": {
+    "P08": [
+      0,
+      -1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.07260561,
+      0,
+      -4.0999999
+    ],
+    "FB24": [
+      0.0,
+      1.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      2.587890612915089e-08,
+      -2.5878904352794052e-08,
+      -16.0
+    ],
+    "FB32": [
+      -0.9999999999999994,
+      -3.73018053251295e-08,
+      0.0,
+      -3.73018053251295e-08,
+      0.9999999999999994,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      -2.9654949429414046e-07,
+      3.721990129434971e-06,
+      1.0
+    ],
+    "P35": [
+      0,
+      1,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      38.909687,
+      0,
+      -66.75
+    ],
+    "P14": [
+      -0.7130515845585744,
+      0.7011115729743064,
+      0,
+      0.7011115729743064,
+      0.7130515845585744,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      5.67999983
+    ],
+    "P36": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -28,
+      -43,
+      -60.3457756
+    ]
+  },
+  "frame_sources": "R29 body-local/export frames composed with parent recipe placement; P14 planar axis recovered from retained recipe geometry and constrained to horizontal faces; P36 CAD tube center(28,43), baseZ33, upright.",
+  "P08_confirmation": "CAD independent comparison of pre-change native body to preserved old STL confirms (0,+0.07260561,0)mm before retained -90deg rotation. All vertices and triangle centers both directions max0.005324mm; bounds agree within0.000002mm. This confirms frame only, not changed hole-pattern equivalence.",
+  "limits": "Source frames are rigid mappings to raw mesh. Component/build transforms remain distinct. New geometry is exact accepted STL; prior different tessellations are not declared equivalent."
+}

@@ -1,12 +1,12 @@
 {
-  "status": "R28/cloud24 CAD and editable print package:71 required pieces/51 types. FB01 only replaced, K1 bounded review complete; independent source and physical qualification gates remain separate.",
-  "cad": "R28",
+  "status": "R29/cloud25:71 required pieces/51 types; all72 required/optional source mesh comparisons verified. Physical qualification remains separate.",
+  "cad": "R29",
   "parts": [
     {
       "part_id": "A04",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/A04.stl",
-      "geometry_sha256": "4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+      "geometry_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
       "instances": [
         {
           "id": "A04-1",
@@ -15,14 +15,14 @@
         }
       ],
       "guide_step_ids": [
-        "11"
+        "antenna"
       ],
       "guide_image": "assets/part-A04.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:4a2b26e3eda503edd5253ca3815fe90b84e6745fbce083a3eb95fbddbf40a756",
+      "geometry_revision": "sha256:3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
       "guide_review_step_ids": [
-        "11"
+        "antenna"
       ]
     },
     {
@@ -38,14 +38,14 @@
         }
       ],
       "guide_step_ids": [
-        "11"
+        "antenna"
       ],
       "guide_image": "assets/part-A05.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
       "guide_review_step_ids": [
-        "11"
+        "antenna"
       ]
     },
     {
@@ -61,16 +61,26 @@
         }
       ],
       "guide_step_ids": [
-        "16",
-        "servo-position"
+        "print-cleanup",
+        "upper-arms",
+        "elbows",
+        "hands-shoulder-covers",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR01.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
       "guide_review_step_ids": [
-        "16",
-        "servo-position"
+        "print-cleanup",
+        "upper-arms",
+        "elbows",
+        "hands-shoulder-covers",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ]
     },
     {
@@ -86,14 +96,16 @@
         }
       ],
       "guide_step_ids": [
-        "17"
+        "elbows",
+        "hands-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR02.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
       "guide_review_step_ids": [
-        "17"
+        "elbows",
+        "hands-shoulder-covers"
       ]
     },
     {
@@ -109,14 +121,14 @@
         }
       ],
       "guide_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR03.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
       "guide_review_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ]
     },
     {
@@ -132,16 +144,26 @@
         }
       ],
       "guide_step_ids": [
-        "16",
-        "servo-position"
+        "print-cleanup",
+        "upper-arms",
+        "elbows",
+        "hands-shoulder-covers",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR04.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
       "guide_review_step_ids": [
-        "16",
-        "servo-position"
+        "print-cleanup",
+        "upper-arms",
+        "elbows",
+        "hands-shoulder-covers",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ]
     },
     {
@@ -157,14 +179,16 @@
         }
       ],
       "guide_step_ids": [
-        "17"
+        "elbows",
+        "hands-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR05.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
       "guide_review_step_ids": [
-        "17"
+        "elbows",
+        "hands-shoulder-covers"
       ]
     },
     {
@@ -180,14 +204,14 @@
         }
       ],
       "guide_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR06.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
       "guide_review_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ]
     },
     {
@@ -203,16 +227,18 @@
         }
       ],
       "guide_step_ids": [
-        "18",
-        "fb-close"
+        "hands-shoulder-covers",
+        "head-shoulder-covers",
+        "bottom-cover"
       ],
       "guide_image": "assets/part-AR08.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
       "guide_review_step_ids": [
-        "18",
-        "fb-close"
+        "hands-shoulder-covers",
+        "head-shoulder-covers",
+        "bottom-cover"
       ]
     },
     {
@@ -228,16 +254,18 @@
         }
       ],
       "guide_step_ids": [
-        "18",
-        "fb-close"
+        "hands-shoulder-covers",
+        "head-shoulder-covers",
+        "bottom-cover"
       ],
       "guide_image": "assets/part-AR09.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
       "guide_review_step_ids": [
-        "18",
-        "fb-close"
+        "hands-shoulder-covers",
+        "head-shoulder-covers",
+        "bottom-cover"
       ]
     },
     {
@@ -253,14 +281,14 @@
         }
       ],
       "guide_step_ids": [
-        "30"
+        "belt"
       ],
       "guide_image": "assets/r19/part-B01.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
       "guide_review_step_ids": [
-        "30"
+        "belt"
       ]
     },
     {
@@ -291,14 +319,14 @@
         }
       ],
       "guide_step_ids": [
-        "30"
+        "belt"
       ],
       "guide_image": "assets/r19/part-B02.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
       "guide_review_step_ids": [
-        "30"
+        "belt"
       ]
     },
     {
@@ -314,14 +342,14 @@
         }
       ],
       "guide_step_ids": [
-        "30"
+        "belt"
       ],
       "guide_image": "assets/r19/part-B03.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
       "guide_review_step_ids": [
-        "30"
+        "belt"
       ]
     },
     {
@@ -337,14 +365,14 @@
         }
       ],
       "guide_step_ids": [
-        "30"
+        "belt"
       ],
       "guide_image": "assets/r19/part-B04.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
       "guide_review_step_ids": [
-        "30"
+        "belt"
       ]
     },
     {
@@ -395,14 +423,15 @@
         }
       ],
       "guide_step_ids": [
-        "30"
+        "belt"
       ],
       "guide_image": "assets/r19/part-B09.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
       "guide_review_step_ids": [
-        "30"
+        "belt",
+        "body-light-service"
       ]
     },
     {
@@ -418,27 +447,36 @@
         }
       ],
       "guide_step_ids": [
-        "fb-shell",
-        "fb-nuts",
-        "fb-audio-cradle",
-        "fb-boards",
-        "fb-wagos",
-        "fb-fuses-capacitors",
-        "03"
+        "print-cleanup",
+        "board-cover-nuts",
+        "cradle-jack-nuts",
+        "front-grille-rear-vent",
+        "feet",
+        "pi-shifters",
+        "wagos",
+        "audio-cradle",
+        "button",
+        "power-jack",
+        "secure-base-wiring",
+        "frame-uprights"
       ],
       "guide_image": "assets/r21/part-FB01.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
       "qualification": "User approved straight Wago row, Pi/shifter layout and spot-checked routing. Physical fit and full harness unqualified.",
       "geometry_revision": "sha256:c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
       "guide_review_step_ids": [
-        "03",
-        "fb-audio-cradle",
-        "fb-boards",
-        "fb-fuses-capacitors",
-        "fb-nuts",
-        "fb-panels",
-        "fb-shell",
-        "fb-wagos"
+        "print-cleanup",
+        "board-cover-nuts",
+        "cradle-jack-nuts",
+        "front-grille-rear-vent",
+        "feet",
+        "pi-shifters",
+        "wagos",
+        "audio-cradle",
+        "button",
+        "power-jack",
+        "secure-base-wiring",
+        "frame-uprights"
       ],
       "print_project_status": "R28 selected STL installed on K1; eight moved post recesses/bores, four pad faces and retained R27 nut access clear of sampled support. All 15 blockers preserved; physical cleanup/fit/glue retention unqualified."
     },
@@ -455,16 +493,21 @@
         }
       ],
       "guide_step_ids": [
-        "fb-shell",
-        "fb-close"
+        "feet",
+        "secure-base-wiring",
+        "secure-wiring",
+        "bottom-cover"
       ],
       "guide_image": "assets/r16/part-FB02.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check support removal, hardware fit and routing before assembly.",
       "geometry_revision": "sha256:c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
       "guide_review_step_ids": [
-        "fb-close",
-        "fb-shell"
+        "feet",
+        "secure-base-wiring",
+        "secure-wiring",
+        "bottom-cover",
+        "base-open"
       ]
     },
     {
@@ -480,14 +523,14 @@
         }
       ],
       "guide_step_ids": [
-        "fb-panels"
+        "front-grille-rear-vent"
       ],
       "guide_image": "assets/r17/part-FB03.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check support removal, hardware fit and routing before assembly.",
       "geometry_revision": "sha256:0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
       "guide_review_step_ids": [
-        "fb-panels"
+        "front-grille-rear-vent"
       ]
     },
     {
@@ -508,14 +551,17 @@
         }
       ],
       "guide_step_ids": [
-        "fb-speakers"
+        "speaker-grilles",
+        "side-grilles"
       ],
       "guide_image": "assets/r16/part-FB19.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check support removal, hardware fit and routing before assembly.",
       "geometry_revision": "sha256:19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
       "guide_review_step_ids": [
-        "fb-speakers"
+        "speaker-grilles",
+        "side-grilles",
+        "audio-service"
       ]
     },
     {
@@ -531,14 +577,19 @@
         }
       ],
       "guide_step_ids": [
-        "fb-inlet-button"
+        "button-leads",
+        "button",
+        "power-jack"
       ],
       "guide_image": "assets/r16/part-FB20.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check support removal, hardware fit and routing before assembly.",
       "geometry_revision": "sha256:63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
       "guide_review_step_ids": [
-        "fb-inlet-button"
+        "button-leads",
+        "button",
+        "power-jack",
+        "audio-service"
       ]
     },
     {
@@ -554,21 +605,26 @@
         }
       ],
       "guide_step_ids": [
-        "fb-inlet-button"
+        "button-leads",
+        "button",
+        "power-jack"
       ],
       "guide_image": "assets/r16/part-FB21.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check support removal, hardware fit and routing before assembly.",
       "geometry_revision": "sha256:6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
       "guide_review_step_ids": [
-        "fb-inlet-button"
+        "button-leads",
+        "button",
+        "power-jack",
+        "power-parts-service"
       ]
     },
     {
       "part_id": "FB24",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/FB24.stl",
-      "geometry_sha256": "3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+      "geometry_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
       "instances": [
         {
           "id": "FB24-1",
@@ -577,26 +633,31 @@
         }
       ],
       "guide_step_ids": [
-        "fb-nuts",
-        "fb-audio-cradle",
-        "fb-audio"
+        "print-cleanup",
+        "board-cover-nuts",
+        "cradle-jack-nuts",
+        "audio-cradle",
+        "audio-module"
       ],
       "guide_image": "assets/r16/part-FB24.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
-      "qualification": "User explicitly authorized direct MAIN promotion of closed audio tie slits for rear-face tape retention. Printed fit, tape adhesion, service removal and actual cable connector fit remain untested.",
-      "geometry_revision": "sha256:3e6d94cf929f04ce66941ec1bfbedc1a94fe570deb6124f08660f6752210168f",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
       "guide_review_step_ids": [
-        "fb-audio",
-        "fb-audio-cradle",
-        "fb-nuts"
+        "print-cleanup",
+        "board-cover-nuts",
+        "cradle-jack-nuts",
+        "audio-cradle",
+        "audio-module",
+        "audio-service"
       ],
-      "print_project_status": "R26 selected slit-closed cradle STL installed; full W1 re-sliced, source frame/settings preserved. No tape pad/height change. Actual tape bond, cleanup and USB connector fit remain unqualified."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "FB32",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/FB32.stl",
-      "geometry_sha256": "a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+      "geometry_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
       "instances": [
         {
           "id": "FB32-1",
@@ -605,15 +666,17 @@
         }
       ],
       "guide_step_ids": [
-        "fb-audio"
+        "audio-module"
       ],
       "guide_image": "assets/r16/part-FB32.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check support removal, hardware fit and routing before assembly.",
-      "geometry_revision": "sha256:a11e6f290bd29eb51245a8869cdbbb940237eb9122b7fd4c40cbf4e66ec4295c",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
       "guide_review_step_ids": [
-        "fb-audio"
-      ]
+        "audio-module",
+        "audio-service"
+      ],
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "FB41",
@@ -628,14 +691,14 @@
         }
       ],
       "guide_step_ids": [
-        "fb-panels"
+        "front-grille-rear-vent"
       ],
       "guide_image": "assets/r17/part-FB41.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "User-approved R23 matched FB01/FB41 replacement pair; digital print checks pass. Nut entry-edge cleanup, bearing web strength, M3x6 engagement and 0.3mm audio clearance require physical qualification.",
       "geometry_revision": "sha256:efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
       "guide_review_step_ids": [
-        "fb-panels"
+        "front-grille-rear-vent"
       ],
       "print_project_status": "R23 desktop-saved project and full affected-plate re-slice digitally verified; no dispatch; physical fit pending."
     },
@@ -652,14 +715,16 @@
         }
       ],
       "guide_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ],
       "guide_image": "assets/r19/part-GS01.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
       "guide_review_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ]
     },
     {
@@ -675,14 +740,16 @@
         }
       ],
       "guide_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ],
       "guide_image": "assets/r19/part-GS02.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
       "guide_review_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ]
     },
     {
@@ -698,14 +765,16 @@
         }
       ],
       "guide_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ],
       "guide_image": "assets/r19/part-GS03.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
       "guide_review_step_ids": [
-        "09"
+        "eye-housings",
+        "eye-boards"
       ]
     },
     {
@@ -721,18 +790,22 @@
         }
       ],
       "guide_step_ids": [
-        "08",
-        "09"
+        "eye-windows",
+        "eye-housings",
+        "eye-boards"
       ],
       "guide_image": "assets/r22/part-GS11.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Accepted R22 geometry; physical fit and strength pending",
       "geometry_revision": "sha256:678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
       "guide_review_step_ids": [
-        "08",
-        "09",
-        "10",
-        "37"
+        "eye-windows",
+        "eye-housings",
+        "eye-boards",
+        "mouth",
+        "head-open",
+        "mouth-eye-removal",
+        "arm-service"
       ]
     },
     {
@@ -748,18 +821,22 @@
         }
       ],
       "guide_step_ids": [
-        "08",
-        "09"
+        "eye-windows",
+        "eye-housings",
+        "eye-boards"
       ],
       "guide_image": "assets/r22/part-GS12.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Accepted R22 geometry; physical fit and strength pending",
       "geometry_revision": "sha256:c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
       "guide_review_step_ids": [
-        "08",
-        "09",
-        "10",
-        "37"
+        "eye-windows",
+        "eye-housings",
+        "eye-boards",
+        "mouth",
+        "head-open",
+        "mouth-eye-removal",
+        "arm-service"
       ]
     },
     {
@@ -775,18 +852,26 @@
         }
       ],
       "guide_step_ids": [
-        "09",
-        "13",
-        "servo-position"
+        "print-cleanup",
+        "eye-housings",
+        "eye-boards",
+        "head-light-cable",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/r18/part-GS20.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Head appearance and eye fit reported successful; other interfaces pending",
       "geometry_revision": "sha256:359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
       "guide_review_step_ids": [
-        "09",
-        "13",
-        "servo-position"
+        "print-cleanup",
+        "eye-housings",
+        "eye-boards",
+        "head-light-cable",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ]
     },
     {
@@ -807,16 +892,21 @@
         }
       ],
       "guide_step_ids": [
-        "03",
-        "05"
+        "frame-uprights",
+        "head-servo",
+        "body-light-strand",
+        "body-diffuser"
       ],
       "guide_image": "assets/part-P01.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
       "guide_review_step_ids": [
-        "03",
-        "05"
+        "frame-uprights",
+        "head-servo",
+        "body-light-strand",
+        "body-diffuser",
+        "remove-servo"
       ]
     },
     {
@@ -837,14 +927,16 @@
         }
       ],
       "guide_step_ids": [
-        "03"
+        "frame-uprights",
+        "body-lights"
       ],
       "guide_image": "assets/part-P02.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
       "guide_review_step_ids": [
-        "03"
+        "frame-uprights",
+        "body-lights"
       ]
     },
     {
@@ -860,14 +952,15 @@
         }
       ],
       "guide_step_ids": [
-        "04"
+        "shoulder-servos"
       ],
       "guide_image": "assets/part-P03.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
       "guide_review_step_ids": [
-        "04"
+        "shoulder-servos",
+        "remove-servo"
       ]
     },
     {
@@ -883,14 +976,14 @@
         }
       ],
       "guide_step_ids": [
-        "05"
+        "head-servo"
       ],
       "guide_image": "assets/part-P04.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
       "guide_review_step_ids": [
-        "05"
+        "head-servo"
       ]
     },
     {
@@ -911,21 +1004,28 @@
         }
       ],
       "guide_step_ids": [
-        "09"
+        "print-cleanup",
+        "eye-housings",
+        "eye-boards",
+        "head-harness"
       ],
       "guide_image": "assets/part-P06.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
       "guide_review_step_ids": [
-        "09"
+        "print-cleanup",
+        "eye-housings",
+        "eye-boards",
+        "head-harness",
+        "head-light-service"
       ]
     },
     {
       "part_id": "P08",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P08.stl",
-      "geometry_sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+      "geometry_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
       "instances": [
         {
           "id": "P08-1",
@@ -934,19 +1034,27 @@
         }
       ],
       "guide_step_ids": [
-        "07",
-        "13",
-        "servo-position"
+        "print-cleanup",
+        "head-shelf",
+        "head-light-cable",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/r18/part-P08.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
       "guide_review_step_ids": [
-        "07",
-        "13",
-        "servo-position"
-      ]
+        "print-cleanup",
+        "head-shelf",
+        "head-light-cable",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers",
+        "head-open"
+      ],
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P09",
@@ -966,14 +1074,17 @@
         }
       ],
       "guide_step_ids": [
-        "15"
+        "body-diffuser",
+        "backpack-carrier"
       ],
       "guide_image": "assets/part-P09.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
       "guide_review_step_ids": [
-        "15"
+        "body-diffuser",
+        "backpack-carrier",
+        "body-light-service"
       ]
     },
     {
@@ -999,14 +1110,17 @@
         }
       ],
       "guide_step_ids": [
-        "15"
+        "body-diffuser",
+        "backpack-carrier"
       ],
       "guide_image": "assets/part-P10.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
       "guide_review_step_ids": [
-        "15"
+        "body-diffuser",
+        "backpack-carrier",
+        "body-light-service"
       ]
     },
     {
@@ -1027,14 +1141,16 @@
         }
       ],
       "guide_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights"
       ],
       "guide_image": "assets/part-P11.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
       "guide_review_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights"
       ]
     },
     {
@@ -1050,14 +1166,21 @@
         }
       ],
       "guide_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights",
+        "body-diffuser",
+        "backpack-carrier"
       ],
       "guide_image": "assets/part-P12.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
       "guide_review_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights",
+        "body-diffuser",
+        "backpack-carrier",
+        "body-light-service"
       ]
     },
     {
@@ -1073,21 +1196,23 @@
         }
       ],
       "guide_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights"
       ],
       "guide_image": "assets/part-P13.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
       "guide_review_step_ids": [
-        "14"
+        "body-light-strand",
+        "body-lights"
       ]
     },
     {
       "part_id": "P14",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P14.stl",
-      "geometry_sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+      "geometry_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
       "instances": [
         {
           "id": "P14-1",
@@ -1096,17 +1221,22 @@
         }
       ],
       "guide_step_ids": [
-        "07",
-        "servo-position"
+        "head-shelf",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/part-P14.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
       "guide_review_step_ids": [
-        "07",
-        "servo-position"
-      ]
+        "head-shelf",
+        "fit-position",
+        "shelf-arms",
+        "head-shoulder-covers"
+      ],
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P30",
@@ -1121,14 +1251,21 @@
         }
       ],
       "guide_step_ids": [
-        "10"
+        "mouth",
+        "head-light-cable",
+        "head-shoulder-covers"
       ],
       "guide_image": "assets/r20/part-P30.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Replacement geometry ready; actual-material print and fit checks pending",
       "geometry_revision": "sha256:899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
       "guide_review_step_ids": [
-        "10"
+        "mouth",
+        "head-light-cable",
+        "head-shoulder-covers",
+        "head-open",
+        "mouth-eye-removal",
+        "head-light-service"
       ]
     },
     {
@@ -1144,14 +1281,15 @@
         }
       ],
       "guide_step_ids": [
-        "10"
+        "mouth"
       ],
       "guide_image": "assets/r20/part-P31.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Replacement geometry ready; actual-material print and fit checks pending",
       "geometry_revision": "sha256:e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
       "guide_review_step_ids": [
-        "10"
+        "mouth",
+        "mouth-eye-removal"
       ]
     },
     {
@@ -1167,21 +1305,24 @@
         }
       ],
       "guide_step_ids": [
-        "28"
+        "backpack-carrier",
+        "backpack"
       ],
       "guide_image": "assets/part-P34.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
       "guide_review_step_ids": [
-        "28"
+        "backpack-carrier",
+        "backpack",
+        "body-light-service"
       ]
     },
     {
       "part_id": "P35",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P35.stl",
-      "geometry_sha256": "2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+      "geometry_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
       "instances": [
         {
           "id": "P35-1",
@@ -1190,22 +1331,27 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "print-cleanup",
+        "backpack",
+        "belt"
       ],
       "guide_image": "assets/part-P35.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
-      "qualification": "User visual approval of thicker jetpack hinge roots. Physical strength, printed fit, support cleanup and durability remain untested.",
-      "geometry_revision": "sha256:2f0634bc9fc2be3ee73b1486c052483272a03d50254ed7e5c6c2808b63047477",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
       "guide_review_step_ids": [
-        "29"
+        "print-cleanup",
+        "backpack",
+        "belt",
+        "body-light-service"
       ],
-      "print_project_status": "R25 selected STL installed in maintained project; full W2 re-sliced. Actual pin-seat cores clear in sampled paths; accessible hinge-gap/lower screw support needs cleanup. Physical strength/fit unqualified."
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P36",
       "quantity": 2,
       "geometry_path": "hardware/cad/current/stl/P36.stl",
-      "geometry_sha256": "b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+      "geometry_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
       "instances": [
         {
           "id": "P36-1",
@@ -1219,15 +1365,16 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "backpack"
       ],
       "guide_image": "assets/part-P36.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:b5b6391aa56c1a3cb097f29fd68ce5e73c65a610640a558d1522b39ed103c994",
+      "source": "hardware/cad/CURRENT-NOTES.md",
+      "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
+      "geometry_revision": "sha256:c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
       "guide_review_step_ids": [
-        "29"
-      ]
+        "backpack"
+      ],
+      "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
     {
       "part_id": "P37",
@@ -1247,14 +1394,14 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "backpack"
       ],
       "guide_image": "assets/part-P37.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
       "guide_review_step_ids": [
-        "29"
+        "backpack"
       ]
     },
     {
@@ -1270,14 +1417,14 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "backpack"
       ],
       "guide_image": "assets/r13/part-P38.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
       "guide_review_step_ids": [
-        "29"
+        "backpack"
       ]
     },
     {
@@ -1293,14 +1440,14 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "backpack"
       ],
       "guide_image": "assets/r13/part-P39.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
       "guide_review_step_ids": [
-        "29"
+        "backpack"
       ]
     },
     {
@@ -1316,14 +1463,14 @@
         }
       ],
       "guide_step_ids": [
-        "29"
+        "backpack"
       ],
       "guide_image": "assets/part-P40.png",
       "source": "hardware/cad/current/assembly.f3d",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
       "guide_review_step_ids": [
-        "29"
+        "backpack"
       ]
     }
   ],
@@ -1337,14 +1484,14 @@
       "geometry_sha256": "0d5fee811569bdf85bad0bcf4ad7358deb119bd861bf5f27e7f52be623758f85",
       "instances": [],
       "guide_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ],
       "guide_image": "assets/r19/part-AR07.png",
       "source": "cad/main-r19/README.md",
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:0d5fee811569bdf85bad0bcf4ad7358deb119bd861bf5f27e7f52be623758f85",
       "guide_review_step_ids": [
-        "18"
+        "hands-shoulder-covers"
       ]
     }
   ]

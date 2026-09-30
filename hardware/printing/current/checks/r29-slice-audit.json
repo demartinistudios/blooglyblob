@@ -1,0 +1,552 @@
+{
+  "scope": "Full-height extrusion centerline bounds and changed-part support sampling at maximum0.1mm including arcs. X1C Y+2 offset; multi-plate origins W1(0,0),W2(614.4,0),C2(614.4,-307.2). Bounded centerline checks do not establish full bead clearance, physical fit or support release.",
+  "plates": [
+    {
+      "plate": "W1",
+      "project_sha256": "9dcc21f0cca97e3d36d1e50ba2a7ab4cbe1b9c3b223e0e08ede8723d8e5d1fd3",
+      "slice_sha256": "a460134798cb1ff600b66a03ffc0ea6e2c041f30d84eca687cb9f5e9ab082203",
+      "metadata": {
+        "index": "1",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "12424",
+        "weight": "64.44",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15054",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15065",
+          "name": "P03-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15076",
+          "name": "P04-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15087",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15098",
+          "name": "P08-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15109",
+          "name": "P14-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15120",
+          "name": "FB24-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15131",
+          "name": "FB32-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          13.580864471878794,
+          26.886
+        ],
+        [
+          239.99109101023785,
+          226.301
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 455598,
+      "changed_part_review": [
+        {
+          "instance": "kit-P08-01",
+          "part": "P08",
+          "assembly_source_bounds_mm": [
+            [
+              -37.554786682128906,
+              -37.70000076293945,
+              121.29999999999998
+            ],
+            [
+              37.554786682128906,
+              37.554786682128906,
+              129.49999980926512
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                0,
+                18
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                -15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-P14-01",
+          "part": "P14",
+          "assembly_source_bounds_mm": [
+            [
+              -23.0,
+              -22.998754501342773,
+              116.94000000000001
+            ],
+            [
+              23.0,
+              22.998754501342773,
+              128.30000061035156
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                0,
+                18
+              ],
+              "support_samples": 0
+            },
+            {
+              "region": "M3 fastener bore core",
+              "axis_xy": [
+                -15.588457268,
+                -9
+              ],
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-FB24-01",
+          "part": "FB24",
+          "assembly_source_bounds_mm": [
+            [
+              -66.5,
+              -88.70000267028809,
+              -39.0
+            ],
+            [
+              66.5,
+              -62.00000190734863,
+              -6.9999998807907104
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "moved lid nut corridor",
+              "bounds_mm": [
+                [
+                  -49.49,
+                  -67.64,
+                  -36.09
+                ],
+                [
+                  -31,
+                  -63.36,
+                  -34.31
+                ]
+              ],
+              "support_samples": 0,
+              "support_bounds_mm": null
+            },
+            {
+              "region": "USB opening inset",
+              "bounds_mm": [
+                [
+                  -52.5,
+                  -87,
+                  -34.3
+                ],
+                [
+                  -41.5,
+                  -72.5,
+                  -17.7
+                ]
+              ],
+              "support_samples": 0,
+              "support_bounds_mm": null
+            },
+            {
+              "region": "moved M2 screw bore core r1mm",
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-FB32-01",
+          "part": "FB32",
+          "assembly_source_bounds_mm": [
+            [
+              -52.0,
+              -88.70000228881835,
+              -41.500000953674316
+            ],
+            [
+              55.0,
+              -60.999997711181635,
+              -39.50000047683716
+            ]
+          ],
+          "support_checks": []
+        }
+      ]
+    },
+    {
+      "plate": "W2",
+      "project_sha256": "edb9a05437d7895ab77406cab4e906721166165ff37dafc6d87f1ec87f92cdda",
+      "slice_sha256": "66150009cfc8b93332d0f67f935f9d476794e4bebb12d400ee38e07017f51666",
+      "metadata": {
+        "index": "3",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "15070",
+        "weight": "65.98",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15259",
+          "name": "P02-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15270",
+          "name": "P06-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15281",
+          "name": "P09-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15292",
+          "name": "P09-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15303",
+          "name": "P10-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15314",
+          "name": "P10-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15325",
+          "name": "P10-3 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15336",
+          "name": "P11-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15347",
+          "name": "P11-2 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15358",
+          "name": "P12-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15369",
+          "name": "P13-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15380",
+          "name": "P34-1 | White",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15403",
+          "name": "P35-1 | White",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          12.886,
+          26.886
+        ],
+        [
+          237.218,
+          242.927
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 794367,
+      "changed_part_review": [
+        {
+          "instance": "kit-P35-01",
+          "part": "P35",
+          "assembly_source_bounds_mm": [
+            [
+              -38.099998474121094,
+              23.81915283203125,
+              30.0
+            ],
+            [
+              38.099998474121094,
+              54.0,
+              103.5
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "lower pin seat",
+              "side": -1,
+              "support_samples": 0
+            },
+            {
+              "region": "upper pin seat",
+              "side": -1,
+              "support_samples": 0
+            },
+            {
+              "region": "hinge gap",
+              "side": -1,
+              "support_samples": 1163
+            },
+            {
+              "region": "lower pin seat",
+              "side": 1,
+              "support_samples": 0
+            },
+            {
+              "region": "upper pin seat",
+              "side": 1,
+              "support_samples": 0
+            },
+            {
+              "region": "hinge gap",
+              "side": 1,
+              "support_samples": 1170
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "plate": "C2",
+      "project_sha256": "edb9a05437d7895ab77406cab4e906721166165ff37dafc6d87f1ec87f92cdda",
+      "slice_sha256": "b77b6347fbb186a3329f7ebaea695ce01f437d6646d5c77fb84cdd8ee6197aec",
+      "metadata": {
+        "index": "7",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "13466",
+        "weight": "48.64",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "objects": [
+        {
+          "identify_id": "15736",
+          "name": "FB03-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15747",
+          "name": "FB19-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15758",
+          "name": "FB19-2 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15769",
+          "name": "FB20-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15780",
+          "name": "FB21-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15791",
+          "name": "FB41-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15802",
+          "name": "P36-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15813",
+          "name": "P36-2 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15824",
+          "name": "P38-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15835",
+          "name": "P39-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15846",
+          "name": "P40-1 | Copper",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          29.386,
+          37.386
+        ],
+        [
+          232.614,
+          243.614
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 33948,
+      "changed_part_review": [
+        {
+          "instance": "kit-P36-01",
+          "part": "P36",
+          "assembly_source_bounds_mm": [
+            [
+              20.0,
+              35.00124740600586,
+              33.0
+            ],
+            [
+              36.0,
+              50.998756408691406,
+              87.69155883789062
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "inner through-bore core r5.5mm",
+              "support_samples": 0
+            }
+          ]
+        },
+        {
+          "instance": "kit-P36-02",
+          "part": "P36",
+          "assembly_source_bounds_mm": [
+            [
+              20.0,
+              35.00124740600586,
+              33.0
+            ],
+            [
+              36.0,
+              50.998756408691406,
+              87.69155883789062
+            ]
+          ],
+          "support_checks": [
+            {
+              "region": "inner through-bore core r5.5mm",
+              "support_samples": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

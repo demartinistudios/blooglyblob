@@ -102,8 +102,8 @@ position-locked; do not turn them after setting the pose. Follow the
 for horn fitting and the guide's first-movement check. Every replacement servo
 needs that fitting and clearance check.
 
-Normal startup opens outputs without a pulse, then commands that same fit/rest
-pose directly once, without a software sweep through center. Runtime movement
+Normal startup opens outputs without a pulse, then commands that same fit
+position directly once, without a software sweep through center. Runtime movement
 stays within **1000–2000 µs** on every axis. Fixed arm percentages map down to
 forward raise in opposite pulse directions. Exact angles depend on the servo,
 horn indexing and assembly. This operating window does not certify clearance;

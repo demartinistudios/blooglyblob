@@ -5,11 +5,13 @@ The scene cameras are guide authoring, not CAD changes. Geometry and its source
 hash are verified before rendering. --write updates existing authored images;
 otherwise pictures and a receipt go only to the requested scratch directory.
 """
-import argparse, copy, gzip, hashlib, importlib, json, os, re, shutil, sys
+import argparse, copy, hashlib, importlib, json, os, re, shutil, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 SRC = ROOT / 'hardware/build-guide/src'
+
+SHELF_FASTENING_CENTERS = ((15.588457268119896,-9),(0,18),(-15.588457268119896,-9))
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -29,9 +31,9 @@ def scenes():
     # routine. Its actual image contains no enclosure and is not a whole model.
     for scene in library.values():
         path = scene['output']; view = scene['view']; selected = view.get('select', ['all'])
-        if path == 'assets/r18/head-fastener-cutaway.png' or not (SRC / path).exists():
+        if path in ('assets/r18/head-fastener-cutaway.png','assets/r16/service-stand.png') or not (SRC / path).exists():
             continue
-        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r16/base-pi-joints.png','assets/r16/base-shifter-joints.png'):
+        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r16/base-pi-joints.png','assets/r16/base-shifter-joints.png'):
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
@@ -45,25 +47,28 @@ def scenes():
         result[f'assets/community/{name}.png'] = dict(view=view,thumbnail=False)
     result['assets/r22/main-front.png'] = dict(view=dict(select=['all'],exclude=['AR07','AR10','AR11'],camera=[.85,-1.6,.55],clean=True,size=[1400,1500],margin=65),thumbnail=False)
     result['assets/part-P35.png'] = dict(view=dict(select=['P35'],camera=[.9,-1.6,.9],clean=True),thumbnail=True)
-    result['assets/r16/step-29.png'] = dict(view=dict(select=['P35','P36','P37','P38','P39','P40'],camera=[.9,1.6,.9],offset={'P37':[0,0,-12],'P38':[0,0,10],'P39':[0,0,10],'P40':[0,9,0]},title='Dry-fit the backpack details',footer='Fit the tanks first; arrows show the parts coming together'),thumbnail=False)
+    result['assets/r16/step-29.png'] = dict(view=dict(select=['P35','P36','P37','P38','P39','P40'],camera=[.9,1.6,.9],offset={'P37':[0,0,-12],'P38':[0,0,10],'P39':[0,0,10],'P40':[0,9,0]},title='Test-fit the backpack details',footer='Fit the tanks first; arrows show the parts coming together'),thumbnail=False)
     for path, scene in result.items():
         v = scene['view']
         v['title'] = re.sub(r'^R\d+\s*/\s*', '', v.get('title','Assembly')).replace('CURRENT ASSEMBLY','Assembly').replace('COMPLETE CURRENT ASSEMBLY','Complete robot')
         v['title'] = v['title'].replace('BODY','FRAME') if path.endswith('base-nuts.png') else v['title']
-        v['footer'] = 'Black enclosure drawn lighter so its inside is visible' if 'FB01' in v.get('select',[]) else ''
+        v['footer'] = 'Base drawn lighter so its inside is visible' if 'FB01' in v.get('select',[]) else ''
         if path.endswith('front-grille-detail.png'):
             v['title']='Front microphone grille — four M3 × 6 screws'
             v['footer']='88 × 40.8 × 2 mm • no washers'
         if path.endswith('audio-cradle-fasteners.png'):
-            v['footer']='Use the fitted enclosure nuts • the middle screw goes in before the module'
+            v['footer']='Use the fitted base nuts • the middle screw goes in before the module'
         if path.endswith('wago-pockets.png'):
             v['footer']='Tape goes between each flat face and its connector • no printed clamps'
         if path.endswith(('saddles.png','base-fuses.png')):
             v['footer']='Place the bodies beside supported bundles • short leads show exit ends only'
         if path.endswith('base-inlet.png'):
-            v['select']=['FB21','E18'];v['title']='Power inlet and removable plate';v['footer']='Keep enough wire slack to remove the plate'
+            v['select']=['FB21','E18'];v['title']='Power jack and removable plate';v['footer']='Keep enough wire slack to remove the plate'
         if path.endswith('base-board-nut-locations.png'):
             v['footer']='P1–P4: Pi • S1a/S1b: rear signal board • S2a/S2b: front signal board'
+    result['assets/r21/base-cover.png']['view'].update(clean=True)
+    result['assets/r16/base-button.png']['view']['footer']='Four insulated button leads'
+    result['assets/r21/base-frame.png']['view'].update(occ={'P01':[0],'P02':[0,1]}, title='Lower collar and both uprights', clean=True)
     return result
 
 def front_diagrams(render, output):
@@ -236,7 +241,7 @@ def base_nut_diagrams(render, output):
         small=ImageFont.truetype(fontpath,32)
         draw.text((28,440),'Align the flats',font=small,fill=(34,56,78))
         draw.text((378,440),'Seat flat',font=small,fill=(34,56,78))
-        draw.text((28,490),'Glue outer edges; keep threads clear.',font=small,fill=(34,56,78))
+        draw.text((28,490),'Hold the nut until its screw catches.' if name == 'rear' else 'Glue outer edges; keep threads clear.',font=small,fill=(34,56,78))
         path=f'assets/community/base-{name}-nut-entry.png';canvas.save(output/Path(path).name,optimize=True);outputs.append(path)
     render.meshes=original
     return outputs
@@ -247,60 +252,6 @@ def verify_reference_identities(meshes):
         found=[m for m in meshes if m['root'].startswith(prefix)]
         if len(found) != 2 or any(m['id'] != expected for m in found):
             raise ValueError('Missing or incorrect render identities: '+prefix)
-
-def service_stand(render, output, registry):
-    """Use the accepted hidden fixture solids with the accepted robot on its side."""
-    import numpy as np
-    provenance_path = ROOT/'hardware/rendering/r23-service-stand-provenance.json'
-    provenance = json.loads(provenance_path.read_text())
-    source = ROOT/provenance['mesh']['path']
-    if digest(source) != provenance['mesh']['sha256']:
-        raise ValueError('Stand mesh digest mismatch')
-    sys.path.insert(0, str(ROOT / 'hardware/tools/rendering'))
-    from source import selected
-    source_lock, _ = selected()
-    assembly_path = ROOT/source_lock['roles']['assembly']
-    release = json.loads((ROOT/registry['main']['release_manifest']).read_text())
-    expected = next(x for x in source_lock['files'] if x['path'] == str(assembly_path.relative_to(ROOT)))
-    if digest(assembly_path) != expected['sha256']:
-        raise ValueError('Accepted assembly snapshot changed')
-    accepted = {x['path']:x for x in json.loads(assembly_path.read_text())['occurrences']}
-    original = render.meshes
-    fixture = []
-    rows = json.load(gzip.open(source,'rt'))
-    verify_stand_reuse(provenance, registry, accepted, rows)
-    for row in rows:
-        transform=np.array(row['transform']).reshape(4,4)
-        vertices=(np.array(row['vertices_cm']).reshape(-1,3)@transform[:3,:3].T+transform[:3,3])*10
-        fixture.append(dict(id=row['part_id'],occ=0,root=row['path'],v=vertices,f=np.array(row['faces']).reshape(-1,3),source=row))
-    if len(fixture)!=8:
-        raise ValueError('Expected all eight stand occurrences')
-    # One rigid display rotation puts the existing +X-side fixture on the bench.
-    # No relative robot/fixture placement changes. +Z of robot points along +X.
-    posed=[]
-    for mesh in original+fixture:
-        vertices=mesh['v'][:,[2,1,0]].copy();vertices[:,2]=138-vertices[:,2]
-        item=dict(mesh,v=vertices);item.pop('normals',None);item.pop('corner_normals',None)
-        posed.append(item)
-    render.meshes=posed
-    render.render('service-stand',dict(select=['all'],exclude=['FB02','AR07','AR10','AR11'],camera=[-.62,-1,.72],clean=True,size=[1700,1100],margin=60))
-    from guide_closeups import compact_view
-    loose=[]
-    for m in posed[-len(fixture):]:
-        offset={'J03':12,'J05':18,'J06':30}.get(m['id'],0)
-        loose.append(dict(m,v=m['v']+[0,0,offset]))
-    def middle(pid):
-        selected=[m['v'] for m in loose if m['id']==pid]
-        return np.concatenate(selected).mean(0)
-    compact_view(render,output,'stand-materials',loose,[.6,-1,.75],
-                 'One printed saddle; wooden base, two blocks and head riser; foam pads',
-                 labels=[('Wood base',middle('J01'),(25,395)),
-                         ('2 wood blocks',next(m['v'].mean(0) for m in loose if m['id']=='J02'),(20,40)),
-                         ('Wood riser',middle('J04'),(400,395)),
-                         ('Print J05',middle('J05'),(385,40)),
-                         ('Foam',middle('J06'),(490,110))])
-    render.meshes=original
-    return dict(path=str(source.relative_to(ROOT)),sha256=digest(source),provenance_sha256=digest(provenance_path),accepted_snapshot_sha256=digest(assembly_path),occurrences=8,display_rotation='assembly (x,y,z) -> display (z,y,138-x); same rigid transform for robot and stand')
 
 def action_diagrams(render, output):
     """Single-action CAD views with nominal fasteners and readable SVG captions.
@@ -346,6 +297,11 @@ def action_diagrams(render, output):
     def screw(d,length,seat,axis):
         from guide_fasteners import screw as modeled_screw
         return modeled_screw(d,length,seat,axis)
+    def shelf_screw(seat):
+        rows=screw(3,8,seat,[0,0,-1])
+        # Owner-measured M3 head, R29 approval evidence; keep nominal threads.
+        for row in rows[1:]:row['v']=(row['v']-seat)*[5.33/5.5,5.33/5.5,3.03/3]+seat
+        return rows
     def nut(d,center,axis):
         from guide_fasteners import hex_nut
         return hex_nut(d,center,axis)
@@ -370,6 +326,12 @@ def action_diagrams(render, output):
     def svg_text(x,y,value,size=21,anchor='start'):
         return f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{ink}">{html.escape(value)}</text>'
     def emit(name,parts,camera,title,notes,marks=(),arrows=(),bounds=None,extra=''):
+        if name == 'tank-ring-bond':
+            from guide_closeups import pose_parts
+            rotation=np.array([[1,0,0],[0,0,1],[0,-1,0]])
+            parts=pose_parts(parts,rotation);camera=(rotation@camera).tolist()
+            arrows=[(rotation@a,rotation@b) for a,b in arrows]
+            marks=[(label,rotation@point) for label,point in marks]
         # One 420px-wide image per action remains readable in the mobile column.
         render.meshes=parts
         if bounds is None:
@@ -434,17 +396,27 @@ def action_diagrams(render, output):
          [(i+1,[48,y,-23]) for i,y in enumerate([52,22,-8,-38])])
     # Frame attachment, one actual section plus a loose nominal nut.
     parts=cropped(chosen(['FB01','P01','P02'],{'P01':[0],'P02':[0]}),[[-9,17,-7],[9,36,17]])
-    parts+=screw(3,16,[0,26.5,-14],[0,0,1])+[nut(3,[12,26.5,6.2],[0,0,1])]
-    emit('frame-base-fastening',parts,[.8,-1,.35],'Attach each upright at the base',
-         ['1  Slide M3 nut into side opening','2  M3 × 16 screw enters from below','Repeat at front and rear uprights'],
-         [('1',[12,26.5,6.2]),('2',[0,26.5,-14])],arrows=[([12,26.5,6.2],[0,26.5,6.2]),([0,26.5,-14],[0,26.5,-6])])
+    parts+=[nut(3,[0,40,6.2],[0,0,1])]
+    emit('frame-base-fastening',parts,[.8,1,.35],'Load each upright foot nut',
+         ['M3 nut enters the outer opening','Rear foot shown · repeat at the front'],
+         arrows=[([0,37,6.2],[0,28,6.2])])
     # P14 and P08 are a bench assembly. The servo is deliberately absent.
-    shelf_positions=[(0,-18),(15.588,9),(-15.588,9)]
-    parts=translated(chosen(['P08','P14']),{'P14':[0,0,18]})
-    for x,y in shelf_positions:parts+=screw(3,8,[x,y,111],[0,0,1])+[nut(3,[x,y,151],[0,0,1])]
-    emit('head-shelf-fastening',parts,[.6,-1.2,.55],'Join shelf P08 to adapter P14',
-         ['3 × M3 × 8 enter from below P08','Nuts sit above the P14 flange','Assemble on the bench, off the servo'],
-         [('1',[0,-18,111]),('2',[15.588,9,111]),('3',[-15.588,9,111])],arrows=[([0,0,146],[0,0,128])])
+    # The whole parts establish the three-hole orientation; the section below
+    # separately reveals the underside nut pocket without hiding their shapes.
+    shelf_positions=SHELF_FASTENING_CENTERS
+    parts=chosen(['P08','P14'])
+    for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)
+    for x,y in shelf_positions:
+        parts+=shelf_screw(np.array([x,y,140.3]))+[nut(3,[x,y,122.8],[0,0,1])]
+    emit('head-shelf-fastening',parts,[.6,-1.2,1.1],'Join shelf P08 to adapter P14',
+         ['3 × M3 × 8 enter from above P14','Nuts sit in the underside pockets','Brown: P14 · blue-gray: P08'],
+         arrows=[([x,y,137],[x,y,129]) for x,y in shelf_positions])
+    parts=cropped(chosen(['P08','P14']),[[0,12,120],[5,24,130]])
+    for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)
+    parts+=shelf_screw(np.array([0,18,140.3]))+[nut(3,[0,18,122.8],[0,0,1])]
+    emit('head-shelf-joint-section',parts,[-1,.6,.3],'Join shelf P08 to adapter P14',
+         ['3 × M3 × 8 enter from above P14','M3 nuts seat underneath P08','One joint shown in section'],
+         arrows=[([0,18,137],[0,18,129])])
     # The original measured disk is shown in a face diagram separately; here
     # the actual adapter shows both offset holes and its central servo opening.
     parts=chosen(['P14'])+[round_horn([0,0,107])]
@@ -453,7 +425,7 @@ def action_diagrams(render, output):
          ['1  Two M2 × 6 through the drilled pair','2  Center stays open for servo screw','Original horn shown as an outline'],
          [('1',[-9,0,98]),('1',[9,0,98]),('2',[0,0,107])],arrows=[([0,0,108],[0,0,116])])
     parts=chosen(['P08'])+tube([[-12,-24,101],[-10,-26,110],[-10,-26,123],[-10,-26,133],[-12,-28,140],[-18,-31,143],[-25,-33,140],[-28,-32,133]],1.2)
-    emit('head-cable-entry',parts,[-.8,-1,1.3],'Lay HEAD cable in the open entry',
+    emit('head-cable-entry',parts,[-.8,-1,1.3],'Lay in the head light cable',
          ['Lay the cable into the edge opening','Example loop: leave turning/lifting slack'],
          [('1',[-10,-26,123])],arrows=[([-27,-26,124],[-12,-26,124])])
     parts=cropped(chosen(['P08']),[[-22,-34,121.3],[0,-17,125.4]])
@@ -489,7 +461,7 @@ def action_diagrams(render, output):
     emit('rear-seam-nuts',parts,[.8,1,.1],'Load the rear seam nuts first',
          ['M3 nuts at the middle and top','Do this before wrapping the foam','These take the carrier’s M3 × 18s'],
          [('1',[0,27,46]),('2',[0,27,90])],bounds=[[-12,16,34],[12,36,102]])
-    parts=chosen(['P34'])
+    parts=chosen(['P34','P02','P09','P10','P12'],{'P02':[0]})
     for xx in [-23,23]:
         for zz in [40,80]:parts.append(nut(3,[xx,41.4,zz],[0,1,0]))
     emit('carrier-side-nuts',parts,[.9,1,.25],'Load all four carrier nuts',
@@ -507,13 +479,27 @@ def action_diagrams(render, output):
     emit('backpack-shell-fastening',parts,[.7,1,.4],'Attach the completed backpack',
          ['4 × M3 × 12 into the carrier nuts','Leave both lower belt docks clear'],
          [(i+1,[x,82,z]) for i,(x,z) in enumerate([(-12,40),(12,40),(-12,80),(12,80)])],arrows=[([0,64,67],[0,44,67])])
-    parts=chosen(['P35','P36'])
-    # Cutaway exposes the real tank tab and captive nut seat at z50.
-    parts=cropped(parts,[[15,22,42],[39,51,59]])
-    parts+=screw(3,8,[28,24,50],[0,1,0])+[nut(3,[28,39.8,50],[0,1,0])]
-    emit('tank-fastening',parts,[-.8,-1,.45],'Fasten each tank before its nozzle',
-         ['1 × M3 × 8 + M3 nut per tank','Screw enters from the front side','Cutaway shows one of the two joints'],
-         [('1',[28,24,50]),('2',[28,39.8,50])],arrows=[([28,24,50],[28,35,50])])
+    # Highlight the bonded surfaces inside the two rings using source triangles;
+    # no manufactured glue shape is invented.
+    shell=chosen(['P35']);parts=[]
+    for row in shell:
+        triangles=row['v'][row['f']]
+        ring=np.zeros(len(triangles),dtype=bool)
+        band=((triangles[:,:,2]>=32.999)&(triangles[:,:,2]<=38.001))|((triangles[:,:,2]>=61.999)&(triangles[:,:,2]<=67.001))
+        for x in (-28,28):
+            radial=np.linalg.norm(triangles[:,:,:2]-[x,43],axis=2)
+            ring|=(np.all(abs(radial-8.3)<.003,axis=1)&np.all(band,axis=1))
+        parts+=[dict(row,f=row['f'][~ring],guide_color=(219,218,204)),
+                dict(row,f=row['f'][ring],guide_color=(224,169,43),flat_shading=True)]
+    tanks=chosen(['P36'])
+    for row in tanks:
+        # Separate along X only for a clear view of the hidden surfaces.
+        row['v']=row['v']+[24 if row['v'][:,0].mean()>0 else -24,0,0]
+        row['guide_color']=(174,99,52)
+    parts+=tanks
+    emit('tank-ring-bond',parts,[.5,1,.85],'Bond the tanks inside both rings',
+         ['Gold: hidden ring contact surfaces','Tanks separated to show the joints'],
+         marks=[('1',[28,43,35.5]),('2',[28,43,64.5])])
     # P11 light pads and actual tie slots. No fixed tie-lock position implied.
     parts=cropped(chosen(['P11'],{'P11':[0]}),[[9,-36,8],[26,-16,36]])
     # Recognizable resin/LED/wire illustration on the accepted pad. Geometry
@@ -530,44 +516,20 @@ def action_diagrams(render, output):
          ['2 loose ties around the wire','Keep both ties outside the resin','Light and tie paths illustrated'],
          [('1',[17.5,-23,14.5]),('2',[17.5,-23,29.5])],bounds=[[8,-36,8],[27,-15,36]])
     parts=chosen(['P04','P14','P08','E01'],{'E01':[2]})
-    emit('head-center-screw',parts,[.6,-1,1.3],'Seat the head horn at the fit pose',
-         ['Head shelf front faces robot front','Use the supplied servo center screw','Seat the spline before tightening'],
+    emit('head-center-screw',parts,[.6,-1,1.3],'Seat the head horn at the fit position',
+         ['Head shelf front faces robot front','Use the supplied center screw','Seat the spline before tightening'],
          [('1',[0,0,128])],arrows=[([0,0,153],[0,0,130])])
     for suffix,arm,occ,sign in [('left','AR01',0,1),('right','AR04',1,-1)]:
         parts=chosen([arm,'E01'],{'E01':[occ]})
-        emit('arm-center-screw-'+suffix,parts,[sign*1.8,-.6,.6],f'Seat the {suffix} arm at its fit pose',
-             ['Arm hangs straight down','Use the supplied servo center screw','Fit the shoulder cover afterward'],
+        emit('arm-center-screw-'+suffix,parts,[sign*1.8,-.6,.6],f'Seat the {suffix} arm at its fit position',
+             ['Arm hangs straight down','Use the supplied center screw','Fit the shoulder cover afterward'],
              [('1',[sign*48,0,90])],arrows=[([sign*65,0,90],[sign*48,0,90])])
     # The actual upper-arm/horn bore stays visible before its cover slides on.
     for suffix,arm,cover,sign in [('left','AR01','AR08',1),('right','AR04','AR09',-1)]:
         parts=translated(chosen([arm,cover]),{cover:[sign*18,0,0]})
         emit('shoulder-cover-'+suffix,parts,[sign*1.7,-1,.5],f'Fit the {suffix} shoulder cover',
-             ['Seat the horn and its center screw first',f'{cover} slides onto {arm}','Arms hang down at the fit pose'],
+             [f'{cover} slides onto {arm}'],
              arrows=[([sign*66,0,86],[sign*48,0,86])])
-    # Fixture construction uses the same verified hidden solids as its use view.
-    provenance=json.loads((ROOT/'hardware/rendering/r23-service-stand-provenance.json').read_text())
-    stand_source=ROOT/provenance['mesh']['path']
-    if digest(stand_source)!=provenance['mesh']['sha256']:raise ValueError('Changed stand mesh')
-    rows=json.load(gzip.open(stand_source,'rt'))
-    registry=json.loads((ROOT/'hardware/cad/design-control/registry.json').read_text())
-    accepted={r['path']:r for r in json.loads((ROOT/'hardware/cad/current/release-assembly.json').read_text())['occurrences']}
-    verify_stand_reuse(provenance,registry,accepted,rows)
-    fixture=[]
-    for row in rows:
-        transform=np.array(row['transform']).reshape(4,4)
-        vertices=(np.array(row['vertices_cm']).reshape(-1,3)@transform[:3,:3].T+transform[:3,3])*10
-        fixture.append(dict(id=row['part_id'],occ=0,root=row['path'],v=vertices,f=np.array(row['faces']).reshape(-1,3),source=row))
-    def bench(parts):
-        result=[]
-        for m in parts:
-            vertices=m['v'][:,[2,1,0]].copy();vertices[:,2]=138-vertices[:,2]
-            item=dict(m,v=vertices);item.pop('normals',None);item.pop('corner_normals',None);result.append(item)
-        return result
-    parts=[m for m in fixture if m['id'] in ('J01','J02','J03')]
-    parts=translated(parts,{'J02':[-12,0,0],'J03':[-24,0,0]})
-    emit('stand-base-blocks',bench(parts),[.6,-1,.7],'Build the stand from the template',
-         ['Glue and screw both blocks to the bed','4 screws: 4 × 25 mm, countersunk','Enter from below; then glue the pads'],
-         arrows=[([z,y,-12],[z,y,18]) for y in [-68,68] for z in [-48,-20]])
     render.meshes=original
     return outputs
 
@@ -623,13 +585,29 @@ def main():
     if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.actions_only and not args.closeups_only and not args.mount_closeups_only:
         selected=scenes()
         if args.scene:
-            unknown=set(args.scene)-selected.keys()-ACTION_PATHS-{'assets/r16/service-stand.png'}
+            unknown=set(args.scene)-selected.keys()-ACTION_PATHS
             if unknown:raise ValueError('Unknown selected scenes: '+', '.join(sorted(unknown)))
             selected={p:v for p,v in selected.items() if p in args.scene}
         for index,(path,scene) in enumerate(selected.items()):
             lighten='main-front' not in path and 'overview-back' not in path
             name='scene-'+str(index)
-            render.render(name,scene['view'],scene['thumbnail']);outputs[path]=args.output/(name+'.png')
+            if path in ('assets/r21/base-frame.png','assets/r21/base-cover.png'):
+                from guide_closeups import pose_parts
+                import numpy as np
+                rotation=np.array([[0,0,1],[0,1,0],[-1,0,0]]) if 'base-frame' in path else np.array([[1,0,0],[0,0,1],[0,-1,0]])
+                original=render.meshes;render.meshes=pose_parts(original,rotation)
+                view=copy.deepcopy(scene['view'])
+                camera=[-.8,-1,-.65] if 'base-frame' in path else view['camera']
+                view['camera']=(rotation@camera).tolist()
+                view['offset']={pid:(rotation@offset).tolist() for pid,offset in view.get('offset',{}).items()}
+                render.render(name,view,scene['thumbnail']);render.meshes=original
+            elif path == 'assets/r16/base-button.png':
+                from guide_component_actions import button_leads
+                original=render.meshes;render.meshes=original+button_leads(original)
+                render.render(name,scene['view'],scene['thumbnail']);render.meshes=original
+            else:
+                render.render(name,scene['view'],scene['thumbnail'])
+            outputs[path]=args.output/(name+'.png')
             print('Rendered',path,flush=True)
     lighten=True
     if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.actions_only and not args.closeups_only and not args.scene:
@@ -661,18 +639,10 @@ def main():
     if args.legacy_only or not (args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
         from guide_legacy_actions import render_legacy_actions
         for path in render_legacy_actions(render,args.output):outputs[path]=args.output/Path(path).name
-    stand_input = None
-    if (args.scene and 'assets/r16/service-stand.png' in args.scene) or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
-        lighten = False
-        stand_input = service_stand(render,args.output,registry)
-        outputs['assets/r16/service-stand.png'] = args.output/'service-stand.png'
-        outputs['assets/community/stand-materials.svg'] = args.output/'stand-materials.svg'
     # Action drawings supersede the plain model views at these same public paths.
     # Apply only selected outputs, so a focused board render cannot change wrists.
     hand_action_witnesses = None
     selected_actions = (set(outputs) | set(args.scene or [])) & ACTION_PATHS
-    if 'assets/community/stand-base-blocks.svg' in outputs:
-        selected_actions.add('assets/community/stand-head-saddle-actions.png')
     if selected_actions:
         corrected, hand_action_witnesses = make_images(render, args.output, args.font)
         outputs.update({path: corrected[path] for path in selected_actions})
@@ -681,7 +651,7 @@ def main():
     if args.write:
         for path,temporary in outputs.items():
             if (SRC/path).is_file():shutil.copyfile(temporary,SRC/path)
-    receipt=dict(service_stand=stand_input, generator_sha256=digest(Path(__file__)), renderer_sha256=digest(ROOT/'hardware/tools/rendering/render.py'), native_occurrences_verified=['FB01 Structural base:1','FB24 Audio cradle - captive lid nuts:1','FB41 Microphone grille reused:1'], cad=registry['main'],mesh_source=str(source.relative_to(ROOT)),mesh_sha256=digest(source),registry_sha256=registry_hash,source_lock_sha256=digest(ROOT/'hardware/rendering/source-lock.json'),font_sha256=digest(args.font),outputs={p:digest(v) for p,v in outputs.items()},scenes=render.render_audit)
+    receipt=dict(generator_sha256=digest(Path(__file__)), renderer_sha256=digest(ROOT/'hardware/tools/rendering/render.py'), native_occurrences_verified=['FB01 Structural base:1','FB24 Audio cradle - captive lid nuts:1','FB41 Microphone grille reused:1'], cad=registry['main'],mesh_source=str(source.relative_to(ROOT)),mesh_sha256=digest(source),registry_sha256=registry_hash,source_lock_sha256=digest(ROOT/'hardware/rendering/source-lock.json'),font_sha256=digest(args.font),outputs={p:digest(v) for p,v in outputs.items()},scenes=render.render_audit)
     if args.boards_only or args.inlet_only or args.audio_only or args.closeups_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.front_only or args.actions_only or args.scene or args.mount_closeups_only):
         receipt['closeups_helper_sha256']=digest(ROOT/'hardware/tools/rendering/guide_closeups.py')
     if args.context_only or not (args.legacy_only or args.joint_actions_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):

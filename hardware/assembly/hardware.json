@@ -3,7 +3,7 @@
   "quantity_scope": "Installed demand only. Each allocation is a physical joint/group, independent of guide ordering, preloading, service, purchasing allowance or observed stock. Totals are derived from allocations.",
   "allocations": [
     {
-      "id": "joint-fb-panels",
+      "id": "joint-front-grille-rear-vent",
       "description": "Fit the front and rear vents",
       "hardware": {
         "M3x6": 4,
@@ -12,7 +12,7 @@
       }
     },
     {
-      "id": "joint-fb-side-panels",
+      "id": "joint-side-grilles",
       "description": "Fit both side speaker grilles",
       "hardware": {
         "M3x12": 8,
@@ -20,7 +20,7 @@
       }
     },
     {
-      "id": "joint-fb-speakers",
+      "id": "joint-speakers",
       "description": "Install the speakers",
       "hardware": {
         "M3x12": 8,
@@ -29,8 +29,8 @@
       }
     },
     {
-      "id": "joint-fb-inlet-button",
-      "description": "Fit the button and the power inlet",
+      "id": "joint-button-power-jack",
+      "description": "Fit the button and the power jack",
       "hardware": {
         "M3x8": 2,
         "M3x12": 2,
@@ -38,7 +38,7 @@
       }
     },
     {
-      "id": "joint-fb-audio-cradle",
+      "id": "joint-audio-cradle",
       "description": "Fasten the audio cradle",
       "hardware": {
         "M3x6": 3,
@@ -46,7 +46,7 @@
       }
     },
     {
-      "id": "joint-fb-audio",
+      "id": "joint-audio-module",
       "description": "Install the USB audio module and lid",
       "hardware": {
         "M2x8": 2,
@@ -54,7 +54,7 @@
       }
     },
     {
-      "id": "joint-fb-boards",
+      "id": "joint-pi-shifters",
       "description": "Mount the Pi and both level shifters",
       "hardware": {
         "M2x12": 4,
@@ -63,7 +63,7 @@
       }
     },
     {
-      "id": "joint-03",
+      "id": "joint-frame-uprights",
       "description": "Attach the frame uprights to the base",
       "hardware": {
         "M3x16": 2,
@@ -71,7 +71,7 @@
       }
     },
     {
-      "id": "joint-04",
+      "id": "joint-shoulder-servos",
       "description": "Mount the two shoulder servos",
       "hardware": {
         "M2x6": 4,
@@ -81,7 +81,7 @@
       }
     },
     {
-      "id": "joint-05",
+      "id": "joint-head-servo",
       "description": "Mount the head servo and upper collar",
       "hardware": {
         "M2x6": 2,
@@ -92,7 +92,7 @@
       }
     },
     {
-      "id": "joint-07",
+      "id": "joint-head-shelf",
       "description": "Build the head shelf on the bench",
       "hardware": {
         "M2x6": 2,
@@ -102,7 +102,7 @@
       }
     },
     {
-      "id": "joint-09",
+      "id": "joint-eyes",
       "description": "Load the eye nuts and seat the housings",
       "hardware": {
         "M2x6": 4,
@@ -112,7 +112,7 @@
       }
     },
     {
-      "id": "joint-10",
+      "id": "joint-mouth",
       "description": "Assemble the mouth",
       "hardware": {
         "M2x8": 4,
@@ -120,7 +120,7 @@
       }
     },
     {
-      "id": "joint-14",
+      "id": "joint-body-lights",
       "description": "Fit the six body lights and wire guide",
       "hardware": {
         "M3x10CS": 3,
@@ -128,7 +128,7 @@
       }
     },
     {
-      "id": "joint-15",
+      "id": "joint-body-diffuser",
       "description": "Wrap the body diffuser",
       "hardware": {
         "M3x16": 1,
@@ -136,7 +136,7 @@
       }
     },
     {
-      "id": "joint-16",
+      "id": "joint-upper-arms",
       "description": "Prepare the upper arms",
       "hardware": {
         "M2x6": 4,
@@ -144,7 +144,7 @@
       }
     },
     {
-      "id": "joint-17",
+      "id": "joint-elbows",
       "description": "Build the two elbows",
       "hardware": {
         "M3x14": 2,
@@ -152,7 +152,7 @@
       }
     },
     {
-      "id": "joint-28",
+      "id": "joint-backpack-carrier",
       "description": "Fit the backpack carrier",
       "hardware": {
         "M3x18": 2,
@@ -160,17 +160,15 @@
       }
     },
     {
-      "id": "joint-29",
+      "id": "joint-backpack",
       "description": "Build and attach the backpack",
       "hardware": {
-        "M3x8": 2,
-        "M3x12": 4,
-        "N3": 2
+        "M3x12": 4
       }
     },
     {
-      "id": "joint-servo-position",
-      "description": "Set the fit pose and attach the head and arms",
+      "id": "joint-head-arm-mounting",
+      "description": "Set the fit position and attach the head and arms",
       "hardware": {
         "CENTER": 3,
         "M2x8": 3,
@@ -178,7 +176,7 @@
       }
     },
     {
-      "id": "joint-fb-close",
+      "id": "joint-bottom-cover",
       "description": "Fit the bottom cover",
       "hardware": {
         "M3x12": 4,
