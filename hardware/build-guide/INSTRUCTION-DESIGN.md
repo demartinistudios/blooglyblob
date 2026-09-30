@@ -149,7 +149,8 @@ Automated checks enforce these limits as errors: `consistency.py check`,
 Count words by splitting on spaces. A size or value with its unit counts as
 one word when it has no space, such as `M3×6`, `W1/3` or `T3.15`. A step link
 such as `{step:body-lights}` counts as one word. A command counts as one word.
-The one-instruction check skips quoted software messages and code spans.
+The one-instruction check skips only code spans and software messages in curly
+quotes (“…”). A straight " does not exempt text, because it is also an inch mark.
 
 Simple mechanical steps should stay short: one to three panels. An action is one
 to three short sentences; a panel holds one to three actions. A step that needs
@@ -437,6 +438,7 @@ each with the name or wording given.
 | dress | a plain instruction saying where the cable goes |
 | enclosure | base |
 | inlet, panel jack | power jack (J1) |
+| central opening, central wire hole | harness opening |
 | BASE→BODY, H3, BODY (as a connector) | body light connector, base half, body half |
 | HEAD (as a connector), HEAD tails | head light connector, head power pair |
 | H2 | Pi power lead |

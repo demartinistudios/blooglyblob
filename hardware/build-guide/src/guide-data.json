@@ -1347,6 +1347,7 @@
         "On your computer, in the repository folder, run the command below.",
         "The output must name your Pi 3, aarch64 or arm64, Python 3.13 and trixie.",
         "If it rejects the model or OS, correct the choices in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}. Do not continue past a failed check.",
+        "Keep the USB audio module (E14) connected by its USB-A extension cable (E23). The application needs it to start.",
         "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot.",
         "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
         "If it ends with “Installation complete”, continue to {step:service-check}.",
@@ -1362,11 +1363,6 @@
       "panels": [
         {
           "title": "Check the Pi prerequisites",
-          "actions": [
-            0,
-            1,
-            2
-          ],
           "codeBlocks": [
             {
               "kind": "command",
@@ -1384,14 +1380,15 @@
               ],
               "label": "Expected identifiers · version suffix may differ"
             }
+          ],
+          "actions": [
+            0,
+            1,
+            2
           ]
         },
         {
           "title": "Install the application",
-          "actions": [
-            3,
-            4
-          ],
           "codeBlocks": [
             {
               "kind": "command",
@@ -1401,24 +1398,24 @@
               "context": "computer",
               "label": "Repository folder"
             }
+          ],
+          "actions": [
+            3,
+            4,
+            5
           ]
         },
         {
           "title": "Read how provisioning ended",
+          "textOnly": true,
           "actions": [
-            5,
             6,
-            7
-          ],
-          "textOnly": true
+            7,
+            8
+          ]
         },
         {
           "title": "Reboot only if provisioning asks",
-          "actions": [
-            8,
-            9,
-            10
-          ],
           "codeBlocks": [
             {
               "kind": "command",
@@ -1443,6 +1440,11 @@
               "context": "computer",
               "label": "After the Pi reconnects · repository folder"
             }
+          ],
+          "actions": [
+            9,
+            10,
+            11
           ]
         }
       ],
@@ -2348,7 +2350,7 @@
         "Label one fuse holder (E07) F1. Its fuse is T3.15 A. Keep the fuse out of the holder while you wire.",
         "Lay the holder toward the front of the base, as shown. Keep its opening where you can reach it.",
         "Test-route the holder’s loop from W1/3 to W2/1. Mark the loop where both ends reach without tension. Cut the loop once at the mark.",
-        "If the output end is short, solder on an 18 AWG extension at the bench. Insulate the joint.",
+        "If the output end is short, solder on an 18 AWG extension at the bench. Insulate the joint. Test-route the output to W2/1 again. Cut it where it reaches.",
         "If the input end is short, do not extend it. Change the layout instead.",
         "Strip 11 mm from each end of the F1 loop. Insert the input end into W1/3. Insert the output end into W2/1.",
         "Place the holder where you can open it. Keep W2/2 to W2/4 free for the three servos.",
@@ -2538,12 +2540,12 @@
       "chapter": "Base wiring",
       "actions": [
         "Take the remaining eight GPIO jumper leads (E24). They connect the Pi to the two level shifters (S1, S2).",
-        "Keep the 2.54 mm female socket on one end of each lead. That end goes on the Pi. Test-route four leads from the Pi header to S1 and four to S2.",
-        "Cut each lead where it reaches, leaving slack to route and tie it. Strip only enough for the bare wire to fit fully inside a screw terminal.",
         "Find pin 1, marked at the microSD end of the header. Connect pin 1 to S1 V. Connect pin 6 to S1 G. Connect pin 12 to S1 DAT. Connect pin 32 to S1 CLK.",
-        "For each lead, hold the socket by its plastic body. Push it straight down onto its Pi pin. Push the bare end fully into its S1 terminal. Tighten the terminal screw.",
+        "For each lead, hold the 2.54 mm female socket by its plastic body. Push it straight down onto its Pi pin.",
+        "Route each lead from its pin to its S1 terminal. Cut it there, leaving slack to route and tie it.",
+        "Strip only enough for the bare wire to fit fully inside the terminal. Push it fully in. Tighten the terminal screw.",
         "Connect the base-half DATA wire to S1 D5. Label S1 C5 LEFT. Leave S1 !D5 and the output G terminal empty.",
-        "Connect pin 17 to S2 V. Connect pin 9 to S2 G. Connect pin 33 to S2 DAT. Connect pin 36 to S2 CLK. Use the same method as for S1.",
+        "Connect pin 17 to S2 V. Connect pin 9 to S2 G. Connect pin 33 to S2 DAT. Connect pin 36 to S2 CLK. Plug in, route, cut and connect each lead as for S1.",
         "Label S2 D5 RIGHT. Label S2 C5 HEAD. Leave S2 !D5 and the output G terminal empty.",
         "Each socket sits on one pin. No bare strands show outside any terminal."
       ],
@@ -2566,9 +2568,13 @@
       "commands": [],
       "panels": [
         {
-          "title": "Prepare eight GPIO leads",
-          "image": "assets/circuits/gpio-lead-prepare.svg",
-          "caption": "One lead with its socket end and bare end, beside an enlarged terminal.",
+          "title": "Plug four leads onto the Pi",
+          "image": "assets/circuits/s1-inputs.svg",
+          "caption": "Pin-side view of the header, with pin 1 at the microSD end.",
+          "detail": {
+            "title": "Plugging a socket onto a pin",
+            "image": "assets/circuits/gpio-socket-insert.svg"
+          },
           "actions": [
             0,
             1,
@@ -2576,13 +2582,9 @@
           ]
         },
         {
-          "title": "Connect the Pi to S1",
-          "image": "assets/circuits/s1-inputs.svg",
-          "caption": "Pin-side view of the header, with pin 1 at the microSD end.",
-          "detail": {
-            "title": "Plugging a socket onto a pin",
-            "image": "assets/circuits/gpio-socket-insert.svg"
-          },
+          "title": "Cut and connect the S1 leads",
+          "image": "assets/circuits/gpio-lead-prepare.svg",
+          "caption": "One lead with its socket end and bare end, beside an enlarged terminal.",
           "actions": [
             3,
             4,
@@ -2610,9 +2612,9 @@
         "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED − lead, labeled 20, onto pin 20 (GND).",
         "Plug the USB-A extension cable (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
-        "Route the USB cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle. Do not pull sideways on either socket."
+        "Route the USB-A extension cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle. Do not pull sideways on either socket."
       ],
-      "check": "All twelve Pi header connections match their physical pin numbers. The switch, button light and speaker circuits are separate. The USB cable bends without pulling on either socket.",
+      "check": "All twelve Pi header connections match their physical pin numbers. The switch, button light and speaker circuits are separate. The USB-A extension cable bends without pulling on either socket.",
       "parts": {
         "E23": 1
       },
@@ -2652,7 +2654,7 @@
           ]
         },
         {
-          "title": "Route the USB cable",
+          "title": "Route the USB-A extension cable",
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail with the base and part of the Pi left out.",
           "actions": [
@@ -5523,7 +5525,7 @@
         {
           "title": "Lay the robot on its back",
           "image": "assets/r16/service-stand.png",
-          "caption": "The robot level, open bottom toward the viewer. This render shows an earlier wooden stand, with the head on a block; the towel stacks leave the head clear.",
+          "caption": "An earlier render: the robot level on a wooden stand, open bottom toward the viewer, head on a block.",
           "actions": [
             1,
             2,
@@ -6098,7 +6100,7 @@
         "Remove the four M3×12 screws from the corners of the bottom cover (FB02). Lift the cover off.",
         "Nothing is connected to the cover.",
         "For the microSD card, cut any tie in the way. Grip the card through its access gap and pull it out. Leave the Pi mounted.",
-        "For the Pi, label and unplug its power lead, USB cable and GPIO leads. Remove its four M2×12 screws.",
+        "For the Pi, label and unplug its power lead, USB-A extension cable and GPIO leads. Remove its four M2×12 screws.",
         "For a level shifter (S1 or S2), label its wires. Release them from its terminals. Remove its two M2×10 screws.",
         "Label each wire in the WAGO. Open its lever and pull the wire out.",
         "Hold the WAGO. Release it from its tape as the tape’s instructions say.",

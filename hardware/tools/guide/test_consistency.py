@@ -353,12 +353,23 @@ class WritingTests(unittest.TestCase):
         self.assertEqual(self.warnings('one-instruction'), [])
 
     def test_quoted_messages_and_code_do_not_count_as_joined_instructions(self):
-        for text in ('Wait for “Done; reboot now”.', 'Run `sync; sync` on the Pi.', 'Wait for "Saved, then closed".'):
+        for text in ('Wait for “Done; reboot now”.', 'Run `sync; sync` on the Pi.', 'Wait for “Saved, then closed”.'):
             self.step['actions'][0] = text
             with self.subTest(text=text):
                 self.assertEqual(self.warnings('one-instruction'), [])
-        self.step['actions'][0] = 'Wait for “Done”; then reboot.'
-        self.assertEqual(len(self.warnings('one-instruction')), 1)
+        for text in ('Wait for “Done”; then reboot.', 'Run `sync` on the Pi; reboot it.',
+                     'Cut a 1" square; press a 2" square beside it.', 'Wait for "Saved; closed".'):
+            self.step['actions'][0] = text
+            with self.subTest(text=text):
+                self.assertEqual(len(self.warnings('one-instruction')), 1)
+
+    def test_retired_harness_opening_names_are_banned(self):
+        self.step['actions'][0] = 'Feed the cable through the central opening.'
+        self.step['check'] = 'The central wire hole stays clear.'
+        found = self.warnings('banned-term')
+        self.assertEqual(len(found), 2, found)
+        self.assertIn('central opening', found[0])
+        self.assertIn('central wire hole', found[1])
 
     def test_retired_service_stand_is_banned(self):
         self.step['note'] = 'Rest the robot on the service stand.'

@@ -124,11 +124,11 @@ def render_routes(render, output, parts):
     for p,r in [([0,0,-2],17),([0,26.5,-2],8),([0,-26.5,-2],8)]:
         a,b=project(p)
         overlay+=f'<circle cx="{a:.1f}" cy="{b:.1f}" r="{r*scale:.1f}" fill="none" stroke="#a65b35" stroke-width="4" stroke-dasharray="9 7"/>'
-    paths.append(emit('base-routing-access', 'Keep the central harness opening, frame screw access, SD card, WAGO levers and fuse caps accessible', [], [
+    paths.append(emit('base-routing-access', 'Keep the central harness opening, frame screw access, microSD card, WAGO levers and fuse caps accessible', [], [
         ('Harness opening',[0,0,-2],[515,805]),
         ('Frame screw',[0,26.5,-2],[530,100]),
         ('Frame screw',[0,-26.5,-2],[675,600]),
-        ('SD card',[-50,66,-15],[700,140]),
+        ('microSD card',[-50,66,-15],[670,140]),
         ('WAGO levers',[48,22,-22],[45,410]),
         ('F2 cap',[12,74,-22],[180,120]),
         ('F1 cap',[-10,-58,-22],[100,785]),

@@ -162,6 +162,8 @@ WRITING = {
         ('enclosure', r'\benclosures?\b', False, 'text'),
         ('inlet', r'\binlets?\b', False, 'text'),
         ('panel jack', r'\bpanel jacks?\b', False, 'text'),
+        ('central opening', r'\bcentral openings?\b', False, 'text'),
+        ('central wire hole', r'\bcentral wire holes?\b', False, 'text'),
         ('BASE→BODY', r'BASE\s*→\s*BODY', True, 'text'),
         ('H2', r'\bH2\b', True, 'text'),
         ('H3', r'\bH3\b', True, 'text'),
@@ -185,7 +187,8 @@ WRITING = {
         ('does not show', r'\bdoes not show\b', False, 'caption'),
     ),
     # Two instructions joined in one sentence: a semicolon, or "then" after the start.
-    # Quoted software messages and code spans are not checked.
+    # Only code spans and software messages in curly quotes are skipped; a straight "
+    # is an inch mark as often as a quote, so it exempts nothing.
     'joined': r';|\s\bthen\b',
     'card_fields': ('name', 'description', 'status', 'verification'),
 }
@@ -195,6 +198,7 @@ STEP_LINK = re.compile(r'\{step:[^}]+\}')
 MAKE = re.compile(r'\bmake\s+[A-Za-z][A-Za-z0-9_]*-[A-Za-z0-9_-]+')
 QUOTED = re.compile(r'“[^”]*”|"[^"]*"')
 CODE = re.compile(r'`[^`]*`')
+MESSAGE = re.compile(r'“[^”]*”')
 
 
 def sentences(text):
@@ -282,7 +286,7 @@ def check_writing(guide, parts):
                 if count > limits['sentence_words']:
                     warnings.append(f"sentence-length: {where}: sentence {n} has {count} words "
                                     f"(limit {limits['sentence_words']})")
-                if field == 'action' and re.search(limits['joined'], CODE.sub(' ', QUOTED.sub(' ', sentence)).strip(), re.I):
+                if field == 'action' and re.search(limits['joined'], CODE.sub(' ', MESSAGE.sub(' ', sentence)).strip(), re.I):
                     warnings.append(f'one-instruction: {where}: sentence {n} joins instructions')
             if field == 'action':
                 count = word_count(text)

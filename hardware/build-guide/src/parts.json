@@ -1980,7 +1980,7 @@
     "qty": "1 red/black wire kit",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the F1 output extension. For the extension, start with about 200 mm and trim to about 230 mm finished. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 3 m of each color, far more than you need. Cut each wire after test-routing it. The Pi power lead uses its own specified wire.",
+    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the F1 output extension. For the extension, cut about 200 mm. After you solder it on, test-route the output and cut it to about 230 mm from the holder to the stripped end. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 3 m of each color, far more than you need. Cut each wire after test-routing it. The Pi power lead uses its own specified wire.",
     "link": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
     "verification": "Example product. Cut to fit.",
     "image": "assets/cartoons/C05.svg",
