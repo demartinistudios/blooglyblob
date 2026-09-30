@@ -1814,7 +1814,7 @@
         {
           "title": "Seat the two lid nuts",
           "image": "assets/community/audio-cradle-lid-nuts.svg",
-          "caption": "The USB-end pocket sits farther back than the speaker-end pocket.",
+          "caption": "The loose cradle, with an M2 nut entering each end pocket.",
           "actions": [
             0,
             1,
@@ -2621,7 +2621,7 @@
         "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED − lead, labeled 20, onto pin 20 (GND).",
         "Plug the USB-A extension cable (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
-        "Test-route the extension around the cradle, toward its open-bottom side. Leave a relaxed bend without pulling sideways on either socket."
+        "Route the USB-A extension cable around the cradle, toward its open-bottom side. Leave a relaxed bend without pulling sideways on either socket."
       ],
       "check": "All twelve Pi header connections match their physical pin numbers. The switch, button light and speaker circuits are separate. The USB-A extension cable bends without pulling on either socket.",
       "parts": {
@@ -2665,7 +2665,7 @@
         {
           "title": "Route the USB-A extension cable",
           "image": "assets/community/usb-audio-route-depth.svg",
-          "caption": "The two USB connection points, viewed through the open bottom.",
+          "caption": "Oblique detail: Pi USB socket (1), module USB end (2); base and most of the Pi cut away.",
           "actions": [
             4
           ]
@@ -2918,7 +2918,7 @@
         "With the meter in continuity mode, check the body half’s +5 V and GND contacts. Each must reach its matching wire at the strand’s far end. Check that +5 V does not reach GND.",
         "Plug the body half into the base half.",
         "Use the Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
-        "Set the meter to DC volts. Put the red probe in the plug’s center. Touch the black probe to its outer sleeve. Keep the probe tips apart.",
+        "Set the meter to DC volts. Put the red probe in the plug’s center. Touch the black probe to its outer sleeve.",
         "The meter must read 5.0–5.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
         "Push the barrel plug fully into the power jack (J1). Plug the supply into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
@@ -4587,9 +4587,10 @@
         "Slide a backpack tank (P36) through the two rings at each side, dome end toward the rolled top edge.",
         "Push a nozzle plug (P37) into each tank’s open end. Fit the backpack top band (P40) over the rolled top edge.",
         "Fit the robot-left backpack elbow (P38): lower pin into the tank’s dome hole, side pin into the rolled top edge. Fit the robot-right elbow (P39) the same way.",
-        "Each part seats without force. Take off the plugs, elbows, top band and tanks.",
-        "Apply a small amount of two-part epoxy (C09) inside each ring, where it touches the tank.",
-        "Slide both tanks back into their rings, dome ends toward the rolled top edge.",
+        "Each part seats without force.",
+        "Take off the plugs, elbows, top band and tanks. Slide each tank back in, dome end toward the rolled top edge, until its leading end nears the second ring.",
+        "Apply a small amount of two-part epoxy (C09) around each tank, where its two rings will sit.",
+        "Slide each tank fully in, to its test-fit position.",
         "Glue the plugs, elbows and top band into their sockets. Keep the four rear screw holes and belt hinges clear.",
         "Let the epoxy cure for the time on its label.",
         "Stand behind the robot. Slide an M3 nut into each of the four side channels of the backpack carrier (P34). Push each in until it stops.",
@@ -4597,7 +4598,7 @@
         "With the other hand, drive an M3×12 screw through each hole into its nut. Keep the two lower belt docks clear.",
         "If a screw does not catch, push its nut further into the channel."
       ],
-      "check": "The tanks and details are bonded to the shell. Four screws hold the finished backpack on its carrier.",
+      "check": "The tanks, plugs, elbows and top band are bonded in place. Four screws hold the finished backpack on its carrier.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4647,15 +4648,16 @@
           "caption": "The marked surfaces are hidden between each tank and its two rings.",
           "actions": [
             5,
-            6
+            6,
+            7
           ]
         },
         {
           "title": "Glue the plugs, elbows and top band",
           "textOnly": true,
           "actions": [
-            7,
-            8
+            8,
+            9
           ]
         },
         {
@@ -4663,7 +4665,7 @@
           "image": "assets/community/carrier-side-nuts.svg",
           "caption": "The carrier on the rear upright, with a nut beside each side channel.",
           "actions": [
-            9
+            10
           ]
         },
         {
@@ -4671,9 +4673,9 @@
           "image": "assets/community/backpack-shell-fastening.svg",
           "caption": "The finished backpack drawn back from the carrier, with its four screws.",
           "actions": [
-            10,
             11,
-            12
+            12,
+            13
           ]
         }
       ]
@@ -6541,7 +6543,8 @@
         "Slide a new arm servo in from the back, shaft outward, cable toward the middle. Lower a new head servo in from above, shaft up.",
         "Rest its ears on the supports. Put an M2×6 screw through each ear into its nut. Tighten until the servo sits firm. Leave its horn off.",
         "Run its cable down the frame into the base. For the head servo, thread the head light cable up through the upper collar. Refit the collar as in {step:head-servo}.",
-        "Close the foam wrap as in {step:body-diffuser}. Refit the carrier as in {step:backpack-carrier}. Screw the assembled backpack back on as in {step:backpack}. Refit the belt as in {step:belt}.",
+        "Close the foam wrap as in {step:body-diffuser}. Refit the carrier as in {step:backpack-carrier}.",
+        "Screw the assembled backpack back on as in the last two panels of {step:backpack}. Refit the belt as in {step:belt}.",
         "Lay the robot on its back as in {step:base-open}. Connect the cable as in {step:servo-connections}. Tie it in the harness opening.",
         "Lift the robot onto its feet on a folded towel, with the cover off. At the robot-left end of the rear face, push the barrel plug into the power jack (J1).",
         "Set the fit position and refit the part as in the last panel of {step:first-movement}. Do not turn the new shaft by hand first.",
@@ -6592,7 +6595,8 @@
           "title": "Close the body",
           "textOnly": true,
           "actions": [
-            4
+            4,
+            5
           ]
         },
         {
@@ -6600,7 +6604,7 @@
           "image": "assets/circuits/servo-left.svg",
           "caption": "The LEFT cable at its two WAGOs and level shifter.",
           "actions": [
-            5
+            6
           ]
         },
         {
@@ -6608,9 +6612,9 @@
           "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
-            6,
             7,
-            8
+            8,
+            9
           ],
           "safety": {
             "level": "caution",
@@ -6733,8 +6737,8 @@
         "Lay the robot on its back. Raise it as in the second panel of {step:all-lights-test}. Put the body’s towels under both foam collars. Take out the servo fuse (F1).",
         "Test the new strand’s input as in {step:body-light-test}, with the head light connector unplugged. With F1 out, the servos get no power.",
         "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
-        "Lay the head light cable into the head shelf’s side entry from the side, as in {step:shelf-arms}.",
-        "Close the foam wrap as in {step:body-diffuser}. Refit the carrier as in {step:backpack-carrier}. Screw the assembled backpack back on as in {step:backpack}. Refit the belt as in {step:belt}.",
+        "Lay the head light cable into the head shelf’s side entry from the side, as in {step:shelf-arms}. Close the foam wrap as in {step:body-diffuser}.",
+        "Refit the carrier as in {step:backpack-carrier}. Screw the assembled backpack back on as in the last two panels of {step:backpack}. Refit the belt as in {step:belt}.",
         "Lay the robot on its back as in {step:base-open}. Reconnect both light connectors as in {step:light-connections}.",
         "Repeat the checks in {step:power-up-inspection}. Test all 16 lights as in {step:all-lights-test}.",
         "Shut down and unplug as in the first three panels of {step:secure-wiring}. Unplug the head light connector. Close the base as in {step:bottom-cover}. Refit the head as in {step:head-open}."

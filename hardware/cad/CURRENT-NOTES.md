@@ -79,7 +79,7 @@ current assembly before reuse. A historical name does not imply a second design.
 
 Digital input checks, slicing and guide review do not establish printed fit,
 adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. The 41 independent print-source reviews currently
-marked pending remain pending. See the [semantic review contract](../printing/recipes/README.md)
+complete powered operation. All 72 required/optional print-source comparisons
+now pass; none remain pending. See the [semantic review contract](../printing/recipes/README.md)
 and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
 is selected in the registry.
