@@ -1945,27 +1945,33 @@
     },
     {
       "id": "button-leads",
-      "title": "Prepare the button leads",
+      "title": "Solder the leads to the button",
       "chapter": "Base boards and controls",
       "actions": [
-        "On the back of the button (E17), find the LED and switch terminals. Label each one.",
-        "The closer upper pair is LED − and LED +. The wider lower pair is the switch.",
+        "Unscrew the retaining nut from the button (E17). Set it aside for {step:button}.",
+        "On the back of the button, find the four tabs. The closer upper pair is LED − and LED +. The wider lower pair is the switch.",
         "With the meter in continuity mode, check that the lower switch pair closes only while you press the button.",
-        "On the bench, slide heat-shrink onto four GPIO jumper leads (E24).",
-        "Solder three quick-connect wires (E19) to three of the GPIO leads. Keep the female sockets at the Pi ends.",
-        "Slide heat-shrink onto the fourth quick-connect wire. Solder the button LED resistor (R1), 1 kΩ, between that wire and the fourth GPIO lead. This is the LED + lead.",
-        "Insulate every splice and both resistor joints.",
-        "No bare metal shows at any joint.",
-        "Label each Pi end with its Pi pin. Switch leads: pins 11 and 14. LED + lead through R1: pin 4. LED − lead: pin 20. Leave the four Pi ends disconnected until {step:button-audio-wiring}."
+        "Take four GPIO jumper leads (E24). Keep the 2.54 mm female socket on one end of each. That end goes on the Pi.",
+        "Cut off the connector at the other end of each lead. Strip the cut end.",
+        "Label each socket end with its Pi pin: pin 11, pin 14, pin 20 or pin 4.",
+        "Lay the button on one flat side of its square bezel, so it cannot roll.",
+        "Slide heat-shrink onto the leads labeled 11 and 14. Solder each one to a lower switch tab. Either lead may go on either tab.",
+        "Slide each sleeve over its tab and joint. Shrink it.",
+        "Slide heat-shrink onto the lead labeled 20. Solder it to the LED − tab.",
+        "Solder one leg of the button LED resistor (R1), 1 kΩ, to the LED + tab. Trim its other leg short.",
+        "Slide heat-shrink long enough to cover R1 and its tab onto the lead labeled 4. Solder that lead to the free leg of R1.",
+        "Slide each sleeve over its tab. The lead 4 sleeve also covers R1. Shrink both sleeves.",
+        "Bend all four leads straight back from the tabs, so the retaining nut can pass over them.",
+        "No bare metal shows at any tab, joint or leg of R1."
       ],
-      "check": "Every joint on the button leads is insulated. Each Pi end is labeled with its pin.",
+      "check": "Each tab has its own insulated lead, with R1 on the LED + tab. Each Pi end is labeled with its pin.",
       "parts": {
         "E17": 1,
-        "E19": 2,
         "E24": 4,
         "R1": 1,
         "C12": "As fitted",
         "C14": "As used",
+        "T01": 1,
         "T02": 1,
         "T03": 1,
         "T04": 1,
@@ -1983,9 +1989,9 @@
       "commands": [],
       "panels": [
         {
-          "title": "Identify the button terminals",
+          "title": "Identify the button tabs",
           "image": "assets/circuits/button-terminals.svg",
-          "caption": "Rear view of the button.",
+          "caption": "Rear view of the button, with its retaining nut off.",
           "actions": [
             0,
             1,
@@ -1993,8 +1999,8 @@
           ]
         },
         {
-          "title": "Solder the leads",
-          "image": "assets/circuits/button-led-prepare.svg",
+          "title": "Prepare four leads",
+          "image": "assets/circuits/button-leads-prepare.svg",
           "caption": "",
           "actions": [
             3,
@@ -2003,12 +2009,33 @@
           ]
         },
         {
-          "title": "Insulate and label the leads",
-          "textOnly": true,
+          "title": "Solder the switch leads",
+          "image": "assets/circuits/button-leads-switch.svg",
+          "caption": "Rear view of the button, with the switch leads sleeved.",
           "actions": [
             6,
             7,
             8
+          ]
+        },
+        {
+          "title": "Solder the LED leads",
+          "image": "assets/circuits/button-leads-led.svg",
+          "caption": "Rear view of the button, with both LED sleeves still pushed back.",
+          "actions": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Insulate the LED leads",
+          "image": "assets/circuits/button-leads-done.svg",
+          "caption": "Side view of the finished button leads.",
+          "actions": [
+            12,
+            13,
+            14
           ]
         }
       ]
@@ -2018,21 +2045,19 @@
       "title": "Fit the front button",
       "chapter": "Base boards and controls",
       "actions": [
-        "On the bench, put the button (E17) through the button insert (FB20) from the outside.",
-        "Tighten the button’s supplied retaining nut against the back of the insert.",
-        "Push the prepared quick-connects onto their matching terminals. Cover exposed contact metal with separate insulating sleeves.",
-        "Keep the connectors removable. Keep the insulated joints clear of the retaining nut.",
+        "On the bench, pass the four Pi ends through the button insert (FB20) from the outside. Push the button (E17) in after them.",
+        "Pass the Pi ends through the retaining nut. Tighten the nut against the back of the insert.",
         "Keep the base (FB01) upside down, with its open bottom facing up. Keep it level until both screws are in. Do not glue these nuts.",
         "Through the open bottom, drop an M3 nut into the pocket beside the button opening, away from the foot post. Match its flats to the pocket.",
         "Beside the foot post, slide a second M3 nut sideways into its pocket from the button opening. Match its flats to the pocket.",
         "Slide the base over the front edge of the bench until you can reach the button opening from below. Keep most of the base on the bench.",
-        "From below, feed the leads and the button body up through the opening. Leave enough slack to remove the insert.",
+        "From below, feed the four Pi ends and the button body up through the opening.",
         "Hold the insert flush in its opening, clear of the screw bosses and foot post.",
         "With your other hand, fit an M3×8 screw up through the insert into a nut. Use no washer. Turn it by hand until it catches.",
         "If a screw does not catch, check that its nut is still in its pocket.",
         "Fit the second M3×8 screw the same way. Tighten both screws gently. Do not use the screws to pull the insert into place. Slide the base back onto the bench."
       ],
-      "check": "All soldered joints are insulated and the switch closes only when pressed. The button insert sits flush without pinching its leads. The four labeled Pi ends stay disconnected.",
+      "check": "The button insert sits flush without pinching its leads. The four labeled Pi ends stay disconnected.",
       "parts": {
         "FB20": 1,
         "E17": 1,
@@ -2072,30 +2097,22 @@
           ]
         },
         {
-          "title": "Connect the button leads",
-          "textOnly": true,
-          "actions": [
-            2,
-            3
-          ]
-        },
-        {
           "title": "Load the two base nuts",
           "image": "assets/community/button-enclosure-nuts.svg",
           "caption": "Drawn upright, from inside the base. Arrows show how each nut enters its pocket.",
           "actions": [
-            4,
-            5,
-            6
+            2,
+            3,
+            4
           ]
         },
         {
           "title": "Hold the insert in its opening",
           "textOnly": true,
           "actions": [
-            7,
-            8,
-            9
+            5,
+            6,
+            7
           ]
         },
         {
@@ -2103,9 +2120,9 @@
           "image": "assets/community/button-plate-fastening.svg",
           "caption": "Drawn upright, with the insert on top.",
           "actions": [
-            10,
-            11,
-            12
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -2584,11 +2601,9 @@
       "title": "Connect the button and USB audio",
       "chapter": "Base wiring",
       "actions": [
-        "Find the two switch leads from the lower button terminals. They are labeled 11 and 14.",
+        "Find the two switch leads from the lower button tabs. They are labeled 11 and 14.",
         "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
-        "Push the LED + lead, with the button LED resistor (R1) in it, onto pin 4 (+5 V). Push the LED − lead onto pin 20 (GND).",
-        "Keep this upper LED pair separate from the lower switch pair. The Pi header powers the button light.",
-        "Both LED contacts and every joint are insulated.",
+        "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED − lead, labeled 20, onto pin 20 (GND).",
         "Plug the USB extension (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
         "Route the USB cable around the audio cradle in one relaxed bend. Keep the bend on the open-bottom side of the cradle. Do not pull sideways on either socket."
@@ -2598,7 +2613,7 @@
         "E23": 1
       },
       "hardware": {},
-      "note": "You prepared the button leads in {step:button-leads}.",
+      "note": "You soldered the button leads in {step:button-leads}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -2619,11 +2634,9 @@
         {
           "title": "Connect the button light",
           "image": "assets/circuits/button-led.svg",
-          "caption": "Header pins 4 and 20, with R1 inside its sleeve.",
+          "caption": "Header pins 4 and 20, with the button LED resistor (R1) on the LED + tab.",
           "actions": [
-            2,
-            3,
-            4
+            2
           ]
         },
         {
@@ -2631,8 +2644,8 @@
           "image": "assets/circuits/usb-audio.svg",
           "caption": "The Pi’s USB-A socket, the extension and the audio module.",
           "actions": [
-            5,
-            6
+            3,
+            4
           ]
         },
         {
@@ -2640,7 +2653,7 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail with the base and part of the Pi left out.",
           "actions": [
-            7
+            5
           ]
         }
       ]
@@ -6332,12 +6345,12 @@
         "For a speaker, unplug its plug from the audio module. Pull it by its plug body.",
         "Through the open bottom, hold a grille nut with a fingertip. From outside, remove its M3×12 screw. Repeat for the other three outer screws.",
         "Lift away the side speaker grille (FB19) with its speaker. On the bench, replace the speaker as in {step:speaker-grilles}. Keep its four washers and nuts.",
-        "For the button, pull the four quick-connects off its terminals. Keep the switch pair and the LED pair apart.",
+        "For the button, pull its four leads off Pi pins 4, 11, 14 and 20. Pull each by its socket.",
         "Stand the robot on its feet, with the cover off. Slide the base’s front over the bench edge until you can reach the button from below. Keep most of the base on the bench.",
-        "From below, hold one button nut in its pocket with a fingertip. From above, remove its M3×8 screw. Repeat for the second screw. Lift out the button insert (FB20).",
+        "From below, hold one button nut in its pocket with a fingertip. From above, remove its M3×8 screw. Repeat for the second screw. Lift out the button insert (FB20) with its leads.",
         "Refit each removed part as in its build step. Refit the button insert in the same standing position, holding each nut from below.",
         "Tape the module in with a new tape patch (C16), as in {step:audio-module}. Line the lid with its foam again. Keep the microphone and speaker openings clear.",
-        "Lay the robot on its back as in {step:base-open}. Close the base as in {step:bottom-cover}. Test the sound as in {step:finished-robot}."
+        "Lay the robot on its back as in {step:base-open}. Push the button leads onto their pins as in {step:button-audio-wiring}. Close the base as in {step:bottom-cover}. Test the sound as in {step:finished-robot}."
       ],
       "check": "The serviced parts are secure, every plug is seated and the sound openings are clear. The robot answers what you say.",
       "parts": {

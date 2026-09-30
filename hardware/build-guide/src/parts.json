@@ -1730,9 +1730,7 @@
     "link": "https://www.adafruit.com/product/1152",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E19.svg",
-    "steps": [
-      "button-leads"
-    ],
+    "steps": [],
     "status": "Check it when it arrives",
     "additional_links": []
   },
@@ -1867,7 +1865,7 @@
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "1 k\u03a9, \u00b15%, \u00bc W. It sits in the button LED\u2019s positive lead. Packs usually contain extras.",
+    "description": "1 k\u03a9, \u00b15%, \u00bc W. It is soldered to the button\u2019s LED + tab, in the LED\u2019s positive lead. Packs usually contain extras.",
     "link": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-1K/96",
     "verification": "Exact product specified",
     "image": "assets/cartoons/R1.svg",
@@ -2208,6 +2206,7 @@
     "steps": [
       "workbench",
       "print-cleanup",
+      "button-leads",
       "power-wiring",
       "servo-fuse-capacitor",
       "light-fuse-capacitor",
