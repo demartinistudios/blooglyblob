@@ -40,12 +40,16 @@ class CostingTests(unittest.TestCase):
         self.assertEqual(self.calculate()['part_totals']['E01'], '14.00')
         self.assertEqual(self.calculate()['total'], '19.12')
 
-    def test_totals_round_after_summing(self):
+    def test_totals_add_the_rounded_rows(self):
         self.parts[0]['qty'] = 1
         self.parts[1]['qty'] = 1
         for item in self.prices['items'][:2]:
             item['quotes'][0].update(pack_price_usd='1', pack_quantity='3')
-        self.assertEqual(self.calculate()['total'], '5.67')
+        result = self.calculate()
+        self.assertEqual([r['cost_used'] for r in result['rows'][:2]], ['0.33', '0.33'])
+        self.assertEqual(result['categories']['Purchased parts'], '0.33')
+        self.assertEqual(result['total'], '5.66')
+        self.assertEqual(sum(float(v) for v in result['categories'].values()), 5.66)
 
     def test_missing_or_duplicate_item_fails(self):
         original = deepcopy(self.prices['items'])
@@ -74,12 +78,55 @@ class CostingTests(unittest.TestCase):
                     self.calculate()
                 quote[field] = old
 
-    def test_included_accessory_does_not_add_to_parent_price(self):
+    def add_included(self, **changes):
         self.parts.append(dict(id='E02', name='Horn', category='Purchased', qty=3))
-        self.prices['items'].append(dict(id='E02', quotes=[dict(pack_price_usd='0', pack_quantity='1',
-            unit='each', pack_label='Included with E01', url='https://example.com/product', included_with='E01')]))
-        self.assertEqual(self.calculate()['part_totals']['E02'], '0.00')
-        self.assertEqual(self.calculate()['total'], '23.12')
+        quote = dict(pack_price_usd='0', pack_quantity='1', unit='each', pack_label='Included with E01',
+                     url='https://example.com/product', included_with='E01')
+        self.prices['items'].append(dict(id='E02', quotes=[quote | changes]))
+
+    def test_included_accessory_does_not_add_to_parent_price(self):
+        self.add_included()
+        result = self.calculate()
+        self.assertEqual(result['part_totals']['E02'], '0.00')
+        self.assertEqual(result['total'], '23.12')
+        self.assertEqual(next(r for r in result['rows'] if r['id'] == 'E02')['buy_packs'], 0)
+        self.assertEqual(result['shopping_total'], '41.00')
+
+    def test_invalid_included_accessory_fails(self):
+        for changes in (dict(pack_price_usd='1'), dict(included_with='E99'), dict(included_with='E02')):
+            with self.subTest(changes=changes):
+                self.setUp()
+                self.add_included(**changes)
+                with self.assertRaisesRegex(ValueError, 'included-part price: E02'):
+                    self.calculate()
+
+    def test_non_https_purchase_or_alternative_url_fails(self):
+        quote = self.prices['items'][0]['quotes'][0]
+        for bad in ('http://example.com/product', 'javascript:alert(1)', '', None):
+            with self.subTest(url=bad):
+                quote.update(url=bad)
+                with self.assertRaisesRegex(ValueError, 'purchase URL for E01'):
+                    self.calculate()
+                quote.update(url='https://example.com/product', alternative_links=[dict(label='Other', url=bad)])
+                with self.assertRaisesRegex(ValueError, 'purchase URL for E01'):
+                    self.calculate()
+                del quote['alternative_links']
+
+    def test_bad_quote_data_names_the_part(self):
+        cases = [(0, lambda q: q.pop('pack_price_usd'), 'pack price for E01'),
+                 (0, lambda q: q.pop('url'), 'purchase URL for E01'),
+                 (2, lambda q: q.update(unit='kg'), 'grams: C13'),
+                 (3, lambda q: q.pop('used_quantity'), "used quantity for C18: 'As used'")]
+        for index, change, message in cases:
+            with self.subTest(message=message):
+                self.setUp()
+                change(self.prices['items'][index]['quotes'][0])
+                with self.assertRaisesRegex(ValueError, message):
+                    self.calculate()
+        self.setUp()
+        self.prices['items'][0]['quotes'] = []
+        with self.assertRaisesRegex(ValueError, 'Missing price quotes: E01'):
+            self.calculate()
 
     def test_purchase_estimate_rounds_up_packs_and_excludes_optional_items(self):
         self.parts[1]['qty'] = 101

@@ -1,8 +1,9 @@
 # Hardware
 
 For assembly, open the [build guide preview](build-guide/README.md#build-and-preview).
-See the [build-cost details](catalog/BUILD-COST.md) for parts, filament
-and consumables, with purchase links and pack sizes.
+The guide’s **Build cost** page lists materials used, shopping totals and a
+shopping list with purchase links; [BUILD-COST.md](catalog/BUILD-COST.md)
+explains how they are calculated.
 Website deployment and physical qualification are separate checks. For contributions, this page
 connects the three area procedures:
 [CAD](cad/DESIGN-WORKFLOW.md), [printing](printing/current/README.md), and

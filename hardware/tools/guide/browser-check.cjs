@@ -265,6 +265,10 @@ fs.mkdirSync(OUT,{recursive:false});
        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'shopping costs '+mode+' '+width);
       }
      }
+     const cents=values=>values.reduce((sum,value)=>sum+Math.round(Number(value)*100),0);
+     assert.equal(cents(Object.values(data.costs.categories)),cents([data.costs.total]),'categories add up');
+     for(const [category,value] of Object.entries(data.costs.categories))assert.equal(cents(data.costs.rows.filter(r=>r.category===category).map(r=>r.cost_used)),cents([value]),'rows add up '+category);
+     assert.equal(cents(Object.values(data.costs.shopping_categories)),cents([data.costs.shopping_total]),'shopping categories add up');
      assert.equal(await page.locator('.cost-detail tbody tr').count(),data.costs.rows.length);
      for(const detail of await page.locator('.cost-detail').all()){
       await detail.locator('summary').click();
@@ -276,7 +280,10 @@ fs.mkdirSync(OUT,{recursive:false});
      if(part && !part.omitted){
       const pricing=page.locator('#part-'+part.id+' .part-price');
       assert.equal(await pricing.count(),part.category==='Tool'?0:1,'card price '+part.id);
-      if(data.costs.part_totals[part.id] && data.costs.rows.some(r=>r.id===part.id && Number(r.used_quantity)>0)){
+      const quotes=data.costs.rows.filter(r=>r.id===part.id);
+      if(quotes.length && quotes.every(r=>r.included_with)){
+       assert.ok((await pricing.innerText()).includes('Included with '),'included part '+part.id);
+      }else if(data.costs.part_totals[part.id] && quotes.some(r=>Number(r.used_quantity)>0)){
        assert.ok((await pricing.innerText()).includes('$'+data.costs.part_totals[part.id]),'used cost '+part.id);
       }
      }

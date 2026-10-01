@@ -2,8 +2,12 @@
   "schema_version": 1,
   "currency": "USD",
   "checked_date": "2026-10-01",
-  "basis": "Compare the material consumed by one robot with the upfront cost of the listed retail packs and spools.",
-  "exclusions": "Tools, optional prints, paint, tax, shipping, handling, import charges and operating/API costs are excluded.",
+  "basis": "Compare the materials one robot uses with the shopping total for the listed retail packs and spools.",
+  "exclusions": "Not included: tools, optional prints, paint, tax, shipping, handling, import charges and OpenAI API use.",
+  "shopping_notes": {
+    "Fasteners": "Screws and nuts are priced individually; washers come in packs. A kit is optional: match every listed size, quantity and head shape.",
+    "Filament": "Prices below are from ELEGOO. Amazon links are alternatives; their prices may differ."
+  },
   "allowances": "Wire, glue, tape and other cut-material quantities are planning estimates with spare, not measured from a build.",
   "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
   "items": [

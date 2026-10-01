@@ -739,14 +739,13 @@ a[download]::before { content: ""; display: inline-block; width: 1.15em; height:
 .part-price p { margin: 0 0 8px; }
 .cost-total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin: 24px 0 8px; }
 .cost-total strong { font-size: clamp(32px, 4vw, 42px); line-height: 1.2; color: var(--blue); }
-.cost-total span { color: var(--muted); }
 .cost-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px; margin: 28px 0; }
 .cost-categories div { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
 .cost-categories dt { font-size: 14px; color: var(--muted); }
 .cost-categories dd { margin: 6px 0 0; font-size: 24px; font-weight: 650; }
-.cost-detail { margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
-.cost-detail summary span { float: right; margin-left: 12px; font-weight: 500; }
-.cost-detail td small { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
+.cost-detail, .shopping-detail { margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+:is(.cost-detail, .shopping-detail) summary span { float: right; margin-left: 12px; font-weight: 500; }
+:is(.cost-detail, .shopping-detail) td small { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
 
 .cost-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; margin: 28px 0; }
 .cost-options section { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
@@ -755,7 +754,4 @@ a[download]::before { content: ""; display: inline-block; width: 1.15em; height:
 .cost-options .cost-total { margin: 16px 0; }
 .cost-options .text-button { padding: 0; border: 0; background: none; color: var(--blue); font: inherit; text-align: left; text-decoration: underline; cursor: pointer; }
 .shopping-total strong { font-size: 28px; color: var(--blue); }
-.shopping-detail { margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
-.shopping-detail summary span { float: right; margin-left: 12px; font-weight: 500; }
-.shopping-detail td small { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
 #cost-materials { scroll-margin-top: 100px; }
