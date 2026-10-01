@@ -1246,7 +1246,7 @@ def eye_connector():
 
 def power_overview():
     g = action('Power · three branches', 833, 'Reference schematic · no mains inside')
-    lines(g, 138, 'External 5 V, 5.63 A supply', '→ J1 center → W1 INPUT +5 V')
+    lines(g, 138, 'External 5 V, 5 A supply', '→ J1 center → W1 INPUT +5 V')
     g.wire([(49, 201), (49, 614)], RED, 6)
     branches = ((238, 'W1/2 → Pi power lead', 'Pi USB → audio', 'Unfused supply branch'),
                 (416, 'W1/3 → F1 T3.15 A', '→ W2 → three servos', 'C1 across W2 and W3'),
@@ -1340,7 +1340,7 @@ def supply_polarity_test():
     g.wire([(101, 300), (61, 346)], BLK, 13)
     g.text(24, 385, 'Black: outer sleeve', size=22)
     g.text(24, 416, 'Red: inside center', size=22, fill=RED)
-    meter(g, 136, 460, '5.00')
+    meter(g, 136, 460, '5.0–5.25')
     g.wire([(61, 346), (12, 346), (12, 656), (175, 656), (175, 629)], BLK, 4)
     g.wire([(309, 346), (367, 441), (367, 656), (247, 656), (247, 629)], RED, 4)
     lines(g, 701, 'Positive reading · no minus sign.')
@@ -1364,16 +1364,15 @@ def robot_power_connection():
     g.wire([(250, 184), (289, 184)], BLUE, 4, arrow=True)
     g.text(70, 167, 'Barrel plug', size=24, weight=700)
     g.text(380, 127, 'Power jack (J1)', size=22, anchor='end', weight=700)
-    g.wire([(70, 240), (36, 240), (36, 485), (348, 485), (348, 425), (328, 425)], '#303740', 7)
-    # Wall adapter side view: two flat US blades, fixed DC lead on the opposite end.
-    for yy in (377, 415):
-        g.rect(81, yy, 47, 8, fill='#c8cdd0', rx=1)
-        g.circle(93, yy + 4, 2, fill=PAPER, stroke='none')
-    g.rect(124, 355, 190, 91, fill='#303740', rx=10)
-    g.rect(312, 417, 18, 16, fill='#303740', rx=3)
-    g.text(219, 390, '5 V DC · 5.63 A', size=22, anchor='middle', weight=700, fill='#fff')
-    g.text(219, 423, 'Center positive', size=22, anchor='middle', fill='#fff')
-    lines(g, 531, 'Mean Well NGE45U05-P1J')
+    g.wire([(70, 240), (36, 240), (36, 433), (84, 433)], '#303740', 7)
+    # Recognizable enclosed desktop supply; mains connection intentionally off-view.
+    g.rect(84, 379, 240, 106, fill='#303740', rx=16)
+    g.rect(130, 398, 150, 65, fill='#deded7', stroke='none', rx=3)
+    g.text(205, 425, '5 V DC · 5 A', size=23, anchor='middle', weight=700)
+    g.text(205, 452, 'Center positive', size=22, anchor='middle')
+    for xx in (96, 106, 116):
+        g.wire([(xx, 394), (xx, 469)], '#626b72', 2)
+    lines(g, 531, 'Mean Well GST40A05-P1J')
     g.save('circuits/robot-power-connection.svg')
 
 

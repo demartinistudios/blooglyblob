@@ -121,7 +121,7 @@ class Circuit:
 def circuit():
     c = Circuit()
     for args in [
-        ("PSU", "supply", 65, 1120, "5 V / 5.63 A supply"),
+        ("PSU", "supply", 65, 1120, "5 V / 5 A supply"),
         ("J1", "jack", 170, 1430, "J1 · power jack"),
         ("W1", "wago-v", 250, 1130, "W1 · INPUT +5 V"),
         ("W3", "wago-v", 250, 1560, "W3 · GND"),
@@ -347,12 +347,9 @@ def draw_node(g, n, c):
             4,
         )
     elif kind == "supply":
-        for yy in (y + 27, y + 57):
-            g.rect(x - 22, yy, 25, 7, fill="#c5cbd0", rx=1)
-            g.circle(x - 15, yy + 3.5, 1.5, fill=PAPER, stroke="none")
         g.rect(x, y, 140, 90, fill="#353c43", rx=13)
         label(g, x + 70, y + 36, "5 V DC", 22, fill="#fff", anchor="middle", weight=700)
-        label(g, x + 70, y + 64, "5.63 A", 20, fill="#fff", anchor="middle")
+        label(g, x + 70, y + 64, "5 A", 20, fill="#fff", anchor="middle")
     elif kind == "jack":
         g.circle(x, y, 60, fill="#c5cbd0", stroke=INK)
         g.circle(x, y, 44, fill="#343940", stroke=INK)

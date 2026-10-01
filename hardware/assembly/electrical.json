@@ -124,7 +124,7 @@
       ],
       [
         "Staged power-up",
-        "Qualified builder uses a current-limited low-voltage bench supply for initial harness checks, then the selected wall adapter. Connect/verify one branch at a time with servo mechanism kept safe. Record rail voltage and unexpected idle current. Do not create test shorts in the robot."
+        "Qualified builder uses a current-limited low-voltage bench supply for initial harness checks, then the selected brick. Connect/verify one branch at a time with servo mechanism kept safe. Record rail voltage and unexpected idle current. Do not create test shorts in the robot."
       ],
       [
         "Combined real workload",
@@ -132,7 +132,7 @@
       ],
       [
         "Supply and wiring margin",
-        "Keep sustained normal-operation input at or below a design target of 4 A with the NGE45U05-P1J 5 V / 5.63 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing normal operating current. Confirm OEM leads, connector leads, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
+        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing supply capacity. Confirm OEM leads, connector leads, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
       ],
       [
         "Protection coordination",

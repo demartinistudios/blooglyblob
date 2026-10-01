@@ -4,7 +4,7 @@
   "checked_date": "2026-10-01",
   "basis": "Compare the material consumed by one robot with the upfront cost of the listed retail packs and spools.",
   "exclusions": "Tools, optional prints, paint, tax, shipping, handling, import charges and operating/API costs are excluded.",
-  "allowances": "Wire, glue, tape and other cut-material quantities are planning allowances, not measured assembly consumption.",
+  "allowances": "Wire, glue, tape and other cut-material quantities are planning estimates with spare, not measured from a build.",
   "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
   "items": [
     {
@@ -167,12 +167,23 @@
       "id": "E20",
       "quotes": [
         {
-          "pack_price_usd": "16.15",
+          "pack_price_usd": "17.3",
           "pack_quantity": "1",
           "unit": "each",
-          "pack_label": "1 supply",
-          "url": "https://us.rs-online.com/product/mean-well/nge45u05-p1j/74995367/",
-          "note": "Integrated US wall plug; no separate mains cord. RS adds $6 handling for guest orders under $50, in addition to shipping; excluded here."
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST40A05-P1J/7703701"
+        }
+      ]
+    },
+    {
+      "id": "E21",
+      "quotes": [
+        {
+          "pack_price_usd": "7.29",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/YP12-YC12/7707223"
         }
       ]
     },
@@ -263,7 +274,8 @@
           "unit": "each",
           "pack_label": "1 each",
           "url": "https://www.pishop.us/product/raspberry-pi-3-model-a-plus-512mb-ram/",
-          "note": "PiShop US alternative to the out-of-stock Adafruit listing; no case/accessory options."
+          "note": "PiShop US alternative to the out-of-stock Adafruit listing.",
+          "purchase_note": "Choose the board only."
         }
       ]
     },
@@ -274,7 +286,7 @@
           "pack_price_usd": "1.5",
           "pack_quantity": "1",
           "unit": "pairs",
-          "pack_label": "1 pairs",
+          "pack_label": "1 pair",
           "url": "https://www.mouser.com/ProductDetail/Adafruit/1663?qs=GURawfaeGuBbzkAfeSrhnA%3D%3D",
           "note": "Each set contains both connector halves. Alternative to the out-of-stock Adafruit listing."
         }
@@ -289,7 +301,8 @@
           "unit": "each",
           "pack_label": "1 card",
           "url": "https://www.walmart.com/ip/348352382",
-          "note": "PNY Elite 32 GB, Class 10 / U1. Select sold and shipped by Walmart."
+          "note": "PNY Elite 32 GB, Class 10 / U1.",
+          "purchase_note": "Choose the offer sold and shipped by Walmart."
         }
       ]
     },
@@ -375,12 +388,12 @@
       "id": "N3",
       "quotes": [
         {
-          "pack_price_usd": "0.07",
+          "pack_price_usd": "0.04",
           "pack_quantity": "1",
           "unit": "each",
           "pack_label": "1 each",
           "url": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR3SS",
-          "note": "BelMetric NR3SS; ordinary hex nut."
+          "note": "BelMetric NR3SS; ordinary hex nut. Priced at the 25–99 quantity tier."
         }
       ]
     },
@@ -492,12 +505,12 @@
       "id": "M3x10CS",
       "quotes": [
         {
-          "pack_price_usd": "0.18",
+          "pack_price_usd": "0.09",
           "pack_quantity": "1",
           "unit": "each",
           "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-steel-10-9-din-7991/?sku=SF3X10",
-          "note": "BelMetric SF3X10; 90° head, 6 mm diameter; length includes head."
+          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
+          "note": "BelMetric SF3X10SS, A2 stainless; 90° head, 6 mm diameter; length includes head."
         }
       ]
     },
@@ -531,12 +544,12 @@
       "id": "M3x12",
       "quotes": [
         {
-          "pack_price_usd": "0.09",
+          "pack_price_usd": "0.07",
           "pack_quantity": "1",
           "unit": "each",
           "pack_label": "1 each",
           "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X12SS",
-          "note": "BelMetric BSH3X12SS; socket head 5.5 × 3 mm."
+          "note": "BelMetric BSH3X12SS; socket head 5.5 × 3 mm. Priced at the 25–99 quantity tier."
         }
       ]
     },
@@ -603,9 +616,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "330",
-          "note": "Cutting allowance: Two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three.",
+          "note": "Allowance: two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "One sheet covers C02, C03 and C04."
+          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -619,9 +632,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "480",
-          "note": "Cutting allowance: One 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three.",
+          "note": "Allowance: one 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "One sheet covers C02, C03 and C04."
+          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -635,9 +648,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "25875",
-          "note": "Cutting allowance: One 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three.",
+          "note": "Allowance: one 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "One sheet covers C02, C03 and C04."
+          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -673,7 +686,7 @@
       "id": "C07",
       "quotes": [
         {
-          "pack_price_usd": "1.99",
+          "pack_price_usd": "2.58",
           "pack_quantity": "100",
           "unit": "ties",
           "pack_label": "100 ties",
@@ -690,7 +703,7 @@
           "pack_price_usd": "0.19",
           "pack_quantity": "1",
           "unit": "magnets",
-          "pack_label": "1 magnets",
+          "pack_label": "1 magnet",
           "url": "https://www.kjmagnetics.com/d31-neodymium-disc-magnet",
           "note": "Four required magnets. The optional pointing hand needs one extra."
         }
@@ -715,7 +728,7 @@
       "quotes": [
         {
           "pack_price_usd": "8",
-          "pack_quantity": "415483.0399999999",
+          "pack_quantity": "415483.04",
           "unit": "mm²",
           "pack_label": "1 mm black EVA, 23 × 28 in",
           "url": "https://coscomcosplaysupplies.com/products/grade-a-eva-38-foam-59-wide-up-to-118-wide?variant=47081878847720",
@@ -777,13 +790,13 @@
       "id": "C16",
       "quotes": [
         {
-          "pack_price_usd": "13.77",
-          "pack_quantity": "4.572",
+          "pack_price_usd": "8.98",
+          "pack_quantity": "7.3152",
           "unit": "m",
-          "pack_label": "3M 4905, ½ in × 5 yd",
-          "url": "https://www.findtape.com/3M-Scotch-4905-VHB-Tape/p379/",
+          "pack_label": "Gorilla Double-Sided Tape, 1.41 in × 8 yd",
+          "url": "https://www.lowes.com/pd/Gorilla-1-41-in-x-8-Yard-s-Double-Sided-Tape/5003091145",
           "used_quantity": "0.2",
-          "note": "Allowance: 200 mm of 12.7 mm-wide tape for the four WAGOs and audio patch. Tape is 0.5 mm thick; prepare surfaces as directed."
+          "note": "Allowance: 200 mm, cut to size for the four WAGOs and the audio patch. Gorilla item 100925, rubber adhesive. Retailers list it as 14 mil (0.36 mm) thick."
         }
       ]
     },
@@ -810,7 +823,7 @@
           "unit": "g",
           "pack_label": "Optional Gorilla Super Glue Gel, 20 g",
           "url": "https://www.walmart.com/ip/16593962819",
-          "note": "Optional alternative for nut retention. Excluded from total; the baseline already includes epoxy."
+          "note": "Optional alternative for nut retention. Excluded from total; the build cost already includes epoxy."
         }
       ]
     },
@@ -831,7 +844,8 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BM7446JH"
             }
-          ]
+          ],
+          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
         },
         {
           "pack_price_usd": "13.99",
@@ -847,7 +861,8 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BM739JRF"
             }
-          ]
+          ],
+          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
         },
         {
           "pack_price_usd": "18.99",
@@ -879,27 +894,30 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BS6T828R"
             }
-          ]
+          ],
+          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
         },
         {
           "pack_price_usd": "13.99",
           "pack_quantity": "1000",
           "unit": "g",
-          "pack_label": "ELEGOO Gray PLA, 1 kg",
+          "pack_label": "ELEGOO Grey PLA, 1 kg",
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
-          "name": "Gray filament",
+          "name": "Grey filament",
           "plate_color": "Gray",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
         },
         {
           "pack_price_usd": "13.99",
           "pack_quantity": "1000",
           "unit": "g",
-          "pack_label": "ELEGOO Clear PLA, 1 kg",
+          "pack_label": "ELEGOO Translucent PLA, 1 kg",
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
-          "name": "Clear filament",
+          "name": "Translucent filament",
           "plate_color": "Clear",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
         }
       ]
     }

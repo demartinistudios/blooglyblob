@@ -322,11 +322,21 @@
       "parts": [
         "E20"
       ],
-      "title": "MEAN WELL NGE45 specification",
+      "title": "MEAN WELL GST40A specification",
       "publisher": "MEAN WELL",
-      "url": "https://www.meanwell.com/Upload/PDF/NGE45/NGE45-SPEC.PDF",
-      "checked": "2026-10-01",
+      "url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
+      "checked": "2026-09-26",
       "reference_id": "ref-034"
+    },
+    {
+      "parts": [
+        "E21"
+      ],
+      "title": "MEAN WELL PowerNex accessory catalog with YP12+YC12 cord",
+      "publisher": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
+      "checked": "2026-09-26",
+      "reference_id": "ref-035"
     },
     {
       "parts": [
@@ -537,9 +547,9 @@
       "parts": [
         "M3x10CS"
       ],
-      "title": "BelMetric SF3X10 dimensional drawing",
+      "title": "BelMetric SF3X10SS dimensional drawing",
       "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10.pdf",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
       "checked": "2026-10-01",
       "reference_id": "ref-056"
     },
@@ -698,9 +708,9 @@
       "parts": [
         "C16"
       ],
-      "title": "3M 4905 mounting tape technical data",
-      "publisher": "3M",
-      "url": "https://multimedia.3m.com/mws/media/2366517O/3m-vhb-tape-specialty-tape-4905.pdf",
+      "title": "Gorilla Double-Sided Tape product information",
+      "publisher": "Gorilla Glue Company",
+      "url": "https://gorillatough.com/product/gorilla-double-sided-tape",
       "checked": "2026-10-01",
       "reference_id": "ref-072"
     },
@@ -740,7 +750,7 @@
       ],
       "title": "Secure CT-08018-BK cable-tie specifications",
       "publisher": "Secure Cable Ties",
-      "url": "https://www.amazon.com/dp/B0DR8KSVQD",
+      "url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
       "checked": "2026-10-01",
       "reference_id": "ref-076"
     },

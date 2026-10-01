@@ -164,7 +164,15 @@
     },
     {
       "id": "E20",
-      "exact": "Mean Well NGE45U05-P1J supply",
+      "exact": "Mean Well GST40A05-P1J supply",
+      "category": "Purchased",
+      "optional": 0,
+      "qty": 1,
+      "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "E21",
+      "exact": "Mean Well YP12_YC12 US mains cord",
       "category": "Purchased",
       "optional": 0,
       "qty": 1,

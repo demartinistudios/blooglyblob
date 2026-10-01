@@ -459,15 +459,30 @@
       "part_ids": [
         "E20"
       ],
-      "title": "MEAN WELL NGE45 specification",
+      "title": "MEAN WELL GST40A specification",
       "kind": "datasheet",
-      "official_url": "https://www.meanwell.com/Upload/PDF/NGE45/NGE45-SPEC.PDF",
-      "checked_date": "2026-10-01",
+      "official_url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
+      "checked_date": "2026-09-26",
       "model_match": "family-includes-exact-model",
-      "limitations": "Select NGE45U05-P1J: 5 V / 5.63 A, integrated US plug and center-positive 5.5 × 2.1 × 11 mm P1J output. No separate AC cord.",
+      "limitations": "Select GST40A05-P1J 5 V / 5 A and center-positive P1J plug; other voltages are not interchangeable.",
       "source_type": "manufacturer",
       "publisher": "MEAN WELL",
-      "download_url": "https://www.meanwell.com/Upload/PDF/NGE45/NGE45-SPEC.PDF"
+      "download_url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF"
+    },
+    {
+      "id": "ref-035",
+      "part_ids": [
+        "E21"
+      ],
+      "title": "MEAN WELL PowerNex accessory catalog with YP12+YC12 cord",
+      "kind": "datasheet",
+      "official_url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
+      "checked_date": "2026-09-26",
+      "model_match": "family-includes-exact-model",
+      "limitations": "Catalog names cord YP12+YC12; distributor uses YP12_YC12. US grounded cord only; catalog also lists unrelated accessories.",
+      "source_type": "manufacturer",
+      "publisher": "MEAN WELL",
+      "download_url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf"
     },
     {
       "id": "ref-036",
@@ -644,7 +659,7 @@
       "official_url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
       "checked_date": "2026-10-01",
       "model_match": "example-product",
-      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide.",
       "source_type": "supplier",
       "publisher": "BelMetric",
       "download_url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf"
@@ -674,7 +689,7 @@
       "official_url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
       "checked_date": "2026-10-01",
       "model_match": "example-product",
-      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide.",
       "source_type": "supplier",
       "publisher": "BelMetric",
       "download_url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf"
@@ -774,15 +789,15 @@
       "part_ids": [
         "M3x10CS"
       ],
-      "title": "BelMetric SF3X10 dimensional drawing",
+      "title": "BelMetric SF3X10SS dimensional drawing",
       "kind": "drawing",
-      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10.pdf",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
       "checked_date": "2026-10-01",
       "model_match": "example-product",
       "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
       "source_type": "supplier",
       "publisher": "BelMetric",
-      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10.pdf"
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf"
     },
     {
       "id": "ref-057",
@@ -1005,15 +1020,14 @@
       "part_ids": [
         "C16"
       ],
-      "title": "3M 4905 mounting tape technical data",
-      "kind": "datasheet",
-      "official_url": "https://multimedia.3m.com/mws/media/2366517O/3m-vhb-tape-specialty-tape-4905.pdf",
+      "title": "Gorilla Double-Sided Tape product information",
+      "kind": "product",
+      "official_url": "https://gorillatough.com/product/gorilla-double-sided-tape",
       "checked_date": "2026-10-01",
       "model_match": "example-product",
-      "limitations": "Example thin tape: 0.5 mm. Follow substrate preparation and bonding guidance; adhesion to printed surfaces remains application-dependent.",
+      "limitations": "Item 100925, 1.41 in × 8 yd, rubber adhesive. Not for PVC or other high-plasticizer materials. The page gives no thickness; retailers list 14 mil (0.36 mm).",
       "source_type": "manufacturer",
-      "publisher": "3M",
-      "download_url": "https://multimedia.3m.com/mws/media/2366517O/3m-vhb-tape-specialty-tape-4905.pdf"
+      "publisher": "Gorilla Glue Company"
     },
     {
       "id": "ref-073",
@@ -1064,10 +1078,10 @@
       ],
       "title": "Secure CT-08018-BK cable-tie specifications",
       "kind": "product",
-      "official_url": "https://www.amazon.com/dp/B0DR8KSVQD",
+      "official_url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
       "checked_date": "2026-10-01",
       "model_match": "example-product",
-      "limitations": "8-inch miniature nylon ties, 2.29 mm wide. Select this narrow size, not the wider standard ties. No separate datasheet linked.",
+      "limitations": "8-inch miniature nylon ties, 2.29 mm wide. Select this narrow size, not the wider standard ties. The page links the CT-08018-BK spec sheet.",
       "source_type": "manufacturer",
       "publisher": "Secure Cable Ties"
     },
@@ -1301,9 +1315,18 @@
     },
     {
       "part_id": "E20",
-      "name": "Mean Well NGE45U05-P1J supply",
+      "name": "Mean Well GST40A05-P1J supply",
       "reference_ids": [
         "ref-034"
+      ],
+      "coverage": "links-only",
+      "limitations": ""
+    },
+    {
+      "part_id": "E21",
+      "name": "Mean Well YP12_YC12 US mains cord",
+      "reference_ids": [
+        "ref-035"
       ],
       "coverage": "links-only",
       "limitations": ""
@@ -1419,7 +1442,7 @@
         "ref-047"
       ],
       "coverage": "links-only",
-      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide."
     },
     {
       "part_id": "M2x6",
@@ -1437,7 +1460,7 @@
         "ref-049"
       ],
       "coverage": "links-only",
-      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide."
     },
     {
       "part_id": "M3x16",
@@ -1611,7 +1634,7 @@
         "ref-072"
       ],
       "coverage": "links-only",
-      "limitations": "Example thin tape: 0.5 mm. Follow substrate preparation and bonding guidance; adhesion to printed surfaces remains application-dependent."
+      "limitations": "Item 100925, 1.41 in × 8 yd, rubber adhesive. Not for PVC or other high-plasticizer materials. The page gives no thickness; retailers list 14 mil (0.36 mm)."
     },
     {
       "part_id": "C17",

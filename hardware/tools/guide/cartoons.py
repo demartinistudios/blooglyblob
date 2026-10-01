@@ -955,22 +955,33 @@ def barrel_plug(p, x, yc, ang=0):
 
 
 def power_supply(p):
-    """NGE45U05-P1J: 65 x 62 x 30 mm case, folding US blades and attached DC lead.
-    Dimensions and blade orientation follow the manufacturer's mechanical drawing."""
-    cable(p, [(65, 49), (81, 50), (91, 64), (79, 80), (55, 86), (34, 86)], ('#2a2b2f',), 3.4)
-    p.prism(rrect(62, 50, 11, 10, 2), 6, 16, '#2a2b2f', '#17181b')
-    # Blades project from the narrow end, spaced through the case thickness.
-    for z in (7.5, 20.2):
-        p.prism(rrect(-17, 27.8, 19, 6.4, .6), z, z + 1.5, '#c9ced3', '#8f969d')
-        p.flat(circle(-11.5, 31, 1.6, 20), z + 1.5, '#50535b', stroke='none')
+    """Mean Well GST40A05-P1J desktop supply: black 125 x 50 x 31.5 mm case, DC cord to a
+    2.1 mm straight barrel plug (the IEC inlet is on the far end)."""
+    cable(p, [(125, 25), (140, 26), (152, 40), (140, 62), (100, 70), (60, 72), (34, 70)], ('#2a2b2f',), 3.4)
+    p.prism(rrect(122, 20, 10, 10, 2), 6, 16, '#2a2b2f', '#17181b')
     def label():
-        p.flat(rrect(10, 12, 44, 38, 1.5), 30, '#50535b', op=.7)
-        p.text(32, 21, 30, 'MEAN WELL', 3.6, '#eeeeef')
-        p.text(32, 30, 30, 'NGE45U05-P1J', 2.9, '#eeeeef')
-        p.text(32, 39, 30, '5 V DC  5.63 A', 3.0, '#eeeeef')
-        p.line([(17, 44), (47, 44)], 30, '#8c9098', 1.3)
-    p.prism(rrect(0, 0, 65, 62, 4), 0, 30, '#2e2f34', '#1a1b1e', detail=label)
-    barrel_plug(p, 10, 86)
+        p.flat(rrect(22, 10, 72, 30, 1.5), 31.5, '#50535b', op=.4)
+        for i, w in enumerate((44, 58, 36, 52, 30)):
+            p.line([(28, 15.5 + i * 4.6), (28 + w, 15.5 + i * 4.6)], 31.5, '#8c9098', 1.8)
+        p.flat(rrect(100, 14, 12, 22, 1), 31.5, '#26272b', op=.4)
+    p.prism(rrect(0, 0, 125, 50, 7), 0, 31.5, '#2e2f34', '#1a1b1e', detail=label)
+    barrel_plug(p, 10, 70)
+
+
+def mains_cord(p):
+    """Mean Well YP12 / YC12: US NEMA 5-15P plug to IEC C13 socket, black."""
+    blk = '#2a2b2f'
+    cable(p, [(24, 0), (50, 2), (78, 16), (74, 40), (46, 46), (40, 36)], (blk,), 6)
+    for v in (-6.3, 6.3):
+        conn(p, -6, v, 0, 16, 1.6, 6.4, '#c9ced3', '#8f969d', z0=3.2, r=.3)
+    p.rod(-12, 1, 0, 2.4, '#c9ced3', za=11.5, face=None, tip='round')
+    conn(p, 12, 0, 0, 26, 30, 22, blk, '#17181b',
+         lambda loc, z: p.flat(lpoly(loc, rrect(-8, -11, 14, 22, 4)), z, '#34363b', op=.4), r=5)
+    def c13():
+        p.flat([(28, 30.5), (52, 30.5), (52, 38), (48.5, 41.5), (31.5, 41.5), (28, 38)], 30, '#101114', op=.9)
+        for x, y in ((33.5, 34.5), (46.5, 34.5), (40, 38.2)):
+            p.flat(rrect(x - 1.1 if y < 36 else x - 2.2, y - 2.2 if y < 36 else y - 1.1, 2.2 if y < 36 else 4.4, 4.4 if y < 36 else 2.2, .3), 30, '#050506', op=.9)
+    p.prism(rrect(25, 27, 30, 18, 3), 0, 30, blk, '#1b1c1f', detail=c13)
 
 
 # ------------------------------------------------------------------ mechanical parts
@@ -1632,7 +1643,8 @@ ITEMS = {
     'E23': (usb_extension, 'USB-A extension cable', None, None),
     'E24': (jumper_leads, 'GPIO jumper leads', None, None),
     'E05': (pebble_strand, 'Adafruit 6026 NeoPixel Pebble strand', None, None),
-    'E20': (power_supply, 'Mean Well NGE45U05-P1J 5 V wall supply', None, None),
+    'E20': (power_supply, 'Mean Well GST40A05-P1J 5 V supply', None, None),
+    'E21': (mains_cord, 'US mains cord, NEMA 5-15P to IEC C13', None, None),
     'E01': (servo, 'Kitronik 25105 clippable servo', None, None),
     'E02': (horn, 'Supplied round disk servo horn', None, None),
     'E06': (wago, 'WAGO 221-415 lever connector', None, None),
