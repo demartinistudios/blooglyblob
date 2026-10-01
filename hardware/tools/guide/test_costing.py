@@ -19,7 +19,7 @@ class CostingTests(unittest.TestCase):
                         url='https://example.com/product', pack_label='Pack', **extra)
         filament = quote('20', '1000', plate_color='White')
         filament['unit'] = 'g'
-        self.prices = dict(schema_version=1, currency='USD', checked_date='2026-10-01', items=[
+        self.prices = dict(schema_version=1, currency='USD', checked_date='2026-10-01', single_color='White', items=[
             dict(id='E01', quotes=[quote('6', '1')]),
             dict(id='N2', quotes=[quote('3', '100')]),
             dict(id='C13', quotes=[filament]),
@@ -80,3 +80,40 @@ class CostingTests(unittest.TestCase):
             unit='each', pack_label='Included with E01', url='https://example.com/product', included_with='E01')]))
         self.assertEqual(self.calculate()['part_totals']['E02'], '0.00')
         self.assertEqual(self.calculate()['total'], '23.12')
+
+    def test_purchase_estimate_rounds_up_packs_and_excludes_optional_items(self):
+        self.parts[1]['qty'] = 101
+        result = self.calculate()
+        self.assertEqual(result['shopping_categories']['Fasteners'], '6.00')
+        self.assertEqual(result['shopping_categories']['Consumables'], '0.00')
+        self.assertEqual(result['shopping_total'], '44.00')
+        self.assertEqual(result['single_color_total'], '44.00')
+
+    def test_shared_pack_is_rounded_after_combining_demand(self):
+        self.prices['items'][1]['quotes'][0]['purchase_group'] = 'shared'
+        self.parts.append(dict(id='N3', name='Other use', category='Fastener', qty=97))
+        self.prices['items'].append(dict(id='N3', quotes=[deepcopy(self.prices['items'][1]['quotes'][0])]))
+        result = self.calculate()
+        self.assertEqual(result['shopping_categories']['Fasteners'], '6.00')
+        shared = [r for r in result['rows'] if r.get('purchase_group') == 'shared']
+        self.assertEqual(shared[0]['buy_packs'], 2)
+        self.assertEqual(shared[1]['buy_shared_with'], 'N2')
+        self.prices['items'][-1]['quotes'][0]['pack_price_usd'] = '4'
+        with self.assertRaisesRegex(ValueError, 'Shared purchase'):
+            self.calculate()
+
+    def test_single_color_combines_filament_mass_but_full_palette_keeps_spools_separate(self):
+        self.plates.append(dict(color='Blue', estimated_grams=900))
+        quote = deepcopy(self.prices['items'][2]['quotes'][0])
+        quote.update(plate_color='Blue', pack_price_usd='30')
+        self.prices['items'][2]['quotes'].append(quote)
+        result = self.calculate()
+        self.assertEqual(result['shopping_categories']['Filament'], '50.00')
+        self.assertEqual(result['single_color_filament'], '40.00')
+        self.assertEqual(result['single_color_spools'], 2)
+        self.assertEqual(result['palette_spools'], 2)
+        self.assertEqual(result['single_color_total'], '61.00')
+        self.assertEqual(result['shopping_total'], '71.00')
+        self.prices['single_color'] = 'Missing'
+        with self.assertRaisesRegex(ValueError, 'Single-color'):
+            self.calculate()

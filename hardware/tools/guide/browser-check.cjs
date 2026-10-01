@@ -253,7 +253,18 @@ fs.mkdirSync(OUT,{recursive:false});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' '+width);
     if(route==='cost'){
      const money=value=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(value));
-     assert.equal(await page.locator('.cost-total strong').innerText(),money(data.costs.total));
+     assert.deepEqual(await page.locator('.cost-total strong').allInnerTexts(),[data.costs.total,data.costs.single_color_total,data.costs.shopping_total].map(money));
+     assert.equal(await page.locator('.shopping-detail tbody tr').count(),data.costs.rows.filter(r=>r.buy_packs>0).length);
+     for(const mode of ['single','palette']){
+      await page.locator(`input[name="cost-filament"][value="${mode}"]`).check();
+      assert.equal(await page.locator('.shopping-total strong').innerText(),money(mode==='single'?data.costs.single_color_total:data.costs.shopping_total));
+      const expected=data.costs.rows.filter(r=>r.buy_packs>0&&(mode==='palette'||r.category!=='Filament')).length+(mode==='single'?1:0);
+      assert.equal(await page.locator('.shopping-detail tbody tr').count(),expected);
+      for(const detail of await page.locator('.shopping-detail').all()){
+       await detail.evaluate(el=>el.open=true);
+       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'shopping costs '+mode+' '+width);
+      }
+     }
      assert.equal(await page.locator('.cost-detail tbody tr').count(),data.costs.rows.length);
      for(const detail of await page.locator('.cost-detail').all()){
       await detail.locator('summary').click();

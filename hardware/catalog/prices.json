@@ -2,7 +2,7 @@
   "schema_version": 1,
   "currency": "USD",
   "checked_date": "2026-10-01",
-  "basis": "Materials used for one robot. Full-pack prices are shown separately; leftovers are not charged to this build.",
+  "basis": "Compare the material consumed by one robot with the upfront cost of the listed retail packs and spools.",
   "exclusions": "Tools, optional prints, paint, tax, shipping, handling, import charges and operating/API costs are excluded.",
   "allowances": "Wire, glue, tape and other cut-material quantities are planning allowances, not measured assembly consumption.",
   "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
@@ -603,7 +603,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "330",
-          "note": "Cutting allowance: Two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three."
+          "note": "Cutting allowance: Two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three.",
+          "purchase_group": "white-diffuser-foam",
+          "purchase_note": "One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -617,7 +619,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "480",
-          "note": "Cutting allowance: One 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three."
+          "note": "Cutting allowance: One 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three.",
+          "purchase_group": "white-diffuser-foam",
+          "purchase_note": "One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -631,7 +635,9 @@
           "pack_label": "Shared 4 mm white 10 × 5 in sheet",
           "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
           "used_quantity": "25875",
-          "note": "Cutting allowance: One 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three."
+          "note": "Cutting allowance: One 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three.",
+          "purchase_group": "white-diffuser-foam",
+          "purchase_note": "One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -819,7 +825,13 @@
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
           "name": "White filament",
           "plate_color": "White",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "alternative_links": [
+            {
+              "label": "Amazon",
+              "url": "https://www.amazon.com/dp/B0BM7446JH"
+            }
+          ]
         },
         {
           "pack_price_usd": "13.99",
@@ -829,7 +841,13 @@
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
           "name": "Black filament",
           "plate_color": "Black",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "alternative_links": [
+            {
+              "label": "Amazon",
+              "url": "https://www.amazon.com/dp/B0BM739JRF"
+            }
+          ]
         },
         {
           "pack_price_usd": "18.99",
@@ -839,17 +857,29 @@
           "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=44479773245543",
           "name": "Copper filament",
           "plate_color": "Copper",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "alternative_links": [
+            {
+              "label": "Amazon",
+              "url": "https://www.amazon.com/dp/B0CW1N5W7J"
+            }
+          ]
         },
         {
           "pack_price_usd": "13.99",
           "pack_quantity": "1000",
           "unit": "g",
-          "pack_label": "ELEGOO Blue PLA, 1 kg",
+          "pack_label": "ELEGOO Dark Blue PLA, 1 kg",
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
-          "name": "Blue filament",
+          "name": "Dark blue filament",
           "plate_color": "Blue",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
+          "alternative_links": [
+            {
+              "label": "Amazon",
+              "url": "https://www.amazon.com/dp/B0BS6T828R"
+            }
+          ]
         },
         {
           "pack_price_usd": "13.99",
@@ -873,5 +903,6 @@
         }
       ]
     }
-  ]
+  ],
+  "single_color": "Black"
 }

@@ -1,8 +1,11 @@
 """Calculate guide prices from catalog quotes and current build demand."""
 from collections import defaultdict
 from datetime import date
-from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+from decimal import Decimal, InvalidOperation, ROUND_CEILING, ROUND_HALF_UP
 from urllib.parse import urlsplit
+
+
+COST_CATEGORIES = ('Purchased parts', 'Fasteners', 'Consumables', 'Filament')
 
 
 def amount(value, field, positive=False):
@@ -19,6 +22,41 @@ def money(value):
     return str(value.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
 
 
+def purchases(rows, single_color):
+    """Round shared demand to whole retail packs; keep filament variants separate."""
+    groups = defaultdict(list)
+    categories = {name: Decimal(0) for name in COST_CATEGORIES}
+    for index, row in enumerate(rows):
+        groups[row.get('purchase_group', index)].append(row)
+    for group in groups.values():
+        first = group[0]
+        fields = ('pack_price_usd', 'pack_quantity', 'unit', 'url', 'category', 'included_with')
+        if any(any(row.get(key) != first.get(key) for key in fields) for row in group[1:]):
+            raise ValueError('Shared purchase quotes must describe the same pack')
+        used = sum((Decimal(row['used_quantity']) for row in group), Decimal(0))
+        packs = 0 if first.get('included_with') else int((used / Decimal(first['pack_quantity'])).to_integral_value(rounding=ROUND_CEILING))
+        cost = packs * Decimal(first['pack_price_usd'])
+        categories[first['category']] += cost
+        first.update(buy_packs=packs, buy_cost=money(cost))
+        for row in group[1:]:
+            row.update(buy_packs=0, buy_cost='0.00', buy_shared_with=first['id'])
+    filament = [row for row in rows if row['category'] == 'Filament']
+    grams = sum((Decimal(row['used_quantity']) for row in filament), Decimal(0))
+    spools, single_cost = 0, Decimal(0)
+    if filament:
+        selected = next((row for row in filament if row['plate_color'] == single_color), None)
+        if selected is None:
+            raise ValueError('Single-color estimate must select a priced filament color')
+        spools = int((grams / Decimal(selected['pack_quantity'])).to_integral_value(rounding=ROUND_CEILING))
+        single_cost = spools * Decimal(selected['pack_price_usd'])
+    non_filament = sum(value for key, value in categories.items() if key != 'Filament')
+    return {'shopping_categories': {key: money(value) for key, value in categories.items()},
+            'shopping_total': money(sum(categories.values())), 'non_filament_purchase': money(non_filament),
+            'single_color_total': money(non_filament + single_cost), 'single_color_filament': money(single_cost),
+            'single_color_spools': spools, 'palette_spools': sum(row['buy_packs'] for row in filament),
+            'filament_grams': format(grams.normalize(), 'f')}
+
+
 def calculate(prices, parts, plates):
     """Use installed counts unless a quote states a consumption allowance or plate color."""
     if prices['schema_version'] != 1 or prices['currency'] != 'USD':
@@ -29,7 +67,7 @@ def calculate(prices, parts, plates):
     ids = [item['id'] for item in prices['items']]
     if len(ids) != len(set(ids)) or set(ids) != expected:
         raise ValueError('Price catalog must cover every non-tool supply exactly once')
-    categories = {name: Decimal(0) for name in ('Purchased parts', 'Fasteners', 'Consumables', 'Filament')}
+    categories = {name: Decimal(0) for name in COST_CATEGORIES}
     totals = defaultdict(Decimal)
     rows, priced_colors = [], []
     for item in prices['items']:
@@ -63,7 +101,7 @@ def calculate(prices, parts, plates):
                          'cost_used': money(cost)})
     if len(priced_colors) != len(set(priced_colors)) or set(priced_colors) != {p['color'] for p in plates}:
         raise ValueError('Filament prices must cover each selected plate color exactly once')
-    return {key: value for key, value in prices.items() if key != 'items'} | {
+    return {key: value for key, value in prices.items() if key != 'items'} | purchases(rows, prices.get('single_color')) | {
         'rows': rows, 'part_totals': {key: money(value) for key, value in totals.items()},
         'categories': {key: money(value) for key, value in categories.items()},
         'total': money(sum(categories.values())),
