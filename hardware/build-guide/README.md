@@ -31,6 +31,9 @@ homes, without retaining source copies in the guide:
   their object-settings CSV and project thumbnails. ZIP timestamps are fixed for
   reproducible packages. Plate thumbnails show layouts, not sliced toolpaths.
 - Assembly power/signal tables and the selected print quantities and estimates.
+- Prices from [the price catalog](../catalog/prices.json), combined with current
+  part quantities and plate weights. Part cards and `#cost` use this same data;
+  do not enter prices or totals directly in guide prose.
 - External component-document links selected by the
   [reference catalog](../references/community-20260925/catalog.json). Publisher
   PDFs are not stored in Git or bundled with the guide. Keep optional research

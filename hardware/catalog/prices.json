@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "checked_date": "2026-10-01",
+  "basis": "Materials used for one robot. Full-pack prices are shown separately; leftovers are not charged to this build.",
+  "exclusions": "Tools, optional prints, paint, tax, shipping, handling, import charges and operating/API costs are excluded.",
+  "allowances": "Wire, glue, tape and other cut-material quantities are planning allowances, not measured assembly consumption.",
+  "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
+  "items": [
+    {
+      "id": "E01",
+      "quotes": [
+        {
+          "pack_price_usd": "6.85",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533"
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "quotes": [
+        {
+          "pack_price_usd": "1.5",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/5975"
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "quotes": [
+        {
+          "pack_price_usd": "5.95",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/1426"
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "quotes": [
+        {
+          "pack_price_usd": "1.17",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/wago-corporation/221-415/13549457"
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "quotes": [
+        {
+          "pack_price_usd": "3.78",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/schurter-inc/8601-2001-08/2647189"
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "quotes": [
+        {
+          "pack_price_usd": "2.15",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/eaton-electronics-division/BK1-S505H-3-15-R/3042436"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "quotes": [
+        {
+          "pack_price_usd": "2.29",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/eaton-electronics-division/BK1-S505H-1-R/3042403"
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "quotes": [
+        {
+          "pack_price_usd": "1.15",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FR1A102/9921022"
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "quotes": [
+        {
+          "pack_price_usd": "1.5",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/5755"
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "quotes": [
+        {
+          "pack_price_usd": "1.5",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/6404"
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "quotes": [
+        {
+          "pack_price_usd": "4.5",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/6066"
+        }
+      ]
+    },
+    {
+      "id": "E17",
+      "quotes": [
+        {
+          "pack_price_usd": "1.95",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/1479"
+        }
+      ]
+    },
+    {
+      "id": "E18",
+      "quotes": [
+        {
+          "pack_price_usd": "9.66",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/switchcraft-inc/721AU/27691023"
+        }
+      ]
+    },
+    {
+      "id": "E20",
+      "quotes": [
+        {
+          "pack_price_usd": "16.15",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 supply",
+          "url": "https://us.rs-online.com/product/mean-well/nge45u05-p1j/74995367/",
+          "note": "Integrated US wall plug; no separate mains cord. RS adds $6 handling for guest orders under $50, in addition to shipping; excluded here."
+        }
+      ]
+    },
+    {
+      "id": "E22",
+      "quotes": [
+        {
+          "pack_price_usd": "4.95",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.adafruit.com/product/4056"
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "quotes": [
+        {
+          "pack_price_usd": "0.1",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-1K/96"
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "quotes": [
+        {
+          "pack_price_usd": "0.11",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-330R/1636"
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "quotes": [
+        {
+          "pack_price_usd": "0",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "Included with E01",
+          "url": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533",
+          "included_with": "E01",
+          "note": "One supplied horn per servo; no separate purchase."
+        }
+      ]
+    },
+    {
+      "id": "CENTER",
+      "quotes": [
+        {
+          "pack_price_usd": "0",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "Included with E01",
+          "url": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533",
+          "included_with": "E01",
+          "note": "One supplied center screw per servo; no separate purchase."
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "quotes": [
+        {
+          "pack_price_usd": "17.5",
+          "pack_quantity": "100",
+          "unit": "pixels",
+          "pack_label": "100-pixel strand",
+          "url": "https://www.adafruit.com/product/6026",
+          "used_quantity": "6",
+          "note": "Six body pixels used; the other 94 are left over."
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "quotes": [
+        {
+          "pack_price_usd": "25",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.pishop.us/product/raspberry-pi-3-model-a-plus-512mb-ram/",
+          "note": "PiShop US alternative to the out-of-stock Adafruit listing; no case/accessory options."
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "quotes": [
+        {
+          "pack_price_usd": "1.5",
+          "pack_quantity": "1",
+          "unit": "pairs",
+          "pack_label": "1 pairs",
+          "url": "https://www.mouser.com/ProductDetail/Adafruit/1663?qs=GURawfaeGuBbzkAfeSrhnA%3D%3D",
+          "note": "Each set contains both connector halves. Alternative to the out-of-stock Adafruit listing."
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "quotes": [
+        {
+          "pack_price_usd": "9.87",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 card",
+          "url": "https://www.walmart.com/ip/348352382",
+          "note": "PNY Elite 32 GB, Class 10 / U1. Select sold and shipped by Walmart."
+        }
+      ]
+    },
+    {
+      "id": "E14",
+      "quotes": [
+        {
+          "pack_price_usd": "7.99",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://www.waveshare.com/product/usb-to-audio.htm",
+          "note": "Includes the short USB extension used as E23."
+        }
+      ]
+    },
+    {
+      "id": "E16",
+      "quotes": [
+        {
+          "pack_price_usd": "7.5",
+          "pack_quantity": "2",
+          "unit": "speakers",
+          "pack_label": "Pair",
+          "url": "https://www.adafruit.com/product/1669"
+        }
+      ]
+    },
+    {
+      "id": "E23",
+      "quotes": [
+        {
+          "pack_price_usd": "0",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "Included with E14",
+          "url": "https://www.waveshare.com/product/usb-to-audio.htm",
+          "included_with": "E14",
+          "note": "Counted with the audio module; no second cable purchase."
+        }
+      ]
+    },
+    {
+      "id": "E24",
+      "quotes": [
+        {
+          "pack_price_usd": "12.32",
+          "pack_quantity": "20",
+          "unit": "leads",
+          "pack_label": "20 leads",
+          "url": "https://www.digikey.com/en/products/detail/digikey/DKS-20FF-30/17038794",
+          "note": "DKS-20FF-30: 24 AWG, female-to-female, nominal 30 cm. Twelve used from one 20-pack; keep one socket per lead."
+        }
+      ]
+    },
+    {
+      "id": "E25",
+      "quotes": [
+        {
+          "pack_price_usd": "0.95",
+          "pack_quantity": "4",
+          "unit": "feet",
+          "pack_label": "4 feet",
+          "url": "https://www.adafruit.com/product/550",
+          "note": "Adafruit 550 example: approximately 8 mm diameter, within the 14 mm mounting faces."
+        }
+      ]
+    },
+    {
+      "id": "M3x14",
+      "quotes": [
+        {
+          "pack_price_usd": "0.1",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X14SS",
+          "note": "BelMetric BSH3X14SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "quotes": [
+        {
+          "pack_price_usd": "0.07",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR3SS",
+          "note": "BelMetric NR3SS; ordinary hex nut."
+        }
+      ]
+    },
+    {
+      "id": "M2x6",
+      "quotes": [
+        {
+          "pack_price_usd": "0.24",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X6SS",
+          "note": "BelMetric SB2X6SS; button head 3.4 × 1.3 mm."
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "quotes": [
+        {
+          "pack_price_usd": "0.06",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR2SS",
+          "note": "BelMetric NR2SS; ordinary hex nut."
+        }
+      ]
+    },
+    {
+      "id": "M3x16",
+      "quotes": [
+        {
+          "pack_price_usd": "0.1",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X16SS",
+          "note": "BelMetric BSH3X16SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x20",
+      "quotes": [
+        {
+          "pack_price_usd": "0.11",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X20SS",
+          "note": "BelMetric BSH3X20SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x10",
+      "quotes": [
+        {
+          "pack_price_usd": "0.09",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X10SS",
+          "note": "BelMetric BSH3X10SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x8",
+      "quotes": [
+        {
+          "pack_price_usd": "0.09",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X8SS",
+          "note": "BelMetric BSH3X8SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M2x10",
+      "quotes": [
+        {
+          "pack_price_usd": "0.36",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X10SS",
+          "note": "BelMetric SB2X10SS; button head 3.4 × 1.3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M2x8",
+      "quotes": [
+        {
+          "pack_price_usd": "0.27",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
+          "note": "BelMetric SB2X8SS; button head 3.4 × 1.3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x10CS",
+      "quotes": [
+        {
+          "pack_price_usd": "0.18",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-steel-10-9-din-7991/?sku=SF3X10",
+          "note": "BelMetric SF3X10; 90° head, 6 mm diameter; length includes head."
+        }
+      ]
+    },
+    {
+      "id": "M3x6",
+      "quotes": [
+        {
+          "pack_price_usd": "0.07",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X6SS",
+          "note": "BelMetric BSH3X6SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M2x12",
+      "quotes": [
+        {
+          "pack_price_usd": "0.42",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X12SS",
+          "note": "BelMetric SB2X12SS; button head 3.4 × 1.3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x12",
+      "quotes": [
+        {
+          "pack_price_usd": "0.09",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X12SS",
+          "note": "BelMetric BSH3X12SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "M3x18",
+      "quotes": [
+        {
+          "pack_price_usd": "0.13",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X18SS",
+          "note": "BelMetric BSH3X18SS; socket head 5.5 × 3 mm."
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "quotes": [
+        {
+          "pack_price_usd": "3.73",
+          "pack_quantity": "100",
+          "unit": "washers",
+          "pack_label": "100 washers",
+          "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
+          "note": "BFirst MFWZ002; minimum purchase 100."
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "quotes": [
+        {
+          "pack_price_usd": "1.94",
+          "pack_quantity": "100",
+          "unit": "washers",
+          "pack_label": "100 washers",
+          "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
+          "note": "BFirst MFWZ003; minimum purchase 100."
+        }
+      ]
+    },
+    {
+      "id": "C01",
+      "quotes": [
+        {
+          "pack_price_usd": "1.45",
+          "pack_quantity": "60322.46",
+          "unit": "mm²",
+          "pack_label": "One 8.5 × 11 in sheet",
+          "url": "https://www.12x12cardstock.shop/products/acetate-clear-0075-grafix",
+          "used_quantity": "600",
+          "note": "Allowance: two 20 × 15 mm blanks, trimmed to the eye template. Clear 0.0075 in acetate example."
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "quotes": [
+        {
+          "pack_price_usd": "10.5",
+          "pack_quantity": "32258",
+          "unit": "mm²",
+          "pack_label": "Shared 4 mm white 10 × 5 in sheet",
+          "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
+          "used_quantity": "330",
+          "note": "Cutting allowance: Two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three."
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "quotes": [
+        {
+          "pack_price_usd": "10.5",
+          "pack_quantity": "32258",
+          "unit": "mm²",
+          "pack_label": "Shared 4 mm white 10 × 5 in sheet",
+          "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
+          "used_quantity": "480",
+          "note": "Cutting allowance: One 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three."
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "quotes": [
+        {
+          "pack_price_usd": "10.5",
+          "pack_quantity": "32258",
+          "unit": "mm²",
+          "pack_label": "Shared 4 mm white 10 × 5 in sheet",
+          "url": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
+          "used_quantity": "25875",
+          "note": "Cutting allowance: One 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three."
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "quotes": [
+        {
+          "pack_price_usd": "9.99",
+          "pack_quantity": "6.096",
+          "unit": "m",
+          "pack_label": "Red + black, 10 ft each",
+          "url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
+          "used_quantity": "1",
+          "note": "Allowance: 1 m total across both colors, including the power-jack leads, ground link and fuse extension. Route before cutting."
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "quotes": [
+        {
+          "pack_price_usd": "19.95",
+          "pack_quantity": "45.72",
+          "unit": "m",
+          "pack_label": "Six colors × 25 ft",
+          "url": "https://www.adafruit.com/product/3111",
+          "used_quantity": "5",
+          "note": "Allowance: 5 m total across colors for extensions, head power and short light leads, including routing slack. Not 5 m per wire."
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "quotes": [
+        {
+          "pack_price_usd": "1.99",
+          "pack_quantity": "100",
+          "unit": "ties",
+          "pack_label": "100 ties",
+          "url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
+          "used_quantity": "50",
+          "note": "Upper end of the guide’s 40–50 allowance. CT-08018-BK, narrow 2.29 mm strap; trim the tails."
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "quotes": [
+        {
+          "pack_price_usd": "0.19",
+          "pack_quantity": "1",
+          "unit": "magnets",
+          "pack_label": "1 magnets",
+          "url": "https://www.kjmagnetics.com/d31-neodymium-disc-magnet",
+          "note": "Four required magnets. The optional pointing hand needs one extra."
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "quotes": [
+        {
+          "pack_price_usd": "5.98",
+          "pack_quantity": "25",
+          "unit": "ml",
+          "pack_label": "Gorilla two-part epoxy, 25 ml",
+          "url": "https://www.homedepot.com/p/100670610",
+          "used_quantity": "5",
+          "note": "Allowance: 5 ml mixed adhesive, including mixing waste. Example for plastic/metal; follow its surface-preparation and cure instructions."
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "quotes": [
+        {
+          "pack_price_usd": "8",
+          "pack_quantity": "415483.0399999999",
+          "unit": "mm²",
+          "pack_label": "1 mm black EVA, 23 × 28 in",
+          "url": "https://coscomcosplaysupplies.com/products/grade-a-eva-38-foam-59-wide-up-to-118-wide?variant=47081878847720",
+          "used_quantity": "2400",
+          "note": "Allowance: one 60 × 40 mm offcut, trimmed around the audio lid openings. Separate from the 4 mm diffuser foam."
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "quotes": [
+        {
+          "pack_price_usd": "4.95",
+          "pack_quantity": "3.6576",
+          "unit": "m",
+          "pack_label": "Adafruit 344 assortment: 24 × 6 in lengths",
+          "url": "https://www.adafruit.com/product/344",
+          "used_quantity": "0.9",
+          "note": "Allowance: 0.9 m across suitable diameters. Cost allocated by length; select the diameter for each joint."
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "quotes": [
+        {
+          "pack_price_usd": "4.95",
+          "pack_quantity": "15",
+          "unit": "g",
+          "pack_label": "SparkFun SAC305 lead-free solder, 15 g",
+          "url": "https://www.sparkfun.com/solder-lead-free-15-gram-tube.html",
+          "name": "Solder",
+          "used_quantity": "5",
+          "note": "Allowance: 5 g, including tinning and trimming waste."
+        },
+        {
+          "pack_price_usd": "7.95",
+          "pack_quantity": "10",
+          "unit": "ml",
+          "pack_label": "Chip Quik CQ4LF, 10 ml",
+          "url": "https://www.adafruit.com/product/3468",
+          "name": "Flux",
+          "used_quantity": "1",
+          "note": "Allowance: 1 ml."
+        },
+        {
+          "pack_price_usd": "5.98",
+          "pack_quantity": "54.864",
+          "unit": "m",
+          "pack_label": "ScotchBlue 0.94 in × 60 yd",
+          "url": "https://www.homedepot.com/p/100085823",
+          "name": "Wire-label tape",
+          "used_quantity": "2",
+          "note": "Allowance: 2 m of masking tape for handwritten flags. Use existing labels instead if available; marker is an owned tool."
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "quotes": [
+        {
+          "pack_price_usd": "13.77",
+          "pack_quantity": "4.572",
+          "unit": "m",
+          "pack_label": "3M 4905, ½ in × 5 yd",
+          "url": "https://www.findtape.com/3M-Scotch-4905-VHB-Tape/p379/",
+          "used_quantity": "0.2",
+          "note": "Allowance: 200 mm of 12.7 mm-wide tape for the four WAGOs and audio patch. Tape is 0.5 mm thick; prepare surfaces as directed."
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "quotes": [
+        {
+          "pack_price_usd": "7.24",
+          "pack_quantity": "100",
+          "unit": "mounts",
+          "pack_label": "100 mounts",
+          "url": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",
+          "used_quantity": "8",
+          "note": "Allowance: eight 25.4 mm adhesive mounts. Final number depends on wire routing."
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "quotes": [
+        {
+          "pack_price_usd": "5.98",
+          "pack_quantity": "20",
+          "unit": "g",
+          "pack_label": "Optional Gorilla Super Glue Gel, 20 g",
+          "url": "https://www.walmart.com/ip/16593962819",
+          "note": "Optional alternative for nut retention. Excluded from total; the baseline already includes epoxy."
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "quotes": [
+        {
+          "pack_price_usd": "13.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO White PLA, 1 kg",
+          "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "name": "White filament",
+          "plate_color": "White",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        },
+        {
+          "pack_price_usd": "13.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO Black PLA, 1 kg",
+          "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "name": "Black filament",
+          "plate_color": "Black",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        },
+        {
+          "pack_price_usd": "18.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO Silk Copper, 1 kg",
+          "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=44479773245543",
+          "name": "Copper filament",
+          "plate_color": "Copper",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        },
+        {
+          "pack_price_usd": "13.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO Blue PLA, 1 kg",
+          "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "name": "Blue filament",
+          "plate_color": "Blue",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        },
+        {
+          "pack_price_usd": "13.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO Gray PLA, 1 kg",
+          "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "name": "Gray filament",
+          "plate_color": "Gray",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        },
+        {
+          "pack_price_usd": "13.99",
+          "pack_quantity": "1000",
+          "unit": "g",
+          "pack_label": "ELEGOO Clear PLA, 1 kg",
+          "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "name": "Clear filament",
+          "plate_color": "Clear",
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
+        }
+      ]
+    }
+  ]
+}
