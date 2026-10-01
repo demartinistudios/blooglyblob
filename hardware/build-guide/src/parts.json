@@ -1481,7 +1481,7 @@
     "optional": 0,
     "category": "Purchased",
     "description": "512 MB, 65 \u00d7 56 mm, with one USB-A socket, micro-B power and the 40-pin GPIO header. The drawings show a dimensioned outline, not every component. Buy it from Adafruit or any Raspberry Pi approved reseller.",
-    "link": "https://www.adafruit.com/product/4027",
+    "link": "https://www.pishop.us/product/raspberry-pi-3-model-a-plus-512mb-ram/",
     "verification": "Exact product specified. Any approved reseller.",
     "image": "assets/cartoons/E09.svg",
     "steps": [
@@ -1523,7 +1523,7 @@
     "optional": 0,
     "category": "Purchased",
     "description": "Two plug-and-socket sets: the body light connector (BODY LIGHT) and the head light connector (HEAD LIGHT). They have 22 AWG leads. Check the +5 V, GND and DATA pin order by continuity.",
-    "link": "https://www.adafruit.com/product/1663",
+    "link": "https://www.mouser.com/ProductDetail/Adafruit/1663?qs=GURawfaeGuBbzkAfeSrhnA%3D%3D",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E10.svg",
     "steps": [
@@ -1571,14 +1571,14 @@
   },
   {
     "id": "E13",
-    "name": "SanDisk High Endurance 32 GB microSD card",
-    "exact": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+    "name": "PNY Elite 32 GB microSDHC card",
+    "exact": "PNY Elite 32 GB microSDHC card",
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "A dedicated microSD card for the robot. The software is not preinstalled.",
-    "link": "https://www.amazon.com/dp/B07P14QHB7",
-    "verification": "Specified model. Check the part number on the listing.",
+    "description": "32 GB microSDHC, Class 10 / U1. Holds Raspberry Pi OS Lite and the application. Flash it using Raspberry Pi Imager.",
+    "link": "https://www.walmart.com/ip/348352382",
+    "verification": "PNY Elite 32 GB single-card example; select sold and shipped by Walmart.",
     "image": "assets/cartoons/E13.svg",
     "steps": [
       "imager-choose",
@@ -1589,12 +1589,8 @@
     "status": "Check it when it arrives",
     "additional_links": [
       {
-        "url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
-        "label": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA"
-      },
-      {
-        "url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
-        "label": "SanDisk High Endurance microSD family datasheet"
+        "url": "https://www.pny.com/elite-dash-camera-class-10-u1-v10-microsd-memory-card",
+        "label": "PNY Elite microSD specifications"
       }
     ]
   },
@@ -1606,7 +1602,7 @@
     "optional": 0,
     "category": "Purchased",
     "description": "53 \u00d7 23.5 \u00d7 14.6 mm case with built-in microphones and a four-pin speaker output. Keep it in its case. The drawings show an approximate outline.",
-    "link": "https://www.amazon.com/dp/B08R38TXXL",
+    "link": "https://www.waveshare.com/product/usb-to-audio.htm",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E14.svg",
     "steps": [
@@ -1617,10 +1613,6 @@
     ],
     "status": "Check it when it arrives",
     "additional_links": [
-      {
-        "url": "https://www.waveshare.com/product/usb-to-audio.htm",
-        "label": "Waveshare USB TO AUDIO 18833 product and included cable"
-      },
       {
         "url": "https://www.waveshare.com/wiki/USB_TO_AUDIO",
         "label": "Waveshare USB TO AUDIO manufacturer wiki and interfaces"
@@ -1722,13 +1714,13 @@
   },
   {
     "id": "E20",
-    "name": "Mean Well GST40A05-P1J supply",
-    "exact": "Mean Well GST40A05-P1J supply",
+    "name": "Mean Well NGE45U05-P1J supply",
+    "exact": "Mean Well NGE45U05-P1J supply",
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "External regulated 5 V, 5 A supply with the 05-P1J plug. Use exactly this supply. The Pi power lead and the wiring before the fuses rely on its built-in overload shutdown. Never substitute a higher-current supply. No mains wiring goes inside the robot. First used in {step:body-light-test}.",
-    "link": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST40A05-P1J/7703701",
+    "description": "External regulated 5 V, 5.63 A supply with an integrated US wall plug. The center-positive barrel plug is 5.5 \u00d7 2.1 \u00d7 11 mm. Its DC cable is about 1 m long. No separate mains cord is needed. No mains wiring goes inside the robot. First used in {step:body-light-test}.",
+    "link": "https://us.rs-online.com/product/mean-well/nge45u05-p1j/74995367/",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E20.svg",
     "steps": [
@@ -1738,31 +1730,8 @@
     "status": "Check it when it arrives",
     "additional_links": [
       {
-        "url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
-        "label": "MEAN WELL GST40A specification"
-      }
-    ]
-  },
-  {
-    "id": "E21",
-    "name": "Mean Well YP12_YC12 mains cord (US)",
-    "exact": "Mean Well YP12_YC12 US mains cord",
-    "qty": 1,
-    "optional": 0,
-    "category": "Purchased",
-    "description": "US plug (NEMA 5-15P) to IEC C13. Any sound, grounded cord you already have will do. Choose the right cord for your region. It stays outside the robot.",
-    "link": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/YP12-YC12/7707223",
-    "verification": "Exact product specified",
-    "image": "assets/cartoons/E21.svg",
-    "steps": [
-      "body-light-test",
-      "all-lights-test"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://www.meanwell.com/Upload/PDF/PowerNex_en-s.pdf",
-        "label": "MEAN WELL PowerNex accessory catalog with YP12+YC12 cord"
+        "url": "https://www.meanwell.com/Upload/PDF/NGE45/NGE45-SPEC.PDF",
+        "label": "MEAN WELL NGE45 specification"
       }
     ]
   },
@@ -1817,8 +1786,8 @@
     "optional": 0,
     "category": "Purchased",
     "description": "Twelve 30 cm 24 AWG Pi-header leads with 2.54 mm female contacts. The four button leads need the full length. They carry signals, grounds and low-current supplies for the level shifters and button LED. They do not supply the Pi, servos or lights.",
-    "link": "",
-    "verification": "Choose any product that meets the description",
+    "link": "https://www.digikey.com/en/products/detail/digikey/DKS-20FF-30/17038794",
+    "verification": "Example: DigiKey DKS-20FF-30, 24 AWG. Adafruit 1949 is 28 AWG, outside the Pixel Shifter terminal\u2019s specified 18\u201326 AWG range.",
     "image": "assets/cartoons/E24.svg",
     "steps": [
       "button-leads",
@@ -1835,7 +1804,7 @@
     "optional": 0,
     "category": "Purchased",
     "description": "Choose four equal-height adhesive rubber feet. Their whole adhesive face must fit on the base\u2019s \u00d814 mm post faces. Stick them to those posts, never to the removable cover. The robot stands level, with the cover clear of the bench.",
-    "link": "",
+    "link": "https://www.adafruit.com/product/550",
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/E25.svg",
     "steps": [
@@ -1897,7 +1866,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "Any clear, flexible transparency sheet. Cut two 12.6 \u00d7 8.6 mm rounded rectangles, with 4.2 mm corners, from the template. Each must lie flat with its edge captured, without forcing the lip.",
-    "link": "",
+    "link": "https://www.12x12cardstock.shop/products/acetate-clear-0075-grafix",
     "verification": "Any suitable sheet",
     "image": "assets/cartoons/C01.svg",
     "steps": [
@@ -1905,7 +1874,12 @@
       "eye-housings"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://www.grafixarts.com/products/acetate-film/",
+        "label": "Grafix clear acetate film specifications"
+      }
+    ]
   },
   {
     "id": "C02",
@@ -1915,7 +1889,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "Two 14 \u00d7 10 mm patches cut from white 4 mm Plastazote LD45. They sit behind the clear eye films.",
-    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
     "verification": "White Plastazote LD45, 4 mm. Test-fit the cut pieces.",
     "image": "assets/cartoons/C02.svg",
     "steps": [
@@ -1938,7 +1912,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "One continuous strip of white 4 mm Plastazote LD45, 7.4 mm high. Cut it long. Curve it into the pocket and trim it to fit. It follows a 37.8 mm radius across a 49.6 mm chord. The chord is not the strip length.",
-    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
     "verification": "White Plastazote LD45, 4 mm. Test-fit the cut pieces.",
     "image": "assets/cartoons/C03.svg",
     "steps": [
@@ -1960,7 +1934,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "White 4 mm Plastazote LD45, cut from the template: 224.8 \u00d7 114.3 mm with a 2 mm rear seam. Cut it slightly long. Trim it after a test-fit. One sheet can supply the body, mouth and eye pieces if it is big enough for all the templates.",
-    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45",
+    "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
     "verification": "White Plastazote LD45, 4 mm. Test-fit the cut pieces.",
     "image": "assets/cartoons/C04.svg",
     "steps": [
@@ -1981,7 +1955,7 @@
     "qty": "1 red/black wire kit",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the F1 output extension. For the extension, cut about 200 mm. After you solder it on, test-route the output and cut it to about 230 mm from the holder to the stripped end. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 3 m of each color, far more than you need. Cut each wire after test-routing it. The Pi power lead uses its own specified wire.",
+    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the F1 output extension. For the extension, cut about 200 mm. After you solder it on, test-route the output and cut it to about 230 mm from the holder to the stripped end. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 10 ft (3.05 m) of each color, far more than you need. Cut each wire after test-routing it. The Pi power lead uses its own specified wire.",
     "link": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
     "verification": "Example product. Cut to fit.",
     "image": "assets/cartoons/C05.svg",
@@ -2042,7 +2016,12 @@
       "body-light-service"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
+        "label": "Price example \u2014 100 ties / $1.99"
+      }
+    ]
   },
   {
     "id": "C08",
@@ -2075,7 +2054,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "For the magnets, the 15 glued nuts in the base, the backpack parts and the head-strap pegs. Mix and cure it as its label says. Keep nut threads and seating faces clear. Optional CA gel (C18) is a quicker-setting alternative for the nuts. Never glue the eye housings, their seams or the removable shoulder covers.",
-    "link": "",
+    "link": "https://www.homedepot.com/p/100670610",
     "verification": "Choose a suitable adhesive",
     "image": "assets/cartoons/C09.svg",
     "steps": [
@@ -2090,6 +2069,14 @@
       {
         "label": "Magnet manufacturer\u2019s adhesive guidance",
         "url": "https://www.kjmagnetics.com/faq.asp"
+      },
+      {
+        "url": "https://gorillatough.com/product/gorilla-epoxy",
+        "label": "Gorilla two-part epoxy application instructions"
+      },
+      {
+        "url": "https://gorillatough.com/first-aid-sds/glues-adhesives",
+        "label": "Gorilla adhesive safety data sheets"
       }
     ]
   },
@@ -2101,7 +2088,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "Nonconductive closed-cell foam for the audio cradle lid lining. Keep the microphone holes, plugs and ventilation clear.",
-    "link": "",
+    "link": "https://coscomcosplaysupplies.com/products/grade-a-eva-38-foam-59-wide-up-to-118-wide?variant=47081878847720",
     "verification": "Choose any product that meets the description",
     "image": "assets/cartoons/C10.svg",
     "steps": [
@@ -2145,14 +2132,23 @@
     "optional": 0,
     "category": "Consumable",
     "description": "Use the slicer profile for your spool, in the colors you like. The Printing page lists the filament estimate for each plate and the full set. Allow extra for setup and reprints.",
-    "link": "",
+    "link": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
     "verification": "See Printing for settings",
     "image": "assets/cartoons/C13.svg",
     "steps": [
       "print-plates"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=44479773245543",
+        "label": "Price example \u2014 Copper filament"
+      },
+      {
+        "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg",
+        "label": "ELEGOO silk PLA specifications"
+      }
+    ]
   },
   {
     "id": "C14",
@@ -2162,7 +2158,7 @@
     "optional": 0,
     "category": "Consumable",
     "description": "For the prepared leads and adapters. Insulate every joint and relieve its strain. Label both ends of each wire with its circuit name.",
-    "link": "",
+    "link": "https://www.sparkfun.com/solder-lead-free-15-gram-tube.html",
     "verification": "General workshop supplies",
     "image": "assets/cartoons/C14.svg",
     "steps": [
@@ -2180,7 +2176,16 @@
       "body-light-service"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://www.adafruit.com/product/3468",
+        "label": "Price example \u2014 Flux"
+      },
+      {
+        "url": "https://www.homedepot.com/p/100085823",
+        "label": "Price example \u2014 Wire-label tape"
+      }
+    ]
   },
   {
     "id": "T01",
@@ -2484,14 +2489,19 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 socket-head cap screw, 14 mm long (DIN 912 / ISO 4762). Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X14SS",
     "verification": "Any DIN 912 / ISO 4762 socket-head screw of this size",
     "image": "assets/cartoons/M3x14.svg",
     "steps": [
       "elbows"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf",
+        "label": "BelMetric BSH3X14SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "N3",
@@ -2501,7 +2511,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
-    "link": "",
+    "link": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR3SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/N3.svg",
     "steps": [
@@ -2522,7 +2532,12 @@
       "backpack"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
+        "label": "BelMetric NR3SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M2x6",
@@ -2532,7 +2547,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X6SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x6.svg",
     "steps": [
@@ -2543,7 +2558,12 @@
       "upper-arms"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf",
+        "label": "BelMetric SB2X6SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "N2",
@@ -2553,7 +2573,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "37 standard M2 hex nuts, nominal 4 mm across flats \u00d7 1.6 mm thick. Do not use nylon-insert locknuts. Check the printed fit. The eight board nuts are glued into open pockets before the boards go in.",
-    "link": "",
+    "link": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR2SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/N2.svg",
     "steps": [
@@ -2569,7 +2589,12 @@
       "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
+        "label": "BelMetric NR2SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x16",
@@ -2579,7 +2604,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X16SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x16.svg",
     "steps": [
@@ -2588,7 +2613,12 @@
       "body-diffuser"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf",
+        "label": "BelMetric BSH3X16SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x20",
@@ -2598,14 +2628,19 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X20SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x20.svg",
     "steps": [
       "head-servo"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf",
+        "label": "BelMetric BSH3X20SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x10",
@@ -2615,14 +2650,19 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X10SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x10.svg",
     "steps": [
       "head-servo"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf",
+        "label": "BelMetric BSH3X10SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x8",
@@ -2632,7 +2672,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X8SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x8.svg",
     "steps": [
@@ -2640,7 +2680,12 @@
       "head-shelf"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf",
+        "label": "BelMetric BSH3X8SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M2x10",
@@ -2650,7 +2695,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X10SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x10.svg",
     "steps": [
@@ -2658,7 +2703,12 @@
       "eye-boards"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf",
+        "label": "BelMetric SB2X10SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "W2",
@@ -2694,7 +2744,16 @@
       "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
+        "label": "Price example \u2014 1 each / $0.27"
+      },
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf",
+        "label": "BelMetric SB2X8SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x10CS",
@@ -2711,7 +2770,16 @@
       "body-lights"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-steel-10-9-din-7991/?sku=SF3X10",
+        "label": "Price example \u2014 1 each / $0.18"
+      },
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10.pdf",
+        "label": "BelMetric SF3X10 dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x6",
@@ -2721,7 +2789,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X6SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x6.svg",
     "steps": [
@@ -2729,7 +2797,12 @@
       "audio-cradle"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf",
+        "label": "BelMetric BSH3X6SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M2x12",
@@ -2739,14 +2812,19 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X12SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M2x12.svg",
     "steps": [
       "pi-shifters"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf",
+        "label": "BelMetric SB2X12SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "M3x12",
@@ -2756,7 +2834,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "",
+    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X12SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/M3x12.svg",
     "steps": [
@@ -2768,7 +2846,12 @@
       "bottom-cover"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf",
+        "label": "BelMetric BSH3X12SS dimensional drawing"
+      }
+    ]
   },
   {
     "id": "W3",
@@ -2806,6 +2889,14 @@
       {
         "label": "US supplier alternative: BelMetric BSH3X18SS (select Full Thread, 18 mm; confirm dimensions and quantity)",
         "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/"
+      },
+      {
+        "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X18SS",
+        "label": "Price example \u2014 1 each / $0.13"
+      },
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf",
+        "label": "BelMetric BSH3X18SS dimensional drawing"
       }
     ]
   },
@@ -2817,7 +2908,7 @@
     "optional": 0,
     "category": "Fastener",
     "description": "Three, one with each servo. Keep each with its horn. There is no standard replacement. Do not substitute a generic M2 screw.",
-    "link": "",
+    "link": "https://www.digikey.com/en/products/detail/kitronik-ltd/25105/15652533",
     "verification": "Supplied with each servo (E01)",
     "image": "assets/cartoons/CENTER.svg",
     "steps": [
@@ -2844,7 +2935,16 @@
     "image": "assets/cartoons/C16.svg",
     "verification": "Manufacturer product example. Check the grade, thickness and intended surfaces.",
     "status": "Check before assembly",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://www.findtape.com/3M-Scotch-4905-VHB-Tape/p379/",
+        "label": "Price example \u2014 3M 4905, \u00bd in \u00d7 5 yd / $13.77"
+      },
+      {
+        "url": "https://multimedia.3m.com/mws/media/2366517O/3m-vhb-tape-specialty-tape-4905.pdf",
+        "label": "3M 4905 mounting tape technical data"
+      }
+    ]
   },
   {
     "id": "C17",
@@ -2858,7 +2958,7 @@
       "secure-base-wiring",
       "light-connections"
     ],
-    "link": "",
+    "link": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",
     "image": "assets/cartoons/C17.svg",
     "verification": "Confirm fit and adhesive compatibility before use",
     "status": "Check before assembly",
@@ -2876,11 +2976,16 @@
       "board-cover-nuts",
       "cradle-jack-nuts"
     ],
-    "link": "",
+    "link": "https://www.walmart.com/ip/16593962819",
     "image": "assets/cartoons/C18.svg",
     "verification": "Confirm fit and adhesive compatibility before use",
     "status": "Check before assembly",
-    "additional_links": []
+    "additional_links": [
+      {
+        "url": "https://gorillatough.com/first-aid-sds/glues-adhesives",
+        "label": "Gorilla adhesive safety data sheets"
+      }
+    ]
   },
   {
     "id": "T13",

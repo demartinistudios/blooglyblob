@@ -1,6 +1,8 @@
 # Hardware
 
 For assembly, open the [build guide preview](build-guide/README.md#build-and-preview).
+See the [itemized build-cost estimate](catalog/BUILD-COST.md) for parts, filament
+and consumables, with purchase links and pack sizes.
 Website deployment and physical qualification are separate checks. For contributions, this page
 connects the three area procedures:
 [CAD](cad/DESIGN-WORKFLOW.md), [printing](printing/current/README.md), and
