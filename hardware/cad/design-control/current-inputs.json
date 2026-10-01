@@ -19,8 +19,8 @@
     },
     {
       "path": "hardware/cad/CURRENT-NOTES.md",
-      "sha256": "c20504e6e48301c383cce19e25c297685f710053e87fd69d7b6674805a30aa0c",
-      "bytes": 4573
+      "sha256": "79c0c2c483ef514ec0a6c9ff604a0f2ee88bac78c03baae2150195edce0df3db",
+      "bytes": 4801
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
@@ -44,8 +44,8 @@
     },
     {
       "path": "hardware/cad/current/evidence/batch-r29.json",
-      "sha256": "ce2aa82887fadd054f2a69ab8f1f9e80dc71a65c22e77ed3c18ba1f6f2212932",
-      "bytes": 3748
+      "sha256": "cc11c24a755aaeff986242e411e0d089e0eb8eb7dbbe7a6b2a79b7f72ddfb208",
+      "bytes": 4068
     },
     {
       "path": "hardware/cad/current/evidence/front-grille-mesh-validation-r23.json",
@@ -61,6 +61,11 @@
       "path": "hardware/cad/current/evidence/meshes.json",
       "sha256": "fe74210908672406cf8cdd1f0a9c704f5d17c3671254bbfd81f4849df96e88ec",
       "bytes": 2786
+    },
+    {
+      "path": "hardware/cad/current/evidence/print-sources-r29.json",
+      "sha256": "48ed7a423a2a31f58c53e76a6dcbef7ca4f27c5644ff778cbd58aff217edea9e",
+      "bytes": 8033
     },
     {
       "path": "hardware/cad/current/evidence/straight-row-r28.json",
@@ -314,8 +319,8 @@
     },
     {
       "path": "hardware/cad/current/stl/P08.stl",
-      "sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
-      "bytes": 703584
+      "sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
+      "bytes": 261684
     },
     {
       "path": "hardware/cad/current/stl/P09.stl",
@@ -344,8 +349,8 @@
     },
     {
       "path": "hardware/cad/current/stl/P14.stl",
-      "sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
-      "bytes": 463484
+      "sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
+      "bytes": 193984
     },
     {
       "path": "hardware/cad/current/stl/P30.stl",
@@ -398,9 +403,14 @@
       "bytes": 515
     },
     {
+      "path": "hardware/cad/current/stl/head-export-provenance.json",
+      "sha256": "763b0c80f4a8767ef1e8a5440b3e2b738edbe08af84c363a465545b723c6e671",
+      "bytes": 3986
+    },
+    {
       "path": "hardware/cad/current/stl/mesh-provenance.json",
-      "sha256": "ce6d749cc4bfcb737ea3dfcfe21c8d3358681093a83fc5e083a52e350f61df8e",
-      "bytes": 10644
+      "sha256": "4245e36b3eeef09f3773ef21f648f1b49422a772028369ce953185ab91192c6f",
+      "bytes": 10802
     },
     {
       "path": "hardware/cad/current/stl/quantities.json",
@@ -414,7 +424,7 @@
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "b1fdea462800bc0aa8b3e271eb1524b9c597f3cdfc1511c324c2ffff54ac58ec",
+      "sha256": "bcbcd5f76800d6933ebe37040f4c338f173d9d6fa21e802a81c6d3fca3e05241",
       "bytes": 47656
     },
     {
@@ -429,18 +439,18 @@
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
-      "sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
-      "bytes": 19281568
+      "sha256": "cdfb9d9392e6d4bf770fe849ff11da996b578f494480cb0011f6e5311663413a",
+      "bytes": 19120017
     },
     {
       "path": "hardware/printing/current/PUBLISHED.json",
-      "sha256": "cfcec85b35d4613c5e2c90f211766fba58b6c74c3ccb200ac247204aa444327e",
-      "bytes": 11252
+      "sha256": "e30e6aceae930cd2957c05d74e80af146503bcb17e564dff265ae3fc1d4cdf11",
+      "bytes": 11765
     },
     {
       "path": "hardware/printing/current/README.md",
-      "sha256": "a93b8ab9de25a3b9ff63094434ab23410a684ffbc054a7f7236efa3feeca88e1",
-      "bytes": 9444
+      "sha256": "e3a048d5d139ecb9b92250ee0190b61426c792f34e71ed58895ae274541884fc",
+      "bytes": 10075
     },
     {
       "path": "hardware/printing/current/checks/first-layers.png",
@@ -683,6 +693,46 @@
       "bytes": 1868
     },
     {
+      "path": "hardware/printing/current/checks/r29-head-topology-first-layer.png",
+      "sha256": "2da6fed88aaf5f700cb67be925827ff6e6e80a6d12701e9d577422696c1b00ce",
+      "bytes": 255432
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-head-topology-preview.png",
+      "sha256": "ea05f67f7de0ffc2507c1f76315267036c4b5b3ea021cce770a2a2b8441d5b72",
+      "bytes": 14488
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-head-topology-validation.json",
+      "sha256": "1c07f3107100722fadfc41124eeb8ab15e406a0dfdf66457960dc38282ae7310",
+      "bytes": 28361
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-mesh-consistency-first-layer.png",
+      "sha256": "3b7d219fd5d450903e0092ece896d5b86592d4764cf28966bbe320dbe616c0ad",
+      "bytes": 1518955
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-mesh-consistency-frames.json",
+      "sha256": "99920ede7d2fd97d468f77608e9441ba146c09c81f70294e7bf7a25867f0ce80",
+      "bytes": 22563
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-mesh-consistency-previews.png",
+      "sha256": "fda55961c0dd56bbe6373c8758f3747740cadbe47b9e2b7299631c2e594f1832",
+      "bytes": 204790
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-mesh-consistency-support.json",
+      "sha256": "fcb9f15967742494e05d4c9182ef92cee18b90dc377923b06de367ac66f9ee3f",
+      "bytes": 15901
+    },
+    {
+      "path": "hardware/printing/current/checks/r29-mesh-consistency-validation.json",
+      "sha256": "f5196bd70fec96d4b8b4e8fe85160aff9778737eacaedf1609f32a9478d025e5",
+      "bytes": 30443
+    },
+    {
       "path": "hardware/printing/current/checks/r29-preservation.json",
       "sha256": "ab7499732004c82ddd02d331696250d433da526c1ee6a008c70b5a1f3e803686",
       "bytes": 987
@@ -714,13 +764,13 @@
     },
     {
       "path": "hardware/printing/current/live-source-check.json",
-      "sha256": "8a19195c536bd3a7bb9d2cdafefe16e6bf7bbe17f27f92341b144175d1a3c973",
-      "bytes": 537
+      "sha256": "f176e6ceae2b17aea0f19c3f9754e17fe6353d093d8ee3b65504f5d3b7b7ca12",
+      "bytes": 859
     },
     {
       "path": "hardware/printing/current/manifest.json",
-      "sha256": "a76fea9457e831d6622698bd6d61c99f86393394ca3cd0760aa229b1f2eb1e35",
-      "bytes": 630672
+      "sha256": "806c487c5c615c10e9fcdd807400bba4aada2611baf7048694d2a87fc4b948b8",
+      "bytes": 630617
     },
     {
       "path": "hardware/printing/current/object-settings.csv",
@@ -734,13 +784,13 @@
     },
     {
       "path": "hardware/printing/current/source-provenance.json",
-      "sha256": "b539b1a3bbe2ef82cef6fd8959c369c11aec791d7b38fdfd481df735d8a6153b",
-      "bytes": 439372
+      "sha256": "49a295bf1f09a183a1713b6412f292ec67c805e1fe282eb90d880ff77d7613a9",
+      "bytes": 439631
     },
     {
       "path": "hardware/printing/recipes/README.md",
-      "sha256": "61ab013cf989b070424f10d502ee0303dbbb2be8a2e04ae0dd7ab800f3142ef1",
-      "bytes": 7762
+      "sha256": "a151da7e8183f01c567a6747a72318c4cab330ca9cfd42fdbc06a388e30c1b19",
+      "bytes": 8150
     },
     {
       "path": "hardware/printing/recipes/project-privacy.json",
@@ -749,13 +799,13 @@
     },
     {
       "path": "hardware/printing/recipes/projects.json",
-      "sha256": "3da46a6df173fc8316692c69a9e39d3452b941c18d4af0fdfe3ff1ea42307f45",
-      "bytes": 27590
+      "sha256": "90518d67e0464d870d2918c03b68aeec02845db14497185821a3c66233899067",
+      "bytes": 27537
     },
     {
       "path": "hardware/printing/recipes/semantic-contract.json",
-      "sha256": "e971afe5148aae66ce88def5ac9cd13e131fa73c1560b25d04506ec6126f0324",
-      "bytes": 184371
+      "sha256": "ec6c579cca0444b1227413d4cce264e06fcdfec7fad255295cb93ddf48198368",
+      "bytes": 184755
     },
     {
       "path": "hardware/rendering/r22-colors.json",
@@ -791,36 +841,6 @@
       "path": "hardware/tools/cad/export_service_stand.py",
       "sha256": "74648bd46cb936bbf8efd2cc631674d37c03339ea9cc6388efb3a4a221f6ad7e",
       "bytes": 5338
-    },
-    {
-      "path": "hardware/cad/current/evidence/print-sources-r29.json",
-      "sha256": "48ed7a423a2a31f58c53e76a6dcbef7ca4f27c5644ff778cbd58aff217edea9e",
-      "bytes": 8033
-    },
-    {
-      "path": "hardware/printing/current/checks/r29-mesh-consistency-first-layer.png",
-      "sha256": "3b7d219fd5d450903e0092ece896d5b86592d4764cf28966bbe320dbe616c0ad",
-      "bytes": 1518955
-    },
-    {
-      "path": "hardware/printing/current/checks/r29-mesh-consistency-frames.json",
-      "sha256": "99920ede7d2fd97d468f77608e9441ba146c09c81f70294e7bf7a25867f0ce80",
-      "bytes": 22563
-    },
-    {
-      "path": "hardware/printing/current/checks/r29-mesh-consistency-previews.png",
-      "sha256": "fda55961c0dd56bbe6373c8758f3747740cadbe47b9e2b7299631c2e594f1832",
-      "bytes": 204790
-    },
-    {
-      "path": "hardware/printing/current/checks/r29-mesh-consistency-support.json",
-      "sha256": "fcb9f15967742494e05d4c9182ef92cee18b90dc377923b06de367ac66f9ee3f",
-      "bytes": 15901
-    },
-    {
-      "path": "hardware/printing/current/checks/r29-mesh-consistency-validation.json",
-      "sha256": "f5196bd70fec96d4b8b4e8fe85160aff9778737eacaedf1609f32a9478d025e5",
-      "bytes": 30443
     }
   ]
 }

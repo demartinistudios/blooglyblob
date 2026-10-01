@@ -1,9 +1,50 @@
 """Small adversarial fixtures for the portable 3MF contract."""
 import copy
+import struct
 import tempfile
 import unittest
 from pathlib import Path
 import semantics as s
+
+
+class SolidMeshTests(unittest.TestCase):
+    def setUp(self):
+        self.vertices = [(0., 0., 0.), (1., 0., 0.), (0., 1., 0.), (0., 0., 1.)]
+        self.faces = [(0, 2, 1), (0, 1, 3), (0, 3, 2), (1, 2, 3)]
+
+    def test_closed_solid_and_exact_duplicate_coordinates_pass(self):
+        s.check_closed_mesh((self.vertices, self.faces))
+        vertices = [self.vertices[i] for f in self.faces for i in f]
+        s.check_closed_mesh((vertices, [(i, i+1, i+2) for i in range(0, 12, 3)]))
+
+    def test_serialized_near_zero_seam_is_not_welded_by_rounding(self):
+        # Same failure mechanism as P08: float32 preserves a tiny near-zero
+        # split that a rounded-coordinate edge audit mistakenly closes.
+        vertices = self.vertices + [(1e-15, 0., 0.)]
+        faces = [(4, 2, 1)] + self.faces[1:]
+        raw = bytes(80) + struct.pack('<I', len(faces))
+        for f in faces:
+            raw += struct.pack('<12fH', 0, 0, 0, *(x for i in f for x in vertices[i]), 0)
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td)/'seam.stl'; p.write_bytes(raw)
+            mesh = s.read_stl(p)
+            before = p.read_bytes()
+            with self.assertRaisesRegex(ValueError, '4 boundary'):
+                s.check_closed_mesh(mesh)
+            self.assertEqual(before, p.read_bytes())
+            rounded = [tuple(round(x, 5) for x in v) for v in mesh[0]]
+            s.check_closed_mesh((rounded, mesh[1]))
+
+    def test_open_duplicate_reversed_and_degenerate_faces_fail(self):
+        for faces, message in [
+            (self.faces[:-1], 'boundary'),
+            (self.faces + [self.faces[0]], 'nonmanifold'),
+            ([self.faces[0][::-1]] + self.faces[1:], 'winding'),
+            (self.faces + [(0, 0, 1)], 'Degenerate'),
+            ([], 'Empty'),
+        ]:
+            with self.subTest(message=message), self.assertRaisesRegex(ValueError, message):
+                s.check_closed_mesh((self.vertices, faces))
 
 
 class ContractTests(unittest.TestCase):
@@ -184,9 +225,14 @@ class ReceiptTests(unittest.TestCase):
         from unittest.mock import patch
         with tempfile.TemporaryDirectory() as td:
             root = Path(td); stl = root/'part.stl'
-            stl.write_bytes(bytes(80)+struct.pack('<I', 1)+struct.pack('<12fH', 0,0,1, 0,0,0, 1,0,0, 0,1,0, 0))
+            vertices = [(0.,0.,0.), (1.,0.,0.), (0.,1.,0.), (0.,0.,1.)]
+            faces = [(0,2,1), (0,1,3), (0,3,2), (1,2,3)]
+            raw = bytes(80) + struct.pack('<I', len(faces))
+            for face in faces:
+                raw += struct.pack('<12fH', 0,0,0, *(x for i in face for x in vertices[i]), 0)
+            stl.write_bytes(raw)
             digest = hashlib.sha256(stl.read_bytes()).hexdigest()
-            obj = {'printable': True, 'plate': '1', 'build': s.IDENTITY, 'settings': {'extruder': '1'}, 'parts': [{'type': 'normal_part', 'settings': {}, 'vertices': [(0.,0.,0.), (1.,0.,0.), (0.,1.,0.)], 'faces': [(0,1,2)], 'transform': s.IDENTITY}]}
+            obj = {'printable': True, 'plate': '1', 'build': s.IDENTITY, 'settings': {'extruder': '1'}, 'parts': [{'type': 'normal_part', 'settings': {}, 'vertices': vertices, 'faces': faces, 'transform': s.IDENTITY}]}
             loaded = {'objects': {'2': obj}, 'settings': {}, 'plates': {'1': {}}}
             catalog = {'parts': [{'part_id': 'P', 'quantity': 1, 'geometry_path': 'part.stl', 'geometry_sha256': digest}], 'optional_parts': []}
             manifest = {'master_project': 'project.3mf', 'objects': [{'part': 'P', 'object_id': '2', 'plate_id': 'A', 'plate': 1, 'settings': {}, 'filament_index': 1}], 'plates': [{'id': 'A', 'parts': {'P': 1}, 'piece_count': 1, 'estimated_seconds': 60, 'estimated_grams': 1.2}]}
@@ -195,6 +241,17 @@ class ReceiptTests(unittest.TestCase):
             contract['review_evidence']['inputs'] = s.reviewed_inputs(contract)
             with patch.object(s, 'load', return_value=loaded):
                 self.assertEqual(s.validate_current(root, lock, manifest, catalog, contract), [])
+                seam = bytearray(raw)
+                struct.pack_into('<f', seam, 96, 1e-15)
+                stl.write_bytes(seam)
+                seam_digest = hashlib.sha256(seam).hexdigest()
+                catalog['parts'][0]['geometry_sha256'] = seam_digest
+                contract['projects'][0]['instances'][0]['source_sha256'] = seam_digest
+                with self.assertRaisesRegex(ValueError, 'P: Exact mesh edges: 4 boundary'):
+                    s.validate_current(root, lock, manifest, catalog, contract)
+                stl.write_bytes(raw)
+                catalog['parts'][0]['geometry_sha256'] = digest
+                contract['projects'][0]['instances'][0]['source_sha256'] = digest
                 bad = copy.deepcopy(manifest); bad['master_project'] = 'unchecked.3mf'
                 with self.assertRaisesRegex(ValueError, 'unchecked project'):
                     s.validate_current(root, lock, bad, catalog, contract)

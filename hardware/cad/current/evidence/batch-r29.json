@@ -108,5 +108,7 @@
   "limits": [
     "CAD acceptance only; printer and guide updates pending",
     "Printed fit, strength, adhesive retention and complete cable routing unqualified"
-  ]
+  ],
+  "mesh_checks_scope": "Original R29 custom tessellation, audited after rounding coordinates to 0.00001 mm; these edge counts do not establish exact serialized closure. P08/P14 exports superseded by head-export-provenance.json.",
+  "current_head_export_evidence": "hardware/cad/current/stl/head-export-provenance.json"
 }

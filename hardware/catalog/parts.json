@@ -1025,7 +1025,7 @@
       "part_id": "P08",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P08.stl",
-      "geometry_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+      "geometry_sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
       "instances": [
         {
           "id": "P08-1",
@@ -1044,7 +1044,7 @@
       "guide_image": "assets/r18/part-P08.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
       "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
-      "geometry_revision": "sha256:380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+      "geometry_revision": "sha256:c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
       "guide_review_step_ids": [
         "print-cleanup",
         "head-shelf",
@@ -1212,7 +1212,7 @@
       "part_id": "P14",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P14.stl",
-      "geometry_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+      "geometry_sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
       "instances": [
         {
           "id": "P14-1",
@@ -1229,7 +1229,7 @@
       "guide_image": "assets/part-P14.png",
       "source": "hardware/cad/CURRENT-NOTES.md",
       "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
-      "geometry_revision": "sha256:c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+      "geometry_revision": "sha256:fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
       "guide_review_step_ids": [
         "head-shelf",
         "fit-position",

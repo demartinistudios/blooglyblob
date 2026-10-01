@@ -9,7 +9,7 @@ The selected enclosure layout provides four Pi posts, four shifter posts and
 four WAGO mounting pads. See [current CAD notes](../../cad/CURRENT-NOTES.md).
 
 K1 estimate: **12h 14m 24s, 289.52 g**.
-Package estimate: **39h 1m 53s, 685.50 g**.
+Package estimate: **39h 1m 54s, 685.50 g**.
 Eight affected PLA plates and the optional PETG ball were re-sliced after mesh
 reconciliation. K1 and B2 estimates are inherited from their unchanged recipes. These are slicer estimates, not measured outcomes.
 
@@ -24,13 +24,23 @@ The downloadable STLs and all 72 required/optional normal meshes now agree
 triangle-for-triangle in independently reviewed frames. Forty-one retained recipe
 instances were normalized without changing their print settings, orientation,
 placement or support modifiers. A04 uses a closed native STL export from the
-unchanged R29 design. All other selected sources are retained.
+unchanged R29 design. P08/P14 also use clean direct-native exports of the unchanged R29 bodies. Other selected sources are retained.
 
 Belt supports remain in open clevis gaps and beneath raised hinge ears; the
 sampled 1.0 mm pin cores through solid knuckles are clear. Support the ears while
 clearing those gaps before inserting pins. Full-height blocker envelopes are not
 a promise that every open gap contains no support. Physical cleanup and fit still
 need checking.
+
+## Head export stability
+
+P08/P14 use clean native exports of the same R29 geometry. The previous P08
+mesh could slice with an unintended cap across its center opening after a tiny
+placement change. The replacement passed seven shifted head-pair slices, a fresh
+desktop slice and full W1 review. Settings, orientation, blockers and screw
+locations are unchanged. Review the opening in Preview after slicing; exact
+source matching alone does not establish closed topology or slicer stability.
+See checks/r29-head-topology-validation.json for scope and limits.
 
 ## R29 changes and cleanup
 
@@ -99,7 +109,7 @@ required public build inputs.
 
 | Plate | Recipe and change | Whole-plate estimate |
 |---|---|---|
-| W1 — white, plate 1 | R29 head pair and audio cradle/lid; retained 0.16 mm layers, tree supports and brims | 3h 27m 9s, 64.26g |
+| W1 — white, plate 1 | R29 head pair and audio cradle/lid; retained 0.16 mm layers, tree supports and brims | 3h 27m 10s, 64.26g |
 | K1 — black, plate 2 | R28 shell roof-down; 0.20mm layers, 4 walls, 25% gyroid, 5mm outer brim / 0.12mm gap; normal/snug supports, 0.20mm Z / 0.40mm XY; PLA 220°C nozzle / 60°C textured PEI | 12h 14m 24s, 289.52g |
 | W2 — white, plate 3 | R29 glue-retained backpack; existing settings and pin blockers retained | 4h 12m 45s, 65.95g |
 | C2 — copper, plate 7 | R29 canisters upright; silk PLA 220°C / 55°C, 7.5 mm³/s; all other copper parts/settings retained | 3h 44m 26s, 48.63g |

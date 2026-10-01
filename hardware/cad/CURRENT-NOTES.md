@@ -26,6 +26,10 @@ P08/P14 use the same three M3 × 8 screws and M3 nuts with the fastening
 pattern rotated 60 degrees. Assemble this joint on the bench before installing
 the head/mouth. The head shell and P31 remain unchanged.
 
+P08/P14 use direct native STL exports with closed edges at exact serialized
+coordinates. Their source frames and the Fusion design are unchanged;
+[export provenance](current/stl/head-export-provenance.json) records the checks.
+
 ## Audio cradle
 
 FB24 has a solid rear tape surface. Attach the USB module's rear face, opposite

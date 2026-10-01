@@ -28,6 +28,13 @@ recorded Bambu float roundtrip error below 0.000005 mm. Near-coincident ambiguou
 matches require review. Different tessellation is unsupported; a topology mismatch
 does not prove that the physical surfaces differ.
 
+Each selected STL must also have nondegenerate triangles and closed,
+consistently wound edges at its exact serialized coordinates. This check does
+not round or tolerance-weld vertices: tiny open seams can make slicers fill
+intended openings. It runs with `projects.py check`, including CI. It does not
+prove absence of self-intersections or replace the affected full-plate slice
+review.
+
 The current contract verifies all 72 required/optional instance source meshes.
 The projects reuse the selected downloadable STLs with independently reviewed
 placement frames. No sampled surface-equivalence approvals are used. These checks

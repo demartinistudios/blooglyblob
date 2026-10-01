@@ -5,7 +5,7 @@
   "projects": [
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
-      "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+      "project_sha256": "cdfb9d9392e6d4bf770fe849ff11da996b578f494480cb0011f6e5311663413a",
       "role": "required",
       "global_settings_sha256": "75f3692f66601635b2bd6fd47cf33842ff0d01e655983482a919b7c025c7be26",
       "plate_settings_sha256": "52196ae61ea1d730eefda90957cc69a98270923920347b2e93a890d5a71a8474",
@@ -264,7 +264,7 @@
           "object_id": "10",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+          "source_sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
           "source_status": "verified_triangle_geometry",
           "stl_to_mesh": [
             0,
@@ -301,7 +301,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "6c1c8fb323f329238e00456947f69a9d5eadc6e449955fc2ae4ef5bc4c7d48ea",
-                "mesh_sha256": "0e73e77fd1a0c6d9f7825b2a477c6d76faac586ea6b14c7135dcdeb2035dfd8d",
+                "mesh_sha256": "7aee0e1698e3286c758c023cbbab6fca21b47845d2ee95f678077a8c6986af6e",
                 "transform": [
                   1.0,
                   0.0,
@@ -383,7 +383,7 @@
           "object_id": "12",
           "plate_id": "W1",
           "plate_number": 1,
-          "source_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+          "source_sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
           "source_status": "verified_triangle_geometry",
           "stl_to_mesh": [
             -0.7130515845585744,
@@ -420,7 +420,7 @@
               {
                 "type": "normal_part",
                 "settings_sha256": "884c09e37351676838b6c857abe17454c11e3676c7b959d9f02af273e397e028",
-                "mesh_sha256": "169b690a895131fad8798bfcbb4696a43fdc837b4489e5864dfd897f74d94335",
+                "mesh_sha256": "6760555e0a0b7b0a01b113a91a9fa6e4d7dcbe516581babf49342fce5462c12c",
                 "transform": [
                   1.0,
                   0.0,
@@ -5748,9 +5748,9 @@
     }
   ],
   "review_evidence": {
-    "status": "All72source comparisons verified; eight required plates+optional PETG fully re-sliced; K1/B2 preserved. Physical qualification separate.",
-    "support_scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly. All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes.",
-    "estimates_sha256": "35b20fece03ce506a787b7c202dd6298a43079a172de8e1ece019eb1255e2414",
+    "status": "All 72 source comparisons verified. P08/P14 export topology corrected without design change; W1 freshly sliced, other bounded reviews inherited only for unchanged scope.",
+    "support_scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly. All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes. P08/P14 same-design native export replacement: W1 re-sliced, center opening reviewed and M3 bore core support samples zero; see r29-head-topology-validation.json.",
+    "estimates_sha256": "c404bb863c0a4551b58884c295a24fe51b0997bc402a7e3429b45f7f64701858",
     "files": [
       {
         "path": "hardware/printing/current/checks/validation.json",
@@ -5927,18 +5927,22 @@
       {
         "path": "hardware/printing/current/checks/r29-mesh-consistency-validation.json",
         "sha256": "f5196bd70fec96d4b8b4e8fe85160aff9778737eacaedf1609f32a9478d025e5"
+      },
+      {
+        "path": "hardware/printing/current/checks/r29-head-topology-validation.json",
+        "sha256": "1c07f3107100722fadfc41124eeb8ab15e406a0dfdf66457960dc38282ae7310"
       }
     ],
     "inputs": {
       "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf": {
-        "project_sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
+        "project_sha256": "cdfb9d9392e6d4bf770fe849ff11da996b578f494480cb0011f6e5311663413a",
         "sources": {
           "kit-P02-01": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
           "kit-P03-01": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
           "kit-P04-01": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
           "kit-P06-01": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
-          "kit-P08-01": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
-          "kit-P14-01": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+          "kit-P08-01": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
+          "kit-P14-01": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
           "kit-FB24-01": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
           "kit-FB32-01": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
           "kit-FB01-01": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
