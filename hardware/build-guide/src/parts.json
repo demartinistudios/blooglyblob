@@ -2175,7 +2175,7 @@
     "qty": "As used",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the prepared leads and adapters. Use SAC305 lead-free solder with a no-clean rosin core, 0.031 in (0.8 mm). Insulate every joint and relieve its strain. Label both ends of each wire with its circuit name.",
+    "description": "For the prepared leads and adapters. Use SAC305 lead-free solder with a no-clean flux core, 0.031 in (0.8 mm). Insulate every joint and relieve its strain. Label both ends of each wire with its circuit name.",
     "link": "https://www.sparkfun.com/solder-lead-free-15-gram-tube.html",
     "verification": "General workshop supplies",
     "image": "assets/cartoons/C14.svg",
