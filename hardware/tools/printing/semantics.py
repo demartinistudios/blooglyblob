@@ -198,6 +198,40 @@ def read_stl(path):
     return vertices, faces
 
 
+def check_closed_mesh(mesh):
+    """Require nondegenerate faces and closed, consistently wound edges.
+
+    Compare serialized coordinates exactly. Rounding or tolerance welding can
+    hide open seams that make slicing depend on placement. This does not test
+    self-intersection, vertex manifoldness or physical printability.
+    """
+    vertices, faces = mesh
+    if not faces:
+        raise ValueError('Empty solid mesh')
+    edges = collections.Counter()
+    for face in faces:
+        a, b, c = (vertices[i] for i in face)
+        u = tuple(b[i] - a[i] for i in range(3))
+        v = tuple(c[i] - a[i] for i in range(3))
+        cross = (u[1]*v[2] - u[2]*v[1], u[2]*v[0] - u[0]*v[2], u[0]*v[1] - u[1]*v[0])
+        if cross == (0., 0., 0.):
+            raise ValueError('Degenerate solid mesh triangle')
+        for start, end in ((a, b), (b, c), (c, a)):
+            edges[start, end] += 1
+    boundary = nonmanifold = winding = 0
+    for (a, b), count in edges.items():
+        reverse = edges[b, a]
+        # Count each undirected edge once, including edges with only a->b.
+        if reverse and a > b:
+            continue
+        total = count + reverse
+        boundary += total == 1
+        nonmanifold += total > 2
+        winding += total == 2 and count != reverse
+    if boundary or nonmanifold or winding:
+        raise ValueError(f'Exact mesh edges: {boundary} boundary, {nonmanifold} nonmanifold, {winding} winding conflicts')
+
+
 def compare(a, b, mapping_a, mapping_b, plates_a=None, plates_b=None):
     for data, mapping in ((a, mapping_a), (b, mapping_b)):
         if len(set(mapping.values())) != len(mapping) or set(mapping.values()) != set(data['objects']): raise ValueError('Instance map must be a bijection')
@@ -335,6 +369,10 @@ def validate_current(root, lock, manifest, catalog, contract):
                 if not path.is_relative_to(root.resolve()) or '.work' in path.parts: raise ValueError('Unsafe current source path')
                 if hashlib.sha256(path.read_bytes()).hexdigest() != row['source_sha256']: raise ValueError('Selected STL hash mismatch')
                 sources[row['part']] = read_stl(path)
+                try:
+                    check_closed_mesh(sources[row['part']])
+                except ValueError as exc:
+                    raise ValueError(part['part_id'] + ': ' + str(exc)) from exc
             normal = [p for p in obj['parts'] if p['type'] == 'normal_part']
             if len(normal) != 1: raise ValueError('Source check supports one normal component; explicit review required')
             frame = row.get('stl_to_mesh')

@@ -36,5 +36,10 @@ Physical assembly, tape and glue retention, actual connector clearance and cable
 slack, acoustic behavior and complete powered operation remain unqualified.
 All 72 print-source comparisons now pass the separate print recipe checks.
 The STL downloads, plate previews and estimates are derived from those inputs.
+P08/P14 now use closed native STL exports from the same R29 design. The W1
+project and its derived downloads/preview were refreshed after full-plate slice
+review. Native render geometry, assembly instructions and fastener locations
+remain unchanged. Exact serialized edge checks supplement source matching;
+they do not establish physical fit or rule out every slicer failure.
 See [current hardware notes](../cad/CURRENT-NOTES.md) and the
 [release checklist](../../../docs/release/checklist.md).

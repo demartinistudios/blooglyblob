@@ -1,7 +1,7 @@
 {
   "package": "BlooglyBlob R29 editable print set",
   "date": "2026-09-30",
-  "status": "All72source comparisons verified; affected slices reviewed; physical qualification and deployment separate.",
+  "status": "P08/P14 clean exports integrated; W1 reviewed; physical qualification and deployment separate.",
   "cad_release": "R29/cloud25",
   "files": [
     {
@@ -11,13 +11,13 @@
     },
     {
       "path": "BlooglyBlob-R29-PLA-Production.3mf",
-      "sha256": "00ac45ef8310b73934fc95302b9b505c286a57d65f33391629de297ae4a43e25",
-      "bytes": 19281568
+      "sha256": "cdfb9d9392e6d4bf770fe849ff11da996b578f494480cb0011f6e5311663413a",
+      "bytes": 19120017
     },
     {
       "path": "README.md",
-      "sha256": "a93b8ab9de25a3b9ff63094434ab23410a684ffbc054a7f7236efa3feeca88e1",
-      "bytes": 9444
+      "sha256": "e3a048d5d139ecb9b92250ee0190b61426c792f34e71ed58895ae274541884fc",
+      "bytes": 10075
     },
     {
       "path": "checks/first-layers.png",
@@ -260,6 +260,21 @@
       "bytes": 1868
     },
     {
+      "path": "checks/r29-head-topology-first-layer.png",
+      "sha256": "2da6fed88aaf5f700cb67be925827ff6e6e80a6d12701e9d577422696c1b00ce",
+      "bytes": 255432
+    },
+    {
+      "path": "checks/r29-head-topology-preview.png",
+      "sha256": "ea05f67f7de0ffc2507c1f76315267036c4b5b3ea021cce770a2a2b8441d5b72",
+      "bytes": 14488
+    },
+    {
+      "path": "checks/r29-head-topology-validation.json",
+      "sha256": "1c07f3107100722fadfc41124eeb8ab15e406a0dfdf66457960dc38282ae7310",
+      "bytes": 28361
+    },
+    {
       "path": "checks/r29-mesh-consistency-first-layer.png",
       "sha256": "3b7d219fd5d450903e0092ece896d5b86592d4764cf28966bbe320dbe616c0ad",
       "bytes": 1518955
@@ -316,13 +331,13 @@
     },
     {
       "path": "live-source-check.json",
-      "sha256": "8a19195c536bd3a7bb9d2cdafefe16e6bf7bbe17f27f92341b144175d1a3c973",
-      "bytes": 537
+      "sha256": "f176e6ceae2b17aea0f19c3f9754e17fe6353d093d8ee3b65504f5d3b7b7ca12",
+      "bytes": 859
     },
     {
       "path": "manifest.json",
-      "sha256": "a76fea9457e831d6622698bd6d61c99f86393394ca3cd0760aa229b1f2eb1e35",
-      "bytes": 630672
+      "sha256": "806c487c5c615c10e9fcdd807400bba4aada2611baf7048694d2a87fc4b948b8",
+      "bytes": 630617
     },
     {
       "path": "object-settings.csv",
@@ -336,8 +351,8 @@
     },
     {
       "path": "source-provenance.json",
-      "sha256": "b539b1a3bbe2ef82cef6fd8959c369c11aec791d7b38fdfd481df735d8a6153b",
-      "bytes": 439372
+      "sha256": "49a295bf1f09a183a1713b6412f292ec67c805e1fe282eb90d880ff77d7613a9",
+      "bytes": 439631
     }
   ]
 }

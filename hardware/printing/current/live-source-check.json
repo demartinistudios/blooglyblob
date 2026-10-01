@@ -7,9 +7,19 @@
   },
   "source_comparisons_verified": 72,
   "pending_source_comparisons": 0,
-  "validation": "checks/r29-mesh-consistency-validation.json",
+  "validation": "checks/r29-head-topology-validation.json",
   "selected_A04_source": {
     "path": "hardware/cad/current/stl/A04.stl",
     "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01"
-  }
+  },
+  "selected_head_sources": [
+    {
+      "path": "hardware/cad/current/stl/P08.stl",
+      "sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d"
+    },
+    {
+      "path": "hardware/cad/current/stl/P14.stl",
+      "sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267"
+    }
+  ]
 }

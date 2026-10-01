@@ -32,8 +32,9 @@
   {
     "id": "P08",
     "source": "hardware/cad/current/stl/P08.stl",
-    "sha256": "6dfd33ff75509c0efcd4fbc9ebd93f7135bb4bb2c3fe0cf5c8b24944edcf4596",
-    "source_design_revision": "R21"
+    "sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
+    "source_design_revision": "R29",
+    "export_evidence": "hardware/cad/current/stl/head-export-provenance.json"
   },
   {
     "id": "P09",
@@ -68,8 +69,9 @@
   {
     "id": "P14",
     "source": "hardware/cad/current/stl/P14.stl",
-    "sha256": "54b325982d013f8f7e4cf9b1a7de4caaf9216cef95c47a42b25824167357cbf8",
-    "source_design_revision": "R21"
+    "sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
+    "source_design_revision": "R29",
+    "export_evidence": "hardware/cad/current/stl/head-export-provenance.json"
   },
   {
     "id": "P30",

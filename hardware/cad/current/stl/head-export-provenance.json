@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "design_revision": "R29",
+  "cloud_version": 25,
+  "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+  "native_sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+  "export_settings": {
+    "method": "Fusion native STL export",
+    "isBinaryFormat": true,
+    "meshRefinement": "MeshRefinementHigh",
+    "unitType": "MillimeterDistanceUnits",
+    "sendToPrintUtility": false
+  },
+  "method": "Direct native binary STL export. No rounding, welding, hole filling, mesh repair or design mutation. Topology counts exact serialized coordinates. Retain existing source-to-project frames; do not recenter.",
+  "parts": [
+    {
+      "part": "P08",
+      "target": "hardware/cad/current/stl/P08.stl",
+      "sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
+      "bytes": 261684,
+      "previous_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7",
+      "native_occurrence": "P08 Dome carrier r2 - openable head harness entry:1",
+      "native_body": "Rotating dome carrier - horn adapter pending",
+      "native_volume_mm3": 8449.760840952116,
+      "source_frame": "native body-local millimetres, no centering/rotation/translation",
+      "native_body_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        12.129999999999999,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "topology": {
+        "triangles": 5232,
+        "exact_unique_vertices": 2588,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "winding_edge_failures": 0,
+        "degenerate_faces_zero_area": 0,
+        "signed_volume_mm3": 8450.65422319521,
+        "bounds_mm": [
+          [
+            -37.55479049682617,
+            -37.70000076293945,
+            0.0
+          ],
+          [
+            37.55479049682617,
+            37.55479049682617,
+            8.199999809265137
+          ]
+        ]
+      }
+    },
+    {
+      "part": "P14",
+      "target": "hardware/cad/current/stl/P14.stl",
+      "sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
+      "bytes": 193984,
+      "previous_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031",
+      "native_occurrence": "P14 Horn adapter r1 - two M2 screws on selected 18 mm pair:1",
+      "native_body": "Body1",
+      "native_volume_mm3": 8170.99261770347,
+      "source_frame": "native body-local millimetres, no centering/rotation/translation",
+      "native_body_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        11.694,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "topology": {
+        "triangles": 3878,
+        "exact_unique_vertices": 1925,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "winding_edge_failures": 0,
+        "degenerate_faces_zero_area": 0,
+        "signed_volume_mm3": 8169.9227087321715,
+        "bounds_mm": [
+          [
+            -23.0,
+            -22.996719360351562,
+            0.0
+          ],
+          [
+            23.0,
+            22.996719360351562,
+            11.359999656677246
+          ]
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "pair": "Seven XY placements plus fresh desktop slice: center remains open, 16.05 g.",
+    "full_W1": "8/8 objects, 3h27m10s, 64.26g. Open P08 center; no sampled fastener-core support. Other meshes/settings/blockers preserved.",
+    "limits": "Midpoint samples detect observed cap, not exhaustive bead or physical qualification. No P14 slicing failure was observed."
+  },
+  "unchanged": [
+    "Native assembly.f3d",
+    "R29 release acceptance",
+    "Native render meshes",
+    "Part hole pattern and geometry",
+    "All other selected STLs",
+    "Running print"
+  ]
+}

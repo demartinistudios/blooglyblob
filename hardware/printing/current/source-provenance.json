@@ -11599,5 +11599,10 @@
     "normalized_instances": 41,
     "verified_source_instances": 72,
     "record": "hardware/printing/current/checks/r29-mesh-consistency-validation.json"
+  },
+  {
+    "revision": "R29/cloud25",
+    "operation": "P08/P14 direct-native export replacement to remove exact-coordinate seam gaps; unchanged design/settings/placements",
+    "record": "hardware/printing/current/checks/r29-head-topology-validation.json"
   }
 ]

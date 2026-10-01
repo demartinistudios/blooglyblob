@@ -1128,7 +1128,7 @@
       },
       "stable_instance_key": "1:P08-1",
       "geometry_revision": "R29",
-      "source_stl_sha256": "380ca388f1ea6ab9704bf8f65e46ef004841f5ffccec54f2412f2cbe5d5e13c7"
+      "source_stl_sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d"
     },
     {
       "label": "P14-1 | White",
@@ -1354,7 +1354,7 @@
       },
       "stable_instance_key": "1:P14-1",
       "geometry_revision": "R29",
-      "source_stl_sha256": "c07f1aa245772d6ed18fea7334690cd0d5952ec865dfb7d81de04a60bb491031"
+      "source_stl_sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267"
     },
     {
       "label": "FB24-1 | White",
@@ -16021,9 +16021,9 @@
       },
       "piece_count": 8,
       "purpose": "White internals with R29 head-carrier/adapter hole pattern and USB-clearance audio cradle/lid; other parts retained.",
-      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
+      "status": "Clean unchanged-design P08/P14 native exports; full-plate slice and bounded cavity/layout review passed. Physical qualification separate.",
       "dispatch_authorized": false,
-      "estimated_seconds": 12429,
+      "estimated_seconds": 12430,
       "estimated_grams": 64.26,
       "plate_number": 1
     },
@@ -16749,7 +16749,7 @@
       "master": "0"
     }
   ],
-  "status": "All72 required/optional source-instance comparisons verified; eight affected PLA plates and optional PETG ball re-sliced after source mesh reconciliation. Physical qualification remains separate; no dispatch.",
+  "status": "All 72 source-instance comparisons verified; P08/P14 clean unchanged-design native exports installed and W1 re-sliced. Physical qualification remains separate.",
   "master_project": "BlooglyBlob-R29-PLA-Production.3mf",
   "optional_petg_project": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
   "historical_source_hashes_verified": true,
@@ -16758,5 +16758,5 @@
     "reason": "Machine-level value retained; per-object string-vector export causes invalid XML in Bambu 2.7.1.62. Final project re-sliced after omission."
   },
   "cad_revision": "R29/cloud25",
-  "validation": "checks/r29-mesh-consistency-validation.json"
+  "validation": "checks/r29-head-topology-validation.json"
 }
