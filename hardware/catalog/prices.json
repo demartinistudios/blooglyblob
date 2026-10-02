@@ -6,7 +6,7 @@
   "exclusions": "Not included: tools, optional prints, paint, tax, shipping, handling, import charges and OpenAI API use.",
   "shopping_notes": {
     "Fasteners": "Screws and nuts are priced individually; washers come in packs. A kit is optional: match every listed size, quantity and head shape.",
-    "Filament": "Prices below are from ELEGOO. Amazon links are alternatives; their prices may differ."
+    "Filament": "Prices below are from ELEGOO. If a plain PLA spool is out of stock, its RFID version is the same price. Amazon links are alternatives; their prices may differ."
   },
   "allowances": "Wire, glue, tape and other cut-material quantities are planning estimates with spare, not measured from a build.",
   "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
@@ -622,7 +622,7 @@
           "used_quantity": "330",
           "note": "Allowance: two 15 × 11 mm blanks for the eyes. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
+          "purchase_note": "Check that white, 4 mm, 10 × 5 in is selected. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -638,7 +638,7 @@
           "used_quantity": "480",
           "note": "Allowance: one 60 × 8 mm blank, trimmed to the curved mouth strip. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
+          "purchase_note": "Check that white, 4 mm, 10 × 5 in is selected. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -654,7 +654,7 @@
           "used_quantity": "25875",
           "note": "Allowance: one 225 × 115 mm blank, trimmed to the body template. C02–C04 share one sheet; do not buy three.",
           "purchase_group": "white-diffuser-foam",
-          "purchase_note": "Choose white, 4 mm; the page defaults to 2 mm. One sheet covers C02, C03 and C04."
+          "purchase_note": "Check that white, 4 mm, 10 × 5 in is selected. One sheet covers C02, C03 and C04."
         }
       ]
     },
@@ -848,8 +848,7 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BM7446JH"
             }
-          ],
-          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
+          ]
         },
         {
           "pack_price_usd": "13.99",
@@ -865,8 +864,7 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BM739JRF"
             }
-          ],
-          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
+          ]
         },
         {
           "pack_price_usd": "18.99",
@@ -898,8 +896,7 @@
               "label": "Amazon",
               "url": "https://www.amazon.com/dp/B0BS6T828R"
             }
-          ],
-          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
+          ]
         },
         {
           "pack_price_usd": "13.99",
@@ -909,8 +906,7 @@
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
           "name": "Grey filament",
           "plate_color": "Gray",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
-          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
         },
         {
           "pack_price_usd": "13.99",
@@ -920,8 +916,7 @@
           "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
           "name": "Translucent filament",
           "plate_color": "Clear",
-          "note": "Selected plate estimate; only material used is charged, not a whole spool.",
-          "purchase_note": "If the plain spool is out of stock, the RFID version is the same price."
+          "note": "Selected plate estimate; only material used is charged, not a whole spool."
         }
       ]
     }

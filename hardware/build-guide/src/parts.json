@@ -2160,7 +2160,7 @@
     "additional_links": [
       {
         "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=44479773245543",
-        "label": "Price example \u2014 Copper filament"
+        "label": "Copper filament"
       },
       {
         "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg",
@@ -2197,11 +2197,11 @@
     "additional_links": [
       {
         "url": "https://www.adafruit.com/product/3468",
-        "label": "Price example \u2014 Flux"
+        "label": "Flux"
       },
       {
         "url": "https://www.homedepot.com/p/100085823",
-        "label": "Price example \u2014 Wire-label tape"
+        "label": "Wire-label tape"
       }
     ]
   },
@@ -2887,7 +2887,7 @@
     "qty": 2,
     "optional": 0,
     "category": "Fastener",
-    "description": "Two, for the backpack carrier. Use fully threaded A2 stainless DIN 912: M3 \u00d7 0.5, 18 mm long, \u00d85.5 \u00d7 3.0 mm head, 2.5 mm hex. Measure them before assembly.",
+    "description": "Two, for the backpack carrier. Use fully threaded A2 stainless DIN 912: M3 \u00d7 0.5, 18 mm long, \u00d85.5 \u00d7 3.0 mm head, 2.5 mm hex.",
     "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X18SS",
     "verification": "BelMetric BSH3X18SS is an example. Measure them.",
     "image": "assets/cartoons/M3x18.svg",
@@ -2926,7 +2926,7 @@
     "qty": "Four WAGO pieces + one audio patch",
     "optional": 0,
     "category": "Consumable",
-    "description": "Four cut pieces for the WAGOs and one patch for the back of the audio module case. The audio patch must be under 1 mm thick. Gorilla Double-Sided Tape is listed at 14 mil, about 0.36 mm. Cut it to size. Choose tape that bonds to both surfaces. WAGO levers must open fully and clear the cover. Follow the maker\u2019s instructions for surface preparation, pressure and bonding time.",
+    "description": "Four cut pieces for the WAGOs and one patch for the back of the audio module case. The audio patch must be under 1 mm thick. Gorilla Double-Sided Tape is listed at 14 mil, about 0.36 mm. Cut it to size. Choose tape that bonds to both surfaces. WAGO levers must open fully and clear the cover. Clean and dry both surfaces, then press the tape on firmly.",
     "steps": [
       "wagos",
       "audio-module",
