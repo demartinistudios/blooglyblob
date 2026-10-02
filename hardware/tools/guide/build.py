@@ -15,12 +15,14 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import packages  # noqa: E402
 import consistency  # noqa: E402
+import costing  # noqa: E402
 
 SRC = ROOT / 'hardware/build-guide/src'
 DIST = ROOT / 'hardware/build-guide/dist'
 # External inputs, read but never modified.
 ELECTRICAL = ROOT / 'hardware/assembly/electrical.json'
-INPUTS = [*packages.INPUTS, ELECTRICAL]
+PRICES = ROOT / 'hardware/catalog/prices.json'
+INPUTS = [*packages.INPUTS, ELECTRICAL, PRICES]
 
 DATA = {'guide-data.json': 'guide', 'parts.json': 'parts', 'print-data.json': 'prints'}
 CORE = ['.nojekyll', 'index.html', 'app.js', 'style.css', 'references.html', 'repeat-build.html']
@@ -146,6 +148,7 @@ def build():
     check_print_data(data['prints'], selected['manifest'])
     check_plate_total((SRC / 'repeat-build.html').read_text(), selected['manifest'])
     electrical = json.loads(ELECTRICAL.read_text())
+    costs = costing.calculate(json.loads(PRICES.read_text()), data['parts'], selected['manifest']['plates'])
 
     report = consistency.check(ROOT)
     if report['errors']:
@@ -170,7 +173,7 @@ def build():
             step.pop('hardware_allocations', None)
         parts = [{k: v for k, v in p.items() if k not in PRIVATE} for p in data['parts']]
         bundle = {'guide': data['guide'], 'parts': parts, 'prints': data['prints'],
-                  'electrical': {k: electrical[k] for k in ('power', 'signal')},
+                  'electrical': {k: electrical[k] for k in ('power', 'signal')}, 'costs': costs,
                   'plateSettingsHTML': plate_settings_html((SRC / 'repeat-build.html').read_text()),
                   'printSeconds': print_seconds(selected['manifest'])}
         (output / 'data.js').write_text('window.BGB = ' + json.dumps(bundle, ensure_ascii=False, separators=(',', ':')) + ';\n')

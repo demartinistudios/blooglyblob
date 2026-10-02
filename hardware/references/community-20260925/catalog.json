@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "checked_date": "2026-09-26",
-  "scope": "E01–E25, F1/F2, R1/R2, C02/C03/C04 and C08; references do not change product selection or accept physical fit.",
+  "scope": "Component references and priced generic supply examples; links do not change required specifications or qualify physical fit.",
   "references": [
     {
       "id": "ref-001",
@@ -133,7 +133,8 @@
       "id": "ref-011",
       "part_ids": [
         "E01",
-        "E02"
+        "E02",
+        "CENTER"
       ],
       "title": "Kitronik 25105 clippable servo and supplied accessories",
       "kind": "product",
@@ -357,29 +358,14 @@
       "part_ids": [
         "E13"
       ],
-      "title": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+      "title": "PNY Elite Class 10 U1 V10 microSD specifications",
       "kind": "product",
-      "official_url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
-      "checked_date": "2026-09-26",
-      "model_match": "exact-model",
-      "limitations": "",
-      "source_type": "manufacturer",
-      "publisher": "SanDisk"
-    },
-    {
-      "id": "ref-027",
-      "part_ids": [
-        "E13"
-      ],
-      "title": "SanDisk High Endurance microSD family datasheet",
-      "kind": "datasheet",
-      "official_url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
-      "checked_date": "2026-09-26",
+      "official_url": "https://www.pny.com/elite-dash-camera-class-10-u1-v10-microsd-memory-card",
+      "checked_date": "2026-10-01",
       "model_match": "family",
-      "limitations": "Capacity-dependent performance and endurance; use the 32 GB row.",
+      "limitations": "Select 32 GB microSDHC. Manufacturer page includes multipacks; the priced Walmart example is one card.",
       "source_type": "manufacturer",
-      "publisher": "SanDisk",
-      "download_url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf"
+      "publisher": "PNY"
     },
     {
       "id": "ref-028",
@@ -647,6 +633,485 @@
       "limitations": "Shows factory red +5 V, green data and black ground; confirm against the received strand.",
       "source_type": "manufacturer",
       "publisher": "Adafruit"
+    },
+    {
+      "id": "ref-046",
+      "part_ids": [
+        "M3x14"
+      ],
+      "title": "BelMetric BSH3X14SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf"
+    },
+    {
+      "id": "ref-047",
+      "part_ids": [
+        "N3"
+      ],
+      "title": "BelMetric NR3SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf"
+    },
+    {
+      "id": "ref-048",
+      "part_ids": [
+        "M2x6"
+      ],
+      "title": "BelMetric SB2X6SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf"
+    },
+    {
+      "id": "ref-049",
+      "part_ids": [
+        "N2"
+      ],
+      "title": "BelMetric NR2SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf"
+    },
+    {
+      "id": "ref-050",
+      "part_ids": [
+        "M3x16"
+      ],
+      "title": "BelMetric BSH3X16SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf"
+    },
+    {
+      "id": "ref-051",
+      "part_ids": [
+        "M3x20"
+      ],
+      "title": "BelMetric BSH3X20SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf"
+    },
+    {
+      "id": "ref-052",
+      "part_ids": [
+        "M3x10"
+      ],
+      "title": "BelMetric BSH3X10SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf"
+    },
+    {
+      "id": "ref-053",
+      "part_ids": [
+        "M3x8"
+      ],
+      "title": "BelMetric BSH3X8SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf"
+    },
+    {
+      "id": "ref-054",
+      "part_ids": [
+        "M2x10"
+      ],
+      "title": "BelMetric SB2X10SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf"
+    },
+    {
+      "id": "ref-055",
+      "part_ids": [
+        "M2x8"
+      ],
+      "title": "BelMetric SB2X8SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf"
+    },
+    {
+      "id": "ref-056",
+      "part_ids": [
+        "M3x10CS"
+      ],
+      "title": "BelMetric SF3X10SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf"
+    },
+    {
+      "id": "ref-057",
+      "part_ids": [
+        "M3x6"
+      ],
+      "title": "BelMetric BSH3X6SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf"
+    },
+    {
+      "id": "ref-058",
+      "part_ids": [
+        "M2x12"
+      ],
+      "title": "BelMetric SB2X12SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf"
+    },
+    {
+      "id": "ref-059",
+      "part_ids": [
+        "M3x12"
+      ],
+      "title": "BelMetric BSH3X12SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf"
+    },
+    {
+      "id": "ref-060",
+      "part_ids": [
+        "M3x18"
+      ],
+      "title": "BelMetric BSH3X18SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf"
+    },
+    {
+      "id": "ref-061",
+      "part_ids": [
+        "E24"
+      ],
+      "title": "DigiKey Standard 24 AWG jumper wire kit datasheet",
+      "kind": "datasheet",
+      "official_url": "https://www.digikey.com/en/products/detail/digikey/DKS-20FF-30/17038794",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Select DKS-20FF-30: 20 female-to-female leads, nominal 30 cm, 24 AWG stranded wire.",
+      "source_type": "supplier",
+      "publisher": "DigiKey Standard",
+      "download_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6658/DKS_JumperWireKits_DS.pdf"
+    },
+    {
+      "id": "ref-062",
+      "part_ids": [
+        "E25"
+      ],
+      "title": "Adafruit 550 adhesive feet specifications",
+      "kind": "product",
+      "official_url": "https://www.adafruit.com/product/550",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Example: approximately 8 mm diameter and 4 mm tall. Supplier says shape may vary; use four matching feet within the 14 mm mounting faces.",
+      "source_type": "manufacturer",
+      "publisher": "Adafruit"
+    },
+    {
+      "id": "ref-063",
+      "part_ids": [
+        "C01"
+      ],
+      "title": "Grafix clear acetate film specifications",
+      "kind": "product",
+      "official_url": "https://www.grafixarts.com/products/acetate-film/",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "Grafix"
+    },
+    {
+      "id": "ref-064",
+      "part_ids": [
+        "C09"
+      ],
+      "title": "Gorilla two-part epoxy application instructions",
+      "kind": "product",
+      "official_url": "https://gorillatough.com/product/gorilla-epoxy",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "Gorilla"
+    },
+    {
+      "id": "ref-065",
+      "part_ids": [
+        "C09",
+        "C18"
+      ],
+      "title": "Gorilla adhesive safety data sheets",
+      "kind": "product",
+      "official_url": "https://gorillatough.com/first-aid-sds/glues-adhesives",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Choose the sheet for the adhesive you buy; epoxy resin and hardener have separate sheets.",
+      "source_type": "manufacturer",
+      "publisher": "Gorilla"
+    },
+    {
+      "id": "ref-066",
+      "part_ids": [
+        "C10"
+      ],
+      "title": "Coscom EVA 38 foam specifications",
+      "kind": "product",
+      "official_url": "https://coscomcosplaysupplies.com/products/grade-a-eva-38-foam-59-wide-up-to-118-wide?variant=47081878847720",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Choose the 1 mm variant for the lid lining, not 4 mm Plastazote.",
+      "source_type": "manufacturer",
+      "publisher": "Coscom"
+    },
+    {
+      "id": "ref-067",
+      "part_ids": [
+        "C12"
+      ],
+      "title": "Adafruit 344 heat-shrink assortment specifications",
+      "kind": "product",
+      "official_url": "https://www.adafruit.com/product/344",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "Adafruit"
+    },
+    {
+      "id": "ref-068",
+      "part_ids": [
+        "C13"
+      ],
+      "title": "ELEGOO standard PLA specifications",
+      "kind": "product",
+      "official_url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "ELEGOO"
+    },
+    {
+      "id": "ref-069",
+      "part_ids": [
+        "C13"
+      ],
+      "title": "ELEGOO silk PLA specifications",
+      "kind": "product",
+      "official_url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "ELEGOO"
+    },
+    {
+      "id": "ref-070",
+      "part_ids": [
+        "C14"
+      ],
+      "title": "SparkFun TOL-09163 lead-free solder specifications",
+      "kind": "product",
+      "official_url": "https://www.sparkfun.com/solder-lead-free-15-gram-tube.html",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "15 g tube, 0.031-inch flux-cored SAC305: 96.5% tin, 3% silver, 0.5% copper.",
+      "source_type": "manufacturer",
+      "publisher": "SparkFun"
+    },
+    {
+      "id": "ref-071",
+      "part_ids": [
+        "C14"
+      ],
+      "title": "Chip Quik CQ4LF flux specifications",
+      "kind": "product",
+      "official_url": "https://www.adafruit.com/product/3468",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "supplier",
+      "publisher": "Adafruit"
+    },
+    {
+      "id": "ref-072",
+      "part_ids": [
+        "C16"
+      ],
+      "title": "Gorilla Double-Sided Tape product information",
+      "kind": "product",
+      "official_url": "https://gorillatough.com/product/gorilla-double-sided-tape",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Item 100925, 1.41 in × 8 yd, rubber adhesive. Not for PVC or other high-plasticizer materials. The page gives no thickness; retailers list 14 mil (0.36 mm).",
+      "source_type": "manufacturer",
+      "publisher": "Gorilla Glue Company"
+    },
+    {
+      "id": "ref-073",
+      "part_ids": [
+        "C17"
+      ],
+      "title": "Secure SAM-002-BK adhesive mount specifications",
+      "kind": "product",
+      "official_url": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Product example; the catalog dimensions and specifications still apply.",
+      "source_type": "manufacturer",
+      "publisher": "Secure Cable Ties"
+    },
+    {
+      "id": "ref-074",
+      "part_ids": [
+        "C05"
+      ],
+      "title": "Fermerry 18 AWG silicone wire specifications",
+      "kind": "product",
+      "official_url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Red and black, 10 ft each; 18 AWG stranded tinned copper, 2.3 mm outside diameter. No separate datasheet linked.",
+      "source_type": "manufacturer",
+      "publisher": "Fermerry"
+    },
+    {
+      "id": "ref-075",
+      "part_ids": [
+        "C06"
+      ],
+      "title": "Adafruit 3111 stranded 22 AWG wire specifications",
+      "kind": "product",
+      "official_url": "https://www.adafruit.com/product/3111",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "Six colors, 25 ft each; 22 AWG stranded wire. No separate datasheet linked.",
+      "source_type": "manufacturer",
+      "publisher": "Adafruit"
+    },
+    {
+      "id": "ref-076",
+      "part_ids": [
+        "C07"
+      ],
+      "title": "Secure CT-08018-BK cable-tie specifications",
+      "kind": "product",
+      "official_url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
+      "checked_date": "2026-10-01",
+      "model_match": "example-product",
+      "limitations": "8-inch miniature nylon ties, 2.29 mm wide. Select this narrow size, not the wider standard ties. The page links the CT-08018-BK spec sheet.",
+      "source_type": "manufacturer",
+      "publisher": "Secure Cable Ties"
+    },
+    {
+      "id": "ref-077",
+      "part_ids": [
+        "W2"
+      ],
+      "title": "BFirst MFWZ 002 M2 washer dimensions",
+      "kind": "product",
+      "official_url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
+      "checked_date": "2026-10-01",
+      "model_match": "exact-model",
+      "limitations": "2.31 mm ID × 4.37 mm OD × 0.25 mm thick; zinc-plated steel. No separate datasheet linked.",
+      "source_type": "supplier",
+      "publisher": "DigiKey"
+    },
+    {
+      "id": "ref-078",
+      "part_ids": [
+        "W3"
+      ],
+      "title": "BFirst MFWZ 003 M3 washer dimensions",
+      "kind": "product",
+      "official_url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
+      "checked_date": "2026-10-01",
+      "model_match": "exact-model",
+      "limitations": "3.20 mm ID × 7.01 mm OD × 0.53 mm thick; zinc-plated steel. No separate datasheet linked.",
+      "source_type": "supplier",
+      "publisher": "DigiKey"
     }
   ],
   "parts": [
@@ -792,13 +1257,12 @@
     },
     {
       "part_id": "E13",
-      "name": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
+      "name": "PNY Elite 32 GB microSDHC card",
       "reference_ids": [
-        "ref-026",
-        "ref-027"
+        "ref-026"
       ],
       "coverage": "links-only",
-      "limitations": ""
+      "limitations": "32 GB microSDHC product-family specifications; no exact manufacturer SKU asserted for the retail single-card example."
     },
     {
       "part_id": "E14",
@@ -889,16 +1353,20 @@
     {
       "part_id": "E24",
       "name": "Female 2.54 mm GPIO leads, 24 AWG",
-      "reference_ids": [],
-      "coverage": "unresolved-model",
-      "limitations": "Generic 24 AWG female 2.54 mm GPIO leads; no exact donor/SKU selected, so no exact datasheet can be assigned."
+      "reference_ids": [
+        "ref-061"
+      ],
+      "coverage": "links-only",
+      "limitations": "Select DKS-20FF-30: 20 female-to-female leads, nominal 30 cm, 24 AWG stranded wire."
     },
     {
       "part_id": "E25",
       "name": "Four matching adhesive rubber feet",
-      "reference_ids": [],
-      "coverage": "unresolved-model",
-      "limitations": "Four equal-height adhesive feet fitting entirely on Ø14 mm post faces; no exact SKU required."
+      "reference_ids": [
+        "ref-062"
+      ],
+      "coverage": "links-only",
+      "limitations": "Example: approximately 8 mm diameter and 4 mm tall. Supplier says shape may vary; use four matching feet within the 14 mm mounting faces."
     },
     {
       "part_id": "R1",
@@ -957,6 +1425,279 @@
       ],
       "coverage": "links-only",
       "limitations": ""
+    },
+    {
+      "part_id": "M3x14",
+      "name": "M3×14",
+      "reference_ids": [
+        "ref-046"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "N3",
+      "name": "M3 hex nut",
+      "reference_ids": [
+        "ref-047"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide."
+    },
+    {
+      "part_id": "M2x6",
+      "name": "M2×6",
+      "reference_ids": [
+        "ref-048"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "N2",
+      "name": "M2 hex nut",
+      "reference_ids": [
+        "ref-049"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the nut size specified in the guide."
+    },
+    {
+      "part_id": "M3x16",
+      "name": "M3×16",
+      "reference_ids": [
+        "ref-050"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x20",
+      "name": "M3×20",
+      "reference_ids": [
+        "ref-051"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x10",
+      "name": "M3×10",
+      "reference_ids": [
+        "ref-052"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x8",
+      "name": "M3×8",
+      "reference_ids": [
+        "ref-053"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M2x10",
+      "name": "M2×10",
+      "reference_ids": [
+        "ref-054"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M2x8",
+      "name": "M2×8",
+      "reference_ids": [
+        "ref-055"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x10CS",
+      "name": "M3×10 countersunk",
+      "reference_ids": [
+        "ref-056"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x6",
+      "name": "M3×6",
+      "reference_ids": [
+        "ref-057"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M2x12",
+      "name": "M2×12",
+      "reference_ids": [
+        "ref-058"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x12",
+      "name": "M3×12",
+      "reference_ids": [
+        "ref-059"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x18",
+      "name": "M3×18",
+      "reference_ids": [
+        "ref-060"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "C01",
+      "name": "Clear eye film",
+      "reference_ids": [
+        "ref-063"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C09",
+      "name": "Two-part epoxy for PLA and metal",
+      "reference_ids": [
+        "ref-064",
+        "ref-065"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C18",
+      "name": "Optional CA gel for nut pockets",
+      "reference_ids": [
+        "ref-065"
+      ],
+      "coverage": "links-only",
+      "limitations": "Choose the sheet for the adhesive you buy; epoxy resin and hardener have separate sheets."
+    },
+    {
+      "part_id": "C10",
+      "name": "Audio lid lining, 1 mm",
+      "reference_ids": [
+        "ref-066"
+      ],
+      "coverage": "links-only",
+      "limitations": "Choose the 1 mm variant for the lid lining, not 4 mm Plastazote."
+    },
+    {
+      "part_id": "C12",
+      "name": "Heat-shrink tubing",
+      "reference_ids": [
+        "ref-067"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C13",
+      "name": "PLA filament, 1.75 mm",
+      "reference_ids": [
+        "ref-068",
+        "ref-069"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C14",
+      "name": "Solder, flux and wire labels",
+      "reference_ids": [
+        "ref-070",
+        "ref-071"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C16",
+      "name": "Double-sided mounting tape",
+      "reference_ids": [
+        "ref-072"
+      ],
+      "coverage": "links-only",
+      "limitations": "Item 100925, 1.41 in × 8 yd, rubber adhesive. Not for PVC or other high-plasticizer materials. The page gives no thickness; retailers list 14 mil (0.36 mm)."
+    },
+    {
+      "part_id": "C17",
+      "name": "Adhesive cable-tie squares, 1 inch",
+      "reference_ids": [
+        "ref-073"
+      ],
+      "coverage": "links-only",
+      "limitations": "Product example; the catalog dimensions and specifications still apply."
+    },
+    {
+      "part_id": "C05",
+      "name": "18 AWG stranded copper wire",
+      "reference_ids": [
+        "ref-074"
+      ],
+      "coverage": "links-only",
+      "limitations": "Red and black, 10 ft each; 18 AWG stranded tinned copper, 2.3 mm outside diameter."
+    },
+    {
+      "part_id": "C06",
+      "name": "22 AWG stranded copper wire",
+      "reference_ids": [
+        "ref-075"
+      ],
+      "coverage": "links-only",
+      "limitations": "Six colors, 25 ft each; 22 AWG stranded wire."
+    },
+    {
+      "part_id": "C07",
+      "name": "Cable ties, 2.5 mm",
+      "reference_ids": [
+        "ref-076"
+      ],
+      "coverage": "links-only",
+      "limitations": "8-inch miniature nylon ties, 2.29 mm wide. Select this narrow size, not the wider standard ties."
+    },
+    {
+      "part_id": "W2",
+      "name": "M2 washer, thin metal (BFirst MFWZ002)",
+      "reference_ids": [
+        "ref-077"
+      ],
+      "coverage": "links-only",
+      "limitations": "2.31 mm ID × 4.37 mm OD × 0.25 mm thick; zinc-plated steel."
+    },
+    {
+      "part_id": "W3",
+      "name": "M3 washer (BFirst MFWZ003)",
+      "reference_ids": [
+        "ref-078"
+      ],
+      "coverage": "links-only",
+      "limitations": "3.20 mm ID × 7.01 mm OD × 0.53 mm thick; zinc-plated steel."
+    },
+    {
+      "part_id": "CENTER",
+      "name": "Servo center screw (supplied)",
+      "reference_ids": [
+        "ref-011"
+      ],
+      "coverage": "links-only",
+      "limitations": "Supplied with the servo; no separate manufacturer dimensional specification."
     }
   ]
 }

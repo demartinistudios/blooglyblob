@@ -30,7 +30,7 @@ fs.mkdirSync(OUT,{recursive:false});
   page.on('request',request=>{const url=new URL(request.url());if(/^https?:$/.test(url.protocol)&&url.origin!==new URL(BASE).origin)externalRequests.add(url.href)});
   await page.goto(BASE);
   const data=await page.evaluate(()=>window.BGB);assert.ok(data.prints.length>0);
-  assert.deepEqual(Object.keys(data).sort(),['electrical','guide','parts','plateSettingsHTML','printSeconds','prints']);
+  assert.deepEqual(Object.keys(data).sort(),['costs','electrical','guide','parts','plateSettingsHTML','printSeconds','prints']);
   assert.ok(!/"(exact|status|source|sources)":/.test(JSON.stringify(data)),'private fields in data.js');
   const build=data.guide.steps.filter(s=>s.kind==='build');assert.ok(build.length>0);
   // Step IDs are descriptive slugs; retired numeric and legacy IDs are gone, with no aliases.
@@ -230,10 +230,10 @@ fs.mkdirSync(OUT,{recursive:false});
   await page.evaluate(({KEY,existing})=>localStorage.setItem(KEY,JSON.stringify(existing)),{KEY,existing});
   await page.reload();assert.deepEqual(await page.evaluate(KEY=>JSON.parse(localStorage.getItem(KEY)),KEY),existing);
   const steps=new Set(data.guide.steps.map(s=>s.id));
-  const shots=['step-board-cover-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service','before-you-start'];
+  const shots=['step-board-cover-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-secure-base-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-body-light-input','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','cost','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','step-power-parts-service','before-you-start'];
   shots.push(...SETUP.map(id=>'step-'+id),...SOFTWARE_TOPICS.map(id=>'software/'+id));
   for(const r of shots.filter(r=>r.startsWith('step-')))assert.ok(steps.has(r.slice(5)),'screenshot route missing: '+r);
-  const routes=['start','before-you-start','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
+  const routes=['start','before-you-start','cost','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
   routes.push(...SOFTWARE_TOPICS.map(id=>'software/'+id));
   // Safety entries (KTD4) are one {level,text} entry or a list; the guide shows the level label.
   const safetyOf=value=>value?(Array.isArray(value)?value:[value]):[];
@@ -251,6 +251,43 @@ fs.mkdirSync(OUT,{recursive:false});
     const leak=txt.match(OBSOLETE_COMMANDS);assert.ok(!leak,route+' contains '+(leak&&leak[0]));
     assert.ok(!/undefined|Page not found/.test(await page.title()),route+' title');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' '+width);
+    if(route==='cost'){
+     const money=value=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(value));
+     assert.deepEqual(await page.locator('.cost-total strong').allInnerTexts(),[data.costs.total,data.costs.single_color_total,data.costs.shopping_total].map(money));
+     assert.equal(await page.locator('.shopping-detail tbody tr').count(),data.costs.rows.filter(r=>r.buy_packs>0).length);
+     for(const mode of ['single','palette']){
+      await page.locator(`input[name="cost-filament"][value="${mode}"]`).check();
+      assert.equal(await page.locator('.shopping-total strong').innerText(),money(mode==='single'?data.costs.single_color_total:data.costs.shopping_total));
+      const expected=data.costs.rows.filter(r=>r.buy_packs>0&&(mode==='palette'||r.category!=='Filament')).length+(mode==='single'?1:0);
+      assert.equal(await page.locator('.shopping-detail tbody tr').count(),expected);
+      for(const detail of await page.locator('.shopping-detail').all()){
+       await detail.evaluate(el=>el.open=true);
+       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'shopping costs '+mode+' '+width);
+      }
+     }
+     const cents=values=>values.reduce((sum,value)=>sum+Math.round(Number(value)*100),0);
+     assert.equal(cents(Object.values(data.costs.categories)),cents([data.costs.total]),'categories add up');
+     for(const [category,value] of Object.entries(data.costs.categories))assert.equal(cents(data.costs.rows.filter(r=>r.category===category).map(r=>r.cost_used)),cents([value]),'rows add up '+category);
+     assert.equal(cents(Object.values(data.costs.shopping_categories)),cents([data.costs.shopping_total]),'shopping categories add up');
+     assert.equal(await page.locator('.cost-detail tbody tr').count(),data.costs.rows.length);
+     for(const detail of await page.locator('.cost-detail').all()){
+      await detail.locator('summary').click();
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'expanded costs '+width);
+     }
+    }
+    if(route.startsWith('parts/')){
+     const part=data.parts.find(p=>p.id===route.slice(6));
+     if(part && !part.omitted){
+      const pricing=page.locator('#part-'+part.id+' .part-price');
+      assert.equal(await pricing.count(),part.category==='Tool'?0:1,'card price '+part.id);
+      const quotes=data.costs.rows.filter(r=>r.id===part.id);
+      if(quotes.length && quotes.every(r=>r.included_with)){
+       assert.ok((await pricing.innerText()).includes('Included with '),'included part '+part.id);
+      }else if(data.costs.part_totals[part.id] && quotes.some(r=>Number(r.used_quantity)>0)){
+       assert.ok((await pricing.innerText()).includes('$'+data.costs.part_totals[part.id]),'used cost '+part.id);
+      }
+     }
+    }
     if(route.startsWith('step-')){
      const step=data.guide.steps.find(s=>s.id===route.slice(5));
      assert.equal(await page.locator('.action-panel').count(),step.panels.length);

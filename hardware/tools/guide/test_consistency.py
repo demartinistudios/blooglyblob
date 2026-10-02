@@ -640,12 +640,14 @@ build.publish_staged(output, destination, backup)
             '<main id="content"><h1>Plate settings</h1><p>Estimated total: 0 h 0 min, 0 g.</p><footer></footer></main>')
         for name, value in [('guide-data.json', {'steps': []}), ('parts.json', []), ('print-data.json', [])]:
             (self.src / name).write_text(json.dumps(value))
+        prices = self.root / 'prices.json'
+        prices.write_text(json.dumps({'schema_version': 1, 'currency': 'USD', 'checked_date': '2026-10-01', 'items': []}))
         electrical = self.root / 'electrical.json'
         electrical.write_text(json.dumps({'power': [], 'signal': []}))
         self.stack = ExitStack()
         self.addCleanup(self.stack.close)
         for name, value in [('ROOT', self.root), ('SRC', self.src), ('DIST', self.dist), ('INPUTS', []),
-                            ('ELECTRICAL', electrical)]:
+                            ('ELECTRICAL', electrical), ('PRICES', prices)]:
             self.stack.enter_context(patch.object(build, name, value))
         self.stack.enter_context(patch.object(build.packages, 'sources', return_value={'manifest': {'plates': []}}))
         self.stack.enter_context(patch.object(build.consistency, 'check', return_value={'errors': [], 'blockers': []}))

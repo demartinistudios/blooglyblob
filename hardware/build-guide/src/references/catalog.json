@@ -95,7 +95,8 @@
     {
       "parts": [
         "E01",
-        "E02"
+        "E02",
+        "CENTER"
       ],
       "title": "Kitronik 25105 clippable servo and supplied accessories",
       "publisher": "Kitronik",
@@ -250,21 +251,11 @@
       "parts": [
         "E13"
       ],
-      "title": "SanDisk High Endurance 32 GB SDSQQNR-032G-GN6IA",
-      "publisher": "SanDisk",
-      "url": "https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-high-endurance-uhs-i-microsd?sku=SDSQQNR-032G-GN6IA",
-      "checked": "2026-09-26",
+      "title": "PNY Elite Class 10 U1 V10 microSD specifications",
+      "publisher": "PNY",
+      "url": "https://www.pny.com/elite-dash-camera-class-10-u1-v10-microsd-memory-card",
+      "checked": "2026-10-01",
       "reference_id": "ref-026"
-    },
-    {
-      "parts": [
-        "E13"
-      ],
-      "title": "SanDisk High Endurance microSD family datasheet",
-      "publisher": "SanDisk",
-      "url": "https://www.sandisk.com/tools/documentRequestHandler?docPath=/content/dam/doc-library/en_us/assets/public/sandisk/product/memory-cards/high-endurance-uhs-i-microsd/data-sheet-high-endurance-uhs-i-microsd.pdf",
-      "checked": "2026-09-26",
-      "reference_id": "ref-027"
     },
     {
       "parts": [
@@ -451,6 +442,337 @@
       "url": "https://learn.adafruit.com/icicle-crown-with-pebble-pixels-wled?view=all",
       "checked": "2026-09-27",
       "reference_id": "ref-045"
+    },
+    {
+      "parts": [
+        "M3x14"
+      ],
+      "title": "BelMetric BSH3X14SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-046"
+    },
+    {
+      "parts": [
+        "N3"
+      ],
+      "title": "BelMetric NR3SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-047"
+    },
+    {
+      "parts": [
+        "M2x6"
+      ],
+      "title": "BelMetric SB2X6SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-048"
+    },
+    {
+      "parts": [
+        "N2"
+      ],
+      "title": "BelMetric NR2SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-049"
+    },
+    {
+      "parts": [
+        "M3x16"
+      ],
+      "title": "BelMetric BSH3X16SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-050"
+    },
+    {
+      "parts": [
+        "M3x20"
+      ],
+      "title": "BelMetric BSH3X20SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-051"
+    },
+    {
+      "parts": [
+        "M3x10"
+      ],
+      "title": "BelMetric BSH3X10SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-052"
+    },
+    {
+      "parts": [
+        "M3x8"
+      ],
+      "title": "BelMetric BSH3X8SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-053"
+    },
+    {
+      "parts": [
+        "M2x10"
+      ],
+      "title": "BelMetric SB2X10SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-054"
+    },
+    {
+      "parts": [
+        "M2x8"
+      ],
+      "title": "BelMetric SB2X8SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-055"
+    },
+    {
+      "parts": [
+        "M3x10CS"
+      ],
+      "title": "BelMetric SF3X10SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-056"
+    },
+    {
+      "parts": [
+        "M3x6"
+      ],
+      "title": "BelMetric BSH3X6SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-057"
+    },
+    {
+      "parts": [
+        "M2x12"
+      ],
+      "title": "BelMetric SB2X12SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-058"
+    },
+    {
+      "parts": [
+        "M3x12"
+      ],
+      "title": "BelMetric BSH3X12SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-059"
+    },
+    {
+      "parts": [
+        "M3x18"
+      ],
+      "title": "BelMetric BSH3X18SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-060"
+    },
+    {
+      "parts": [
+        "E24"
+      ],
+      "title": "DigiKey Standard 24 AWG jumper wire kit datasheet",
+      "publisher": "DigiKey Standard",
+      "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6658/DKS_JumperWireKits_DS.pdf",
+      "checked": "2026-10-01",
+      "reference_id": "ref-061"
+    },
+    {
+      "parts": [
+        "E25"
+      ],
+      "title": "Adafruit 550 adhesive feet specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/550",
+      "checked": "2026-10-01",
+      "reference_id": "ref-062"
+    },
+    {
+      "parts": [
+        "C01"
+      ],
+      "title": "Grafix clear acetate film specifications",
+      "publisher": "Grafix",
+      "url": "https://www.grafixarts.com/products/acetate-film/",
+      "checked": "2026-10-01",
+      "reference_id": "ref-063"
+    },
+    {
+      "parts": [
+        "C09"
+      ],
+      "title": "Gorilla two-part epoxy application instructions",
+      "publisher": "Gorilla",
+      "url": "https://gorillatough.com/product/gorilla-epoxy",
+      "checked": "2026-10-01",
+      "reference_id": "ref-064"
+    },
+    {
+      "parts": [
+        "C09",
+        "C18"
+      ],
+      "title": "Gorilla adhesive safety data sheets",
+      "publisher": "Gorilla",
+      "url": "https://gorillatough.com/first-aid-sds/glues-adhesives",
+      "checked": "2026-10-01",
+      "reference_id": "ref-065"
+    },
+    {
+      "parts": [
+        "C10"
+      ],
+      "title": "Coscom EVA 38 foam specifications",
+      "publisher": "Coscom",
+      "url": "https://coscomcosplaysupplies.com/products/grade-a-eva-38-foam-59-wide-up-to-118-wide?variant=47081878847720",
+      "checked": "2026-10-01",
+      "reference_id": "ref-066"
+    },
+    {
+      "parts": [
+        "C12"
+      ],
+      "title": "Adafruit 344 heat-shrink assortment specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/344",
+      "checked": "2026-10-01",
+      "reference_id": "ref-067"
+    },
+    {
+      "parts": [
+        "C13"
+      ],
+      "title": "ELEGOO standard PLA specifications",
+      "publisher": "ELEGOO",
+      "url": "https://us.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+      "checked": "2026-10-01",
+      "reference_id": "ref-068"
+    },
+    {
+      "parts": [
+        "C13"
+      ],
+      "title": "ELEGOO silk PLA specifications",
+      "publisher": "ELEGOO",
+      "url": "https://us.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg",
+      "checked": "2026-10-01",
+      "reference_id": "ref-069"
+    },
+    {
+      "parts": [
+        "C14"
+      ],
+      "title": "SparkFun TOL-09163 lead-free solder specifications",
+      "publisher": "SparkFun",
+      "url": "https://www.sparkfun.com/solder-lead-free-15-gram-tube.html",
+      "checked": "2026-10-01",
+      "reference_id": "ref-070"
+    },
+    {
+      "parts": [
+        "C14"
+      ],
+      "title": "Chip Quik CQ4LF flux specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/3468",
+      "checked": "2026-10-01",
+      "reference_id": "ref-071"
+    },
+    {
+      "parts": [
+        "C16"
+      ],
+      "title": "Gorilla Double-Sided Tape product information",
+      "publisher": "Gorilla Glue Company",
+      "url": "https://gorillatough.com/product/gorilla-double-sided-tape",
+      "checked": "2026-10-01",
+      "reference_id": "ref-072"
+    },
+    {
+      "parts": [
+        "C17"
+      ],
+      "title": "Secure SAM-002-BK adhesive mount specifications",
+      "publisher": "Secure Cable Ties",
+      "url": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",
+      "checked": "2026-10-01",
+      "reference_id": "ref-073"
+    },
+    {
+      "parts": [
+        "C05"
+      ],
+      "title": "Fermerry 18 AWG silicone wire specifications",
+      "publisher": "Fermerry",
+      "url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
+      "checked": "2026-10-01",
+      "reference_id": "ref-074"
+    },
+    {
+      "parts": [
+        "C06"
+      ],
+      "title": "Adafruit 3111 stranded 22 AWG wire specifications",
+      "publisher": "Adafruit",
+      "url": "https://www.adafruit.com/product/3111",
+      "checked": "2026-10-01",
+      "reference_id": "ref-075"
+    },
+    {
+      "parts": [
+        "C07"
+      ],
+      "title": "Secure CT-08018-BK cable-tie specifications",
+      "publisher": "Secure Cable Ties",
+      "url": "https://www.securecableties.com/8-inch-black-miniature-nylon-cable-tie-100-pack",
+      "checked": "2026-10-01",
+      "reference_id": "ref-076"
+    },
+    {
+      "parts": [
+        "W2"
+      ],
+      "title": "BFirst MFWZ 002 M2 washer dimensions",
+      "publisher": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
+      "checked": "2026-10-01",
+      "reference_id": "ref-077"
+    },
+    {
+      "parts": [
+        "W3"
+      ],
+      "title": "BFirst MFWZ 003 M3 washer dimensions",
+      "publisher": "DigiKey",
+      "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
+      "checked": "2026-10-01",
+      "reference_id": "ref-078"
     }
   ]
 }

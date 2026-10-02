@@ -684,10 +684,10 @@ def usb_audio(p):
 
 
 def microsd(p):
-    """SanDisk High Endurance 32 GB microSD card, label side up, contacts end at the top."""
+    """PNY Elite 32 GB microSD card, label side up, contacts end at the top."""
     card = [(1.4, 0), (11, 0), (11, 15), (0, 15), (0, 7.3), (.8, 6.5), (.8, 5.6), (1.4, 5.0)]
     def art():
-        p.text(6.2, 5.0, 1, 'HIGH ENDURANCE', .78, '#e9e9ea')
+        p.text(6.2, 5.0, 1, 'PNY ELITE', 1.2, '#e9e9ea')
         p.text(6.0, 10.2, 1, '32GB', 3.1, '#ffffff')
         p.text(3.4, 13.4, 1, 'microSD HC', .9, '#c9cacd', anchor='start')
         for y in (13.9, 14.3):

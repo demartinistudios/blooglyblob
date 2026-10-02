@@ -1,6 +1,9 @@
 # Hardware
 
 For assembly, open the [build guide preview](build-guide/README.md#build-and-preview).
+The guide’s **Build cost** page lists materials used, shopping totals and a
+shopping list with purchase links; [BUILD-COST.md](catalog/BUILD-COST.md)
+explains how they are calculated.
 Website deployment and physical qualification are separate checks. For contributions, this page
 connects the three area procedures:
 [CAD](cad/DESIGN-WORKFLOW.md), [printing](printing/current/README.md), and
@@ -40,6 +43,7 @@ in the [guide procedure](build-guide/README.md).
 | Editable print projects and process | [Current print set](printing/current/README.md) and [recipe locks](printing/recipes/projects.json) |
 | Installed hardware and electrical allocations | [Hardware allocations](assembly/hardware.json) and [electrical tables](assembly/electrical.json) |
 | Current technical limitations | [CAD notes](cad/CURRENT-NOTES.md), [print procedure](printing/current/README.md), and [guide review](build-guide/REVIEW.md) |
+| Price quotes and consumption allowances | [Price catalog](catalog/prices.json); the guide calculates costs from these quotes, current quantities and plate weights |
 | Purchased supply specifications | [Supply catalog](catalog/supplies.json); guide cards add presentation and links |
 | Component references | [Reference catalog](references/community-20260925/catalog.json) linking to publisher documents |
 | Assembly instructions | [Guide source](build-guide/src/), independent of CAD release selection |

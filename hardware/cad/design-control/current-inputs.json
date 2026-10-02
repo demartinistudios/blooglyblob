@@ -429,8 +429,8 @@
     },
     {
       "path": "hardware/catalog/supplies.json",
-      "sha256": "0d47e5c4d11f80be034863709277b866b0990eac6a2043712f0a695915f128b4",
-      "bytes": 14444
+      "sha256": "6a1239ef4b4e5782dcfb4fe934181db77a34d1f1f5eddcb5d7d6ce592f5b64c7",
+      "bytes": 14427
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
