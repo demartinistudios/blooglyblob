@@ -34,6 +34,7 @@ help:
 	@echo "  guide-setup         Install locked browser dependencies (network required)"
 	@echo "  dev-setup-ring / dev-setup-roku"
 	@echo "  hardware-test / hardware-check / guide-build / guide-browser (offline)"
+	@echo "  guide-social-card   Re-render the guide's link-preview card and touch icon"
 
 .PHONY: pi-servo-fit
 pi-check pi-payload pi-provision pi-update pi-ssh pi-run pi-logs pi-start pi-stop pi-restart pi-status pi-check-audio pi-test-audio pi-test-mic pi-test-neopixels pi-servo-fit:
@@ -50,7 +51,7 @@ dev-test dev-lint dev-typecheck dev-format dev-format-check:
 dev-check:
 	@DEV_PYTHON="$(DEV_PYTHON)" ./scripts/check.sh
 
-.PHONY: check publication-check dev-coverage dev-install-hook guide-setup hardware-test
+.PHONY: check publication-check dev-coverage dev-install-hook guide-setup guide-social-card hardware-test
 # Keep stages sequential even with make -j; the browser target builds once.
 check:
 	@$(MAKE) publication-check
@@ -90,6 +91,10 @@ hardware-check:
 
 guide-build:
 	$(HOST_PYTHON) hardware/tools/guide/build.py
+
+guide-social-card:
+	@test -x hardware/tools/guide/node_modules/.bin/playwright || { echo "Run make guide-setup first." >&2; exit 2; }
+	node hardware/tools/guide/social-card.cjs
 
 guide-browser: guide-build
 	@command -v node >/dev/null 2>&1 || { echo "Install Node.js 22+ and run make guide-setup." >&2; exit 2; }
