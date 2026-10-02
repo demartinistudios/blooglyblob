@@ -8,7 +8,8 @@ SRC = Path(__file__).resolve().parents[2] / 'build-guide/src'
 SITE = 'https://demartinistudios.github.io/blooglyblob/'
 PAGES = {'index.html': '', 'references.html': 'references.html', 'repeat-build.html': 'repeat-build.html'}
 REQUIRED = ('og:type', 'og:site_name', 'og:title', 'og:description', 'og:url', 'og:image',
-            'og:image:width', 'og:image:height', 'og:image:alt', 'twitter:card', 'description')
+            'og:image:width', 'og:image:height', 'og:image:alt', 'twitter:card', 'twitter:image',
+            'twitter:image:alt', 'description')
 
 
 class Head(HTMLParser):
@@ -47,6 +48,8 @@ class SocialCardTests(unittest.TestCase):
                 self.assertEqual(page.tags['og:url'], SITE + path)
                 self.assertEqual(page.canonical, SITE + path)
                 self.assertEqual(page.tags['og:image'], SITE + 'social-card.png')
+                self.assertEqual(page.tags['twitter:image'], page.tags['og:image'])
+                self.assertEqual(page.tags['twitter:image:alt'], page.tags['og:image:alt'])
                 self.assertEqual((page.tags['og:image:width'], page.tags['og:image:height']), ('1200', '630'))
                 self.assertEqual(page.tags['twitter:card'], 'summary_large_image')
                 self.assertEqual(page.tags['og:description'], page.tags['description'])
