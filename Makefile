@@ -34,7 +34,7 @@ help:
 	@echo "  guide-setup         Install locked browser dependencies (network required)"
 	@echo "  dev-setup-ring / dev-setup-roku"
 	@echo "  hardware-test / hardware-check / guide-build / guide-browser (offline)"
-	@echo "  guide-social-card   Re-render the guide's link-preview image"
+	@echo "  guide-social-card   Re-render the guide's link-preview card and touch icon"
 
 .PHONY: pi-servo-fit
 pi-check pi-payload pi-provision pi-update pi-ssh pi-run pi-logs pi-start pi-stop pi-restart pi-status pi-check-audio pi-test-audio pi-test-mic pi-test-neopixels pi-servo-fit:
