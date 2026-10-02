@@ -121,6 +121,11 @@ additional local tools only when changing those assets; review generated diffs:
   and do not store product photos in the repository.
 - `hardware/tools/guide/make_downloads.py` generates film, foam and screw-key
   PDF templates. It requires `rsvg-convert`.
+- `make guide-social-card` renders the link-preview image `src/social-card.png`
+  (1200 × 630) from `hardware/tools/guide/social-card.html` with the
+  browser-check Playwright install. Every page's Open Graph and X card tags point
+  at it by its absolute Pages URL; `test_social_card.py` checks them. Sites cache
+  previews, so a changed card may take a while to appear on already-shared links.
 
 ## Browser verification and progress
 
