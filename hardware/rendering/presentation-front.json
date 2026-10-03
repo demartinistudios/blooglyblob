@@ -1,0 +1,43 @@
+{
+  "source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+    "design_revision": "R29",
+    "cloud_version": 25
+  },
+  "output": {
+    "path": "hardware/build-guide/src/assets/r22/main-front.png",
+    "sha256": "a8cbac248c8d2a6f6c8a9bcc2a75a54cec9950b57de63e084d23fcba3e6264db",
+    "width": 1400,
+    "height": 1600,
+    "transparent": true
+  },
+  "renderer": "Fusion Design workspace shaded viewport; not ray traced",
+  "fusion_version": "2705.1.25",
+  "visual_style": "ShadedVisualStyle",
+  "lighting_environment": "PhotoBoothLightingEnvironment",
+  "camera": {
+    "type": "PerspectiveCameraType",
+    "perspective_angle_degrees": 18,
+    "eye_cm": [
+      46,
+      -121,
+      43.8
+    ],
+    "target_cm": [
+      0,
+      0,
+      5
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "fit_view": false
+  },
+  "capture": "Viewport.saveAsImageFileWithOptions; anti-aliasing enabled",
+  "appearance_changes": false,
+  "geometry_changes": false,
+  "visibility_changes": false
+}
