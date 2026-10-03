@@ -4471,6 +4471,10 @@
         {
           "title": "Mark the magnet faces",
           "textOnly": true,
+          "safety": {
+            "level": "warning",
+            "text": "These magnets are small and strong. If a child swallows them, they can cause serious internal injury. Keep loose magnets and detachable hands away from young children and pets. If a magnet may have been swallowed, get medical help immediately."
+          },
           "actions": [
             0,
             1,

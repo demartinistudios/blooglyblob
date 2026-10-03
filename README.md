@@ -78,8 +78,12 @@ For hardware or guide contributions, read the [hardware workflow](hardware/READM
 
 Build and use at your own risk. No safety or performance guarantees are made.
 You are responsible for assembly, testing and use. Children must work with and
-use the robot under direct adult supervision. Read the
+use the robot under direct adult supervision. The hands use small, strong
+magnets that are dangerous if swallowed, and the microphone sends speech to
+OpenAI under your API account. Read the
 [safety and responsibility notice](hardware/SAFETY.md) before starting.
+BlooglyBlob is not affiliated with or endorsed by OpenAI or any manufacturer
+named here.
 
 Original software, hardware designs and build materials are [MIT licensed](LICENSE).
 See [license scope](LICENSING.md) for third-party exclusions and separate audio terms.
