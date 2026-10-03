@@ -327,7 +327,7 @@ class ConversationSession:
                     logger.error("Media release unconfirmed; application stopping")
                 try:
                     # Retiring owners still release their audio, but only the
-                    # current activity may put the toy to sleep. A handoff to
+                    # current activity may put the robot to sleep. A handoff to
                     # farewell/dance speech must keep its eyes and posture awake.
                     if self.generation == generation:
                         self.hardware.present("idle")

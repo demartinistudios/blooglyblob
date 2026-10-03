@@ -7,6 +7,7 @@ def test_profile_keeps_character_and_delivery_without_live_tool_procedures():
     backend = voice_profile.backend_instructions()
     assert "Blue-glee-blob" in live and "Meep" in live
     assert "curious" in live.lower() and "curious" in speech.lower()
+    assert "slang" in live.lower()
     assert "delegate" in live.lower() and "verified" in live.lower()
     assert "setTimer" not in live and "findTimers" not in live
     assert "setTimer" in backend
