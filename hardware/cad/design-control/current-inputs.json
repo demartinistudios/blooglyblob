@@ -19,13 +19,18 @@
     },
     {
       "path": "hardware/cad/CURRENT-NOTES.md",
-      "sha256": "79c0c2c483ef514ec0a6c9ff604a0f2ee88bac78c03baae2150195edce0df3db",
-      "bytes": 4801
+      "sha256": "f66e6373381073a4de4d397baa31b408e5ccbf541663a4e54fd5f6bdaec97dc0",
+      "bytes": 5404
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
       "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
       "bytes": 15485350
+    },
+    {
+      "path": "hardware/cad/current/assembly.step",
+      "sha256": "b06c65e20925559c110b414ae19aa9f2429c5dca7abe906d340fcc32fa94e5c4",
+      "bytes": 22047393
     },
     {
       "path": "hardware/cad/current/evidence/audio-tape-r26.json",
@@ -131,6 +136,11 @@
       "path": "hardware/cad/current/release-assembly.json",
       "sha256": "fcf5682cb318eabb7a054d734024037948b735d57a09fab7c121dd4514f9d764",
       "bytes": 480243
+    },
+    {
+      "path": "hardware/cad/current/step-export-provenance.json",
+      "sha256": "a43aae0e2698f3198aeb3417fe552f5391db65198eeea130e614d187639fb8d2",
+      "bytes": 1860
     },
     {
       "path": "hardware/cad/current/stl/A04.stl",
