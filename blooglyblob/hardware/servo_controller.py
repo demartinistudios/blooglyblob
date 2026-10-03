@@ -393,7 +393,7 @@ class ServoController:
         self.head.center(speed=0.5)
 
     def six_seven(self, cycles: int = 3):
-        """6-7 gesture - the viral Gen Alpha 'weighing options' motion.
+        """6-7 gesture - the viral 'weighing options' meme motion.
 
         Both arms at mid-level, alternating up and down like weighing
         two choices. Often used to express ambivalence or 'so-so'.

@@ -4,9 +4,9 @@
 
 BlooglyBlob is a DIY electronics and robotics project. You are responsible for selecting components, printing, assembly, wiring, software configuration, inspection, testing, maintenance and use of your build, including any modifications. Evaluate whether you have the skills and equipment to do the work; get qualified help when needed. Following this guide or passing its checks does not establish that a build is safe, compliant or suitable for a particular person or purpose.
 
-## Children and practical precautions
+## Who it’s for and practical precautions
 
-Children must assemble or use the robot only with direct supervision by an adult capable of evaluating the risks and doing the work safely. The adult must control access to tools, electricity, small parts and moving mechanisms. This project is not presented as a certified children’s toy or a substitute for adult care or supervision.
+BlooglyBlob is a hobby electronics project for adults, not a toy, and is not designed for children. Keep it, and especially its small magnets, away from young children.
 
 - Soldering, cutting and printing involve hot surfaces, fumes and sharp tools. Follow equipment and material instructions; use suitable ventilation and protective equipment.
 - Use the specified enclosed power supply and fuse ratings. Do not open the supply or work on mains wiring. Disconnect power before changing wiring; short circuits can cause burns or fire even at low voltage.

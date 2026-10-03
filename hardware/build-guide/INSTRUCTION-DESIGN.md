@@ -257,11 +257,11 @@ caption empty when the panel title already says what the picture shows.
 ## Safety messages
 
 A safety message warns about a hazard in one action. Use one of three levels.
-Do not use DANGER: no hazard in this build is likely to kill.
+Do not use DANGER.
 
 | Level | Use for | Examples in this build |
 | --- | --- | --- |
-| WARNING | Fire, electric shock or serious injury | A short circuit or a bypassed fuse; first power-up; mains supply |
+| WARNING | Fire, electric shock or serious injury | A short circuit or a bypassed fuse; first power-up; mains supply; swallowed magnets |
 | CAUTION | Minor or moderate injury | A reversed electrolytic capacitor; a servo moving with fingers near it |
 | NOTICE | Damage to parts, with no injury | Cracking thin plastic; forcing a plug; tightening against a nut that is not seated |
 

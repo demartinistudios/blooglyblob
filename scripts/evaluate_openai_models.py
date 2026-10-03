@@ -3,7 +3,7 @@
 Run from the repository root with ``python -m scripts.evaluate_openai_models``.
 Bring your own OPENAI_API_KEY; running this helper incurs billable token usage.
 See CONTRIBUTING.md for setup, a small example run, and result interpretation.
-This measures neither spoken voice quality nor device latency or real child use.
+This measures neither spoken voice quality nor device latency or real-world use.
 """
 
 import argparse
@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LIMITATIONS = (
     "Small synthetic evaluation with mocked integrations and hosted search disabled. "
     "Clarification scoring is a text heuristic. No hardware, voice quality, real "
-    "children, statistical significance, or general model superiority is measured. "
+    "users, statistical significance, or general model superiority is measured. "
     "Usage covers Responses only, excluding Live and Speech."
 )
 

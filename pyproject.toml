@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Anthony"}
+    {name = "DeMartini Studios LLC"}
 ]
 keywords = ["raspberry-pi", "conversational-ai", "llm", "speech", "interactive"]
 classifiers = [

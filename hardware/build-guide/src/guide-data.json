@@ -4473,7 +4473,7 @@
           "textOnly": true,
           "safety": {
             "level": "warning",
-            "text": "These magnets are small and strong. If a child swallows them, they can cause serious internal injury. Keep loose magnets and detachable hands away from young children and pets. If a magnet may have been swallowed, get medical help immediately."
+            "text": "These magnets are small and strong. If swallowed, they can cause serious internal injury that needs urgent medical help. Keep loose magnets and detachable hands away from young children and pets."
           },
           "actions": [
             0,
