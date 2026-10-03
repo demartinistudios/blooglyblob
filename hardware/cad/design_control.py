@@ -111,6 +111,8 @@ def render(registry, release):
         'Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.', '',
         release['summary'], '',
         '## Current inputs', '',
+        '[Fusion assembly (.f3d)](current/assembly.f3d) · '
+        '[STEP assembly (.step)](current/assembly.step) for other CAD applications.', '',
         '[Native assembly and selected exports](current/) · [Parts catalog](../catalog/parts.json) · '
         '[Print projects](../printing/current/) · [Build guide](../build-guide/README.md)', '',
         'The registry selects CAD authority. Its mandatory input lock is checked even without a delivery. '

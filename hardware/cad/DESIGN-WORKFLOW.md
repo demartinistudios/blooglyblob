@@ -8,6 +8,15 @@ version. Names, timestamps, larger revision numbers and the active tab do not
 establish authority. Design revisions and Fusion cloud save versions are separate
 sequences. Never create another MAIN with Save As.
 
+The accepted assembly is available as [Fusion (.f3d)](current/assembly.f3d) and
+[STEP AP214 (.step)](current/assembly.step). The STEP includes all hidden reference
+and test geometry; see [portable assembly notes](CURRENT-NOTES.md#portable-assembly).
+For a STEP-only refresh, export the exact accepted root component, including hidden
+bodies and components, and reimport into a new document. Verify body counts,
+placements and geometry before updating the export provenance and current-input
+selection through the same lock and publication transaction. Do not save MAIN or
+regenerate unrelated exports for this representation-only operation.
+
 ## Propose and test a change
 
 1. Run `python3 hardware/cad/design_control.py check` from the repository root.

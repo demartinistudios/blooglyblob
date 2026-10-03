@@ -13,6 +13,8 @@ Approved head fastening rotation(P08/P14), measured USB opening and relocated li
 
 ## Current inputs
 
+[Fusion assembly (.f3d)](current/assembly.f3d) · [STEP assembly (.step)](current/assembly.step) for other CAD applications.
+
 [Native assembly and selected exports](current/) · [Parts catalog](../catalog/parts.json) · [Print projects](../printing/current/) · [Build guide](../build-guide/README.md)
 
 The registry selects CAD authority. Its mandatory input lock is checked even without a delivery. A delivery binds the print recipes, parts catalog and renders to that CAD; it does not approve physical fit. The build guide is not part of the release: it reads these files when it is built.

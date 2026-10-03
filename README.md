@@ -67,6 +67,11 @@ guide before running commands against a Pi.
 | [`docs/software/`](docs/software/) | Setup, maintenance and software architecture |
 | [`tests/`](tests/) | Automated software tests |
 
+Open the full assembly as [Fusion (.f3d)](hardware/cad/current/assembly.f3d) or
+[STEP AP214 (.step)](hardware/cad/current/assembly.step) in other CAD applications.
+The STEP includes hidden reference and test geometry; see the
+[CAD notes](hardware/cad/CURRENT-NOTES.md#portable-assembly).
+
 For hardware or guide contributions, read the [hardware workflow](hardware/README.md).
 
 ## Safety and license

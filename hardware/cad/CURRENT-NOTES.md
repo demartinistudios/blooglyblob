@@ -4,6 +4,17 @@ The registry selects R29, Fusion cloud version 25. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
+## Portable assembly
+
+Download the [Fusion assembly (.f3d)](current/assembly.f3d) or the
+[STEP AP214 assembly (.step)](current/assembly.step). The STEP exports the full
+R29/cloud25 assembly, including hidden reference, layout and test components.
+Reimport into Fusion retained all 572 bodies and 340 occurrences in their assembly
+positions. It contains geometry and component placements, without Fusion
+parametric history or joints. Body names and occurrence suffixes may change on import.
+[Export provenance](current/step-export-provenance.json) records the source,
+hash and measured reimport checks.
+
 ## Enclosure and board layout
 
 FB01 uses open nut recesses and flat adhesive mounting faces for four WAGO
