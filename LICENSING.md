@@ -22,6 +22,21 @@ The ElevenLabs-generated dance song and its beat data in `songs/` are not
 offered under MIT; see the soundtrack notice below. The two recordings in
 `sounds/` retain their CC0 dedication below.
 
+## Adafruit board models: MIT (Adafruit Industries)
+
+The CAD includes unmodified 3D models of two Adafruit boards from
+[Adafruit CAD Parts](https://github.com/adafruit/Adafruit_CAD_Parts):
+the 5975 NeoPixel Breakout and the 6066 Pixel Shifter. They appear as the hidden
+`REF Adafruit 5975 source STEP` and `REF 6066 SOURCE` reference components in
+`hardware/cad/current/assembly.f3d` and `hardware/cad/current/assembly.step`, and
+as `hardware/lighting/adafruit-5975/5975-NeoPixel-Breakout.step`.
+
+These models are Copyright (c) 2016 Adafruit Industries and are distributed under
+the [MIT license](LICENSES/Adafruit-CAD-Parts-MIT.txt). Keep that notice with any
+copy of these files. Adafruit's Eagle board files in
+`hardware/lighting/adafruit-5975/` are a separate source with their own
+[Creative Commons Attribution-ShareAlike license](hardware/lighting/adafruit-5975/upstream-license.txt).
+
 ## Project soundtrack: separate terms
 
 `songs/dance_song.wav` and `songs/dance_song_beats.json` accompany this robot
