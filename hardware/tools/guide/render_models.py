@@ -45,7 +45,8 @@ def scenes():
         view['labels_by_root'] = copy.deepcopy(library['r16/base-speakers']['view']['labels_by_root'])
         view['title'] = {'audio-cradle-fasteners':'Audio cradle — fit all three screws before the module'}.get(name, view.get('title'))
         result[f'assets/community/{name}.png'] = dict(view=view,thumbnail=False)
-    result['assets/r22/main-front.png'] = dict(view=dict(select=['all'],exclude=['AR07','AR10','AR11'],camera=[.85,-1.6,.55],clean=True,size=[1400,1500],margin=65),thumbnail=False)
+    # The presentation front view is captured in Fusion, not this renderer.
+    # Its settings and source are recorded in rendering/presentation-front.json.
     result['assets/part-P35.png'] = dict(view=dict(select=['P35'],camera=[.9,-1.6,.9],clean=True),thumbnail=True)
     result['assets/r16/step-29.png'] = dict(view=dict(select=['P35','P36','P37','P38','P39','P40'],camera=[.9,1.6,.9],offset={'P37':[0,0,-12],'P38':[0,0,10],'P39':[0,0,10],'P40':[0,9,0]},title='Test-fit the backpack details',footer='Fit the tanks first; arrows show the parts coming together'),thumbnail=False)
     for path, scene in result.items():
