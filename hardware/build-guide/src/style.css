@@ -171,7 +171,9 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .character-intro .intro-grid h1 { letter-spacing: -.05em; }
 .intro-copy { max-width: 42ch; color: var(--muted); }
 .character-intro .intro-grid .diagram { background: #f1f7fa; border-radius: 28px; overflow: hidden; }
-.character-intro .intro-grid .diagram img { max-height: 520px; object-fit: contain; }
+.character-intro .intro-grid .diagram > button { overflow: hidden; }
+/* Trim the capture's transparent margins without cropping the robot. */
+.character-intro .intro-grid .diagram img { max-height: 520px; object-fit: contain; transform: scale(1.28); }
 .character-intro .intro-grid .diagram figcaption { border-top: 0; padding: 10px 20px; background: transparent; }
 .character-capabilities > h2, .character-build > h2 { margin-top: 0; font-size: clamp(28px, 3vw, 38px); letter-spacing: -.035em; }
 .character-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
