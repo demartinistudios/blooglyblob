@@ -18,7 +18,7 @@ print projects, and illustrated assembly instructions.
 **[Open the build guide →](https://demartinistudios.github.io/blooglyblob/)**
 
 <a href="https://demartinistudios.github.io/blooglyblob/">
-  <img src="hardware/build-guide/src/assets/r22/main-front.png" alt="CAD view of BlooglyBlob: blue-violet head and hands, copper goggles and trim, and a black base with a conversation button" width="400">
+  <img src="hardware/build-guide/src/assets/r22/main-front.png" alt="CAD view of BlooglyBlob lit up: glowing goggle eyes, a rainbow mouth and a softly lit body, with blue-violet head and hands, copper trim, and a black base with a conversation button" width="400">
 </a>
 
 ## Build your own

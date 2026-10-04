@@ -95,13 +95,19 @@ also requires the release checklist; it does not establish physical fit.
 ## Optional authoring tools
 
 The main robot image (`src/assets/r22/main-front.png`, retaining its existing URL)
-is a native Fusion **Design workspace, Shaded** capture. Its source hash, camera,
-lighting and export settings are in [presentation-front.json](../rendering/presentation-front.json).
+starts with a native Fusion **Design workspace, Shaded** capture, with masked
+LED lighting and raised black screw heads added to the visible vents and button
+plate. Its source hash, camera, export settings and image edits are recorded in
+[presentation-front.json](../rendering/presentation-front.json).
 Import the selected `assembly.f3d` into a separate presentation document, retain
 its appearances and visibility, and export an antialiased transparent PNG with
-those settings. Do not save changes to MAIN. Review the image in the guide and
-rerun `make guide-social-card` after replacing it. The assembly illustration
-generator deliberately leaves this image alone.
+those settings. Do not save changes to MAIN. Apply lighting within the existing
+diffuser boundaries, preserve the mouth shape and alpha channel, and align screw
+heads with the existing holes. The glow illustrates illumination; it is not an
+optical simulation. The committed PNG is the finished presentation asset;
+ordinary builds do not require the local image-editing tools. Review it in the
+guide and rerun `make guide-social-card` after replacing it. The assembly
+illustration generator deliberately leaves this image alone.
 
 Ordinary checking/building uses committed authored assets. These generators need
 additional local tools only when changing those assets; review generated diffs:

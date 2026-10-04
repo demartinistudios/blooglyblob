@@ -7,12 +7,12 @@
   },
   "output": {
     "path": "hardware/build-guide/src/assets/r22/main-front.png",
-    "sha256": "a8cbac248c8d2a6f6c8a9bcc2a75a54cec9950b57de63e084d23fcba3e6264db",
+    "sha256": "eab0f7fc2f9bd2858edbf54cef0be7770faaaee35490f55d98ebd01431dc3991",
     "width": 1400,
     "height": 1600,
     "transparent": true
   },
-  "renderer": "Fusion Design workspace shaded viewport; not ray traced",
+  "renderer": "Fusion Design workspace shaded viewport with masked lighting and fastener compositing; not ray traced",
   "fusion_version": "2705.1.25",
   "visual_style": "ShadedVisualStyle",
   "lighting_environment": "PhotoBoothLightingEnvironment",
@@ -39,5 +39,18 @@
   "capture": "Viewport.saveAsImageFileWithOptions; anti-aliasing enabled",
   "appearance_changes": false,
   "geometry_changes": false,
-  "visibility_changes": false
+  "visibility_changes": false,
+  "post_processing": {
+    "method": "Masked raster compositing on the native Fusion capture; no generative image used in the final asset.",
+    "base_capture_sha256": "a8cbac248c8d2a6f6c8a9bcc2a75a54cec9950b57de63e084d23fcba3e6264db",
+    "lighting": "Warm-white eyes, eight connected rainbow mouth zones with feathered transitions and no separator lines, and softly blended cyan/blue/lavender/mint body illumination. Glow is illustrative, not an optical simulation.",
+    "fasteners": {
+      "finish": "Black hex-socket heads with raised crowns and contact shadows",
+      "front_vent": 4,
+      "visible_side_vent": 8,
+      "top_button_plate": 2
+    },
+    "preserved": "Original camera, framing, mouth aperture, CAD part geometry and alpha channel. CAD and print files are unchanged.",
+    "base_capture_git_revision": "8a72de2896cdb1b682f472856744d0cf4435149e"
+  }
 }
