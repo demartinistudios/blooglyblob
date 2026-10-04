@@ -51,12 +51,15 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.equal(await page.evaluate(()=>window.guideAnimationFrames),pausedCount,'pause cancels the frame loop');
   await animationButton.click();
   await page.waitForFunction(previous=>document.querySelector('.hero-motion').toDataURL()!==previous,pausedFrame);
-  await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
-  await page.waitForTimeout(180);
+  // Do not measure while CSS smooth scrolling can still leave the hero visible.
+  await page.evaluate(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'instant'}));
+  await page.waitForFunction(()=>document.querySelector('[data-hero] [data-zoom]').getBoundingClientRect().bottom<0);
+  // Let IntersectionObserver deliver the offscreen transition before counting.
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
   const offscreenCount=await page.evaluate(()=>window.guideAnimationFrames);
   await page.waitForTimeout(180);
   assert.equal(await page.evaluate(()=>window.guideAnimationFrames),offscreenCount,'offscreen animation cancels its frame loop');
-  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
   await page.waitForFunction(count=>window.guideAnimationFrames>count,offscreenCount);
   await page.evaluate(()=>{window.previousHero=document.querySelector('.hero-motion');});
   await page.goto(BASE+'#parts');
