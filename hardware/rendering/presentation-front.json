@@ -54,7 +54,7 @@
     "base_capture_git_revision": "8a72de2896cdb1b682f472856744d0cf4435149e"
   },
   "homepage_animation": {
-    "renderer": "hardware/build-guide/src/assets/hero-motion.js",
+    "renderer": "hardware/build-guide/src/hero-motion.js",
     "canvas_size": [
       1400,
       1600

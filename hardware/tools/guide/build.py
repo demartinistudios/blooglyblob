@@ -25,7 +25,7 @@ PRICES = ROOT / 'hardware/catalog/prices.json'
 INPUTS = [*packages.INPUTS, ELECTRICAL, PRICES]
 
 DATA = {'guide-data.json': 'guide', 'parts.json': 'parts', 'print-data.json': 'prints'}
-CORE = ['.nojekyll', 'index.html', 'app.js', 'style.css', 'references.html', 'repeat-build.html', 'social-card.png',
+CORE = ['.nojekyll', 'index.html', 'app.js', 'hero-motion.js', 'style.css', 'references.html', 'repeat-build.html', 'social-card.png',
         'apple-touch-icon.png']
 PRIVATE = {'exact', 'status', 'source', 'sources'}
 REF = re.compile(r'(?<![\w/.-])((?:\.\./)*(?:assets|downloads|references)/[A-Za-z0-9_./%-]+?)(?=[\'"`)\s#?,;<]|$)')

@@ -109,7 +109,7 @@ ordinary builds do not require the local image-editing tools. Review it in the
 guide and rerun `make guide-social-card` after replacing it. The assembly
 illustration generator deliberately leaves this image alone.
 
-The homepage adds decorative lighting with `src/assets/hero-motion.js` and five
+The homepage adds decorative lighting with `src/hero-motion.js` and five
 committed images in `src/assets/hero/`. Their source and hashes are recorded in
 the same presentation record. Ordinary guide checks verify the committed asset
 hashes. The base and canvas retain the still image’s 1400 × 1600 resolution. The animation uses
