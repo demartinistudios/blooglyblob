@@ -49,6 +49,23 @@ def test_setup_helpers_preserve_settings_in_selected_app_file(monkeypatch, tmp_p
     assert config.stat().st_mode & 0o777 == 0o600
 
 
+def test_ring_setup_ignores_commented_example_token(monkeypatch, tmp_path):
+    config = tmp_path / "app.env"
+    config.write_text("# Ring is experimental; see the docs.\n# RING_TOKEN=\n")
+    monkeypatch.setenv("BLOOGLYBLOB_ENV_FILE", str(config))
+    monkeypatch.setitem(
+        sys.modules,
+        "ring_doorbell",
+        SimpleNamespace(
+            Auth=object, AuthenticationError=Exception, Requires2FAError=Exception
+        ),
+    )
+    ring = load_script("setup_ring")
+    assert ring.has_saved_token() is False
+    config.write_text('RING_TOKEN=\'{"access_token": "saved"}\'\n')
+    assert ring.has_saved_token() is True
+
+
 def test_setup_helpers_make_private_and_preserve_owner(monkeypatch, tmp_path):
     config = tmp_path / "app.env"
     config.write_text("OPENAI_API_KEY=keep\n")

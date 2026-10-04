@@ -1,10 +1,13 @@
 """Make the guide's print downloads at build time from the CAD and printing homes.
 
 The guide keeps no copies of these. It copies catalog-selected STLs, writes public
-copies of the two Bambu Studio projects with neutral internal names, and zips
-the STLs and the print set. Output is byte-stable: the ZIPs use a fixed timestamp.
+copies of the two Bambu Studio projects with neutral internal names and license
+metadata, and zips the STLs and the print set. Output is byte-stable: the ZIPs use
+a fixed timestamp.
 """
 import csv, io, json, shutil, sys, zipfile
+import xml.etree.ElementTree as ET
+from xml.sax.saxutils import escape
 from collections import Counter
 from pathlib import Path
 
@@ -17,7 +20,8 @@ PRINTING = ROOT / 'hardware/printing/current'
 MANIFEST = PRINTING / 'manifest.json'
 OBJECT_SETTINGS = PRINTING / 'object-settings.csv'
 CATALOG = ROOT / 'hardware/catalog/parts.json'
-INPUTS = [STL, MANIFEST, OBJECT_SETTINGS, CATALOG]
+LICENSE = ROOT / 'LICENSE'
+INPUTS = [STL, MANIFEST, OBJECT_SETTINGS, CATALOG, LICENSE]
 ZIP_TIME = (2026, 9, 25, 0, 0, 0)
 
 # Display names inside the public 3MF copies; geometry, settings and entry order are kept.
@@ -35,6 +39,14 @@ NAMES = {
     'Clear PETG - optional unqualified': 'Clear PETG',
 }
 TEXT = ('.config', '.json', '.model', '.xml', '.rels')
+
+# Fills these fields in the public 3MF model only where the source leaves them empty.
+# Copyright and Designer are standard 3MF names; License is Bambu Studio's own field.
+PROJECT_METADATA = {
+    'Copyright': 'Copyright (c) 2026 DeMartini Studios LLC. MIT License.',
+    'Designer': 'DeMartini Studios LLC',
+    'License': 'MIT',
+}
 
 
 def sources(printing=PRINTING):
@@ -89,16 +101,39 @@ def print_set_readme(manifest):
         grams=sum(p['estimated_grams'] for p in plates), plate_rows='\n'.join(rows))
 
 
+def project_metadata(data):
+    """Fill empty PROJECT_METADATA fields by byte replacement, leaving other bytes intact."""
+    for name, value in PROJECT_METADATA.items():
+        filled = f'<metadata name="{name}">{escape(value)}</metadata>'.encode()
+        for empty in (f'<metadata name="{name}"></metadata>', f'<metadata name="{name}" />',
+                      f'<metadata name="{name}"/>'):
+            data = data.replace(empty.encode(), filled, 1)
+    return data
+
+
 def public_3mf(src, dest):
     def display_names(name, data):
         if name.endswith(TEXT):
             text = data.decode('utf-8')
             for old, new in NAMES.items():
                 text = text.replace(old, new)
-            return text.encode('utf-8')
+            data = text.encode('utf-8')
+        if name == '3D/3dmodel.model':
+            data = project_metadata(data)
         return data
 
     sanitize_project(src, dest, transform=display_names)
+
+
+def check_metadata(path):
+    """Fail the build when a public 3MF model lacks a PROJECT_METADATA value."""
+    with zipfile.ZipFile(path) as project:
+        root = ET.fromstring(project.read('3D/3dmodel.model'))
+    values = {e.get('name'): (e.text or '').strip() for e in root
+              if e.tag.rsplit('}', 1)[-1] == 'metadata'}
+    missing = [name for name in PROJECT_METADATA if not values.get(name)]
+    if missing:
+        raise ValueError(f'{path.name} lacks license metadata: {", ".join(missing)}')
 
 
 def zip_write(path, entries):
@@ -126,6 +161,9 @@ use another slicer or want to reprint a single part.
   blockers from the 3MF in mind: some holes and threads must stay clean.
 - Check each part as it comes off the plate, and dry-fit before gluing.
 
+Copyright (c) 2026 DeMartini Studios LLC. Released under the MIT License;
+the full text is in LICENSE.txt.
+
 BlooglyBlob: https://github.com/demartinistudios/blooglyblob
 """
 
@@ -138,6 +176,7 @@ Everything you need to print the robot's parts in Bambu Studio.
 | `BlooglyBlob-PLA.3mf` | The main project: {plates} plates, {pieces} pieces, {part_types} part types, all PLA. |
 | `BlooglyBlob-PETG-ball.3mf` | Optional: the clear antenna ball (A05) in PETG, instead of plate 10. |
 | `BlooglyBlob-object-settings.csv` | Each part's layer height, walls, infill, brim, supports and speeds. |
+| `LICENSE.txt` | The MIT License for these files. |
 
 The projects were prepared for a **Bambu Lab X1 Carbon with a 0.4 mm nozzle and a
 Textured PEI plate**. Estimated total: {duration} and {grams:.2f} g of filament,
@@ -174,6 +213,9 @@ clarity on your first print.
 
 The build guide's Printing page has each plate's material settings and pictures.
 
+Copyright (c) 2026 DeMartini Studios LLC. Released under the MIT License;
+the full text is in `LICENSE.txt`.
+
 BlooglyBlob: https://github.com/demartinistudios/blooglyblob
 """
 
@@ -205,7 +247,8 @@ def write(downloads, selected=None):
     for p in stls:
         shutil.copyfile(p, downloads / 'stl' / p.name)
     zip_write(downloads / 'BlooglyBlob-STL.zip',
-              [('BlooglyBlob-STL/README.txt', readme)] + [(f'BlooglyBlob-STL/{p.name}', p.read_bytes()) for p in stls])
+              [('BlooglyBlob-STL/README.txt', readme), ('BlooglyBlob-STL/LICENSE.txt', LICENSE.read_bytes())]
+              + [(f'BlooglyBlob-STL/{p.name}', p.read_bytes()) for p in stls])
     public_3mf(selected['pla'], downloads / 'BlooglyBlob-PLA.3mf')
     public_3mf(selected['petg'], downloads / 'BlooglyBlob-PETG-ball.3mf')
     csv_path = downloads / 'BlooglyBlob-object-settings.csv'
@@ -214,11 +257,14 @@ def write(downloads, selected=None):
     actual = Counter(row['part'] for row in rows)
     if actual != required:
         raise ValueError(f'Object-settings CSV quantities differ from selected plates: {dict(actual)} != {dict(required)}')
+    check_metadata(downloads / 'BlooglyBlob-PLA.3mf')
+    check_metadata(downloads / 'BlooglyBlob-PETG-ball.3mf')
     zip_write(downloads / 'BlooglyBlob-print-set.zip', [
         ('BlooglyBlob-print-set/README.md', print_set_readme(selected['manifest'])),
         ('BlooglyBlob-print-set/BlooglyBlob-PLA.3mf', (downloads / 'BlooglyBlob-PLA.3mf').read_bytes()),
         ('BlooglyBlob-print-set/BlooglyBlob-PETG-ball.3mf', (downloads / 'BlooglyBlob-PETG-ball.3mf').read_bytes()),
-        ('BlooglyBlob-print-set/BlooglyBlob-object-settings.csv', csv_path.read_bytes())])
+        ('BlooglyBlob-print-set/BlooglyBlob-object-settings.csv', csv_path.read_bytes()),
+        ('BlooglyBlob-print-set/LICENSE.txt', LICENSE.read_bytes())])
 
     previews = downloads.parent / 'assets/plates'
     previews.mkdir(parents=True, exist_ok=True)

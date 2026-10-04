@@ -102,6 +102,28 @@ class PackageTests(unittest.TestCase):
                     self.assertEqual(b'test-account thumbnail bytes', z.read('Metadata/plate_1.png'))
                     self.assertEqual(b'{"printer_model": "X1C"}', z.read('Metadata/project_settings.config'))
 
+    def test_project_metadata_fills_only_empty_fields(self):
+        for empty in ('<metadata name="License"></metadata>', '<metadata name="License" />',
+                      '<metadata name="License"/>'):
+            with self.subTest(empty=empty):
+                model = f'<model><metadata name="Copyright">Kept</metadata>{empty}</model>'.encode()
+                self.assertEqual(b'<model><metadata name="Copyright">Kept</metadata>'
+                                 b'<metadata name="License">MIT</metadata></model>',
+                                 packages.project_metadata(model))
+        self.assertTrue(packages.PROJECT_METADATA['Copyright'].startswith(
+            next(line for line in packages.LICENSE.read_text().splitlines() if line.startswith('Copyright'))))
+
+    def test_check_metadata_rejects_unfilled_fields(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'public.3mf'
+            model = ('<model xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02">'
+                     '<metadata name="Copyright">Kept</metadata><metadata name="Designer"> </metadata>'
+                     '<m:metadata xmlns:m="urn:other" name="License"/></model>')
+            with zipfile.ZipFile(path, 'w') as z:
+                z.writestr('3D/3dmodel.model', model)
+            with self.assertRaisesRegex(ValueError, 'public.3mf lacks license metadata: Designer, License'):
+                packages.check_metadata(path)
+
     def test_downloads_preserve_bytes_and_are_deterministic(self):
         first = self.root / 'first' / 'downloads'
         second = self.root / 'second' / 'downloads'
@@ -122,6 +144,8 @@ class PackageTests(unittest.TestCase):
                     if info.filename.endswith(packages.TEXT):
                         for old, new in packages.NAMES.items():
                             expected = expected.replace(old.encode(), new.encode())
+                    if info.filename == '3D/3dmodel.model':
+                        expected = packages.project_metadata(expected)
                     if info.filename.endswith('.model') and b'DesignerUserId' in expected:
                         source_root, public_root = ET.fromstring(expected), ET.fromstring(public.read(info.filename))
                         for parent in source_root.iter():
@@ -133,13 +157,20 @@ class PackageTests(unittest.TestCase):
                         self.assertFalse(any(e.get('name') == 'DesignerUserId' and (e.text or '').strip() for e in public_root.iter()))
                         continue
                     self.assertEqual(expected, public.read(info.filename), info.filename)
+                metadata = {e.get('name'): e.text for e in ET.fromstring(public.read('3D/3dmodel.model'))
+                            if e.tag.endswith('}metadata')}
+                self.assertEqual(packages.PROJECT_METADATA,
+                                 {name: metadata.get(name) for name in packages.PROJECT_METADATA}, public_name)
                 if source_key == 'master_project':
                     for plate in self.manifest['plates']:
                         n = plate['plate_number']
                         self.assertEqual(source.read(f'Metadata/plate_{n}.png'), (first.parent / f'assets/plates/plate-{n}.png').read_bytes())
+        copyright_line = next(line for line in packages.LICENSE.read_text().splitlines() if line.startswith('Copyright'))
         with zipfile.ZipFile(first / 'BlooglyBlob-STL.zip') as z:
             expected_stls = {f'BlooglyBlob-STL/{p.name}' for p in packages.stl_sources()}
-            self.assertEqual(set(z.namelist()), expected_stls | {'BlooglyBlob-STL/README.txt'})
+            self.assertEqual(set(z.namelist()), expected_stls | {'BlooglyBlob-STL/README.txt', 'BlooglyBlob-STL/LICENSE.txt'})
+            self.assertEqual(packages.LICENSE.read_bytes(), z.read('BlooglyBlob-STL/LICENSE.txt'))
+            self.assertIn(copyright_line, z.read('BlooglyBlob-STL/README.txt').decode())
             self.assertEqual({p.name for p in (first / 'stl').iterdir()},
                              {p.name for p in packages.stl_sources()})
             for path in packages.stl_sources():
@@ -161,6 +192,12 @@ class PackageTests(unittest.TestCase):
                               f"{packages.duration(plate['estimated_seconds'])}, "
                               f"{plate['estimated_grams']:.2f} g | {items} |", readme)
             self.assertNotIn(self.manifest['cad_revision'].split('/')[0], readme)
+            self.assertEqual(set(z.namelist()), {f'BlooglyBlob-print-set/{name}' for name in (
+                'README.md', 'BlooglyBlob-PLA.3mf', 'BlooglyBlob-PETG-ball.3mf',
+                'BlooglyBlob-object-settings.csv', 'LICENSE.txt')})
+            self.assertTrue(all(i.date_time == packages.ZIP_TIME for i in z.infolist()))
+            self.assertEqual(packages.LICENSE.read_bytes(), z.read('BlooglyBlob-print-set/LICENSE.txt'))
+            self.assertIn(copyright_line, readme)
             for name in ('BlooglyBlob-PLA.3mf', 'BlooglyBlob-PETG-ball.3mf', 'BlooglyBlob-object-settings.csv'):
                 self.assertEqual((first / name).read_bytes(), z.read(f'BlooglyBlob-print-set/{name}'))
 

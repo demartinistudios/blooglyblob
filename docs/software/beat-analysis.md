@@ -56,13 +56,23 @@ accepting it; songs with changing tempo, long introductions, or weak percussion
 may need manual corrections. Detection does not edit the audio or clear its
 redistribution rights.
 
-The runtime reads `songs/dance_song.wav` and `songs/dance_song_beats.json` as a
-pair. When intentionally adopting a new song, put the approved WAV at that
-location, generate matching beat data, and review both changes. Update their
-sizes, SHA-256 hashes, and provenance in
-[`docs/release/asset-manifest.json`](../release/asset-manifest.json).
-Then use the normal `make pi-update` workflow to deploy the pair and verify
-dance timing on the device. A temporary preview JSON is not deployed.
+The runtime reads `songs/dance_song.wav`, `songs/dance_song_beats.json` and
+`songs/dance_song_lights.json` together. When intentionally adopting a new song,
+put the approved WAV at that location, generate matching beat data, then
+generate matching light data from the development environment:
+
+```sh
+.venv/bin/python -m scripts.analyze_song_lights songs/dance_song.wav songs/dance_song_lights.json
+```
+
+Review all three changes. Update their sizes, SHA-256 hashes, and provenance in
+[`docs/release/asset-manifest.json`](../release/asset-manifest.json). The
+[soundtrack notice](../../LICENSING.md#project-soundtrack-separate-terms) and
+the [publication record](../release/publication-inventory.md#dance-song)
+describe the current ElevenLabs song; update both for the new song's source and
+terms before publishing it. Then use the normal `make pi-update` workflow to
+deploy the files and verify dance timing on the device. A temporary preview
+JSON is not deployed.
 
 ## Troubleshooting
 

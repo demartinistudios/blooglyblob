@@ -14,18 +14,23 @@ import json
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING or __package__:
-    from .deploy_config import selected_runtime_file, update_env
+    from .deploy_config import read_env, selected_runtime_file, update_env
 else:
     try:
-        from deploy_config import selected_runtime_file, update_env
+        from deploy_config import read_env, selected_runtime_file, update_env
     except ModuleNotFoundError:
-        from scripts.deploy_config import selected_runtime_file, update_env
+        from scripts.deploy_config import read_env, selected_runtime_file, update_env
 
 from ring_doorbell import Auth, AuthenticationError, Requires2FAError
 
 # Ring API expects Android app user-agent
 USER_AGENT = "android:com.ringapp"
 ENV_FILE = selected_runtime_file()
+
+
+def has_saved_token() -> bool:
+    """Return whether the selected file sets RING_TOKEN; comments do not count."""
+    return ENV_FILE.exists() and bool(read_env(ENV_FILE).get("RING_TOKEN"))
 
 
 def save_token_to_env(token: dict) -> None:
@@ -61,7 +66,7 @@ async def do_auth() -> Auth:
 async def main() -> int:
     """Main entry point."""
     # Check for existing token
-    if ENV_FILE.exists() and "RING_TOKEN=" in ENV_FILE.read_text():
+    if has_saved_token():
         print("Existing RING_TOKEN found in .env")
         response = input("Overwrite? (y/N): ").strip().lower()
         if response != "y":

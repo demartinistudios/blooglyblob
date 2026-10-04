@@ -7,43 +7,53 @@ The [MIT license](LICENSE) applies to this project's original materials:
 - `Makefile`, `pyproject.toml`, dependency requirement files, and configuration
   examples used to build, develop, or deploy that software.
 - Associated software documentation: `README.md`, `CONTRIBUTING.md`,
-  `SECURITY.md`, `AGENTS.md`, `CLAUDE.md`, `docs/software/`, and `docs/openai-mode.md`.
+  `SECURITY.md`, `AGENTS.md`, `CLAUDE.md`, `docs/software/`, and
+  `docs/openai-mode.md`.
 - Original CAD designs and exports, print projects, hardware and build-guide
   documentation, tools, photographs, illustrations, and other original project
-  materials. The owner extended MIT coverage to these materials on 2026-09-26.
+  materials. DeMartini Studios LLC extended MIT coverage to these materials on
+  2026-09-26.
 
-Existing third-party notices and licenses continue to govern their respective
-materials. Dependencies are not relicensed by this project's MIT license.
-
-The MIT grant above does **not** cover third-party materials, including publisher
-datasheets, component drawings, imported vendor CAD, or dependencies. Their own
-licenses and permissions govern them, even when stored alongside original files.
-The ElevenLabs-generated dance song and its beat data in `songs/` are not
+The MIT grant above does **not** cover third-party materials, including
+publisher datasheets, component drawings, imported vendor CAD, the Raspberry Pi
+Imager screenshots in `hardware/build-guide/src/assets/setup/`, the build
+guide's typefaces (SIL Open Font License 1.1) and GitHub mark in
+`hardware/build-guide/src/assets/`, the Contributor Covenant text in
+`CODE_OF_CONDUCT.md`, or dependencies. Their owners' licenses, terms and
+rights govern them, even when stored alongside original files. The
+ElevenLabs-generated dance song and its beat and light data in `songs/` are not
 offered under MIT; see the soundtrack notice below. The two recordings in
-`sounds/` retain their CC0 dedication below.
+`sounds/` are dedicated to the public domain under CC0; see below. The
+DeMartini Studios logo is also excluded; see [Names and logos](#names-and-logos).
 
-## Adafruit board models: MIT (Adafruit Industries)
+## Adafruit board models and files
 
 The CAD includes unmodified 3D models of two Adafruit boards from
 [Adafruit CAD Parts](https://github.com/adafruit/Adafruit_CAD_Parts):
-the 5975 NeoPixel Breakout and the 6066 Pixel Shifter. They appear as the hidden
-`REF Adafruit 5975 source STEP` and `REF 6066 SOURCE` reference components in
-`hardware/cad/current/assembly.f3d` and `hardware/cad/current/assembly.step`, and
-as `hardware/lighting/adafruit-5975/5975-NeoPixel-Breakout.step`.
+the 5975 NeoPixel Breakout and the 6066 Pixel Shifter. In
+`hardware/cad/current/assembly.f3d` and `hardware/cad/current/assembly.step`,
+the 5975 model is the `REF Adafruit 5975 source STEP - hidden` component, and
+the 6066 model is copied into the `REF 6066 SOURCE - Adafruit STEP - hidden`,
+`REF BASE PixelShifter6066 - manufacturer STEP`, `FBREF Shifter S1` and
+`FBREF Shifter S2` components. The 5975 model is also stored as
+`hardware/lighting/adafruit-5975/5975-NeoPixel-Breakout.step`, and both models
+appear as mesh bodies in `hardware/rendering/r28-visible-meshes.json.gz`. The
+build guide's CAD step renders show the boards using these models.
 
 These models are Copyright (c) 2016 Adafruit Industries and are distributed under
 the [MIT license](LICENSES/Adafruit-CAD-Parts-MIT.txt). Keep that notice with any
-copy of these files. Adafruit's Eagle board files in
-`hardware/lighting/adafruit-5975/` are a separate source with their own
-[Creative Commons Attribution-ShareAlike license](hardware/lighting/adafruit-5975/upstream-license.txt).
+copy of these files. Adafruit's Eagle board file and upstream README in
+`hardware/lighting/adafruit-5975/` are a separate source under the
+[Creative Commons Attribution-ShareAlike 3.0 Unported license](hardware/lighting/adafruit-5975/upstream-license.txt).
 
 ## Project soundtrack: separate terms
 
-`songs/dance_song.wav` and `songs/dance_song_beats.json` accompany this robot
-project and its software. Soundtrack generated using ElevenLabs during the
-owner's paid Creator subscription.
+`songs/dance_song.wav`, `songs/dance_song_beats.json` and
+`songs/dance_song_lights.json` accompany this robot project and its software.
+The soundtrack was generated using ElevenLabs under a paid Creator
+subscription.
 
-The owner has approved including these files in the public project based on
+DeMartini Studios LLC includes these files in the public project based on
 ElevenLabs AI support guidance confirming repository/software inclusion and
 continued use after the subscription ends. They remain subject to the applicable
 [ElevenLabs terms](https://elevenlabs.io/terms-of-use), rather than this project's
@@ -52,14 +62,14 @@ or music library. No unrestricted music license is granted by this repository.
 
 The support response is guidance, not a separate license or amendment to those
 terms. See the [publication record](docs/release/publication-inventory.md#dance-song)
-for the dated inclusion decision. This notice must accompany distributions of
+for the inclusion decision. This notice must accompany distributions of
 the soundtrack with the project.
 
 ## Synthesized sound effects: CC0 1.0
 
-Anthony DeMartini dedicates the following original synthesized recordings to
-the public domain under [CC0 1.0 Universal](LICENSES/CC0-1.0.txt), to the extent
-of any copyright and related rights held in them. Applied 2026-09-21.
+DeMartini Studios LLC dedicates the following original synthesized recordings
+to the public domain under [CC0 1.0 Universal](LICENSES/CC0-1.0.txt), to the
+extent of any copyright and related rights held in them. Applied 2026-09-21.
 
 The two-note alert, `sounds/alert_16k.wav`, generated by
 `scripts/generate_alert_sound.py`:
@@ -74,11 +84,25 @@ The 30-second scanner, `sounds/search_16k.wav`, generated by
 These may be reused without attribution, including commercially, under CC0's terms.
 Their generation scripts remain MIT software. This dedication does not apply to
 the older unknown-source recording previously stored at the same path, the dance
-song, its beat data, or any other media.
+song, its beat and light data, or any other media.
 
-The release asset inventory records provenance and redistribution scope.
-Do not infer permission to redistribute excluded materials from the presence of
-the root license. This scope document travels with the software license in
-Python packages and Pi installation payloads.
+## Names and logos
+
+The DeMartini Studios logo
+(`hardware/build-guide/src/assets/demartini-studios.svg`, also drawn inline in
+the build guide's footer) is not offered under MIT or CC0.
+DeMartini Studios LLC reserves all rights in it. The BlooglyBlob robot mark and
+the guide's other original illustrations remain under MIT.
+
+No license in this repository grants a right to use the DeMartini Studios or
+BlooglyBlob names or logos to suggest that DeMartini Studios LLC endorses a
+work, is affiliated with it, or that a modified version is the official
+project. You may state accurately that a work is based on BlooglyBlob.
+
+The [release asset inventory](docs/release/asset-manifest.json) records the
+provenance and redistribution scope of project media. Third-party CAD and board
+files keep their source and license notes beside them, as in
+`hardware/lighting/adafruit-5975/`. This scope document travels with the
+software license in Python packages and Pi installation payloads.
 
 Maintainer contact: anthony@demartinistudios.com.
