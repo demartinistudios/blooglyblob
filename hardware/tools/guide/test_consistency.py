@@ -1,5 +1,6 @@
 """Small fixtures exercise drift and failure gates without touching a live preview."""
 from contextlib import ExitStack
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -8,6 +9,65 @@ from unittest.mock import patch
 
 import build
 import consistency as c
+
+
+class AnimationAssetTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.asset = self.root / c.GUIDE / 'assets/hero/base.png'
+        self.asset.parent.mkdir(parents=True)
+        self.asset.write_bytes(b'authored animation asset')
+        self.record = self.root / c.PRESENTATION
+        self.record.parent.mkdir(parents=True)
+        self.data = {
+            'source': {'path': 'missing-historical-source.f3d'},
+            'homepage_animation': {'assets': [{
+                'path': self.asset.relative_to(self.root).as_posix(),
+                'sha256': hashlib.sha256(self.asset.read_bytes()).hexdigest(),
+            }]},
+        }
+        self.write_record()
+
+    def write_record(self):
+        self.record.write_text(json.dumps(self.data))
+
+    def test_current_presentation_record_matches_committed_assets(self):
+        c.check_animation_assets(c.ROOT)
+
+    def test_valid_assets_do_not_require_historical_sources(self):
+        c.check_animation_assets(self.root)
+
+    def test_changed_asset_is_rejected_with_path_and_hashes(self):
+        self.asset.write_bytes(b'changed animation asset')
+        expected = self.data['homepage_animation']['assets'][0]['sha256']
+        actual = hashlib.sha256(self.asset.read_bytes()).hexdigest()
+        with self.assertRaisesRegex(ValueError, f'SHA-256 mismatch: .*base.png; declared {expected}, actual {actual}'):
+            c.check_animation_assets(self.root)
+
+    def test_stale_declared_hash_is_rejected(self):
+        self.data['homepage_animation']['assets'][0]['sha256'] = '0' * 64
+        self.write_record()
+        with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch: .*base.png'):
+            c.check_animation_assets(self.root)
+
+    def test_missing_asset_is_rejected_with_path(self):
+        self.asset.unlink()
+        with self.assertRaisesRegex(ValueError, 'asset missing: .*base.png'):
+            c.check_animation_assets(self.root)
+
+    def test_empty_asset_list_is_rejected(self):
+        self.data['homepage_animation']['assets'] = []
+        self.write_record()
+        with self.assertRaisesRegex(ValueError, 'assets must be a nonempty list'):
+            c.check_animation_assets(self.root)
+
+    def test_ordinary_consistency_check_reports_asset_failure(self):
+        with patch.object(c, 'check_animation_assets', side_effect=ValueError('Homepage animation asset missing: base.png')):
+            result = c.check()
+        self.assertFalse(result['ok'])
+        self.assertIn('Homepage animation asset missing: base.png', result['errors'])
 
 
 class QuantityTests(unittest.TestCase):
@@ -522,7 +582,7 @@ class ReviewTests(unittest.TestCase):
     def check_fixture(self, commands=(), writing=()):
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
-            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_references', 'check_reference_page'):
+            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_animation_assets', 'check_references', 'check_reference_page'):
                 stack.enter_context(patch.object(c, name))
             stack.enter_context(patch.object(c, 'check_writing', return_value=list(writing)))
             stack.enter_context(patch.object(c, 'read', return_value={}))
@@ -556,7 +616,7 @@ class ReviewTests(unittest.TestCase):
                     panels=[dict(title='Fit', image='fit.svg', caption='', actions=[0])])
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
-            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_references', 'check_reference_page'):
+            for name in ('check_panels', 'check_quantities', 'check_tools', 'check_animation_assets', 'check_references', 'check_reference_page'):
                 stack.enter_context(patch.object(c, name))
             stack.enter_context(patch.object(c, 'read', side_effect=lambda root, path: (
                 {'steps': [step]} if path.endswith('guide-data.json') else [] if path.endswith('parts.json') else {})))

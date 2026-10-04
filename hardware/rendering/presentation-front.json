@@ -56,8 +56,8 @@
   "homepage_animation": {
     "renderer": "hardware/build-guide/src/assets/hero-motion.js",
     "canvas_size": [
-      700,
-      800
+      1400,
+      1600
     ],
     "source": "The same Fusion capture and diffuser masks used for the still image. The base retains the accepted raised screw heads, with the animated lenses and nearby glow restored before compositing.",
     "behavior": "Eight rainbow mouth zones form one horizontal audio-level meter with a 520 ms release, soft leading edge and a 48% background glow. Six broad body color pools drift slowly. Warm eye lights blink with a fast close and slower reopening at irregular intervals.",
@@ -65,7 +65,7 @@
     "assets": [
       {
         "path": "hardware/build-guide/src/assets/hero/base.png",
-        "sha256": "1479afe817267262198e2a91675fbc0a225e1f1cc3e064e7b3421dc30a91493e"
+        "sha256": "98b0f96458a896a9f95f8c6e8dd2dd493105aa5a91a34fa02652f5f9b28dd57e"
       },
       {
         "path": "hardware/build-guide/src/assets/hero/mouth-mask.png",
@@ -83,6 +83,7 @@
         "path": "hardware/build-guide/src/assets/hero/body-shade.png",
         "sha256": "f54b47f6de5d89ae60e7cf1c2e13af18b0e6fc4b53ea50cad4410e0a88140141"
       }
-    ]
+    ],
+    "glow": "Normalized separable Gaussian canvas compositing, shared across browsers without requiring CanvasRenderingContext2D.filter. Glow opacity stays in the supported 0\u20131 range; eye glow follows blink openness."
   }
 }
