@@ -176,39 +176,6 @@ class RokuController:
             logger.error("Failed to launch Roku app (%s)", type(e).__name__)
             return False
 
-    def search_and_navigate(self, query: str, launch: bool = False) -> bool:
-        """Search for content using Roku ECP search API.
-
-        Args:
-            query: Search query string (title of movie/show)
-            launch: If True, automatically launch the first result
-
-        Returns:
-            True on success, False on failure
-        """
-        try:
-            # Use Roku ECP search API directly for more control
-            # GET /search/browse?keyword=<query>&launch=true
-            url = f"http://{self.roku_ip}:8060/search/browse"
-            params = {
-                "keyword": query,
-            }
-            if launch:
-                params["launch"] = "true"
-
-            response = requests.post(url, params=params, timeout=10)
-            if response.status_code == 200:
-                logger.info("Roku search completed")
-                return True
-            else:
-                logger.warning(f"Search returned status {response.status_code}")
-                # Fallback to python-roku search
-                self.roku.search(query)
-                return True
-        except Exception as e:
-            logger.error("Roku search failed (%s)", type(e).__name__)
-            return False
-
     def power(self) -> bool:
         """Toggle power state.
 
@@ -376,19 +343,3 @@ class RokuController:
         except Exception as e:
             logger.error(f"Failed to navigate right: {type(e).__name__}")
             return False
-
-    def get_active_app(self) -> str | None:
-        """Get the name of the currently active app.
-
-        Returns:
-            App name string or None if unable to determine
-        """
-        try:
-            active = self.roku.active_app
-            if active:
-                logger.debug("Retrieved active Roku app")
-                return active.name
-            return None
-        except Exception as e:
-            logger.error(f"Failed to get active app: {type(e).__name__}")
-            return None

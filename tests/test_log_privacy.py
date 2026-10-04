@@ -52,9 +52,7 @@ async def test_tool_arguments_are_not_printed_even_on_invalid_calls(capsys):
 
 
 @pytest.mark.parametrize("failure", [False, True])
-def test_roku_logs_hide_queries_content_and_exception_text(
-    monkeypatch, caplog, failure
-):
+def test_roku_logs_hide_content_and_exception_text(monkeypatch, caplog, failure):
     controller = roku_controller.RokuController.__new__(roku_controller.RokuController)
     controller.roku_ip = "192.0.2.20"
     controller.roku = Mock()
@@ -65,16 +63,12 @@ def test_roku_logs_hide_queries_content_and_exception_text(
         controller.channel_ids[PRIVATE].launch.side_effect = RuntimeError(PRIVATE)
     monkeypatch.setattr(roku_controller.requests, "post", post)
     with caplog.at_level(logging.DEBUG, logger=roku_controller.__name__):
-        assert controller.search_and_navigate(PRIVATE) is not failure
-        assert post.call_args.kwargs["params"]["keyword"] == PRIVATE
         assert controller.launch_with_content(PRIVATE, PRIVATE, "movie") is not failure
         assert post.call_args.kwargs["params"]["contentId"] == PRIVATE
         assert controller.launch_app(PRIVATE) is not failure
         assert controller._get_app(PRIVATE + "-missing") is None
-        controller.roku.active_app = SimpleNamespace(name=PRIVATE)
-        assert controller.get_active_app() == PRIVATE
     assert PRIVATE not in caplog.text
-    assert "search" in caplog.text.lower()
+    assert "launch" in caplog.text.lower()
     if failure:
         assert "RuntimeError" in caplog.text
 
