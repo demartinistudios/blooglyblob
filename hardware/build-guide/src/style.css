@@ -167,14 +167,27 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .intro-grid img { width: 100%; }
 .intro-grid .diagram { background: var(--pale); border-radius: 24px 24px 10px 10px; }
 .intro-grid .diagram figcaption { border-top: 3px solid var(--copper); }
+.character-intro { --hero-scale: 1.28; }
 .character-intro .intro-grid { gap: 44px; margin-bottom: 64px; }
 .character-intro .intro-grid h1 { letter-spacing: -.05em; }
 .intro-copy { max-width: 42ch; color: var(--muted); }
 .character-intro .intro-grid .diagram { background: #f1f7fa; border-radius: 28px; overflow: hidden; }
 .character-intro .intro-grid .diagram > button { overflow: hidden; }
 /* Trim the capture's transparent margins without cropping the robot. */
-.character-intro .intro-grid .diagram img { max-height: 520px; object-fit: contain; transform: scale(1.28); }
+.character-intro .intro-grid .diagram img { max-height: 520px; object-fit: contain; transform: scale(var(--hero-scale)); }
 .character-intro .intro-grid .diagram figcaption { border-top: 0; padding: 10px 20px; background: transparent; }
+.character-intro [data-hero] > button { position: relative; }
+.hero-motion { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform: scale(var(--hero-scale)); pointer-events: none; visibility: hidden; }
+.hero-motion-ready .hero-motion { visibility: visible; }
+.hero-motion-ready > button > img { opacity: 0; }
+.character-intro [data-hero] figcaption { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.character-intro [data-hero-pause] { width: auto; background: transparent; color: var(--blue); border: 1px solid var(--line); border-radius: 7px; padding: 5px 8px; font: inherit; font-size: 12px; cursor: pointer; }
+[data-hero-pause][hidden] { display: none; }
+.character-intro [data-hero-pause]:focus-visible { outline: 3px solid var(--copper); outline-offset: 3px; }
+@media print {
+ .hero-motion, .character-intro [data-hero-pause] { display: none; }
+ .hero-motion-ready > button > img { opacity: 1; }
+}
 .character-capabilities > h2, .character-build > h2 { margin-top: 0; font-size: clamp(28px, 3vw, 38px); letter-spacing: -.035em; }
 .character-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
 .character-features section { border-top: 1px solid var(--line); padding-top: 24px; }

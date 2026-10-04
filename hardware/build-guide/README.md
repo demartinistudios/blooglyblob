@@ -109,6 +109,21 @@ ordinary builds do not require the local image-editing tools. Review it in the
 guide and rerun `make guide-social-card` after replacing it. The assembly
 illustration generator deliberately leaves this image alone.
 
+The homepage adds decorative lighting with `src/hero-motion.js` and five
+committed images in `src/assets/hero/`. Their source and hashes are recorded in
+the same presentation record. Ordinary guide checks verify the committed asset
+hashes. The base and canvas retain the still image’s 1400 × 1600 resolution. The animation uses
+the original diffuser masks; keep these registered with the base image when
+replacing it. Only the homepage
+animates: assembly steps, the README, enlarged views and the social card retain
+the still image. The reader can pause or play; reduced-motion preferences show
+the still by default. Animation stops outside the viewport, in hidden tabs and
+when leaving the page. Image-loading failure also leaves the still visible. The
+control retains keyboard focus during loading and offers a retry on failure. Glow uses canvas compositing
+without depending on browser-specific canvas filters.
+No audio input, device connection, new dependency or image-generation tool is
+needed to run or build the animation.
+
 Ordinary checking/building uses committed authored assets. These generators need
 additional local tools only when changing those assets; review generated diffs:
 

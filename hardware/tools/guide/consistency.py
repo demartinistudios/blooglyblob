@@ -8,6 +8,7 @@ Writing-standard violations are errors, so they make ok false in every mode.
 """
 import argparse
 from collections import Counter
+import hashlib
 from html.parser import HTMLParser
 import json
 from pathlib import Path
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[3]
 RECEIPT = 'hardware/build-guide/review-status.json'
 GUIDE = 'hardware/build-guide/src'
 REFERENCE = 'hardware/references/community-20260925/catalog.json'
+PRESENTATION = 'hardware/rendering/presentation-front.json'
 SURFACES = ('instructions', 'part-supply-cards', 'print-cards-downloads',
             'assembly-visuals', 'diagrams-templates', 'references',
             'software-commands', 'progress-and-navigation')
@@ -476,6 +478,22 @@ def check_tools(guide, parts):
             raise ValueError(f'{tid}: tool card steps differ from the steps that use it: {used}')
 
 
+def check_animation_assets(root):
+    """Check current authored animation assets, without requiring historical sources."""
+    assets = read(root, PRESENTATION)['homepage_animation']['assets']
+    if not isinstance(assets, list) or not assets:
+        raise ValueError(f'{PRESENTATION}: homepage_animation assets must be a nonempty list')
+    for asset in assets:
+        path = asset['path']
+        source = root / path
+        if not source.is_file():
+            raise ValueError(f'Homepage animation asset missing: {path}')
+        actual = hashlib.sha256(source.read_bytes()).hexdigest()
+        if actual != asset['sha256']:
+            raise ValueError(f'Homepage animation asset SHA-256 mismatch: {path}; '
+                             f"declared {asset['sha256']}, actual {actual}")
+
+
 def check_references(root, technical, presentation):
     for directory in ('hardware/references', 'hardware/servos'):
         for path in (root / directory).rglob('*'):
@@ -572,6 +590,7 @@ def check(root=ROOT, publication=False):
         check_quantities(read(root, 'hardware/assembly/hardware.json'), read(root, 'hardware/catalog/supplies.json'),
                          read(root, 'hardware/catalog/parts.json'), guide, parts)
         check_tools(guide, parts)
+        check_animation_assets(root)
         result['errors'] = list(check_writing(guide, parts))
         check_references(root, read(root, REFERENCE), read(root, f'{GUIDE}/references/catalog.json'))
         check_reference_page((root / GUIDE / 'references.html').read_text(),
