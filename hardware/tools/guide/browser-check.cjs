@@ -21,6 +21,9 @@ fs.mkdirSync(OUT,{recursive:false});
   }
   // Exercise the browser copy API without touching the user's system clipboard.
   await page.addInitScript(()=>{
+   window.guideAnimationFrames=0;
+   const requestFrame=window.requestAnimationFrame.bind(window);
+   window.requestAnimationFrame=callback=>requestFrame(time=>{window.guideAnimationFrames++;callback(time)});
    window.clipboardWrites=[];window.clipboardDenied=false;
    Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{
     if(window.clipboardDenied)throw new DOMException('Fixture permission denied','NotAllowedError');
@@ -32,6 +35,71 @@ fs.mkdirSync(OUT,{recursive:false});
   const data=await page.evaluate(()=>window.BGB);assert.ok(data.prints.length>0);
   assert.deepEqual(Object.keys(data).sort(),['costs','electrical','guide','parts','plateSettingsHTML','printSeconds','prints']);
   assert.ok(!/"(exact|status|source|sources)":/.test(JSON.stringify(data)),'private fields in data.js');
+  // Homepage motion preserves the still and stops scheduling frames when inactive.
+  await page.locator('[data-hero].hero-motion-ready').waitFor();
+  const heroCanvas=page.locator('.hero-motion');
+  const firstFrame=await heroCanvas.evaluate(c=>c.toDataURL());
+  await page.waitForFunction(previous=>document.querySelector('.hero-motion').toDataURL()!==previous,firstFrame);
+  const animationButton=page.locator('[data-hero-pause]');
+  assert.equal(await animationButton.evaluate(el=>getComputedStyle(el).cursor),'pointer');
+  await animationButton.click();
+  assert.equal(await animationButton.textContent(),'Play animation');
+  const pausedFrame=await heroCanvas.evaluate(c=>c.toDataURL());
+  const pausedCount=await page.evaluate(()=>window.guideAnimationFrames);
+  await page.waitForTimeout(180);
+  assert.equal(await heroCanvas.evaluate(c=>c.toDataURL()),pausedFrame,'pause freezes the image');
+  assert.equal(await page.evaluate(()=>window.guideAnimationFrames),pausedCount,'pause cancels the frame loop');
+  await animationButton.click();
+  await page.waitForFunction(previous=>document.querySelector('.hero-motion').toDataURL()!==previous,pausedFrame);
+  await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
+  await page.waitForTimeout(180);
+  const offscreenCount=await page.evaluate(()=>window.guideAnimationFrames);
+  await page.waitForTimeout(180);
+  assert.equal(await page.evaluate(()=>window.guideAnimationFrames),offscreenCount,'offscreen animation cancels its frame loop');
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.waitForFunction(count=>window.guideAnimationFrames>count,offscreenCount);
+  await page.evaluate(()=>{window.previousHero=document.querySelector('.hero-motion');});
+  await page.goto(BASE+'#parts');
+  await page.waitForFunction(()=>!document.querySelector('.hero-motion'));
+  const routeCount=await page.evaluate(()=>window.guideAnimationFrames);
+  await page.waitForTimeout(180);
+  assert.equal(await page.evaluate(()=>window.guideAnimationFrames),routeCount,'leaving the homepage disposes its animation');
+  await page.goto(BASE+'#start');
+  await page.locator('[data-hero].hero-motion-ready').waitFor();
+  await page.emulateMedia({media:'print'});
+  await page.waitForTimeout(100);
+  assert.equal(await heroCanvas.isVisible(),false,'printing uses the still');
+  assert.equal(await animationButton.isVisible(),false,'printing hides animation controls');
+  assert.equal(await page.locator('[data-hero] img').evaluate(el=>getComputedStyle(el).opacity),'1');
+  await page.emulateMedia({media:'screen'});
+
+  const reducedPage=await browser.newPage({reducedMotion:'reduce'}),motionRequests=[];
+  reducedPage.on('request',r=>{if(r.url().includes('/assets/hero/'))motionRequests.push(r.url())});
+  await reducedPage.goto(BASE+'#start');
+  await reducedPage.locator('[data-hero-pause]').waitFor();
+  assert.equal(await reducedPage.locator('[data-hero-pause]').textContent(),'Play animation');
+  assert.equal(await reducedPage.locator('.hero-motion').isVisible(),false,'reduced motion defaults to a still');
+  assert.equal(motionRequests.length,0,'reduced motion does not download animation images until requested');
+  await reducedPage.locator('[data-hero-pause]').click();
+  await reducedPage.locator('.hero-motion-ready').waitFor();
+  assert.ok(motionRequests.length>=5,'explicit play works with reduced motion');
+  await reducedPage.emulateMedia({reducedMotion:'no-preference'});
+  await reducedPage.waitForFunction(()=>!matchMedia('(prefers-reduced-motion: reduce)').matches);
+  await reducedPage.waitForTimeout(100);
+  await reducedPage.emulateMedia({reducedMotion:'reduce'});
+  await reducedPage.waitForFunction(()=>document.querySelector('[data-hero-pause]').textContent==='Play animation');
+  assert.equal(await reducedPage.locator('.hero-motion').isVisible(),false,'a changed preference restores the still');
+  await reducedPage.close();
+
+  const failedHero=await browser.newPage();
+  await failedHero.route('**/assets/hero/body-mask.png',route=>route.abort());
+  const failedImage=failedHero.waitForEvent('requestfailed',r=>r.url().endsWith('/body-mask.png'));
+  await failedHero.goto(BASE+'#start');await failedImage;
+  await failedHero.waitForTimeout(100);
+  assert.equal(await failedHero.locator('.hero-motion-ready').count(),0,'failed asset keeps the still');
+  assert.equal(await failedHero.locator('[data-hero-pause]').isVisible(),false,'failed animation hides its control');
+  assert.equal(await failedHero.locator('[data-hero] img').evaluate(el=>getComputedStyle(el).opacity),'1');
+  await failedHero.close();
   const build=data.guide.steps.filter(s=>s.kind==='build');assert.ok(build.length>0);
   // Step IDs are descriptive slugs; retired numeric and legacy IDs are gone, with no aliases.
   for(const step of data.guide.steps)assert.match(step.id,/^[a-z]+(?:-[a-z0-9]+)*$/,'descriptive step ID '+step.id);

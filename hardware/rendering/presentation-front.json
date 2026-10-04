@@ -52,5 +52,37 @@
     },
     "preserved": "Original camera, framing, mouth aperture, CAD part geometry and alpha channel. CAD and print files are unchanged.",
     "base_capture_git_revision": "8a72de2896cdb1b682f472856744d0cf4435149e"
+  },
+  "homepage_animation": {
+    "renderer": "hardware/build-guide/src/assets/hero-motion.js",
+    "canvas_size": [
+      700,
+      800
+    ],
+    "source": "The same Fusion capture and diffuser masks used for the still image. The base retains the accepted raised screw heads, with the animated lenses and nearby glow restored before compositing.",
+    "behavior": "Eight rainbow mouth zones form one horizontal audio-level meter with a 520 ms release, soft leading edge and a 48% background glow. Six broad body color pools drift slowly. Warm eye lights blink with a fast close and slower reopening at irregular intervals.",
+    "limits": "Decorative simulated audio level; no microphone or device connection. Illustrative lighting, not an optical simulation. Camera, aperture, silhouette and hardware geometry are unchanged.",
+    "assets": [
+      {
+        "path": "hardware/build-guide/src/assets/hero/base.png",
+        "sha256": "1479afe817267262198e2a91675fbc0a225e1f1cc3e064e7b3421dc30a91493e"
+      },
+      {
+        "path": "hardware/build-guide/src/assets/hero/mouth-mask.png",
+        "sha256": "e6bc2e6e2295dedea38a5694faf6a96bd3e465e3d70f01193ea92348cb86c611"
+      },
+      {
+        "path": "hardware/build-guide/src/assets/hero/body-mask.png",
+        "sha256": "90392cc809c9450c36c79ec2c37b9e60965956235f5094bb51fc6ee3da7baa13"
+      },
+      {
+        "path": "hardware/build-guide/src/assets/hero/eyes-mask.png",
+        "sha256": "bda80a3de874010adc972a1271e33b81c2625f192c33571ccbd32cef829cbaa4"
+      },
+      {
+        "path": "hardware/build-guide/src/assets/hero/body-shade.png",
+        "sha256": "f54b47f6de5d89ae60e7cf1c2e13af18b0e6fc4b53ea50cad4410e0a88140141"
+      }
+    ]
   }
 }
