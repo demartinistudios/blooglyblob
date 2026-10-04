@@ -37,7 +37,7 @@
     "fit_view": false
   },
   "capture": "Viewport.saveAsImageFileWithOptions; anti-aliasing enabled",
-  "appearance_changes": true,
+  "appearance_changes": false,
   "geometry_changes": false,
   "visibility_changes": false,
   "post_processing": {
