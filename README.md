@@ -4,7 +4,8 @@
 
 # BlooglyBlob
 
-**A 3D-printable AI companion powered by Raspberry Pi and the OpenAI API.**
+**A 3D-printable AI companion that runs on Raspberry Pi and uses the OpenAI
+API.**
 
 Press the button to start a voice conversation. BlooglyBlob talks back, lights up,
 moves his head and arms, and can dance to music. You build the character from
@@ -83,7 +84,12 @@ small, strong magnets that are dangerous if swallowed, and the microphone sends
 speech to OpenAI under your API account. Read the
 [safety and responsibility notice](hardware/SAFETY.md) before starting.
 BlooglyBlob is not affiliated with or endorsed by OpenAI or any other company
-named here.
+named here. Raspberry Pi is a trademark of Raspberry Pi Ltd.
 
 Original software, hardware designs and build materials are [MIT licensed](LICENSE).
-See [license scope](LICENSING.md) for third-party exclusions and separate audio terms.
+See [license scope](LICENSING.md) for exclusions and separate audio terms.
+
+The optional streaming feature uses TMDB and the TMDB APIs but is not endorsed,
+certified, or otherwise approved by TMDB. Streaming availability data comes from
+JustWatch through TMDB; optional deep links use data from
+[Watchmode](https://www.watchmode.com/).

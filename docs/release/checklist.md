@@ -18,9 +18,10 @@ the visibility change; source availability does not certify hardware readiness.
 - Exclude local credentials, calibration, machine state, experiments, caches and
   environments. Keep publisher documents as external links, with no previous
   copies accessible from the public repository. Rotate confirmed exposed secrets.
-- Include the owner's MIT grant, third-party exclusions, CC0 sound-effect notice
-  and [separate soundtrack notice](../../LICENSING.md#project-soundtrack-separate-terms).
-  Soundtrack inclusion does not grant an unrestricted music license.
+- Include `LICENSE`, `LICENSING.md` and `LICENSES/`: DeMartini Studios LLC's
+  MIT grant, exclusions, Adafruit MIT notice, CC0 sound-effect notice and
+  [separate soundtrack notice](../../LICENSING.md#project-soundtrack-separate-terms).
+  Confirm the guide footer credits and each print ZIP's `LICENSE.txt`.
 - Confirm the GitHub destination, selected refs and public commit identities.
   Use the agreed clean history and maintainer business email. Do not change
   visibility, rewrite history or publish to another destination without approval.

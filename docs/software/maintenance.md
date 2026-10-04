@@ -145,6 +145,12 @@ settings. Their local default is `config/app.env`. Install
 first installation, apply intended changes to the remote `app.env` deliberately;
 rerunning provision or update does not overwrite it.
 
+The Ring doorbell alert is experimental. Ring publishes no public API for it:
+setup signs in with the community `ring-doorbell` library, and the application
+then polls Ring's private app interface, which can change without notice. The
+application does not refresh the saved login; if alerts stop, rerun
+`make dev-setup-ring` and update the Pi's `RING_TOKEN`.
+
 ### First installation and repeated updates
 
 Provisioning validates and privately installs the selected `app.env` when the Pi

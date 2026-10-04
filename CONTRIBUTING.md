@@ -3,7 +3,8 @@
 Read [AGENTS.md](AGENTS.md) before changing this checkout. For CAD, print recipes
 or assembly-guide changes, follow the [hardware workflow](hardware/README.md).
 Contributors and forks can run its offline checks and propose changes without
-maintainer Fusion access.
+maintainer Fusion access. Participation follows the
+[code of conduct](CODE_OF_CONDUCT.md).
 
 ## Setup and checks
 
@@ -222,6 +223,19 @@ the helper does not calculate a price. Hardware actions and integrations are
 mocked and hosted search is disabled, so results do not measure voice quality,
 Pi latency, or full conversation behavior.
 
+## Licensing contributions
+
+By submitting a contribution, you confirm that you have the right to submit it
+and agree that your original contributions are licensed under the project's
+[MIT license](LICENSE).
+[License scope](LICENSING.md) identifies coverage and exceptions.
+
+Add third-party material, such as models, images, fonts, audio or documents,
+only if its terms allow redistribution, and include its license text. Record
+media in the [release asset inventory](docs/release/asset-manifest.json); for
+other files, such as CAD models, record the source and terms in a README beside
+them. List the material as an exception in [LICENSING.md](LICENSING.md).
+
 ## Optional song authoring
 
 The [beat-analysis helper](docs/software/beat-analysis.md) estimates song tempo
@@ -235,9 +249,6 @@ conversation makes real, billable API requests. Hardware-free development uses
 the tests above; the complete application requires the Pi drivers and devices.
 
 Do not commit secrets or personal runtime state. Public publication requires
-the separate [release checklist](docs/release/checklist.md); the existing package
-license does not establish rights to third-party audio, models, or CAD.
-Original project materials use the [MIT license](LICENSE);
-[license scope](LICENSING.md) identifies coverage and exceptions.
-The [publication inventory](docs/release/publication-inventory.md) records current
+the separate [release checklist](docs/release/checklist.md). The
+[publication inventory](docs/release/publication-inventory.md) records current
 contents, rights questions and remaining readiness gates.

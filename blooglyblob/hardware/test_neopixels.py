@@ -9,6 +9,7 @@ Tests the complete 16-pixel chain:
 - Chase pattern
 """
 
+import colorsys
 import time
 import sys
 
@@ -114,15 +115,9 @@ def rainbow_cycle(strip: "PixelStrip", cycles: int = 2, wait_ms: int = 20):
 
 
 def wheel(pos: int) -> "Color":
-    """Generate rainbow colors (0-255 position on color wheel)."""
-    if pos < 85:
-        return Color(pos * 3, 255 - pos * 3, 0)
-    elif pos < 170:
-        pos -= 85
-        return Color(255 - pos * 3, 0, pos * 3)
-    else:
-        pos -= 170
-        return Color(0, pos * 3, 255 - pos * 3)
+    """Return a fully saturated rainbow color for a 0-255 hue position."""
+    red, green, blue = colorsys.hsv_to_rgb(pos / 256, 1, 1)
+    return Color(round(red * 255), round(green * 255), round(blue * 255))
 
 
 def pulse(strip: "PixelStrip", r: int, g: int, b: int, cycles: int = 3, steps: int = 50):

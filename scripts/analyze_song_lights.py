@@ -83,7 +83,7 @@ def analyze(path):
         window=WINDOW,
         edges=list(EDGES),
         parameters=PARAMETERS,
-        soundtrack_notice="This data accompanies the source WAV; see LICENSING.md, Project soundtrack (separate terms).",
+        soundtrack_notice="This data accompanies the source WAV; see LICENSING.md, Project soundtrack: separate terms.",
         frames=frames,
     )
 

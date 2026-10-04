@@ -17,7 +17,7 @@ BlooglyBlob is a hobby electronics project for adults, not a toy, and is not des
 
 ## Privacy, cloud AI and costs
 
-The robot’s microphone sends speech to OpenAI under your API account. Tell people who talk to the robot that their conversations go to a cloud service. You are responsible for following OpenAI’s terms and usage policies, including its rules on use by children, and the laws where you live.
+The robot’s microphone sends speech to OpenAI under your API account. Tell people who talk to the robot that its voice is AI-generated and that their conversations go to a cloud service. You are responsible for following OpenAI’s terms and usage policies, including its rules on use by children, and the laws where you live.
 
 API usage is billed to your OpenAI account. Use its billing controls to limit what you can spend. You are responsible for all charges.
 
@@ -29,6 +29,6 @@ To the fullest extent allowed by applicable law, the project’s designs, print 
 
 To the fullest extent allowed by applicable law, the authors, contributors and copyright holders disclaim liability for injury, property damage, data loss or other loss arising from building, modifying or using this project. Build and use it at your own risk. Nothing in this notice excludes a liability, warranty or legal right that applicable law does not allow to be excluded. The project license and third-party terms continue to apply; this notice does not replace them or add restrictions to the open-source license.
 
-BlooglyBlob is not affiliated with or endorsed by OpenAI, Adafruit, Raspberry Pi, Autodesk or any other manufacturer or service named in this project. Product names and trademarks belong to their owners.
+BlooglyBlob is not affiliated with or endorsed by OpenAI, Adafruit, Raspberry Pi Ltd, Autodesk or any other manufacturer or service named in this project. Product names and trademarks belong to their owners.
 
 See the [MIT license](../LICENSE) and [license scope](../LICENSING.md).
