@@ -337,7 +337,7 @@ class WritingTests(unittest.TestCase):
     def test_units_step_links_commands_and_symbols_do_not_inflate_counts(self):
         # 20 words when a command is one word and arrows are not words; 23 otherwise.
         self.step['actions'][0] = ('Run make pi-servo-fit now, then read {step:board-cover-nuts} for four M3×6 '
-                                   'screws at W1/3 → F1 → W2/1 with an 11 mm strip here.')
+                                   'screws at W1/4 → F2 → C2/+ with an 11 mm strip here.')
         self.assertEqual(self.warnings('sentence-length'), [])
 
     def test_caption_repeating_its_action_warns(self):
@@ -387,7 +387,7 @@ class WritingTests(unittest.TestCase):
 
     def test_wago_labels_are_not_washer_ids_and_similar_ids_stay_distinct(self):
         self.step['actions'] = ['Cut the clear eye film (C01). Insert the loop into W2/1.',
-                                'Fit four M3×12 screws and a T3.15 A fuse at the servo power WAGO (W3).']
+                                'Fit four M3×12 screws and a T1 A fuse at the servo power WAGO (W3).']
         found = self.warnings('first-use')
         self.assertEqual(len(found), 1, found)
         self.assertIn('W2', found[0])
@@ -459,8 +459,8 @@ class WritingTests(unittest.TestCase):
 class FactTests(unittest.TestCase):
     def setUp(self):
         self.step = dict(id='fuse', title='Wire the fuse', actions=[
-            'Fit the servo fuse (F1) with a T3.15 A fuse.',
-            'Insert its loop into W2/1. Strip 11 mm first.',
+            'Fit the light fuse (F2) with a T1 A fuse.',
+            'Insert its loop into W1/4. Strip 11 mm first.',
             'Connect Pi pin 12 to DAT. Fasten four M3×12 screws. Run make pi-servo-fit.'],
             check='The fuse holder closes.', note='',
             panels=[dict(title='Fuse', image='f.svg', caption='', actions=[0, 1, 2],
@@ -472,7 +472,7 @@ class FactTests(unittest.TestCase):
 
     def test_sample_step_lists_technical_tokens(self):
         facts = self.inventory()['fuse']
-        for token in ('T3.15 A', 'W2/1', '11 mm', 'pin 12', 'M3×12', 'F1', 'make pi-servo-fit', 'throttled=0x0'):
+        for token in ('T1 A', 'W1/4', '11 mm', 'pin 12', 'M3×12', 'F2', 'make pi-servo-fit', 'throttled=0x0'):
             self.assertIn(token, [t for _, t in facts])
         self.assertIn(('value', '5 × 20 mm'), self.inventory()['part E07'])
 
@@ -484,13 +484,13 @@ class FactTests(unittest.TestCase):
 
     def test_moving_a_fact_between_actions_keeps_the_inventory(self):
         before = self.inventory()
-        self.step['actions'][1] = 'Insert its loop into W2/1.'
-        self.step['actions'][0] = 'Strip 11 mm first. Fit the servo fuse (F1) with a T3.15 A fuse.'
+        self.step['actions'][1] = 'Insert its loop into W1/4.'
+        self.step['actions'][0] = 'Strip 11 mm first. Fit the light fuse (F2) with a T1 A fuse.'
         self.assertEqual(self.inventory(), before)
 
     def test_removed_fact_changes_the_inventory(self):
         before = self.inventory()
-        self.step['actions'][1] = 'Insert its loop into W2/2. Strip 11 mm first.'
+        self.step['actions'][1] = 'Insert its loop into W1/5. Strip 11 mm first.'
         self.assertNotEqual(self.inventory(), before)
 
 

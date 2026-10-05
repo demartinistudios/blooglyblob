@@ -149,7 +149,7 @@ WRITING = {
     'step_panels': 6,
     # Labels written on parts. W2 and W3 are always WAGO labels here, never the
     # washer fastener IDs; fastener IDs are sizes and need no plain name.
-    'labels': ('W1', 'W2', 'W3', 'W4', 'F1', 'F2', 'C1', 'C2', 'S1', 'S2', 'R1', 'R2', 'J1'),
+    'labels': ('W1', 'W2', 'W3', 'W4', 'F2', 'C1', 'C2', 'S1', 'S2', 'R1', 'R2', 'J1'),
     # (term, pattern, case-sensitive, scope). Scope 'text' applies everywhere,
     # 'unsafe' everywhere except safety entries and quoted software messages,
     # 'caption' only in captions.

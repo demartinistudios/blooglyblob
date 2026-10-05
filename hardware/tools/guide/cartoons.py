@@ -1634,7 +1634,6 @@ ITEMS = {
     'E08': (capacitor, 'Panasonic EEU-FR1A102 capacitor', None, None),
     'R1': (resistor(('#7a4a2a', '#1f1f22', '#d0342c', '#c9a13e')), '1 kilohm resistor', None, None),
     'R2': (resistor(('#e07b22', '#e07b22', '#7a4a2a', '#c9a13e')), '330 ohm resistor', None, None),
-    'F1': (fuse('T3.15A 250V'), '3.15 A time-delay fuse', None, None),
     'F2': (fuse('T1A 250V'), '1 A time-delay fuse', None, None),
     'E10': (jst_sm_pair, 'Adafruit 1663 JST-SM three-pin plug and receptacle', None, None),
     'E11': (jst_eye_lead, 'JST-SH three-pin to male header lead', None, None),

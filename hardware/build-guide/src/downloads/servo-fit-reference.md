@@ -80,6 +80,6 @@ refitted for these positions before operation.
 | An arm or the head is a tooth off after fitting | Unplug, remove the center screw, lift the horn off, turn it one tooth and refit it. Do not turn the servo shaft by hand. |
 | A part touches the body during the first-movement check | Unplug at once. Refit that part one tooth closer to the fit position. |
 
-A servo with a jammed arm or head is not protected by the fuses, so never leave one straining.
+A jammed servo can keep pushing and overheat. Unplug the supply immediately if an arm or the head strains.
 
 BlooglyBlob: <https://github.com/demartinistudios/blooglyblob>

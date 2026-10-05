@@ -2,14 +2,14 @@
 
 Open **Blue Glee Blob - MAIN** in Fusion → Admin Project.
 
-Accepted design **R29**, exact cloud version **v25**.
+Accepted design **R31**, exact cloud version **v27**.
 Permanent file ID: `urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg`.
 
 ## CAD acceptance record
 
 Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.
 
-Approved head fastening rotation(P08/P14), measured USB opening and relocated lid fastening(FB24/FB32), and glued canister simplification(P35/P36). Same permanent MAIN lineage, cloud25. Print-project replacement and guide updates pending; physical qualification separate. See hardware/cad/CURRENT-NOTES.md.
+Lighting F2 and its holder remain in the accepted location. All printable geometry, placements, appearances and eight arm joints are preserved. Native and full-root STEP reimports verified; existing STL and print projects retained by source-equivalence checks.
 
 ## Current inputs
 

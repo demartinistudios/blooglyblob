@@ -100,7 +100,7 @@ class CircuitDiagramTests(unittest.TestCase):
         cases = [
             (diagrams.power_jack_circuit, (), ['J1 center', 'J1 sleeve']),
             (diagrams.pi_power_circuit, (), ['Pi power lead +', 'Pi power lead return']),
-            (diagrams.f1_circuit, (), ['F1 input', 'F1 output']),
+            (diagrams.servo_feed_circuit, (), ['18 AWG feed to W2/1', 'Feed from W1/3']),
             (diagrams.c1_circuit, (), ['C1 +', 'C1 −']),
             (diagrams.ground_circuit, (), ['18 AWG link to W4/1', 'Link from W3/3']),
             (diagrams.f2_circuit, (), ['F2 input', 'Base-half GND, including C2 −']),
@@ -129,6 +129,23 @@ class CircuitDiagramTests(unittest.TestCase):
             values = [float(v) for v in re.findall(r'-?\d+(?:\.\d+)?', path.attrib['d'])]
             paths.append(list(zip(values[::2], values[1::2])))
         return paths
+
+    def test_direct_servo_feed_and_service_isolation_endpoints(self):
+        connected = self.wire_paths('circuits/servo-feed-connect.svg', diagrams.RED)
+        self.assertEqual(len(connected), 1)
+        self.assertEqual(connected[0][0], diagrams.port_point(3, 147))
+        self.assertEqual(connected[0][-1], diagrams.port_point(1, 345))
+        isolated = self.wire_paths('circuits/servo-feed-isolation.svg', diagrams.RED)
+        self.assertEqual(len(isolated), 1)
+        self.assertEqual(isolated[0][-1], diagrams.port_point(1, 410))
+        self.assertNotIn(diagrams.port_point(3, 147), isolated[0])
+        root = ET.parse(self.out / 'circuits/servo-feed-isolation.svg').getroot()
+        # The free endpoint is fully within an insulating cap, not bare copper.
+        x, y = isolated[0][0]
+        caps = root.findall('.//s:rect[@fill="#47515b"]', NS)
+        self.assertTrue(any(float(c.get('x')) < x < float(c.get('x')) + float(c.get('width'))
+                            and float(c.get('y')) < y < float(c.get('y')) + float(c.get('height'))
+                            for c in caps))
 
     def test_servo_leads_reach_their_actual_canonical_terminals(self):
         for name in ('LEFT', 'RIGHT', 'HEAD'):

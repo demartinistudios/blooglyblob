@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "cad": "R31/cloud27",
+  "parent_cad": "R30/cloud26",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100",
+    "bytes": 15328139
+  },
+  "parent_native_sha256": "ea18465092d767f3efe10071c6127c1d7b1f39aca69eb2948597ab8e20350fcb",
+  "removed_occurrences": [
+    "FBALLOW F1 extension joint:1",
+    "FBWIRE F1 input tail:1",
+    "FBWIRE F1 output extended tail:1",
+    "FBWIRE F1 output tail:1"
+  ],
+  "retained_bodies": 563,
+  "retained_occurrences": 331,
+  "retained_joints": 8,
+  "retained_geometry_check": "Bidirectional temporary BRep differences empty or below0.001mm3 for every retained body. Unchanged topology/bounds and volume/area within1e-7 native units.",
+  "retained_appearance_visibility_placement_check": "Occurrence transforms, visibility, occurrence/body appearances and body names match accepted baseline. No metadata overrides needed restoration in this follow-up.",
+  "native_reimport": "563 retained bodies pass same bidirectional BRep check; metadata and8joints match saved MAIN.",
+  "timeline_health": "No new warning or error states; existing baseline states retained.",
+  "F2": {
+    "path": "FBREF Fuse F2:1",
+    "component": "FBREF Fuse F2",
+    "transform": [
+      1.0,
+      0.0,
+      0.0,
+      -1.3,
+      0.0,
+      1.0,
+      0.0,
+      -0.3,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "visible": true,
+    "appearance": "Dome carrier yellow - display only",
+    "bodies": [
+      {
+        "name": "Body1",
+        "volume": 9.650972631827432,
+        "area": 28.14867017616454,
+        "solid": true,
+        "lumps": 1,
+        "faces": 3,
+        "edges": 2,
+        "visible": true,
+        "appearance": "Dome carrier yellow - display only",
+        "bounds": [
+          [
+            2.3000000000000003,
+            6.9,
+            -3.0
+          ],
+          [
+            7.1,
+            8.5,
+            -1.4000000000000001
+          ]
+        ]
+      }
+    ]
+  },
+  "print_scope": "All selected printable bodies and placements unchanged. Reuse selected STL/3MF bytes; no slicing or physical operation required for this reference-only change."
+}

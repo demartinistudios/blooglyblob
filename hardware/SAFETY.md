@@ -9,8 +9,10 @@ BlooglyBlob is a DIY electronics and robotics project. You are responsible for s
 BlooglyBlob is a hobby electronics project for adults, not a toy, and is not designed for children. Keep it, and especially its small magnets, away from young children.
 
 - Soldering, cutting and printing involve hot surfaces, fumes and sharp tools. Follow equipment and material instructions; use suitable ventilation and protective equipment.
-- Use the specified enclosed power supply and fuse ratings. Do not open the supply or work on mains wiring. Disconnect power before changing wiring; short circuits can cause burns or fire even at low voltage.
-- Keep fingers, hair and clothing away from servos and joints. Keep small parts away from young children and pets.
+- Use the specified Mean Well GST40A05-P1J (5 V, 5 A) power supply. The circuit is designed around its output and protection characteristics; do not substitute another supply.
+- Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse. Supply protection and the fuse do not guarantee that every fault clears before wiring or components overheat.
+- Do not open the supply or work on mains wiring. Disconnect power before changing wiring; short circuits can cause burns or fire even at low voltage.
+- Keep fingers, hair and clothing away from servos and joints. A jammed servo can keep pushing and overheat; stop immediately. Keep small parts away from young children and pets.
 - The hands attach with small, strong magnets. If swallowed, magnets can cause serious internal injury. Check that each magnet is fully set in cured epoxy and inspect the hands regularly. Keep loose magnets and detachable hands away from young children and pets. If a magnet may have been swallowed, get medical help immediately.
 - Keep the build dry, keep vents clear, and stop using it if wiring is damaged, parts overheat, or movement is obstructed. Do not leave powered tests unattended.
 - AI responses can be incorrect or inappropriate. Do not rely on the robot for emergency, medical or other safety-critical decisions.

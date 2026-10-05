@@ -7,7 +7,7 @@ The catalog is a reference supplement. It does not approve substitutions, qualif
 ## Coverage and limits
 
 - Manufacturer-hosted PDFs cover the Kitronik servo, Adafruit eye boards and Pixel Shifter, Panasonic capacitor, Raspberry Pi board, MEAN WELL supply, Adafruit power-donor cable, YAGEO resistors and Zotefoams LD45. The two Kitronik links identify the manufacturer PDFs inspected on 2026-09-17.
-- The Eaton S505H PDF is Eaton Technical Data 4406, effective June 2023, manufacturer-authored and hosted by LCSC. It includes the 1 A and 3.15 A selections. The catalog selects the verified distributor-hosted PDF because Eaton’s download endpoint is unreliable.
+- The Eaton S505H PDF is Eaton Technical Data 4406, effective June 2023, manufacturer-authored and hosted by LCSC. The build uses its 1 A time-delay selection for F2 in the single E07 holder. The catalog selects the verified distributor-hosted PDF because Eaton’s download endpoint is unreliable.
 - The WAGO connector PDF is manufacturer-authored and hosted by NetXL; the catalog also links directly to WAGO's exact product page. This supplier mirror is explicitly identified.
 - Exact product pages provide references for the Adafruit connector cables, mouth stick, speaker pair, button and quick-connect leads, plus Waveshare USB TO AUDIO and its supplied extension. The PNY Elite family page covers the selected 32 GB microSDHC card. The button has a publisher raster drawing link; it is not mislabeled as a PDF. The servo horn and center screw lack a separate manufacturer dimensional specification.
 - Switchcraft 721AU and K&J D31 have verified official PDF links. Family documents are labeled and must be read for the specified variant.

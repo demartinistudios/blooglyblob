@@ -72,18 +72,6 @@
       ]
     },
     {
-      "id": "F1",
-      "quotes": [
-        {
-          "pack_price_usd": "2.15",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://www.digikey.com/en/products/detail/eaton-electronics-division/BK1-S505H-3-15-R/3042436"
-        }
-      ]
-    },
-    {
       "id": "F2",
       "quotes": [
         {
@@ -668,7 +656,7 @@
           "pack_label": "Red + black, 10 ft each",
           "url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
           "used_quantity": "1",
-          "note": "Allowance: 1 m total across both colors, including the power-jack leads, ground link and fuse extension. Route before cutting."
+          "note": "Allowance: 1 m total across both colors, including the power-jack leads, ground link and direct servo feed. Route before cutting."
         }
       ]
     },

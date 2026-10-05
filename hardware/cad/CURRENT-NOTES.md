@@ -1,6 +1,6 @@
 # Current hardware notes
 
-The registry selects R29, Fusion cloud version 25. The native assembly, STL
+The registry selects R31, Fusion cloud version 27. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
@@ -8,12 +8,19 @@ names in current evidence identify the source of unchanged features.
 
 Download the [Fusion assembly (.f3d)](current/assembly.f3d) or the
 [STEP AP214 assembly (.step)](current/assembly.step). The STEP exports the full
-R29/cloud25 assembly, including hidden reference, layout and test components.
-Reimport into Fusion retained all 572 bodies and 340 occurrences in their assembly
+R31/cloud27 assembly, including hidden reference, layout and test components.
+Reimport into Fusion retained all 563 bodies and 331 occurrences in their assembly
 positions. It contains geometry and component placements, without Fusion
 parametric history or joints. Body names and occurrence suffixes may change on import.
 [Export provenance](current/step-export-provenance.json) records the source,
 hash and measured reimport checks.
+
+## Electrical references
+
+The assembly contains one lighting fuse holder, F2, in its accepted location.
+Printable geometry, supports, component placements and all eight arm joints are
+unchanged. See [native verification](current/evidence/fuse-reference-r31.json)
+and [print reuse evidence](../printing/current/checks/r31-print-reuse.json).
 
 ## Enclosure and board layout
 
@@ -85,7 +92,7 @@ estimates are predictions. Prior K1 support inspection covers the moved board
 posts, nut recesses and WAGO mounting bands; W1 and W2 retain their documented
 cradle and backpack reviews.
 
-The [render source lock](../rendering/source-lock.json) selects the R29 assembly
+The [render source lock](../rendering/source-lock.json) selects the R31 assembly
 mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.

@@ -31,8 +31,8 @@ class MasterWiringTests(unittest.TestCase):
             "J1 sleeve": "J1.sleeve",
             "Pi power lead +": "pi-power.+",
             "Pi power lead return": "pi-power.−",
-            "F1 input": "F1.in",
-            "F1 output": "F1.out",
+            "18 AWG feed to W2/1": "W2.1",
+            "Feed from W1/3": "W1.3",
             "F2 input": "F2.in",
             "C1 +": "C1.+",
             "C1 −": "C1.−",
@@ -58,6 +58,10 @@ class MasterWiringTests(unittest.TestCase):
                 self.assertEqual(
                     adjacent, [] if value == "Empty" else [destinations[value]], port
                 )
+
+    def test_servo_feed_is_one_direct_edge_and_only_lighting_has_a_fuse(self):
+        self.assertIn(frozenset(("W1.3", "W2.1")), self.pairs)
+        self.assertEqual([n.name for n in self.c.nodes if n.kind == "fuse"], ["F2"])
 
     def test_all_twelve_pi_connections_and_button_resistor(self):
         button = {

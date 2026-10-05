@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "cad": "R30/cloud26",
+  "parent_cad": "R29/cloud25",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "ea18465092d767f3efe10071c6127c1d7b1f39aca69eb2948597ab8e20350fcb",
+    "bytes": 15384132
+  },
+  "parent_native_sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
+  "removed_occurrences": [
+    "FBREF Fuse F1:1",
+    "P27 Rear fuse rack r3 - lower holder and removable upper shelf:1",
+    "P33 Upper fuse saddle r0 - removable shelf:1",
+    "REF BASE Schurter FDI 8601.2001.08 - max body:1",
+    "REF BASE Schurter FDI 8601.2001.08 - max body:2"
+  ],
+  "retained_bodies": 567,
+  "retained_occurrences": 335,
+  "retained_joints": 8,
+  "retained_geometry_check": "Bidirectional temporary BRep differences empty or below0.001mm3 for every retained body. Unchanged topology/bounds and volume/area within1e-7 native units.",
+  "retained_appearance_visibility_placement_check": "Occurrence transforms, visibility, occurrence/body appearances and body names match accepted baseline. Timeline recalculation reset eight body overrides and two names; restored exact baseline values before saving.",
+  "native_reimport": "567 retained bodies pass same bidirectional BRep check; metadata and8joints match saved MAIN.",
+  "timeline_health": "No new warning or error states; existing baseline states retained.",
+  "F2": {
+    "path": "FBREF Fuse F2:1",
+    "component": "FBREF Fuse F2",
+    "transform": [
+      1.0,
+      0.0,
+      0.0,
+      -1.3,
+      0.0,
+      1.0,
+      0.0,
+      -0.3,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "visible": true,
+    "appearance": "Dome carrier yellow - display only",
+    "bodies": [
+      {
+        "name": "Body1",
+        "volume": 9.650972631827432,
+        "area": 28.14867017616454,
+        "solid": true,
+        "lumps": 1,
+        "faces": 3,
+        "edges": 2,
+        "visible": true,
+        "appearance": "Dome carrier yellow - display only",
+        "bounds": [
+          [
+            2.3000000000000003,
+            6.9,
+            -3.0
+          ],
+          [
+            7.1,
+            8.5,
+            -1.4000000000000001
+          ]
+        ]
+      }
+    ]
+  },
+  "print_scope": "All selected printable bodies and placements unchanged. Reuse selected STL/3MF bytes; no slicing or physical operation required for this reference-only change."
+}

@@ -1,13 +1,13 @@
 {
-  "cad": "R29/cloud25",
+  "cad": "R31/cloud27",
   "native_source": {
     "path": "hardware/cad/current/assembly.f3d",
     "original_path": "hardware/cad/current/assembly.f3d",
-    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa"
+    "sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100"
   },
   "source_comparisons_verified": 72,
   "pending_source_comparisons": 0,
-  "validation": "checks/r29-head-topology-validation.json",
+  "validation": "checks/r31-print-reuse.json",
   "selected_A04_source": {
     "path": "hardware/cad/current/stl/A04.stl",
     "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01"

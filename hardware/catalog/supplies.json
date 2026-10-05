@@ -55,14 +55,6 @@
       "exact": "Schurter FDI 8601.2001.08 fuseholder",
       "category": "Purchased",
       "optional": 0,
-      "qty": 2,
-      "quantity_scope": "required-build-supply"
-    },
-    {
-      "id": "F1",
-      "exact": "Eaton BK1-S505H-3.15-R time-delay fuse",
-      "category": "Purchased",
-      "optional": 0,
       "qty": 1,
       "quantity_scope": "required-build-supply"
     },

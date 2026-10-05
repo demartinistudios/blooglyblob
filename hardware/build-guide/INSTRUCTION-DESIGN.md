@@ -147,7 +147,7 @@ Automated checks enforce these limits as errors: `consistency.py check`,
 | Caption | Does not repeat its panel's action text |
 
 Count words by splitting on spaces. A size or value with its unit counts as
-one word when it has no space, such as `M3×6`, `W1/3` or `T3.15`. A step link
+one word when it has no space, such as `M3×6`, `W1/3` or `T1`. A step link
 such as `{step:body-lights}` counts as one word. A command counts as one word.
 The one-instruction check skips only code spans and software messages in curly
 quotes (“…”). A straight " does not exempt text, because it is also an inch mark.
@@ -268,12 +268,12 @@ Do not use DANGER.
 Each message has three parts, in this order, in at most three sentences of 20
 words or fewer:
 
-1. **Hazard.** What is wrong or dangerous: "A wire from W1 straight to W2
-   bypasses the servo fuse."
+1. **Hazard.** What is wrong or dangerous: "A wire from W1 to the light connector
+   that skips F2 bypasses the light fuse."
 2. **Consequence.** What happens if it is ignored: "A fault could then overheat
    the wires and cause burns or fire."
-3. **Avoidance.** An instruction that prevents it: "Connect W1 to W2 only
-   through F1."
+3. **Avoidance.** An instruction that prevents it: "Connect the light connector
+   to W1 only through F2."
 
 Placement and form:
 
@@ -300,7 +300,7 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 - **Plain name first.** On first use in a step, write the plain name with the ID
   in parentheses: "front microphone grille (FB41)". After that, either the name
   or the ID may be used in the same step.
-- **Labels the builder writes follow the same rule.** W1–W4, F1, F2, C1, C2,
+- **Labels the builder writes follow the same rule.** W1–W4, F2, C1, C2,
   S1, S2, R1, R2 and J1 are written on the parts. Give the plain name at first
   use in a step, such as "input WAGO (W1/3)", then use the label alone. A port
   reference such as W1/3 counts as a use of W1.
@@ -332,7 +332,6 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 | WAGO W2 | servo power WAGO (W2) | W2 | — |
 | WAGO W3 | ground WAGO (W3) | W3 | — |
 | WAGO W4 | servo ground WAGO (W4) | W4 | — |
-| F1 fuse and holder (E07) | servo fuse (F1), T3.15 A | F1 | — |
 | F2 fuse and holder (E07) | light fuse (F2), T1 A | F2 | — |
 | C1 (E08) | servo capacitor (C1) | C1 | — |
 | C2 (E08) | light capacitor (C2) | C2 | — |
@@ -535,41 +534,26 @@ seated.
 **Check:** Both parts sit flat. Each nut stays seated and the plastic around it
 is not cracked.
 
-### Example 2: Wire the servo fuse and capacitor (wiring)
+### Example 2: Wire the servo power and capacitor (wiring)
 
-**You need:** fuse holder (E07) · servo fuse (F1), T3.15 A, kept out of the
-holder · capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) · heat-shrink (C12)
-· solder, flux and wire labels (C14) · flush cutters (T01) · soldering iron
-(T02) · wire stripper (T04) · heat-shrink tool (T09)
+**You need:** capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) ·
+heat-shrink (C12) · solder, flux and wire labels (C14) · flush cutters (T01) ·
+soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
 
-**Panel 1: Prepare the servo fuse holder**
+**Panel 1: Cut and strip the servo feed**
 
-1. Label one fuse holder (E07) F1. Keep the fuse out of the holder while you
-   wire.
-2. Test-route the holder's loop from the input WAGO (W1/3) to the servo power
-   WAGO (W2/1).
-3. Mark the loop where both ends reach without tension. Cut the loop once at
-   the mark.
-4. If the output end is short, solder on an 18 AWG extension at the bench.
-   Insulate the joint.
-5. If the input end is short, do not extend it. Change the layout instead.
+1. Test-route a red 18 AWG wire from the input WAGO (W1/3) to the servo power
+   WAGO (W2/1). Mark where it reaches without tension.
+2. Cut the wire at the mark. Strip 11 mm from each end.
 
-*Caption:* Schematic of the F1 holder and its loop.
+*Caption:* Red 18 AWG lead with an 11 mm stripped end at each side.
 
-**Panel 2: Connect F1 between W1 and W2**
+**Panel 2: Connect the servo feed**
 
-> **WARNING** A wire from W1 straight to W2 bypasses the servo fuse. A fault
-> could then overheat the wires and cause burns or fire. Connect W1 to W2 only
-> through F1.
+1. Insert one end into W1/3. Insert the other end into W2/1. Close both levers.
+2. Keep W2/2 to W2/4 free for the three servos.
 
-1. Strip 11 mm from each end of the F1 loop.
-2. Insert the input end into W1/3. Insert the output end into W2/1.
-3. Place the holder where you can open it.
-4. Keep W2/2 to W2/4 free for the three servos.
-
-*Result:* F1 is the only path from W1 to W2.
-
-*Caption:* Connection view of W1, F1 and W2.
+*Caption:* Direct connection from W1/3 to W2/1.
 
 **Panel 3: Prepare and connect the servo capacitor**
 
@@ -577,28 +561,26 @@ holder · capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) · heat-shrink (C
 > can overheat and vent when powered. Connect its striped negative leg to the
 > ground WAGO (W3/4).
 
-1. Label one capacitor (E08) C1. The stripe on its body marks the negative leg.
-2. On the bench, solder an 18 AWG wire to each C1 leg. Mark the negative wire.
-3. Cover each leg and its joint with its own heat-shrink.
-4. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
-5. Bend the wires gently at the rubber-seal end of C1. Keep the vent end
-   uncovered.
-
-*Result:* C1 polarity is correct and its two insulated wires are separate.
+1. Label one 1000 µF, 10 V capacitor (E08) C1. The stripe marks its negative
+   leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.
+2. Cover each leg and its joint with its own heat-shrink. Lay C1 beside the
+   WAGO row. Cut each wire to reach its port.
+3. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
+   Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.
 
 *Caption:* Connection view of C1, W2 and W3.
 
-**Check:** F1 is the only path from W1 to W2. C1 polarity is correct. Its two
-insulated wires are separate.
+**Check:** One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct.
+Its two insulated wires are separate.
 
 ### How the examples meet the limits
 
 | Limit | Example 1 | Example 2 |
 | --- | --- | --- |
-| Longest sentence (20 or fewer words) | 18 | 15 |
-| Longest action (35 or fewer words) | 34 | 18 |
+| Longest sentence (20 or fewer words) | 18 | 17 |
+| Longest action (35 or fewer words) | 34 | 30 |
 | Panels (6 or fewer) | 6 | 3 |
-| IDs and labels named on first use | FB01, FB41, FB03 | E07, E08, F1, C1, W1, W2, W3 |
+| IDs and labels named on first use | FB01, FB41, FB03 | E08, C1, W1, W2, W3 |
 | Banned terms | none | none |
 | Captions repeating an action | none | none |
 
