@@ -6702,7 +6702,7 @@
         "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
         "Lay the head light cable into the head shelf\u2019s side entry from the side, as in {step:shelf-arms}. Close the foam wrap as in {step:body-diffuser}.",
         "Refit the carrier as in {step:backpack-carrier}. Load its four nuts and screw the assembled backpack on as in {step:backpack}. Refit the belt as in {step:belt}.",
-        "With the supply unplugged, uncover the servo feed end. Reinsert it into W1/3. Close the lever. Reconnect both light connectors as in {step:light-connections}.",
+        "With the supply unplugged, lay the robot on its back as before, with the power jack clear. Uncover the servo feed. Reinsert it into W1/3. Close the lever. Reconnect both light connectors as in {step:light-connections}.",
         "Repeat the checks in {step:power-up-inspection}. Test all 16 lights as in {step:all-lights-test}.",
         "Shut down and unplug as in {step:secure-wiring}. Unplug the head light connector. Close the base as in {step:bottom-cover}. Refit the head as in {step:head-open}."
       ],
