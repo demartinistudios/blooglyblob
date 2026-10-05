@@ -288,15 +288,58 @@ def fuse_prep(name, value, input_port, output):
     g.save(f'circuits/{name.lower()}-prepare.svg')
 
 
-def f1_circuit():
-    g = physical_action('Servo fuse connections', 465, 'Connection view')
-    wago_port(g, 146, 'W1', 3, RED)
-    fuse_holder(g, 252, 'F1', 'T3.15 A')
-    wago_port(g, 415, 'W2', 1, RED)
-    g.wire([port_point(3,146),(298,187),(55,187),(55,291)],RED,7)
-    g.wire([(365,291),(392,291),(392,445),(368,445),port_point(1,415)],RED,7)
-    g.text(24, 337, '18 AWG',size=22)
-    g.save('circuits/f1-connect.svg')
+def servo_feed_prepare():
+    g = physical_action('Prepare the servo feed', 470, 'One red 18 AWG wire')
+    lines(g, 130, 'Test-route W1/3 → W2/1.', 'Cut to fit, allowing service access.')
+    # One loose insulated conductor, with two untinned copper ends.
+    g.wire([(47, 244), (91, 244)], COPPER, 6)
+    g.wire([(91, 244), (329, 244)], RED, 10)
+    g.wire([(329, 244), (373, 244)], COPPER, 6)
+    for left, right in ((47, 91), (329, 373)):
+        g.wire([(left, 272), (right, 272)], MUTED, 2)
+        g.text((left + right) / 2, 307, '11 mm', size=22, anchor='middle')
+    lines(g, 378, 'Strip both ends. Leave them bare.', 'Do not tin WAGO wire ends.')
+    g.save('circuits/servo-feed-prepare.svg')
+
+
+def servo_feed_circuit():
+    g = physical_action('Connect the servo feed', 470, 'Power unplugged · one 18 AWG wire')
+    wago_port(g, 147, 'W1', 3, RED)
+    wago_port(g, 345, 'W2', 1, RED)
+    g.wire([port_point(3,147),(298,200),(24,200),(24,280),
+            (392,280),(392,392),(368,392),port_point(1,345)],RED,7)
+    g.text(60, 251, 'W1/3 → W2/1',size=22,weight=700)
+    g.text(24, 448, 'Close both levers; pull gently.',size=22)
+    g.save('circuits/servo-feed-connect.svg')
+
+
+def servo_feed_isolation():
+    g = physical_action('Isolate the servo feed', 620, 'All power unplugged · service view')
+    wago_port(g, 147, 'W1', 3, RED)
+    # W1/3 is open and empty; no other conductor is removed.
+    x, y = port_point(3, 147)
+    g.circle(x, y, 7, fill='#444', stroke=GRAY)
+    g.add(f'<path d="M{x-12} 108 L{x-9} 84 L{x+10} 84 L{x+12} 108 Z" '
+          'fill="#eb8b3e" stroke="#9c5420" stroke-width="2"/>')
+    wago_port(g, 410, 'W2', 1, RED)
+    g.wire([(180,222),(180,344),(125,344),(125,304),(392,304),(392,458),
+            (368,458),port_point(1,410)],RED,7)
+    # Insulating halo makes the folded wire crossing unambiguous.
+    g.rect(175,295,10,17,fill=RED,stroke=PAPER,sw=3,rx=0)
+    # Closed insulating cap extends beyond the freed wire end.
+    g.rect(170,202,20,55,fill='#47515b',stroke=INK,rx=5)
+    # Tie the freed tail back to the same continuous lead.
+    g.rect(119,315,68,10,fill='#e5e1d6',stroke=GRAY,rx=3)
+    g.rect(178,312,13,16,fill='#e5e1d6',stroke=GRAY,rx=2)
+    g.wire([(191,320),(210,320)], '#b6b0a3', 4)
+    g.text(24, 194, 'W1/3 empty',size=22)
+    g.text(24, 277, 'Insulate end',size=22)
+    g.wire([(142,267),(170,242)],MUTED,1.5)
+    g.text(218, 341, 'Tie back',size=22)
+    lines(g, 511, 'Keep W2/1 connected.', 'Leave servo signals and returns.',
+          'Reconnect W1/3 with power off.')
+    g.save('circuits/servo-feed-isolation.svg')
+
 
 def c1_circuit():
     g = physical_action('Servo capacitor connections', 680, 'Connection view')
@@ -1246,10 +1289,10 @@ def eye_connector():
 
 def power_overview():
     g = action('Power · three branches', 833, 'Reference schematic · no mains inside')
-    lines(g, 138, 'External 5 V, 5 A supply', '→ J1 center → W1 INPUT +5 V')
+    lines(g, 119, 'Mean Well GST40A05-P1J', 'External 5 V, 5 A supply', '→ J1 center → W1 INPUT +5 V')
     g.wire([(49, 201), (49, 614)], RED, 6)
     branches = ((238, 'W1/2 → Pi power lead', 'Pi USB → audio', 'Unfused supply branch'),
-                (416, 'W1/3 → F1 T3.15 A', '→ W2 → three servos', 'C1 across W2 and W3'),
+                (416, 'W1/3 → W2/1', '18 AWG → three servos', 'C1 across W2 and W3'),
                 (593, 'W1/4 → F2 T1 A', '→ base half → body + head', 'C2 across the base-half feed'))
     for y, first, second, third in branches:
         g.wire([(49, y), (90, y)], RED, 5)
@@ -1486,9 +1529,9 @@ def harness_connections():
 def circuit_actions():
     (OUT / 'circuits').mkdir(parents=True, exist_ok=True)
     power_jack_circuit(); pi_power_circuit(); wago_insertion(); harness_connections()
-    fuse_prep('F1', 'T3.15 A', 3, 'W2/1')
+    servo_feed_prepare(); servo_feed_circuit(); servo_feed_isolation()
     fuse_prep('F2', 'T1 A', 4, 'base-half +5 V / C2 +')
-    f1_circuit(); c1_circuit(); ground_circuit(); c2_circuit(); f2_circuit()
+    c1_circuit(); ground_circuit(); c2_circuit(); f2_circuit()
     shifter_circuit('S1', {1: 'S1 V', 6: 'S1 G', 12: 'S1 DAT', 32: 'S1 CLK'}, ('base-half DATA', 'LEFT'))
     shifter_circuit('S2', {9: 'S2 G', 17: 'S2 V', 33: 'S2 DAT', 36: 'S2 CLK'}, ('RIGHT', 'HEAD'))
     gpio_lead_preparation(); gpio_socket_insertion(); shifter_jumpers(); button_switch(); button_led(); button_pins(); usb_audio(); pi_bench_power()

@@ -70,9 +70,10 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 | 6–7 | Two separate eye pixels | Existing eye on/off behavior |
 | 8–15 | Eight-pixel mouth | Dark; no mouth animation is implemented |
 
-This data ordering does not combine the power circuits. Retain the independent
-fused body and head power feeds defined by the hardware wiring guide; do not
-bridge them to make a single power chain. The brightness setting remains 128/255.
+This data ordering does not change the power wiring. Retain the F2-protected
+lighting supply and dedicated head power pair defined by the hardware wiring
+guide; do not power the mouth through the eye cables. The brightness setting
+remains 128/255.
 This software profile does not establish electrical or thermal qualification.
 
 `make pi-test-neopixels` first lights one pixel at a time in ascending order,

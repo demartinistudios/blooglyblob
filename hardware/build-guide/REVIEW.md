@@ -1,11 +1,11 @@
 # Guide review scope
 
-The guide selects R29 / Fusion cloud25 inputs. The
+The guide selects R31 / Fusion cloud27 inputs. The
 [review checklist](review-status.json) records digital review by surface, separate
 from physical build qualification. Its broad review remains pending after the
 build guide clarity overhaul; the focused updates below do not clear that review.
 
-The latest digital review covers the six changed part designs P08, P14, FB24,
+The retained R29 digital review covers the six changed part designs P08, P14, FB24,
 FB32, P35 and P36:
 
 - Shelf and adapter fastening axes match the accepted native bores. Screws enter
@@ -20,6 +20,14 @@ FB32, P35 and P36:
   view were regenerated and visually reviewed. The base-cover view was regenerated
   and remained identical. Unchanged local interfaces and unrelated views were
   retained after dependency review.
+
+The electrical instructions specify a direct 18 AWG servo feed from W1/3 to
+W2/1, one F2 T1 A lighting fuse and the exact GST40A05-P1J supply. Service
+instructions isolate servo power at W1/3 and restore it before final inspection.
+The current native and STEP exports contain one lighting fuse reference.
+The printed geometry, STLs, print projects and plate previews are unchanged.
+Affected guide surfaces remain pending review; these instructions do not
+establish physical qualification.
 
 The [render source binding](../rendering/source-lock.json) records the reviewed
 coordinates and accepted CAD identity. Native-bore regression tests check the

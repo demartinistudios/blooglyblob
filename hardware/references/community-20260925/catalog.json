@@ -253,7 +253,6 @@
     {
       "id": "ref-019",
       "part_ids": [
-        "F1",
         "F2"
       ],
       "title": "Eaton S505H time-delay fuses",
@@ -261,7 +260,7 @@
       "official_url": "https://datasheet.lcsc.com/datasheet/pdf/5b5eef3606a7bf121d519d56b11ebf12.pdf?productCode=C3162760",
       "checked_date": "2026-09-26",
       "model_match": "family-includes-exact-model",
-      "limitations": "June 2023 manufacturer datasheet hosted by LCSC; the manufacturer endpoint is unreliable. Select cartridge 3.15 A for F1 and 1 A for F2; BK1 identifies packaging. Time/current characteristics do not imply a hard current limit.",
+      "limitations": "June 2023 manufacturer datasheet hosted by LCSC; the manufacturer endpoint is unreliable. Select the 1 A time-delay cartridge for F2; BK1 identifies packaging. Time/current characteristics do not imply a hard current limit.",
       "source_type": "manufacturer-authored-supplier-hosted",
       "publisher": "Eaton"
     },
@@ -464,7 +463,7 @@
       "official_url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF",
       "checked_date": "2026-09-26",
       "model_match": "family-includes-exact-model",
-      "limitations": "Select GST40A05-P1J 5 V / 5 A and center-positive P1J plug; other voltages are not interchangeable.",
+      "limitations": "Use the exact GST40A05-P1J 5 V / 5 A supply with center-positive P1J plug. The circuit is designed around its output and protection characteristics; do not substitute another supply.",
       "source_type": "manufacturer",
       "publisher": "MEAN WELL",
       "download_url": "https://www.meanwell.com/Upload/PDF/GST40A/GST40A-SPEC.PDF"
@@ -1184,15 +1183,6 @@
       "name": "Schurter FDI 8601.2001.08 fuseholder",
       "reference_ids": [
         "ref-018"
-      ],
-      "coverage": "links-only",
-      "limitations": ""
-    },
-    {
-      "part_id": "F1",
-      "name": "Eaton BK1-S505H-3.15-R time-delay fuse",
-      "reference_ids": [
-        "ref-019"
       ],
       "coverage": "links-only",
       "limitations": ""

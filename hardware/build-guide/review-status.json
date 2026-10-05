@@ -6,7 +6,7 @@
     {
       "surface": "instructions",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
@@ -14,7 +14,7 @@
     {
       "surface": "part-supply-cards",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
@@ -30,7 +30,7 @@
     {
       "surface": "assembly-visuals",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
@@ -38,7 +38,7 @@
     {
       "surface": "diagrams-templates",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
@@ -46,7 +46,7 @@
     {
       "surface": "references",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]
@@ -62,7 +62,7 @@
     {
       "surface": "progress-and-navigation",
       "status": "pending",
-      "reason": "Rewritten by the build guide clarity overhaul (2026-09-29/30); needs re-review and a bench walk-through.",
+      "reason": "Direct servo-feed wiring, F2 lighting protection and service isolation need review against the current guide and a bench walk-through. Broad guide review remains pending.",
       "evidence": [
         "hardware/build-guide/REVIEW.md"
       ]

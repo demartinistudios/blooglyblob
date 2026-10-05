@@ -64,15 +64,20 @@ class StandReuseTests(unittest.TestCase):
 
 class ReferenceIdentityTests(unittest.TestCase):
     def test_missing_or_misidentified_reference_fails_before_render(self):
-        rows = [{'root':f'FBREF {kind} {letter}{i}:1','id':pid}
-                for kind,letter,pid in [('Fuse','F','E07'),('Capacitor','C','E08')]
-                for i in (1,2)]
+        rows = [{'root': 'FBREF Fuse F2:1', 'id': 'E07'},
+                {'root': 'FBREF Capacitor C1:1', 'id': 'E08'},
+                {'root': 'FBREF Capacitor C2:1', 'id': 'E08'}]
         module.verify_reference_identities(rows)
+        for index in range(len(rows)):
+            with self.subTest(missing=rows[index]['root']):
+                with self.assertRaises(ValueError):
+                    module.verify_reference_identities(rows[:index] + rows[index + 1:])
+        wrong = copy.deepcopy(rows)
+        wrong[0]['id'] = 'E08'
         with self.assertRaises(ValueError):
-            module.verify_reference_identities(rows[:-1])
-        rows[0]['id'] = 'E08'
+            module.verify_reference_identities(wrong)
         with self.assertRaises(ValueError):
-            module.verify_reference_identities(rows)
+            module.verify_reference_identities(rows + [{'root': 'FBREF Fuse F1:1', 'id': 'E07'}])
 
 
 class BoardMountSceneTests(unittest.TestCase):

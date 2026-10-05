@@ -2719,25 +2719,6 @@
       "chosen_overrides_accepted": false
     },
     {
-      "path": "FBREF Fuse F1:1",
-      "body": "Body1",
-      "part_id": "E07",
-      "accepted_appearance": "Dome carrier yellow - display only",
-      "chosen_appearance": "Dome carrier yellow - display only",
-      "chosen_rgb": [
-        232,
-        173,
-        35
-      ],
-      "accepted_rgb": [
-        232,
-        173,
-        35
-      ],
-      "chosen_rgb_exact": true,
-      "chosen_overrides_accepted": false
-    },
-    {
       "path": "FBREF Fuse F2:1",
       "body": "Body1",
       "part_id": "E07",

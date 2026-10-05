@@ -37,7 +37,7 @@ def scenes():
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
-        'saddles': dict(select=['FB01','E07','E08'],camera=[.12,.3,-1.8],title='Fuses and capacitors — placement in the open base'),
+        'power-parts-placement': dict(select=['FB01','E07','E08'],camera=[.12,.3,-1.8],title='Lighting fuse and capacitors — placement in the open base'),
         'audio-cradle-fasteners': copy.deepcopy(library['r16/base-audio-joints']['view']),
         'base-board-nut-locations': dict(select=['FB01'],camera=[.12,.3,-1.8],title='Eight M2 board nuts — four Pi, two per signal board',feature_labels=[{'text':f'P{i+1}','point':[x,y,-17]} for i,(x,y) in enumerate([(-74.5,2.5),(-25.5,2.5),(-74.5,60.5),(-25.5,60.5)])]+[{'text':name,'point':[-18,y,-15]} for name,y in [('S1a',-22.08),('S1b',-11.92),('S2a',-44.08),('S2b',-33.92)]]),
     }
@@ -61,7 +61,7 @@ def scenes():
             v['footer']='Use the fitted base nuts • the middle screw goes in before the module'
         if path.endswith('wago-pockets.png'):
             v['footer']='Tape goes between each flat face and its connector • no printed clamps'
-        if path.endswith(('saddles.png','base-fuses.png')):
+        if path.endswith('power-parts-placement.png'):
             v['footer']='Place the bodies beside supported bundles • short leads show exit ends only'
         if path.endswith('base-inlet.png'):
             v['select']=['FB21','E18'];v['title']='Power jack and removable plate';v['footer']='Keep enough wire slack to remove the plate'
@@ -249,10 +249,12 @@ def base_nut_diagrams(render, output):
 
 def verify_reference_identities(meshes):
     """Fresh exports may omit part_id; never silently drop accepted references."""
-    for prefix, expected in [('FBREF Fuse F','E07'), ('FBREF Capacitor C','E08')]:
-        found=[m for m in meshes if m['root'].startswith(prefix)]
-        if len(found) != 2 or any(m['id'] != expected for m in found):
-            raise ValueError('Missing or incorrect render identities: '+prefix)
+    expected = {'FBREF Fuse F2:1': 'E07',
+                'FBREF Capacitor C1:1': 'E08', 'FBREF Capacitor C2:1': 'E08'}
+    found = [m for m in meshes if m['root'].startswith(('FBREF Fuse F', 'FBREF Capacitor C'))]
+    if len(found) != len(expected) or {m['root']: m['id'] for m in found} != expected:
+        raise ValueError('Missing or incorrect fuse/capacitor render identities')
+
 
 def action_diagrams(render, output):
     """Single-action CAD views with nominal fasteners and readable SVG captions.

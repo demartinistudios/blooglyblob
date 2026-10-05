@@ -13,13 +13,13 @@
         "W1 INPUT +5 V",
         "J1 center",
         "Pi power lead +",
-        "F1 input",
+        "18 AWG feed to W2/1",
         "F2 input",
         "Empty"
       ],
       [
         "W2 SERVO +5 V",
-        "F1 output",
+        "Feed from W1/3",
         "LEFT servo +",
         "RIGHT servo +",
         "HEAD servo +",
@@ -63,7 +63,7 @@
       [
         "12",
         "BCM18, lighting data",
-        "S1 DAT \u2192 S1 D5 \u2192 R2 \u2192 light 0 DIN"
+        "S1 DAT \u2192 S1 D5 \u2192 BODY LIGHT \u2192 R2 near light 0 \u2192 light 0 DIN"
       ],
       [
         "32",
@@ -120,11 +120,11 @@
     "rows": [
       [
         "Unpowered harness inspection",
-        "Correct jack center/sleeve; distinct W1/W2; correct fuses and capacitor polarity; verified header orientation; no speaker-to-ground connection; all adapters continuity-tested; no exposed contacts or pinched wires."
+        "Correct jack center/sleeve; W1/3 connected directly to W2/1 with red 18 AWG wire; F2 T1 A fitted in the lighting feed; correct capacitor polarity; verified header orientation; no speaker-to-ground connection; all adapters continuity-tested; no exposed contacts or pinched wires."
       ],
       [
         "Staged power-up",
-        "Qualified builder uses a current-limited low-voltage bench supply for initial harness checks, then the selected brick. Connect/verify one branch at a time with servo mechanism kept safe. Record rail voltage and unexpected idle current. Do not create test shorts in the robot."
+        "Use the specified Mean Well GST40A05-P1J (5 V, 5 A) power supply. The circuit is designed around its output and protection characteristics; do not substitute another supply. Follow the staged guide checks with servo cables disconnected for the initial lighting test. Unplug power before every wiring change; support the mechanism before powered motion."
       ],
       [
         "Combined real workload",
@@ -132,11 +132,11 @@
       ],
       [
         "Supply and wiring margin",
-        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, revise architecture/connector ratings before increasing supply capacity. Confirm OEM leads, connector leads, fuses and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
+        "Keep sustained normal-operation input at or below a design target of 4 A for the 5 A supply; capture transients separately. If that fails, review the load and wiring design; do not substitute a larger supply. Confirm OEM leads, connector leads, F2 and connectors remain within their ratings and acceptable temperature rise after an hour of the heaviest intended workload."
       ],
       [
-        "Protection coordination",
-        "A qualified bench test using controlled loads, away from the assembled robot, establishes supply limiting, branch fault behavior, fuse time/current performance and wire heating. This is still open; the BOM does not claim every fault clears a fuse."
+        "Protection limits",
+        "F2 T1 A provides supplemental interruption for lighting wiring faults; it is not a hard current limit. Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse. Supply protection and F2 do not guarantee that every fault clears before wiring or components overheat. A jammed servo can keep pushing and overheat; stop immediately."
       ],
       [
         "Audio",
@@ -156,5 +156,5 @@
       ]
     ]
   },
-  "diagram": "External 5 V supply \u2192 power jack (J1) \u2192 W1 INPUT +5V\n                                        \u251c\u2500 Pi power lead (micro-USB) \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n                                        \u251c\u2500 F1 3.15 A \u2192 W2 SERVO +5V \u2192 three servos\n                                        \u2502                            \u2514\u2500 C1 1000 \u00b5F\n                                        \u2514\u2500 F2 1 A \u2192 base half \u2192 body light connector \u2192 body + dedicated head power pair\n                                                    \u2514\u2500 C2 1000 \u00b5F at feed; head powers eyes and mouth\n\nJack return \u2192 W3 GND \u2500\u250018 AWG link\u2500\u2500 W4 GND\nPi GPIO \u2192 two level shifters (S1, S2) \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
+  "diagram": "Mean Well GST40A05-P1J (5 V, 5 A) \u2192 J1 center \u2192 W1/1 INPUT +5 V\n  W1/2 \u2192 Pi power lead (micro-USB) \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n  W1/3 \u2192 red 18 AWG feed \u2192 W2/1 SERVO +5 V\n    W2/2\u20134 \u2192 three servos; W2/5 \u2192 C1 + (1000 \u00b5F)\n  W1/4 \u2192 F2 T1 A \u2192 C2 + (1000 \u00b5F) / BODY LIGHT positive junction\n    BODY LIGHT \u2192 body lights + dedicated head power pair \u2192 eyes and mouth\n    C2 \u2212 \u2192 BODY LIGHT return junction \u2192 W3/5\n\nJ1 sleeve \u2192 W3/1 GND\n  W3/2 \u2192 Pi power lead return\n  W3/3 \u2192 18 AWG ground link \u2192 W4/1; W4/2\u20134 \u2192 three servo returns\n  W3/4 \u2192 C1 \u2212; W3/5 \u2192 BODY LIGHT return / C2 \u2212\nS1 D5 \u2192 BODY LIGHT \u2192 R2 near first pebble \u2192 light 0 DIN\nPi GPIO \u2192 two level shifters (S1, S2) \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
 }

@@ -1,6 +1,6 @@
 {
-  "status": "R29/cloud25:71 required pieces/51 types; all72 required/optional source mesh comparisons verified. Physical qualification remains separate.",
-  "cad": "R29",
+  "status": "R31/cloud27:71 required pieces/51 types; retained printable geometry and all72 required/optional source mesh comparisons verified. Physical qualification remains separate.",
+  "cad": "R31",
   "parts": [
     {
       "part_id": "A04",

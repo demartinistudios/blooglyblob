@@ -24,7 +24,7 @@
         "Let the paint cure for the time on its label before assembly.",
         "Gather the tools in the {tools}.",
         "Sort the screws by size.",
-        "Keep each servo’s horn and center screw together."
+        "Keep each servo\u2019s horn and center screw together."
       ],
       "check": "Your colors are chosen, your tools are ready and your screws are sorted.",
       "source": [
@@ -69,16 +69,16 @@
       "actions": [
         "Open the all-plates Bambu project in Bambu Studio.",
         "Select your printer, nozzle and build plate.",
-        "Map each plate’s material profile to one of your spools.",
+        "Map each plate\u2019s material profile to one of your spools.",
         "Keep the supplied orientations, supports, support blockers and brims.",
-        "Leave “Synchronize filament list from AMS” off.",
+        "Leave \u201cSynchronize filament list from AMS\u201d off.",
         "Slice one plate at a time. Start with plate 2, the base.",
         "Inspect the slice before you print it.",
         "When you send a plate to the printer, turn bed leveling on. Turn timelapse off.",
-        "For plate 2, turn flow dynamics calibration off. The printer’s calibration line crosses that plate’s front brim.",
-        "Print plate 2. Print plate 7 next, the same way. It holds the base’s panels and grilles.",
+        "For plate 2, turn flow dynamics calibration off. The printer\u2019s calibration line crosses that plate\u2019s front brim.",
+        "Print plate 2. Print plate 7 next, the same way. It holds the base\u2019s panels and grilles.",
         "Print the rest in the order the build first needs them: 1, 3, 4, 6, 8, 5, 10 and 9.",
-        "The plate layouts above list each plate’s parts and estimate."
+        "The plate layouts above list each plate\u2019s parts and estimate."
       ],
       "check": "The base, panels and grilles are printed.",
       "source": [
@@ -152,7 +152,7 @@
         "Clear the P35 pin holes.",
         "In the base (FB01), clear the small support lips from the front nut-entry channels.",
         "Clear the screw holes and cable slots in the base. Clear the nut pockets for the boards, bottom cover, audio cradle, rear vent, button and power jack plate. Clear the side grille nut channels.",
-        "Smooth rough edges at the harness opening, the central hole in the base’s top wall. Do not enlarge it.",
+        "Smooth rough edges at the harness opening, the central hole in the base\u2019s top wall. Do not enlarge it.",
         "On the audio cradle (FB24), clear the end windows and lid-nut slots. Keep the thin roofs above the slots intact.",
         "Clear support from the horn recesses in both upper arms (AR01, AR04).",
         "On the head shelf (P08), trim loose strands from the three underside nut pockets. Keep the pocket roofs intact.",
@@ -260,7 +260,7 @@
       "actions": [
         "Place the empty base (FB01) upside down, with its open bottom facing up.",
         "Seat an M2 nut in the tip of each of the eight board posts. Four are for the Pi and two for each level shifter. Match its flats to the pocket. Do not force it.",
-        "With a toothpick, put a tiny dab of mixed epoxy (C09) where each nut’s edge meets its pocket. Or use faster-setting CA gel (C18). Keep glue out of threads and off the post tips.",
+        "With a toothpick, put a tiny dab of mixed epoxy (C09) where each nut\u2019s edge meets its pocket. Or use faster-setting CA gel (C18). Keep glue out of threads and off the post tips.",
         "Seat an M3 nut in the bottom cover recess at each of the four corners. Match its flats to the recess.",
         "Glue each nut at its outside edge, as for the board nuts. Keep glue off the faces where the cover seats.",
         "Leave the base upside down until the glue holds."
@@ -363,13 +363,13 @@
         "Find the four nut channels on the inside of the front wall, around the opening. Place an M3 nut flat against the wall in each channel.",
         "Slide each nut toward the top of the base until it stops. Do not force it. Do not glue these nuts.",
         "Each nut rests at the end of its channel, over its screw hole.",
-        "At the front opening, hold the grille against the outside of the base. Put one M3×6 screw through a grille hole. Use no washers.",
-        "With your other hand, press that hole’s nut against the wall from inside. Turn the screw by hand until it catches.",
+        "At the front opening, hold the grille against the outside of the base. Put one M3\u00d76 screw through a grille hole. Use no washers.",
+        "With your other hand, press that hole\u2019s nut against the wall from inside. Turn the screw by hand until it catches.",
         "Repeat for the other three holes, one screw at a time. Tighten all four screws evenly.",
         "The grille sits flat against the base.",
         "If a screw does not start by hand, remove it. Check that its nut is seated.",
         "Through the open bottom, place an M3 nut in one of the four pockets around the rear opening. Match its flats to the pocket. Hold it there with a fingertip. Do not glue it.",
-        "With your other hand, hold the rear vent against the outside of the base. Put an M3×12 screw through the vent into that nut. Use no washer. Turn it by hand until it catches.",
+        "With your other hand, hold the rear vent against the outside of the base. Put an M3\u00d712 screw through the vent into that nut. Use no washer. Turn it by hand until it catches.",
         "Repeat for the other three pockets, one nut at a time. Tighten all four screws evenly. Leave the bottom of the base open.",
         "The vent sits flat against the base."
       ],
@@ -428,7 +428,7 @@
         {
           "title": "Start the first grille screw",
           "image": "assets/community/front-grille-installation.svg",
-          "caption": "Front wall cut away. Arrows show each screw’s path.",
+          "caption": "Front wall cut away. Arrows show each screw\u2019s path.",
           "safety": {
             "level": "notice",
             "text": "The plastic behind the front nuts is thin. Too much force can crack it. Support the plastic behind the nuts while you work."
@@ -478,7 +478,7 @@
       "actions": [
         "Place one speaker (E16) against the inside of a loose side speaker grille (FB19). Face its cone toward the grille opening.",
         "Line up the four speaker tabs with the four inner holes of the grille.",
-        "From the outside, insert four M3×12 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
+        "From the outside, insert four M3\u00d712 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
         "Hold each nut while you tighten its screw until snug. Keep the speaker tabs flat.",
         "The speaker sits flat against the grille. Its tabs are not bent.",
         "Repeat for the second speaker."
@@ -547,12 +547,12 @@
       "title": "Mount the side speaker grilles",
       "chapter": "Base hardware",
       "actions": [
-        "Keep the base upside down, with its open bottom facing up. On one side, place an M3 nut flat against the wall in each of the four channels. These nuts take the grille’s outer holes.",
+        "Keep the base upside down, with its open bottom facing up. On one side, place an M3 nut flat against the wall in each of the four channels. These nuts take the grille\u2019s outer holes.",
         "Slide each nut toward the top of the base until it stops. Do not force it. Do not glue these nuts.",
         "Each nut rests at the end of its channel, over its screw hole.",
         "Pass the speaker cable through the side opening. Keep the cable clear of the mounting edge.",
-        "Hold the side speaker grille (FB19) flat against the outside of the base. Put one M3×12 screw through an outer hole. Use no washers.",
-        "With your other hand, press that hole’s nut against the wall from inside. Turn the screw by hand until it catches.",
+        "Hold the side speaker grille (FB19) flat against the outside of the base. Put one M3\u00d712 screw through an outer hole. Use no washers.",
+        "With your other hand, press that hole\u2019s nut against the wall from inside. Turn the screw by hand until it catches.",
         "Repeat for the other three outer holes. Tighten the four screws evenly.",
         "The grille sits flat against the base.",
         "Repeat panels 1 to 3 on the other side.",
@@ -632,7 +632,7 @@
       "chapter": "Base hardware",
       "actions": [
         "Keep the base (FB01) upside down, with its open bottom facing up.",
-        "Choose four matching adhesive feet (E25) that fit on the base’s Ø14 mm post faces.",
+        "Choose four matching adhesive feet (E25) that fit on the base\u2019s \u00d814 mm post faces.",
         "Clean and dry the four post faces.",
         "Peel the backing from one foot. Center it on a post face. Press it on firmly. Repeat for the other three feet.",
         "Let the adhesive bond for the time on its label before you load the feet.",
@@ -801,7 +801,7 @@
         "Choose Raspberry Pi 3. This entry covers the Raspberry Pi 3 Model A+ board (E09).",
         "Choose Raspberry Pi OS (other). Choose Raspberry Pi OS Lite (64-bit) in that list.",
         "Check that its description names Trixie. The installer requires 64-bit Trixie with Python 3.13.",
-        "Insert the microSD card (E13) into your computer’s microSD reader (T10).",
+        "Insert the microSD card (E13) into your computer\u2019s microSD reader (T10).",
         "In Imager, select that card. Check its name and capacity.",
         "If you cannot identify the card with confidence, stop. Do not write to that drive."
       ],
@@ -855,7 +855,7 @@
       "actions": [
         "Enter a unique hostname, for example `blooglyblob`. Use only letters, numbers and hyphens.",
         "Write down your hostname. You need it for SSH and the repository settings.",
-        "On the Localisation screen, choose your country’s capital city, your time zone and your keyboard layout.",
+        "On the Localisation screen, choose your country\u2019s capital city, your time zone and your keyboard layout.",
         "Continue to the User screen.",
         "Choose a username and password for the Pi. This guide uses `builder` as its example username.",
         "Write down your username. You need it for SSH and the repository settings.",
@@ -927,7 +927,7 @@
         "On the Write image screen, check the device, operating system and storage.",
         "Check that the summary lists five customisations: hostname, localisation, user account, Wi-Fi and SSH.",
         "Select WRITE. Leave the card in the reader until writing and verification finish.",
-        "Imager shows “Write complete!” and ejects the card.",
+        "Imager shows \u201cWrite complete!\u201d and ejects the card.",
         "If your computer still shows the card, eject it.",
         "Remove the microSD card from the reader."
       ],
@@ -996,17 +996,17 @@
       "hardware": {},
       "actions": [
         "With power disconnected, insert the written microSD card into the Pi. Rest the bare board on a clean, nonconductive surface.",
-        "Plug the separate 5 V, 2.5 A micro-USB bench supply (T13) into the Pi’s micro-USB power port. Do not use the USB-A socket. It is for audio.",
+        "Plug the separate 5 V, 2.5 A micro-USB bench supply (T13) into the Pi\u2019s micro-USB power port. Do not use the USB-A socket. It is for audio.",
         "Allow a few minutes for the first boot and Wi-Fi connection.",
         "In the terminal environment whose key you gave Imager, run the command below. Replace `builder` and `blooglyblob` with your username and hostname.",
-        "If ssh reports “Could not resolve hostname”, find the Pi’s IP address in your router’s device list. Use the IP address in place of the `.local` name.",
-        "On the first connection, ssh asks whether to trust the Pi’s host key. Accept it only if you are sure you are contacting that Pi.",
-        "If ssh reports “REMOTE HOST IDENTIFICATION HAS CHANGED”, stop. Correct `known_hosts` only after you confirm a reimaged card or a changed address.",
-        "A shell prompt with the Pi’s username and hostname, like the example below, means you are connected.",
+        "If ssh reports \u201cCould not resolve hostname\u201d, find the Pi\u2019s IP address in your router\u2019s device list. Use the IP address in place of the `.local` name.",
+        "On the first connection, ssh asks whether to trust the Pi\u2019s host key. Accept it only if you are sure you are contacting that Pi.",
+        "If ssh reports \u201cREMOTE HOST IDENTIFICATION HAS CHANGED\u201d, stop. Correct `known_hosts` only after you confirm a reimaged card or a changed address.",
+        "A shell prompt with the Pi\u2019s username and hostname, like the example below, means you are connected.",
         "If access is denied, check the Imager username. Check that Imager has the public key from this terminal. Do not guess a different account.",
         "Type `exit` to leave the Pi shell. Leave the Pi powered for the next step."
       ],
-      "check": "You connected to the Pi with your SSH key and returned to your computer’s terminal. The Pi stays powered.",
+      "check": "You connected to the Pi with your SSH key and returned to your computer\u2019s terminal. The Pi stays powered.",
       "note": "",
       "source": [],
       "panels": [
@@ -1038,7 +1038,7 @@
           ]
         },
         {
-          "title": "Accept the Pi’s host key",
+          "title": "Accept the Pi\u2019s host key",
           "actions": [
             5,
             6
@@ -1185,7 +1185,7 @@
               "lines": [
                 "OPENAI_API_KEY=YOUR_PRIVATE_API_KEY"
               ],
-              "label": "config/app.env · replace the placeholder"
+              "label": "config/app.env \u00b7 replace the placeholder"
             }
           ]
         }
@@ -1204,12 +1204,12 @@
       },
       "hardware": {},
       "actions": [
-        "Plug the male end of the USB-A extension cable (E23) into the Pi’s USB-A socket.",
-        "Plug the USB audio module (E14) into the extension’s female socket. Keep the module in its case on the bench.",
+        "Plug the male end of the USB-A extension cable (E23) into the Pi\u2019s USB-A socket.",
+        "Plug the USB audio module (E14) into the extension\u2019s female socket. Keep the module in its case on the bench.",
         "On your computer, in the repository folder, run the command below. It opens SSH with the target in `.env`.",
         "If the target is wrong or unreachable, correct `PI_HOST` and `PI_USER` in `.env`. Run the command again.",
         "On the Pi, list the sound cards with the command below.",
-        "Note the USB name after “USB-Audio - ” and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
+        "Note the USB name after \u201cUSB-Audio - \u201d and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
         "If no USB audio card appears, check the module and extension connections. List the cards again.",
         "In each command below, use your card ID for `Device`, not the card number. That number can change after a reboot. Run the three commands in order to read, set and save the Speaker level.",
         "Both channels report `[-40.00dB]`, a low starting level.",
@@ -1220,7 +1220,7 @@
         "Use the same name for both. The module provides the microphone and the speaker. A missing or ambiguous name stops startup. The application never picks another device.",
         "Set `MIC_GAIN=1` to add no software gain to the microphone. It does not change speaker volume. Tune it only after a voice test."
       ],
-      "check": "Both USB playback channels are saved at −40 dB. Your `config/app.env` names your USB audio device for input and output, with `MIC_GAIN=1`.",
+      "check": "Both USB playback channels are saved at \u221240 dB. Your `config/app.env` names your USB audio device for input and output, with `MIC_GAIN=1`.",
       "note": "",
       "source": [],
       "panels": [
@@ -1270,7 +1270,7 @@
               "lines": [
                 "1 [Device         ]: USB-Audio - USB PnP Audio Device"
               ],
-              "label": "Example only · use the name on your Pi"
+              "label": "Example only \u00b7 use the name on your Pi"
             }
           ]
         },
@@ -1326,7 +1326,7 @@
                 "AUDIO_OUTPUT_DEVICE=USB PnP Audio Device",
                 "MIC_GAIN=1"
               ],
-              "label": "config/app.env · replace with your USB name"
+              "label": "config/app.env \u00b7 replace with your USB name"
             }
           ]
         }
@@ -1352,14 +1352,14 @@
         "Keep the USB audio module (E14) connected by its USB-A extension cable (E23). The application needs it to start.",
         "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot.",
         "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
-        "If it ends with “Installation complete”, continue to {step:service-check}.",
-        "If it stops with “Onboard audio is loaded”, reboot the Pi in the next panel. This is expected on the first run.",
+        "If it ends with \u201cInstallation complete\u201d, continue to {step:service-check}.",
+        "If it stops with \u201cOnboard audio is loaded\u201d, reboot the Pi in the next panel. This is expected on the first run.",
         "If it reports any other failure, fix the reported cause. Run `make pi-provision` again.",
         "From your computer, open the Pi shell. Reboot the Pi. SSH disconnects during the reboot. The reboot frees the timer the lighting driver needs.",
         "Wait for the Pi to rejoin Wi-Fi. Run `make pi-provision` again from your computer.",
         "Provisioning keeps your existing settings on the Pi. First installation needs no extra `pi-update` step."
       ],
-      "check": "Provisioning ends with “Installation complete; the application reached local readiness.”",
+      "check": "Provisioning ends with \u201cInstallation complete; the application reached local readiness.\u201d",
       "note": "",
       "source": [],
       "panels": [
@@ -1380,7 +1380,7 @@
                 "Raspberry Pi 3 Model A Plus Rev 1.1; aarch64; Python 3.13.x",
                 "VERSION_CODENAME=trixie"
               ],
-              "label": "Expected identifiers · version suffix may differ"
+              "label": "Expected identifiers \u00b7 version suffix may differ"
             }
           ],
           "actions": [
@@ -1440,7 +1440,7 @@
                 "make pi-provision"
               ],
               "context": "computer",
-              "label": "After the Pi reconnects · repository folder"
+              "label": "After the Pi reconnects \u00b7 repository folder"
             }
           ],
           "actions": [
@@ -1475,7 +1475,7 @@
         "For a configuration error, open the Pi shell. Edit `/etc/blooglyblob/app.env` with `sudoedit`. Correct the key or device name. Save and close the editor. Type `exit`.",
         "Back on your computer, restart the service. Check its status again.",
         "From your computer, open the Pi shell. Shut the Pi down with the second command. The SSH session disconnects.",
-        "Wait for the Pi’s green activity light to stop flashing. Unplug the bench supply (T13) from the Pi.",
+        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the bench supply (T13) from the Pi.",
         "Unplug the USB-A extension cable (E23) from the Pi. Unplug the audio module (E14) from the extension."
       ],
       "check": "The application runs with its USB audio device. The Pi is shut down, unplugged and ready to mount.",
@@ -1539,7 +1539,7 @@
                 "make pi-ssh"
               ],
               "context": "computer",
-              "label": "Only for a configuration error · repository folder"
+              "label": "Only for a configuration error \u00b7 repository folder"
             },
             {
               "kind": "command",
@@ -1609,9 +1609,9 @@
         "Mark S1 nearer the Pi and S2 nearer the audio cradle.",
         "Mark GPIO pin 1 beside the Pi header. Pin 1 is at the microSD end, farthest from the full-size USB port. Its underside pad is square.",
         "Place the Pi (E09) with its components toward the open bottom. Point its full-size USB port toward the audio cradle and its microSD end toward the rear wall.",
-        "Check that the USB and power plugs fit without pressing on nearby parts. Fit four M2×12 screws. Tighten them only until secure, without bowing the board.",
+        "Check that the USB and power plugs fit without pressing on nearby parts. Fit four M2\u00d712 screws. Tighten them only until secure, without bowing the board.",
         "Fit S1 in the position nearer the Pi and S2 in the position nearer the audio cradle. Face their components and screw heads toward the open bottom.",
-        "Fasten each board with two M2×10 screws into the seated nuts. Use no washers. Keep the terminal entries and both frame-screw paths clear.",
+        "Fasten each board with two M2\u00d710 screws into the seated nuts. Use no washers. Keep the terminal entries and both frame-screw paths clear.",
         "Both level shifters sit flat on their posts."
       ],
       "check": "All three boards sit flat and their nuts stay bonded. Screw tips clear components. The sockets stay reachable.",
@@ -1695,13 +1695,13 @@
       "actions": [
         "Clean and dry the backs of the four WAGOs (E06) and their pads in the base. Follow the instructions for the double-sided mounting tape (C16).",
         "Cut a piece of tape to fit the flat back of each WAGO. Keep it clear of the levers and wire entries.",
-        "Place each WAGO with its wire entries toward the robot’s front and its levers toward the open bottom.",
+        "Place each WAGO with its wire entries toward the robot\u2019s front and its levers toward the open bottom.",
         "Test-fit all four WAGOs with the tape thickness included. Each lever must open fully without touching the cover or nearby parts.",
         "Remove the liners. Press each WAGO firmly onto its pad.",
         "Beside the pads, label the four WAGOs from rear to front.",
         "Rear to front: input WAGO (W1), ground WAGO (W3), servo power WAGO (W2), servo ground WAGO (W4). W1 and W2 carry +5 V. W3 and W4 carry GND.",
         "Open and close each lever gently to check the bond.",
-        "Number each WAGO’s ports from the robot-right end. In this open-bottom view, port 1 is on the picture’s right.",
+        "Number each WAGO\u2019s ports from the robot-right end. In this open-bottom view, port 1 is on the picture\u2019s right.",
         "All five ports in one WAGO are joined.",
         "Use this numbering for all four WAGOs. In this guide, W1/3 means WAGO W1, port 3."
       ],
@@ -1773,7 +1773,7 @@
         "Each nut sits at the outer end of its pocket.",
         "Keep the cradle open side up and level from now on, or the nuts can slide out.",
         "With the base upside down, lower the cradle into it, open side up and level. Place it directly behind the front microphone grille, clear of the grille screw tips.",
-        "Put three M3×6 screws through the cradle into the glued nuts. Use no washers. Fit the middle screw now. The audio module will cover it. Start all three screws by hand. Tighten them gently.",
+        "Put three M3\u00d76 screws through the cradle into the glued nuts. Use no washers. Fit the middle screw now. The audio module will cover it. Start all three screws by hand. Tighten them gently.",
         "The cradle sits flat in the base, with both lid nuts still in their pockets."
       ],
       "check": "The empty cradle is screwed to the base at all three mounting holes. Both M2 lid nuts are seated.",
@@ -1851,7 +1851,7 @@
         "Connect the four-wire speaker cable. Connect each labeled speaker to its matching output. The speaker outputs do not connect to power ground.",
         "Leave the Pi end of the extension cable disconnected until {step:button-audio-wiring}.",
         "Line the audio cradle lid (FB32) with 1 mm foam (C10). Keep its openings clear.",
-        "Align the lid’s rear tab with the USB-end nut. Fit two M2×8 screws without washers. Tighten gently, without squeezing the case or trapping cables.",
+        "Align the lid\u2019s rear tab with the USB-end nut. Fit two M2\u00d78 screws without washers. Tighten gently, without squeezing the case or trapping cables.",
         "If a lid screw does not catch, remove the lid. Push its nut back to the outer end of its pocket."
       ],
       "check": "The case is taped to the inside rear wall and the lid is fitted. The microphones and cable connections are unobstructed.",
@@ -1950,17 +1950,17 @@
       "chapter": "Base boards and controls",
       "actions": [
         "Unscrew the retaining nut from the button (E17). Set it aside for {step:button}.",
-        "Hold the back toward you, with the closer pair of tabs on top. That pair is LED − on the left and LED + on the right. The wider lower pair is the switch.",
+        "Hold the back toward you, with the closer pair of tabs on top. That pair is LED \u2212 on the left and LED + on the right. The wider lower pair is the switch.",
         "With the meter in continuity mode, check that the switch pair closes only while you press the button.",
         "If it beeps all the time or never, press both probes firmly onto the tabs and check again. If it still fails, replace the button.",
         "Take four 30 cm GPIO jumper leads (E24). Keep the 2.54 mm female socket on one end of each. Label each socket with its Pi pin: 11, 14, 20 or 4.",
         "Cut off the connector at the other end of each lead. Strip the cut end.",
-        "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Insulate each joint with heat-shrink. Make each finished lead about 205–225 mm long.",
+        "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Insulate each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
         "Lay the button on one flat side of its square bezel, with the switch pair on top.",
         "Slide heat-shrink onto the leads labeled 11 and 14. Solder each one to a switch tab. Either lead may go on either tab.",
         "Slide each sleeve over its tab and joint. Shrink it.",
-        "Turn the button over, so the LED pair is on top. Slide heat-shrink onto the lead labeled 20. Solder it to the LED − tab.",
-        "Trim both legs of the button LED resistor (R1), 1 kΩ, to about 5 mm. Solder one leg along the LED + tab, so R1 points straight back in line with the tab.",
+        "Turn the button over, so the LED pair is on top. Slide heat-shrink onto the lead labeled 20. Solder it to the LED \u2212 tab.",
+        "Trim both legs of the button LED resistor (R1), 1 k\u03a9, to about 5 mm. Solder one leg along the LED + tab, so R1 points straight back in line with the tab.",
         "Slide about 25 mm of 1/8-inch (3.2 mm) heat-shrink onto the lead labeled 4. Solder that lead to the free leg of R1.",
         "Slide each LED sleeve over its tab. The lead 4 sleeve covers the tab, R1 and both joints. Shrink both sleeves.",
         "Bend all four leads straight back from the tabs, so the retaining nut can pass over them.",
@@ -2064,9 +2064,9 @@
         "Slide the base over the front edge of the bench until you can reach the button opening from below. Keep most of the base on the bench.",
         "From below, feed the four Pi ends and the button body up through the opening.",
         "Hold the insert flush in its opening, clear of the screw bosses and foot post.",
-        "With your other hand, fit an M3×8 screw up through the insert into a nut. Use no washer. Turn it by hand until it catches.",
+        "With your other hand, fit an M3\u00d78 screw up through the insert into a nut. Use no washer. Turn it by hand until it catches.",
         "If a screw does not catch, check that its nut is still in its pocket.",
-        "Fit the second M3×8 screw the same way. Tighten both screws gently. Do not use the screws to pull the insert into place. Slide the base back onto the bench."
+        "Fit the second M3\u00d78 screw the same way. Tighten both screws gently. Do not use the screws to pull the insert into place. Slide the base back onto the bench."
       ],
       "check": "The button insert sits flush without pinching its leads.",
       "parts": {
@@ -2145,7 +2145,7 @@
       "actions": [
         "On the bench, away from printed parts, find the center-pin and sleeve lugs of the power jack (J1). Use the meter in continuity mode.",
         "The center pin is +5 V. The sleeve is the return. The third, switched lug stays unused.",
-        "Solder an 18 AWG lead to each of those two lugs. Label each lead with its function. The return lead may need 150–160 mm.",
+        "Solder an 18 AWG lead to each of those two lugs. Label each lead with its function. The return lead may need 150\u2013160 mm.",
         "Insulate each joint and the unused switched lug separately.",
         "With the meter in continuity mode, check each lead again. Check that there is no short between center and sleeve.",
         "Let the joints cool before mounting. Leave the leads long for final routing.",
@@ -2154,7 +2154,7 @@
         "Keep the base (FB01) upside down. Feed the leads and the jack body into the base through the power jack opening.",
         "Seat the plate flush against the outside of the base. The jack body holds it loosely in its opening.",
         "Through the open bottom, place an M3 nut in the pocket nearer the open bottom. Match its flats to the pocket. Hold it there with a fingertip. Do not glue it.",
-        "With your other hand, put an M3×12 screw through the plate into that nut. Use no washer. Turn it by hand until it catches.",
+        "With your other hand, put an M3\u00d712 screw through the plate into that nut. Use no washer. Turn it by hand until it catches.",
         "Repeat for the other pocket. Reach past the jack body to hold its nut. Tighten both screws evenly. Leave enough lead slack to remove the plate.",
         "The plate sits flat against the base."
       ],
@@ -2263,14 +2263,14 @@
         "Cut the USB-C end off the Pi power lead (E22). Keep the micro-B plug. Leave the cable long for now. Label the lead PI POWER.",
         "Strip back the outer jacket. With the meter in continuity mode, find the wire from plug pin 1. It is +5 V. The wire from pin 5 is GND.",
         "Label the +5 V and GND wires. Insulate each of the other wires separately with heat-shrink.",
-        "Plug the micro-B plug into the Pi’s power socket. Test-route the +5 V wire to W1/2. Test-route the GND wire to W3/2. Use gentle bends through the gaps in the WAGO row.",
+        "Plug the micro-B plug into the Pi\u2019s power socket. Test-route the +5 V wire to W1/2. Test-route the GND wire to W3/2. Use gentle bends through the gaps in the WAGO row.",
         "The finished 24 AWG lead, plug included, must be 150 mm or shorter. Do not add an extension or a service loop. Check that both wires reach before you cut them.",
         "Cut both wires where they reach. Insert the +5 V wire into W1/2. Insert the GND wire into W3/2.",
         "Cut one 18 AWG wire (C05) long enough to reach from W3/3 to the servo ground WAGO (W4/1). Strip 11 mm at each end.",
         "Insert one end into W3/3. Insert the other end into W4/1.",
         "Leave W1/5 and W4/5 empty."
       ],
-      "check": "The power jack center reaches W1. Its sleeve reaches W3 and W4. The Pi power lead’s polarity is correct, and it is 150 mm or shorter, plug included.",
+      "check": "The power jack center reaches W1. Its sleeve reaches W3 and W4. The Pi power lead\u2019s polarity is correct, and it is 150 mm or shorter, plug included.",
       "parts": {
         "E06": 4,
         "E22": 1,
@@ -2348,27 +2348,20 @@
       ]
     },
     {
-      "id": "servo-fuse-capacitor",
-      "title": "Wire the servo fuse and capacitor",
+      "id": "servo-power-capacitor",
+      "title": "Wire the servo power and capacitor",
       "chapter": "Base wiring",
       "actions": [
-        "The servo fuse (F1) sits between the input WAGO (W1) and the servo power WAGO (W2). All three servos draw their power through F1.",
-        "Label one fuse holder (E07) F1. Its fuse is T3.15 A. Keep the fuse out of the holder while you wire.",
-        "Lay the holder toward the front of the base, as shown. Keep its opening where you can reach it.",
-        "Test-route the holder’s loop from W1/3 to W2/1. Mark the loop where both ends reach without tension. Cut the loop once at the mark.",
-        "If the output end is short, solder on an 18 AWG extension at the bench. Insulate the joint. Test-route the output to W2/1 again. Cut it where it reaches.",
-        "If the input end is short, do not extend it. Change the layout instead.",
-        "Strip 11 mm from each end of the F1 loop. Insert the input end into W1/3. Insert the output end into W2/1.",
-        "Place the holder where you can open it. Keep W2/2 to W2/4 free for the three servos.",
-        "F1 is the only path from W1 to W2.",
-        "Label one 1000 µF, 10 V capacitor (E08) C1. The stripe on its body marks the negative leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.",
+        "Test-route a red 18 AWG wire from the input WAGO (W1/3) to the servo power WAGO (W2/1). Mark where it reaches without tension.",
+        "Cut the wire at the mark. Strip 11 mm from each end.",
+        "Insert one end into W1/3. Insert the other end into W2/1. Close both levers.",
+        "Keep W2/2 to W2/4 free for the three servos.",
+        "Label one 1000 \u00b5F, 10 V capacitor (E08) C1. The stripe marks its negative leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.",
         "Cover each leg and its joint with its own heat-shrink. Lay C1 beside the WAGO row. Cut each wire to reach its port.",
         "Insert the positive wire into W2/5. Insert the negative wire into W3/4. Bend the wires gently at the rubber-seal end. Keep the vent end uncovered."
       ],
-      "check": "F1 is the only path from W1 to W2. C1 polarity is correct. Its two insulated wires are separate.",
+      "check": "One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate.",
       "parts": {
-        "E07": 1,
-        "F1": 1,
         "E08": 1,
         "C05": "As routed",
         "C12": "As fitted",
@@ -2390,37 +2383,21 @@
       "commands": [],
       "panels": [
         {
-          "title": "Label and place the servo fuse holder",
-          "image": "assets/community/saddles.png",
-          "caption": "Oblique view into the open base. Only the fuses and capacitors are drawn.",
+          "title": "Cut and strip the servo feed",
+          "image": "assets/circuits/servo-feed-prepare.svg",
+          "caption": "Red 18 AWG lead with an 11 mm stripped end at each side.",
           "actions": [
             0,
-            1,
-            2
+            1
           ]
         },
         {
-          "title": "Cut the F1 loop to length",
-          "image": "assets/circuits/f1-prepare.svg",
-          "caption": "Schematic of the F1 holder and its loop.",
+          "title": "Connect the servo feed",
+          "image": "assets/circuits/servo-feed-connect.svg",
+          "caption": "Direct connection from W1/3 to W2/1.",
           "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "title": "Connect F1 between W1 and W2",
-          "safety": {
-            "level": "warning",
-            "text": "A wire from W1 straight to W2 bypasses the servo fuse. A fault could then overheat the wires and cause burns or fire. Connect W1 to W2 only through F1."
-          },
-          "image": "assets/circuits/f1-connect.svg",
-          "caption": "Connection view of W1, F1 and W2.",
-          "actions": [
-            6,
-            7,
-            8
+            2,
+            3
           ]
         },
         {
@@ -2432,9 +2409,9 @@
           "image": "assets/circuits/c1.svg",
           "caption": "Connection view of C1, W2 and W3.",
           "actions": [
-            9,
-            10,
-            11
+            4,
+            5,
+            6
           ]
         }
       ]
@@ -2444,13 +2421,13 @@
       "title": "Wire the light fuse and capacitor",
       "chapter": "Base wiring",
       "actions": [
-        "The light fuse (F2) carries power from the input WAGO (W1) to the body light connector. Label the second fuse holder (E07) F2. Its fuse is T1 A. Keep it out while you wire.",
-        "Lay the holder toward the rear of the base. Test-route its loop from W1/4 to the harness opening. Mark the loop where both ends reach without tension. Cut the loop once at the mark.",
+        "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
+        "Lay the holder toward the rear. Test-route its loop from the input WAGO (W1/4) to the harness opening. Mark where both ends reach without tension. Cut the loop at the mark.",
         "If the output end is short, solder on an 18 AWG extension at the bench. Insulate the joint. Do not extend the input end.",
         "Choose one three-pin JST-SM pair (E10) for the body light connector. Label both halves BODY LIGHT. Label each wire +5 V, GND or DATA.",
         "Plug the two halves together. With the meter in continuity mode, check that each wire reaches the same-labeled wire on the other half.",
         "Unplug the halves. The base half stays in the base. Keep the body half for {step:body-light-input}.",
-        "Label the second 1000 µF, 10 V capacitor (E08) C2. It stays on the base side of the connector. On the bench, slide heat-shrink onto the wires before you solder.",
+        "Label the second 1000 \u00b5F, 10 V capacitor (E08) C2. It stays on the base side of the connector. On the bench, slide heat-shrink onto the wires before you solder.",
         "Solder the F2 output end, the base-half +5 V wire and the C2 positive leg in one joint. Solder the C2 striped negative leg to the base-half GND wire.",
         "Cover each joint and each C2 leg with its own heat-shrink. Keep the 22 AWG power wires and their branches apart. No bare metal may touch another conductor.",
         "Strip 11 mm from the F2 input end. Insert it into W1/4.",
@@ -2489,8 +2466,8 @@
           "image": "assets/circuits/f2-prepare.svg",
           "caption": "Schematic of the F2 holder and its loop.",
           "detail": {
-            "title": "Where the fuses and capacitors lie",
-            "image": "assets/community/saddles.png"
+            "title": "Where the light fuse and capacitors lie",
+            "image": "assets/community/power-parts-placement.png"
           },
           "actions": [
             0,
@@ -2515,7 +2492,7 @@
             "text": "The light capacitor (C2) is polarized. Connected backwards, it can overheat and vent when powered. Join its striped negative leg to the base-half GND wire."
           },
           "image": "assets/circuits/c2-prepare.svg",
-          "caption": "The base half and C2 before fitting, with each wire’s function labeled.",
+          "caption": "The base half and C2 before fitting, with each wire\u2019s function labeled.",
           "detail": {
             "title": "Covering a branch joint",
             "image": "assets/circuits/capacitor-joint.svg"
@@ -2618,8 +2595,8 @@
       "chapter": "Base wiring",
       "actions": [
         "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
-        "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED − lead, labeled 20, onto pin 20 (GND).",
-        "Plug the USB-A extension cable (E23) into the Pi’s full-size USB socket. Its other end is already in the audio module.",
+        "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED \u2212 lead, labeled 20, onto pin 20 (GND).",
+        "Plug the USB-A extension cable (E23) into the Pi\u2019s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
         "Route the USB-A extension cable around the cradle, toward its open-bottom side. Leave a relaxed bend without pulling sideways on either socket."
       ],
@@ -2656,7 +2633,7 @@
         {
           "title": "Connect the USB audio",
           "image": "assets/circuits/usb-audio.svg",
-          "caption": "The Pi’s USB-A socket, the extension and the audio module.",
+          "caption": "The Pi\u2019s USB-A socket, the extension and the audio module.",
           "actions": [
             2,
             3
@@ -2674,26 +2651,25 @@
     },
     {
       "id": "secure-base-wiring",
-      "title": "Secure the fuses, capacitors and wires",
+      "title": "Secure the light fuse, capacitors and wires",
       "chapter": "Base wiring",
       "actions": [
-        "Lay the servo fuse (F1) toward the front. Lay the light fuse (F2) toward the rear. Lay the servo capacitor (C1) and light capacitor (C2) beside the WAGO row.",
-        "Keep each fuse holder’s opening reachable. Keep each capacitor’s vent end uncovered.",
-        "Choose where your wiring needs support. Place 1 × 1-inch adhesive tie squares (C17) there, on flat inside faces, with their liners still on.",
+        "Lay the light fuse (F2) toward the rear. Lay the servo capacitor (C1) and light capacitor (C2) beside the WAGO row.",
+        "Keep the fuse holder\u2019s opening reachable. Keep each capacitor\u2019s vent end uncovered.",
+        "Choose where your wiring needs support. Place 1 \u00d7 1-inch adhesive tie squares (C17) there, on flat inside faces, with their liners still on.",
         "Check that each square makes full contact. Its tie lock and the wiring must stay at least 4 mm from the bottom cover (FB02).",
-        "Prepare each surface as the square’s instructions say. Peel the liner. Press the square down. Let it bond for the time in its instructions before loading it.",
-        "Tie each fuse holder and capacitor body to a tie square with a cable tie (C07). Keep ties off capacitor ends and fuse openings.",
+        "Prepare each surface as the square\u2019s instructions say. Peel the liner. Press the square down. Let it bond for the time in its instructions before loading it.",
+        "Tie the fuse holder and each capacitor body to a tie square with a cable tie (C07). Keep ties off capacitor ends and the fuse opening.",
         "Tighten each tie only enough to stop sliding. Trim the tails.",
         "Each body is held by its tie, not by its wires.",
         "Route every wire around both frame-screw positions. Keep the harness opening clear. The three servo cables and the body half of the body light connector pass through it later.",
         "Where wires run together, such as the eight GPIO leads, tie them to the nearest square. Tie the F2 output end so that cutting one tie frees it. Trim the tails.",
-        "Keep the microSD card, WAGO levers, fuse caps, plugs and vents reachable. Leave each tie lock where you can cut it."
+        "Keep the microSD card, WAGO levers, fuse cap, plugs and vents reachable. Leave each tie lock where you can cut it."
       ],
-      "check": "The fuse holders, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds.",
+      "check": "The fuse holder, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds.",
       "parts": {
         "FB01": 1,
-        "E07": 2,
-        "F1": 1,
+        "E07": 1,
         "F2": 1,
         "E08": 2,
         "C07": "As routed",
@@ -2711,9 +2687,9 @@
       "commands": [],
       "panels": [
         {
-          "title": "Lay out the fuses and capacitors",
-          "image": "assets/community/saddles.png",
-          "caption": "Oblique view into the open base. Only the fuses and capacitors are drawn.",
+          "title": "Lay out the light fuse and capacitors",
+          "image": "assets/community/power-parts-placement.png",
+          "caption": "Light fuse and capacitor positions inside the open base.",
           "actions": [
             0,
             1
@@ -2730,9 +2706,9 @@
           ]
         },
         {
-          "title": "Tie the fuse holders and capacitors",
+          "title": "Tie the fuse holder and capacitors",
           "image": "assets/circuits/tie-mount.svg",
-          "caption": "Side view of a cable tie through a tie square’s slot, around a capacitor.",
+          "caption": "Side view of a cable tie through a tie square\u2019s slot, around a capacitor.",
           "actions": [
             5,
             6,
@@ -2756,20 +2732,20 @@
       "title": "Check the unpowered base",
       "chapter": "Base wiring",
       "actions": [
-        "Keep the servo fuse (F1) and light fuse (F2) out of their holders. With the meter in continuity mode, check that the power jack (J1) center reaches the input WAGO (W1).",
+        "Keep the supply and BODY LIGHT connector unplugged. Leave the servo cables disconnected. Remove the light fuse (F2) from its holder.",
+        "With the meter in continuity mode, check that the power jack (J1) center reaches the input WAGO (W1). Check that W1 reaches the servo power WAGO (W2).",
         "Check that the J1 sleeve reaches the ground WAGO (W3). Check that W3 reaches the servo ground WAGO (W4).",
         "Unplug the Pi power lead from the Pi. Check that plug pin 1 reaches W1 and pin 5 reaches W3. Plug the lead back in.",
-        "Check that W1 does not reach the servo power WAGO (W2). A connection here means a wire bypasses F1.",
-        "Check W1 against W3, and W2 against W4, for a +5 V-to-ground short. The meter may beep briefly while a capacitor charges. It must not beep steadily.",
-        "If you find a bypass or a steady beep, find and fix the fault before you go on.",
-        "Check each fuse on its own for continuity. F1 is T3.15 A. F2 is T1 A.",
-        "Fit F1. Check that W1 now reaches W2 through it. Remove F1 again.",
-        "Fit F2 for the light test. It stays fitted. Check W1 against W3 again in continuity mode. It must not beep steadily. If it does, remove F2. Fix the short before you go on.",
+        "Check W1 against W3, and W2 against W4, for a +5 V-to-ground short. A capacitor may cause a brief beep. If it beeps steadily, fix the fault before continuing.",
+        "With F2 removed, check that W1 does not reach the BODY LIGHT +5 V contact. Fix any connection bypassing F2.",
+        "Check F2 on its own for continuity. Read its marking: T1 A. Fit it in the holder.",
+        "Check that W1 now reaches the BODY LIGHT +5 V contact. Check that its GND contact reaches W3.",
+        "Check W1 against W3 again. If it beeps steadily, remove F2. Fix the short before continuing.",
         "Compare the level shifter (S1, S2) and button wiring with their diagrams. Check that every WAGO lever is closed and every terminal is tight.",
-        "Check the polarity of the servo capacitor (C1) and light capacitor (C2). Check that every joint is insulated. Check that neither speaker’s negative wire connects to ground.",
+        "Check the polarity of the servo capacitor (C1) and light capacitor (C2). Check that every joint is insulated. Check that neither speaker\u2019s negative wire connects to ground.",
         "Remove wire offcuts and debris."
       ],
-      "check": "The unpowered checks pass. F1 is out of its holder and F2 (T1 A) is fitted.",
+      "check": "The unpowered checks pass. F2 (T1 A) is fitted. BODY LIGHT and the servo cables remain disconnected.",
       "parts": {
         "T03": 1
       },
@@ -2786,7 +2762,7 @@
         {
           "title": "Check the power paths",
           "image": "assets/power-diagram.svg",
-          "caption": "The three branches from W1, with both fuses shown in place.",
+          "caption": "Input, servo and lighting branches from W1.",
           "actions": [
             0,
             1,
@@ -2794,7 +2770,7 @@
           ]
         },
         {
-          "title": "Check for a fuse bypass or a short",
+          "title": "Check the Pi lead and look for shorts",
           "textOnly": true,
           "actions": [
             3,
@@ -2803,10 +2779,10 @@
           ]
         },
         {
-          "title": "Test and fit the fuses",
+          "title": "Check and fit the light fuse",
           "safety": {
             "level": "warning",
-            "text": "The two fuses look alike. A T3.15 A fuse in the F2 holder would let a light fault overheat the thin wires. Read each fuse’s marking before you fit it."
+            "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
           },
           "textOnly": true,
           "actions": [
@@ -2840,12 +2816,12 @@
       "actions": [
         "On the body light strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is normally DATA. The other wire is GND.",
         "Label the three wires at each end. If the markings are missing or disagree, ask the vendor before you go on.",
-        "Hold one end’s connector upward with a pebble’s resin bump facing you. If the marked +5 V wire is on the left, that end is the likely input. The light test in {step:body-light-test} confirms it.",
-        "On the bench, label the strand’s factory leads at the likely input. Cut off only that end’s connector, keeping the wire length. Do not cut the strand. Keep all 100 pebbles together.",
+        "Hold one end\u2019s connector upward with a pebble\u2019s resin bump facing you. If the marked +5 V wire is on the left, that end is the likely input. The light test in {step:body-light-test} confirms it.",
+        "On the bench, label the strand\u2019s factory leads at the likely input. Cut off only that end\u2019s connector, keeping the wire length. Do not cut the strand. Keep all 100 pebbles together.",
         "Take the body half of the body light connector (E10) from {step:light-fuse-capacitor}. Leave its wires long. You test-route them in {step:body-light-strand}.",
-        "Solder the data resistor (R2), 330 Ω, between the body half’s DATA wire and the strand’s DATA wire. Keep R2 near the first pebble. Insulate both joints.",
+        "Solder the data resistor (R2), 330 \u03a9, between the body half\u2019s DATA wire and the strand\u2019s DATA wire. Keep R2 near the first pebble. Insulate both joints.",
         "Cut two 22 AWG wires (C06) for the head power pair, one +5 V and one GND. Leave them long.",
-        "Solder three +5 V wires in one joint: the body half’s, the strand’s and the pair’s. Join the three GND wires the same way.",
+        "Solder three +5 V wires in one joint: the body half\u2019s, the strand\u2019s and the pair\u2019s. Join the three GND wires the same way.",
         "Insulate both joints separately. Cap each free end of the head power pair separately."
       ],
       "check": "The input harness (body half, R2 and head power pair) is soldered to the likely input. Every joint is insulated and both head power pair ends are capped.",
@@ -2914,19 +2890,19 @@
       "title": "Test the body light input",
       "chapter": "Light test",
       "actions": [
-        "Check the base. The servo fuse (F1) is out and the light fuse (F2), T1 A, is fitted. No servo is connected. Both head power pair ends are capped.",
-        "With the meter in continuity mode, check the body half’s +5 V and GND contacts. Each must reach its matching wire at the strand’s far end. Check that +5 V does not reach GND.",
+        "Check the base. The light fuse (F2), T1 A, is fitted. No servo cable is connected. Each spare head-power end is individually insulated.",
+        "With the meter in continuity mode, check the body half\u2019s +5 V and GND contacts. Each must reach its matching wire at the strand\u2019s far end. Check that +5 V does not reach GND.",
         "Plug the body half into the base half.",
-        "Use the Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
-        "Set the meter to DC volts. Put the red probe in the plug’s center. Touch the black probe to its outer sleeve.",
-        "The meter must read 5.0–5.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
+        "Use the specified Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
+        "Set the meter to DC volts. Put the red probe in the plug\u2019s center. Touch the black probe to its outer sleeve.",
+        "The meter must read 5.0\u20135.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
         "Push the barrel plug fully into the power jack (J1). Plug the supply into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "From your computer, run the two commands below. The first stops the application. The second lights the first 16 pebbles at brightness 128.",
         "The first 16 pebbles light one at a time from the connected end. Color patterns follow. The test clears all 16 when it ends.",
         "The output names eye and mouth lights, but on this strand they are all pebbles. If any of the other 84 pebbles light, unplug the supply and find the fault.",
         "Open the Pi shell. Shut the Pi down with the second command.",
-        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1.",
+        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1.",
         "Unplug the body half from the base half.",
         "If the first 16 pebbles lit in order from the connected end, mark that end INPUT. Mark INPUT only after a passing light test.",
         "If nothing lit, check the power, DATA and contacts first. If they are correct, move the input harness to the other end of the strand. Repeat this step.",
@@ -2963,7 +2939,7 @@
           "title": "Check the supply polarity",
           "safety": {
             "level": "warning",
-            "text": "The wiring before the fuses relies on this supply’s overload shutdown. A higher-current supply could overheat those wires and cause fire. Use only the specified power supply (E20)."
+            "text": "Use the specified Mean Well GST40A05-P1J (5 V, 5 A) power supply. The circuit is designed around its output and protection characteristics; do not substitute another supply."
           },
           "image": "assets/circuits/supply-polarity-test.svg",
           "caption": "Front of the barrel plug, with the meter probes in place.",
@@ -3061,7 +3037,7 @@
         "Inside the base, move any wire away from the screw holes in front of and behind the harness opening. Keep the opening clear.",
         "Slide an M3 nut into the slot near the foot of each frame upright (P02). When fitted, the slots face away from the other upright.",
         "With one hand, hold a foam collar (P01) on the outside of the top wall. Line up its two tabs with the screw holes.",
-        "With the same hand, hold one upright on its tab, slots facing outward. With the other hand, put an M3×16 screw from inside through the top wall and collar into the upright.",
+        "With the same hand, hold one upright on its tab, slots facing outward. With the other hand, put an M3\u00d716 screw from inside through the top wall and collar into the upright.",
         "Turn the screw by hand until it catches the nut. Fasten the other upright the same way. Tighten both screws evenly."
       ],
       "check": "Both uprights are firm and parallel. The collar sits flat and no wire is trapped.",
@@ -3131,7 +3107,7 @@
       },
       "hardware": {},
       "actions": [
-        "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo’s part card.",
+        "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo\u2019s part card.",
         "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
         "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
         "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the harness opening into the base.",
@@ -3193,14 +3169,14 @@
       "actions": [
         "On the bench, press an M2 nut into each hex pocket on the inner faces of the shoulder-servo bracket (P03). There are four pockets.",
         "Each nut sits flat in its pocket.",
-        "Hold the bracket with its open long side toward you. This side faces the robot’s back.",
+        "Hold the bracket with its open long side toward you. This side faces the robot\u2019s back.",
         "Slide the LEFT servo in on your left, shaft pointing robot-left. Rest its ears on the supports. Keep its cable toward the middle of the bracket.",
         "Fit the RIGHT servo on your right the same way, shaft pointing robot-right.",
-        "Put an M2×6 screw through each servo ear into its nut. Fit all four before the bracket goes on the frame.",
+        "Put an M2\u00d76 screw through each servo ear into its nut. Fit all four before the bracket goes on the frame.",
         "Tighten each screw until its servo sits firm. Stop before the ears bow. Keep the horns off.",
         "Stand the base on its feet. Lower the bracket between the uprights, open side toward the back. Line up its holes with the round holes in the uprights.",
-        "Push both rear M3×16 screws through the rear upright into the bracket, with no nuts. They hold the bracket while you work.",
-        "Start at the lower front hole. Hold an M3 nut in the front access well with fine pliers. Put an M3×16 screw through the upright into it. Repeat at the upper hole.",
+        "Push both rear M3\u00d716 screws through the rear upright into the bracket, with no nuts. They hold the bracket while you work.",
+        "Start at the lower front hole. Hold an M3 nut in the front access well with fine pliers. Put an M3\u00d716 screw through the upright into it. Repeat at the upper hole.",
         "If a nut drops through a well, find it before you go on. The wells are open at the bottom. Do not leave a loose nut in the base.",
         "Back out one rear screw until its tip leaves the rear access well. Hold a nut in the well with fine pliers. Turn the screw in until it catches.",
         "Repeat for the other rear screw. Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal."
@@ -3303,14 +3279,14 @@
       },
       "actions": [
         "On the bench, press an M2 nut into each of the two hex pockets under the head-servo bracket (P04).",
-        "Slide the HEAD servo into the bracket’s open side, shaft up. Rest its ears on the supports. Keep its cable pointing down.",
-        "Put an M2×6 screw down through each ear into its nut. Fit both before the bracket goes on the frame.",
+        "Slide the HEAD servo into the bracket\u2019s open side, shaft up. Rest its ears on the supports. Keep its cable pointing down.",
+        "Put an M2\u00d76 screw down through each ear into its nut. Fit both before the bracket goes on the frame.",
         "Tighten until the servo cannot rock or slide.",
-        "Hold the bracket against the robot-left side of both uprights, near their tops, open side robot-left. From robot-left, push an M3×20 screw through the bracket and the side hole in each upright.",
-        "At the uprights’ robot-right faces, hold an M3 nut on one screw tip with a fingertip. Turn the screw until it catches. Repeat for the other screw. Tighten both screws.",
+        "Hold the bracket against the robot-left side of both uprights, near their tops, open side robot-left. From robot-left, push an M3\u00d720 screw through the bracket and the side hole in each upright.",
+        "At the uprights\u2019 robot-right faces, hold an M3 nut on one screw tip with a fingertip. Turn the screw until it catches. Repeat for the other screw. Tighten both screws.",
         "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
         "Slide an M3 nut into the slot near the top of each upright, from its outer face.",
-        "Place the second foam collar (P01) on the upright tops, tabs over the holes. Put an M3×10 screw down through each tab into its nut. Tighten both.",
+        "Place the second foam collar (P01) on the upright tops, tabs over the holes. Put an M3\u00d710 screw down through each tab into its nut. Tighten both.",
         "The head-bracket screw heads stay reachable from robot-left."
       ],
       "check": "The head-servo bracket is firm and the upper collar is level. The servo shaft points up, with a clear cable path.",
@@ -3348,7 +3324,7 @@
         {
           "title": "Slide in the head servo",
           "image": "assets/community/head-servo-insertion.svg",
-          "caption": "The servo entering the bracket’s open side.",
+          "caption": "The servo entering the bracket\u2019s open side.",
           "actions": [
             1
           ]
@@ -3440,15 +3416,15 @@
       "actions": [
         "Hold the head horn adapter (P14) flange up. Slide an M2 nut into each of the two side slots in its hub.",
         "Hold a drilled horn (E02) in the recess under the adapter. Its flat disk goes against the adapter. Its long splined hub faces away, toward the servo.",
-        "Line up the drilled holes with the nuts. Put an M2×6 screw up through each hole into its nut. Tighten both. Keep the horn’s center screw aside.",
-        "Hold the head shelf (P08) off the bench, with its three M3 nut pockets facing down. Lower the adapter’s hub through the shelf’s center from above.",
-        "Rest the flange on the shelf. Line up its three holes with the shelf’s holes.",
-        "Drop an M3×8 screw down through the flange and shelf at each hole. The screw heads rest on the flange.",
+        "Line up the drilled holes with the nuts. Put an M2\u00d76 screw up through each hole into its nut. Tighten both. Keep the horn\u2019s center screw aside.",
+        "Hold the head shelf (P08) off the bench, with its three M3 nut pockets facing down. Lower the adapter\u2019s hub through the shelf\u2019s center from above.",
+        "Rest the flange on the shelf. Line up its three holes with the shelf\u2019s holes.",
+        "Drop an M3\u00d78 screw down through the flange and shelf at each hole. The screw heads rest on the flange.",
         "Keep the shelf level in one hand. With a fingertip of that hand, press an M3 nut up into the pocket under one screw.",
         "With your other hand, turn that screw with a hex key until it catches the nut. Repeat for the other two screws.",
-        "Tighten all three screws. Keep the shelf’s open cable entry clear."
+        "Tighten all three screws. Keep the shelf\u2019s open cable entry clear."
       ],
-      "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The cable entry and the horn’s center hole are clear.",
+      "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The cable entry and the horn\u2019s center hole are clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3524,10 +3500,10 @@
       },
       "hardware": {},
       "actions": [
-        "Print the eye film template at full size. Cut two windows from clear film (C01): 12.6 × 8.6 mm, with 4.2 mm corner radii. The template also has small fit alternatives.",
+        "Print the eye film template at full size. Cut two windows from clear film (C01): 12.6 \u00d7 8.6 mm, with 4.2 mm corner radii. The template also has small fit alternatives.",
         "Hold the robot-right eye housing (GS11) off the head. Bow the film gently into the groove behind the front lip. Let it flatten with its whole edge captured.",
         "Fit the robot-left eye housing (GS12) the same way.",
-        "Cut two 14 × 10 mm patches of 4 mm white Plastazote LD45 eye foam (C02).",
+        "Cut two 14 \u00d7 10 mm patches of 4 mm white Plastazote LD45 eye foam (C02).",
         "Place one patch in each housing, behind the window. Keep the mounting holes clear.",
         "Lay each housing window-down so the foam stays in place."
       ],
@@ -3656,9 +3632,9 @@
       "actions": [
         "Press two M2 nuts into the rectangular pockets on the flat side of each eye LED cassette (P06). This side faces the foam. The nuts sit above and below the light opening.",
         "Turn the cassette over onto the bench, so the bench holds the nuts in. Seat an eye board (E03) on its supports, LED facing into the light opening.",
-        "Its IN and OUT sockets face away from the cassette. Fit two M2×6 screws, with no washers. Tighten them lightly.",
+        "Its IN and OUT sockets face away from the cassette. Fit two M2\u00d76 screws, with no washers. Tighten them lightly.",
         "Fit the other board the same way.",
-        "Put an M2 washer on each of two M2×10 screws. From inside the head, pass them through a cassette’s outer holes and the head wall into the housing nuts.",
+        "Put an M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through a cassette\u2019s outer holes and the head wall into the housing nuts.",
         "Tighten until the nuts seat under their roofs. Do not force a screw that bottoms out. Fasten the other cassette the same way.",
         "Fit both eyes now: the mouth blocks straight access to these screws later. All four eye sockets stay reachable.",
         "Test-fit the robot-left head strap (GS01), robot-right head strap (GS02) and rear head strap (GS03). Check that they clear the eye housing joints.",
@@ -3759,14 +3735,14 @@
         "Place the mouth stick (E04) loosely at the mouth inside the head. Test-route three 22 AWG leads (C06) from it toward the first eye. Leave slack to fit and remove the mouth.",
         "Take the stick out of the head. On the bench, solder the +5 V, GND and DIN leads to their pads. Leave DOUT unused. Insulate each joint. Label each lead.",
         "Keep every eye plug unplugged until all joints are insulated and cool. Cut the header pins off both JST-SH eye leads (E11). Keep their plugs.",
-        "Join the head half’s +5 V wire, the first eye lead’s red wire and the mouth +5 V lead. Solder them in one joint at the bench.",
-        "Join the three GND wires the same way, with the eye lead’s black wire. Insulate each joint separately.",
-        "Solder the head half’s DATA wire to the first eye lead’s DATA wire. Insulate the joint.",
-        "Solder the second eye lead’s DATA wire to the mouth DIN lead. Insulate the joint. Insulate its unused red and black wires separately.",
-        "With the meter in continuity mode, touch the head half’s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
+        "Join the head half\u2019s +5 V wire, the first eye lead\u2019s red wire and the mouth +5 V lead. Solder them in one joint at the bench.",
+        "Join the three GND wires the same way, with the eye lead\u2019s black wire. Insulate each joint separately.",
+        "Solder the head half\u2019s DATA wire to the first eye lead\u2019s DATA wire. Insulate the joint.",
+        "Solder the second eye lead\u2019s DATA wire to the mouth DIN lead. Insulate the joint. Insulate its unused red and black wires separately.",
+        "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
         "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
-        "Plug the first eye lead into the first eye’s IN socket. Press the plug housing, not its wires.",
-        "Connect the 100 mm eye cable (E12) from the first eye’s OUT to the second eye’s IN. Plug the second eye lead into the second eye’s OUT.",
+        "Plug the first eye lead into the first eye\u2019s IN socket. Press the plug housing, not its wires.",
+        "Connect the 100 mm eye cable (E12) from the first eye\u2019s OUT to the second eye\u2019s IN. Plug the second eye lead into the second eye\u2019s OUT.",
         "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires."
       ],
       "check": "Mouth power bypasses the eye cable. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
@@ -3858,12 +3834,12 @@
       },
       "actions": [
         "Support the wired mouth stick (E04) on the bench. Hold it against the mouth LED cassette (P30), LEDs facing away from the cassette.",
-        "Put two M2×8 screws through the stick and the cassette’s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
+        "Put two M2\u00d78 screws through the stick and the cassette\u2019s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
         "Keep the LED faces clear. The black cassette is not electrical insulation, so keep every joint covered.",
         "Keep the head face-down on the towel. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
         "Cut a strip of 4 mm white mouth foam (C03), 7.4 mm high and slightly long. Curve it into the mouth pocket. Trim its ends until it lies flat without bunching or stretching.",
         "Place the mouth light separator (P31) behind the foam, curved face against it. Its eight channels face the LEDs. Place the cassette behind it.",
-        "From the rear, put an M2×8 screw through each outer cassette hole into a head nut. Use no washers. Tighten both. Tie the wires at the cassette without pulling a joint."
+        "From the rear, put an M2\u00d78 screw through each outer cassette hole into a head nut. Use no washers. Tighten both. Tie the wires at the cassette without pulling a joint."
       ],
       "check": "All eight LEDs align behind the smile, with the end LEDs in their channels. The gaps of about 0.7 mm to the LED faces and 2.3 mm to the board stay empty. The foam lies flat. The cassette can come out through the open rim.",
       "source": [
@@ -3946,7 +3922,7 @@
         {
           "title": "Screw on the coil and ball",
           "image": "assets/r18/step-11.png",
-          "caption": "The coil and ball above the head’s threaded socket.",
+          "caption": "The coil and ball above the head\u2019s threaded socket.",
           "actions": [
             0,
             1,
@@ -3967,13 +3943,13 @@
       "hardware": {},
       "actions": [
         "Hold the head and the shelf separately. Test-fit an M2 nut in each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
-        "Test-fit an M2×8 button-head screw in each of the head shell (GS20) recesses, on its two sides and back. Use no washers or plugs.",
-        "The recesses suit Ø3.5 × 1.3 mm heads. The pockets suit nuts 4 mm across flats and 1.6 mm thick. Set them aside for {step:head-shoulder-covers}.",
+        "Test-fit an M2\u00d78 button-head screw in each of the head shell (GS20) recesses, on its two sides and back. Use no washers or plugs.",
+        "The recesses suit \u00d83.5 \u00d7 1.3 mm heads. The pockets suit nuts 4 mm across flats and 1.6 mm thick. Set them aside for {step:head-shoulder-covers}.",
         "Hold the head upright. Through its open underside, reach in behind the mouth LED cassette (P30). Set the head half on top of the cassette. The joined head light connector sits there.",
-        "Pull the head half back out until its latch is below the head’s rim. Leave it out for {step:light-connections}.",
+        "Pull the head half back out until its latch is below the head\u2019s rim. Leave it out for {step:light-connections}.",
         "If an LED board or a tied joint pulls, redo the ties at the cassettes with more slack."
       ],
-      "check": "The fasteners fit freely. The head half pulls out below the head’s rim without pulling on an LED board.",
+      "check": "The fasteners fit freely. The head half pulls out below the head\u2019s rim without pulling on an LED board.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3995,7 +3971,7 @@
           ]
         },
         {
-          "title": "Check the head half’s slack",
+          "title": "Check the head half\u2019s slack",
           "textOnly": true,
           "actions": [
             3,
@@ -4038,7 +4014,7 @@
         "With the meter in continuity mode, check that the +5 V contacts of both body halves on the strand connect.",
         "Check the two GND contacts the same way. Check that +5 V does not reach GND."
       ],
-      "check": "Lights 0 to 5 are cut from INPUT. The input harness, with the data resistor (R2), is still attached. The head light connector’s body half is soldered on and +5 V does not reach GND.",
+      "check": "Lights 0 to 5 are cut from INPUT. The input harness, with the data resistor (R2), is still attached. The head light connector\u2019s body half is soldered on and +5 V does not reach GND.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
@@ -4069,7 +4045,7 @@
           ]
         },
         {
-          "title": "Solder the head light connector’s body half",
+          "title": "Solder the head light connector\u2019s body half",
           "image": "assets/circuits/body-output.svg",
           "caption": "The output end after light 5, with DATA continuing to the head light connector.",
           "actions": [
@@ -4115,10 +4091,10 @@
         "Stand the base on its feet. Find the three side slots on the robot-right face of the rear upright (P02).",
         "Slide an M3 nut into the middle slot until it stops. Load the upper slot the same way.",
         "Slide an M3 nut into each of the three side slots on the robot-left face of the front upright.",
-        "At the lower slot, hold a front body-light bracket (P11) on the upright, countersunk hole facing forward. Put an M3×10 countersunk screw through it into the nut.",
+        "At the lower slot, hold a front body-light bracket (P11) on the upright, countersunk hole facing forward. Put an M3\u00d710 countersunk screw through it into the nut.",
         "Fit the second P11 at the upper slot the same way. Fit the body wire guide (P13) at the middle slot. Tighten all three screws.",
         "If a screw does not catch, check that its nut is fully in the slot.",
-        "Turn the rear body-light bracket (P12) so both pads face forward. They angle 10° outward.",
+        "Turn the rear body-light bracket (P12) so both pads face forward. They angle 10\u00b0 outward.",
         "Hold it on the back of the rear upright, over the middle nut. Line up the holes.",
         "Tape it to the upright with low-tack tape.",
         "Place a pebble on each of the six pads, LED facing away from the pad.",
@@ -4226,13 +4202,13 @@
         "Slide an M3 nut into the lower side slot on the robot-right face of the rear upright.",
         "Run the three servo cables and the body half of the body light connector down the frame. Pass them through the harness opening into the base.",
         "Keep them clear of the rear seam and of sharp edges.",
-        "Cut the body foam (C04) from the body foam template: 224.8 × 114.3 mm, from 4 mm foam. Cut it slightly long.",
+        "Cut the body foam (C04) from the body foam template: 224.8 \u00d7 114.3 mm, from 4 mm foam. Cut it slightly long.",
         "Cut the two knife slits marked on the template, one to each shoulder. Remove no foam.",
         "Test-fit the foam between the two foam collars (P01), front center at the front upright. Trim both ends to a 2 mm gap at the rear upright. Keep the edge notches full size.",
         "Hold a rear seam backing (P09) on the back of the rear upright, over the upper nut. Line up the holes. Tape it there with low-tack tape.",
         "Wrap the foam again, over the taped backing. Leave both shoulder horn seats clear.",
-        "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright’s hole.",
-        "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3×16 screw through P10 and P09 into the nut and tighten it.",
+        "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright\u2019s hole.",
+        "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3\u00d716 screw through P10 and P09 into the nut and tighten it.",
         "Fit the other two P10 covers over the seam at the middle and upper nuts. The rear body-light bracket (P12) backs the middle one."
       ],
       "check": "The foam sits in both collars without stretching. Its ends meet at the rear seam, and the lower cover is screwed.",
@@ -4321,11 +4297,11 @@
       },
       "actions": [
         "Lay the robot-left upper arm (AR01) with its inner round recess facing up. Slide an M2 nut into each side channel until it stops.",
-        "Seat a drilled servo horn (E02) in the recess, splined hub up. Drive an M2×6 screw through each drilled hole into its nut.",
+        "Seat a drilled servo horn (E02) in the recess, splined hub up. Drive an M2\u00d76 screw through each drilled hole into its nut.",
         "If a screw does not catch, push its nut further into the channel.",
-        "Fit the other horn to the robot-right upper arm (AR04) the same way, with two M2×6 screws and nuts."
+        "Fit the other horn to the robot-right upper arm (AR04) the same way, with two M2\u00d76 screws and nuts."
       ],
-      "check": "Both horns sit flat in their recesses, splined hub up, and each horn’s center hole is clear.",
+      "check": "Both horns sit flat in their recesses, splined hub up, and each horn\u2019s center hole is clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4380,9 +4356,9 @@
       },
       "actions": [
         "Slide the tongue of the robot-left forearm (AR02) between the fork cheeks of the robot-left upper arm (AR01). Line up the holes.",
-        "From the outer side, push an M3×14 screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
+        "From the outer side, push an M3\u00d714 screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
         "Hold the nut in its pocket with a fingertip. Turn the screw until it catches.",
-        "Tighten the screw until the elbow holds a pose but still bends smoothly by hand through 0–70°.",
+        "Tighten the screw until the elbow holds a pose but still bends smoothly by hand through 0\u201370\u00b0.",
         "Build the robot-right elbow the same way, from the robot-right upper arm (AR04) and forearm (AR05)."
       ],
       "check": "Both elbows hold a pose and bend by hand without binding. Neither fork is cracked.",
@@ -4444,7 +4420,7 @@
       },
       "hardware": {},
       "actions": [
-        "Let the four disc magnets (C08), 3/16 × 1/16 inch, snap together into one column. Add a fifth if you fit the optional pointing hand.",
+        "Let the four disc magnets (C08), 3/16 \u00d7 1/16 inch, snap together into one column. Add a fifth if you fit the optional pointing hand.",
         "Slide the magnets off the top one at a time. Mark the top face of the first two A. Turn each of the rest over. Mark its top face B.",
         "Each A face now attracts each B face. The A faces go out of the forearms, and the B faces out of the hands.",
         "Put a small amount of two-part epoxy (C09) in the magnet seat of the robot-left forearm (AR02). Keep it off the wrist socket walls and end stops.",
@@ -4503,7 +4479,7 @@
         {
           "title": "Seat each hand on its forearm",
           "image": "assets/r19/wrist-round.png",
-          "caption": "The robot-left relaxed hand above the robot-left forearm’s wrist socket.",
+          "caption": "The robot-left relaxed hand above the robot-left forearm\u2019s wrist socket.",
           "actions": [
             8,
             9
@@ -4534,7 +4510,7 @@
       },
       "actions": [
         "Hold the curved backpack carrier (P34) against the middle and upper rear seam covers (P10), hollow side in. Line up its two center holes with theirs.",
-        "With the other hand, drive an M3×18 screw through each center hole into its rear upright nut. Tighten both evenly.",
+        "With the other hand, drive an M3\u00d718 screw through each center hole into its rear upright nut. Tighten both evenly.",
         "If a screw does not catch, line up the holes in the cover and backing behind it."
       ],
       "check": "Each screw holds the carrier, a seam cover and a backing. The rear body-light bracket (P12) backs the middle cover, and a rear seam backing (P09) the top one. The carrier follows the body curve.",
@@ -4589,8 +4565,8 @@
       "actions": [
         "Lay the backpack shell (P35) rear face down. The rear face has the four counterbored screw holes.",
         "Slide a backpack tank (P36) through the two rings at each side, dome end toward the rolled top edge.",
-        "Push a nozzle plug (P37) into each tank’s open end. Fit the backpack top band (P40) over the rolled top edge.",
-        "Fit the robot-left backpack elbow (P38): lower pin into the tank’s dome hole, side pin into the rolled top edge. Fit the robot-right elbow (P39) the same way.",
+        "Push a nozzle plug (P37) into each tank\u2019s open end. Fit the backpack top band (P40) over the rolled top edge.",
+        "Fit the robot-left backpack elbow (P38): lower pin into the tank\u2019s dome hole, side pin into the rolled top edge. Fit the robot-right elbow (P39) the same way.",
         "Each part seats without force.",
         "Take off the plugs, elbows, top band and tanks. Slide each tank back in, dome end toward the rolled top edge, until its leading end nears the second ring.",
         "Apply a small amount of two-part epoxy (C09) around each tank, where its two rings will sit.",
@@ -4599,7 +4575,7 @@
         "Let the epoxy cure for the time on its label.",
         "Stand behind the robot. Slide an M3 nut into each of the four side channels of the backpack carrier (P34). Push each in until it stops.",
         "Hold the backpack on the carrier, belt docks at the bottom. Line up its four rear holes with the carrier nuts.",
-        "With the other hand, drive an M3×12 screw through each hole into its nut. Keep the two lower belt docks clear.",
+        "With the other hand, drive an M3\u00d712 screw through each hole into its nut. Keep the two lower belt docks clear.",
         "If a screw does not catch, push its nut further into the channel."
       ],
       "check": "The tanks, plugs, elbows and top band are bonded in place. Four screws hold the finished backpack on its carrier.",
@@ -4700,7 +4676,7 @@
         "Lay the seven belt links flat in a U, as pictured from above. Keep the open end away from you.",
         "Put the robot-left rear belt link (B01) at the right end. Add two front belt links (B02), the belt buckle (B03), two more B02 and the robot-right rear belt link (B04).",
         "Face the buckle frame outward.",
-        "Nest each link’s knuckle in the next link’s fork. Push a belt pin (B09) down through each joint, head up. The head has three small notches.",
+        "Nest each link\u2019s knuckle in the next link\u2019s fork. Push a belt pin (B09) down through each joint, head up. The head has three small notches.",
         "Six pins join the seven links.",
         "Bring the belt around the body from the front. Nest the end of each rear link between the tabs of a lower belt dock on the backpack shell (P35).",
         "Push the last two B09 pins down through the docks.",
@@ -4766,7 +4742,7 @@
         "Insert the supply wire of the head servo cable (HEAD) into W2/4. Insert its ground wire into W4/4.",
         "Connect its signal wire to S2 C5, labeled HEAD. Pull gently on each wire. Each must stay in place."
       ],
-      "check": "Each servo’s supply wire is in W2 and its ground wire is in W4. Its signal wire is in its labeled level shifter terminal.",
+      "check": "Each servo\u2019s supply wire is in W2 and its ground wire is in W4. Its signal wire is in its labeled level shifter terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4897,7 +4873,7 @@
       },
       "hardware": {},
       "actions": [
-        "With the meter in continuity mode, check the servo power WAGO (W2) against the servo ground WAGO (W4). It may beep briefly while a capacitor charges. It must not beep steadily.",
+        "Keep the supply unplugged. Check the servo power WAGO (W2) against the servo ground WAGO (W4) in continuity mode. A capacitor may cause a brief beep. It must not beep steadily.",
         "Check the input WAGO (W1) against the ground WAGO (W3) the same way. With the light fuse (F2) fitted, this includes the body and head lights.",
         "If either check beeps steadily, find and fix the short before you go on.",
         "Pick any wire offcuts and loose strands out of the base."
@@ -4936,11 +4912,8 @@
       "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
       "actions": [
-        "Read the marking on the servo fuse (F1). It must read T3.15 A.",
-        "Through the open bottom, fit it in the holder labeled F1.",
-        "If it reads T1 A, the fuses are swapped. Swap them so F1 holds T3.15 A and F2 holds T1 A.",
         "Find the power jack (J1) on the rear face of the base, at the robot-left end, on your right. It faces down into the towel.",
-        "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels’ edge.",
+        "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels\u2019 edge.",
         "Lift the body at the backpack. Add towels under the backpack until the robot lies level. Add towels under the head until it lines up with the top of the body.",
         "Lay the head light cable clear of the head servo shaft. Nothing may touch the three servo shafts.",
         "Reach under the robot-left end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
@@ -4949,8 +4922,8 @@
         "The three servo shafts may turn as the application starts.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "On your computer, in the repository folder, run the command below.",
-        "Each light turns on alone, in order: body 0–5, first eye 6, second eye 7 and mouth 8–15. Next, all 16 show red, green and blue.",
-        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light’s input and output connections.",
+        "Each light turns on alone, in order: body 0\u20135, first eye 6, second eye 7 and mouth 8\u201315. Next, all 16 show red, green and blue.",
+        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light\u2019s input and output connections.",
         "Run the first command below. The output shows `active (running)`.",
         "Open the Pi shell with the second command. Run `vcgencmd get_throttled`. It must print `throttled=0x0`. Type `exit`. Leave the robot powered.",
         "If either output differs, use Troubleshooting before you go on."
@@ -4959,8 +4932,7 @@
       "hardware": {},
       "parts": {
         "E20": 1,
-        "E21": 1,
-        "F1": 1
+        "E21": 1
       },
       "source": [
         "hardware/assembly/electrical.json"
@@ -4970,11 +4942,7 @@
       "commands": [],
       "panels": [
         {
-          "title": "Fit the servo fuse",
-          "safety": {
-            "level": "warning",
-            "text": "The two fuses look alike. A T3.15 A fuse in the light fuse holder (F2) would let a light fault overheat the thin wires. Read the fuse marking before you fit it."
-          },
+          "title": "Raise the robot so the power jack hangs clear",
           "textOnly": true,
           "actions": [
             0,
@@ -4983,22 +4951,13 @@
           ]
         },
         {
-          "title": "Raise the robot so the power jack hangs clear",
-          "textOnly": true,
-          "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
           "title": "Connect the barrel plug",
           "image": "assets/circuits/robot-power-connection.svg",
           "caption": "Barrel plug and power jack, from the side.",
           "actions": [
-            6,
-            7,
-            8
+            3,
+            4,
+            5
           ]
         },
         {
@@ -5009,9 +4968,9 @@
           },
           "textOnly": true,
           "actions": [
-            9,
-            10,
-            11
+            6,
+            7,
+            8
           ]
         },
         {
@@ -5029,9 +4988,9 @@
             }
           ],
           "actions": [
-            12,
-            13,
-            14
+            9,
+            10,
+            11
           ]
         },
         {
@@ -5089,9 +5048,9 @@
             }
           ],
           "actions": [
-            15,
-            16,
-            17
+            12,
+            13,
+            14
           ]
         }
       ]
@@ -5108,7 +5067,7 @@
         "The output says the servo pulses stopped and the application stays stopped.",
         "If it says the servo output release is unconfirmed, unplug the supply from the wall at once.",
         "Open the Pi shell. Shut the Pi down with the second command.",
-        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-left end and unplug the barrel plug from the power jack (J1).",
+        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-left end and unplug the barrel plug from the power jack (J1).",
         "Do not turn the three servo shafts by hand. Keep the supply unplugged until {step:first-movement}."
       ],
       "check": "The servos are at the fit position. The Pi is shut down and the supply is unplugged.",
@@ -5207,11 +5166,11 @@
         "At the top of the body, push the head half into the body half until the latch clicks. Pull gently on the two housings. They must stay latched.",
         "If either cable is tight, move the head closer.",
         "Turn the head shelf (P08) so its side with no nut pocket faces front. Lay the head light cable into its side entry from the side, clear of the horn screws.",
-        "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17° apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
-        "Hold the shelf still with one hand. With the other, drive the horn’s own center screw down through the head horn adapter’s center. Tighten it. Do not use an M2 screw.",
-        "Face the robot’s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
+        "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17\u00b0 apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
+        "Hold the shelf still with one hand. With the other, drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Tighten it. Do not use an M2 screw.",
+        "Face the robot\u2019s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
         "Set its horn on the shaft, with the arm hanging nearest straight down. Turn the arm, not the shaft, to mesh them. Press it on. Do not bend the arm to correct a small offset.",
-        "Hold the upper arm still. Drive its horn’s center screw through the upper arm’s outer face. Tighten it.",
+        "Hold the upper arm still. Drive its horn\u2019s center screw through the upper arm\u2019s outer face. Tighten it.",
         "At the robot-right shoulder, on your left, attach the robot-right upper arm (AR04) the same way.",
         "Both arms hang straight down, and the shelf front faces forward.",
         "If a shaft turned while you worked, take its part off. Repeat {step:fit-position} before you refit it."
@@ -5320,7 +5279,7 @@
         "With your other hand, push the joined head light connector up into the head. Rest it on top of the mouth LED cassette (P30).",
         "Lower the head straight onto the shelf, without twisting it. Push the head light cable slack down through the side entry, into a relaxed loop below the shelf.",
         "If the head does not sit level, lift it. Free the trapped wire.",
-        "Hold the head still with one hand. With the other, start an M2×8 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
+        "Hold the head still with one hand. With the other, start an M2\u00d78 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
         "Tighten each screw only until the shell is held firmly.",
         "If a screw does not catch, lift the head off. Check that its nut stands on edge in its pocket.",
         "Hold the robot-left upper arm (AR01) still. Slide the robot-left shoulder cover (AR08) fully onto its outer face, over the center screw.",
@@ -5417,7 +5376,7 @@
       "hardware": {},
       "actions": [
         "Leave the robot standing on its feet on the folded towel, with the bottom cover off.",
-        "Clear tools and cables from in front of the robot and around its head. The arms swing forward up to level. The head turns about 45° each side.",
+        "Clear tools and cables from in front of the robot and around its head. The arms swing forward up to level. The head turns about 45\u00b0 each side.",
         "At the robot-left end of the rear face, push the barrel plug fully into the power jack (J1). Lead its cable straight back, away from the arms.",
         "Plug the mains cord into the wall. Let the Pi boot.",
         "The head and arms barely move as the application starts. They are already at the fit position.",
@@ -5460,7 +5419,7 @@
           "title": "Watch a conversation and a dance",
           "safety": {
             "level": "notice",
-            "text": "The servo fuse (F1) does not blow when a servo jams. A jammed servo keeps pushing and can overheat. Keep the wall plug within reach while the robot moves."
+            "text": "A jammed servo can keep pushing and overheat. Unplug the supply immediately if movement binds. Keep the wall plug within reach."
           },
           "image": "assets/r22/main-front.png",
           "caption": "The assembled robot, from the front.",
@@ -5503,7 +5462,7 @@
         "Stack folded towels higher than the barrel plug is long. Beside them, stack towels about 4 cm higher.",
         "Hold the base with both hands. Lay the robot on its back, base on the lower stack and backpack on the higher one. Keep the power jack end, on your right, past the edge.",
         "The open bottom faces you, and the barrel plug hangs clear. The head touches nothing. The arms may swing back onto the towels.",
-        "Through the open bottom, wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall.",
+        "Through the open bottom, wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall.",
         "At the robot-left end, on your right, unplug the barrel plug from the power jack (J1).",
         "If you left the antenna off in {step:antenna}, fit it now as in that step.",
         "Hold the head still with your other hand while you turn the coil.",
@@ -5563,7 +5522,7 @@
         {
           "title": "Fit the antenna",
           "image": "assets/r18/step-11.png",
-          "caption": "The coil and ball above the head’s threaded socket.",
+          "caption": "The coil and ball above the head\u2019s threaded socket.",
           "actions": [
             6,
             7
@@ -5589,7 +5548,7 @@
         "With the robot on its back, fit the four corner holes of the bottom cover (FB02) over the foot posts.",
         "Press it in by hand until it sits flat on the four corner faces.",
         "If it does not sit flat, lift it off. Move the wire or tie lock that holds it up.",
-        "Hold the cover flat with one hand. With the other, start an M3×12 screw by hand into the glued nut at each corner.",
+        "Hold the cover flat with one hand. With the other, start an M3\u00d712 screw by hand into the glued nut at each corner.",
         "Tighten each screw only until the cover is held firmly.",
         "If a screw turns without tightening, its nut is loose. Remove the cover. Glue that nut again as in {step:board-cover-nuts}.",
         "Hold the base with both hands. Keep your hands off the head and arms.",
@@ -5668,7 +5627,7 @@
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "Open the Pi shell with the first command. Read the speaker level with the second. Use your card ID for `Device`.",
         "Both channels report `[-40.00dB]`, the level you saved in {step:audio-settings}.",
-        "If they report another level, the saved level did not load. Set and save −40 dB again as in {step:audio-settings}.",
+        "If they report another level, the saved level did not load. Set and save \u221240 dB again as in {step:audio-settings}.",
         "Press the front button. Keep talking with the robot while you set the level.",
         "The robot answers what you say.",
         "If speech is too quiet, run the first command below. If it is too loud, run the second. Each run changes the level by 3 dB. Save a changed level with the third.",
@@ -5796,7 +5755,7 @@
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
         "After the SSH session disconnects, wait at least 30 seconds. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
         "Leave the robot standing on its feet. In front of it, stack folded towels until their top lines up with the top of the body.",
-        "Hold the head still with one hand. With the other, remove the three M2×8 screws, on the two sides and the back.",
+        "Hold the head still with one hand. With the other, remove the three M2\u00d78 screws, on the two sides and the back.",
         "Lift the head straight up a few centimetres. With your other hand, reach in behind the mouth LED cassette (P30). Pull the joined head light connector down below the rim.",
         "Rest the head face up on the towels. Turn its open underside toward the top of the body.",
         "Press the latch on the connector. Pull the two halves apart.",
@@ -5879,7 +5838,7 @@
       ],
       "safety": {
         "level": "caution",
-        "text": "A powered robot’s servos can move without warning. They can pinch fingers. Unplug the supply before you start."
+        "text": "A powered robot\u2019s servos can move without warning. They can pinch fingers. Unplug the supply before you start."
       }
     },
     {
@@ -5895,16 +5854,16 @@
       "actions": [
         "Take off the head as in {step:head-open}.",
         "Lay the head face-down on a folded towel. Keep it face-down until the mouth and eyes are back in.",
-        "Hold the mouth LED cassette (P30). Remove its two outer M2×8 screws. Leave the two inner screws that hold the mouth stick.",
+        "Hold the mouth LED cassette (P30). Remove its two outer M2\u00d78 screws. Leave the two inner screws that hold the mouth stick.",
         "Move the cassette about 8 mm toward the back of the head. Then lift it out through the open rim.",
         "If the leads hold the cassette back, cut the tie at the cassette. Tie them again with more slack when you refit it.",
         "Lift out the mouth light separator (P31) and the mouth foam.",
         "With the mouth out, unplug both plugs from the eye board. Press each plug housing, not its wires.",
-        "From inside the head, remove the eye LED cassette’s two outer M2×10 screws and their washers. Leave the two M2×6 board screws in.",
+        "From inside the head, remove the eye LED cassette\u2019s two outer M2\u00d710 screws and their washers. Leave the two M2\u00d76 board screws in.",
         "Pull the cassette back into the head.",
         "Lift the head straight up off the towel. The eye housing stays face-down on the towel.",
-        "Keep the housing’s two nuts with its screws. They sit loose in the channels at its upper edge.",
-        "Refit the eye as in {step:eye-housings} and {step:eye-boards}. Load its nuts from the housing’s upper edge, with no glue.",
+        "Keep the housing\u2019s two nuts with its screws. They sit loose in the channels at its upper edge.",
+        "Refit the eye as in {step:eye-housings} and {step:eye-boards}. Load its nuts from the housing\u2019s upper edge, with no glue.",
         "Refit the separator, foam and cassette as in {step:mouth}. Refit the head as in {step:head-open}."
       ],
       "check": "The mouth and any removed eye are back in the head, and no nut is loose inside it.",
@@ -5989,8 +5948,8 @@
         "Leave the robot standing on its feet on the bench.",
         "Hold the forearm with one hand. With the other, pull the hand straight out by its palm.",
         "To refit it, push it into the wrist socket, pressing on the palm. Turn it to a pose.",
-        "At the elbow’s outer side, turn the M3×14 screw a little at a time.",
-        "The elbow holds a pose but still bends smoothly by hand through 0–70°.",
+        "At the elbow\u2019s outer side, turn the M3\u00d714 screw a little at a time.",
+        "The elbow holds a pose but still bends smoothly by hand through 0\u201370\u00b0.",
         "Slide the shoulder cover off the upper arm.",
         "Hold the upper arm still. Remove the center screw from its horn.",
         "Pull the arm straight off the shaft. Its horn stays screwed to the arm.",
@@ -6037,7 +5996,7 @@
         {
           "title": "Remove a hand",
           "image": "assets/r19/wrist-round.png",
-          "caption": "The robot-left relaxed hand above the robot-left forearm’s wrist socket.",
+          "caption": "The robot-left relaxed hand above the robot-left forearm\u2019s wrist socket.",
           "safety": {
             "level": "notice",
             "text": "The printed fingers are thin. Pulling on one can snap it off. Pull the hand out by its palm."
@@ -6104,7 +6063,7 @@
       ],
       "safety": {
         "level": "caution",
-        "text": "A powered robot’s servos can move without warning. They can pinch fingers. Unplug the supply before you start."
+        "text": "A powered robot\u2019s servos can move without warning. They can pinch fingers. Unplug the supply before you start."
       }
     },
     {
@@ -6116,14 +6075,14 @@
         "After the SSH session disconnects, wait at least 30 seconds. Unplug the supply from the wall. At the robot-left end of the rear face, unplug the barrel plug from the power jack (J1).",
         "Stack folded towels on the bench. Beside them, stack towels about 4 cm higher.",
         "Hold the base with both hands. Lay the robot gently on its back, base on the lower stack and backpack on the higher one.",
-        "The bottom cover faces you. The robot’s weight rests only on the base and backpack. The head touches nothing.",
-        "Remove the four M3×12 screws from the corners of the bottom cover (FB02). Lift the cover off.",
+        "The bottom cover faces you. The robot\u2019s weight rests only on the base and backpack. The head touches nothing.",
+        "Remove the four M3\u00d712 screws from the corners of the bottom cover (FB02). Lift the cover off.",
         "Nothing is connected to the cover.",
         "For the microSD card, cut any tie in the way. Grip the card through its access gap and pull it out. Leave the Pi mounted.",
-        "For the Pi, label and unplug its power lead, USB-A extension cable and GPIO leads. Remove its four M2×12 screws.",
-        "For a level shifter (S1 or S2), label its wires. Release them from its terminals. Remove its two M2×10 screws.",
+        "For the Pi, label and unplug its power lead, USB-A extension cable and GPIO leads. Remove its four M2\u00d712 screws.",
+        "For a level shifter (S1 or S2), label its wires. Release them from its terminals. Remove its two M2\u00d710 screws.",
         "Label each wire in the WAGO. Open its lever and pull the wire out.",
-        "Hold the WAGO. Release it from its tape as the tape’s instructions say.",
+        "Hold the WAGO. Release it from its tape as the tape\u2019s instructions say.",
         "Fit a new WAGO with fresh tape (C16) as in {step:wagos}. Open and close each lever to check the bond before you insert wires.",
         "Refit each board as in {step:pi-shifters}. On a new level shifter, cut the Neo jumper first.",
         "If a board screw turns without tightening, its nut is loose. Remove the board. Glue the nut again as in {step:board-cover-nuts}. Let the glue cure.",
@@ -6208,7 +6167,7 @@
           "caption": "",
           "safety": {
             "level": "notice",
-            "text": "Levering a WAGO off can break its printed pad. A new WAGO then cannot bond flat. Remove it only by the tape maker’s method."
+            "text": "Levering a WAGO off can break its printed pad. A new WAGO then cannot bond flat. Remove it only by the tape maker\u2019s method."
           },
           "actions": [
             10,
@@ -6233,29 +6192,29 @@
     },
     {
       "id": "power-parts-service",
-      "title": "Replace a fuse, capacitor or power jack",
+      "title": "Replace the light fuse, a capacitor or power jack",
       "chapter": "Service",
       "actions": [
-        "Open the base as in {step:base-open}.",
-        "Set the meter to DC volts. Measure from the input WAGO (W1) to the ground WAGO (W3). Measure from the servo power WAGO (W2) to the servo ground WAGO (W4).",
-        "Both readings are close to 0 V. The capacitors have discharged.",
-        "Cut the fuse holder’s tie if you need slack. If that is not enough, release one of its wires from its WAGO. Keep the cutter blade away from the wires.",
-        "Lift the holder by its body, not its leads. Open it in your hand. Fit a new fuse of the same rating.",
-        "Close the holder. Tie it to its tie square with a new cable tie (C07).",
+        "Open the base as in {step:base-open}. Unplug the body light connector. Set the meter to DC volts.",
+        "Measure from the input WAGO (W1) to the ground WAGO (W3). Measure from the servo power WAGO (W2) to the servo ground WAGO (W4).",
+        "Measure between +5 V and GND on the BODY LIGHT base half. All three readings must be near 0 V before handling the parts.",
+        "Cut the light fuse holder\u2019s tie if you need slack. If necessary, release its input wire from the input WAGO (W1/4). Keep the cutter blade away from the wires.",
+        "Lift the holder by its body, not its leads. Open it in your hand. Fit the specified T1 A time-delay light fuse (F2).",
+        "Close the holder. Reconnect its input wire to W1/4 if released. Tie the holder to its tie square with a new cable tie (C07).",
         "Label the two wires of the servo capacitor (C1). Cut its tie. Release its positive wire from W2/5. Release its negative wire from W3/4.",
-        "On the bench, prepare a new C1 as in {step:servo-fuse-capacitor}. Cover each leg with its own heat-shrink (C12).",
+        "On the bench, prepare a new C1 as in {step:servo-power-capacitor}. Cover each leg with its own heat-shrink (C12).",
         "Insert its positive wire into W2/5. Insert its negative wire into W3/4. Tie its body down with the vent end uncovered.",
         "Unplug the body light connector. Release the base-half GND wire from W3/5. Release the base-half DATA wire from level shifter (S1) terminal D5.",
         "Release the F2 input end from W1/4. On the bench, replace the light capacitor (C2) as in {step:light-fuse-capacitor}.",
         "Refit F2 and the base half as in {step:light-fuse-capacitor} and {step:shifter-wiring}. Tie them down with new cable ties.",
-        "Release the power jack (J1) leads from W1/1 and W3/1. Add towels under the base and backpack until a small driver fits under the base’s robot-left end. Keep that end past the towels’ edge.",
-        "From below, remove the two M3×12 screws from the power jack plate (FB21). Its nuts stay in their pockets. Lower the plate and J1 out. Draw the leads out through the opening.",
+        "Release the power jack (J1) leads from W1/1 and W3/1. Add towels under the base and backpack until a small driver fits under the base\u2019s robot-left end. Keep that end past the towels\u2019 edge.",
+        "From below, remove the two M3\u00d712 screws from the power jack plate (FB21). Its nuts stay in their pockets. Lower the plate and J1 out. Draw the leads out through the opening.",
         "On the bench, fit a new J1 as in {step:power-jack}. Hold the jack body so its solder lugs do not twist. Refit the plate and insert its leads as in {step:power-wiring}.",
-        "Take out both fuses. Repeat the power path and short checks in {step:base-check}.",
-        "Fit the T3.15 A fuse in F1 and the T1 A fuse in F2.",
+        "With the supply unplugged and servo leads attached, repeat the power-path, polarity and short checks in {step:base-check}.",
+        "Fit the specified T1 A time-delay fuse in F2. Reconnect the body light connector if unplugged.",
         "Close the base as in {step:bottom-cover}."
       ],
-      "check": "F1 holds T3.15 A and F2 holds T1 A. Each replaced part has the right polarity, insulated joints and its body tied down.",
+      "check": "F2 holds T1 A. Each replaced part has the right polarity, insulated joints and its body tied down.",
       "parts": {
         "T01": 1,
         "T02": 1,
@@ -6285,12 +6244,12 @@
           ]
         },
         {
-          "title": "Replace a fuse",
-          "image": "assets/circuits/f1-connect.svg",
-          "caption": "Connection view of W1, F1 and W2.",
+          "title": "Replace the light fuse",
+          "image": "assets/circuits/f2-connect.svg",
+          "caption": "Connection view of W1, F2, the base half and W3.",
           "safety": {
             "level": "warning",
-            "text": "A fuse of a higher rating may not blow on a fault. The wires could then overheat and cause fire. Fit T3.15 A in the servo fuse (F1) and T1 A in the light fuse (F2)."
+            "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
           },
           "actions": [
             3,
@@ -6350,7 +6309,7 @@
           ],
           "safety": {
             "level": "warning",
-            "text": "The two fuses look alike. A T3.15 A fuse in the F2 holder would let a light fault overheat the thin wires. Read each fuse’s marking before you fit it."
+            "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
           }
         }
       ]
@@ -6362,17 +6321,17 @@
       "actions": [
         "Open the base as in {step:base-open}.",
         "For the audio module or its cradle, unplug the USB-A extension cable and both speaker plugs from the module. Pull each by its plug body.",
-        "Remove the two M2×8 lid screws. Lift off the audio cradle lid (FB32).",
-        "Hold the cradle. Release the module’s case from its tape as the tape’s instructions say. Lift the module out.",
-        "For the cradle, remove its three M3×6 screws, including the middle one under the module.",
+        "Remove the two M2\u00d78 lid screws. Lift off the audio cradle lid (FB32).",
+        "Hold the cradle. Release the module\u2019s case from its tape as the tape\u2019s instructions say. Lift the module out.",
+        "For the cradle, remove its three M3\u00d76 screws, including the middle one under the module.",
         "Lift out the audio cradle (FB24). Set it down open side up, so its two M2 lid nuts stay in their pockets.",
         "If a cradle nut turns or comes loose, glue it again as in {step:cradle-jack-nuts}. Let the glue cure before you refit the cradle.",
         "For a speaker, unplug its plug from the audio module. Pull it by its plug body.",
-        "Through the open bottom, hold a grille nut with a fingertip. From outside, remove its M3×12 screw. Repeat for the other three outer screws.",
+        "Through the open bottom, hold a grille nut with a fingertip. From outside, remove its M3\u00d712 screw. Repeat for the other three outer screws.",
         "Lift away the side speaker grille (FB19) with its speaker. On the bench, replace the speaker as in {step:speaker-grilles}. Keep its four washers and nuts.",
         "For the button, cut the cable ties that hold its leads to the tie squares. Pull its four leads off Pi pins 4, 11, 14 and 20. Pull each by its socket.",
-        "Stand the robot on its feet, with the cover off. Slide the base’s front over the bench edge until you can reach the button from below. Keep most of the base on the bench.",
-        "From below, hold one button nut in its pocket with a fingertip. From above, remove its M3×8 screw. Repeat for the second screw. Lift out the button insert (FB20) with its leads.",
+        "Stand the robot on its feet, with the cover off. Slide the base\u2019s front over the bench edge until you can reach the button from below. Keep most of the base on the bench.",
+        "From below, hold one button nut in its pocket with a fingertip. From above, remove its M3\u00d78 screw. Repeat for the second screw. Lift out the button insert (FB20) with its leads.",
         "Refit each removed part as in its build step. Refit the button insert in the same standing position, holding each nut from below.",
         "Tape the module in with a new tape patch (C16), as in {step:audio-module}. Line the lid with its foam again. Keep the microphone and speaker openings clear.",
         "Lay the robot on its back. Push the button leads onto their pins. Retie them to their squares with cable ties (C07). Close the base as in {step:bottom-cover}. Test the sound as in {step:finished-robot}."
@@ -6463,14 +6422,14 @@
       "actions": [
         "For an arm servo, take off the arm as in {step:arm-service}.",
         "For the head servo, take off the head as in {step:head-open}. Remove the center screw from the head shelf. Lift the shelf off, sliding the head light cable out of its side entry.",
-        "Open the base as in {step:base-open}. Find the servo’s cable by its label: LEFT, RIGHT or HEAD.",
+        "Open the base as in {step:base-open}. Find the servo\u2019s cable by its label: LEFT, RIGHT or HEAD.",
         "Release its three wires. LEFT: servo power WAGO (W2/2), servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT: W2/3, W4/3 and level shifter (S2) D5. HEAD: W2/4, W4/4 and S2 C5.",
         "Cut the tie in the harness opening. Stand the robot on its feet, with the cover off. Open the body as in the second panel of {step:body-light-service}.",
-        "For an arm servo, fold that side’s foam end forward, off the shaft. For the head servo, remove two M3×10 screws from the upper foam collar (P01). Lift it off over the head light cable.",
-        "Above and below an arm servo’s shaft, or on top of the head servo’s ears, remove the two M2×6 screws. Leave their nuts in the bracket’s pockets.",
-        "Slide an arm servo out of the bracket’s open side, toward the back. Lift the head servo straight up. Pull the servo cable up out of the base.",
-        "If an arm-servo nut dropped, find it in the open base. Press it back into its pocket with fine pliers, through the bracket’s open side.",
-        "If a head-servo nut dropped, find it in the open base. Remove the bracket’s two M3×20 screws, holding their nuts. Re-seat the nut on the bench. Refit the bracket as in {step:head-servo}."
+        "For an arm servo, fold that side\u2019s foam end forward, off the shaft. For the head servo, remove two M3\u00d710 screws from the upper foam collar (P01). Lift it off over the head light cable.",
+        "Above and below an arm servo\u2019s shaft, or on top of the head servo\u2019s ears, remove the two M2\u00d76 screws. Leave their nuts in the bracket\u2019s pockets.",
+        "Slide an arm servo out of the bracket\u2019s open side, toward the back. Lift the head servo straight up. Pull the servo cable up out of the base.",
+        "If an arm-servo nut dropped, find it in the open base. Press it back into its pocket with fine pliers, through the bracket\u2019s open side.",
+        "If a head-servo nut dropped, find it in the open base. Remove the bracket\u2019s two M3\u00d720 screws, holding their nuts. Re-seat the nut on the bench. Refit the bracket as in {step:head-servo}."
       ],
       "check": "The servo and its cable are out. The bracket nuts are back in place, ready for the replacement.",
       "parts": {
@@ -6543,16 +6502,16 @@
       "title": "Fit a new servo",
       "chapter": "Service",
       "actions": [
-        "Prepare the new servo’s cable as in {step:servo-cables}.",
+        "Prepare the new servo\u2019s cable as in {step:servo-cables}.",
         "Slide a new arm servo in from the back, shaft outward, cable toward the middle. Lower a new head servo in from above, shaft up.",
-        "Rest its ears on the supports. Put an M2×6 screw through each ear into its nut. Tighten until the servo sits firm. Leave its horn off.",
+        "Rest its ears on the supports. Put an M2\u00d76 screw through each ear into its nut. Tighten until the servo sits firm. Leave its horn off.",
         "Run its cable down the frame into the base. For the head servo, thread the head light cable up through the upper collar. Refit the collar as in {step:head-servo}.",
         "Close the foam wrap as in {step:body-diffuser}. Refit the carrier as in {step:backpack-carrier}.",
         "Screw the assembled backpack back on as in the last two panels of {step:backpack}. Refit the belt as in {step:belt}.",
         "Lay the robot on its back as in {step:base-open}. Connect the cable as in {step:servo-connections}. Tie it in the harness opening.",
         "Lift the robot onto its feet on a folded towel, with the cover off. At the robot-left end of the rear face, push the barrel plug into the power jack (J1).",
         "Set the fit position and refit the part as in the last panel of {step:first-movement}. Do not turn the new shaft by hand first.",
-        "When the movement passes that step’s check, close the base as in {step:secure-wiring} and {step:bottom-cover}."
+        "When the movement passes that step\u2019s check, close the base as in {step:secure-wiring} and {step:bottom-cover}."
       ],
       "check": "The new servo was at the fit position when its part went back on. The head and arms move without touching the body or any cable.",
       "parts": {
@@ -6634,19 +6593,19 @@
       "actions": [
         "Take off the head as in {step:head-open}, leaving the robot standing on its feet. Lay the head face-down on a folded towel.",
         "Remove the mouth as in {step:mouth-eye-removal}. It blocks the tools for the eye boards.",
-        "Unplug both plugs from the eye board. Remove its two M2×6 screws. Lift the board off its eye LED cassette (P06).",
+        "Unplug both plugs from the eye board. Remove its two M2\u00d76 screws. Lift the board off its eye LED cassette (P06).",
         "If a cassette nut moves, take out the cassette as in {step:mouth-eye-removal}. Reseat the nut on the bench.",
         "Fit the new eye board (Adafruit 5975) as in {step:eye-boards}, LED facing into the light opening. Plug each lead back into the same IN or OUT socket.",
-        "On the bench, unsolder the three mouth leads from the old mouth stick. Remove its two inner M2×8 screws and nuts.",
+        "On the bench, unsolder the three mouth leads from the old mouth stick. Remove its two inner M2\u00d78 screws and nuts.",
         "Solder the leads to the new mouth stick (Adafruit 1426): +5 V, GND and DIN. Leave DOUT unused. Insulate each joint.",
         "Screw the stick to the mouth LED cassette (P30) as in {step:mouth}. Mouth power stays on its own 22 AWG leads, not the eye leads.",
         "Refit the mouth as in {step:mouth}. Tie its leads at the cassette with slack.",
         "Refit the head as in {step:head-open}.",
         "At the robot-left end of the rear face, push the barrel plug into the power jack (J1). Plug the supply into the wall.",
         "When the Pi has booted, run the command below on your computer.",
-        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light’s plugs and joints."
+        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light\u2019s plugs and joints."
       ],
-      "check": "Each light turns on alone, in order: body 0–5, first eye 6, second eye 7 and mouth 8–15. Next, all 16 show red, green and blue.",
+      "check": "Each light turns on alone, in order: body 0\u20135, first eye 6, second eye 7 and mouth 8\u201315. Next, all 16 show red, green and blue.",
       "parts": {
         "T01": 1,
         "T02": 1,
@@ -6730,24 +6689,24 @@
       "actions": [
         "Take off the head as in {step:head-open}.",
         "Open the base as in {step:base-open}. Unplug the body light connector.",
-        "Cut the tie that bundles the cables in the harness opening. Stand the robot on its feet, with the cover off.",
-        "Stand behind the robot. At each lower belt dock, support the rear belt link so it does not bend. Push the belt pin (B09) up from below.",
-        "Lift off the belt. Hold the backpack shell (P35). Remove its four M3×12 screws. Pull the whole backpack straight back off the carrier, leaving its glued parts attached.",
-        "Remove the two M3×18 carrier screws and the lower M3×16 seam screw. Lift off the curved backpack carrier (P34), three seam covers (P10) and two seam backings (P09). Ease the foam out of both collars.",
+        "With the supply unplugged, release the servo feed at input WAGO (W1/3). Insulate its freed end separately. Secure it clear of terminals. Leave the servo signal and return connections attached.",
+        "Cut the harness-opening bundle tie. Stand the robot on its feet. At each lower belt dock, support the rear belt link. Push the belt pin (B09) up from below.",
+        "Lift off the belt. Hold the backpack shell (P35). Remove its four M3\u00d712 screws. Pull the whole backpack straight back off the carrier, leaving its glued parts attached.",
+        "Remove the two M3\u00d718 carrier screws and the lower M3\u00d716 seam screw. Lift off the curved backpack carrier (P34), three seam covers (P10) and two seam backings (P09). Ease the foam out of both collars.",
         "Cut the two ties at each light, including the two on the rear body-light bracket (P12). Keep the cutter blade away from the wires.",
-        "Pull the body half of the body light connector up out of the base. Slide the head light cable out of the head shelf’s side entry. Pull it down through the upper foam collar.",
+        "Pull the body half of the body light connector up out of the base. Slide the head light cable out of the head shelf\u2019s side entry. Pull it down through the upper foam collar.",
         "Lift out the strand with its input harness: the body half, the data resistor (R2) and the head power pair.",
-        "For spare lights, move the input harness to the end marked INPUT, as in {step:body-light-input}. For a new strand, move it to the likely input, found as in that step.",
-        "Lay the robot on its back. Raise it as in the second panel of {step:all-lights-test}. Put the body’s towels under both foam collars. Take out the servo fuse (F1).",
-        "Test the new strand’s input as in {step:body-light-test}, with the head light connector unplugged. With F1 out, the servos get no power.",
+        "Move the input harness to the replacement strand as in {step:body-light-input}. Keep the head light connector unplugged. Insulate each spare head-power end separately.",
+        "Lay the robot on its back. Raise it until the power jack hangs clear, as in {step:all-lights-test}. Put the body\u2019s towels under both foam collars.",
+        "Test the strand as in {step:body-light-test}, keeping the servo feed isolated instead of disconnecting servo cables. Finish shut down and unplugged.",
         "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
-        "Lay the head light cable into the head shelf’s side entry from the side, as in {step:shelf-arms}. Close the foam wrap as in {step:body-diffuser}.",
-        "Refit the carrier as in {step:backpack-carrier}. Screw the assembled backpack back on as in the last two panels of {step:backpack}. Refit the belt as in {step:belt}.",
-        "Lay the robot on its back as in {step:base-open}. Reconnect both light connectors as in {step:light-connections}.",
+        "Lay the head light cable into the head shelf\u2019s side entry from the side, as in {step:shelf-arms}. Close the foam wrap as in {step:body-diffuser}.",
+        "Refit the carrier as in {step:backpack-carrier}. Load its four nuts and screw the assembled backpack on as in {step:backpack}. Refit the belt as in {step:belt}.",
+        "With the supply unplugged, lay the robot on its back as before, with the power jack clear. Uncover the servo feed. Reinsert it into W1/3. Close the lever. Reconnect both light connectors as in {step:light-connections}.",
         "Repeat the checks in {step:power-up-inspection}. Test all 16 lights as in {step:all-lights-test}.",
-        "Shut down and unplug as in the first three panels of {step:secure-wiring}. Unplug the head light connector. Close the base as in {step:bottom-cover}. Refit the head as in {step:head-open}."
+        "Shut down and unplug as in {step:secure-wiring}. Unplug the head light connector. Close the base as in {step:bottom-cover}. Refit the head as in {step:head-open}."
       ],
-      "check": "All 16 lights pass the light test in order. No wire carries the weight of a part.",
+      "check": "The servo feed is restored at W1/3. All 16 lights pass the light test in order. No wire carries the weight of a part.",
       "parts": {
         "T01": 1,
         "T02": 1,
@@ -6769,9 +6728,9 @@
       "commands": [],
       "panels": [
         {
-          "title": "Unplug both light connectors",
-          "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "A JST-SM pair apart and seated.",
+          "title": "Unplug the lights and isolate servo power",
+          "image": "assets/circuits/servo-feed-isolation.svg",
+          "caption": "Servo feed released at W1/3, with its freed end insulated and secured.",
           "actions": [
             0,
             1,
@@ -6800,8 +6759,8 @@
         },
         {
           "title": "Prepare and test the new lights",
-          "image": "assets/circuits/cut-six.svg",
-          "caption": "The first six pebbles from INPUT, with the cut point after the sixth.",
+          "image": "assets/circuits/strand-test-connection.svg",
+          "caption": "Body light connector mated for the strand input test.",
           "actions": [
             9,
             10,
@@ -6819,7 +6778,7 @@
           ]
         },
         {
-          "title": "Reconnect and test all 16 lights",
+          "title": "Restore servo power and test all 16 lights",
           "image": "assets/circuits/head-data.svg",
           "caption": "Head data path, from the head half through both eyes to the mouth.",
           "safety": {

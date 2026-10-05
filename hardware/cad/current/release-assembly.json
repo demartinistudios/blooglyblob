@@ -664,8 +664,8 @@
       "bodies": [
         {
           "name": "Dome shell with r2 eye seats",
-          "volume": 27.51671393036412,
-          "area": 281.9608260099687,
+          "volume": 27.516713917793908,
+          "area": 281.96082603004277,
           "solid": true,
           "lumps": 1,
           "faces": 144,
@@ -11413,153 +11413,6 @@
       ]
     },
     {
-      "path": "P27 Rear fuse rack r3 - lower holder and removable upper shelf:1",
-      "component": "P27 Rear fuse rack r3 - lower holder and removable upper shelf",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 6.682125026821518,
-          "area": 73.0983896501163,
-          "solid": true,
-          "lumps": 1,
-          "faces": 111,
-          "edges": 297,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -3.88,
-              4.220000000000001,
-              -4.7
-            ],
-            [
-              4.569999999999999,
-              6.83,
-              -0.9000000000000004
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Schurter FDI 8601.2001.08 - max body:1",
-      "component": "REF BASE Schurter FDI 8601.2001.08 - max body",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -0.4500000000000002,
-        0.0,
-        1.0,
-        0.0,
-        5.85,
-        0.0,
-        0.0,
-        1.0,
-        -3.35,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 9.650972631827432,
-          "area": 28.14867017616454,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -2.4,
-              -0.8,
-              -0.8
-            ],
-            [
-              2.4,
-              0.8,
-              0.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF BASE Schurter FDI 8601.2001.08 - max body:2",
-      "component": "REF BASE Schurter FDI 8601.2001.08 - max body",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.5499999999999998,
-        0.0,
-        1.0,
-        0.0,
-        5.8500000000000005,
-        0.0,
-        0.0,
-        1.0,
-        -1.4,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 9.650972631827432,
-          "area": 28.14867017616454,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -2.4,
-              -0.8,
-              -0.8
-            ],
-            [
-              2.4,
-              0.8,
-              0.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "P28 Capacitor saddle r2 - accessible screws and open vents:1",
       "component": "P28 Capacitor saddle r2 - accessible screws and open vents",
       "transform": [
@@ -12148,55 +12001,6 @@
       ]
     },
     {
-      "path": "P33 Upper fuse saddle r0 - removable shelf:1",
-      "component": "P33 Upper fuse saddle r0 - removable shelf",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 1.6409769102027,
-          "area": 23.306423520638162,
-          "solid": true,
-          "lumps": 1,
-          "faces": 42,
-          "edges": 118,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -1.23,
-              4.220000000000001,
-              -2.4
-            ],
-            [
-              2.25,
-              6.75,
-              -1.2800000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "P34 Curved backpack carrier r1:1",
       "component": "P34 Curved backpack carrier r1",
       "transform": [
@@ -12344,55 +12148,6 @@
       ]
     },
     {
-      "path": "P36 Copper thruster barrel r1 - print two:2",
-      "component": "P36 Copper thruster barrel r1 - print two",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -5.6,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "GS r1 copper goggles",
-      "bodies": [
-        {
-          "name": "P36 Copper thruster barrel r0 - print two",
-          "volume": 4.723057079091007,
-          "area": 48.48519739211442,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 6,
-          "visible": true,
-          "appearance": "GS r1 copper goggles",
-          "bounds": [
-            [
-              1.9999999999999998,
-              3.5,
-              3.3000000000000003
-            ],
-            [
-              3.5999999999999996,
-              5.1,
-              8.769155380921177
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "P37 Recessed nozzle plug r1 - print two:1",
       "component": "P37 Recessed nozzle plug r1 - print two",
       "transform": [
@@ -12400,55 +12155,6 @@
         0.0,
         0.0,
         0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "Backpack black - display only",
-      "bodies": [
-        {
-          "name": "P37 Recessed nozzle plug r0 - print two",
-          "volume": 1.3249996883744322,
-          "area": 12.084714305390357,
-          "solid": true,
-          "lumps": 1,
-          "faces": 7,
-          "edges": 6,
-          "visible": true,
-          "appearance": "Backpack black - display only",
-          "bounds": [
-            [
-              1.9499999999999997,
-              3.4499999999999997,
-              2.5
-            ],
-            [
-              3.65,
-              5.1499999999999995,
-              3.8
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P37 Recessed nozzle plug r1 - print two:2",
-      "component": "P37 Recessed nozzle plug r1 - print two",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        -5.6,
         0.0,
         1.0,
         0.0,
@@ -12632,6 +12338,104 @@
               0.25,
               5.46,
               10.459999999999999
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P36 Copper thruster barrel r1 - print two:2",
+      "component": "P36 Copper thruster barrel r1 - print two",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -5.6,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": "GS r1 copper goggles",
+      "bodies": [
+        {
+          "name": "P36 Copper thruster barrel r0 - print two",
+          "volume": 4.723057079091007,
+          "area": 48.48519739211442,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 6,
+          "visible": true,
+          "appearance": "GS r1 copper goggles",
+          "bounds": [
+            [
+              1.9999999999999998,
+              3.5,
+              3.3000000000000003
+            ],
+            [
+              3.5999999999999996,
+              5.1,
+              8.769155380921177
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P37 Recessed nozzle plug r1 - print two:2",
+      "component": "P37 Recessed nozzle plug r1 - print two",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -5.6,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": "Backpack black - display only",
+      "bodies": [
+        {
+          "name": "P37 Recessed nozzle plug r0 - print two",
+          "volume": 1.3249996883744322,
+          "area": 12.084714305390357,
+          "solid": true,
+          "lumps": 1,
+          "faces": 7,
+          "edges": 6,
+          "visible": true,
+          "appearance": "Backpack black - display only",
+          "bounds": [
+            [
+              1.9499999999999997,
+              3.4499999999999997,
+              2.5
+            ],
+            [
+              3.65,
+              5.1499999999999995,
+              3.8
             ]
           ]
         }
@@ -18166,55 +17970,6 @@
       ]
     },
     {
-      "path": "FBREF Fuse F1:1",
-      "component": "FBREF Fuse F1",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        6.1000000000000005,
-        0.0,
-        1.0,
-        0.0,
-        -13.5,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "Dome carrier yellow - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 9.650972631827434,
-          "area": 28.14867017616454,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Dome carrier yellow - display only",
-          "bounds": [
-            [
-              -7.1,
-              6.9,
-              -3.0
-            ],
-            [
-              -2.3000000000000007,
-              8.5,
-              -1.4000000000000001
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "FBREF Fuse F2:1",
       "component": "FBREF Fuse F2",
       "transform": [
@@ -19287,104 +19042,6 @@
               8.15,
               4.949999999999999,
               -4.35
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "FBWIRE F1 input tail:1",
-      "component": "FBWIRE F1 input tail",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "FBWIRE F1 input tail",
-          "volume": 0.8654556437623061,
-          "area": 11.618853893161582,
-          "solid": true,
-          "lumps": 1,
-          "faces": 33,
-          "edges": 47,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.65,
-              3.02,
-              -3.55
-            ],
-            [
-              6.45,
-              8.85,
-              -2.0500000000000003
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "FBWIRE F1 output tail:1",
-      "component": "FBWIRE F1 output tail",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "FBWIRE F1 output tail",
-          "volume": 1.2173400115022655,
-          "area": 16.306102499072633,
-          "solid": true,
-          "lumps": 1,
-          "faces": 33,
-          "edges": 47,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -0.65,
-              0.01999999999999999,
-              -5.15
-            ],
-            [
-              5.25,
-              8.85,
-              -2.0500000000000003
             ]
           ]
         }
@@ -21541,104 +21198,6 @@
               7.8,
               -3.1699999999999995,
               -2.1399999999999997
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "FBWIRE F1 output extended tail:1",
-      "component": "FBWIRE F1 output extended tail",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "FBWIRE F1 output extended tail",
-          "volume": 1.405280824334725,
-          "area": 18.814207683683104,
-          "solid": true,
-          "lumps": 1,
-          "faces": 35,
-          "edges": 53,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -7.15,
-              0.01999999999999999,
-              -4.95
-            ],
-            [
-              5.25,
-              7.65,
-              -2.0500000000000003
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "FBALLOW F1 extension joint:1",
-      "component": "FBALLOW F1 extension joint",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": false,
-      "appearance": null,
-      "bodies": [
-        {
-          "name": "FBALLOW F1 extension joint",
-          "volume": 0.2512979110006973,
-          "area": 2.7643065222942624,
-          "solid": true,
-          "lumps": 1,
-          "faces": 3,
-          "edges": 2,
-          "visible": true,
-          "appearance": "Steel - Satin",
-          "bounds": [
-            [
-              -5.573456631300728,
-              5.993801856283386,
-              -3.534835869138741
-            ],
-            [
-              -3.5665433686992722,
-              7.096198143716614,
-              -3.0541641308612593
             ]
           ]
         }

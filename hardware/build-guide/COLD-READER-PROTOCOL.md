@@ -118,7 +118,7 @@ session at the first step not yet done.
 Record each event against its step and panel:
 
 - **Step:** the step number on the page and the step ID in the address bar,
-  after `#step-`. Example: `27 servo-fuse-capacitor`. Service steps have no
+  after `#step-`. Example: `27 servo-power-capacitor`. Service steps have no
   number; use their ID.
 - **Panel:** the number at the top left of the panel. For the parts list at
   the top of a step, write `top`. For the safety box, the step note or the

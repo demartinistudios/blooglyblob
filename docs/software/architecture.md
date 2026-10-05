@@ -128,7 +128,8 @@ presentation retain their existing behavior. Eyes are controlled separately.
 The supported 16-pixel data chain uses body indices 0–5, eyes 6–7, and mouth
 8–15. The mouth is explicitly dark during normal operation; this profile update
 does not add a mouth animation. The [LED diagnostic](maintenance.md#supported-led-chain)
-exercises every pixel without changing the separate fused power arrangement.
+exercises every pixel without changing the F2-protected lighting supply or the
+dedicated head power pair.
 
 ## Verification
 
