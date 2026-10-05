@@ -60,7 +60,7 @@
       1600
     ],
     "source": "The same Fusion capture and diffuser masks used for the still image. The base retains the accepted raised screw heads, with the animated lenses and nearby glow restored before compositing.",
-    "behavior": "Eight rainbow mouth zones form one horizontal audio-level meter with a 520 ms release, soft leading edge and a 48% background glow. Six broad body color pools drift slowly. Warm eye lights blink with a fast close and slower reopening at irregular intervals.",
+    "behavior": "Eight rainbow mouth zones form one horizontal audio-level meter with restrained random pulse heights about every 620 ms, a gentle 120 ms attack and 850 ms release, soft leading edge and a 48% background glow. Six broad body color pools drift slowly. Warm eye lights blink with a fast close and slower reopening at irregular intervals.",
     "limits": "Decorative simulated audio level; no microphone or device connection. Illustrative lighting, not an optical simulation. Camera, aperture, silhouette and hardware geometry are unchanged.",
     "assets": [
       {

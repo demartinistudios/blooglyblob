@@ -65,6 +65,8 @@ window.BGBHero = (() => {
     mouthStrip.height = 1;
     const mouthContext = mouthStrip.getContext('2d');
     const mouthPixels = mouthContext.createImageData(mouthStrip.width, 1);
+    const mouthNotes = [];
+    let lastMouthNote = -1;
     let nextBlink = 2.8 + Math.random() * 2.5, blinkStart = -99;
     let doubleAt = -99, blinkLength = .24;
 
@@ -132,16 +134,23 @@ window.BGBHero = (() => {
       p = patches.mouth;
       g = p.ctx;
       g.clearRect(0, 0, p.width, p.height);
+      // Choose each pulse height once, so it varies without flickering between frames.
+      while (lastMouthNote < Math.floor(t / .62)) {
+        const note = ++lastMouthNote;
+        mouthNotes.push({
+          start: note * .62 + .025 * Math.sin(note * 2.13),
+          loudness: .3 + .65 * Math.pow(Math.random(), 1.2)
+        });
+        if (mouthNotes.length > 9) mouthNotes.shift();
+      }
       let amplitude = 0;
-      for (let note = Math.floor(t / .32) - 8; note <= Math.floor(t / .32); note++) {
-        if (note < 0) continue;
-        const age = t - (note * .32 + .025 * Math.sin(note * 2.13));
+      for (const {start, loudness} of mouthNotes) {
+        const age = t - start;
         if (age < 0) continue;
-        const loudness = .18 + .82 * Math.pow(.5 + .5 * Math.sin(note * .83 + .6), 1.2);
-        const envelope = (1 - Math.exp(-age / .025)) * Math.exp(-age / .52);
+        const envelope = (1 - Math.exp(-age / .12)) * Math.exp(-age / .85);
         amplitude = Math.max(amplitude, loudness * envelope);
       }
-      const level = Math.min(.99, .025 + amplitude * 1.45);
+      const level = Math.min(.99, .1 + amplitude);
       const edge = 22 + 171 * level;
       for (let x = 0; x < p.width; x++) {
         const fill = 1 / (1 + Math.exp((x - edge) / 7.5));
