@@ -92,10 +92,10 @@
     },
     {
       "id": "E11",
-      "exact": "Adafruit 5755 JST-SH to header donor",
+      "exact": "Adafruit 6406 JST-SH plug\u2013plug cable, 200 mm",
       "category": "Purchased",
       "optional": 0,
-      "qty": 2,
+      "qty": 1,
       "quantity_scope": "required-build-supply"
     },
     {

@@ -318,13 +318,13 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 
 | Thing | Name in text | Label written on it | Replaces |
 | --- | --- | --- | --- |
-| First JST-SM pair (E10), between the base and the body strand | body light connector; its two halves are the **base half** and the **body half** | BODY LIGHT | BASE→BODY, H3, BODY, lighting lead |
-| Wires from F2, C2 and S1 D5 to the base half | base-half wires (+5 V, GND, DATA) | — | H3 +5 V, H3 return, H3 DATA |
+| First JST-SM pair (E10), between the base and the body strand | body light connector; its two halves are the **base half** and the **body half** (the plug on the strand’s input end) | BODY LIGHT | BASE→BODY, H3, BODY, lighting lead |
+| Wires from F2, C2 and S1 D5 (through R2) to the base half | base-half wires (+5 V, GND, DATA) | — | H3 +5 V, H3 return, H3 DATA |
 | Second JST-SM pair (E10), between the body and the head | head light connector; its two halves are the **body half** and the **head half** | HEAD LIGHT | HEAD (as a connector), HEAD plug, HEAD latch |
-| Two 22 AWG wires (+5 V, GND) from the strand input to the head light connector | head power pair | — | HEAD power tails, HEAD tails, HEAD power feed |
-| Head power pair plus the DATA wire from light 5, running up to the head light connector | head light cable | — | three-wire HEAD lighting cable |
-| Body half of the body light connector, R2 and the head power pair, soldered to the strand input | input harness | — | BODY/R2 harness, BODY pigtail, prepared input wiring, permanent BODY input |
-| Head half of the head light connector, the eye leads and the mouth leads | head harness | — | mouth board and harness |
+| The strand’s three wires after light 5, with any extension, running up to the head light connector | head light cable | — | three-wire HEAD lighting cable, head power pair |
+| Half of the cut JST-SH cable (E11), from the head half to the first eye’s IN | eye input lead | — | eye lead, 5755 lead |
+| Other half of the cut JST-SH cable (E11), from the second eye’s OUT to the mouth pads | mouth lead | — | mouth leads, mouth power leads |
+| Head half of the head light connector, the eye input lead, the eye cable and the mouth lead | head harness | — | mouth board and harness |
 | Micro-USB lead (E22) from W1 and W3 to the Pi | Pi power lead | PI POWER | H2 |
 | Servo cables | left arm servo cable, right arm servo cable, head servo cable | LEFT, RIGHT, HEAD | HEAD cable (for the servo) |
 | Panel jack (E18) | power jack (J1); its contacts are the **center** and the **sleeve** | J1 | inlet, panel jack |
@@ -439,9 +439,10 @@ each with the name or wording given.
 | inlet, panel jack | power jack (J1) |
 | central opening, central wire hole | harness opening |
 | BASE→BODY, H3, BODY (as a connector) | body light connector, base half, body half |
-| HEAD (as a connector), HEAD tails | head light connector, head power pair |
+| HEAD (as a connector), HEAD tails | head light connector, head light cable |
 | H2 | Pi power lead |
-| pigtail | input harness, or the named lead |
+| pigtail | the named lead: eye input lead, mouth lead |
+| head power pair, input harness | retired with the daisy-chained lights: name the head light cable, the body half or the base-half wires |
 | service stand, stand board, stand blocks | folded towels; say which way the robot lies |
 | simply, just, easily, carefully, please, make sure, note that | delete |
 | warning, caution, be careful, danger (outside a safety entry, except when quoting a message the software shows) | a safety entry |

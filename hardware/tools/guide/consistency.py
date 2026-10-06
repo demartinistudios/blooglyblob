@@ -172,6 +172,8 @@ WRITING = {
         ('BODY (connector)', r'(?<!→)\bBODY\b(?! LIGHT)', True, 'text'),
         ('HEAD (connector)', r'\bHEAD (?:tails?|plugs?|latch(?:es)?|connectors?|power|lighting)\b', True, 'text'),
         ('pigtail', r'\bpigtails?\b', False, 'text'),
+        ('head power pair', r'\bhead power pairs?\b', False, 'text'),
+        ('input harness', r'\binput harness(?:es)?\b', False, 'text'),
         ('service stand', r'\bservice stands?\b|\bstand (?:board|blocks?)\b', False, 'text'),
         ('simply', r'\bsimply\b', False, 'text'),
         ('just', r'\bjust\b', False, 'text'),

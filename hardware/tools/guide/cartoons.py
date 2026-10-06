@@ -840,23 +840,12 @@ def jst_sh_plug(p, cx, cy, ang):
     return conn(p, cx, cy, ang, 4.4, 5.2, 2.9, WHITE_PL, '#cfc9b9', top, r=.25)
 
 
-def header_pin(p, cx, cy, ang):
-    """A crimped 2.54 mm male header pin in its black sleeve."""
-    loc = local(cx, cy, ang)
-    a, b = loc(-7.4, 0), loc(-11.5, 0)
-    p.wire([a, b], '#d9dde1', .64, z=1.3)
-    conn(p, cx, cy, ang, 14, 2.5, 2.5, '#2c2d31', '#161719', r=.2)
-
-
 def jst_eye_lead(p):
-    """Adafruit 5755: JST-SH plug to three male header pins, black / red / white, 100 mm."""
-    cols = (BLACK_W, RED_W, '#eeeeea')
-    ends = [(-8, 26), (-3, 34), (3, 42)]
-    for i, (col, (ex, ey)) in enumerate(zip(cols, ends)):
-        cable(p, [(40, -.9 + i * .9), (30, -1 + i * 1.8), (12, 2 + i * 6), (ex + 2, ey - 16), (ex, ey - 7.5)], [col], .9)
-    for ex, ey in ends:
-        header_pin(p, ex, ey, -95)
-    jst_sh_plug(p, 42.2, 0, 180)
+    """Adafruit 6406: JST-SH plug to plug, black / red / white, 200 mm, loosely coiled."""
+    cable(p, [(-40, 22), (-40, 6), (-30, -8), (-8, -14), (14, -10), (30, 2), (24, 16), (6, 18),
+              (-6, 10), (4, 0), (22, 4), (40, 14), (40, 22)], (BLACK_W, RED_W, '#eeeeea'), .9)
+    jst_sh_plug(p, -40, 24.2, -90)
+    jst_sh_plug(p, 40, 24.2, -90)
 
 
 def jst_link(p):
@@ -924,7 +913,8 @@ def jumper_leads(p):
 # ------------------------------------------------------------------ strands, supplies and cords
 def pebble_strand(p):
     """Adafruit 6026 NeoPixel Pebble strand: thin clear three-core wire with a milky resin
-    pebble every 100 mm, coiled; red / green / black lead to a JST-SM plug at each end."""
+    pebble every 100 mm, coiled; red / green / black lead to a JST-SM housing at each end:
+    sockets (receptacle) at one end, pins (plug) at the other."""
     wire = '#dfe4ea'
     loops = []
     for k in range(5):
@@ -939,11 +929,11 @@ def pebble_strand(p):
             pts_ = [((x0 + x1) / 2 + 2.6 * math.cos(t) * math.cos(a) - 1.15 * math.sin(t) * math.sin(a),
                      (y0 + y1) / 2 + 2.6 * math.cos(t) * math.sin(a) + 1.15 * math.sin(t) * math.cos(a)) for t in [i * math.pi / 12 for i in range(24)]]
             p.prism(pts_, .2, 1.8, '#f3f0e8', '#cfc9bb')
-    for sgn, (sx, sy) in ((-1, (-32, 4)), (1, (38, 6))):
+    for sgn, (sx, sy), kind in ((-1, (-32, 4), 'rec'), (1, (38, 6), 'plug')):
         tail = [(sx, sy), (sx + sgn * 8, sy + 10), (sx + sgn * 14, sy + 22)]
         p.wire(tail, wire, 1.1)
         cable(p, [tail[-1], (sx + sgn * 17, sy + 30), (sx + sgn * 18, sy + 38)], (RED_W, '#2f8f64', BLACK_W), 1.0)
-        conn(p, sx + sgn * 18, sy + 44, -90, 11, 8.4, 5.8, '#2c2d31', '#161719', r=.5)
+        jst_sm(p, sx + sgn * 18, sy + 42, kind)
 
 
 def barrel_plug(p, x, yc, ang=0):
@@ -1636,7 +1626,7 @@ ITEMS = {
     'R2': (resistor(('#e07b22', '#e07b22', '#7a4a2a', '#c9a13e')), '330 ohm resistor', None, None),
     'F2': (fuse('T1A 250V'), '1 A time-delay fuse', None, None),
     'E10': (jst_sm_pair, 'Adafruit 1663 JST-SM three-pin plug and receptacle', None, None),
-    'E11': (jst_eye_lead, 'JST-SH three-pin to male header lead', None, None),
+    'E11': (jst_eye_lead, 'Adafruit 6406 JST-SH plug-to-plug cable, 200 mm', None, None),
     'E12': (jst_link, 'Adafruit 6404 JST-SH plug-to-plug cable', None, None),
     'E22': (usb_c_panel_cable, 'Adafruit 4056 panel USB-C to micro-B cable', None, None),
     'E23': (usb_extension, 'USB-A extension cable', None, None),

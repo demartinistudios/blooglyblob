@@ -71,8 +71,8 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 | 8–15 | Eight-pixel mouth | Dark; no mouth animation is implemented |
 
 This data ordering does not change the power wiring. Retain the F2-protected
-lighting supply and dedicated head power pair defined by the hardware wiring
-guide; do not power the mouth through the eye cables. The brightness setting
+lighting supply defined by the hardware wiring guide; power and data run in one
+chain through the body lights and eyes to the mouth. The brightness setting
 remains 128/255.
 This software profile does not establish electrical or thermal qualification.
 

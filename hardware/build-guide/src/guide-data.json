@@ -2422,24 +2422,27 @@
       "chapter": "Base wiring",
       "actions": [
         "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
-        "Lay the holder toward the rear. Test-route its loop from the input WAGO (W1/4) to the harness opening. Mark where both ends reach without tension. Cut the loop at the mark.",
-        "If the output end is short, solder on an 18 AWG extension at the bench. Insulate the joint. Do not extend the input end.",
-        "Choose one three-pin JST-SM pair (E10) for the body light connector. Label both halves BODY LIGHT. Label each wire +5 V, GND or DATA.",
-        "Plug the two halves together. With the meter in continuity mode, check that each wire reaches the same-labeled wire on the other half.",
-        "Unplug the halves. The base half stays in the base. Keep the body half for {step:body-light-input}.",
-        "Label the second 1000 \u00b5F, 10 V capacitor (E08) C2. It stays on the base side of the connector. On the bench, slide heat-shrink onto the wires before you solder.",
+        "Cut the holder\u2019s wire loop in the middle. One end is the F2 input, the other the F2 output.",
+        "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
+        "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
+        "Look at the plug at each end. The end whose plug has pins (the larger plug) is normally the input.",
+        "Take one JST-SM pair (E10). Label both halves BODY LIGHT. The half with holes (sockets) is the base half. Keep the half with pins as a spare.",
+        "Plug the base half onto the strand\u2019s pins plug. With the meter in continuity mode, find the base-half wire that reaches each strand wire. Label it +5 V, DATA or GND. Unplug.",
+        "Label the second 1000 \u00b5F, 10 V capacitor (E08) C2. On the bench, slide heat-shrink onto the wires before you solder.",
         "Solder the F2 output end, the base-half +5 V wire and the C2 positive leg in one joint. Solder the C2 striped negative leg to the base-half GND wire.",
-        "Cover each joint and each C2 leg with its own heat-shrink. Keep the 22 AWG power wires and their branches apart. No bare metal may touch another conductor.",
-        "Strip 11 mm from the F2 input end. Insert it into W1/4.",
+        "Solder the data resistor (R2), 330 \u03a9, into the base-half DATA wire. Cover each joint, each C2 leg and R2 with its own heat-shrink. No bare metal may touch another conductor.",
+        "Strip 11 mm from the F2 input end. Insert it into the input WAGO (W1/4).",
         "Strip 11 mm from the base-half GND wire. Insert it into the ground WAGO (W3/5). It is the only wire in W3/5.",
-        "Label the base-half DATA wire for terminal D5 of the level shifter (S1). You connect it in the next step. Leave the body light connector unplugged."
+        "Label the free end of the DATA wire, past R2, for terminal D5 of the level shifter (S1). You connect it in the next step."
       ],
-      "check": "F2 feeds the base-half +5 V wire. C2 polarity is correct. Each branch joint is insulated on its own.",
+      "check": "F2 feeds the base-half +5 V wire. C2 polarity is correct. R2 is in the DATA wire. Each joint is insulated on its own.",
       "parts": {
         "E07": 1,
         "F2": 1,
         "E08": 1,
         "E10": 1,
+        "R2": 1,
+        "E05": 1,
         "C05": "As routed",
         "C06": "As routed",
         "C12": "As fitted",
@@ -2462,9 +2465,9 @@
       "commands": [],
       "panels": [
         {
-          "title": "Cut the light fuse loop to length",
+          "title": "Cut the light fuse loop",
           "image": "assets/circuits/f2-prepare.svg",
-          "caption": "Schematic of the F2 holder and its loop.",
+          "caption": "",
           "detail": {
             "title": "Where the light fuse and capacitors lie",
             "image": "assets/community/power-parts-placement.png"
@@ -2476,45 +2479,53 @@
           ]
         },
         {
-          "title": "Label and check the body light connector",
-          "image": "assets/circuits/harness-connections.svg",
-          "caption": "The body light connector is at the top, with its base half on the left.",
+          "title": "Find the strand\u2019s likely input",
+          "image": "assets/circuits/strand-wire-identification.svg",
+          "caption": "",
           "actions": [
             3,
-            4,
-            5
+            4
           ]
         },
         {
-          "title": "Solder the light capacitor into the base-half wires",
+          "title": "Choose and label the base half",
+          "image": "assets/circuits/jst-sm-seat.svg",
+          "caption": "",
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Solder the light capacitor and data resistor into the base-half wires",
           "safety": {
             "level": "caution",
             "text": "The light capacitor (C2) is polarized. Connected backwards, it can overheat and vent when powered. Join its striped negative leg to the base-half GND wire."
           },
           "image": "assets/circuits/c2-prepare.svg",
-          "caption": "The base half and C2 before fitting, with each wire\u2019s function labeled.",
+          "caption": "",
           "detail": {
             "title": "Covering a branch joint",
             "image": "assets/circuits/capacitor-joint.svg"
           },
           "actions": [
-            6,
             7,
-            8
+            8,
+            9
           ]
         },
         {
           "title": "Connect F2 and the base-half GND wire",
           "safety": {
             "level": "warning",
-            "text": "A wire from W1 to the base half that skips F2 bypasses the light fuse. A fault could then overheat the thin light wires and cause fire. Connect the base half to W1 only through F2."
+            "text": "A wire from the input WAGO (W1) to the base half that skips F2 bypasses the light fuse. A fault could then overheat the thin light wires and cause fire. Connect the base half to W1 only through F2."
           },
           "image": "assets/circuits/f2-connect.svg",
-          "caption": "Connection view of W1, F2, the base half and W3.",
+          "caption": "",
           "actions": [
-            9,
             10,
-            11
+            11,
+            12
           ]
         }
       ]
@@ -2810,89 +2821,13 @@
       ]
     },
     {
-      "id": "body-light-input",
-      "title": "Prepare the body light input",
-      "chapter": "Light test",
-      "actions": [
-        "On the body light strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is normally DATA. The other wire is GND.",
-        "Label the three wires at each end. If the markings are missing or disagree, ask the vendor before you go on.",
-        "Hold one end\u2019s connector upward with a pebble\u2019s resin bump facing you. If the marked +5 V wire is on the left, that end is the likely input. The light test in {step:body-light-test} confirms it.",
-        "On the bench, label the strand\u2019s factory leads at the likely input. Cut off only that end\u2019s connector, keeping the wire length. Do not cut the strand. Keep all 100 pebbles together.",
-        "Take the body half of the body light connector (E10) from {step:light-fuse-capacitor}. Leave its wires long. You test-route them in {step:body-light-strand}.",
-        "Solder the data resistor (R2), 330 \u03a9, between the body half\u2019s DATA wire and the strand\u2019s DATA wire. Keep R2 near the first pebble. Insulate both joints.",
-        "Cut two 22 AWG wires (C06) for the head power pair, one +5 V and one GND. Leave them long.",
-        "Solder three +5 V wires in one joint: the body half\u2019s, the strand\u2019s and the pair\u2019s. Join the three GND wires the same way.",
-        "Insulate both joints separately. Cap each free end of the head power pair separately."
-      ],
-      "check": "The input harness (body half, R2 and head power pair) is soldered to the likely input. Every joint is insulated and both head power pair ends are capped.",
-      "parts": {
-        "E05": 1,
-        "E10": 1,
-        "R2": 1,
-        "C12": "As fitted",
-        "C14": "As used",
-        "C06": "As routed",
-        "T01": 1,
-        "T02": 1,
-        "T04": 1,
-        "T09": 1,
-        "T06": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "build",
-      "number": 33,
-      "panels": [
-        {
-          "title": "Identify the strand wires and the likely input",
-          "image": "assets/circuits/strand-wire-identification.svg",
-          "caption": "",
-          "actions": [
-            0,
-            1,
-            2
-          ]
-        },
-        {
-          "title": "Cut the connector off the likely input",
-          "textOnly": true,
-          "actions": [
-            3
-          ]
-        },
-        {
-          "title": "Solder the data resistor into the DATA wire",
-          "image": "assets/circuits/body-input.svg",
-          "caption": "",
-          "actions": [
-            4,
-            5
-          ]
-        },
-        {
-          "title": "Solder the power joints with the head power pair",
-          "image": "assets/circuits/body-power.svg",
-          "caption": "",
-          "actions": [
-            6,
-            7,
-            8
-          ]
-        }
-      ]
-    },
-    {
       "id": "body-light-test",
-      "title": "Test the body light input",
+      "title": "Find the pebble strand\u2019s input end",
       "chapter": "Light test",
       "actions": [
-        "Check the base. The light fuse (F2), T1 A, is fitted. No servo cable is connected. Each spare head-power end is individually insulated.",
-        "With the meter in continuity mode, check the body half\u2019s +5 V and GND contacts. Each must reach its matching wire at the strand\u2019s far end. Check that +5 V does not reach GND.",
-        "Plug the body half into the base half.",
+        "The strand\u2019s ends are not marked. This test finds the input end before you cut six lights from it.",
+        "Check the base. The light fuse (F2), T1 A, is fitted. No servo cable is connected.",
+        "Plug the strand\u2019s pins end, its likely input, into the base half until it clicks.",
         "Use the specified Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
         "Set the meter to DC volts. Put the red probe in the plug\u2019s center. Touch the black probe to its outer sleeve.",
         "The meter must read 5.0\u20135.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
@@ -2903,32 +2838,38 @@
         "The output names eye and mouth lights, but on this strand they are all pebbles. If any of the other 84 pebbles light, unplug the supply and find the fault.",
         "Open the Pi shell. Shut the Pi down with the second command.",
         "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1.",
-        "Unplug the body half from the base half.",
-        "If the first 16 pebbles lit in order from the connected end, mark that end INPUT. Mark INPUT only after a passing light test.",
-        "If nothing lit, check the power, DATA and contacts first. If they are correct, move the input harness to the other end of the strand. Repeat this step.",
-        "After a move, insulate the three wires at the abandoned end separately. Keep the input harness attached. Do not cut the strand until an end passes."
+        "Unplug the strand from the base half.",
+        "If the first 16 pebbles lit in order from the connected end, mark that end INPUT.",
+        "If nothing lit, check the power, DATA and contacts first. If they are correct, the other end, with sockets, is the input. Cut its socket plug off.",
+        "Plug the spare BODY LIGHT half (pins) into the base half. Label its wires to match. Solder each to the same-function strand wire at the cut end. Insulate each joint. Repeat this step."
       ],
-      "check": "The connected end passed the light test and is marked INPUT. The input harness stays attached, with the data resistor (R2) and its capped head power pair. The supply is unplugged.",
+      "check": "The connected end passed the light test and is marked INPUT. The supply is unplugged.",
       "parts": {
         "E05": 1,
+        "E10": 1,
         "E20": 1,
         "E21": 1,
+        "C12": "As fitted",
         "C14": "As used",
-        "T03": 1
+        "T01": 1,
+        "T02": 1,
+        "T03": 1,
+        "T04": 1,
+        "T09": 1
       },
       "hardware": {},
-      "note": "You cut the strand to six lights in {step:body-light-strand}.",
+      "note": "You cut six lights from INPUT in {step:body-light-strand}.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 34,
+      "number": 33,
       "panels": [
         {
-          "title": "Connect the strand to the base",
+          "title": "Plug the strand into the base",
           "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "The two halves of the body light connector, fully mated.",
+          "caption": "",
           "actions": [
             0,
             1,
@@ -3047,7 +2988,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 35,
+      "number": 34,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3092,7 +3033,7 @@
       "id": "servo-cables",
       "kind": "build",
       "chapter": "Frame and servos",
-      "number": 36,
+      "number": 35,
       "title": "Prepare the three servo cables",
       "parts": {
         "E01": 3,
@@ -3107,7 +3048,7 @@
       },
       "hardware": {},
       "actions": [
-        "On each servo (E01), find the supply, ground and signal wires. Use the Kitronik 25105 datasheet linked from the servo\u2019s part card.",
+        "On each servo (E01), the red wire is supply, the brown wire is ground and the orange wire is signal.",
         "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
         "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
         "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the harness opening into the base.",
@@ -3189,7 +3130,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 37,
+      "number": 36,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3297,7 +3238,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 38,
+      "number": 37,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3382,7 +3323,7 @@
       ],
       "note": "The horns go on the servo shafts in {step:shelf-arms}, after {step:fit-position}.",
       "kind": "build",
-      "number": 39,
+      "number": 38,
       "commands": [],
       "panels": [
         {
@@ -3432,7 +3373,7 @@
       ],
       "note": "The shelf goes on the head servo in {step:shelf-arms}.",
       "kind": "build",
-      "number": 40,
+      "number": 39,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3514,7 +3455,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 41,
+      "number": 40,
       "commands": [],
       "panels": [
         {
@@ -3573,7 +3514,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 42,
+      "number": 41,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3611,7 +3552,7 @@
       "id": "eye-boards",
       "kind": "build",
       "chapter": "Head",
-      "number": 43,
+      "number": 42,
       "title": "Fit the eye boards and straps",
       "parts": {
         "GS20": 1,
@@ -3712,53 +3653,51 @@
       "title": "Wire the head harness",
       "parts": {
         "E10": 1,
-        "E11": 2,
+        "E11": 1,
         "E12": 1,
+        "E04": 1,
+        "E05": 1,
         "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used",
-        "E04": 1,
+        "C07": "As needed",
         "T01": 1,
         "T02": 1,
         "T03": 1,
         "T04": 1,
         "T09": 1,
-        "C07": "As needed",
         "T06": 1
       },
       "hardware": {},
       "actions": [
-        "Take the other three-pin JST-SM pair (E10) for the head light connector. Label both halves HEAD LIGHT. Label each wire +5 V, GND or DATA.",
-        "Plug the halves together. With the meter in continuity mode, check that each wire reaches the same-labeled wire on the other half. Match by function, not by connector sex.",
-        "Unplug the halves. The head half stays with the head. Keep the body half for {step:body-light-strand}.",
+        "Take the second JST-SM pair (E10). Label both halves HEAD LIGHT. The half with sockets is the body half, for the strand after light 5. The half with pins is the head half.",
+        "Plug the body half onto the strand\u2019s INPUT plug. With the meter in continuity mode, find the body-half wire that reaches each strand wire. Label it +5 V, DATA or GND.",
+        "Unplug it. Plug the head half into the body half. Label each head-half wire like the body-half wire it reaches. Keep the body half for {step:body-light-strand}.",
+        "Cut the 200 mm JST-SH cable (E11) in the middle. Each half is a lead with a small plug: one is the eye input lead, the other the mouth lead.",
         "Choose either eye as the first eye. Note its side. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
-        "Place the mouth stick (E04) loosely at the mouth inside the head. Test-route three 22 AWG leads (C06) from it toward the first eye. Leave slack to fit and remove the mouth.",
-        "Take the stick out of the head. On the bench, solder the +5 V, GND and DIN leads to their pads. Leave DOUT unused. Insulate each joint. Label each lead.",
-        "Keep every eye plug unplugged until all joints are insulated and cool. Cut the header pins off both JST-SH eye leads (E11). Keep their plugs.",
-        "Join the head half\u2019s +5 V wire, the first eye lead\u2019s red wire and the mouth +5 V lead. Solder them in one joint at the bench.",
-        "Join the three GND wires the same way, with the eye lead\u2019s black wire. Insulate each joint separately.",
-        "Solder the head half\u2019s DATA wire to the first eye lead\u2019s DATA wire. Insulate the joint.",
-        "Solder the second eye lead\u2019s DATA wire to the mouth DIN lead. Insulate the joint. Insulate its unused red and black wires separately.",
+        "Solder the mouth lead to the mouth stick (E04): black to GND, red to +5 V, white to DIN. Leave DOUT unused. Insulate each joint.",
+        "The mouth lead runs from the second eye\u2019s OUT to the mouth. Extend it with 22 AWG wire (C06) as needed, with slack to fit and remove the mouth.",
+        "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Insulate each joint.",
         "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
         "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
-        "Plug the first eye lead into the first eye\u2019s IN socket. Press the plug housing, not its wires.",
-        "Connect the 100 mm eye cable (E12) from the first eye\u2019s OUT to the second eye\u2019s IN. Plug the second eye lead into the second eye\u2019s OUT.",
+        "Plug the eye input lead into the first eye\u2019s IN socket. Press the plug housing, not its wires.",
+        "Connect the 100 mm eye cable (E12) from the first eye\u2019s OUT to the second eye\u2019s IN. Plug the mouth lead into the second eye\u2019s OUT.",
         "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires."
       ],
-      "check": "Mouth power bypasses the eye cable. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
+      "check": "The head half feeds the first eye. The mouth lead runs from the second eye\u2019s OUT. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "note": "",
       "kind": "build",
-      "number": 44,
+      "number": 43,
       "commands": [],
       "panels": [
         {
-          "title": "Label and check the head light connector",
+          "title": "Label the head light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "A JST-SM pair apart and seated.",
+          "caption": "",
           "actions": [
             0,
             1,
@@ -3766,50 +3705,47 @@
           ]
         },
         {
-          "title": "Solder the mouth leads",
-          "image": "assets/circuits/mouth-solder.svg",
-          "caption": "The mouth stick and its three used pads.",
+          "title": "Cut the head leads",
+          "image": "assets/circuits/head-leads.svg",
+          "caption": "",
           "actions": [
             3,
-            4,
-            5
+            4
           ]
         },
         {
-          "title": "Join the head power branches",
+          "title": "Solder the mouth lead",
+          "image": "assets/circuits/mouth-solder.svg",
+          "caption": "",
+          "actions": [
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Join the head half to the eye input lead",
           "image": "assets/circuits/head-power.svg",
-          "caption": "Power wiring only: the head half feeds the first eye and the mouth separately.",
+          "caption": "",
           "actions": [
-            6,
-            7,
-            8
-          ]
-        },
-        {
-          "title": "Join the data wires",
-          "image": "assets/circuits/head-data.svg",
-          "caption": "The data path from the head half through both eyes to the mouth.",
-          "actions": [
-            9,
-            10
+            7
           ]
         },
         {
           "title": "Check the harness for shorts",
-          "textOnly": true,
           "actions": [
-            11,
-            12
-          ]
+            8,
+            9
+          ],
+          "textOnly": true
         },
         {
-          "title": "Plug in the eye leads",
+          "title": "Plug in the head leads",
           "image": "assets/circuits/eye-connector.svg",
-          "caption": "The socket side of an eye board, with IN and OUT marked.",
+          "caption": "",
           "actions": [
-            13,
-            14,
-            15
+            10,
+            11,
+            12
           ]
         }
       ]
@@ -3848,7 +3784,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 45,
+      "number": 44,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3916,7 +3852,7 @@
       ],
       "note": "You can fit the antenna later, in {step:secure-wiring}, to protect it while you assemble.",
       "kind": "build",
-      "number": 46,
+      "number": 45,
       "commands": [],
       "panels": [
         {
@@ -3957,7 +3893,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 47,
+      "number": 46,
       "commands": [],
       "panels": [
         {
@@ -3987,7 +3923,6 @@
       "title": "Prepare the body light strand",
       "parts": {
         "E05": 1,
-        "R2": 1,
         "E10": 1,
         "C06": "As routed",
         "C12": "As fitted",
@@ -4004,30 +3939,24 @@
         "Count six pebbles from the end marked INPUT. Cut the wire midway between the sixth and seventh pebbles.",
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
-        "Test-route the body half of the body light connector down the frame. Pass it through the harness opening to the base half in the base.",
-        "Test-route the head power pair up the frame, through the upper foam collar (P01). Mark it about 10 cm above the collar. That reaches into the head, with a turning loop below the shelf.",
-        "If either cable is short, extend it on the bench without disturbing the input joints.",
-        "On the bench, remove the caps from the head power pair. Trim the pair at the mark.",
-        "Take the body half of the head light connector (E10) from {step:head-harness}. Solder its +5 V and GND wires to the matching head power pair wires.",
-        "Solder its DATA wire to the outgoing DATA wire after light 5.",
-        "Insulate each joint separately. Insulate the two unused outgoing power wires after light 5 separately.",
-        "With the meter in continuity mode, check that the +5 V contacts of both body halves on the strand connect.",
-        "Check the two GND contacts the same way. Check that +5 V does not reach GND."
+        "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its +5 V, DATA and GND wires to the matching strand wires after light 5. Insulate each joint.",
+        "This is the head light cable. It must reach about 10 cm above the upper foam collar (P01), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
+        "With the meter in continuity mode, touch the body half\u2019s +5 V and GND contacts. The meter must not beep steadily."
       ],
-      "check": "Lights 0 to 5 are cut from INPUT. The input harness, with the data resistor (R2), is still attached. The head light connector\u2019s body half is soldered on and +5 V does not reach GND.",
+      "check": "Lights 0 to 5 are cut from INPUT. The head light connector\u2019s body half is soldered on after light 5, and +5 V does not reach GND.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
       "note": "",
       "kind": "build",
-      "number": 48,
+      "number": 47,
       "commands": [],
       "panels": [
         {
           "title": "Cut six lights from the input end",
           "image": "assets/circuits/cut-six.svg",
-          "caption": "The first six pebbles from INPUT, with the cut point after the sixth.",
+          "caption": "",
           "actions": [
             0,
             1,
@@ -4035,39 +3964,20 @@
           ]
         },
         {
-          "title": "Test-route the two light cables",
-          "image": "assets/circuits/body-power.svg",
-          "caption": "The input harness at the strand input, with the head power pair.",
-          "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
           "title": "Solder the head light connector\u2019s body half",
           "image": "assets/circuits/body-output.svg",
-          "caption": "The output end after light 5, with DATA continuing to the head light connector.",
+          "caption": "",
           "actions": [
-            6,
-            7,
-            8
+            3,
+            4
           ]
         },
         {
-          "title": "Insulate the joints",
-          "textOnly": true,
+          "title": "Check for a short",
           "actions": [
-            9
-          ]
-        },
-        {
-          "title": "Check the power contacts",
-          "textOnly": true,
-          "actions": [
-            10,
-            11
-          ]
+            5
+          ],
+          "textOnly": true
         }
       ]
     },
@@ -4109,7 +4019,7 @@
       ],
       "note": "The backpack carrier screws hold P12 and use the two rear upright nuts in {step:backpack-carrier}.",
       "kind": "build",
-      "number": 49,
+      "number": 48,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4218,7 +4128,7 @@
       ],
       "note": "The backpack carrier screws hold the middle and upper covers in {step:backpack-carrier}.",
       "kind": "build",
-      "number": 50,
+      "number": 49,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4308,7 +4218,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 51,
+      "number": 50,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4368,7 +4278,7 @@
       ],
       "note": "You adjust the elbow stiffness at this screw in {step:arm-service}.",
       "kind": "build",
-      "number": 52,
+      "number": 51,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4441,7 +4351,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 53,
+      "number": 52,
       "commands": [],
       "panels": [
         {
@@ -4520,7 +4430,7 @@
       ],
       "note": "You loaded the two rear upright nuts in {step:body-lights}.",
       "kind": "build",
-      "number": 54,
+      "number": 53,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4585,7 +4495,7 @@
       ],
       "note": "You remove the whole backpack, with its glued parts attached, in {step:body-light-service}.",
       "kind": "build",
-      "number": 55,
+      "number": 54,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4689,7 +4599,7 @@
       ],
       "note": "You open the rear belt joints in {step:body-light-service}.",
       "kind": "build",
-      "number": 56,
+      "number": 55,
       "commands": [],
       "panels": [
         {
@@ -4749,7 +4659,7 @@
       ],
       "note": "You labeled the servo cables and found their wires in {step:servo-cables}. You labeled the level shifter terminals in {step:shifter-wiring}.",
       "kind": "build",
-      "number": 57,
+      "number": 56,
       "commands": [],
       "panels": [
         {
@@ -4805,35 +4715,31 @@
       },
       "hardware": {},
       "actions": [
-        "In the base, find the base half and the body half of the body light connector.",
-        "Line up the latch with its catch. Push the halves straight together until the latch clicks.",
-        "Pull gently on the two housings. They must stay latched.",
-        "Gather the three servo cables and the input harness inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
+        "In the base, plug the body half of the body light connector into the base half until it clicks.",
+        "Gather the three servo cables and the body light connector inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
         "If no tie square is within reach, stick one down as in {step:secure-base-wiring}. Let it bond before you tie to it.",
         "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
-        "At the top of the body, plug the head half of the head light connector into its body half. Seat it the same way.",
+        "At the top of the body, plug the head light connector\u2019s head half into its body half until it clicks.",
         "The head harness and the head light cable hang slack between the head and the body.",
         "If either is tight, move the head closer."
       ],
-      "check": "Both light connectors are latched. The servo cables and input harness are tied inside the harness opening, with slack to each terminal.",
+      "check": "Both light connectors are plugged in. The servo cables and the body light connector are tied inside the harness opening, with slack to each terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "note": "",
       "kind": "build",
-      "number": 58,
+      "number": 57,
       "commands": [],
       "panels": [
         {
-          "title": "Connect the body light connector",
+          "title": "Plug in the body light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "The two halves of a light connector, lined up and then latched.",
+          "caption": "",
           "actions": [
-            0,
-            1,
-            2
+            0
           ]
         },
         {
@@ -4841,26 +4747,26 @@
           "image": "assets/community/base-routing-access.svg",
           "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
           "actions": [
-            3,
-            4,
-            5
+            1,
+            2,
+            3
           ]
         },
         {
           "title": "Rest the head beside the body",
-          "textOnly": true,
           "actions": [
-            6
-          ]
+            4
+          ],
+          "textOnly": true
         },
         {
-          "title": "Connect the head light connector",
-          "textOnly": true,
+          "title": "Plug in the head light connector",
           "actions": [
-            7,
-            8,
-            9
-          ]
+            5,
+            6,
+            7
+          ],
+          "textOnly": true
         }
       ]
     },
@@ -4885,7 +4791,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 59,
+      "number": 58,
       "commands": [],
       "panels": [
         {
@@ -4938,7 +4844,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 60,
+      "number": 59,
       "commands": [],
       "panels": [
         {
@@ -5079,7 +4985,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 61,
+      "number": 60,
       "panels": [
         {
           "title": "Hold the fit position",
@@ -5193,7 +5099,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 62,
+      "number": 61,
       "hardware_allocations": [
         {
           "allocation_id": "joint-head-arm-mounting",
@@ -5302,7 +5208,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 63,
+      "number": 62,
       "hardware_allocations": [
         {
           "allocation_id": "joint-head-arm-mounting",
@@ -5370,7 +5276,7 @@
       "id": "first-movement",
       "kind": "build",
       "chapter": "Close up and test",
-      "number": 64,
+      "number": 63,
       "title": "Check the first movement",
       "parts": {},
       "hardware": {},
@@ -5466,7 +5372,7 @@
         "At the robot-left end, on your right, unplug the barrel plug from the power jack (J1).",
         "If you left the antenna off in {step:antenna}, fit it now as in that step.",
         "Hold the head still with your other hand while you turn the coil.",
-        "Push the slack of the servo cables and the input harness into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
+        "Push the slack of the servo cables and the body light connector into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
         "Keep all wires and tie locks clear of the four corners, where the cover screws go in.",
         "Take a photo of the wiring through the open bottom. Keep it for repairs."
       ],
@@ -5476,7 +5382,7 @@
       "parts": {},
       "source": [],
       "kind": "build",
-      "number": 65,
+      "number": 64,
       "commands": [],
       "panels": [
         {
@@ -5570,7 +5476,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 66,
+      "number": 65,
       "commands": [],
       "hardware_allocations": [
         {
@@ -5644,7 +5550,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 67,
+      "number": 66,
       "commands": [],
       "panels": [
         {
@@ -6596,9 +6502,9 @@
         "Unplug both plugs from the eye board. Remove its two M2\u00d76 screws. Lift the board off its eye LED cassette (P06).",
         "If a cassette nut moves, take out the cassette as in {step:mouth-eye-removal}. Reseat the nut on the bench.",
         "Fit the new eye board (Adafruit 5975) as in {step:eye-boards}, LED facing into the light opening. Plug each lead back into the same IN or OUT socket.",
-        "On the bench, unsolder the three mouth leads from the old mouth stick. Remove its two inner M2\u00d78 screws and nuts.",
-        "Solder the leads to the new mouth stick (Adafruit 1426): +5 V, GND and DIN. Leave DOUT unused. Insulate each joint.",
-        "Screw the stick to the mouth LED cassette (P30) as in {step:mouth}. Mouth power stays on its own 22 AWG leads, not the eye leads.",
+        "On the bench, unsolder the mouth lead from the old mouth stick. Remove its two inner M2\u00d78 screws and nuts.",
+        "Solder the mouth lead to the replacement stick (Adafruit 1426): black to GND, red to +5 V, white to DIN. Leave DOUT unused. Insulate each joint.",
+        "Screw the stick to the mouth LED cassette (P30) as in {step:mouth}.",
         "Refit the mouth as in {step:mouth}. Tie its leads at the cassette with slack.",
         "Refit the head as in {step:head-open}.",
         "At the robot-left end of the rear face, push the barrel plug into the power jack (J1). Plug the supply into the wall.",
@@ -6695,8 +6601,8 @@
         "Remove the two M3\u00d718 carrier screws and the lower M3\u00d716 seam screw. Lift off the curved backpack carrier (P34), three seam covers (P10) and two seam backings (P09). Ease the foam out of both collars.",
         "Cut the two ties at each light, including the two on the rear body-light bracket (P12). Keep the cutter blade away from the wires.",
         "Pull the body half of the body light connector up out of the base. Slide the head light cable out of the head shelf\u2019s side entry. Pull it down through the upper foam collar.",
-        "Lift out the strand with its input harness: the body half, the data resistor (R2) and the head power pair.",
-        "Move the input harness to the replacement strand as in {step:body-light-input}. Keep the head light connector unplugged. Insulate each spare head-power end separately.",
+        "Lift out the strand. Cut the head light connector\u2019s body half off after light 5, keeping its wires. Keep it for the new strand.",
+        "Find the new strand\u2019s wires and likely input as in {step:light-fuse-capacitor}. Keep the head light connector unplugged.",
         "Lay the robot on its back. Raise it until the power jack hangs clear, as in {step:all-lights-test}. Put the body\u2019s towels under both foam collars.",
         "Test the strand as in {step:body-light-test}, keeping the servo feed isolated instead of disconnecting servo cables. Finish shut down and unplugged.",
         "Stand the robot on its feet. Cut and join six lights as in {step:body-light-strand}. Tie them to their pads as in {step:body-lights}.",
@@ -6760,7 +6666,7 @@
         {
           "title": "Prepare and test the new lights",
           "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "Body light connector mated for the strand input test.",
+          "caption": "",
           "actions": [
             9,
             10,

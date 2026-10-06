@@ -151,8 +151,9 @@ class CircuitDiagramTests(unittest.TestCase):
         for name in ('LEFT', 'RIGHT', 'HEAD'):
             file = f'circuits/servo-{name.lower()}.svg'
             for block, suffix, color, source, y in (
-                ('W2', '+', diagrams.RED, (187, 253), 350),
-                ('W4', 'return', diagrams.BLK, (211, 253), 480),
+                # Real FS90MG lead order: brown ground, red supply, orange signal.
+                ('W2', '+', diagrams.RED, (211, 253), 350),
+                ('W4', 'return', diagrams.SERVO_BROWN, (187, 253), 480),
             ):
                 row = next(r for r in self.canonical['power']['rows'] if r[0].startswith(block + ' '))
                 port = row.index(f'{name} servo {suffix}')
@@ -162,43 +163,17 @@ class CircuitDiagramTests(unittest.TestCase):
             shifter, terminal = signal.split()
             self.assertIn(shifter + ' output', self.texts(file))
             self.assertIn(terminal, self.texts(file))
-            self.assertTrue(any(p[0] == (235, 253) and p[-1] == (390, 615) for p in self.wire_paths(file, diagrams.BLUE)))
+            self.assertTrue(any(p[0] == (235, 253) and p[-1] == (390, 615) for p in self.wire_paths(file, diagrams.SERVO_ORANGE)))
 
-    def test_head_power_has_continuous_separate_rails_to_both_loads(self):
-        rails = {}
-        for color, source, targets in (
-            (diagrams.RED, (276, 145), {(52, 500), (245, 500)}),
-            (diagrams.BLK, (276, 159), {(52, 550), (245, 550)}),
-        ):
-            paths = self.wire_paths('circuits/head-power.svg', color)
-            graph = {}
-            segments = []
-            for path in paths:
-                for a, b in zip(path, path[1:]):
-                    graph.setdefault(a, set()).add(b)
-                    graph.setdefault(b, set()).add(a)
-                    segments.append((a, b))
-            reached, queue = set(), [source]
-            while queue:
-                point = queue.pop()
-                if point not in reached:
-                    reached.add(point)
-                    queue.extend(graph.get(point, ()))
-            self.assertTrue(targets <= reached, (color, targets - reached))
-            rails[color] = segments
-        # A crossing can have an insulating halo; a shared longitudinal run
-        # between opposite polarities cannot show two independent conductors.
-        for a, b in rails[diagrams.RED]:
-            for p, q in rails[diagrams.BLK]:
-                for axis in (0, 1):
-                    run = 1 - axis
-                    if a[axis] == b[axis] == p[axis] == q[axis]:
-                        overlap = min(max(a[run], b[run]), max(p[run], q[run])) - max(min(a[run], b[run]), min(p[run], q[run]))
-                        self.assertLessEqual(overlap, 0, (a, b, p, q))
+    def test_head_half_joins_eye_lead_by_function(self):
+        # JST-SM is +5 V, DATA, GND; the eye lead's JST-SH order is GND, +5 V, DATA.
+        texts = self.texts('circuits/head-power.svg')
+        for label in ('+5 V', 'DATA', 'GND', 'Join by function, not position.'):
+            self.assertIn(label, texts)
 
-    def test_strand_test_does_not_imply_connector_direction_or_cutting(self):
+    def test_strand_test_names_pins_end_as_likely_input_without_cutting(self):
         identification = self.texts('circuits/strand-wire-identification.svg')
-        self.assertIn('Connector sex does not show input.', identification)
+        self.assertIn('The end with pins is normally the input.', identification)
         self.assertIn('colors are missing or disagree.', identification)
         result = self.texts('circuits/strand-input-result.svg')
         self.assertIn('100-pebble strand · uncut', result)
