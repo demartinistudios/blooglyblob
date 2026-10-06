@@ -276,6 +276,7 @@ def check_writing(guide, parts):
     ids = {p['id'] for p in parts if p.get('category') != 'Fastener'} | set(limits['labels'])
     id_pattern = re.compile(r'(?<![\w.])(' + '|'.join(sorted(map(re.escape, ids), key=len, reverse=True)) + r')(?!\w)')
     warnings = []
+    captions = {}
     for step in guide['steps']:
         sid = step['id']
         panels = step.get('panels', [])
@@ -312,6 +313,14 @@ def check_writing(guide, parts):
             covered = [actions[i] for i in panel.get('actions', []) if type(i) is int and 0 <= i < len(actions)]
             if caption and set(map(normal, sentences(caption))) & {normal(s) for a in covered for s in sentences(a)}:
                 warnings.append(f'caption-repeats-action: {sid} panels[{j}].caption: repeats its action text')
+            if caption and not panel.get('image'):
+                warnings.append(f'caption-without-picture: {sid} panels[{j}].caption: a caption sits under a picture')
+            if panel.get('image') and not caption:
+                warnings.append(f'caption-missing: {sid} panels[{j}]: every picture says what it shows and from where')
+            if panel.get('image') and caption:
+                first = captions.setdefault(panel['image'], (sid, caption))
+                if first[1] != caption:
+                    warnings.append(f"caption-mismatch: {sid} panels[{j}].caption: {panel['image']} has a different caption in {first[0]}")
     for where, field, text in card_texts(parts):
         for term in banned_terms(text, field):
             warnings.append(f'banned-term: {where}: {term}')

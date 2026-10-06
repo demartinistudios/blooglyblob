@@ -39,7 +39,7 @@
         {
           "title": "Choose your colors",
           "image": "assets/r22/main-front.png",
-          "caption": "",
+          "caption": "The assembled robot, from the front.",
           "actions": [
             0,
             1,
@@ -49,7 +49,7 @@
         {
           "title": "Gather your tools",
           "image": "assets/cartoons/Workbench.svg",
-          "caption": "",
+          "caption": "The tools laid out on the bench.",
           "actions": [
             3,
             4,
@@ -270,7 +270,7 @@
         {
           "title": "Glue the eight board nuts",
           "image": "assets/community/base-board-nut-entry.png",
-          "caption": "",
+          "caption": "One board nut post, before and after its nut is seated.",
           "actions": [
             0,
             1,
@@ -284,7 +284,7 @@
         {
           "title": "Glue the four cover nuts",
           "image": "assets/community/base-cover-nut-entry.png",
-          "caption": "",
+          "caption": "One cover nut post, before and after its nut is seated.",
           "actions": [
             3,
             4,
@@ -334,7 +334,7 @@
         {
           "title": "Glue the three audio cradle nuts",
           "image": "assets/community/audio-cradle-nut-loading.svg",
-          "caption": "",
+          "caption": "One audio cradle nut entering its recess.",
           "actions": [
             0,
             1,
@@ -517,7 +517,7 @@
         {
           "title": "Face the cone toward the grille",
           "image": "assets/community/speaker-placement.svg",
-          "caption": "",
+          "caption": "A speaker and its side grille, drawn apart.",
           "actions": [
             0,
             1
@@ -526,7 +526,7 @@
         {
           "title": "Screw the speaker to the grille",
           "image": "assets/community/speaker-fastening-action.svg",
-          "caption": "Rear view, with all four screws fastened.",
+          "caption": "Rear view of a speaker on its grille, with all four screws fastened.",
           "actions": [
             2,
             3,
@@ -657,7 +657,7 @@
         {
           "title": "Find the four post faces",
           "image": "assets/community/feet-posts.svg",
-          "caption": "",
+          "caption": "The base upside down, with its four foot posts numbered.",
           "actions": [
             0,
             1,
@@ -667,7 +667,7 @@
         {
           "title": "Peel, center and press each foot",
           "image": "assets/community/foot-application.svg",
-          "caption": "",
+          "caption": "One foot going onto its post.",
           "actions": [
             3,
             4,
@@ -1013,7 +1013,7 @@
         {
           "title": "Boot the bare Pi",
           "image": "assets/circuits/pi-bench-power.svg",
-          "caption": "Pi with the bench supply at the micro-USB power port and the USB-A audio socket free.",
+          "caption": "The Pi from the component side, with the bench supply in the micro-USB power port.",
           "actions": [
             0,
             1,
@@ -1227,7 +1227,7 @@
         {
           "title": "Connect the loose audio module",
           "image": "assets/circuits/usb-audio.svg",
-          "caption": "Pi, extension cable and audio module, with the two plug-in connections numbered.",
+          "caption": "The Pi, extension cable and audio module, with the two plug-in connections numbered.",
           "actions": [
             0,
             1
@@ -1569,7 +1569,7 @@
         {
           "title": "Shut down before mounting",
           "image": "assets/circuits/pi-bench-power.svg",
-          "caption": "Pi with the bench supply at the micro-USB power port.",
+          "caption": "The Pi from the component side, with the bench supply in the micro-USB power port.",
           "actions": [
             9,
             10,
@@ -1669,7 +1669,7 @@
         {
           "title": "Fasten the Pi",
           "image": "assets/community/pi-board-fastening.svg",
-          "caption": "",
+          "caption": "The Pi and its four screws, seen through the open bottom.",
           "actions": [
             6,
             7,
@@ -1679,7 +1679,7 @@
         {
           "title": "Fasten the level shifters",
           "image": "assets/community/shifter-board-fastening.svg",
-          "caption": "",
+          "caption": "Both level shifters and their screws, seen through the open bottom.",
           "actions": [
             9,
             10,
@@ -1726,7 +1726,7 @@
         {
           "title": "Cut the tape",
           "image": "assets/community/wago-tape-back.svg",
-          "caption": "",
+          "caption": "The flat back of one WAGO, with its tape.",
           "actions": [
             0,
             1
@@ -1735,7 +1735,7 @@
         {
           "title": "Bond each WAGO to its pad",
           "image": "assets/community/wago-tape-mount.svg",
-          "caption": "",
+          "caption": "One WAGO going onto its pad, seen through the open bottom.",
           "actions": [
             2,
             3,
@@ -1755,7 +1755,7 @@
         {
           "title": "Number the ports",
           "image": "assets/community/wago-port-order.svg",
-          "caption": "",
+          "caption": "One WAGO, seen through the open bottom.",
           "actions": [
             8,
             9,
@@ -1897,7 +1897,7 @@
         {
           "title": "Tape the back of the case",
           "image": "assets/community/audio-tape-back.svg",
-          "caption": "",
+          "caption": "The back of the audio module case, with its tape.",
           "actions": [
             2,
             3
@@ -1935,7 +1935,7 @@
         {
           "title": "Fit the padded lid",
           "image": "assets/community/audio-lid-fastening.svg",
-          "caption": "",
+          "caption": "The cradle lid and its two screws.",
           "actions": [
             12,
             13,
@@ -2012,7 +2012,7 @@
         {
           "title": "Prepare four leads",
           "image": "assets/circuits/button-leads-prepare.svg",
-          "caption": "",
+          "caption": "One lead as supplied, then the four prepared leads.",
           "actions": [
             4,
             5,
@@ -2022,7 +2022,7 @@
         {
           "title": "Solder the switch leads",
           "image": "assets/circuits/button-leads-switch.svg",
-          "caption": "View from above, with the button lying on a bezel flat.",
+          "caption": "View from above, with the button on a bezel flat and the switch pair on top.",
           "actions": [
             7,
             8,
@@ -2032,7 +2032,7 @@
         {
           "title": "Solder the LED leads",
           "image": "assets/circuits/button-leads-led.svg",
-          "caption": "View from above, turned over, with both LED sleeves still pushed back.",
+          "caption": "View from above, turned over, with both LED sleeves pushed back.",
           "actions": [
             10,
             11,
@@ -2042,7 +2042,7 @@
         {
           "title": "Insulate the LED leads",
           "image": "assets/circuits/button-leads-done.svg",
-          "caption": "Side view of the finished button leads.",
+          "caption": "Side view of the finished leads. The dashed lines show the body outline.",
           "actions": [
             13,
             14,
@@ -2101,7 +2101,7 @@
         {
           "title": "Fit the button in its insert",
           "image": "assets/circuits/button-insert-thread.svg",
-          "caption": "Side view of the fitted button, with the outside of the insert on the left. Numbers mark the order.",
+          "caption": "Side view, with the outside of the insert on the left. Numbers mark the order.",
           "actions": [
             0,
             1
@@ -2189,7 +2189,7 @@
         {
           "title": "Identify the jack lugs",
           "image": "assets/circuits/power-jack-lugs.svg",
-          "caption": "Rear (solder) view of the power jack.",
+          "caption": "Rear (solder) view of the power jack, and one lug joint before and after heat-shrink.",
           "actions": [
             0,
             1
@@ -2233,7 +2233,7 @@
         {
           "title": "Fasten the power jack plate",
           "image": "assets/community/inlet-plate-fastening.svg",
-          "caption": "",
+          "caption": "The jack plate and its two screws, from outside.",
           "actions": [
             11,
             12,
@@ -2328,7 +2328,7 @@
         {
           "title": "Connect the Pi power lead",
           "image": "assets/community/pi-power-route-depth.svg",
-          "caption": "Oblique view with the base left out. Numbers mark the plug and the two ports.",
+          "caption": "Oblique view, with the base left out.",
           "actions": [
             6,
             7,
@@ -2338,7 +2338,7 @@
         {
           "title": "Join the two ground WAGOs",
           "image": "assets/circuits/ground-link.svg",
-          "caption": "",
+          "caption": "Wire-entry faces of W3 and W4.",
           "actions": [
             9,
             10,
@@ -2385,7 +2385,7 @@
         {
           "title": "Cut and strip the servo feed",
           "image": "assets/circuits/servo-feed-prepare.svg",
-          "caption": "Red 18 AWG lead with an 11 mm stripped end at each side.",
+          "caption": "The servo feed wire, stripped at both ends.",
           "actions": [
             0,
             1
@@ -2394,7 +2394,7 @@
         {
           "title": "Connect the servo feed",
           "image": "assets/circuits/servo-feed-connect.svg",
-          "caption": "Direct connection from W1/3 to W2/1.",
+          "caption": "Wire-entry faces of W1 and W2.",
           "actions": [
             2,
             3
@@ -2407,7 +2407,7 @@
             "text": "The servo capacitor (C1) is polarized. Connected backwards, it can overheat and vent when powered. Connect its striped negative leg to the ground WAGO (W3/4)."
           },
           "image": "assets/circuits/c1.svg",
-          "caption": "Connection view of C1, W2 and W3.",
+          "caption": "C1 with its sleeved wires, and the wire-entry faces of W2 and W3.",
           "actions": [
             4,
             5,
@@ -2425,9 +2425,9 @@
         "Cut the holder\u2019s wire loop in the middle. One end is the F2 input, the other the F2 output.",
         "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
-        "Look at the plug at each end. The end whose plug has pins (the larger plug) is normally the input.",
+        "Look at the plug at each end. The end whose plug has pins (the larger plug) is normally the input. If the marks are missing or the factory lead colors disagree, stop.",
         "Take one JST-SM pair (E10). Label both halves BODY LIGHT. The half with holes (sockets) is the base half. Keep the half with pins as a spare.",
-        "Plug the base half onto the strand\u2019s pins plug. With the meter in continuity mode, find the base-half wire that reaches each strand wire. Label it +5 V, DATA or GND. Unplug.",
+        "Plug the base half onto the strand\u2019s pins plug. With the meter in continuity mode, find the base-half wire reaching each strand wire. Label it +5 V, DATA or GND. Press the latch to unplug.",
         "Label the second 1000 \u00b5F, 10 V capacitor (E08) C2. On the bench, slide heat-shrink onto the wires before you solder.",
         "Solder the F2 output end, the base-half +5 V wire and the C2 positive leg in one joint. Solder the C2 striped negative leg to the base-half GND wire.",
         "Solder the data resistor (R2), 330 \u03a9, into the base-half DATA wire. Cover each joint, each C2 leg and R2 with its own heat-shrink. No bare metal may touch another conductor.",
@@ -2467,7 +2467,7 @@
         {
           "title": "Cut the light fuse loop",
           "image": "assets/circuits/f2-prepare.svg",
-          "caption": "",
+          "caption": "The fuse holder with its factory wire loop.",
           "detail": {
             "title": "Where the light fuse and capacitors lie",
             "image": "assets/community/power-parts-placement.png"
@@ -2481,7 +2481,7 @@
         {
           "title": "Find the strand\u2019s likely input",
           "image": "assets/circuits/strand-wire-identification.svg",
-          "caption": "",
+          "caption": "The strand\u2019s clear wires enlarged, and its factory leads.",
           "actions": [
             3,
             4
@@ -2490,7 +2490,7 @@
         {
           "title": "Choose and label the base half",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "",
+          "caption": "One JST-SM pair, apart and plugged in.",
           "actions": [
             5,
             6
@@ -2503,7 +2503,7 @@
             "text": "The light capacitor (C2) is polarized. Connected backwards, it can overheat and vent when powered. Join its striped negative leg to the base-half GND wire."
           },
           "image": "assets/circuits/c2-prepare.svg",
-          "caption": "",
+          "caption": "The base half\u2019s three wires with C2 and R2, on the bench.",
           "detail": {
             "title": "Covering a branch joint",
             "image": "assets/circuits/capacitor-joint.svg"
@@ -2521,7 +2521,7 @@
             "text": "A wire from the input WAGO (W1) to the base half that skips F2 bypasses the light fuse. A fault could then overheat the thin light wires and cause fire. Connect the base half to W1 only through F2."
           },
           "image": "assets/circuits/f2-connect.svg",
-          "caption": "",
+          "caption": "The light fuse (F2), light capacitor (C2) and base half, with the wire-entry faces of W1 and W3.",
           "actions": [
             10,
             11,
@@ -2567,7 +2567,7 @@
         {
           "title": "Plug four leads onto the Pi",
           "image": "assets/circuits/s1-inputs.svg",
-          "caption": "Pin-side view of the header, with pin 1 at the microSD end.",
+          "caption": "Pin-side view of the Pi header, with pin 1 at the microSD end, and level shifter S1.",
           "detail": {
             "title": "Plugging a socket onto a pin",
             "image": "assets/circuits/gpio-socket-insert.svg"
@@ -2581,7 +2581,7 @@
         {
           "title": "Cut and connect the S1 leads",
           "image": "assets/circuits/gpio-lead-prepare.svg",
-          "caption": "One lead with its socket end and bare end, beside an enlarged terminal.",
+          "caption": "One lead end, and an enlarged level shifter terminal.",
           "actions": [
             3,
             4,
@@ -2591,7 +2591,7 @@
         {
           "title": "Connect the Pi to S2",
           "image": "assets/circuits/s2-inputs.svg",
-          "caption": "Same view and board orientation as for S1.",
+          "caption": "Pin-side view of the Pi header and level shifter S2, as for S1.",
           "actions": [
             6,
             7,
@@ -2628,7 +2628,7 @@
         {
           "title": "Connect the button switch",
           "image": "assets/circuits/button-switch.svg",
-          "caption": "Rear of the button, with the LED pair above the switch pair.",
+          "caption": "The Pi header from the pin side, and the button from behind.",
           "actions": [
             0
           ]
@@ -2636,7 +2636,7 @@
         {
           "title": "Connect the button light",
           "image": "assets/circuits/button-led.svg",
-          "caption": "Header pins 4 and 20, with the button LED resistor (R1) seen end-on under the LED + sleeve.",
+          "caption": "The Pi header from the pin side, and the button from behind.",
           "actions": [
             1
           ]
@@ -2644,7 +2644,7 @@
         {
           "title": "Connect the USB audio",
           "image": "assets/circuits/usb-audio.svg",
-          "caption": "The Pi\u2019s USB-A socket, the extension and the audio module.",
+          "caption": "The Pi, extension cable and audio module, with the two plug-in connections numbered.",
           "actions": [
             2,
             3
@@ -2653,7 +2653,7 @@
         {
           "title": "Route the USB-A extension cable",
           "image": "assets/community/usb-audio-route-depth.svg",
-          "caption": "Oblique detail: Pi USB socket (1), module USB end (2); base and most of the Pi cut away.",
+          "caption": "Oblique detail, with the base and most of the Pi cut away.",
           "actions": [
             4
           ]
@@ -2709,7 +2709,7 @@
         {
           "title": "Stick down the tie squares",
           "image": "assets/circuits/tie-mount.svg",
-          "caption": "A tie square holding a capacitor, from the side.",
+          "caption": "Side view of a tie square holding a capacitor.",
           "actions": [
             2,
             3,
@@ -2719,7 +2719,7 @@
         {
           "title": "Tie the fuse holder and capacitors",
           "image": "assets/circuits/tie-mount.svg",
-          "caption": "Side view of a cable tie through a tie square\u2019s slot, around a capacitor.",
+          "caption": "Side view of a tie square holding a capacitor.",
           "actions": [
             5,
             6,
@@ -2773,7 +2773,7 @@
         {
           "title": "Check the power paths",
           "image": "assets/power-diagram.svg",
-          "caption": "Input, servo and lighting branches from W1.",
+          "caption": "The three power branches from W1.",
           "actions": [
             0,
             1,
@@ -2805,7 +2805,7 @@
         {
           "title": "Inspect the wiring",
           "image": "assets/circuits/button-pins.svg",
-          "caption": "Button header pins, viewed from above.",
+          "caption": "Pi header pins, viewed from above.",
           "actions": [
             9,
             10
@@ -2869,7 +2869,7 @@
         {
           "title": "Plug the strand into the base",
           "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "",
+          "caption": "The base half plugged into the strand\u2019s likely input.",
           "actions": [
             0,
             1,
@@ -2950,7 +2950,7 @@
         {
           "title": "Mark the input end",
           "image": "assets/circuits/strand-input-result.svg",
-          "caption": "A passing result: the first 16 pebbles from the connected end lit in turn.",
+          "caption": "A passing test. The dark remainder is drawn short.",
           "actions": [
             14,
             15,
@@ -3054,7 +3054,7 @@
         "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the harness opening into the base.",
         "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
         "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
-        "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12).",
+        "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12). Keep joints out of moving bends.",
         "Strip 11 mm from each supply and ground wire for its WAGO port. Strip the signal wire so its bare end fits entirely inside its level shifter terminal."
       ],
       "check": "All three servo cables are labeled at both ends and reach their ports with slack. Every extension joint is insulated.",
@@ -3084,7 +3084,7 @@
         {
           "title": "Extend and strip the wires",
           "image": "assets/circuits/solder-insulation.svg",
-          "caption": "Bench detail of one extension joint and its heat-shrink.",
+          "caption": "One extension joint at the bench, in three stages.",
           "actions": [
             6,
             7
@@ -3157,7 +3157,7 @@
         {
           "title": "Slide in both shoulder servos",
           "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "Both servos entering the open side, shafts pointing outward.",
+          "caption": "Both servos entering the bracket\u2019s open side, shafts pointing outward.",
           "actions": [
             2,
             3,
@@ -3257,7 +3257,7 @@
         {
           "title": "Press in the servo-ear nuts",
           "image": "assets/community/head-servo-nuts.svg",
-          "caption": "The bracket seen from below.",
+          "caption": "The bracket from below.",
           "actions": [
             0
           ]
@@ -3273,7 +3273,7 @@
         {
           "title": "Screw the servo ears to the bracket",
           "image": "assets/community/head-servo-fastening.svg",
-          "caption": "Both ear screws enter from above.",
+          "caption": "The bracket from above, with both ear screws.",
           "actions": [
             2,
             3
@@ -3329,7 +3329,7 @@
         {
           "title": "Drill one hole pair in each horn",
           "image": "assets/community/horn-drill-pair.svg",
-          "caption": "Face view of a horn, with the drilled pair and its spacing.",
+          "caption": "Face view of a horn.",
           "actions": [
             0,
             1,
@@ -3391,7 +3391,7 @@
         {
           "title": "Screw a horn to the horn adapter",
           "image": "assets/community/head-horn-offset-holes.svg",
-          "caption": "The adapter from below, with the horn shown as an outline.",
+          "caption": "The adapter from below, with the horn drawn as an outline.",
           "detail": {
             "title": "Which horn face goes where",
             "image": "assets/community/horn-side-orientation.svg"
@@ -3405,7 +3405,7 @@
         {
           "title": "Seat the adapter in the head shelf",
           "image": "assets/community/head-shelf-fastening.svg",
-          "caption": "Brown P14 seated in blue-gray P08, with three screws above their holes.",
+          "caption": "The adapter seated in the head shelf, with three screws above their holes.",
           "actions": [
             3,
             4,
@@ -3475,7 +3475,7 @@
         {
           "title": "Place the foam behind each window",
           "image": "assets/community/eye-foam-insertion.svg",
-          "caption": "A foam patch going into the housing behind the film.",
+          "caption": "One eye housing from behind, with the foam going in behind the film.",
           "actions": [
             3,
             4,
@@ -3529,7 +3529,7 @@
         {
           "title": "Load two nuts in each housing",
           "image": "assets/community/eye-housing-nuts.svg",
-          "caption": "One housing from behind, with the two nut channels at its upper edge.",
+          "caption": "One housing from behind.",
           "actions": [
             0,
             1,
@@ -3539,7 +3539,7 @@
         {
           "title": "Seat the housings on the head",
           "image": "assets/community/eye-housing-seating.svg",
-          "caption": "One eye housing entering its socket from outside. The head wall is cut away.",
+          "caption": "One eye housing entering its socket from outside.",
           "actions": [
             3,
             4,
@@ -3620,7 +3620,7 @@
         {
           "title": "Fasten each cassette into the head",
           "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "Cutaway of the head wall (blue) between the housing and cassette.",
+          "caption": "Cutaway of the head wall between the housing and cassette.",
           "detail": {
             "title": "Both eyes seen from inside the head",
             "image": "assets/community/eye-installed-inside.svg"
@@ -3675,7 +3675,7 @@
         "Unplug it. Plug the head half into the body half. Label each head-half wire like the body-half wire it reaches. Keep the body half for {step:body-light-strand}.",
         "Cut the 200 mm JST-SH cable (E11) in the middle. Each half is a lead with a small plug: one is the eye input lead, the other the mouth lead.",
         "Choose either eye as the first eye. Note its side. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
-        "Solder the mouth lead to the mouth stick (E04): black to GND, red to +5 V, white to DIN. Leave DOUT unused. Insulate each joint.",
+        "Solder the mouth lead to the mouth stick (E04): black to GND, red to +5 V, white to DIN. Leave DOUT unused. No solder may bridge two pads. Insulate each joint.",
         "The mouth lead runs from the second eye\u2019s OUT to the mouth. Extend it with 22 AWG wire (C06) as needed, with slack to fit and remove the mouth.",
         "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Insulate each joint.",
         "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
@@ -3697,7 +3697,7 @@
         {
           "title": "Label the head light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "",
+          "caption": "One JST-SM pair, apart and plugged in.",
           "actions": [
             0,
             1,
@@ -3707,7 +3707,7 @@
         {
           "title": "Cut the head leads",
           "image": "assets/circuits/head-leads.svg",
-          "caption": "",
+          "caption": "The 200 mm cable, then its two halves.",
           "actions": [
             3,
             4
@@ -3716,7 +3716,7 @@
         {
           "title": "Solder the mouth lead",
           "image": "assets/circuits/mouth-solder.svg",
-          "caption": "",
+          "caption": "The back of the mouth stick (Adafruit 1426), with its pad names.",
           "actions": [
             5,
             6
@@ -3725,7 +3725,7 @@
         {
           "title": "Join the head half to the eye input lead",
           "image": "assets/circuits/head-power.svg",
-          "caption": "",
+          "caption": "The head half\u2019s wires joined to the eye input lead.",
           "actions": [
             7
           ]
@@ -3741,7 +3741,7 @@
         {
           "title": "Plug in the head leads",
           "image": "assets/circuits/eye-connector.svg",
-          "caption": "",
+          "caption": "One eye board from behind, before and after the plug goes in.",
           "actions": [
             10,
             11,
@@ -3956,7 +3956,7 @@
         {
           "title": "Cut six lights from the input end",
           "image": "assets/circuits/cut-six.svg",
-          "caption": "",
+          "caption": "The strand from its INPUT end.",
           "actions": [
             0,
             1,
@@ -3966,7 +3966,7 @@
         {
           "title": "Solder the head light connector\u2019s body half",
           "image": "assets/circuits/body-output.svg",
-          "caption": "",
+          "caption": "The strand after light 5, with the HEAD LIGHT body half.",
           "actions": [
             3,
             4
@@ -4042,7 +4042,7 @@
         {
           "title": "Load the two carrier nuts in the rear upright",
           "image": "assets/community/rear-seam-nuts.svg",
-          "caption": "The rear upright from behind, with the middle (1) and upper (2) nut positions.",
+          "caption": "The rear upright from behind.",
           "actions": [
             0,
             1
@@ -4445,7 +4445,7 @@
         {
           "title": "Screw the carrier to the rear upright",
           "image": "assets/community/carrier-frame-fastening.svg",
-          "caption": "The rear upright from behind, foam hidden, with the carrier, seam covers and backings drawn apart.",
+          "caption": "The rear upright from behind, with the foam hidden and the parts drawn apart.",
           "actions": [
             0,
             1,
@@ -4535,7 +4535,7 @@
         {
           "title": "Glue the tanks into the rings",
           "image": "assets/community/tank-ring-bond.svg",
-          "caption": "The marked surfaces are hidden between each tank and its two rings.",
+          "caption": "The tanks drawn out of their rings.",
           "actions": [
             5,
             6,
@@ -4561,7 +4561,7 @@
         {
           "title": "Screw the backpack to the carrier",
           "image": "assets/community/backpack-shell-fastening.svg",
-          "caption": "The finished backpack drawn back from the carrier, with its four screws.",
+          "caption": "The finished backpack drawn back from the carrier.",
           "actions": [
             11,
             12,
@@ -4673,7 +4673,7 @@
         {
           "title": "Connect the left arm servo",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
+          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
           "safety": {
             "level": "notice",
             "text": "A servo with its supply and ground wires swapped can be damaged at power-up. Insert each supply wire into the servo power WAGO (W2). Insert each ground wire into the servo ground WAGO (W4)."
@@ -4687,7 +4687,7 @@
         {
           "title": "Connect the right arm servo",
           "image": "assets/circuits/servo-right.svg",
-          "caption": "Connection view of the RIGHT cable at W2, W4 and S2.",
+          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S2) output terminal.",
           "actions": [
             5,
             6
@@ -4696,7 +4696,7 @@
         {
           "title": "Connect the head servo",
           "image": "assets/circuits/servo-head.svg",
-          "caption": "Connection view of the HEAD cable at W2, W4 and S2.",
+          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S2) output terminal.",
           "actions": [
             7,
             8
@@ -4737,7 +4737,7 @@
         {
           "title": "Plug in the body light connector",
           "image": "assets/circuits/jst-sm-seat.svg",
-          "caption": "",
+          "caption": "One JST-SM pair, apart and plugged in.",
           "actions": [
             0
           ]
@@ -4797,7 +4797,7 @@
         {
           "title": "Check the servo and light branches for shorts",
           "image": "assets/power-diagram.svg",
-          "caption": "Reference schematic of the three power branches from W1.",
+          "caption": "The three power branches from W1.",
           "actions": [
             0,
             1,
@@ -4882,7 +4882,7 @@
         {
           "title": "Run the light test",
           "image": "assets/circuits/head-data.svg",
-          "caption": "Head data path, from the head half through both eyes to the mouth.",
+          "caption": "The head light chain, from the head half through both eyes to the mouth.",
           "codeBlocks": [
             {
               "kind": "command",
@@ -5142,7 +5142,7 @@
             "text": "A horn forced onto the spline, or pulled on by its screw, can strip its teeth. The part then slips on its servo. Seat each horn by hand before you fit its screw."
           },
           "image": "assets/community/head-center-screw.svg",
-          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "caption": "The head shelf on the head servo.",
           "actions": [
             7,
             8,
@@ -5156,7 +5156,7 @@
         {
           "title": "Attach the robot-left arm",
           "image": "assets/community/arm-center-screw-left.svg",
-          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side. Label 1 marks the center screw.",
+          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side.",
           "actions": [
             10,
             11,
@@ -5166,7 +5166,7 @@
         {
           "title": "Attach the robot-right arm",
           "image": "assets/community/arm-center-screw-right.svg",
-          "caption": "The robot-right arm on its shoulder servo, seen from the robot-right side. Label 1 marks the center screw.",
+          "caption": "The robot-right arm on its shoulder servo, seen from the robot-right side.",
           "actions": [
             13,
             14,
@@ -5223,7 +5223,7 @@
         {
           "title": "Load the head nuts",
           "image": "assets/community/head-cable-entry.svg",
-          "caption": "The head shelf from above, with the head light cable in its side entry and the three nut pockets.",
+          "caption": "The head shelf from above, with the head light cable in its side entry.",
           "actions": [
             0
           ]
@@ -5247,7 +5247,7 @@
         {
           "title": "Fasten the head",
           "image": "assets/community/head-shell-fastening.svg",
-          "caption": "One head screw passing through the head shell into its M2 nut in the shelf rim.",
+          "caption": "Section through one head screw, the head shell and the shelf rim.",
           "actions": [
             5,
             6,
@@ -5708,7 +5708,7 @@
         {
           "title": "Unscrew the head",
           "image": "assets/community/head-shell-fastening.svg",
-          "caption": "One head screw passing through the head shell into its M2 nut in the shelf rim.",
+          "caption": "Section through one head screw, the head shell and the shelf rim.",
           "actions": [
             2,
             3
@@ -5726,7 +5726,7 @@
         {
           "title": "Set the nuts and head aside",
           "image": "assets/r18/head-nut-access.png",
-          "caption": "The head shelf from above with the head off, showing the three M2 nuts in their pockets.",
+          "caption": "The head shelf from above, with the three nut pockets.",
           "actions": [
             7,
             8
@@ -5793,7 +5793,7 @@
         {
           "title": "Remove the mouth cassette",
           "image": "assets/community/mouth-removal.svg",
-          "caption": "The mouth cassette moving back from the separator, then out through the open rim.",
+          "caption": "The mouth cassette (copper) moving back, then down through the open rim.",
           "safety": {
             "level": "notice",
             "text": "Pulling on a soldered lead can break its joint inside the insulation. The light then fails. Move the cassette by its plastic, never by its leads."
@@ -5814,7 +5814,7 @@
         {
           "title": "Unfasten the eye cassette",
           "image": "assets/community/eye-cassette-fastening.svg",
-          "caption": "Cutaway of the head wall (blue) between a housing and its cassette.",
+          "caption": "Cutaway of the head wall between the housing and cassette.",
           "actions": [
             6,
             7,
@@ -5824,7 +5824,7 @@
         {
           "title": "Lift the head off the eye housing",
           "image": "assets/community/eye-housing-nuts.svg",
-          "caption": "One housing from behind, with the two nut channels at its upper edge.",
+          "caption": "One housing from behind.",
           "actions": [
             9,
             10
@@ -5928,7 +5928,7 @@
         {
           "title": "Take off an arm",
           "image": "assets/community/shoulder-cover-left.svg",
-          "caption": "The robot-left shoulder cover and upper arm.",
+          "caption": "The robot-left shoulder cover sliding onto the upper arm.",
           "actions": [
             7,
             8,
@@ -5961,7 +5961,7 @@
         {
           "title": "Refit an arm",
           "image": "assets/community/arm-center-screw-left.svg",
-          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side. Label 1 marks the center screw.",
+          "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side.",
           "actions": [
             13
           ]
@@ -6070,7 +6070,7 @@
         {
           "title": "Replace a WAGO",
           "image": "assets/community/wago-tape-back.svg",
-          "caption": "",
+          "caption": "The flat back of one WAGO, with its tape.",
           "safety": {
             "level": "notice",
             "text": "Levering a WAGO off can break its printed pad. A new WAGO then cannot bond flat. Remove it only by the tape maker\u2019s method."
@@ -6152,7 +6152,7 @@
         {
           "title": "Replace the light fuse",
           "image": "assets/circuits/f2-connect.svg",
-          "caption": "Connection view of W1, F2, the base half and W3.",
+          "caption": "The light fuse (F2), light capacitor (C2) and base half, with the wire-entry faces of W1 and W3.",
           "safety": {
             "level": "warning",
             "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
@@ -6166,7 +6166,7 @@
         {
           "title": "Replace the servo capacitor (C1)",
           "image": "assets/circuits/c1.svg",
-          "caption": "Connection view of C1, W2 and W3.",
+          "caption": "C1 with its sleeved wires, and the wire-entry faces of W2 and W3.",
           "safety": {
             "level": "caution",
             "text": "The servo capacitor (C1) is polarized. Connected backwards, it can overheat and vent when powered. Connect its striped negative leg to the ground WAGO (W3/4)."
@@ -6180,7 +6180,7 @@
         {
           "title": "Replace the light capacitor (C2)",
           "image": "assets/circuits/f2-connect.svg",
-          "caption": "Connection view of W1, F2, the base half and W3.",
+          "caption": "The light fuse (F2), light capacitor (C2) and base half, with the wire-entry faces of W1 and W3.",
           "safety": {
             "level": "caution",
             "text": "The light capacitor (C2) is polarized. Connected backwards, it can overheat and vent when powered. Join its striped negative leg to the base-half GND wire."
@@ -6355,7 +6355,7 @@
         {
           "title": "Remove the head or arm",
           "image": "assets/community/head-center-screw.svg",
-          "caption": "The head shelf on the head servo. Label 1 marks the center screw.",
+          "caption": "The head shelf on the head servo.",
           "actions": [
             0,
             1
@@ -6371,7 +6371,7 @@
         {
           "title": "Disconnect the servo cable",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "Connection view of the LEFT cable at W2, W4 and S1.",
+          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
           "actions": [
             3
           ]
@@ -6387,7 +6387,7 @@
         {
           "title": "Remove the ear screws",
           "image": "assets/community/shoulder-servo-removal.svg",
-          "caption": "The shoulder-servo bracket (P03), with one servo and its two ear screws.",
+          "caption": "The shoulder-servo bracket with one servo and its two ear screws.",
           "actions": [
             6
           ]
@@ -6447,7 +6447,7 @@
         {
           "title": "Fit the servo",
           "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "Both arm servos enter from the back, shafts pointing outward.",
+          "caption": "Both servos entering the bracket\u2019s open side, shafts pointing outward.",
           "actions": [
             1,
             2
@@ -6471,7 +6471,7 @@
         {
           "title": "Connect and secure the cable",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "The LEFT cable at its two WAGOs and level shifter.",
+          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
           "actions": [
             6
           ]
@@ -6549,7 +6549,7 @@
         {
           "title": "Replace the mouth stick",
           "image": "assets/circuits/mouth-solder.svg",
-          "caption": "The mouth stick and its three used pads.",
+          "caption": "The back of the mouth stick (Adafruit 1426), with its pad names.",
           "actions": [
             5,
             6,
@@ -6636,7 +6636,7 @@
         {
           "title": "Unplug the lights and isolate servo power",
           "image": "assets/circuits/servo-feed-isolation.svg",
-          "caption": "Servo feed released at W1/3, with its freed end insulated and secured.",
+          "caption": "Wire-entry faces of the input and servo power WAGOs (W1, W2), with the servo feed freed from W1/3.",
           "actions": [
             0,
             1,
@@ -6646,7 +6646,7 @@
         {
           "title": "Open the body",
           "image": "assets/community/backpack-shell-fastening.svg",
-          "caption": "The finished backpack drawn back from the carrier, with its four screws.",
+          "caption": "The finished backpack drawn back from the carrier.",
           "actions": [
             3,
             4,
@@ -6666,7 +6666,7 @@
         {
           "title": "Prepare and test the new lights",
           "image": "assets/circuits/strand-test-connection.svg",
-          "caption": "",
+          "caption": "The base half plugged into the strand\u2019s likely input.",
           "actions": [
             9,
             10,
@@ -6686,7 +6686,7 @@
         {
           "title": "Restore servo power and test all 16 lights",
           "image": "assets/circuits/head-data.svg",
-          "caption": "Head data path, from the head half through both eyes to the mouth.",
+          "caption": "The head light chain, from the head half through both eyes to the mouth.",
           "safety": {
             "level": "caution",
             "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."

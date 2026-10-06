@@ -3,6 +3,7 @@
 
 Plans are schematic: positions follow the base layout but are not to scale.
 """
+import re
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -15,10 +16,11 @@ FONT = 'Arial,Helvetica,sans-serif'
 
 
 class Svg:
-    def __init__(self, w, h, title):
-        self.w, self.h, self.parts = w, h, []
-        self.rect(0, 0, w, h, fill=PAPER, stroke='none')
-        self.text(28, 44, title, size=28, weight=700)
+    """A drawing labels what it shows. It has no drawn title, view line or notes:
+    the guide caption gives the view and the actions give instructions."""
+
+    def __init__(self, w, h, title, crop=False):
+        self.w, self.h, self.title, self.crop, self.parts = w, h, title, crop, []
 
     def add(self, s):
         self.parts.append(s)
@@ -52,10 +54,53 @@ class Svg:
         self.add(f'<rect x="{x0:.1f}" y="{y - size + 1}" width="{w:.1f}" height="{size + 6}" rx="3" fill="{PAPER}" opacity=".92"/>')
         self.text(x, y + 1, s, size=size, fill=fill, anchor=anchor, weight=weight)
 
+    def extent(self):
+        """Vertical extent of the drawn content, so the view crops to it."""
+        ys = []
+        for part in self.parts:
+            tag = part[1:part.index(' ')]
+            a = dict(re.findall(r'([\w-]+)="([^"]*)"', part[:part.index('>')]))
+            if tag == 'rect':
+                ys += [float(a['y']), float(a['y']) + float(a['height'])]
+            elif tag == 'circle':
+                ys += [float(a['cy']) - float(a['r']), float(a['cy']) + float(a['r'])]
+            elif tag == 'ellipse':
+                ys += [float(a['cy']) - float(a['ry']), float(a['cy']) + float(a['ry'])]
+            elif tag == 'text':
+                y, size = float(a['y']), float(a['font-size'])
+                length = len(re.sub('<[^>]+>', '', part)) * size * 0.6
+                ys += [y - (length if 'rotate(' in part else size), y + size * 0.3]
+            elif tag in ('path', 'polygon'):
+                own = []
+                if tag == 'polygon':
+                    own = [float(n) for n in re.findall(r'-?\d+(?:\.\d+)?', a['points'])][1::2]
+                else:
+                    tokens = re.findall(r'[MLHVQCAZ]|-?\d+(?:\.\d+)?', a['d'])
+                    i, command = 0, 'M'
+                    while i < len(tokens):
+                        if tokens[i] in 'MLHVQCAZ':
+                            command = tokens[i]; i += 1; continue
+                        take = {'M': 2, 'L': 2, 'H': 1, 'V': 1, 'Q': 4, 'C': 6, 'A': 7}[command]
+                        values = [float(v) for v in tokens[i:i + take]]; i += take
+                        if command == 'V':
+                            own.append(values[0])
+                        elif command == 'A':
+                            own += [values[6] - values[1], values[6] + values[1]]
+                        elif command != 'H':
+                            own += values[1::2]
+                width = float(a.get('stroke-width', 0))
+                ys += [min(own) - width / 2, max(own) + width / 2]
+        return min(ys), max(ys)
+
     def save(self, name):
-        head = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" width="{self.w}" height="{self.h}" role="img">'
+        top, height = 0, self.h
+        if self.crop:
+            low, high = self.extent()
+            top, height = max(0, int(low) - 18), int(high) + 18 - max(0, int(low) - 18)
+        head = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 {top} {self.w} {height}" width="{self.w}" height="{height}" role="img">'
                 f'<title>{escape(name)}</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
-                f'<path d="M0 0 L10 5 L0 10z" fill="{BLUE}"/></marker></defs>')
+                f'<path d="M0 0 L10 5 L0 10z" fill="{BLUE}"/></marker></defs>'
+                f'<rect x="0" y="{top}" width="{self.w}" height="{height}" fill="{PAPER}"/>')
         (OUT / name).write_text(head + ''.join(self.parts) + '</svg>\n')
 
 
@@ -83,7 +128,7 @@ def robot_front(g, cx, base_y, arm_angle_deg=0, dashed=False, arms=True):
 
 
 def servo_fit_position():
-    g = Svg(1200, 700, 'Fit position')
+    g = Svg(1200, 700, 'Fit position', crop=True)
     robot_front(g, 300, 620)
     g.text(300, 650, 'Front view', size=18, anchor='middle', weight=700)
     g.label(120, 180, 'Head faces forward', size=17, weight=700, anchor='middle')
@@ -104,7 +149,6 @@ def servo_fit_position():
     g.text(cx + 170, sy + 2, 'in front (dashed)', size=16, fill=MUTED)
     g.text(cx - 40, 650, 'Side view (robot facing right)', size=18, anchor='middle', weight=700)
     g.text(cx + 150, by - 420, 'FRONT →', size=16, fill=MUTED, weight=700)
-    g.text(1170, 690, 'The robot returns to this position whenever the application starts.', size=16, anchor='end', fill=MUTED)
     g.save('servo-fit-position.svg')
 
 
@@ -114,10 +158,8 @@ def servo_fit_position():
 CIRCUIT_WIDTH = 420
 
 
-def action(title, height=620, subtitle='Schematic · power unplugged'):
-    g = Svg(CIRCUIT_WIDTH, height, title)
-    g.text(24, 78, subtitle, size=22, fill=MUTED)
-    return g
+def action(title, height=620):
+    return Svg(CIRCUIT_WIDTH, height, title, crop=True)
 
 
 def lines(g, y, *rows, color=INK):
@@ -182,8 +224,8 @@ def fuse_holder(g, y, name, value):
     g.text(210, y - 8, f'{name} · {value}', size=26, anchor='middle', weight=700)
 
 
-def physical_action(title, height=620, subtitle='Connection view · not to scale'):
-    g = action(title, height, subtitle)
+def physical_action(title, height=620):
+    g = action(title, height)
     g.physical_wires = True
     return g
 
@@ -235,8 +277,8 @@ def pins_half(g, x, y):
 
 
 def wago_insertion():
-    g = action('Insert a WAGO wire', 469, '221-415 · one wire per port')
-    g.text(24, 121, '1  Strip 11 mm; leave copper bare.', size=22)
+    g = action('Insert a WAGO wire', 469)
+    g.text(24, 121, '1 Bare end', size=22)
     g.wire([(35, 157), (229, 157)], RED, 9)
     g.wire([(229, 157), (300, 157)], COPPER, 6)
     g.wire([(229, 179), (300, 179)], MUTED, 2)
@@ -248,15 +290,12 @@ def wago_insertion():
     g.wire([(32, 297), (157, 297)], RED, 9)
     g.wire([(157, 297), (209, 297)], COPPER, 6)
     g.wire([(174, 263), (222, 263)], BLUE, 3, arrow=True)
-    g.text(24, 245, '2  Open', size=22)
-    g.text(24, 369, '3  Insert fully; close the lever.', size=22)
-    g.text(24, 403, 'Pull gently. It must stay in the port.', size=22)
-    g.text(24, 432, 'Do not tin the end.', size=22)
+    g.text(24, 245, '2 Lever open', size=22)
     g.save('circuits/wago-insert.svg')
 
 
 def power_jack_circuit():
-    g = physical_action('Insert the power jack leads', 630, 'J1 rear view · soldered leads')
+    g = physical_action('Insert the power jack leads', 630)
     # Same rear lug rotation as the verified 721AU preparation view.
     g.circle(165, 197, 78, fill='#d8d7cf', stroke=INK, sw=3)
     g.circle(165, 197, 61, fill='#e9e5db', stroke=GRAY)
@@ -274,11 +313,11 @@ def power_jack_circuit():
     g.text(211, 250, 'Shunt capped', size=22)
     g.wire([(267,235),(217,205)], MUTED, 1.5)
     g.text(141, 291, 'Center +', size=22, fill=RED)
-    g.text(24, 609, '18 AWG · trace each continuous wire', size=22)
+    g.text(24, 609, '18 AWG', size=22)
     g.save('circuits/power-jack-leads.svg')
 
 def pi_power_circuit():
-    g = physical_action('Pi power lead', 625, 'Adafruit 4056 micro-B lead')
+    g = physical_action('Pi power lead', 625)
     pi_bench_board(g, 136, 111, 3.2)
     # Micro-B sits in the bottom-edge power socket, not the USB-A data port.
     g.rect(159, 292, 21, 13, fill='#bcc6cd', rx=1)
@@ -291,24 +330,25 @@ def pi_power_circuit():
     wago_port(g, 549, 'W3', 2, BLK)
     g.wire([(163,349),(163,469),(333,469),port_point(2,426)],RED,6)
     traced_wire(g,[(176,349),(176,574),(333,574),port_point(2,549)],BLK,6)
-    g.text(24, 602, '24 AWG · plug + lead ≤150 mm',size=22)
+    g.text(24, 602, '24 AWG',size=22)
     g.save('circuits/pi-power.svg')
 
 def fuse_prep(name, value, input_port, output):
-    g = action(f'{name} · fuse holder loop', 485, '18 AWG factory loop')
+    g = action(f'{name} · fuse holder loop', 485)
     fuse_holder(g, 151, name, value)
+    g.text(24, 352, '18 AWG', size=22)
     g.wire([(55, 190), (55, 304), (365, 304), (365, 190)], RED, 7)
     g.circle(210, 304, 21, fill=PAPER, stroke=ORANGE, sw=3)
     g.wire([(200, 294), (220, 314)], ORANGE, 3)
     g.wire([(220, 294), (200, 314)], ORANGE, 3)
-    g.text(210, 359, 'Cut in the middle', size=22, anchor='middle')
+    g.text(250, 359, 'Cut in the middle', size=22, anchor='middle')
     lines(g, 412, f'INPUT: W1/{input_port}', f'OUTPUT: {output}')
     g.save(f'circuits/{name.lower()}-prepare.svg')
 
 
 def servo_feed_prepare():
-    g = physical_action('Prepare the servo feed', 470, 'One red 18 AWG wire')
-    lines(g, 130, 'Test-route W1/3 → W2/1.', 'Cut to fit, allowing service access.')
+    g = physical_action('Prepare the servo feed', 470)
+    g.text(24, 200, 'Red 18 AWG', size=22)
     # One loose insulated conductor, with two untinned copper ends.
     g.wire([(47, 244), (91, 244)], COPPER, 6)
     g.wire([(91, 244), (329, 244)], RED, 10)
@@ -316,23 +356,21 @@ def servo_feed_prepare():
     for left, right in ((47, 91), (329, 373)):
         g.wire([(left, 272), (right, 272)], MUTED, 2)
         g.text((left + right) / 2, 307, '11 mm', size=22, anchor='middle')
-    lines(g, 378, 'Strip both ends. Leave them bare.', 'Do not tin WAGO wire ends.')
     g.save('circuits/servo-feed-prepare.svg')
 
 
 def servo_feed_circuit():
-    g = physical_action('Connect the servo feed', 470, 'Power unplugged · one 18 AWG wire')
+    g = physical_action('Connect the servo feed', 470)
     wago_port(g, 147, 'W1', 3, RED)
     wago_port(g, 345, 'W2', 1, RED)
     g.wire([port_point(3,147),(298,200),(24,200),(24,280),
             (392,280),(392,392),(368,392),port_point(1,345)],RED,7)
     g.text(60, 251, 'W1/3 → W2/1',size=22,weight=700)
-    g.text(24, 448, 'Close both levers; pull gently.',size=22)
     g.save('circuits/servo-feed-connect.svg')
 
 
 def servo_feed_isolation():
-    g = physical_action('Isolate the servo feed', 620, 'All power unplugged · service view')
+    g = physical_action('Isolate the servo feed', 620)
     wago_port(g, 147, 'W1', 3, RED)
     # W1/3 is open and empty; no other conductor is removed.
     x, y = port_point(3, 147)
@@ -354,13 +392,11 @@ def servo_feed_isolation():
     g.text(24, 277, 'Insulate end',size=22)
     g.wire([(142,267),(170,242)],MUTED,1.5)
     g.text(218, 341, 'Tie back',size=22)
-    lines(g, 511, 'Keep W2/1 connected.', 'Leave servo signals and returns.',
-          'Reconnect W1/3 with power off.')
     g.save('circuits/servo-feed-isolation.svg')
 
 
 def c1_circuit():
-    g = physical_action('Servo capacitor connections', 680, 'Connection view')
+    g = physical_action('Servo capacitor connections', 680)
     capacitor(g, 123, 'C1')
     # Metal legs, soldered extensions, individual insulating sleeves.
     g.wire([(180,249),(180,308)],'#b9c2c5',4)
@@ -378,7 +414,7 @@ def c1_circuit():
     g.save('circuits/c1.svg')
 
 def ground_circuit():
-    g = physical_action('Ground link', 365, 'Connection view')
+    g = physical_action('Ground link', 365)
     wago_port(g, 147, 'W3', 3, BLK)
     wago_port(g, 298, 'W4', 1, BLK)
     g.wire([port_point(3,147),(298,200),(389,200),(389,342),(368,342),port_point(1,298)],BLK,7)
@@ -386,7 +422,7 @@ def ground_circuit():
     g.save('circuits/ground-link.svg')
 
 def c2_circuit():
-    g = physical_action('Base half, C2 and R2', 721, 'JST-SM 2.5 mm (large) · loose wires')
+    g = physical_action('Base half, C2 and R2', 721)
     capacitor(g, 130, 'C2')
     # C2's own legs reach the branch joints directly; there are no wire tails.
     # Individual sleeves run from the rubber seal toward each solder joint.
@@ -413,12 +449,12 @@ def c2_circuit():
     g.text(24, 566, 'To S1 D5',size=22)
     g.text(239, 648, 'Base half',size=22,weight=700)
     g.text(24, 680, 'C2: 1000 µF, 10 V · stripe to GND',size=22)
-    g.text(24, 709, 'Label each black lead by continuity.',size=22)
+    g.text(24, 709, 'Base half: JST-SM 2.5 mm (large)',size=22)
     g.save('circuits/c2-prepare.svg')
 
 
 def f2_circuit():
-    g = physical_action('Light fuse connections', 670, 'Base half: JST-SM 2.5 mm (large)')
+    g = physical_action('Light fuse connections', 670)
     wago_port(g, 143, 'W1', 4, RED)
     fuse_holder(g, 234, 'F2', 'T1 A')
     wago_port(g, 604, 'W3', 5, BLK)
@@ -439,6 +475,7 @@ def f2_circuit():
     small_resistor(g,58,494,'R2',48)
     g.text(263, 540, 'Base half',size=24,weight=700)
     g.text(24, 574, 'S1 D5',size=22)
+    g.text(24, 700, 'Base half: JST-SM 2.5 mm (large)',size=22)
     g.save('circuits/f2-connect.svg')
 
 
@@ -509,14 +546,13 @@ def shifter_board(g, name, x=208, y=273):
 
 
 def gpio_lead_preparation():
-    g=action('GPIO lead end',510,'Socket at Pi · bare wire at shifter')
+    g=action('GPIO lead end',510)
     g.rect(28,152,58,37,fill='#303740',rx=3)
     g.rect(28,161,14,19,fill='#181e25',stroke='none',rx=0)
     g.wire([(86,170),(285,170)],BLUE,7)
     g.wire([(285,170),(349,170)],COPPER,4)
-    g.text(24,130,'Keep the 2.54 mm female socket',size=22)
-    g.text(24,231,'Remove the other connector; strip',size=22)
-    g.text(24,260,'only enough for the terminal.',size=22)
+    g.text(24,130,'2.54 mm female socket',size=22)
+    g.text(300,215,'Bare end',size=22,anchor='middle')
     # Side entry and screw clamp, enlarged.
     g.rect(260,319,116,85,fill='#3c9e68',stroke='#21633f',rx=4)
     g.rect(265,354,65,28,fill='#254c39',rx=1)
@@ -525,13 +561,12 @@ def gpio_lead_preparation():
     g.wire([(34,367),(161,367)],BLUE,7)
     g.wire([(161,367),(222,367)],COPPER,4)
     g.wire([(166,327),(247,327)],BLUE,3,arrow=True)
-    g.text(24,452,'Insert fully, then tighten the screw.',size=22)
-    g.text(24,483,'No bare strands outside the block.',size=22)
+    g.text(318,442,'Terminal screw',size=22,anchor='middle')
     g.save('circuits/gpio-lead-prepare.svg')
 
 
 def gpio_socket_insertion():
-    g=action('Plug a socket onto the Pi',450,'One socket · one header pin')
+    g=action('Plug a socket onto the Pi',450)
 
     def face(points, fill, stroke=INK):
         g.add('<polygon points="'+' '.join(f'{x},{y}' for x,y in points)+f'" fill="{fill}" stroke="{stroke}" stroke-width="1.5" stroke-linejoin="round"/>')
@@ -569,12 +604,11 @@ def gpio_socket_insertion():
     g.wire([(164,250),(164,274)],BLUE,3,arrow=True)
     g.text(24,230,'Pi pin',size=22)
     g.wire([(79,239),(151,279)],MUTED,1.5)
-    g.text(24,427,'Pi GPIO header · enlarged section',size=22,fill=MUTED)
     g.save('circuits/gpio-socket-insert.svg')
 
 
 def shifter_circuit(name, selected, outputs):
-    g=physical_action(f'Connect the Pi to {name}',820,'Pin-side view · sockets on Pi pins')
+    g=physical_action(f'Connect the Pi to {name}',820)
     colors={'G':BLK,'V':'#8754ad','DAT':BLUE,'CLK':ORANGE}
     pins=header_board(g,{n:colors[v.split()[-1]] for n,v in selected.items()})
     terminals=shifter_board(g,name)
@@ -597,12 +631,12 @@ def shifter_circuit(name, selected, outputs):
     # Canonical mapping remains explicit below the physical view.
     for i,(n,label) in enumerate(selected.items()):
         g.text(24 if i%2==0 else 215,640+(i//2)*32,f'{n} → {label}',size=23,weight=700)
-    lines(g,718,f'D5 → {outputs[0]}',f'C5 → {outputs[1]}','!D5 and output G: unused.')
+    lines(g,718,f'D5 → {outputs[0]}',f'C5 → {outputs[1]}','!D5, output G: unused')
     g.save(f'circuits/{name.lower()}-inputs.svg')
 
 def shifter_jumpers():
     # Adafruit pinouts: back, left of upper mounting hole, white Neo outline.
-    g = action('Cut both Neo jumpers', 420, 'Back of board · locate “Neo”')
+    g = action('Cut both Neo jumpers', 420)
     g.rect(55, 122, 310, 178, fill='#273746', rx=12)
     g.circle(280, 172, 18, fill=PAPER, stroke='#c5a571', sw=5)
     g.text(264, 117, 'Top hole', size=22, anchor='middle')
@@ -615,7 +649,6 @@ def shifter_jumpers():
     g.wire([(156, 204), (160, 238)], ORANGE, 4)
     g.text(266, 270, 'Cut here', size=22, fill='#fff', anchor='middle')
     g.wire([(224, 256), (161, 229)], '#fff', 2)
-    lines(g, 342, 'Repeat on S1 and S2.', 'Check the cut is open with a meter.', 'Enlarged jumper')
     g.save('circuits/shifter-neo.svg')
 
 
@@ -664,7 +697,7 @@ def button_tab_labels(g, tabs, cx):
 
 
 def button_terminals():
-    g = action('Identify the four tabs', 400, 'Rear view · retaining nut off')
+    g = action('Identify the four tabs', 400)
     cx, cy = 210, 215
     tabs = button_back(g, cx, cy)
     button_tab_labels(g, tabs, cx)
@@ -694,19 +727,18 @@ def meter_probe(g, tip, end, color):
 
 
 def button_switch_check():
-    g = action('Check the switch pair', 470, 'Rear view · meter in continuity mode')
+    g = action('Check the switch pair', 470)
     cx, cy = 210, 200
     tabs = button_back(g, cx, cy)
     button_tab_labels(g, tabs, cx)
     for key, end, color in (('SW1', (96, 396), RED), ('SW2', (324, 396), BLK)):
         x, y = tabs[key]
         meter_probe(g, (x, y + 10), end, color)
-    g.text(cx, 448, 'Beeps only while pressed', size=22, anchor='middle')
     g.save('circuits/button-switch-check.svg')
 
 
 def button_leads_prepare():
-    g = action('Prepare four leads', 500, 'GPIO jumper leads (E24)')
+    g = action('Prepare four leads', 500)
     # One lead as supplied: the far connector is cut off.
     g.rect(24, 132, 44, 22, fill='#303740', rx=3)
     g.rect(24, 138, 10, 10, fill='#151b20', stroke='none', rx=0)
@@ -750,7 +782,7 @@ def side_socket(g, x, y, pin):
 
 
 def button_leads_switch():
-    g = action('Solder the switch leads', 440, 'From above · switch pair on top')
+    g = action('Solder the switch leads', 440)
     y0 = 215
     tabs = button_top(g, y0, 26)
     for y, pin in zip(tabs, (11, 14)):
@@ -758,14 +790,11 @@ def button_leads_switch():
         g.rect(184, y - 8, 56, 16, fill='#47515b', stroke='#1c2126', sw=1, rx=4)   # shrunk sleeve
         side_socket(g, 330, y, pin)
     g.text(205, 146, 'Switch tabs', size=22, anchor='middle', weight=700)
-    g.text(205, 310, 'Button on a bezel flat', size=22, anchor='middle', fill=MUTED)
-    g.text(24, 386, 'Either lead fits either switch tab.', size=22)
-    g.text(24, 418, 'LED pair underneath, still bare.', size=22, fill=MUTED)
     g.save('circuits/button-leads-switch.svg')
 
 
 def button_leads_led():
-    g = action('Solder the LED leads', 470, 'From above · LED pair on top')
+    g = action('Solder the LED leads', 470)
     y0 = 225
     plus, minus = button_top(g, y0, 18)
     g.text(206, plus - 12, '+', size=24, anchor='middle', weight=700, fill=RED)
@@ -785,9 +814,6 @@ def button_leads_led():
     side_socket(g, 330, plus, 4)
     g.label(252, 140, 'R1 · 1 kΩ', size=22, anchor='middle', weight=700)
     g.wire([(252, 146), (252, plus - 10)], '#ae855e', 2)
-    g.text(24, 350, 'R1 points straight back', size=22)
-    g.text(24, 381, 'in line with the + tab.', size=22)
-    g.text(24, 422, 'Sleeves pushed back on 20 and 4.', size=22, fill=MUTED)
     g.save('circuits/button-leads-led.svg')
 
 
@@ -798,7 +824,7 @@ def callout(g, x, y, n):
 
 
 def button_insert_threading():
-    g = action('Fit the button in its insert', 450, 'Side view · outside on the left')
+    g = action('Fit the button in its insert', 450)
     y0 = 215
     # FB20 in section: a 2 mm plate with its Ø16.2 hole.
     for top, h in ((y0 - 100, 60), (y0 + 40, 60)):
@@ -823,14 +849,12 @@ def button_insert_threading():
     callout(g, 360, 112, 1)
     callout(g, 74, y0 - 72, 2)
     callout(g, 152, y0 + 76, 3)
-    g.text(24, 382, '1 · Pi ends through FB20 from outside', size=22)
-    g.text(24, 413, '2 · Button pushed in after them', size=22)
-    g.text(24, 444, '3 · Nut on the back, tightened', size=22)
+    g.text(24, 382, '1 Pi ends · 2 Button · 3 Nut', size=22)
     g.save('circuits/button-insert-thread.svg')
 
 
 def button_leads_done():
-    g = action('Insulate the LED leads', 420, 'Side view · leads straight back')
+    g = action('Insulate the LED leads', 420)
     y0 = 225
     g.rect(24, y0 - 32, 32, 64, fill='#e9e6dc', stroke=INK, rx=8)            # lens, Ø13
     g.rect(56, y0 - 45, 35, 90, fill='#292e36', stroke=INK, rx=4)            # 18 mm bezel
@@ -855,8 +879,6 @@ def button_leads_done():
         g.rect(207, yy - 7, 46, 14, fill='#47515b', stroke='#1c2126', sw=1, rx=4)
     g.label(262, 150, 'R1 under sleeve', size=22, anchor='middle', weight=700)
     g.wire([(262, 156), (262, y - 12)], '#ae855e', 2)
-    g.text(24, 364, 'Every tab and joint sleeved.', size=22)
-    g.text(24, 396, 'Leads stay inside the body outline.', size=22)
     g.save('circuits/button-leads-done.svg')
 
 
@@ -874,7 +896,7 @@ def r1_end_on(g, x, y):
 
 
 def button_switch():
-    g=physical_action('Connect the button switch',685,'Button rear · LED pair above switch')
+    g=physical_action('Connect the button switch',685)
     points=header_board(g,{11:BLUE,14:BLUE})
     tabs=button_rear(g,285,305)
     # The LED leads are drawn as stubs; they connect in the next panel.
@@ -893,7 +915,7 @@ def button_switch():
 
 
 def button_led():
-    g=physical_action('Connect the button light',690,'Button rear · LED pair above switch')
+    g=physical_action('Connect the button light',690)
     points=header_board(g,{4:RED,20:BLK})
     tabs=button_rear(g,285,365)
     # The switch leads are drawn as stubs; they connect in the previous panel.
@@ -917,9 +939,8 @@ def button_led():
 
 
 def button_pins():
-    g = action('Button · locate Pi pins', 745, 'Physical pins · viewed from above')
+    g = action('Button · locate Pi pins', 745)
     gpio_map(g, {4: 'R1 → LED +', 11: 'switch NO', 14: 'switch return', 20: 'LED −'}, 152)
-    g.text(24, 737, 'Switch and LED are separate pairs.', size=22)
     g.save('circuits/button-pins.svg')
 
 
@@ -947,7 +968,7 @@ def pi_bench_board(g, x, y, scale):
 
 
 def usb_audio():
-    g = action('USB audio connections', 680, 'Two plug-in connections')
+    g = action('USB audio connections', 680)
     g.text(24,123,'Raspberry Pi 3A+ · E09',size=24,weight=700)
     pi_bench_board(g,24,145,3.4)
     # Male plug enters the Pi's right-facing USB-A receptacle.
@@ -986,7 +1007,7 @@ def usb_audio():
 
 
 def pi_bench_power():
-    g = action('Bench power for the Pi', 620, 'Separate from the USB audio cable')
+    g = action('Bench power for the Pi', 620)
     pi_bench_board(g,72,133,4)
     g.text(24,110,'Raspberry Pi 3A+',size=24,weight=700)
     # Micro-B power connector is on the near edge, beside HDMI.
@@ -1005,7 +1026,7 @@ def pi_bench_power():
 
 
 def servo_circuit(name, port, signal):
-    g = physical_action(f'{name} · servo hookup', 675, 'Connection view')
+    g = physical_action(f'{name} · servo hookup', 675)
     g.rect(132, 141, 154, 112, fill='#32383e', rx=7)
     g.rect(115, 159, 188, 20, fill='#535c64', rx=3)
     g.circle(167, 140, 24, fill='#bdaf92', stroke=INK)
@@ -1056,7 +1077,7 @@ def sh_bundle(g, x0, x1, y):
 
 
 def head_leads():
-    g = action('Head leads · cut the cable', 540, 'Adafruit 6406 · JST-SH 1.0 mm (small)')
+    g = action('Head leads · cut the cable', 540)
     sh_bundle(g, 56, 364, 160)
     sh_plug(g, 30, 160)
     g.rect(364, 143, 26, 34, fill='#eee9df', stroke=INK, sw=1.5, rx=2)
@@ -1068,12 +1089,12 @@ def head_leads():
         sh_bundle(g, 56, 190, y)
         sh_plug(g, 30, y)
         g.text(24, y + 46, use, size=22)
-    lines(g, 510, 'Black GND · red +5 V · white DATA')
+    lines(g, 510, 'JST-SH 1.0 mm (small)', 'Black GND · red +5 V · white DATA')
     g.save('circuits/head-leads.svg')
 
 
 def body_output():
-    g = action('Body · after light 5', 600, 'All three wires continue to the head')
+    g = action('Body · after light 5', 600)
     g.rect(156, 121, 108, 60, fill='#fff2c9', stroke='#a89978', rx=28)
     g.rect(191, 132, 38, 38, fill='#fafcf9', stroke='#e2d48b', rx=8)
     g.text(280, 160, 'Light 5', size=26, weight=700)
@@ -1085,16 +1106,14 @@ def body_output():
     for x, fn in ((180, '+5 V'), (210, 'DATA'), (240, 'GND')):
         g.text(x + 7, 284, fn, size=22, rotate=-90)
     plug_body(g, 262, 430, 'sockets')
-    g.text(24, 330, 'Extend here', size=22)
-    g.text(24, 358, 'if it is short.', size=22)
     g.text(24, 520, 'HEAD LIGHT body half', size=24, weight=700)
     g.text(24, 552, 'JST-SM 2.5 mm (large)', size=22)
-    g.text(24, 582, 'Sockets, like the base half.', size=22)
+    g.text(24, 582, 'Sockets', size=22)
     g.save('circuits/body-output.svg')
 
 
 def head_power():
-    g = physical_action('Head half · eye input lead', 560, 'JST-SM (large) to JST-SH (small)')
+    g = physical_action('Head half · eye input lead', 560)
     g.text(24, 122, 'HEAD LIGHT head half', size=24, weight=700)
     plug_body(g, 290, 135, 'pins')
     # Black 1663 leads fan out to one joint each, then the lead's own colors.
@@ -1110,7 +1129,7 @@ def head_power():
         sh_wire(g, [(127, row), (95, row), (70, slot), (56, slot)], color)
     sh_plug(g, 30, 300)
     g.text(24, 444, 'Eye input lead → first eye IN', size=22)
-    lines(g, 484, 'Join by function, not position.', 'Head half: pins, like the strand input.')
+    lines(g, 484, 'Head half: JST-SM (large), pins', 'Eye input lead: JST-SH (small)')
     g.save('circuits/head-power.svg')
 
 
@@ -1125,8 +1144,8 @@ def eye(g, y, number, label):
 
 
 def head_data():
-    g = action('Head · one chain', 782, 'Eyes 6–7 · mouth 8–15')
-    lines(g, 131, 'Head half → eye input lead', '→ first eye IN. Either eye may be first.')
+    g = action('Head · one chain', 782)
+    lines(g, 160, 'Head half → eye input lead')
     eye(g, 241, 6, 'First eye')
     g.wire([(92, 284), (92, 357)], BLUE, 4, arrow=True)
     g.text(156, 320, 'Eye cable', size=24, weight=700)
@@ -1139,7 +1158,6 @@ def head_data():
     for i in range(8):
         g.rect(35 + i * 45, 593, 31, 30, fill='#f6f3e7', stroke='#adab8b', rx=3)
     g.text(120, 570, 'Mouth · lights 8–15', size=24, weight=700)
-    lines(g, 680, 'Power and DATA follow the same', 'path. Mouth DOUT stays unused.')
     g.save('circuits/head-data.svg')
 
 
@@ -1151,7 +1169,7 @@ def wago_reference():
     # terminal allocations. Four narrow figures replace the all-wire tangle.
     for row in power:
         block = row[0].split()[0]
-        g = action(row[0], 685, 'Port reference · use block labels')
+        g = action(row[0], 685)
         for i, label in enumerate(row[1:], 1):
             y = 148 + (i - 1) * 99
             color = RED if block in ('W1', 'W2') else BLK
@@ -1163,34 +1181,32 @@ def wago_reference():
                 g.text(86, y + 29, 'including C2 −', size=23)
             else:
                 g.text(86, y + 8, label, size=23)
-        lines(g, 620, 'WAGO 221-415 · strip 11 mm.', 'One untinned wire per port.')
+        lines(g, 620, 'WAGO 221-415 · 11 mm strip')
         g.save(f'circuits/{block.lower()}-reference.svg')
 
 
 def solder_detail():
-    g = action('Solder and cover each joint', 690, 'Bench detail · wires disconnected')
-    lines(g, 133, '1 · Slide heat-shrink on first.')
+    g = action('Solder and cover each joint', 690)
+    lines(g, 133, '1 Heat-shrink on first')
     g.wire([(41, 177), (153, 177)], RED, 9)
     g.rect(68, 164, 53, 26, fill='#656c74', rx=5)
     g.wire([(153, 177), (187, 177)], COPPER, 6)
     g.wire([(238, 177), (274, 177)], COPPER, 6)
     g.wire([(274, 177), (376, 177)], RED, 9)
-    lines(g, 263, '2 · Join the bare ends; solder.')
+    lines(g, 263, '2 Soldered joint')
     g.wire([(41, 316), (172, 316)], RED, 9)
     g.rect(68, 303, 53, 26, fill='#656c74', rx=5)
     g.wire([(170, 316), (251, 316)], COPPER, 6)
     g.rect(183, 308, 55, 16, fill='#c2c9cb', stroke=GRAY, rx=8)
     g.wire([(252, 316), (376, 316)], RED, 9)
-    lines(g, 403, '3 · Cover all bare metal; shrink.')
+    lines(g, 403, '3 Joint covered')
     g.wire([(41, 453), (376, 453)], RED, 9)
     g.rect(153, 442, 125, 22, fill='#424b55', rx=6)
-    lines(g, 522, 'Finished: sleeve overlaps insulation', 'at both ends. Pull gently to check.')
-    lines(g, 612, 'Use separately on +, − and DATA.', 'Keep joints away from moving bends.')
     g.save('circuits/solder-insulation.svg')
 
 
 def capacitor_joint_detail():
-    g = action('C2 · positive branch joint', 735, 'Positive leg and +5 V wires')
+    g = action('C2 · positive branch joint', 735)
     for y, covered in ((185, False), (510, True)):
         g.text(24, y - 65, 'F2 output', size=22, weight=700)
         g.text(24, y - 36, '18 AWG', size=22)
@@ -1226,11 +1242,10 @@ def capacitor_joint_detail():
 
 
 def mouth_solder():
-    g = action('Mouth · solder the lead', 700, 'Adafruit 1426 · pad names on the back')
+    g = action('Mouth · solder the lead', 700)
     g.rect(24, 118, 372, 52, fill='#2f413c', rx=5)
     for i in range(8):
         g.rect(35 + i * 45, 129, 31, 30, fill='#f6f3e7', stroke='#adab8b', rx=3)
-    lines(g, 213, 'Eight LEDs · find +5V, GND and', 'DIN on the back.')
     for y, color, pad, source in ((330, RED, '+5V', 'Red'), (440, '#26262b', 'GND', 'Black'), (550, '#f4f4ef', 'DIN', 'White')):
         g.text(24, y - 33, source, size=22, weight=700)
         sh_wire(g, [(28, y), (198, y)], color, 6)
@@ -1239,13 +1254,13 @@ def mouth_solder():
         g.circle(257, y, 11, fill='#c4cbd0', stroke='#d8bc72', sw=4)
         g.wire([(198, y), (257, y)], '#c4cbd0', 5)
         g.text(281, y + 8, pad, size=24, fill='#fff', weight=700)
-    lines(g, 628, 'No solder bridges between pads.', 'DOUT: leave unused.')
+    lines(g, 628, 'DOUT: unused')
     g.save('circuits/mouth-solder.svg')
 
 
 def cut_six():
-    g = action('Body · keep six pebbles', 850, 'Cut only after the strand test passes')
-    g.text(24, 127, 'Mark the tested INPUT end.', size=24, weight=700)
+    g = action('Body · keep six pebbles', 850)
+    g.text(24, 127, 'INPUT end', size=24, weight=700)
     g.wire([(91, 152), (91, 722)], BLUE, 5)
     ordinals = ('1st', '2nd', '3rd', '4th', '5th', '6th', '7th')
     for i, ordinal in enumerate(ordinals):
@@ -1254,14 +1269,13 @@ def cut_six():
         g.rect(79, y - 11, 24, 23, fill='#fafcf9', stroke='#e2d48b', rx=4)
         g.text(158, y + 8, f'{ordinal} pebble · light {i}' if i < 6 else '7th pebble · remove', size=23, weight=700 if i==5 else 400)
     g.wire([(38, 622), (372, 622)], ORANGE, 3, dash='7 5')
-    g.text(158, 614, 'Cut halfway here.', size=23, fill=ORANGE, weight=700)
-    lines(g, 752, 'Keep lights 0–5 from the input end.', 'Leave wire after light 5 for the', 'head light cable.')
+    g.text(158, 614, 'Cut here', size=23, fill=ORANGE, weight=700)
     g.save('circuits/cut-six.svg')
 
 
 def connector_seating():
-    g = action('Plug in until it clicks', 600, 'JST-SM 2.5 mm (large)')
-    lines(g, 133, '+5 V · DATA · GND, top to bottom')
+    g = action('Plug in until it clicks', 600)
+    lines(g, 133, 'JST-SM 2.5 mm (large)', '+5 V · DATA · GND, top to bottom')
     for y, seated in ((230, False), (440, True)):
         x2 = 202 if seated else 262
         for dy in (12, 26, 40):
@@ -1274,13 +1288,11 @@ def connector_seating():
             g.wire([(256, y + 25), (226, y + 25)], BLUE, 3, arrow=True)
             g.text(90, y + 88, 'Pins', size=22, weight=700)
             g.text(262, y + 88, 'Sockets', size=22, weight=700)
-    lines(g, 365, 'Pins go into sockets. Line up the', 'latch and push straight in.')
-    lines(g, 540, 'It clicks. Press the latch to unplug.')
     g.save('circuits/jst-sm-seat.svg')
 
 
 def eye_connector():
-    g = action('Eye · plug into IN', 714, 'JST-SH 1.0 mm (small) · Adafruit 5975')
+    g = action('Eye · plug into IN', 714)
     for y, seated in ((155, False), (406, True)):
         g.rect(192, y, 170, 159, fill='#292f38', stroke=INK, rx=27)
         for yy in (y + 19, y + 140):
@@ -1296,13 +1308,12 @@ def eye_connector():
             sh_wire(g, [(33, y + 80 + dy), (plug_x, y + 80 + dy)], color, 4)
         if not seated:
             g.wire([(148, y + 80), (190, y + 80)], BLUE, 3, arrow=True)
-    lines(g, 354, 'Black GND · red +5 V · white DATA')
-    lines(g, 610, 'Push the housing fully in.', 'Hold housings when unplugging.', 'First eye OUT → second eye IN.')
+    lines(g, 354, 'JST-SH 1.0 mm (small)', 'Black GND · red +5 V · white DATA')
     g.save('circuits/eye-connector.svg')
 
 
 def power_overview():
-    g = action('Power · three branches', 833, 'Reference schematic · no mains inside')
+    g = action('Power · three branches', 833)
     lines(g, 119, 'Mean Well GST40A05-P1J', 'External 5 V, 5 A supply', '→ J1 center → W1 INPUT +5 V')
     g.wire([(49, 201), (49, 614)], RED, 6)
     branches = ((238, 'W1/2 → Pi power lead', 'Pi USB → audio', 'Unfused supply branch'),
@@ -1319,8 +1330,7 @@ def power_overview():
 
 
 def strand_wire_identification():
-    g = action('Strand · identify the wires', 685, 'Adafruit 6026 · inspect your strand')
-    lines(g, 129, 'Clear insulation · enlarged detail')
+    g = action('Strand · identify the wires', 685)
     # Three clear insulated wires, copper identification marks on +5 V.
     for y in (197, 263, 329):
         g.wire([(36, y), (384, y)], '#d7d9d3', 14)
@@ -1330,16 +1340,15 @@ def strand_wire_identification():
     g.text(24, 174, 'Copper coil / dots → +5 V', size=24, weight=700)
     g.text(24, 242, 'Middle wire → DATA (normally)', size=22)
     g.text(24, 309, 'Other outer wire → GND', size=22)
-    lines(g, 387, 'Trace each to its factory lead:')
+    lines(g, 387, 'Factory leads:')
     for y, color, label in ((427, RED, 'red → +5 V'), (470, '#397548', 'green → DATA'), (513, BLK, 'black → GND')):
         g.wire([(29, y), (99, y)], color, 8)
         g.text(121, y + 8, label, size=24, weight=700)
-    lines(g, 577, 'Lots can differ. Stop if marks or', 'colors are missing or disagree.', 'The end with pins is normally the input.')
     g.save('circuits/strand-wire-identification.svg')
 
 
 def strand_test_connection():
-    g=physical_action('BODY LIGHT · strand test',275,'JST-SM 2.5 mm (large) · plugged in')
+    g=physical_action('BODY LIGHT · strand test',275)
     # Two keyed housings, fully mated; wires continue at both ends.
     plug_body(g,118,149)
     g.rect(226,154,61,41,fill='#303740',rx=4)
@@ -1351,11 +1360,12 @@ def strand_test_connection():
     g.text(396,130,'Likely input',size=22,anchor='end',weight=700)
     g.text(24,245,'F2 / C2 / R2',size=22)
     g.text(396,245,'Uncut strand',size=22,anchor='end')
+    g.text(210,280,'JST-SM 2.5 mm (large)',size=22,anchor='middle')
     g.save('circuits/strand-test-connection.svg')
 
 
 def strand_input_result():
-    g = action('Strand · a positive input test', 510, '100-pebble strand · uncut')
+    g = action('Strand · a positive input test', 510)
     g.text(24, 131, 'Connected end · INPUT', size=24, weight=700)
     g.rect(26, 163, 67, 42, fill='#353943', rx=4)
     g.wire([(93, 184), (380, 184), (380, 290), (45, 290), (45, 396), (380, 396)], GRAY, 5)
@@ -1366,10 +1376,10 @@ def strand_input_result():
             x, y = 357 - (i - 8) * 34, 290
         g.rect(x - 12, y - 15, 24, 30, fill='#f6dc79', stroke='#a89978', rx=9)
         g.rect(x - 6, y - 7, 12, 14, fill='#fffdec', stroke='#e7cb65', rx=3)
-    g.text(24, 247, 'First 16 · light in sequence', size=24, weight=700)
+    g.text(24, 247, 'First 16 · lit in order', size=24, weight=700)
     for x in range(89, 375, 41):
         g.rect(x - 12, 381, 24, 30, fill='#deded4', stroke='#a89978', rx=9)
-    lines(g, 452, 'Remaining 84 · should stay dark', 'Remainder shown shortened.')
+    lines(g, 452, 'Remaining 84 · dark')
     g.save('circuits/strand-input-result.svg')
 
 
@@ -1385,8 +1395,8 @@ def meter(g, x, y, reading, unit='DC V'):
 
 
 def supply_polarity_test():
-    g = action('Supply polarity', 725, 'Supply on · disconnected from robot')
-    g.text(210, 127, 'Barrel plug · front view', size=24, anchor='middle', weight=700)
+    g = action('Supply polarity', 725)
+    g.text(210, 127, 'Barrel plug', size=24, anchor='middle', weight=700)
     g.circle(210, 228, 66, fill='#aeb6bb', sw=3)
     g.circle(210, 228, 48, fill='#272d33')
     g.circle(210, 228, 23, fill='#a99c78', stroke='#e0d6bb', sw=3)
@@ -1401,12 +1411,11 @@ def supply_polarity_test():
     meter(g, 136, 460, '5.0–5.25')
     g.wire([(61, 346), (12, 346), (12, 656), (175, 656), (175, 629)], BLK, 4)
     g.wire([(309, 346), (367, 441), (367, 656), (247, 656), (247, 629)], RED, 4)
-    lines(g, 701, 'Positive reading · no minus sign.')
     g.save('circuits/supply-polarity-test.svg')
 
 
 def robot_power_connection():
-    g = action('Power supply connection', 555, 'Barrel plug and power jack · side view')
+    g = action('Power supply connection', 555)
     # Side view of the hollow barrel plug and power jack, aligned for insertion.
     g.rect(70, 210, 108, 60, fill='#303740', rx=12)
     for xx in (82, 96, 110):
@@ -1435,7 +1444,7 @@ def robot_power_connection():
 
 
 def power_jack_terminals():
-    g = action('J1 · identify the rear lugs', 947, 'Switchcraft 721AU · rear / solder view')
+    g = action('J1 · identify the rear lugs', 947)
     # Publisher drawing orientation: sleeve top; shunt right; center lower-left.
     g.circle(211, 262, 110, fill='#d8d7cf', stroke=INK, sw=3)
     g.circle(211, 262, 89, fill='#e9e5db', stroke=GRAY)
@@ -1448,9 +1457,8 @@ def power_jack_terminals():
     g.text(396, 433, 'Unused switched lug', size=22, weight=700, anchor='end')
     g.wire([(150, 285), (66, 341), (66, 414)], RED, 2)
     g.text(24, 474, 'CENTER PIN → +5 V', size=24, fill=RED, weight=700)
-    lines(g, 526, 'Confirm each with continuity.', 'Match the drawing’s rotation first.')
     # Side enlargement: wire through lug eye, then insulated finished joint.
-    lines(g, 614, 'Solder 18 AWG leads on the bench.')
+    lines(g, 614, '18 AWG lead')
     for y, covered in ((670, False), (765, True)):
         g.rect(38, y - 24, 56, 48, fill='#cccac1', rx=2)
         g.rect(94, y - 9, 68, 18, fill='#b9c4c9', rx=6)
@@ -1459,15 +1467,14 @@ def power_jack_terminals():
         g.wire([(202, y + 5), (380, y + 5)], RED, 8)
         if covered:
             g.rect(95, y - 17, 128, 36, fill='#424b55', rx=6)
-    lines(g, 837, 'Cover the full lug and bare wire.', 'Insulate both joints separately;', 'Cap the unused switched lug.')
+    lines(g, 837, 'Heat-shrink over lug and joint')
     g.save('circuits/power-jack-lugs.svg')
 
 
 def tie_mount():
     """Representative physical tie support, not a base placement plan."""
-    g = Svg(420, 606, 'Support the capacitor body')
-    g.text(24, 77, 'Representative placement', size=22, fill=MUTED)
-    g.text(24, 116, '1  Peel, then press', size=24, weight=700)
+    g = Svg(420, 606, 'Support the capacitor body', crop=True)
+    g.text(24, 116, 'Tie square', size=24, weight=700)
     # Loose adhesive square above a flat surface, seen from above and the side.
     g.add('<path d="M39 271 L227 271 L274 242 L86 242 Z" fill="#d7d9d8" stroke="#8d939a" stroke-width="2"/>')
     g.add('<path d="M73 214 L209 214 L246 190 L110 190 Z M73 214 L73 223 L209 223 L246 199 L246 190 M209 214 L209 223" fill="#e3ded1" stroke="#5c6070" stroke-width="2"/>')
@@ -1479,7 +1486,7 @@ def tie_mount():
     g.wire([(229, 216), (229, 256)], BLUE, 3, arrow=True)
     g.text(282, 211, 'Clean,', size=22)
     g.text(282, 239, 'flat face', size=22)
-    g.text(24, 315, '2  Loop, then snug', size=24, weight=700)
+    g.text(24, 315, 'Cable tie', size=24, weight=700)
     # Square and raised tie bridge beneath the body, with its slot visible.
     g.add('<path d="M175 498 L267 498 L291 484 L199 484 Z M175 498 L175 506 L267 506 L291 492 L291 484 M267 498 L267 506" fill="#e3ded1" stroke="#5c6070" stroke-width="2"/>')
     g.rect(197, 474, 48, 24, fill='#f8f5e9', stroke=MUTED, rx=2)
@@ -1503,12 +1510,11 @@ def tie_mount():
     g.wire([(326, 514), (312, 472)], MUTED, 1.5)
     g.text(24, 547, 'Through slot', size=22)
     g.wire([(166, 533), (218, 493)], MUTED, 1.5)
-    g.text(24, 589, 'Bond first. Snug; do not crush.', size=22)
     g.save('circuits/tie-mount.svg')
 
 
 def harness_connections():
-    g=action('Plugs and wire ends',761,'JST-SM 2.5 mm (large) · label halves')
+    g=action('Plugs and wire ends',761)
     for y,title,left,right in ((143,'Body light connector','Base half','Strand input'),(327,'Head light connector','Body half','Head half')):
         g.text(24,y,title,size=25,weight=700)
         plug_body(g,60,y+36,'sockets')
@@ -1520,7 +1526,7 @@ def harness_connections():
         g.wire([(244,y+62),(212,y+62)],BLUE,3,arrow=True)
         g.text(24,y+120,left,size=22)
         g.text(396,y+120,right,size=22,anchor='end')
-    lines(g,486,'Sockets: base half, head light body half.','Pins: strand input, head half.')
+    lines(g,486,'Both pairs: JST-SM 2.5 mm (large)','Sockets: base half, head light body half','Pins: strand input, head half')
     g.text(24,591,'Each servo: three bare wire ends',size=24,weight=700)
     # Actual clamp faces rather than a connector icon at the servo ends.
     for y,color,label,terminal in ((626,RED,'Red · power','WAGO'),(672,SERVO_BROWN,'Brown · ground','WAGO'),(718,SERVO_ORANGE,'Orange · signal','shifter')):

@@ -518,14 +518,6 @@ def draw_node(g, n, c):
 def draw():
     c = circuit()
     g = Svg(WIDTH, HEIGHT, "BlooglyBlob · complete wiring")
-    label(
-        g,
-        28,
-        80,
-        "Every component appears once. Follow each continuous wire from its source to its destination.",
-        25,
-        fill=MUTED,
-    )
     for x, col, title in [
         (30, RED, "+5 V"),
         (200, BLK, "Ground"),

@@ -250,9 +250,11 @@ class Painter:
                 stroke_width=4,
                 stroke_fill=BG,
             )
-        draw.text(
-            (24, 22), title, font=ImageFont.truetype(str(self.font), 34), fill=INK
-        )
+        # The title is a part label, not a heading or an instruction.
+        if title:
+            draw.text(
+                (24, 22), title, font=ImageFont.truetype(str(self.font), 34), fill=INK
+            )
         if footer:
             draw.text(
                 (24, size[1] - 48),
@@ -295,8 +297,8 @@ def make_images(render, output, font):
         witnesses[name + "-floor"] = circle_witness(meshes, 2, floor, [0, 0], 2.5)
     outputs = {}
     for pid, mesh, sign, floor, filename, title in [
-        ("AR02", forearm, 1, -1.75, "wrist-socket.png", "AR02 · forearm magnet"),
-        ("AR03", hand, -1, 1.77, "wrist-peg.png", "AR03 · hand magnet"),
+        ("AR02", forearm, 1, -1.75, "wrist-socket.png", "AR02 · A magnet"),
+        ("AR03", hand, -1, 1.77, "wrist-peg.png", "AR03 · B magnet"),
     ]:
         seated = floor + sign * MAGNET_THICKNESS / 2
         camera = [0.7, -0.65, sign * 1.3]
@@ -319,7 +321,7 @@ def make_images(render, output, font):
         section = paint.panel(
             cut,
             [0.9, -0.65, sign * 0.5],
-            "Seated · cutaway",
+            "",
             labels=[
                 ("Recessed face", [0, 0, floor + sign * MAGNET_THICKNESS], (25, 306))
             ],
@@ -332,7 +334,7 @@ def make_images(render, output, font):
     join = paint.panel(
         forearm + separated_hand + [forearm_magnet, hand_magnet],
         [0.9, -0.7, 0.28],
-        "Seat the hand",
+        "",
         labels=[("AR02", [3.5, 0, -8], (30, 580)), ("AR03", [3, 0, 30], (600, 140))],
         arrows=[([0, 0, 11], [0, 0, 4.5])],
         size=(800, 760),
@@ -368,7 +370,7 @@ def make_images(render, output, font):
         face = paint.panel(
             main_parts,
             [-sign * 1.7, -0.65, 0.45],
-            pid + " · fit the drilled horn",
+            pid,
             labels=[
                 ("2 × M2 × 6", [sign * 20, -9, 90], (25, 100)),
                 ("Horn", [sign * 32, 0, 98], (620, 80)),
@@ -388,7 +390,7 @@ def make_images(render, output, font):
         insert = paint.panel(
             inset + [n],
             [-sign * 0.8, 1.4, 0.8],
-            "Load 2 × M2 nuts from the sides",
+            "2 × M2 nuts",
             labels=[("M2 nut", center, (450, 80))],
             arrows=[([sign * 44.64, 17.4, 90], [sign * 44.64, 9.5, 90])],
             size=(800, 380),
@@ -419,9 +421,9 @@ def make_images(render, output, font):
             paint.panel(
                 mesh,
                 camera,
-                pid + " · inner face",
+                pid,
                 labels=[
-                    ("Glue pegs only", pegs[0], (24, 245)),
+                    ("Pegs", pegs[0], (24, 245)),
                     ("", pegs[1], (260, 245)),
                 ],
                 size=(800, 300),

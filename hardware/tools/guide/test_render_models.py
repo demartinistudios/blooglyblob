@@ -112,8 +112,10 @@ class CloseupReadabilityTests(unittest.TestCase):
                 svg = ET.parse(directory / (name + '.svg')).getroot()
                 self.assertEqual(float(svg.attrib['viewBox'].split()[2]), 420)
                 labels = list(svg.iter('{http://www.w3.org/2000/svg}text'))
-                self.assertGreater(len(labels), 3)
                 self.assertTrue(all(float(t.attrib['font-size']) >= 22 for t in labels))
+                # No drawn title: the guide caption gives the view; text only labels the picture.
+                self.assertEqual(float(svg.attrib['viewBox'].split()[1]), 50)
+                self.assertTrue(all(float(t.attrib['y']) > 60 for t in labels))
 
     def test_compact_audio_labels_preserve_phone_readability(self):
         directory = ROOT / 'hardware/build-guide/src/assets/community'

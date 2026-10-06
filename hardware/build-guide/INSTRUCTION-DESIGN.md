@@ -248,11 +248,26 @@ carry it over silently or guess a new procedure.
 
 ### Captions
 
-A caption says what the picture shows: the view direction, what is cut away,
-and what is highlighted. It never repeats the action, gives an instruction,
-disclaims the drawing ("not to scale", "illustrative only", "does not show")
-or carries a fact the builder needs. Put needed facts in the action. Leave the
-caption empty when the panel title already says what the picture shows.
+Each kind of text has one job, the same in every picture:
+
+- **Inside the picture: labels only.** Part names and IDs, wire colors and
+  functions, pins, ports, sizes, quantities, connector size (JST-SM 2.5 mm or
+  JST-SH 1.0 mm), a key for numbered marks or colors, and short pointers at one
+  spot ("Cut here", "Slide in"). No title, no view line, no sentences, no
+  instructions, results or disclaimers.
+- **Under the picture: the caption.** Every step picture has one. It says what
+  the picture shows and from where: the view direction, what is cut away or
+  drawn apart, and what is highlighted. A picture used in several places has
+  the same caption everywhere. Name a part in full the first time a step
+  mentions it, even in a caption.
+- **In the actions: everything the builder does or checks.** A caption never
+  repeats an action, gives an instruction, disclaims the drawing ("not to
+  scale", "illustrative only", "does not show") or carries a fact the builder
+  needs. Put needed facts in the action.
+
+The writing check enforces the caption rules (`caption-missing`,
+`caption-mismatch`, `caption-repeats-action`, `caption-without-picture`), and
+the drawing tests reject sentences inside generated wiring drawings.
 
 ## Safety messages
 
@@ -547,14 +562,14 @@ soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
    WAGO (W2/1). Mark where it reaches without tension.
 2. Cut the wire at the mark. Strip 11 mm from each end.
 
-*Caption:* Red 18 AWG lead with an 11 mm stripped end at each side.
+*Caption:* The servo feed wire, stripped at both ends.
 
 **Panel 2: Connect the servo feed**
 
 1. Insert one end into W1/3. Insert the other end into W2/1. Close both levers.
 2. Keep W2/2 to W2/4 free for the three servos.
 
-*Caption:* Direct connection from W1/3 to W2/1.
+*Caption:* Wire-entry faces of W1 and W2.
 
 **Panel 3: Prepare and connect the servo capacitor**
 
@@ -569,7 +584,7 @@ soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
 3. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
    Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.
 
-*Caption:* Connection view of C1, W2 and W3.
+*Caption:* C1 with its sleeved wires, and the wire-entry faces of W2 and W3.
 
 **Check:** One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct.
 Its two insulated wires are separate.

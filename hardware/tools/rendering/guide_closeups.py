@@ -40,7 +40,7 @@ class Views:
         return [dict(m) for m in self.original if m['id'] in ids and
                 (occurrence is None or m['occ']==occurrence)]
 
-    def emit(self, name, parts, camera, title, notes, arrows=(), marks=()):
+    def emit(self, name, parts, camera, title, labels, arrows=(), marks=()):
         self.render.meshes=parts
         points=np.concatenate([m['v'] for m in parts]);bounds=[points.min(0)-2,points.max(0)+2]
         self.render.render('closeup-'+name,dict(select=['all'],camera=camera,clean=True,
@@ -59,12 +59,15 @@ class Views:
             body+=f'<path d="M{a[0]:.2f},{a[1]:.2f}L{b[0]:.2f},{b[1]:.2f}" fill="none" stroke="#a95522" stroke-width="3" marker-end="url(#arrow)"/>'
         for label,p in marks:
             x,y=project(p);body+=f'<circle cx="{x:.2f}" cy="{y:.2f}" r="14" fill="#fff5d4" stroke="#8b4c22"/>'+text(x,y+8,label,anchor='middle')
-        self.save(name,title,body,notes)
+        self.save(name,title,body,labels)
 
-    def save(self,name,title,body,notes):
-        height=466+30*len(notes)
-        svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 {height}" role="img"><title>{html.escape(title)}</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a95522"/></marker></defs><rect width="420" height="{height}" fill="{BG}"/><g font-family="Arial, sans-serif">'+text(18,32,title)+body
-        svg+=''.join(text(18,450+i*30,note) for i,note in enumerate(notes))+'</g></svg>'
+    def save(self,name,title,body,labels):
+        # The title names the picture for screen readers only; the guide caption
+        # gives the view and the actions give instructions. Labels name parts,
+        # sizes and numbered marks, under the picture.
+        bottom=466+30*(len(labels)-1) if labels else 430
+        svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 420 {bottom-50}" role="img"><title>{html.escape(title)}</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a95522"/></marker></defs><rect y="50" width="420" height="{bottom-50}" fill="{BG}"/><g font-family="Arial, sans-serif">'+body
+        svg+=''.join(text(18,450+i*30,label) for i,label in enumerate(labels))+'</g></svg>'
         (self.output/(name+'.svg')).write_text(svg)
         self.paths.append('assets/community/'+name+'.svg')
 
@@ -122,25 +125,25 @@ def render_closeups(render, output):
     fv=np.array([[0,0,10]]+outline);ff=[[0,i+1,(i+1)%len(outline)+1] for i in range(len(outline))]
     film=item(trimesh.Trimesh(ep(fv),ff,process=False),'Clear film',(168,210,230))
     v.emit('eye-film-insertion',eye(['GS11'])+[film],[.45,1,.55],'Seat the clear film first',
-           ['12.6 × 8.6 mm blank · R4.2 corners','Bow gently beneath the front lip','One film piece per eye'],arrows=[(ep([0,0,9]),ep([0,0,-1]))])
+           ['12.6 × 8.6 mm · R4.2 corners'],arrows=[(ep([0,0,9]),ep([0,0,-1]))])
     v.emit('eye-foam-insertion',eye(['GS11','EYEFOAM'],{'EYEFOAM':[0,0,12]}),[.45,1,.55],'Place foam behind the film',
-           ['14 × 10 mm patch · 4 mm thick','Foam sits inside the housing','Keep the mounting holes clear'],arrows=[(ep([0,0,12]),ep([0,0,2]))])
+           ['14 × 10 mm · 4 mm thick'],arrows=[(ep([0,0,12]),ep([0,0,2]))])
     parts=eye(['GS11'])+[nut(ep([x,-15,-1.8]),ep([0,0,1])) for x in [-9,9]]
     v.emit('eye-housing-nuts',parts,[.25,1,.65],'Load the two housing nuts',
-           ['2 × M2 nuts · enter at the top','Slide beneath each retaining roof','Keep the broad faces flat · no glue'],arrows=[(ep([x,-13,-1.8]),ep([x,-1,-1.8])) for x in [-9,9]])
+           ['2 × M2 nuts'],arrows=[(ep([x,-13,-1.8]),ep([x,-1,-1.8])) for x in [-9,9]])
     parts=eye(['P06'])+[nut(ep([0,y,0]),ep([0,0,1])) for y in [-4.318,4.318]]
     v.emit('eye-board-nuts',parts,[.35,-1,.55],'Load the two board nuts',
-           ['2 × M2 nuts in P06','This side faces the foam','Seat the nuts in the rectangular slots'],arrows=[(ep([0,y,.8]),ep([0,y,5])) for y in [-4.318,4.318]])
+           ['2 × M2 nuts · P06'],arrows=[(ep([0,y,.8]),ep([0,y,5])) for y in [-4.318,4.318]])
     parts=eye(['P06','E03'])
     for y in [-4.318,4.318]:parts+=hardware(2,6,ep([0,y,17]),ep([0,0,-1]))+[nut(ep([0,y,5]),ep([0,0,1]))]
     v.emit('eye-board-fastening',parts,[.45,1,.5],'Screw the LED board to P06',
-           ['2 × M2 × 6 · no washers','LED faces the foam opening','Both sockets face inside the head'],arrows=[(ep([0,y,16]),ep([0,y,10.57])) for y in [-4.318,4.318]])
+           ['2 × M2 × 6'],arrows=[(ep([0,y,16]),ep([0,y,10.57])) for y in [-4.318,4.318]])
     wall=clipped(eye(['GS20']),[[-20,-1,-14],[20,8,14]])
     for m in wall:m['guide_color']=(110,141,203)
     parts=wall+eye(['GS11'],{'GS11':[0,0,-8]})
     parts += [nut(ep([x,0,-9.8]),ep([0,0,1])) for x in [-9,9]]
     v.emit('eye-housing-seating',parts,[.75,-1,.45],'Seat the eye housing from outside',
-           ['GS11 · one housing shown','Blue: head wall cutaway','Housing nuts already in place'],
+           ['GS11 · blue: head wall, cut away'],
            arrows=[(ep([0,0,-7]),ep([0,0,-1]))])
     parts=eye(['GS11','P06','E03'],{'GS11':[0,0,-5],'P06':[0,0,9],'E03':[0,0,9]})
     wall=clipped(eye(['GS20']),[[-16,-1,-12],[16,8,12]])
@@ -149,7 +152,7 @@ def render_closeups(render, output):
     parts+=wall
     for x in [-9,9]:parts+=hardware(2,10,ep([x,0,23]),ep([0,0,-1]))+[ring(ep([x,0,19]),ep([0,0,1]),2.185,1.155,.25,'Thin washer'),nut(ep([x,0,-6.8]),ep([0,0,1]))]
     v.emit('eye-cassette-fastening',parts,[.9,1,.45],'Fit the cassette from inside',
-           ['2 × M2 × 10 + thin washers','Through P06 and the head wall','Into the two housing nuts','Blue: a cutaway of the head wall'],arrows=[(ep([x,0,22]),ep([x,0,8])) for x in [-9,9]])
+           ['2 × M2 × 10 + thin washers','Blue: head wall, cut away'],arrows=[(ep([x,0,22]),ep([x,0,8])) for x in [-9,9]])
     parts=v.parts(['GS20','GS11','GS12','P06','E03'])
     for ref in v.parts(['P06']):
         t=np.array(ref['source']['transform']).reshape(4,4)
@@ -158,36 +161,35 @@ def render_closeups(render, output):
         for x in [-9,9]:parts+=hardware(2,10,world([x,0,7.75]),axis)+[ring(world([x,0,7.625]),axis,2.185,1.155,.25,'Thin washer')]
         for yy in [-4.318,4.318]:parts+=hardware(2,6,world([0,yy,10.57]),axis)
     v.emit('eye-installed-inside',parts,[0,1,-1.3],'Both eyes, seen from inside',
-           ['Fit the eyes before the mouth','Short screws hold each LED board','Outer screws hold each cassette','Keep all four sockets accessible'])
+           [])
     # Servo-ear coordinates come from accepted carrier bores and reference ears.
     # Show whole purchased reference envelopes; never slice them into hollow boxes.
     parts=clipped(v.parts(['P03']),[[20,-30,65],[28,25,104]])+[nut([16,0,z],[1,0,0]) for z in [71,98.7]]
     v.emit('shoulder-servo-nuts',parts,[-1,1,.6],'Load the shoulder-servo nuts',
-           ['2 × M2 nuts per servo · 4 total','Press into the inner hex pockets','One side shown · repeat opposite'],arrows=[([17,0,z],[23.9,0,z]) for z in [71,98.7]])
+           ['2 × M2 nuts per servo'],arrows=[([17,0,z],[23.9,0,z]) for z in [71,98.7]])
     parts=v.parts(['P03'])+v.parts(['E01'],0)
     for z in [71,98.7]:parts+=hardware(2,6,[36,0,z],[-1,0,0])+[nut([23.9,0,z],[1,0,0])]
     v.emit('shoulder-servo-fastening',parts,[1,1,.55],'Fasten both shoulder servos',
-           ['2 × M2 × 6 per servo · 4 total','Screw → servo ear → P03 → nut','Fit before mounting P03 to frame'],arrows=[([35,0,z],[28.5,0,z]) for z in [71,98.7]])
+           ['2 × M2 × 6 per servo'],arrows=[([35,0,z],[28.5,0,z]) for z in [71,98.7]])
     parts=v.parts(['P04'])+[nut([0,y,94],[0,0,1]) for y in [-19,8.7]]
     v.emit('head-servo-nuts',parts,[1,-.7,-1],'Load the head-servo nuts',
-           ['2 × M2 nuts in P04','Press into underside hex pockets','View from beneath the bracket'],arrows=[([0,y,95],[0,y,100.2]) for y in [-19,8.7]])
+           ['2 × M2 nuts · P04'],arrows=[([0,y,95],[0,y,100.2]) for y in [-19,8.7]])
     parts=v.parts(['P04'])+v.parts(['E01'],2)
     for y in [-19,8.7]:parts+=hardware(2,6,[0,y,112],[0,0,-1])+[nut([0,y,100.2],[0,0,1])]
     v.emit('head-servo-fastening',parts,[.9,-1,1.2],'Fasten the head servo',
-           ['2 × M2 × 6 enter from above','Screw → servo ear → P04 → nut','Fit before mounting P04 to frame'],arrows=[([0,y,111],[0,y,104.8]) for y in [-19,8.7]])
+           ['2 × M2 × 6'],arrows=[([0,y,111],[0,y,104.8]) for y in [-19,8.7]])
     # Horn product geometry is not in CAD: use an explicitly schematic outline.
     body='<circle cx="210" cy="240" r="140" fill="#e3dccb" stroke="#675d4b" stroke-width="3"/>'
     body+='<circle cx="210" cy="240" r="25" fill="'+BG+'" stroke="#675d4b" stroke-width="2"/>'
     for x in [103,317]:body+=f'<circle cx="{x}" cy="240" r="13" fill="{BG}" stroke="#a95522" stroke-width="3"/>'
     body+='<path d="M103 285V320M317 285V320M103 305H317" fill="none" stroke="#22384e" stroke-width="2"/>'+text(210,348,'≈18 mm hole centers',anchor='middle')
-    v.save('horn-drill-pair','Drill one opposite pair',body,
-           ['3 original round servo horns','Open only the selected pair to Ø2.2','Keep the center opening unchanged','Drill off the servo · support the disk'])
+    v.save('horn-drill-pair','Drill one opposite pair',body,['Ø2.2 mm'])
     body='<path d="M65 195H355V220H253V325H167V220H65Z" fill="#e3dccb" stroke="#675d4b" stroke-width="3"/>'
     body+='<path d="M194 195V308L201 299L210 308L219 299L226 308V195" fill="'+BG+'" stroke="#675d4b" stroke-width="2"/>'
     body+='<path d="M105 185V230M315 185V230" stroke="'+BG+'" stroke-width="12"/>'
     body+=text(210,145,'Flat disk against printed recess',anchor='middle')+text(210,368,'Long splined hub → servo shaft',anchor='middle')
     v.save('horn-side-orientation','Which side faces the servo?',body,
-           ['Side section · shape is schematic','Two offset screws attach the print','Center screw attaches to the shaft','Fit on the shaft only at the fit position'])
+           [])
     render.meshes=v.original
     return v.paths
 

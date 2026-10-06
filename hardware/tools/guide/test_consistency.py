@@ -346,6 +346,21 @@ class WritingTests(unittest.TestCase):
         self.assertEqual(len(found), 1, found)
         self.assertTrue(found[0].startswith('caption-repeats-action: fixture panels[0].caption'))
 
+    def test_picture_without_caption_warns(self):
+        self.step['panels'][0]['caption'] = ''
+        self.assertEqual(len(self.warnings('caption-missing')), 1)
+
+    def test_reused_picture_keeps_one_caption(self):
+        self.step['panels'].append(dict(title='Again', image='fit.svg', caption='Side view.', actions=[]))
+        found = self.warnings('caption-mismatch')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('fixture panels[1].caption', found[0])
+
+    def test_caption_without_picture_warns(self):
+        del self.step['panels'][0]['image']
+        found = self.warnings()
+        self.assertTrue(any(w.startswith('caption-without-picture: fixture panels[0].caption') for w in found))
+
     def test_banned_terms_in_actions_notes_and_captions(self):
         self.step['actions'][0] = 'Dress the cable along the rib.'
         self.step['note'] = 'Simply check the fit.'
@@ -613,7 +628,7 @@ class ReviewTests(unittest.TestCase):
 
     def test_real_sentence_over_the_limit_fails_the_check(self):
         step = dict(id='fixture', title='Fit the grille', actions=[' '.join(['word'] * 21) + '.'], check='', note='',
-                    panels=[dict(title='Fit', image='fit.svg', caption='', actions=[0])])
+                    panels=[dict(title='Fit', image='fit.svg', caption='Front view.', actions=[0])])
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
             for name in ('check_panels', 'check_quantities', 'check_tools', 'check_animation_assets', 'check_references', 'check_reference_page'):

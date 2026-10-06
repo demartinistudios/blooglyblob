@@ -119,7 +119,6 @@ class CircuitDiagramTests(unittest.TestCase):
         text = self.texts('circuits/supply-polarity-test.svg')
         self.assertIn('Black: outer sleeve', text)
         self.assertIn('Red: inside center', text)
-        self.assertIn('Positive reading · no minus sign.', text)
 
     def wire_paths(self, name, color):
         paths = []
@@ -168,17 +167,27 @@ class CircuitDiagramTests(unittest.TestCase):
     def test_head_half_joins_eye_lead_by_function(self):
         # JST-SM is +5 V, DATA, GND; the eye lead's JST-SH order is GND, +5 V, DATA.
         texts = self.texts('circuits/head-power.svg')
-        for label in ('+5 V', 'DATA', 'GND', 'Join by function, not position.'):
+        for label in ('+5 V', 'DATA', 'GND', 'Head half: JST-SM (large), pins', 'Eye input lead: JST-SH (small)'):
             self.assertIn(label, texts)
 
     def test_strand_test_names_pins_end_as_likely_input_without_cutting(self):
         identification = self.texts('circuits/strand-wire-identification.svg')
-        self.assertIn('The end with pins is normally the input.', identification)
-        self.assertIn('colors are missing or disagree.', identification)
+        self.assertIn('Copper coil / dots → +5 V', identification)
+        # The likely-input rule and the stop condition are instructions, so they live in the actions.
+        actions = ' '.join(next(s for s in json.loads((ROOT / 'hardware/build-guide/src/guide-data.json').read_text())['steps']
+                                if s['id'] == 'light-fuse-capacitor')['actions'])
+        self.assertIn('is normally the input', actions)
+        self.assertIn('factory lead colors disagree, stop', actions)
         result = self.texts('circuits/strand-input-result.svg')
-        self.assertIn('100-pebble strand · uncut', result)
-        self.assertIn('Remaining 84 · should stay dark', result)
+        self.assertIn('First 16 · lit in order', result)
+        self.assertIn('Remaining 84 · dark', result)
         self.assertFalse(any('cut here' in t.lower() for t in result))
+
+    def test_drawings_carry_labels_not_titles_or_sentences(self):
+        # The guide caption gives the view and the actions give instructions.
+        for generated in self.out.rglob('*.svg'):
+            for text in self.texts(generated.relative_to(self.out)):
+                self.assertFalse(text.rstrip().endswith('.'), f'{generated.name}: {text}')
 
     def test_unknown_resistor_is_rejected_instead_of_drawing_wrong_bands(self):
         with self.assertRaises(KeyError):

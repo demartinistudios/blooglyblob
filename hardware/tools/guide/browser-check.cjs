@@ -381,7 +381,8 @@ fs.mkdirSync(OUT,{recursive:false});
      const step=data.guide.steps.find(s=>s.id===route.slice(5));
      assert.equal(await page.locator('.action-panel').count(),step.panels.length);
      assert.equal(await page.locator('.action-copy .instructions li').count(),step.actions.length);
-     assert.equal(await page.locator('.action-copy .action-note').count(),step.panels.filter(p=>p.caption).length,'notes remain with action text');
+     assert.equal(await page.locator('.action-copy .action-note').count(),0,'captions stay out of the action text');
+     assert.deepEqual(await page.locator('.action-panel').evaluateAll(ps=>ps.map(p=>p.querySelector('.action-panel-body > .diagram figcaption .diagram-caption')?.textContent||'')),step.panels.map(p=>p.caption?textOf(p.caption):''),'each caption sits under its own picture: '+route);
      const rendered=await page.locator('.action-panel').evaluateAll(panels=>panels.map(panel=>({
       title:panel.querySelector('h2').textContent,
       actions:[...panel.querySelectorAll('.instructions li')].map(li=>li.textContent),

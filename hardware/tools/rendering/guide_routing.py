@@ -134,15 +134,13 @@ def render_routes(render, output, parts):
                       [[-80,-90,-65],[44,14,0]])
     detail.emit('usb-audio-route-depth',usb_parts,[.55,.85,-1.4],
         'Find both USB endpoints',
-        ['Detail · Pi/base partly omitted','1 Pi USB · 2 audio USB',
-         'Leave a relaxed bend at each end'],
+        ['1 Pi USB · 2 audio module USB'],
         marks=[('1',[-53.5,-3,-22]),('2',[-25,-80,-26])])
     power_parts=[m for m in parts if m['id']=='E09' or
                  (m['id']=='E06' and np.mean(m['v'],axis=0)[1]>10)] + power
     detail.emit('pi-power-route-depth',power_parts,[.6,.75,-1.3],
         'Route the short power lead',
-        ['Oblique view · base omitted','1 Pi POWER · 2 W1/2 · 3 W3/2',
-         'Gentle bends; no extra service loop'],
+        ['1 Pi power · 2 W1/2 · 3 W3/2'],
         marks=[('1',[-22,53.4,-22]),('2',[42,42.7,-17.2]),('3',[42,12.7,-17.2])])
     paths.extend(detail.paths)
     parts=[m for m in parts if m['id'] in ('FB01','E06')]
@@ -157,8 +155,7 @@ def render_routes(render, output, parts):
     v=Views(render,output)
     wago=[m for m in parts if m['id']=='E06' and np.mean(m['v'],axis=0)[1]>40]
     v.emit('wago-port-order',wago,[0,.001,-1.4],'Number the WAGO ports',
-           ['Same open-bottom view','1 is on the picture’s right',
-            'Front = wire-entry edge'],
+           [],
            marks=[(str(i+1),[x,42.7,-17.2]) for i,x in enumerate([36,42,48,54,60])])
     paths.extend(v.paths)
     render.meshes=original

@@ -112,8 +112,11 @@ def render(name,view,thumb=False):
    if L<18:continue
    u=vec/L;p=p+u*5;q=q-u*5;draw.line([tuple(p),tuple(q)],fill=(200,91,29),width=2)
    draw.ellipse((q[0]-3,q[1]-3,q[0]+3,q[1]+3),fill=(200,91,29))
-  draw.text((25,24),view.get('title',REVISION.upper()+'  /  '+('SEPARATED PARTS' if arrows else 'ASSEMBLY VIEW')),font=font(23 if len(view.get('title',''))>65 else 25),fill=(34,56,78))
-  draw.text((30,H-40),view.get('footer','Opaque CAD surfaces • spacing is illustrative, not installation travel'),font=font(19),fill=(65,85,102))
+  # Guide pictures carry no drawn title or footnote: the guide caption gives
+  # the view and the actions give instructions. Review renders keep both.
+  if not view.get('guide'):
+   draw.text((25,24),view.get('title',REVISION.upper()+'  /  '+('SEPARATED PARTS' if arrows else 'ASSEMBLY VIEW')),font=font(23 if len(view.get('title',''))>65 else 25),fill=(34,56,78))
+   draw.text((30,H-40),view.get('footer','Opaque CAD surfaces • spacing is illustrative, not installation travel'),font=font(19),fill=(65,85,102))
   # Direction compass follows the actual projection, not page conventions.
   origin=np.array([W-140,H-115])
   for vec,label in [([0,-1,0],'FRONT'),([0,1,0],'BACK'),([0,0,1],'UP')]:
