@@ -902,7 +902,12 @@ def button_insert_threading():
     g.rect(104, y0 - 36, 108, 72, fill='#343b43', stroke=INK, rx=2)
     for x in range(140, 206, 9):
         g.wire([(x, y0 - 36), (x + 4, y0 + 36)], '#55585f', 2)
-    g.rect(118, y0 - 50, 16, 100, fill='#b3bac0', stroke=INK, sw=1, rx=2)
+    # Retaining nut, its toothed face against the insert.
+    g.rect(122, y0 - 50, 14, 100, fill='#b3bac0', stroke=INK, sw=1, rx=2)
+    teeth = ' '.join(f'{122 if i % 2 == 0 else 118},{y0 - 50 + i * 5}' for i in range(21))
+    g.add(f'<polygon points="{teeth} 122,{y0 + 50}" fill="#b3bac0" stroke="{INK}" stroke-width="1.5" stroke-linejoin="round"/>')
+    g.label(160, y0 - 70, 'Teeth', size=22, weight=700)
+    g.wire([(168, y0 - 64), (124, y0 - 44)], '#ae855e', 2)
     # Sleeved tabs, then the four labeled Pi ends out of the back.
     rows = ((y0 - 27, 20, BLK), (y0 - 9, 4, RED), (y0 + 9, 11, BLUE), (y0 + 27, 14, BLUE))
     for i, (y, pin, color) in enumerate(rows):

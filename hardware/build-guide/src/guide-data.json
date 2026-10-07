@@ -23,6 +23,8 @@
         "If you paint, keep paint off nut pockets, threads, mating faces and adhesive contact areas.",
         "Let the paint cure for the time on its label before assembly.",
         "Gather the tools in the {tools}.",
+        "Put the soldering iron\u2019s stand beside you, away from your lap and out of children\u2019s reach.",
+        "Wear safety glasses while you solder, cut or clip leads.",
         "Sort the screws by size.",
         "Keep each servo\u2019s horn and center screw together."
       ],
@@ -54,6 +56,14 @@
             3,
             4,
             5
+          ]
+        },
+        {
+          "title": "Sort the screws",
+          "textOnly": true,
+          "actions": [
+            6,
+            7
           ]
         }
       ]
@@ -1960,8 +1970,7 @@
       "actions": [
         "Unscrew the retaining nut from the button (E17). Set it aside for {step:button}.",
         "Hold the back toward you, with the closer pair of tabs on top. That pair is LED \u2212 on the left and LED + on the right. The wider lower pair is the switch.",
-        "With the meter in continuity mode, check that the switch pair closes only while you press the button.",
-        "If it beeps all the time or never, press both probes firmly onto the tabs and check again. If it still fails, replace the button.",
+        "With the meter in continuity mode, touch the probes to the lower pair. It beeps only while you press the button.",
         "Take four 30 cm GPIO jumper leads (E24). Keep the 2.54 mm female socket on one end of each. Label each socket with its Pi pin: 11, 14, 20 or 4.",
         "Cut off the connector at the other end of each lead. Strip the cut end.",
         "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Cover each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
@@ -2014,8 +2023,7 @@
           "image": "assets/circuits/button-switch-check.svg",
           "caption": "Rear view of the button, with meter probes on the switch tabs.",
           "actions": [
-            2,
-            3
+            2
           ]
         },
         {
@@ -2023,9 +2031,9 @@
           "image": "assets/circuits/button-leads-prepare.svg",
           "caption": "One lead as supplied, then the four prepared leads.",
           "actions": [
+            3,
             4,
-            5,
-            6
+            5
           ]
         },
         {
@@ -2033,9 +2041,9 @@
           "image": "assets/circuits/button-leads-switch.svg",
           "caption": "View from above, with the button on a bezel flat and the switch pair on top.",
           "actions": [
+            6,
             7,
-            8,
-            9
+            8
           ]
         },
         {
@@ -2043,9 +2051,9 @@
           "image": "assets/circuits/button-leads-led.svg",
           "caption": "View from above, turned over, with both LED sleeves pushed back.",
           "actions": [
+            9,
             10,
-            11,
-            12
+            11
           ]
         },
         {
@@ -2053,9 +2061,9 @@
           "image": "assets/circuits/button-leads-done.svg",
           "caption": "Side view of the finished leads. The dashed lines show the body outline.",
           "actions": [
+            12,
             13,
-            14,
-            15
+            14
           ]
         }
       ]
@@ -2066,7 +2074,7 @@
       "chapter": "Base boards and controls",
       "actions": [
         "On the bench, pass the four Pi ends through the button insert (FB20) from the outside. Push the button (E17) in after them.",
-        "Pass the Pi ends through the retaining nut. Tighten the nut against the back of the insert.",
+        "Pass the Pi ends through the retaining nut, with its toothed face toward the insert. Tighten the nut against the back of the insert.",
         "Keep the base (FB01) upside down, with its open bottom facing up. Keep it level until both screws are in. Do not glue these nuts.",
         "Through the open bottom, drop an M3 nut into the pocket beside the button opening, away from the foot post. Match its flats to the pocket.",
         "Beside the foot post, slide a second M3 nut sideways into its pocket from the button opening. Match its flats to the pocket.",
@@ -3318,7 +3326,7 @@
         "N3": 3
       },
       "actions": [
-        "Hold the head horn adapter (P14) flange up. Slide an M2 nut into each of the two side slots in its hub.",
+        "Hold the head horn adapter (P14) flange up. With tweezers, slide an M2 nut into each of the two side slots in its hub.",
         "Hold a drilled horn (E02) in the recess under the adapter. Its flat disk goes against the adapter. Its long splined hub faces away, toward the servo.",
         "Line up the drilled holes with the nuts. Put an M2\u00d76 screw up through each hole into its nut. Tighten both. Keep the horn\u2019s center screw aside.",
         "Hold the head shelf (P08) off the bench, with its three raised nut pockets facing up. Lower the adapter\u2019s hub through the shelf\u2019s center from above.",
@@ -3856,13 +3864,15 @@
         "T03": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "T07": 1
       },
       "hardware": {},
       "actions": [
         "Count six pebbles from the end marked INPUT. Cut the wire midway between the sixth and seventh pebbles.",
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
+        "Split the three strand wires apart for about 15 mm after light 5. Push the craft knife tip between two wires. Pull one wire gently along the blade. The wires are thin.",
         "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its three wires to the matching strand wires after light 5. Cover each joint with heat-shrink slid on before soldering.",
         "This is the head light cable. It must reach about 10 cm above the upper foam collar (P01), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
         "With the meter in continuity mode, touch the body half\u2019s +5 V and GND contacts. The meter must not beep steadily."
@@ -3893,13 +3903,14 @@
           "caption": "The strand after light 5, with the HEAD LIGHT body half.",
           "actions": [
             3,
-            4
+            4,
+            5
           ]
         },
         {
           "title": "Check for a short",
           "actions": [
-            5
+            6
           ],
           "textOnly": true
         }
