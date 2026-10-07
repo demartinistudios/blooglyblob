@@ -518,3 +518,43 @@ def render_board_closeups(render, output):
                 ('S1',[-18,-17,-25],(55,110)),('S2',[-18,-39,-25],(455,350))])
     render.meshes=v.original
     return v.paths
+
+
+
+FOAM_H=114.3
+
+
+def render_body_closeups(render, output):
+    """Body foam with round shoulder holes, and the rear seam stack exploded outward."""
+    v=Views(render,output)
+    foam=v.parts(['FOAM'])
+    for m in foam:m['guide_color']=(232,236,240)
+    frame=v.parts(['P01','P02','P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
+    for m in frame:
+        if m['id'] in ('P01','P02','P03'):m['guide_color']=(177,189,202)
+    backing=[m for m in v.parts(['P09']) if m['v'][:,2].min()>70]
+    for m in backing:m['guide_color']=(41,114,140)
+    v.emit('body-foam-holes',frame+backing+foam,[-1.35,.95,.4],
+           'The body foam wrapped between the collars, each shoulder servo top through its round hole',
+           ['1  14 mm shoulder hole','2  Rear seam, 2 mm gap'],
+           marks=[('1',[-41,0,104]),('2',[0,45,62])])
+    rear=lambda parts:[m for m in parts if m['v'][:,1].mean()>0]
+    upright=rear(v.parts(['P02']))
+    for m in upright:m['guide_color']=(177,189,202)
+    seam=clipped(foam,[[-14,20,0],[14,45,FOAM_H]])
+    def moved(parts,dy):
+        return [dict(m,v=m['v']+[0,dy,0]) for m in parts]
+    backs=v.parts(['P09'])+v.parts(['P12'])
+    for m in backs:m['guide_color']=(41,114,140)
+    covers=v.parts(['P10'])
+    for m in covers:m['guide_color']=(41,114,140)
+    from guide_fasteners import hex_nut
+    nuts=[hex_nut(3,[0,26.5,z],[0,1,0]) for z in (22,46,90)]
+    screw=hardware(3,16,[0,40,22],[0,-1,0])
+    parts=upright+nuts+moved(backs,14)+moved(seam,30)+moved(covers,48)+moved(screw,64)
+    v.emit('rear-seam-stack',parts,[1.6,.55,.3],
+           'The rear seam from behind, drawn apart: upright and nuts, seam backings, foam ends, seam covers and the lower screw',
+           ['1  Rear upright (P02), nuts inside','2  Seam backing (P09) ×2','3  Rear body-light bracket (P12)','4  Foam ends (C04)','5  Seam cover (P10) ×3','6  M3×16, lower cover only'],
+           marks=[('1',[0,30,112]),('2',[0,52,104]),('3',[0,52,62]),('4',[0,68,112]),('5',[0,88,104]),('6',[0,108,30])])
+    render.meshes=v.original
+    return v.paths

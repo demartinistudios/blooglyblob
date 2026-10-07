@@ -4094,16 +4094,18 @@
         "Slide an M3 nut into the lower side slot on the robot-right face of the rear upright.",
         "Run the three servo cables and the body half of the body light connector down the frame. Pass them through the harness opening into the base.",
         "Keep them clear of the rear seam and of sharp edges.",
-        "Cut the body foam (C04) from the body foam template: 224.8 \u00d7 114.3 mm, from 4 mm foam. Cut it slightly long.",
-        "Cut the two knife slits marked on the template, one to each shoulder. Remove no foam.",
-        "Test-fit the foam between the two foam collars (P01), front center at the front upright. Trim both ends to a 2 mm gap at the rear upright. Keep the edge notches full size.",
+        "Print the body foam template at 100% (actual size), landscape. Check its 50 mm bar with a ruler.",
+        "Cut the body foam (C04) from 4 mm foam along the template outline, slightly long.",
+        "Test-fit the foam between the two foam collars (P01), top edge up, front center at the front upright. Trim both ends to a 2 mm gap at the rear upright.",
+        "With the foam still in place, feel each shoulder servo shaft through it. Mark the foam over the center of each shaft.",
+        "Unwrap the foam. Cut a round 14 mm hole at each mark, the size of the circle on the template.",
         "Hold a rear seam backing (P09) on the back of the rear upright, over the upper nut. Line up the holes. Tape it there with low-tack tape.",
-        "Wrap the foam again, over the taped backing. Leave both shoulder horn seats clear.",
+        "Wrap the foam again, over the taped backing. Push each shoulder servo\u2019s round top through its hole.",
         "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright\u2019s hole.",
         "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3\u00d716 screw through P10 and P09 into the nut and tighten it.",
         "Fit the other two P10 covers over the seam at the middle and upper nuts. The rear body-light bracket (P12) backs the middle one."
       ],
-      "check": "The foam sits in both collars without stretching. Its ends meet at the rear seam, and the lower cover is screwed.",
+      "check": "The foam sits in both collars without stretching. Each shoulder servo\u2019s round top passes through its hole. The foam ends meet at the rear seam, and the lower cover is screwed.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -4148,27 +4150,31 @@
           ]
         },
         {
-          "title": "Tape the upper seam backing",
-          "textOnly": true,
+          "title": "Cut the shoulder holes",
+          "image": "assets/community/body-foam-holes.svg",
+          "caption": "The wrapped body from the rear left, with the robot-left servo top in its hole.",
           "actions": [
-            6
-          ]
-        },
-        {
-          "title": "Wrap the foam",
-          "image": "assets/r16/step-15.png",
-          "caption": "The wrapped body from the rear, with the seam covers drawn apart from the seam.",
-          "actions": [
+            6,
             7
           ]
         },
         {
-          "title": "Fit the three seam covers",
-          "textOnly": true,
+          "title": "Tape the backing and wrap the foam",
+          "image": "assets/community/rear-seam-stack.svg",
+          "caption": "The rear seam from the robot-right side, drawn apart from the upright outward.",
           "actions": [
             8,
-            9,
-            10
+            9
+          ]
+        },
+        {
+          "title": "Fit the three seam covers",
+          "image": "assets/community/rear-seam-stack.svg",
+          "caption": "The rear seam from the robot-right side, drawn apart from the upright outward.",
+          "actions": [
+            10,
+            11,
+            12
           ]
         }
       ]

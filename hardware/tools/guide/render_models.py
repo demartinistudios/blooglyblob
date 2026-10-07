@@ -548,6 +548,7 @@ def main():
     mode.add_argument('--mount-closeups-only',action='store_true')
     mode.add_argument('--actions-only',action='store_true')
     mode.add_argument('--closeups-only',action='store_true')
+    mode.add_argument('--body-only',action='store_true')
     mode.add_argument('--scene',action='append',help='Render only this existing asset path; repeat for several')
     args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=False)
     source,registry,registry_hash=checked_source()
@@ -581,7 +582,7 @@ def main():
     render.col=color
     from render_hand_arm_actions import ACTION_PATHS, make_images
     outputs={}
-    if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.actions_only and not args.closeups_only and not args.mount_closeups_only:
+    if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.actions_only and not args.closeups_only and not args.mount_closeups_only):
         selected=scenes()
         if args.scene:
             unknown=set(args.scene)-selected.keys()-ACTION_PATHS
@@ -610,35 +611,38 @@ def main():
             outputs[path]=args.output/(name+'.png')
             print('Rendered',path,flush=True)
     lighten=True
-    if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.actions_only and not args.closeups_only and not args.scene:
+    if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.actions_only and not args.closeups_only and not args.scene):
         for path in front_diagrams(render,args.output):outputs[path]=args.output/Path(path).name
-    if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.closeups_only and not args.scene and not args.mount_closeups_only:
+    if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.closeups_only and not args.scene and not args.mount_closeups_only):
         for path in action_diagrams(render,args.output):outputs[path]=args.output/Path(path).name
-    if not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.actions_only and not args.closeups_only and not args.scene:
+    if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.actions_only and not args.closeups_only and not args.scene):
         for path in base_nut_diagrams(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.closeups_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.closeups_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.scene or args.mount_closeups_only)):
         from guide_closeups import render_closeups
         for path in render_closeups(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.audio_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.audio_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_closeups import render_audio_closeups
         for path in render_audio_closeups(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.inlet_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.inlet_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_closeups import render_inlet_closeups
         for path in render_inlet_closeups(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.boards_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.boards_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_closeups import render_board_closeups
         for path in render_board_closeups(render,args.output):outputs[path]=args.output/Path(path).name
         from guide_layout import render_layout
         for path in render_layout(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.context_only or not (args.legacy_only or args.joint_actions_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.context_only or not (args.legacy_only or args.joint_actions_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_context_actions import render_context_actions
         for path in render_context_actions(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.joint_actions_only or not (args.legacy_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.joint_actions_only or not (args.legacy_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_joint_actions import render_joint_actions
         for path in render_joint_actions(render,args.output):outputs[path]=args.output/Path(path).name
-    if args.legacy_only or not (args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+    if not args.body_only and (args.legacy_only or not (args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only)):
         from guide_legacy_actions import render_legacy_actions
         for path in render_legacy_actions(render,args.output):outputs[path]=args.output/Path(path).name
+    if args.body_only or not (args.legacy_only or args.joint_actions_only or args.context_only or args.boards_only or args.inlet_only or args.audio_only or args.front_only or args.actions_only or args.closeups_only or args.scene or args.mount_closeups_only):
+        from guide_closeups import render_body_closeups
+        for path in render_body_closeups(render,args.output):outputs[path]=args.output/Path(path).name
     # Action drawings supersede the plain model views at these same public paths.
     # Apply only selected outputs, so a focused board render cannot change wrists.
     hand_action_witnesses = None
