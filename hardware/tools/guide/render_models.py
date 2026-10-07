@@ -66,7 +66,6 @@ def scenes():
             v['footer']='P1–P4: Pi • S1a/S1b: rear signal board • S2a/S2b: front signal board'
     result['assets/r21/base-cover.png']['view'].update(clean=True)
     result['assets/r16/base-button.png']['view']['footer']='Four insulated button leads'
-    result['assets/r21/base-frame.png']['view'].update(occ={'P01':[0],'P02':[0,1]}, title='Lower collar and both uprights', clean=True)
     return result
 
 def front_diagrams(render, output):
@@ -594,13 +593,13 @@ def main():
             scene=dict(scene,view=dict(scene['view'],guide=True))
             lighten='main-front' not in path and 'overview-back' not in path
             name='scene-'+str(index)
-            if path in ('assets/r21/base-frame.png','assets/r21/base-cover.png'):
+            if path == 'assets/r21/base-cover.png':
                 from guide_closeups import pose_parts
                 import numpy as np
-                rotation=np.array([[0,0,1],[0,1,0],[-1,0,0]]) if 'base-frame' in path else np.array([[1,0,0],[0,0,1],[0,-1,0]])
+                rotation=np.array([[1,0,0],[0,0,1],[0,-1,0]])
                 original=render.meshes;render.meshes=pose_parts(original,rotation)
                 view=copy.deepcopy(scene['view'])
-                camera=[-.8,-1,-.65] if 'base-frame' in path else view['camera']
+                camera=view['camera']
                 view['camera']=(rotation@camera).tolist()
                 view['offset']={pid:(rotation@offset).tolist() for pid,offset in view.get('offset',{}).items()}
                 render.render(name,view,scene['thumbnail']);render.meshes=original

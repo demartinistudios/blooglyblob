@@ -2804,11 +2804,11 @@
     },
     {
       "id": "body-light-test",
-      "title": "Confirm the pebble strand’s input end",
+      "title": "Confirm the pebble strand\u2019s input end",
       "chapter": "Light test",
       "actions": [
         "In {step:light-fuse-capacitor} you picked the pins end as the likely input. Neither end of the strand is labeled as the input. This test checks it before you cut six lights.",
-        "Plug the strand’s pins plug, the larger shrouded one, into the base half until it clicks.",
+        "Plug the strand\u2019s pins plug, the larger shrouded one, into the base half until it clicks.",
         "Use the specified Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
         "Set the meter to DC volts. Put the red probe in the plug\u2019s center. Touch the black probe to its outer sleeve.",
         "The meter must read 5.0\u20135.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
@@ -2818,7 +2818,7 @@
         "Watch the strand. The first 16 pebbles light one at a time from the connected end. Color patterns follow. All 16 clear at the end. The other 84 stay dark.",
         "If all 16 lit in order and the rest stayed dark, label the connected end INPUT.",
         "Open the Pi shell. Shut the Pi down with the second command. Shutting down before unplugging protects its microSD card.",
-        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1. Unplug the strand from the base half.",
+        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1. Unplug the strand from the base half.",
         "If pebbles lit wrongly, or extra ones lit, check the DATA and GND joints. If nothing lit, check the power, DATA and plug contacts. Fix any fault. Repeat the test.",
         "If the wiring is correct and nothing lights, the sockets end may be the input. The base half has sockets too, so it cannot plug in there. Cut off that socket plug.",
         "The spare BODY LIGHT half (pins) replaces it. Its three wires are all black. To tell them apart, plug it into the base half you labeled.",
@@ -2955,12 +2955,12 @@
         "N3": 2
       },
       "actions": [
-        "Rest the base (FB01) on its robot-left side on a folded towel. Turn its open bottom toward you. The top wall now faces away from you.",
+        "Rest the base (FB01) on its robot-left side on a folded towel, open bottom toward you. You work inside it from there.",
         "Inside the base, move any wire away from the screw holes in front of and behind the harness opening. Keep the opening clear.",
-        "Slide an M3 nut into the slot near the foot of each frame upright (P02). When fitted, the slots face away from the other upright.",
-        "With one hand, hold a foam collar (P01) on the outside of the top wall. Line up its two tabs with the screw holes.",
-        "With the same hand, hold one upright on its tab, slots facing outward. With the other hand, put an M3\u00d716 screw from inside through the top wall and collar into the upright.",
-        "Turn the screw by hand until it catches the nut. Fasten the other upright the same way. Tighten both screws evenly."
+        "Slide an M3 nut into the slot near the foot of each frame upright (P02). Fitted, the slots face away from each other. If a nut slides out, hold it with tweezers.",
+        "With one hand, hold the lower foam collar (P01) on the outside of the top wall. Line up its two tabs with the screw holes.",
+        "With the same hand, hold one upright on its tab, slot facing outward. From inside, put an M3\u00d716 screw through the top wall and collar into its nut. Turn until it catches.",
+        "Fasten the second upright on the other tab the same way. Tighten both screws evenly."
       ],
       "check": "Both uprights are firm and parallel. The collar sits flat and no wire is trapped.",
       "source": [
@@ -3000,8 +3000,8 @@
         },
         {
           "title": "Screw the collar and uprights to the base",
-          "image": "assets/r21/base-frame.png",
-          "caption": "The base on its robot-left side, with the lower collar and both uprights.",
+          "image": "assets/community/frame-uprights-fastening.svg",
+          "caption": "The robot upright, with the collar and both uprights lifted off the top wall of the base.",
           "actions": [
             3,
             4,
@@ -3032,7 +3032,7 @@
         "On each servo (E01), the red wire is supply, the brown wire is ground and the orange wire is signal.",
         "Label the left arm servo cable LEFT at both ends. Label the right arm servo cable RIGHT and the head servo cable HEAD the same way.",
         "Cut off the crocodile clips one wire at a time. Keep each label on the servo side of the cut. Keep the cut ends apart.",
-        "Keep the base on its side. With one hand, hold each servo near its place on the frame. With the other hand, test-route its cable through the harness opening into the base.",
+        "Hold each servo near its place on the frame. A shoulder servo\u2019s cable leaves its top, beside the shaft, so loop it down. Test-route each cable through the harness opening into the base.",
         "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
         "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
         "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12). Keep joints out of moving bends.",
@@ -3089,19 +3089,18 @@
         "N3": 4
       },
       "actions": [
-        "On the bench, press an M2 nut into each hex pocket on the inner faces of the shoulder-servo bracket (P03). There are four pockets.",
-        "Each nut sits flat in its pocket.",
-        "Hold the bracket with its open long side toward you. This side faces the robot\u2019s back.",
-        "Slide the LEFT servo in on your left, shaft pointing robot-left. Rest its ears on the supports. Keep its cable toward the middle of the bracket.",
-        "Fit the RIGHT servo on your right the same way, shaft pointing robot-right.",
-        "Put an M2\u00d76 screw through each servo ear into its nut. Fit all four before the bracket goes on the frame.",
-        "Tighten each screw until its servo sits firm. Stop before the ears bow. Keep the horns off.",
-        "Stand the base on its feet. Lower the bracket between the uprights, open side toward the back. Line up its holes with the round holes in the uprights.",
-        "Push both rear M3\u00d716 screws through the rear upright into the bracket, with no nuts. They hold the bracket while you work.",
-        "Start at the lower front hole. Hold an M3 nut in the front access well with fine pliers. Put an M3\u00d716 screw through the upright into it. Repeat at the upper hole.",
-        "If a nut drops through a well, find it before you go on. The wells are open at the bottom. Do not leave a loose nut in the base.",
-        "Back out one rear screw until its tip leaves the rear access well. Hold a nut in the well with fine pliers. Turn the screw in until it catches.",
-        "Repeat for the other rear screw. Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal."
+        "Stand the shoulder-servo bracket (P03) on the bench with its open side toward you. This side faces the robot\u2019s back.",
+        "Slide the LEFT servo into the bracket\u2019s left arm and the RIGHT servo into its right arm, shafts pointing outward. Each servo\u2019s ears sit on the outside of its arm.",
+        "Each cable leaves its servo at the top, beside the shaft. Let it hang down beside the servo, clear of the shaft, and through the slot in the bracket floor.",
+        "Each ear has an M2 nut pocket behind it, inside the arm. Hold a nut in one pocket with tweezers. From outside, screw an M2\u00d76 through the ear until it catches.",
+        "Fit the other three ear screws the same way. Tighten each until its servo sits firm. Stop before the ears bow.",
+        "Stand the base on its feet. Lower the bracket between the uprights, open side toward the back. Lead both cables down through the harness opening. Line up the bracket\u2019s holes with the uprights\u2019 holes.",
+        "Push two M3\u00d716 screws through the rear upright into the bracket, with no nuts yet. They hold the bracket while you fit the front.",
+        "Each screw takes a nut in the well behind its hole. The wells are open at the top and bottom. Fit upper nuts from above, between the servos, and lower nuts from below.",
+        "Hold the upper front nut in its well with tweezers. Put an M3\u00d716 screw through the front upright into it and turn until it catches. Fit the lower front screw the same way.",
+        "If a nut drops through a well, find it before you go on. Do not leave a loose nut in the base.",
+        "At the rear upright, back out the upper screw until its tip clears the well. Hold a nut in the well and turn the screw in until it catches. Repeat for the lower rear screw.",
+        "Tighten all four screws evenly. Keep the uprights straight. A small gap around each servo body is normal."
       ],
       "check": "Neither servo rocks, all ears sit flat and the bracket is secure without bowed uprights.",
       "source": [
@@ -3127,57 +3126,49 @@
       ],
       "panels": [
         {
-          "title": "Press in the servo-ear nuts",
-          "image": "assets/community/shoulder-servo-nuts.svg",
-          "caption": "One side of the bracket. The other side is the mirror image.",
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
           "title": "Slide in both shoulder servos",
           "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "Both servos entering the bracket\u2019s open side, shafts pointing outward.",
+          "caption": "Both servos entering the bracket\u2019s open rear side, shafts pointing outward.",
           "actions": [
-            2,
-            3,
-            4
+            0,
+            1,
+            2
           ]
         },
         {
           "title": "Screw the servo ears to the bracket",
           "image": "assets/community/shoulder-servo-fastening.svg",
-          "caption": "One servo with its two ear screws.",
+          "caption": "The LEFT servo from the rear, with its ear screws and nuts drawn out of place. The right side is the mirror image.",
           "actions": [
-            5,
-            6
+            3,
+            4
           ]
         },
         {
           "title": "Pin the bracket between the uprights",
           "textOnly": true,
           "actions": [
-            7,
-            8
+            5,
+            6
           ]
         },
         {
           "title": "Fasten the bracket to the front upright",
           "image": "assets/community/shoulder-carrier-front.svg",
-          "caption": "Section through the front upright and bracket, with both screws and nuts.",
+          "caption": "The front upright and bracket from the front left, with the screws and nuts drawn out of place.",
           "actions": [
-            9,
-            10
+            7,
+            8,
+            9
           ]
         },
         {
           "title": "Fasten the bracket to the rear upright",
           "image": "assets/community/shoulder-carrier-rear.svg",
-          "caption": "Section through the rear upright and bracket.",
+          "caption": "The rear upright and bracket from the rear left, with the screws and nuts drawn out of place.",
           "actions": [
-            11,
-            12
+            10,
+            11
           ]
         }
       ]
@@ -3200,9 +3191,8 @@
         "N3": 4
       },
       "actions": [
-        "On the bench, press an M2 nut into each of the two hex pockets under the head-servo bracket (P04).",
-        "Slide the HEAD servo into the bracket\u2019s open side, shaft up. Rest its ears on the supports. Keep its cable pointing down.",
-        "Put an M2\u00d76 screw down through each ear into its nut. Fit both before the bracket goes on the frame.",
+        "Slide the HEAD servo into the open side of the head-servo bracket (P04), shaft up. Rest its ears on the supports. Bend its cable down from beside the shaft.",
+        "Each ear has an M2 nut pocket under its support. Hold a nut there with tweezers. Screw an M2\u00d76 down through the ear until it catches. Repeat at the other ear.",
         "Tighten until the servo cannot rock or slide.",
         "Hold the bracket against the robot-left side of both uprights, near their tops, open side robot-left. From robot-left, push an M3\u00d720 screw through the bracket and the side hole in each upright.",
         "At the uprights\u2019 robot-right faces, hold an M3 nut on one screw tip with a fingertip. Turn the screw until it catches. Repeat for the other screw. Tighten both screws.",
@@ -3217,7 +3207,7 @@
         "hardware/assembly/hardware.json",
         "hardware/printing/current/manifest.json"
       ],
-      "note": "",
+      "note": "The M3\u00d720 screws leave thread past the nut, which makes a loose nut easier to catch.",
       "kind": "build",
       "number": 36,
       "commands": [],
@@ -3236,28 +3226,20 @@
       ],
       "panels": [
         {
-          "title": "Press in the servo-ear nuts",
-          "image": "assets/community/head-servo-nuts.svg",
-          "caption": "The bracket from below.",
+          "title": "Slide in the head servo",
+          "image": "assets/community/head-servo-insertion.svg",
+          "caption": "The servo entering the bracket\u2019s open side.",
           "actions": [
             0
           ]
         },
         {
-          "title": "Slide in the head servo",
-          "image": "assets/community/head-servo-insertion.svg",
-          "caption": "The servo entering the bracket\u2019s open side.",
-          "actions": [
-            1
-          ]
-        },
-        {
           "title": "Screw the servo ears to the bracket",
           "image": "assets/community/head-servo-fastening.svg",
-          "caption": "The bracket from above, with both ear screws.",
+          "caption": "The bracket from the side, with both ear screws above and their nuts below.",
           "actions": [
-            2,
-            3
+            1,
+            2
           ]
         },
         {
@@ -3265,19 +3247,19 @@
           "image": "assets/community/head-carrier-fastening.svg",
           "caption": "The bracket and the tops of both uprights, with the two screws and nuts.",
           "actions": [
+            3,
             4,
-            5,
-            6
+            5
           ]
         },
         {
           "title": "Fit the upper collar",
           "image": "assets/community/upper-collar-fastening.svg",
-          "caption": "The upper collar with its two screws. The uprights are cut away to show the nuts.",
+          "caption": "The upper collar lifted over the upright tops, with its two screws and the nuts beside their slots.",
           "actions": [
+            6,
             7,
-            8,
-            9
+            8
           ]
         }
       ]
@@ -3339,12 +3321,12 @@
         "Hold the head horn adapter (P14) flange up. Slide an M2 nut into each of the two side slots in its hub.",
         "Hold a drilled horn (E02) in the recess under the adapter. Its flat disk goes against the adapter. Its long splined hub faces away, toward the servo.",
         "Line up the drilled holes with the nuts. Put an M2\u00d76 screw up through each hole into its nut. Tighten both. Keep the horn\u2019s center screw aside.",
-        "Hold the head shelf (P08) off the bench, with its three raised nut pockets facing up. Lower the adapter’s hub through the shelf’s center from above.",
+        "Hold the head shelf (P08) off the bench, with its three raised nut pockets facing up. Lower the adapter\u2019s hub through the shelf\u2019s center from above.",
         "Rest the flange on the shelf. Line up its three holes with the shelf\u2019s holes.",
         "Drop an M3\u00d78 screw down through the flange and shelf at each hole. The screw heads rest on the flange.",
         "Keep the shelf level in one hand. With a fingertip of that hand, press an M3 nut up into the pocket under one screw.",
         "With your other hand, turn that screw with a hex key until it catches the nut. Repeat for the other two screws.",
-        "Tighten all three screws. Keep the shelf’s open cable entry clear. The shelf, adapter and horn are now the head shelf assembly."
+        "Tighten all three screws. Keep the shelf\u2019s open cable entry clear. The shelf, adapter and horn are now the head shelf assembly."
       ],
       "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The cable entry and the horn\u2019s center hole are clear.",
       "source": [
@@ -3558,15 +3540,15 @@
         "Its IN and OUT sockets face away from the cassette. Fit two M2\u00d76 screws, with no washers. Tighten them lightly.",
         "Fit the other board the same way.",
         "Choose either eye as the first eye. Note which head side it goes on. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
-        "Plug the 100 mm eye cable (E12) from the first eye’s OUT socket to the second eye’s IN socket. Press each plug housing, not its wires.",
+        "Plug the 100 mm eye cable (E12) from the first eye\u2019s OUT socket to the second eye\u2019s IN socket. Press each plug housing, not its wires.",
         "Put an M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through a cassette\u2019s outer holes and the head wall into the housing nuts.",
         "Tighten until the nuts seat under their roofs. Do not force a screw that bottoms out. Fasten the other cassette the same way.",
-        "Fit both eyes now: the mouth blocks straight access to these screws later. The first eye’s IN and the second eye’s OUT stay reachable.",
+        "Fit both eyes now: the mouth blocks straight access to these screws later. The first eye\u2019s IN and the second eye\u2019s OUT stay reachable.",
         "Test-fit the robot-left head strap (GS01), robot-right head strap (GS02) and rear head strap (GS03). Check that they clear the eye housing joints.",
         "Glue only the locating pegs with two-part epoxy (C09). Keep glue off the housing joints, the center seam and the two rear seams. Do not clamp the rear seams shut.",
         "Let the epoxy cure fully, for the time on its label."
       ],
-      "check": "Each eye removes and refits independently. The eye cable joins the first eye’s OUT to the second eye’s IN. Only the strap locating pegs are glued. The housings sit flat and their retaining roofs are intact.",
+      "check": "Each eye removes and refits independently. The eye cable joins the first eye\u2019s OUT to the second eye\u2019s IN. Only the strap locating pegs are glued. The housings sit flat and their retaining roofs are intact.",
       "note": "",
       "source": [],
       "commands": [],
@@ -3671,11 +3653,11 @@
         "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Insulate each joint.",
         "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
         "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
-        "Plug the eye input lead into the first eye’s IN socket. Plug the mouth lead into the second eye’s OUT. Press each plug housing, not its wires.",
+        "Plug the eye input lead into the first eye\u2019s IN socket. Plug the mouth lead into the second eye\u2019s OUT. Press each plug housing, not its wires.",
         "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires.",
-        "Pull the head half out until its latch is below the head’s rim. If an eye board or tied joint pulls, redo the ties with more slack."
+        "Pull the head half out until its latch is below the head\u2019s rim. If an eye board or tied joint pulls, redo the ties with more slack."
       ],
-      "check": "The head half feeds the first eye and pulls out below the head’s rim. The mouth lead runs from the second eye’s OUT. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
+      "check": "The head half feeds the first eye and pulls out below the head\u2019s rim. The mouth lead runs from the second eye\u2019s OUT. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -6393,7 +6375,7 @@
         {
           "title": "Fit the servo",
           "image": "assets/community/shoulder-servo-insertion.svg",
-          "caption": "Both servos entering the bracket\u2019s open side, shafts pointing outward.",
+          "caption": "Both servos entering the bracket\u2019s open rear side, shafts pointing outward.",
           "actions": [
             1,
             2

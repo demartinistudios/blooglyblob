@@ -103,9 +103,7 @@ class CloseupReadabilityTests(unittest.TestCase):
         names = [
             'eye-film-insertion', 'eye-foam-insertion', 'eye-housing-nuts',
             'eye-board-nuts', 'eye-board-fastening', 'eye-cassette-fastening',
-            'eye-installed-inside', 'shoulder-servo-nuts',
-            'shoulder-servo-fastening', 'head-servo-nuts',
-            'head-servo-fastening', 'horn-drill-pair', 'horn-side-orientation',
+            'eye-installed-inside', 'horn-drill-pair', 'horn-side-orientation',
         ]
         for name in names:
             with self.subTest(name=name):
@@ -121,7 +119,11 @@ class CloseupReadabilityTests(unittest.TestCase):
         directory = ROOT / 'hardware/build-guide/src/assets/community'
         for name in ['audio-cradle-lid-nuts', 'audio-cradle-base-mount',
                      'audio-module-seating', 'audio-tape-back', 'audio-tape-contact',
-                     'audio-module-connections', 'audio-lid-fastening']:
+                     'audio-module-connections', 'audio-lid-fastening',
+                     'frame-uprights-fastening', 'shoulder-servo-insertion',
+                     'shoulder-servo-fastening', 'shoulder-carrier-front',
+                     'shoulder-carrier-rear', 'head-servo-fastening',
+                     'upper-collar-fastening']:
             with self.subTest(name=name):
                 svg = ET.parse(directory / (name + '.svg')).getroot()
                 _, _, width, height = map(float, svg.attrib['viewBox'].split())
@@ -187,9 +189,9 @@ class InletActionViewTests(unittest.TestCase):
 
 
 class CurrentGuideSceneTests(unittest.TestCase):
-    def test_frame_shows_only_lower_collar_and_both_uprights(self):
-        scene=module.scenes()['assets/r21/base-frame.png']['view']
-        self.assertEqual(scene['occ'], {'P01':[0], 'P02':[0,1]})
+    def test_retired_sideways_frame_is_not_an_available_guide_scene(self):
+        # Step 33 uses the upright community/frame-uprights-fastening view.
+        self.assertNotIn('assets/r21/base-frame.png', module.scenes())
 
     def test_retired_stand_is_not_an_available_guide_scene(self):
         self.assertNotIn('assets/r16/service-stand.png', module.scenes())

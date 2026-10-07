@@ -26,14 +26,20 @@ def render_legacy_actions(render, output):
          'Fasten P04 through both uprights from robot-left',
          labels=[('2 × M3 × 20',None,(28,36)), ('P04',[-1.27,6.6,99.3],(405,100)),
                  ('P02',[0,-26.5,102],(45,315)), ('M3 nuts',[-6.2,26.5,97.8],(360,387))])
-    parts = v.parts(['P01'],1) + clipped(v.parts(['P02']),[[-6,-32,103],[0,32,114.3]])
-    for y in [-26.5,26.5]:
-        parts += screw(3,10,[0,y,136],[0,0,-1]) + [hex_nut(3,[0,y,107.9],[0,0,1])]
-    emit('upper-collar-fastening',parts,[.9,-1,.9],
-         'Fasten the upper P01 collar from above into the upright nuts',
-         arrows=[([0,y,125],[0,y,118]) for y in [-26.5,26.5]],
-         labels=[('2 × M3 × 10',None,(28,36)),('P01',[30,0,114.3],(465,250)),
-                 ('P02',[0,-29,109],(90,387))])
+    # Nuts slide into the upright slots from the outer faces; the collar is
+    # lifted 14 mm to show its tabs going down onto the upright tops.
+    parts = [dict(m, v=m['v']+[0,0,14]) for m in v.parts(['P01'],1)]
+    parts += clipped(v.parts(['P02']),[[-6,-32,88],[6,32,114.3]])
+    arrows = [([0,26.5*s,141],[0,26.5*s,134]) for s in [-1,1]]
+    arrows += [([0,26.5*s,127],[0,26.5*s,119]) for s in [-1,1]]
+    for s in [-1,1]:
+        parts += screw(3,10,[0,26.5*s,152],[0,0,-1]) + [hex_nut(3,[0,41*s,107.9],[0,0,1])]
+        arrows.append(([0,38*s,107.9],[0,31.5*s,107.9]))
+    emit('upper-collar-fastening',parts,[1,-.75,.55],
+         'Slide a nut into the slot near each upright top, then screw the upper P01 collar down onto the uprights',
+         arrows=arrows,
+         labels=[('2 × M3 × 10',[0,-26.5,152],(28,36)),('P01',[39,0,128.3],(480,150)),
+                 ('P02',[5,-26.5,95],(60,395)),('2 × M3 nuts',[0,41,107.9],(390,395))],label_size=32)
     parts=clipped(v.parts(['GS20','P08']),[[30,0,121],[44,6,130]])
     parts+=screw(2,8,[40.45,0,125.3],[-1,0,0],head='button')
     parts+=[hex_nut(2,[34.1,0,125.3],[1,0,0])]

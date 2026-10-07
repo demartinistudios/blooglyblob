@@ -237,8 +237,10 @@ def _servo(original):
     """Keep all accepted ear holes/case surfaces; detail them in the local frame.
 
     Kitronik 25105 drawing and the reviewed product cartoon define the blue case,
-    brass output spline, label and three lead colors. Stubs identify the exit;
-    they do not establish a route or prescribe cut lengths.
+    brass output spline, label and three lead colors. The lead leaves the case
+    end nearest the shaft, low on the case (owner bench build and
+    reference-photos/kitronik-25105-servo-and-horns.jpg). Stubs identify the
+    exit; they do not establish a route or prescribe cut lengths.
     """
     t=np.array(original['source']['transform']).reshape(4,4)
     local=(original['v']-t[:3,3]*10)@t[:3,:3]
@@ -262,8 +264,9 @@ def _servo(original):
     add(_box([.055,15.5,6],[6.11,-5,6]),(43,143,79),'servo label green')
     for z in [2,20.8]:
         add(_box([12.12,22.3,.25],[0,-5.2,z]),(36,53,104),'case seam')
-    for x,color in [(-1.2,(124,73,44)),(0,(184,53,42)),(1.2,(221,138,38))]:
-        add(_cylinder(.46,5,[x,-18.9,3],(0,1,0),16),color,'servo lead stub')
+    # Brown, red, orange from the case bottom up, out of the shaft-end face (Y=6.1).
+    for z,color in [(5.8,(124,73,44)),(7,(184,53,42)),(8.2,(221,138,38))]:
+        add(_cylinder(.46,5,[0,8.6,z],(0,1,0),16),color,'servo lead stub')
     return rows
 
 

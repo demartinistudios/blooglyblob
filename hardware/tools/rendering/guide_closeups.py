@@ -164,20 +164,22 @@ def render_closeups(render, output):
            [])
     # Servo-ear coordinates come from accepted carrier bores and reference ears.
     # Show whole purchased reference envelopes; never slice them into hollow boxes.
-    parts=clipped(v.parts(['P03']),[[20,-30,65],[28,25,104]])+[nut([16,0,z],[1,0,0]) for z in [71,98.7]]
-    v.emit('shoulder-servo-nuts',parts,[-1,1,.6],'Load the shoulder-servo nuts',
-           ['2 × M2 nuts per servo'],arrows=[([17,0,z],[23.9,0,z]) for z in [71,98.7]])
-    parts=v.parts(['P03'])+v.parts(['E01'],0)
-    for z in [71,98.7]:parts+=hardware(2,6,[36,0,z],[-1,0,0])+[nut([23.9,0,z],[1,0,0])]
-    v.emit('shoulder-servo-fastening',parts,[1,1,.55],'Fasten both shoulder servos',
-           ['2 × M2 × 6 per servo'],arrows=[([35,0,z],[28.5,0,z]) for z in [71,98.7]])
-    parts=v.parts(['P04'])+[nut([0,y,94],[0,0,1]) for y in [-19,8.7]]
-    v.emit('head-servo-nuts',parts,[1,-.7,-1],'Load the head-servo nuts',
-           ['2 × M2 nuts · P04'],arrows=[([0,y,95],[0,y,100.2]) for y in [-19,8.7]])
+    # The ear-nut pockets open sideways (P03) or downward (P04), so each nut is
+    # held in its pocket while its screw is started; nuts stand off their pockets.
+    parts=clipped(v.parts(['P03']),[[8,-30,55],[30,30,106]])+v.parts(['E01'],0)
+    for z in [71,98.7]:parts+=hardware(2,6,[40,0,z],[-1,0,0])+[nut([15.5,0,z],[1,0,0])]
+    v.paths.append(compact_view(render,output,'shoulder-servo-fastening',parts,[.12,1,.35],
+         'Hold each M2 nut in its pocket and screw through the servo ear',
+         arrows=[([16.5,0,z],[22.5,0,z]) for z in [71,98.7]]+[([39,0,z],[31,0,z]) for z in [71,98.7]],
+         labels=[('2 × M2 × 6',[44,0,98.7],(400,40)),('2 × M2 nuts',[15.5,0,98.7],(20,40)),
+                 ('P03',[24,0,64],(40,380))],label_size=32))
     parts=v.parts(['P04'])+v.parts(['E01'],2)
-    for y in [-19,8.7]:parts+=hardware(2,6,[0,y,112],[0,0,-1])+[nut([0,y,100.2],[0,0,1])]
-    v.emit('head-servo-fastening',parts,[.9,-1,1.2],'Fasten the head servo',
-           ['2 × M2 × 6'],arrows=[([0,y,111],[0,y,104.8]) for y in [-19,8.7]])
+    for y in [-19,8.7]:parts+=hardware(2,6,[0,y,114],[0,0,-1])+[nut([0,y,90],[0,0,1])]
+    v.paths.append(compact_view(render,output,'head-servo-fastening',parts,[1,-.35,.2],
+         'Hold each M2 nut under its pocket and screw down through the servo ear',
+         arrows=[([0,y,113],[0,y,105.5]) for y in [-19,8.7]]+[([0,y,91],[0,y,98.5]) for y in [-19,8.7]],
+         labels=[('2 × M2 × 6',[0,-19,116],(30,40)),('2 × M2 nuts',[0,-19,89],(30,390)),
+                 ('P04',[0,24,97],(470,330))],label_size=32))
     # Horn product geometry is not in CAD: use an explicitly schematic outline.
     body='<circle cx="210" cy="240" r="140" fill="#e3dccb" stroke="#675d4b" stroke-width="3"/>'
     body+='<circle cx="210" cy="240" r="25" fill="'+BG+'" stroke="#675d4b" stroke-width="2"/>'

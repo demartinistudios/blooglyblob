@@ -983,7 +983,8 @@ def mains_cord(p):
 # ------------------------------------------------------------------ mechanical parts
 def servo(p):
     """Kitronik 25105 (FS90MG-CL) clippable servo lying on its label side: translucent blue
-    case, brass 21T output spline, orange / red / brown leads to crocodile clips."""
+    case, brass 21T output spline, orange / red / brown leads leaving the output end, low,
+    to crocodile clips."""
     blue, blue_side = '#3d64d8', '#2743a0'
     T = 12.1
     # profile from the Kitronik drawing, output up the page (y down)
@@ -1003,9 +1004,10 @@ def servo(p):
         p.text(16.1, 23.2, T, 'CLIPPABLE SERVO', 1.75, '#ffffff')
         p.text(16.1, 26.0, T, '25105', 1.75, '#ffffff')
     p.prism(body, 0, T, blue, blue_side, detail=label)
-    p.prism(rrect(12.8, 4, 14.4, 5, .8), 1, T - 1, blue, blue_side)
-    p.prism(rrect(18.6, 0, 5.4, 4.4, .4), 3.6, T - 3.6, '#d0a64c', '#9a7630',
-            detail=lambda: [p.line([(19.2 + i * .85, .4), (19.2 + i * .85, 4)], T - 3.6, '#9a7630', .9) for i in range(6)])
+    # The output sits toward the cable end (owner's bench build, reference photo).
+    p.prism(rrect(5.1, 4, 14.4, 5, .8), 1, T - 1, blue, blue_side)
+    p.prism(rrect(8.3, 0, 5.4, 4.4, .4), 3.6, T - 3.6, '#d0a64c', '#9a7630',
+            detail=lambda: [p.line([(8.85 + i * .85, .4), (8.85 + i * .85, 4)], T - 3.6, '#9a7630', .9) for i in range(6)])
 
 
 def horn(p):

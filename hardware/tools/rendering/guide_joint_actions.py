@@ -20,23 +20,42 @@ def render_joint_actions(render, output):
     v=Views(render,output)
     def emit(*args,**kwargs):
         v.paths.append(compact_view(render,output,*args,**kwargs))
-    for name,sign,occ in [('front',-1,1),('rear',1,0)]:
-        ymin,ymax=sorted([sign*10,sign*33])
-        parts=clipped(v.parts(['P02'],occ)+v.parts(['P03']),[[-6,ymin,57],[0,ymax,75]])
-        for m in parts:
-            m['guide_color']=(111,136,170) if m['id']=='P02' else (137,128,170)
-        arrows=[]
+    # Robot upright, so up and front read at a glance; the builder works with
+    # the base on its side. Collar and uprights lifted to show the screw path
+    # (screws at X0/Y±26.5 up through the FB01 top wall into the foot nuts).
+    wall=clipped(v.parts(['FB01']),[[-40,-95,-10],[40,95,-1.9]])
+    for m in wall:m['guide_color']=(180,191,202)
+    parts=wall+[dict(m,v=m['v']+[0,0,10]) for m in v.parts(['P01'],0)]
+    parts+=[dict(m,v=m['v']+[0,0,26]) for m in clipped(v.parts(['P02']),[[-6,-32,0],[6,32,45]])]
+    arrows=[]
+    for y in [-26.5,26.5]:
+        parts+=hardware(3,16,[0,y,-30],[0,0,1])
+        arrows+=[([0,y,-27],[0,y,-12]),([0,y,9],[0,y,21])]
+    emit('frame-uprights-fastening',parts,[.9,-1,.5],
+         'Both uprights and the lower collar on the top wall of the base, screwed up from inside',
+         arrows=arrows,
+         labels=[('2 × M3 × 16',[0,-26.5,-30],(28,395)),('P02 × 2',[5,26.5,60],(420,40)),
+                 ('P01',[39.9,0,15],(490,215)),('Front',[0,-93,-6],(28,300)),
+                 ('FB01 top wall',[30,40,-2],(330,395))],label_size=32)
+    # Each nut well (X±4, |Y| 12 to 18) runs through P03 from Z58 to Z74, open
+    # at both ends: the upper nut goes in from above, between the servos, and
+    # the lower nut from below, so neither screw blocks the other nut.
+    frame=v.parts(['P02'],1)+v.parts(['P02'],0)+v.parts(['P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
+    frame=clipped(frame,[[-45,-35,40],[45,35,106]])
+    for name,sign in [('front',-1),('rear',1)]:
+        parts=list(frame);arrows=[]
+        parts+=[m3_nut([0,sign*15,82]),m3_nut([0,sign*15,50])]
+        arrows+=[([0,sign*15,78.5],[0,sign*15,73]),([0,sign*15,53.5],[0,sign*15,59])]
         for z in [62,70]:
-            parts.append(m3_nut([0,sign*16.8,z]))
-            parts+=hardware(3,16,[0,sign*52,z],[0,-sign,0])
-            arrows.append(([0,sign*35.5,z],[0,sign*31,z]))
-        emit('shoulder-carrier-'+name,parts,[1,sign*.55,.45],
-             f'Fasten the {name} shoulder-carrier joints while holding the loose nuts',
+            parts+=hardware(3,16,[0,sign*58,z],[0,-sign,0])
+            arrows.append(([0,sign*41,z],[0,sign*33,z]))
+        emit('shoulder-carrier-'+name,parts,[1,sign*.8,.3],
+             f'Fasten P03 to the {name} upright: upper nut from above, lower nut from below',
              arrows=arrows,
-             labels=[('2 × M3 × 16',None,(28,38)),
-                     ('P02',[0,sign*26,73],(400,90)),
-                     ('P03',[0,sign*12,73],(420,330)),
-                     ('M3 nuts',[0,sign*16.8,62],(210,391))])
+             labels=[('2 × M3 × 16',[0,sign*58,70],(28,38)),
+                     ('P02',[5,sign*26,48],(450,395)),
+                     ('P03',[8,0,70],(440,250)),
+                     ('2 × M3 nuts',[0,sign*15,82],(28,395))],label_size=32)
     links=v.parts(['B02'],0)+v.parts(['B02'],1)
     for i,m in enumerate(links):m['guide_color']=(164,176,194) if i==0 else (131,132,168)
     pin=v.parts(['B09'],2)
