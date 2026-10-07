@@ -87,6 +87,14 @@ class MasterWiringTests(unittest.TestCase):
         self.assertEqual(observed, expected)
         self.assertIn(frozenset(("R1.in", "BTN.LED+")), self.pairs)
 
+    def test_pi_header_rows_match_the_board(self):
+        # Header along the board's top edge: even pins on the edge row, odd inner.
+        for pin in range(1, 41):
+            x, y = self.c.ports[f"Pi.{pin}"]
+            edge_row = self.c.ports["Pi.2"][1]
+            self.assertEqual(y == edge_row, pin % 2 == 0, pin)
+        self.assertLess(self.c.ports["Pi.1"][0], self.c.ports["Pi.39"][0])
+
     def test_lighting_is_one_chain_for_power_and_data(self):
         expected = [
             ("S1.D5", "R2.in"),

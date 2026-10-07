@@ -49,8 +49,10 @@ class Circuit:
         elif kind == "wago-h":
             ports = {str(n): (x + 30 + (n - 1) * 60, y + 70) for n in range(1, 6)}
         elif kind == "pi":
+            # Top view, header along the board's top edge: pin 1 at the microSD end
+            # (left), odd pins on the inner row, even pins on the board-edge row.
             ports = {
-                str(n): (x + 20 + ((n - 1) // 2) * 18, y + (12 if n % 2 else 42))
+                str(n): (x + 20 + ((n - 1) // 2) * 18, y + (42 if n % 2 else 12))
                 for n in range(1, 41)
             }
             ports.update({"USB": (x + 400, y + 160), "POWER": (x + 100, y + 310)})
@@ -187,38 +189,16 @@ def circuit():
         C(f"W2.{n}", f"{name}.+", RED, [(c.ports[f"W2.{n}"][0], y), (px, y)])
         gy = 1840 + n * 50
         C(f"W4.{n}", f"{name}.−", SERVO_BROWN, [(c.ports[f"W4.{n}"][0], gy), (gx, gy)])
-    # Individual GPIO wires, from actual numbered header contacts.
-    for pin, port, lane, y in [
-        (1, "V", 520, 620),
-        (6, "G", 500, 812),
-        (12, "DAT", 480, 832),
-        (32, "CLK", 460, 892),
-    ]:
-        px, py = c.ports[f"Pi.{pin}"]
-        tx, ty = c.ports[f"S1.{port}"]
-        # Even contacts escape downward before turning left, clear of odd contacts.
-        via = py if pin % 2 else y
-        C(
-            f"Pi.{pin}",
-            f"S1.{port}",
-            PURPLE if port == "V" else BLK if port == "G" else BLUE,
-            [(px, via), (lane, via), (lane, ty)],
-        )
-    for pin, port, lane, y in [
-        (17, "V", 900, 620),
-        (9, "G", 920, 640),
-        (33, "DAT", 940, 660),
-        (36, "CLK", 1020, 680),
-    ]:
-        px, py = c.ports[f"Pi.{pin}"]
-        tx, ty = c.ports[f"S2.{port}"]
-        via = y if pin % 2 else 790
-        C(
-            f"Pi.{pin}",
-            f"S2.{port}",
-            PURPLE if port == "V" else BLK if port == "G" else BLUE,
-            [(px, via), (lane, via), (lane, ty)],
-        )
+    # Individual GPIO wires, from actual numbered header contacts. Even pins on the
+    # board-edge row leave upward; odd pins on the inner row leave downward.
+    C("Pi.1", "S1.V", PURPLE, [(450, 762), (450, 395)])
+    C("Pi.6", "S1.G", BLK, [(656, 640), (500, 640), (500, 435)])
+    C("Pi.12", "S1.DAT", BLUE, [(710, 620), (480, 620), (480, 475)])
+    C("Pi.32", "S1.CLK", BLUE, [(890, 560), (460, 560), (460, 515)])
+    C("Pi.17", "S2.V", PURPLE, [(764, 805), (1016, 805), (1016, 395)])
+    C("Pi.9", "S2.G", BLK, [(692, 820), (1028, 820), (1028, 435)])
+    C("Pi.33", "S2.DAT", BLUE, [(908, 790), (1004, 790), (1004, 475)])
+    C("Pi.36", "S2.CLK", BLUE, [(926, 690), (1040, 690), (1040, 515)])
     C("S1.D5", "R2.in", BLUE, [(850, 430), (850, 320)])
     C("R2.out", "body-light.inDATA", BLUE, [(1330, 320), (1330, 810)])
     C(
@@ -230,11 +210,11 @@ def circuit():
     C("S2.D5", "RIGHT.SIG", SERVO_ORANGE, [(1350, 430), (1350, 1180), (2080, 1180)])
     C("S2.C5", "HEAD-SERVO.SIG", SERVO_ORANGE, [(1370, 500), (1370, 1250), (2400, 1250)])
     # Four separate button leads; only its LED-positive wire has R1.
-    C("Pi.4", "R1.out", RED, [(638, 792), (435, 792), (435, 650)])
+    C("Pi.4", "R1.out", RED, [(638, 650)])
     C("R1.in", "BTN.LED+", RED, [(275, 650), (275, 770)])
-    C("Pi.20", "BTN.LED−", BLK, [(782, 872), (360, 872), (360, 800)])
-    C("Pi.11", "BTN.SW1", BLUE, [(710, 700), (400, 700), (400, 830)])
-    C("Pi.14", "BTN.SW2", BLK, [(728, 852), (380, 852), (380, 860)])
+    C("Pi.20", "BTN.LED−", BLK, [(782, 580), (360, 580), (360, 800)])
+    C("Pi.11", "BTN.SW1", BLUE, [(710, 812), (380, 812), (380, 830)])
+    C("Pi.14", "BTN.SW2", BLK, [(728, 600), (400, 600), (400, 860)])
     C("Pi.USB", "AUDIO.USB", PURPLE, [(1055, 880), (1055, 915)], cable=True)
     C("AUDIO.L+", "SPK-L.+", GREEN, [(1285, 887), (1285, 990), (1045, 990)])
     C("AUDIO.L−", "SPK-L.−", PURPLE, [(1295, 905), (1295, 1010), (1075, 1010)])
@@ -398,7 +378,7 @@ def draw_node(g, n, c):
             )
             if pin in used:
                 stagger = ((pin - 1) // 2 % 2) * 18
-                baseline = py - 10 - stagger if pin % 2 else py + 22 + stagger
+                baseline = py + 22 + stagger if pin % 2 else py - 10 - stagger
                 g.rect(
                     px - 11, baseline - 16, 22, 21, fill="#22292c", stroke="none", rx=3
                 )
