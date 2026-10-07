@@ -258,7 +258,8 @@ Each kind of text has one job, the same in every picture:
 - **Under the picture: the caption.** Every step picture has one. It says what
   the picture shows and from where: the view direction, what is cut away or
   drawn apart, and what is highlighted. A picture used in several places has
-  the same caption everywhere. Name a part in full the first time a step
+  the same caption everywhere; two different pictures never share one, so the
+  caption names what differs (LEFT or RIGHT cable, switch or LED pair). Name a part in full the first time a step
   mentions it, even in a caption.
 - **In the actions: everything the builder does or checks.** A caption never
   repeats an action, gives an instruction, disclaims the drawing ("not to
@@ -266,7 +267,8 @@ Each kind of text has one job, the same in every picture:
   needs. Put needed facts in the action.
 
 The writing check enforces the caption rules (`caption-missing`,
-`caption-mismatch`, `caption-repeats-action`, `caption-without-picture`), and
+`caption-mismatch`, `caption-shared`, `caption-repeats-action`,
+`caption-without-picture`), and
 the drawing tests reject sentences inside generated wiring drawings.
 
 ## Safety messages

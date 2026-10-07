@@ -177,7 +177,7 @@ class CircuitDiagramTests(unittest.TestCase):
         actions = ' '.join(next(s for s in json.loads((ROOT / 'hardware/build-guide/src/guide-data.json').read_text())['steps']
                                 if s['id'] == 'light-fuse-capacitor')['actions'])
         self.assertIn('is normally the input', actions)
-        self.assertIn('factory lead colors disagree, stop', actions)
+        self.assertIn('disagree with the factory lead colors, stop', actions)
         result = self.texts('circuits/strand-input-result.svg')
         self.assertIn('First 16 · lit in order', result)
         self.assertIn('Remaining 84 · dark', result)

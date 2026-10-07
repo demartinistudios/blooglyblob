@@ -356,6 +356,12 @@ class WritingTests(unittest.TestCase):
         self.assertEqual(len(found), 1, found)
         self.assertIn('fixture panels[1].caption', found[0])
 
+    def test_different_pictures_need_different_captions(self):
+        self.step['panels'].append(dict(title='Other', image='other.svg', caption='Front view.', actions=[]))
+        found = self.warnings('caption-shared')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('fixture panels[1].caption: fit.svg', found[0])
+
     def test_caption_without_picture_warns(self):
         del self.step['panels'][0]['image']
         found = self.warnings()

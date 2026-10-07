@@ -418,7 +418,7 @@
         {
           "title": "Load the four front grille nuts",
           "image": "assets/community/front-grille-nut-loading.svg",
-          "caption": "The base is upside down. The nut enters from the open bottom.",
+          "caption": "One front grille nut sliding down its channel, with the base upside down.",
           "actions": [
             3,
             4,
@@ -590,7 +590,7 @@
         {
           "title": "Load the four side grille nuts",
           "image": "assets/community/side-grille-nut-loading.svg",
-          "caption": "The base is upside down. The nut enters from the open bottom.",
+          "caption": "One side grille nut sliding down its channel, with the base upside down.",
           "actions": [
             0,
             1,
@@ -1659,7 +1659,7 @@
         {
           "title": "Find the board positions",
           "image": "assets/community/board-layout.svg",
-          "caption": "View through the open bottom.",
+          "caption": "The Pi and level shifter positions, through the open bottom.",
           "actions": [
             3,
             4,
@@ -1745,7 +1745,7 @@
         {
           "title": "Label the WAGO row",
           "image": "assets/community/wago-finished-layout.svg",
-          "caption": "View through the open bottom.",
+          "caption": "The four WAGOs on their pads, through the open bottom.",
           "actions": [
             5,
             6,
@@ -2425,7 +2425,8 @@
         "Cut the holder\u2019s wire loop in the middle. One end is the F2 input, the other the F2 output.",
         "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
-        "Look at the plug at each end. The end whose plug has pins (the larger plug) is normally the input. If the marks are missing or the factory lead colors disagree, stop.",
+        "If the marks are missing or disagree with the factory lead colors, stop. Do not wire this strand.",
+        "Look at the plug at each end. The end whose plug has pins (the larger plug) is normally the input.",
         "Take one JST-SM pair (E10). Label both halves BODY LIGHT. The half with holes (sockets) is the base half. Keep the half with pins as a spare.",
         "Plug the base half onto the strand\u2019s pins plug. With the meter in continuity mode, find the base-half wire reaching each strand wire. Label it +5 V, DATA or GND. Press the latch to unplug.",
         "Label the second 1000 \u00b5F, 10 V capacitor (E08) C2. On the bench, slide heat-shrink onto the wires before you solder.",
@@ -2484,7 +2485,8 @@
           "caption": "The strand\u2019s clear wires enlarged, and its factory leads.",
           "actions": [
             3,
-            4
+            4,
+            5
           ]
         },
         {
@@ -2492,8 +2494,8 @@
           "image": "assets/circuits/jst-sm-seat.svg",
           "caption": "One JST-SM pair, apart and plugged in.",
           "actions": [
-            5,
-            6
+            6,
+            7
           ]
         },
         {
@@ -2509,9 +2511,9 @@
             "image": "assets/circuits/capacitor-joint.svg"
           },
           "actions": [
-            7,
             8,
-            9
+            9,
+            10
           ]
         },
         {
@@ -2523,9 +2525,9 @@
           "image": "assets/circuits/f2-connect.svg",
           "caption": "The light fuse (F2), light capacitor (C2) and base half, with the wire-entry faces of W1 and W3.",
           "actions": [
-            10,
             11,
-            12
+            12,
+            13
           ]
         }
       ]
@@ -2628,7 +2630,7 @@
         {
           "title": "Connect the button switch",
           "image": "assets/circuits/button-switch.svg",
-          "caption": "The Pi header from the pin side, and the button from behind.",
+          "caption": "The Pi header from the pin side, and the button\u2019s switch pair from behind.",
           "actions": [
             0
           ]
@@ -2636,7 +2638,7 @@
         {
           "title": "Connect the button light",
           "image": "assets/circuits/button-led.svg",
-          "caption": "The Pi header from the pin side, and the button from behind.",
+          "caption": "The Pi header from the pin side, and the button\u2019s LED pair from behind.",
           "actions": [
             1
           ]
@@ -4673,7 +4675,7 @@
         {
           "title": "Connect the left arm servo",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
+          "caption": "The LEFT servo cable at the servo WAGOs (W2, W4) and level shifter (S1), from the wire-entry side.",
           "safety": {
             "level": "notice",
             "text": "A servo with its supply and ground wires swapped can be damaged at power-up. Insert each supply wire into the servo power WAGO (W2). Insert each ground wire into the servo ground WAGO (W4)."
@@ -4687,7 +4689,7 @@
         {
           "title": "Connect the right arm servo",
           "image": "assets/circuits/servo-right.svg",
-          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S2) output terminal.",
+          "caption": "The RIGHT servo cable at the servo WAGOs (W2, W4) and level shifter (S2), from the wire-entry side.",
           "actions": [
             5,
             6
@@ -4696,7 +4698,7 @@
         {
           "title": "Connect the head servo",
           "image": "assets/circuits/servo-head.svg",
-          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S2) output terminal.",
+          "caption": "The HEAD servo cable at the servo WAGOs (W2, W4) and level shifter (S2), from the wire-entry side.",
           "actions": [
             7,
             8
@@ -6371,7 +6373,7 @@
         {
           "title": "Disconnect the servo cable",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
+          "caption": "The LEFT servo cable at the servo WAGOs (W2, W4) and level shifter (S1), from the wire-entry side.",
           "actions": [
             3
           ]
@@ -6471,7 +6473,7 @@
         {
           "title": "Connect and secure the cable",
           "image": "assets/circuits/servo-left.svg",
-          "caption": "Wire-entry faces of the servo power and ground WAGOs (W2, W4), and the level shifter (S1) output terminal.",
+          "caption": "The LEFT servo cable at the servo WAGOs (W2, W4) and level shifter (S1), from the wire-entry side.",
           "actions": [
             6
           ]

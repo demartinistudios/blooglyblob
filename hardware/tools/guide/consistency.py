@@ -277,6 +277,7 @@ def check_writing(guide, parts):
     id_pattern = re.compile(r'(?<![\w.])(' + '|'.join(sorted(map(re.escape, ids), key=len, reverse=True)) + r')(?!\w)')
     warnings = []
     captions = {}
+    pictures = {}
     for step in guide['steps']:
         sid = step['id']
         panels = step.get('panels', [])
@@ -321,6 +322,9 @@ def check_writing(guide, parts):
                 first = captions.setdefault(panel['image'], (sid, caption))
                 if first[1] != caption:
                     warnings.append(f"caption-mismatch: {sid} panels[{j}].caption: {panel['image']} has a different caption in {first[0]}")
+                other = pictures.setdefault(caption, panel['image'])
+                if other != panel['image']:
+                    warnings.append(f'caption-shared: {sid} panels[{j}].caption: {other} has the same caption; say what differs')
     for where, field, text in card_texts(parts):
         for term in banned_terms(text, field):
             warnings.append(f'banned-term: {where}: {term}')
