@@ -853,7 +853,6 @@
         "print-cleanup",
         "eye-housings",
         "eye-boards",
-        "head-light-cable",
         "fit-position",
         "shelf-arms",
         "head-shoulder-covers"
@@ -866,7 +865,6 @@
         "print-cleanup",
         "eye-housings",
         "eye-boards",
-        "head-light-cable",
         "fit-position",
         "shelf-arms",
         "head-shoulder-covers"
@@ -1034,7 +1032,6 @@
       "guide_step_ids": [
         "print-cleanup",
         "head-shelf",
-        "head-light-cable",
         "fit-position",
         "shelf-arms",
         "head-shoulder-covers"
@@ -1046,7 +1043,6 @@
       "guide_review_step_ids": [
         "print-cleanup",
         "head-shelf",
-        "head-light-cable",
         "fit-position",
         "shelf-arms",
         "head-shoulder-covers",
@@ -1250,7 +1246,6 @@
       ],
       "guide_step_ids": [
         "mouth",
-        "head-light-cable",
         "head-shoulder-covers"
       ],
       "guide_image": "assets/r20/part-P30.png",
@@ -1259,7 +1254,6 @@
       "geometry_revision": "sha256:899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
       "guide_review_step_ids": [
         "mouth",
-        "head-light-cable",
         "head-shoulder-covers",
         "head-open",
         "mouth-eye-removal",

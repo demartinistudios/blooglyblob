@@ -454,8 +454,8 @@
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "825fc4cf2174502c8445f25823f6b98293f97e6738bb60415ec1b92e4854fc32",
-      "bytes": 47627
+      "sha256": "2803b40286f92801999e588aa593fcd62ca0a6adbfeef05827900312dd912f88",
+      "bytes": 47459
     },
     {
       "path": "hardware/catalog/supplies.json",

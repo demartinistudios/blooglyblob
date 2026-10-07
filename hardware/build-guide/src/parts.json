@@ -513,7 +513,6 @@
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
       "head-shelf",
-      "head-light-cable",
       "shelf-arms"
     ],
     "additional_links": [
@@ -1076,7 +1075,6 @@
     "steps": [
       "eye-housings",
       "eye-boards",
-      "head-light-cable",
       "head-shoulder-covers"
     ],
     "additional_links": [
@@ -1536,7 +1534,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E12.svg",
     "steps": [
-      "head-harness"
+      "eye-boards"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2379,7 +2377,6 @@
       "eye-windows",
       "head-harness",
       "mouth",
-      "head-light-cable",
       "body-light-strand"
     ],
     "status": "Check it when it arrives",
@@ -2725,7 +2722,7 @@
     "qty": 9,
     "optional": 0,
     "category": "Fastener",
-    "description": "Nine: four for the mouth, two for the audio lid and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws. They are test-fitted in {step:head-light-cable}.",
+    "description": "Nine: four for the mouth, two for the audio lid and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
     "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
     "verification": "BelMetric SB2X8SS is an example button head. Measure the head.",
     "image": "assets/cartoons/M2x8.svg",

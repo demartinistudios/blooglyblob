@@ -407,8 +407,10 @@ def action_diagrams(render, output):
     for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)
     for x,y in shelf_positions:
         parts+=shelf_screw(np.array([x,y,140.3]))+[nut(3,[x,y,122.8],[0,0,1])]
+    # Builders joined these upside down at the bench: mark the faces that stay up.
     emit('head-shelf-fastening',parts,[.6,-1.2,1.1],'Join shelf P08 to adapter P14',
-         ['3 × M3 × 8 · brown: P14 · blue-gray: P08'],
+         ['1 P14 flange, on top','2 Head nut pockets, on top','3 × M3 × 8 · brown: P14 · blue-gray: P08'],
+         [('1',[4,-20,132]),('2',[33,0,130])],
          arrows=[([x,y,137],[x,y,129]) for x,y in shelf_positions])
     parts=cropped(chosen(['P08','P14']),[[0,12,120],[5,24,130]])
     for part in parts:part['guide_color']=(174,99,52) if part['id']=='P14' else (140,159,179)

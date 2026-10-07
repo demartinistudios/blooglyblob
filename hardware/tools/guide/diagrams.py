@@ -1339,6 +1339,32 @@ def eye_connector():
     g.save('circuits/eye-connector.svg')
 
 
+def eye_cable():
+    """Both eye boards from behind, joined OUT to IN by the eye cable before fastening."""
+    g = action('Eye cable · first eye OUT to second eye IN', 520)
+    top = 150
+    for x, name in ((8, 'First eye'), (272, 'Second eye')):
+        g.text(x + 70, top - 16, name, size=22, anchor='middle', weight=700)
+        g.rect(x, top, 140, 125, fill='#292f38', stroke=INK, rx=22)
+        for yy in (top + 16, top + 109):
+            g.circle(x + 70, yy, 10, fill=PAPER, stroke='#bfa768', sw=3)
+        for sx in (x + 6, x + 94):
+            g.rect(sx, top + 31, 40, 64, fill='#eee9df', rx=2)
+        g.text(x + 26, top + 117, 'IN', size=22, fill='#fff', anchor='middle', weight=700)
+        g.text(x + 114, top + 117, 'OUT', size=22, fill='#fff', anchor='middle', weight=700)
+    mid = top + 63
+    for plug_x in (138, 242):
+        g.rect(plug_x, mid - 24, 40, 48, fill='#eee9df', rx=2)
+        g.rect(plug_x + 13, mid - 29, 14, 5, fill='#d4cabc', rx=0)
+    # A flat loop between the plugs: the black wire runs innermost.
+    for i, (color, _) in enumerate(SH_WIRES):
+        dy = (i - 1) * 11
+        left_x, right_x, low = 198 - i * 9, 222 + i * 9, top + 175 + i * 11
+        sh_wire(g, [(178, mid + dy), (left_x, mid + dy), (left_x, low), (right_x, low),
+                    (right_x, mid + dy), (242, mid + dy)], color, 4)
+    lines(g, top + 245, 'Eye cable (E12) · 100 mm', 'JST-SH 1.0 mm (small)', 'Black GND · red +5 V · white DATA')
+    g.save('circuits/eye-cable.svg')
+
 def power_overview():
     g = action('Power · three branches', 833)
     lines(g, 119, 'Mean Well GST40A05-P1J', 'External 5 V, 5 A supply', '→ J1 center → W1 INPUT +5 V')
@@ -1588,7 +1614,7 @@ def circuit_actions():
     head_leads(); body_output(); head_power(); head_data()
     wago_reference()
     solder_detail(); capacitor_joint_detail(); mouth_solder(); cut_six()
-    connector_seating(); eye_connector(); power_overview()
+    connector_seating(); eye_connector(); eye_cable(); power_overview()
     strand_wire_identification(); strand_test_connection(); strand_input_result()
     supply_polarity_test(); robot_power_connection()
     power_jack_terminals(); button_terminals(); button_switch_check(); button_leads_prepare()

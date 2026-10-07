@@ -342,6 +342,7 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 | Half of the cut JST-SH cable (E11), from the head half to the first eye’s IN | eye input lead | — | eye lead, 5755 lead |
 | Other half of the cut JST-SH cable (E11), from the second eye’s OUT to the mouth pads | mouth lead | — | mouth leads, mouth power leads |
 | Head half of the head light connector, the eye input lead, the eye cable and the mouth lead | head harness | — | mouth board and harness |
+| Head shelf (P08) with the head horn adapter (P14) and its horn screwed on | head shelf assembly | — | — |
 | Micro-USB lead (E22) from W1 and W3 to the Pi | Pi power lead | PI POWER | H2 |
 | Servo cables | left arm servo cable, right arm servo cable, head servo cable | LEFT, RIGHT, HEAD | HEAD cable (for the servo) |
 | Panel jack (E18) | power jack (J1); its contacts are the **center** and the **sleeve** | J1 | inlet, panel jack |
