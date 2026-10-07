@@ -3,6 +3,7 @@
 from colorsys import hsv_to_rgb
 from dataclasses import dataclass
 import math
+import random
 import threading
 import time
 
@@ -34,6 +35,43 @@ MODES = {
     "fault",
     "stopped",
 }
+BLINK_MODES = {"listening", "waiting", "speaking", "dancing", "goodbye"}
+
+
+class _EyeBlink:
+    """One paired blink schedule, sampled by the existing LED writer."""
+
+    def __init__(self, rng):
+        self._rng = rng
+        self.reset()
+
+    def reset(self):
+        self._next = self._double = None
+        self._start = -math.inf
+        self._duration = 0.25
+
+    def sample(self, now):
+        if self._next is None:
+            self._next = now + self._rng.uniform(3.4, 8.6)
+        elif now >= self._next:
+            # Start one new blink after a missed frame, never replay a backlog.
+            self._start = now
+            self._duration = self._rng.uniform(0.225, 0.290)
+            self._next = now + self._rng.uniform(3.4, 8.6)
+            self._double = (
+                now + self._duration + 0.13 if self._rng.random() < 0.1 else None
+            )
+        if self._double is not None and now >= self._double:
+            self._start, self._duration = self._double, 0.21
+            self._double = None
+        elapsed = now - self._start
+        if elapsed < 0.055:
+            x = max(0.0, elapsed / 0.055)
+            return 1 - x * x * (3 - 2 * x)
+        if elapsed < 0.09:
+            return 0.0
+        x = min(1.0, (elapsed - 0.09) / (self._duration - 0.09))
+        return x * x * (3 - 2 * x)
 
 
 @dataclass(frozen=True)
@@ -43,12 +81,13 @@ class LightingSnapshot:
     changed: float
     output: OutputSample
     music: tuple[float, ...] = ()
+    eye_openness: float = 1.0
 
 
 class LightingState:
     """One locked snapshot for LEDs; contains no control or servo authority."""
 
-    def __init__(self, output=None):
+    def __init__(self, output=None, *, rng=None):
         self.output = output if output is not None else OutputPresentation()
         self._lock = threading.Lock()
         self._mode = self._previous = "sleeping"
@@ -56,6 +95,7 @@ class LightingState:
         self._pending = set()
         self._music = None
         self._stopped = False
+        self._blink = _EyeBlink(rng if rng is not None else random.Random())
 
     def set_mode(self, mode, *, now=None):
         if mode not in MODES:
@@ -68,6 +108,8 @@ class LightingState:
                 self._changed = time.monotonic() if now is None else now
             if mode in {"sleeping", "stopped"}:
                 self._pending.clear()
+            if mode not in BLINK_MODES:
+                self._blink.reset()
             if mode == "stopped":
                 self._stopped = True
 
@@ -89,6 +131,7 @@ class LightingState:
             self._mode = "stopped"
             self._pending.clear()
             self._music = None
+            self._blink.reset()
 
     def snapshot(self, now):
         with self._lock:
@@ -101,7 +144,10 @@ class LightingState:
             drives = ()
             if mode == "dancing" and output.kind == "music" and self._music is not None:
                 drives = self._music.at(output.position)
-            return LightingSnapshot(mode, self._previous, self._changed, output, drives)
+            openness = self._blink.sample(now) if mode in BLINK_MODES else 1.0
+            return LightingSnapshot(
+                mode, self._previous, self._changed, output, drives, openness
+            )
 
 
 def scale(rgb, amount):
@@ -142,7 +188,11 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
     if mode == "stopped":
         return (BLACK,) * 16
     body = _body(mode, now)
-    eyes = [BLACK] * 2 if mode == "sleeping" else [scale(EYE_COLOR, 0.45)] * 2
+    eyes = (
+        [BLACK] * 2
+        if mode == "sleeping"
+        else [scale(EYE_COLOR, 0.45 * state.eye_openness)] * 2
+    )
     mouth = [BLACK] * 8
     # Output energy alone cannot wake the robot, escape a fault or talk over music.
     if mode not in {"sleeping", "fault", "dancing"} and state.output.kind == "speech":
@@ -151,7 +201,6 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
             for i in range(4):
                 amount = max(0.0, min(1.0, level * 4 - (3 - i)))
                 mouth[i] = mouth[7 - i] = scale(SPEECH_COLORS[i], amount * 0.75)
-            body = [scale(rgb, 0.5) for rgb in body]
     elif mode == "dancing" and state.output.kind == "music":
         mouth = (
             [
