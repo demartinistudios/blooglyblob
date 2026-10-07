@@ -33,16 +33,14 @@ def scenes():
         path = scene['output']; view = scene['view']; selected = view.get('select', ['all'])
         if path in ('assets/r18/head-fastener-cutaway.png','assets/r16/service-stand.png') or not (SRC / path).exists():
             continue
-        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r16/base-pi-joints.png','assets/r16/base-shifter-joints.png'):
+        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path == 'assets/r16/base-cover-joints.png':
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
-        'audio-cradle-fasteners': copy.deepcopy(library['r16/base-audio-joints']['view']),
         'base-board-nut-locations': dict(select=['FB01'],camera=[.12,.3,-1.8],title='Eight M2 board nuts — four Pi, two per signal board',feature_labels=[{'text':f'P{i+1}','point':[x,y,-17]} for i,(x,y) in enumerate([(-74.5,2.5),(-25.5,2.5),(-74.5,60.5),(-25.5,60.5)])]+[{'text':name,'point':[-18,y,-15]} for name,y in [('S1a',-22.08),('S1b',-11.92),('S2a',-44.08),('S2b',-33.92)]]),
     }
     for name, view in community.items():
         view['labels_by_root'] = copy.deepcopy(library['r16/base-speakers']['view']['labels_by_root'])
-        view['title'] = {'audio-cradle-fasteners':'Audio cradle — fit all three screws before the module'}.get(name, view.get('title'))
         result[f'assets/community/{name}.png'] = dict(view=view,thumbnail=False)
     # The presentation front view is captured in Fusion, not this renderer.
     # Its settings and source are recorded in rendering/presentation-front.json.
@@ -56,16 +54,11 @@ def scenes():
         if path.endswith('front-grille-detail.png'):
             v['title']='Front microphone grille — four M3 × 6 screws'
             v['footer']='88 × 40.8 × 2 mm • no washers'
-        if path.endswith('audio-cradle-fasteners.png'):
-            v['footer']='Use the fitted base nuts • the middle screw goes in before the module'
         if path.endswith('wago-pockets.png'):
             v['footer']='Tape goes between each flat face and its connector • no printed clamps'
-        if path.endswith('base-inlet.png'):
-            v['select']=['FB21','E18'];v['title']='Power jack and removable plate';v['footer']='Keep enough wire slack to remove the plate'
         if path.endswith('base-board-nut-locations.png'):
             v['footer']='P1–P4: Pi • S1a/S1b: rear signal board • S2a/S2b: front signal board'
     result['assets/r21/base-cover.png']['view'].update(clean=True)
-    result['assets/r16/base-button.png']['view']['footer']='Four insulated button leads'
     return result
 
 def front_diagrams(render, output):
@@ -448,14 +441,6 @@ def action_diagrams(render, output):
     emit('mouth-head-nuts',parts,[.4,1.5,-.4],'Load the two hidden head nuts',
          ['1 M2 nuts'],
          [('1',[-28.3,-22,129.53]),('1',[28.3,-22,129.53])])
-    parts=translated(chosen(['P30','E04']),{'P30':[0,8,0],'E04':[0,8,0]})
-    for part in parts:part['guide_color']=(175,102,61)
-    fixed=chosen(['P31','MOUTHFOAM'])+cropped(chosen(['GS20']),[[-60,-60,121.3],[60,60,128]])
-    for part in fixed:part['guide_color']=(207,216,224)
-    parts+=fixed
-    emit('mouth-removal',parts,[1.4,.9,.75],'Remove the mouth cassette',
-         ['Copper: mouth cassette'],
-         arrows=[([0,-9,144],[0,-1,144]),([0,-1,144],[0,-1,116])])
     # Upright pockets remain accessible until the foam is wrapped.
     parts=chosen(['P02'],{'P02':[0]})
     emit('rear-seam-nuts',parts,[.8,1,.1],'Load the rear seam nuts first',
@@ -603,10 +588,6 @@ def main():
                 view['camera']=(rotation@camera).tolist()
                 view['offset']={pid:(rotation@offset).tolist() for pid,offset in view.get('offset',{}).items()}
                 render.render(name,view,scene['thumbnail']);render.meshes=original
-            elif path == 'assets/r16/base-button.png':
-                from guide_component_actions import button_leads
-                original=render.meshes;render.meshes=original+button_leads(original)
-                render.render(name,scene['view'],scene['thumbnail']);render.meshes=original
             else:
                 render.render(name,scene['view'],scene['thumbnail'])
             outputs[path]=args.output/(name+'.png')

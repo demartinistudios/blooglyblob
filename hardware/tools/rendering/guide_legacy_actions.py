@@ -47,13 +47,5 @@ def render_legacy_actions(render, output):
          'Head shell screw engages the nut in the shelf',
          labels=[('M2 × 8',None,(410,45)),('Head',[42,4,128],(420,365)),
                  ('P08',[32,4,128],(36,62)),('M2 nut',[34.1,0,125.3],(32,385))])
-    parts=v.parts(['P03'])+v.parts(['E01'],0)
-    for z in [71,98.7]:
-        parts+=screw(2,6,[39,0,z],[-1,0,0])+[hex_nut(2,[23.9,0,z],[1,0,0])]
-    emit('shoulder-servo-removal',parts,[1,1,.55],
-         'Remove the two ear screws and slide the servo out of its bracket',
-         arrows=[([29,0,z],[38,0,z]) for z in [71,98.7]],
-         labels=[('2 × M2 × 6',None,(28,36)),('Servo',[32,0,84],(420,320)),
-                 ('P03',[20,15,95],(32,360))])
     render.meshes=v.original
     return v.paths

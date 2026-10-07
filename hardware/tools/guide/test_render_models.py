@@ -81,13 +81,6 @@ class ReferenceIdentityTests(unittest.TestCase):
 
 
 class BoardMountSceneTests(unittest.TestCase):
-    def test_board_only_scenes_are_refreshed(self):
-        scenes = module.scenes()
-        for name,z in [('base-pi-joints',-16),('base-shifter-joints',-14)]:
-            view=scenes[f'assets/r16/{name}.png']['view']
-            self.assertEqual(len(view['markers']),4)
-            self.assertEqual({m['nut'][2] for m in view['markers']},{z})
-
     def test_feet_do_not_imply_old_stock_size_or_cover_installation(self):
         library=json.loads((ROOT/'hardware/rendering/scenes/views.json').read_text())
         for version in ('r16','r17','r21'):

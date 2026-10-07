@@ -405,32 +405,6 @@ def servo_feed_circuit():
     g.save('circuits/servo-feed-connect.svg')
 
 
-def servo_feed_isolation():
-    g = physical_action('Isolate the servo feed', 620)
-    wago_port(g, 147, 'W1', 3, RED)
-    # W1/3 is open and empty; no other conductor is removed.
-    x, y = port_point(3, 147)
-    g.circle(x, y, 7, fill='#444', stroke=GRAY)
-    g.add(f'<path d="M{x-12} 108 L{x-9} 84 L{x+10} 84 L{x+12} 108 Z" '
-          'fill="#eb8b3e" stroke="#9c5420" stroke-width="2"/>')
-    wago_port(g, 410, 'W2', 1, RED)
-    g.wire([(180,222),(180,344),(125,344),(125,304),(392,304),(392,458),
-            (368,458),port_point(1,410)],RED,7)
-    # Insulating halo makes the folded wire crossing unambiguous.
-    g.rect(175,295,10,17,fill=RED,stroke=PAPER,sw=3,rx=0)
-    # Closed insulating cap extends beyond the freed wire end.
-    g.rect(170,202,20,55,fill='#47515b',stroke=INK,rx=5)
-    # Tie the freed tail back to the same continuous lead.
-    g.rect(119,315,68,10,fill='#e5e1d6',stroke=GRAY,rx=3)
-    g.rect(178,312,13,16,fill='#e5e1d6',stroke=GRAY,rx=2)
-    g.wire([(191,320),(210,320)], '#b6b0a3', 4)
-    g.text(24, 194, 'W1/3 empty',size=22)
-    g.text(24, 277, 'Insulate end',size=22)
-    g.wire([(142,267),(170,242)],MUTED,1.5)
-    g.text(218, 341, 'Tie back',size=22)
-    g.save('circuits/servo-feed-isolation.svg')
-
-
 def c1_circuit():
     g = physical_action('Servo capacitor connections', 680)
     capacitor(g, 123, 'C1')
@@ -1639,7 +1613,7 @@ def harness_connections():
 def circuit_actions():
     (OUT / 'circuits').mkdir(parents=True, exist_ok=True)
     power_jack_circuit(); pi_power_circuit(); wago_insertion(); harness_connections()
-    servo_feed_prepare(); servo_feed_circuit(); servo_feed_isolation()
+    servo_feed_prepare(); servo_feed_circuit()
     fuse_prep('F2', 'T1 A', 4, 'base-half +5 V / C2 +')
     c1_circuit(); ground_circuit(); c2_circuit(); f2_circuit()
     shifter_circuit('S1', {1: 'S1 V', 6: 'S1 G', 12: 'S1 DAT', 32: 'S1 CLK'})

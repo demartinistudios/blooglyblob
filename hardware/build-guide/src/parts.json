@@ -1210,8 +1210,7 @@
     "steps": [
       "servo-cables",
       "shoulder-servos",
-      "head-servo",
-      "fit-servo"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1999,15 +1998,7 @@
       "head-harness",
       "mouth",
       "body-lights",
-      "light-connections",
-      "mouth-eye-removal",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "light-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2106,9 +2097,7 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2162,8 +2151,7 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -2201,15 +2189,7 @@
       "servo-cables",
       "head-harness",
       "body-light-strand",
-      "light-connections",
-      "mouth-eye-removal",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "light-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2234,10 +2214,7 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service",
-      "head-light-service",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2264,9 +2241,7 @@
       "body-light-test",
       "head-harness",
       "body-light-strand",
-      "power-up-inspection",
-      "power-parts-service",
-      "body-light-service"
+      "power-up-inspection"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2293,9 +2268,7 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "fit-servo",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2337,17 +2310,7 @@
       "servo-connections",
       "shelf-arms",
       "head-shoulder-covers",
-      "bottom-cover",
-      "head-open",
-      "mouth-eye-removal",
-      "arm-service",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "bottom-cover"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2443,8 +2406,7 @@
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2899,9 +2861,7 @@
     "description": "Four cut pieces for the WAGOs and one patch for the back of the audio module case. The audio patch must be under 1 mm thick. Gorilla Double-Sided Tape is listed at 14 mil, about 0.36 mm. Cut it to size. Choose tape that bonds to both surfaces. WAGO levers must open fully and clear the cover. Clean and dry both surfaces, then press the tape on firmly.",
     "steps": [
       "wagos",
-      "audio-module",
-      "base-open",
-      "audio-service"
+      "audio-module"
     ],
     "link": "https://www.lowes.com/pd/Gorilla-1-41-in-x-8-Yard-s-Double-Sided-Tape/5003091145",
     "image": "assets/cartoons/C16.svg",

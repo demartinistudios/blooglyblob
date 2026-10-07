@@ -78,9 +78,9 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
    polarity, order, access constraints and the check for success. Remove internal
    coordinates, render commentary, revision stories and duplicated descriptions.
    Essential cautions belong before the action they affect, never in hidden help.
-   State the general power rule once. Repeat it at power-state transitions,
-   specific hazards and standalone service entry points, not throughout an
-   uninterrupted unpowered assembly sequence.
+   State the general power rule once. Repeat it at power-state transitions
+   and specific hazards, not throughout an uninterrupted unpowered assembly
+   sequence.
 7. **Prepare before mounting.** Test-route when length depends on fit, mark it,
    then solder and heat-shrink off the assembly. Check and cool the work before
    fitting it. Load captive nuts before access disappears; close covers last.
@@ -108,7 +108,11 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
     contradicts its actions, such as one showing a retired stand, is recorded
     as a picture mismatch until it is re-rendered, and its caption says what it
     shows.
-11. **Make detail optional, not the instruction.** Parts lists and references may
+11. **Build steps only.** The guide has no service or repair steps; a builder
+    who needs to open the robot reverses the build steps. After the last build
+    chapter, the sidebar lists the reference pages under a plain chapter
+    heading, Reference, without numbers and without a collapsible menu.
+12. **Make detail optional, not the instruction.** Parts lists and references may
     expand on demand. The operation, required dimensions and safety information
     remain visible. Preserve keyboard navigation, readable contrast, image
     descriptions, zoom controls and printable output.
@@ -303,9 +307,9 @@ Placement and form:
   "be careful" or "danger" in actions, notes or captions.
 - The general power rule and the general soldering, cutting and printing
   precautions live on the Safety and responsibility page. Repeat a power
-  warning only at power-state changes, specific hazards and service steps that
-  a builder may open directly (rule 6 above). Do not add a generic soldering
-  caution to every soldering action: the audience already solders.
+  warning only at power-state changes and specific hazards (rule 6 above). Do
+  not add a generic soldering caution to every soldering action: the audience
+  already solders.
 - Keep "Stop and unplug if…" instructions at power-up in the action list, as
   recovery lines, with a WARNING before the power-up action.
 

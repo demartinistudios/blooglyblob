@@ -425,7 +425,7 @@ def format_facts(inventory):
 
 
 def check_quantities(hardware, supplies, catalog, guide, parts):
-    """Technical allocations and editorial preparation/service references stay distinct."""
+    """Each installed allocation is consumed once, by build-step install or preload references."""
     allocations = indexed(hardware['allocations'], 'id', 'installed allocations')
     totals = allocation_totals(allocations)
     steps = indexed(guide['steps'], 'id', 'guide steps')
@@ -441,17 +441,13 @@ def check_quantities(hardware, supplies, catalog, guide, parts):
         projected = Counter()
         for ref in step.get('hardware_allocations', []):
             aid, role = ref['allocation_id'], ref['role']
-            if aid not in allocations or role not in ('install', 'preload', 'service'):
+            if aid not in allocations or role not in ('install', 'preload'):
                 raise ValueError(f'{sid}: unknown allocation or role: {aid}/{role}')
             quantity = counts(ref['hardware'], sid)
             if quantity - Counter(allocations[aid]['hardware']):
                 raise ValueError(f'{sid}: references more hardware than allocated to {aid}')
-            if role == 'service':
-                if step['kind'] != 'service':
-                    raise ValueError(f'{sid}: service reuse must be a service step')
-                continue  # service refers to existing hardware; it never adds installed demand
             if step['kind'] != 'build':
-                raise ValueError(f'{sid}: service step cannot consume installed demand')
+                raise ValueError(f'{sid}: only build steps consume installed hardware')
             consumed[aid].update(quantity)
             projected.update(quantity)
         if dict(projected) != step['hardware']:

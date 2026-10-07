@@ -430,8 +430,7 @@
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
       "guide_review_step_ids": [
-        "belt",
-        "body-light-service"
+        "belt"
       ]
     },
     {
@@ -504,8 +503,7 @@
         "feet",
         "button-audio-wiring",
         "secure-wiring",
-        "bottom-cover",
-        "base-open"
+        "bottom-cover"
       ]
     },
     {
@@ -558,8 +556,7 @@
       "geometry_revision": "sha256:19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
       "guide_review_step_ids": [
         "speaker-grilles",
-        "side-grilles",
-        "audio-service"
+        "side-grilles"
       ]
     },
     {
@@ -586,8 +583,7 @@
       "guide_review_step_ids": [
         "button-leads",
         "button",
-        "power-jack",
-        "audio-service"
+        "power-jack"
       ]
     },
     {
@@ -614,8 +610,7 @@
       "guide_review_step_ids": [
         "button-leads",
         "button",
-        "power-jack",
-        "power-parts-service"
+        "power-jack"
       ]
     },
     {
@@ -646,8 +641,7 @@
         "board-cover-nuts",
         "cradle-jack-nuts",
         "audio-cradle",
-        "audio-module",
-        "audio-service"
+        "audio-module"
       ],
       "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
@@ -671,8 +665,7 @@
       "qualification": "Visual design approved; native/mesh digital checks passed. Printed fit, strength and adhesive retention remain unqualified.",
       "geometry_revision": "sha256:e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
       "guide_review_step_ids": [
-        "audio-module",
-        "audio-service"
+        "audio-module"
       ],
       "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
@@ -800,10 +793,7 @@
         "eye-windows",
         "eye-housings",
         "eye-boards",
-        "mouth",
-        "head-open",
-        "mouth-eye-removal",
-        "arm-service"
+        "mouth"
       ]
     },
     {
@@ -831,10 +821,7 @@
         "eye-windows",
         "eye-housings",
         "eye-boards",
-        "mouth",
-        "head-open",
-        "mouth-eye-removal",
-        "arm-service"
+        "mouth"
       ]
     },
     {
@@ -901,8 +888,7 @@
         "frame-uprights",
         "head-servo",
         "body-light-strand",
-        "body-diffuser",
-        "remove-servo"
+        "body-diffuser"
       ]
     },
     {
@@ -955,8 +941,7 @@
       "qualification": "Check print quality and fit before assembly.",
       "geometry_revision": "sha256:325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
       "guide_review_step_ids": [
-        "shoulder-servos",
-        "remove-servo"
+        "shoulder-servos"
       ]
     },
     {
@@ -1013,8 +998,7 @@
         "print-cleanup",
         "eye-housings",
         "eye-boards",
-        "head-harness",
-        "head-light-service"
+        "head-harness"
       ]
     },
     {
@@ -1045,8 +1029,7 @@
         "head-shelf",
         "fit-position",
         "shelf-arms",
-        "head-shoulder-covers",
-        "head-open"
+        "head-shoulder-covers"
       ],
       "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
@@ -1077,8 +1060,7 @@
       "geometry_revision": "sha256:ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
       "guide_review_step_ids": [
         "body-diffuser",
-        "backpack-carrier",
-        "body-light-service"
+        "backpack-carrier"
       ]
     },
     {
@@ -1113,8 +1095,7 @@
       "geometry_revision": "sha256:c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
       "guide_review_step_ids": [
         "body-diffuser",
-        "backpack-carrier",
-        "body-light-service"
+        "backpack-carrier"
       ]
     },
     {
@@ -1173,8 +1154,7 @@
         "body-light-strand",
         "body-lights",
         "body-diffuser",
-        "backpack-carrier",
-        "body-light-service"
+        "backpack-carrier"
       ]
     },
     {
@@ -1254,10 +1234,7 @@
       "geometry_revision": "sha256:899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
       "guide_review_step_ids": [
         "mouth",
-        "head-shoulder-covers",
-        "head-open",
-        "mouth-eye-removal",
-        "head-light-service"
+        "head-shoulder-covers"
       ]
     },
     {
@@ -1280,8 +1257,7 @@
       "qualification": "Replacement geometry ready; actual-material print and fit checks pending",
       "geometry_revision": "sha256:e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
       "guide_review_step_ids": [
-        "mouth",
-        "mouth-eye-removal"
+        "mouth"
       ]
     },
     {
@@ -1306,8 +1282,7 @@
       "geometry_revision": "sha256:f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
       "guide_review_step_ids": [
         "backpack-carrier",
-        "backpack",
-        "body-light-service"
+        "backpack"
       ]
     },
     {
@@ -1334,8 +1309,7 @@
       "guide_review_step_ids": [
         "print-cleanup",
         "backpack",
-        "belt",
-        "body-light-service"
+        "belt"
       ],
       "print_project_status": "R29 selected STL installed in current editable print project; affected complete plate sliced and bounded layout/support review complete. Physical fit, cleanup and retention remain unqualified."
     },
