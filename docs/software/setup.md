@@ -168,8 +168,9 @@ Find the USB audio card and note the name after `USB-Audio -`. For example:
 ```
 
 If no USB audio card appears, check the module and extension connections and
-list the cards again. Also note the bracketed card ID (`Device` above). Use this
-ID rather than the numeric index, which can change after reboot.
+list the cards again. Note two names: the full name after `USB-Audio -` (for
+`config/app.env` below) and the short card ID in brackets (`Device`). The volume
+commands use the card ID, never the leading number, which can change after reboot.
 
 Set the playback level on the Pi. For the specified Waveshare module and
 speakers, inspect its `Speaker` control, then set both playback channels to 100%
@@ -177,11 +178,12 @@ speakers, inspect its `Speaker` control, then set both playback channels to 100%
 
 ```sh
 amixer -c Device sget Speaker
-amixer -c Device -- sset Speaker playback 100%
+amixer -c Device sset Speaker playback 100%
 sudo alsactl store Device
 ```
 
-Replace `Device` if your USB card has a different ID. Confirm both channels are
+With the specified module, run them exactly as shown. If your brackets show a
+different ID, type it in place of `Device`. Confirm both channels are
 on and report `[100%]` and `[0.00dB]`. If the control is missing or has no dB
 scale, stop here and inspect that module's controls with `alsamixer -c Device`.
 At 100%, the module's 2.6 W per channel stays within the speakers' 3 W rating.

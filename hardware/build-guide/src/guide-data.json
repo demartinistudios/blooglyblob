@@ -1219,9 +1219,9 @@
         "On your computer, in the repository folder, run the command below. It opens SSH with the target in `.env`.",
         "If the target is wrong or unreachable, correct `PI_HOST` and `PI_USER` in `.env`. Run the command again.",
         "On the Pi, list the sound cards with the command below.",
-        "Note the USB name after \u201cUSB-Audio - \u201d and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
+        "Note the name after \u201cUSB-Audio - \u201d, here USB PnP Audio Device. It goes in `config/app.env` below. The word in brackets, `Device`, is the card\u2019s short name.",
         "If no USB audio card appears, check the module and extension connections. List the cards again.",
-        "In each command below, use your card ID for `Device`, not the card number. That number can change after a reboot. Run the three commands in order to read, set and save the Speaker level.",
+        "Run the three commands below exactly as shown, in order. They read, set and save the speaker level of card `Device`. If your brackets show another word, type it in place of `Device`.",
         "Both channels report `[100%]` and `[0.00dB]`, full level.",
         "If the Speaker control or its dB scale is missing, stop. Inspect the controls with `alsamixer -c Device` before you continue.",
         "You read it again after a reboot in {step:finished-robot}, and lower it there only if it is too loud.",
@@ -1297,10 +1297,9 @@
               "context": "pi",
               "lines": [
                 "amixer -c Device sget Speaker",
-                "amixer -c Device -- sset Speaker playback 100%",
+                "amixer -c Device sset Speaker playback 100%",
                 "sudo alsactl store Device"
-              ],
-              "label": "Use your USB card ID"
+              ]
             }
           ]
         },
@@ -4768,12 +4767,9 @@
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "On your computer, in the repository folder, run the command below.",
         "Each light turns on alone, in order: body 0\u20135, first eye 6, second eye 7 and mouth 8\u201315. Next, all 16 show red, green and blue.",
-        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light\u2019s input and output connections.",
-        "Run the first command below. The output shows `active (running)`.",
-        "Open the Pi shell with the second command. Run `vcgencmd get_throttled`. It must print `throttled=0x0`. Type `exit`. Leave the robot powered.",
-        "If either output differs, use Troubleshooting before you go on."
+        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light\u2019s input and output connections."
       ],
-      "check": "All 16 lights lit in order and showed red, green and blue. The service is active (running) and the Pi reports throttled=0x0. The robot stays powered.",
+      "check": "All 16 lights lit in order and showed red, green and blue. The robot stays powered.",
       "hardware": {},
       "parts": {
         "E20": 1,
@@ -4837,68 +4833,9 @@
             10,
             11
           ]
-        },
-        {
-          "title": "Check the service and the supply voltage",
-          "codeBlocks": [
-            {
-              "kind": "command",
-              "lines": [
-                "make pi-status"
-              ],
-              "context": "computer",
-              "label": "Repository folder"
-            },
-            {
-              "kind": "output",
-              "lines": [
-                "active (running)"
-              ],
-              "label": "Expected service state"
-            },
-            {
-              "kind": "command",
-              "lines": [
-                "make pi-ssh"
-              ],
-              "context": "computer",
-              "label": "Repository folder"
-            },
-            {
-              "kind": "command",
-              "lines": [
-                "vcgencmd get_throttled"
-              ],
-              "context": "pi"
-            },
-            {
-              "kind": "output",
-              "lines": [
-                "throttled=0x0"
-              ],
-              "label": "Expected result"
-            },
-            {
-              "kind": "command",
-              "lines": [
-                "exit"
-              ],
-              "context": "pi"
-            }
-          ],
-          "links": [
-            {
-              "label": "Troubleshooting",
-              "url": "#troubleshooting"
-            }
-          ],
-          "actions": [
-            12,
-            13,
-            14
-          ]
         }
-      ]
+      ],
+      "note": "Leave the robot powered for {step:fit-position}."
     },
     {
       "id": "fit-position",
@@ -5470,15 +5407,17 @@
         "At the robot-left end of the rear face, push the barrel plug fully into the power jack (J1).",
         "Leave the rear vent and side grilles uncovered. Plug the mains cord into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
-        "Open the Pi shell with the first command. Read the speaker level with the second. Use your card ID for `Device`.",
+        "Open the Pi shell with the first command. Read the speaker level with the second.",
         "Both channels report `[100%]` and `[0.00dB]`, the level you saved in {step:audio-settings}.",
         "If they report another level, the saved level did not load. Set and save 100% again as in {step:audio-settings}.",
         "Press the front button. Talk with the robot.",
-        "The robot answers what you say. If speech is too quiet, see Troubleshooting.",
+        "The robot answers what you say.",
         "If speech is too loud or distorted, run the first command below. Each run lowers the level by 3 dB. Save a changed level with the second.",
         "Type `exit` to leave the Pi shell. Press the front button. Ask the robot to wave. Ask it to dance.",
         "The head and arms move freely, and the body and eye lights respond. The music plays without rattles or buzzing.",
-        "If the base rattles or buzzes, or anything else is wrong, see Troubleshooting. Shut down and unplug before you open the base."
+        "If speech is too quiet at 100%, the audio module (E14) has a small volume screw inside its case. Turning it is optional.",
+        "Shut down and unplug. Remove the bottom cover and the audio cradle lid (FB32). Free the module from its tape.",
+        "Pry its case open at the gap beside the USB socket. Turn the screw a little clockwise for more volume. Close the case and refit everything as before, with fresh tape."
       ],
       "check": "Conversation, sound, movement and lighting work with the cover fitted.",
       "parts": {},
@@ -5527,8 +5466,7 @@
               "lines": [
                 "amixer -c Device sget Speaker"
               ],
-              "context": "pi",
-              "label": "Use your USB card ID"
+              "context": "pi"
             }
           ]
         },
@@ -5543,18 +5481,16 @@
             {
               "kind": "command",
               "lines": [
-                "amixer -c Device -- sset Speaker playback 3dB-"
+                "amixer -c Device sset Speaker playback 3dB-"
               ],
-              "context": "pi",
-              "label": "Use your USB card ID"
+              "context": "pi"
             },
             {
               "kind": "command",
               "lines": [
                 "sudo alsactl store Device"
               ],
-              "context": "pi",
-              "label": "Use your USB card ID"
+              "context": "pi"
             }
           ]
         },
@@ -5564,17 +5500,27 @@
           "caption": "The assembled robot, from the front.",
           "actions": [
             9,
-            10,
-            11
+            10
           ],
           "links": [
             {
-              "label": "Troubleshooting",
-              "url": "#troubleshooting"
-            },
-            {
               "label": "Software commands",
               "url": "#software/commands"
+            }
+          ]
+        },
+        {
+          "title": "Raise the module volume only if needed",
+          "textOnly": true,
+          "actions": [
+            11,
+            12,
+            13
+          ],
+          "links": [
+            {
+              "label": "Waveshare volume FAQ",
+              "url": "https://www.waveshare.com/wiki/USB_TO_AUDIO#FAQ"
             }
           ]
         }

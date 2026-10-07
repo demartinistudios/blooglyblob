@@ -193,7 +193,7 @@ fs.mkdirSync(OUT,{recursive:false});
   // Reference pages follow the chapters as one more plain, unnumbered sidebar chapter.
   assert.deepEqual(await page.locator('#reference-nav h3').evaluateAll(es=>es.map(e=>e.textContent)),['Reference'],'sidebar Reference heading');
   assert.equal(await page.locator('#sidebar details, #reference-nav .num').count(),0,'Reference entries are neither collapsible nor numbered');
-  assert.deepEqual(await page.locator('#reference-nav a').evaluateAll(es=>es.map(e=>e.getAttribute('href'))),['#notes','#safety','#parts','#cost','#hardware','#electrical','#software','#troubleshooting'],'sidebar Reference entries');
+  assert.deepEqual(await page.locator('#reference-nav a').evaluateAll(es=>es.map(e=>e.getAttribute('href'))),['#notes','#safety','#parts','#cost','#hardware','#electrical','#software'],'sidebar Reference entries');
   const setupStart=build.findIndex(step=>step.id===SETUP[0]);
   assert.deepEqual(build.slice(setupStart,setupStart+SETUP.length+1).map(step=>step.id),[...SETUP,'pi-shifters']);
   assert.ok(build.slice(setupStart,setupStart+SETUP.length).every(step=>step.chapter==='Pi software'));
@@ -326,7 +326,7 @@ fs.mkdirSync(OUT,{recursive:false});
   const shots=['step-board-cover-nuts','step-cradle-jack-nuts','step-bottom-cover','step-backpack','step-belt','step-power-jack','step-button-leads','step-button','step-pi-shifters','step-power-wiring','step-side-grilles','step-audio-cradle','step-audio-module','step-computer-ssh-key','step-imager-choose','step-imager-settings','step-imager-write','step-shoulder-servos','step-head-servo','step-eye-housings','step-eye-boards','step-feet','step-speaker-grilles','step-light-fuse-capacitor','step-body-light-test','step-head-harness','step-body-light-strand','step-body-lights','step-print-plates','step-print-cleanup','step-front-grille-rear-vent','step-wagos','parts/C16','parts/C17','parts/C18','parts/FB41','parts/P35','start','parts','cost','printing','hardware','electrical','safety','software','step-workbench','step-eye-windows','step-shifter-wiring','step-button-audio-wiring','step-fit-position','step-shelf-arms','step-head-shoulder-covers','step-first-movement','step-secure-wiring','step-all-lights-test','troubleshooting','before-you-start'];
   shots.push(...SETUP.map(id=>'step-'+id),...SOFTWARE_TOPICS.map(id=>'software/'+id));
   for(const r of shots.filter(r=>r.startsWith('step-')))assert.ok(steps.has(r.slice(5)),'screenshot route missing: '+r);
-  const routes=['start','before-you-start','cost','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software','troubleshooting',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
+  const routes=['start','before-you-start','cost','parts','parts/tools','hardware','printing','printing/GS11','printing/AR07','electrical','safety','software',...data.guide.steps.map(s=>'step-'+s.id),...data.parts.map(p=>'parts/'+p.id)];
   routes.push(...SOFTWARE_TOPICS.map(id=>'software/'+id));
   // Safety entries (KTD4) are one {level,text} entry or a list; the guide shows the level label.
   const safetyOf=value=>value?(Array.isArray(value)?value:[value]):[];

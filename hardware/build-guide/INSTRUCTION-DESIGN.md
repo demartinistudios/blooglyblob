@@ -635,7 +635,6 @@ expected light/sound/movement. Do not ask builders to qualify current budgets,
 fuse margins, thermal performance or endurance, or buy instruments for those
 tests. Maintain that engineering evidence in hardware records. Removing those
 tasks from the guide is not evidence that design qualification has happened.
-Troubleshooting may provide targeted measurements when a fault occurs.
 
 ## Common failure patterns
 
