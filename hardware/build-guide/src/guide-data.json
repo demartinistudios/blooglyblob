@@ -1601,7 +1601,7 @@
       "title": "Mount the Pi and level shifters",
       "chapter": "Base boards and controls",
       "actions": [
-        "Label the two level shifters (E15) as level shifter (S1) and level shifter (S2).",
+        "Label the two level shifters (E15) as level shifter (S1) and level shifter (S2). Use wire labels (C14) or masking tape.",
         "On the back of each board, find the copper jumper labeled Neo, beside the top mounting hole. Cutting it disables only the onboard test LED.",
         "Cut only the narrow bridge inside its white outline. With the meter in continuity mode, check that each cut is open. Both signal channels on each board stay active.",
         "Place the base (FB01) upside down, with its open bottom facing up.",
@@ -1621,7 +1621,8 @@
         "E13": 1,
         "E15": 2,
         "T03": 1,
-        "T05": 1
+        "T05": 1,
+        "C14": "As used"
       },
       "hardware": {
         "M2x12": 4,
@@ -1698,10 +1699,10 @@
         "Place each WAGO with its wire entries toward the robot\u2019s front and its levers toward the open bottom.",
         "Test-fit all four WAGOs with the tape thickness included. Each lever must open fully without touching the cover or nearby parts.",
         "Remove the liners. Press each WAGO firmly onto its pad.",
-        "Beside the pads, label the four WAGOs from rear to front.",
-        "Rear to front: input WAGO (W1), ground WAGO (W3), servo power WAGO (W2), servo ground WAGO (W4). W1 and W2 carry +5 V. W3 and W4 carry GND.",
+        "Beside each WAGO, stick a wire label (C14) or a strip of masking tape. Marker on dark plastic is hard to read.",
+        "Write the names rear to front: input WAGO (W1), ground WAGO (W3), servo power WAGO (W2), servo ground WAGO (W4). W1 and W2 carry +5 V. W3 and W4 carry GND.",
         "Open and close each lever gently to check the bond.",
-        "Number each WAGO\u2019s ports from the robot-right end. In this open-bottom view, port 1 is on the picture\u2019s right.",
+        "With a marker, write 1 to 5 on each WAGO\u2019s levers. Port 1 is at the robot-right end, on the picture\u2019s right.",
         "All five ports in one WAGO are joined.",
         "Use this numbering for all four WAGOs. In this guide, W1/3 means WAGO W1, port 3."
       ],
@@ -1710,7 +1711,8 @@
         "FB01": 1,
         "E06": 4,
         "C16": "Four cut pieces",
-        "T06": 1
+        "T06": 1,
+        "C14": "As used"
       },
       "hardware": {},
       "note": "",
@@ -2253,6 +2255,68 @@
       ]
     },
     {
+      "id": "base-tie-squares",
+      "title": "Stick down the tie squares",
+      "chapter": "Base wiring",
+      "actions": [
+        "Find where the light fuse (F2), servo capacitor (C1) and light capacitor (C2) lie in the picture. You tie each one there.",
+        "Place a 1 \u00d7 1-inch adhesive tie square (C17) under or beside each of those places. Keep its liner on.",
+        "Place one more on the audio cradle\u2019s rear wall, the wall facing the Pi. It holds the button leads.",
+        "Check that each square makes full contact. It and its tie must stay at least 4 mm below the open rim, where the bottom cover (FB02) closes.",
+        "Prepare each surface as the square\u2019s instructions say. Peel the liner. Press the square down.",
+        "Let the squares bond while you wire. Load each one only after the bond time in its instructions.",
+        "In every base wiring step, route wires around both frame screws and the harness opening.",
+        "The three servo cables and the body half of the body light connector pass through the opening later.",
+        "Keep the microSD card, WAGO levers, fuse cap and tie locks reachable. Keep each capacitor\u2019s vent end uncovered."
+      ],
+      "check": "Each tie square is bonded flat, at least 4 mm below the open rim. The access areas are clear.",
+      "parts": {
+        "C17": "As placed",
+        "T06": 1
+      },
+      "hardware": {},
+      "note": "",
+      "source": [
+        "hardware/cad/CURRENT-NOTES.md",
+        "hardware/assembly/electrical.json"
+      ],
+      "kind": "build",
+      "number": 26,
+      "commands": [],
+      "panels": [
+        {
+          "title": "Place the tie squares",
+          "image": "assets/community/base-electrical-layout.svg",
+          "caption": "The power parts and boards in the base, seen through the open bottom.",
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Stick the tie squares down",
+          "image": "assets/circuits/tie-mount.svg",
+          "caption": "Side view of a tie square holding a capacitor.",
+          "actions": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Keep the access areas clear",
+          "image": "assets/community/base-routing-access.svg",
+          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
+          "actions": [
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
       "id": "power-wiring",
       "title": "Connect the power jack, Pi power lead and ground",
       "chapter": "Base wiring",
@@ -2290,7 +2354,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 26,
+      "number": 27,
       "commands": [],
       "panels": [
         {
@@ -2357,10 +2421,12 @@
         "Insert one end into W1/3. Insert the other end into W2/1. Close both levers.",
         "Keep W2/2 to W2/4 free for the three servos.",
         "Label one 1000 \u00b5F, 10 V capacitor (E08) C1. The stripe marks its negative leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.",
-        "Cover each leg and its joint with its own heat-shrink. Lay C1 beside the WAGO row. Cut each wire to reach its port.",
-        "Insert the positive wire into W2/5. Insert the negative wire into W3/4. Bend the wires gently at the rubber-seal end. Keep the vent end uncovered."
+        "Cover each leg and its joint with its own heat-shrink. Lay C1 at its tie square. Cut each wire to reach its port.",
+        "Insert the positive wire into W2/5. Insert the negative wire into W3/4. Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.",
+        "Tie C1\u2019s body to its tie square with a cable tie (C07). Keep the tie off the rubber-seal end and the vent end.",
+        "Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by its tie, not by its wires."
       ],
-      "check": "One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate.",
+      "check": "One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate, and its body is tied down.",
       "parts": {
         "E08": 1,
         "C05": "As routed",
@@ -2370,7 +2436,8 @@
         "T02": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "C07": "As used"
       },
       "hardware": {},
       "note": "",
@@ -2379,7 +2446,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 27,
+      "number": 28,
       "commands": [],
       "panels": [
         {
@@ -2413,6 +2480,15 @@
             5,
             6
           ]
+        },
+        {
+          "title": "Tie C1 to its square",
+          "image": "assets/circuits/tie-mount.svg",
+          "caption": "Side view of a tie square holding a capacitor.",
+          "actions": [
+            7,
+            8
+          ]
         }
       ]
     },
@@ -2422,7 +2498,7 @@
       "chapter": "Base wiring",
       "actions": [
         "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
-        "Cut the holder\u2019s wire loop in the middle. One end is the F2 input, the other the F2 output.",
+        "Lay the holder at its tie square. Cut its wire loop in the middle. The end toward the input WAGO (W1) is the F2 input.",
         "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
         "If the marks are missing or disagree with the factory lead colors, stop. Do not wire this strand.",
@@ -2434,9 +2510,11 @@
         "Solder the data resistor (R2), 330 \u03a9, into the base-half DATA wire. Cover each joint, each C2 leg and R2 with its own heat-shrink. No bare metal may touch another conductor.",
         "Strip 11 mm from the F2 input end. Insert it into the input WAGO (W1/4).",
         "Strip 11 mm from the base-half GND wire. Insert it into the ground WAGO (W3/5). It is the only wire in W3/5.",
-        "Label the free end of the DATA wire, past R2, for terminal D5 of the level shifter (S1). You connect it in the next step."
+        "Label the free end of the DATA wire, past R2, for terminal D5 of the level shifter (S1). You connect it in the next step.",
+        "Tie the fuse holder body and C2\u2019s body each to its tie square (C07). Keep ties off the fuse cap and capacitor ends.",
+        "Tighten each tie only enough to stop sliding. Tie the F2 output end so that cutting one tie frees it. Trim the tails."
       ],
-      "check": "F2 feeds the base-half +5 V wire. C2 polarity is correct. R2 is in the DATA wire. Each joint is insulated on its own.",
+      "check": "F2 feeds the base-half +5 V wire. C2 polarity is correct. R2 is in the DATA wire. Each joint is insulated on its own. F2 and C2 are tied down.",
       "parts": {
         "E07": 1,
         "F2": 1,
@@ -2453,7 +2531,8 @@
         "T03": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "C07": "As used"
       },
       "hardware": {},
       "note": "",
@@ -2462,17 +2541,13 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 28,
+      "number": 29,
       "commands": [],
       "panels": [
         {
           "title": "Cut the light fuse loop",
           "image": "assets/circuits/f2-prepare.svg",
           "caption": "The fuse holder with its factory wire loop.",
-          "detail": {
-            "title": "Where the light fuse and capacitors lie",
-            "image": "assets/community/power-parts-placement.png"
-          },
           "actions": [
             0,
             1,
@@ -2529,6 +2604,15 @@
             12,
             13
           ]
+        },
+        {
+          "title": "Tie F2 and C2 to their squares",
+          "image": "assets/circuits/tie-mount.svg",
+          "caption": "Side view of a tie square holding a capacitor.",
+          "actions": [
+            14,
+            15
+          ]
         }
       ]
     },
@@ -2537,15 +2621,17 @@
       "title": "Connect the level shifters",
       "chapter": "Base wiring",
       "actions": [
-        "Take the remaining eight GPIO jumper leads (E24). They connect the Pi to the two level shifters (S1, S2).",
-        "Find pin 1, marked at the microSD end of the header. Connect pin 1 to S1 V. Connect pin 6 to S1 G. Connect pin 12 to S1 DAT. Connect pin 32 to S1 CLK.",
-        "For each lead, hold the 2.54 mm female socket by its plastic body. Push it straight down onto its Pi pin.",
-        "Route each lead from its pin to its S1 terminal. Cut it there, leaving slack to route and tie it.",
-        "Strip only enough for the bare wire to fit fully inside the terminal. Push it fully in. Tighten the terminal screw.",
-        "Connect the base-half DATA wire to S1 D5. Label S1 C5 LEFT. Leave S1 !D5 and the output G terminal empty.",
-        "Connect pin 17 to S2 V. Connect pin 9 to S2 G. Connect pin 33 to S2 DAT. Connect pin 36 to S2 CLK. Plug in, route, cut and connect each lead as for S1.",
-        "Label S2 D5 RIGHT. Label S2 C5 HEAD. Leave S2 !D5 and the output G terminal empty.",
-        "Each socket sits on one pin. No bare strands show outside any terminal."
+        "Take the eight remaining GPIO jumper leads (E24), for the level shifters (S1, S2). Label four sockets 1, 6, 12 and 32.",
+        "Hold each socket by its plastic body. Push it straight down onto its Pi pin. Pin 1 is at the microSD end of the header.",
+        "Route each lead to its S1 terminal, as in the picture. Pin 1 goes to V, 6 to G, 12 to DAT and 32 to CLK.",
+        "Cut each lead at its terminal, leaving slack to route and tie it. Strip only enough for the bare wire to fit fully inside.",
+        "Push each wire fully into its terminal. Tighten the terminal screw. No bare strands may show outside it.",
+        "Label the other four sockets 17, 9, 33 and 36. Push each onto its Pi pin.",
+        "Route, cut and connect each lead to S2 as for S1. Pin 17 goes to V, 9 to G, 33 to DAT and 36 to CLK.",
+        "Where the eight GPIO leads run together, tie them into one wire bundle (C07). Trim the tail.",
+        "Connect the base-half DATA wire, past the data resistor (R2), to S1 D5.",
+        "Write LEFT beside S1 C5, RIGHT beside S2 D5 and HEAD beside S2 C5. You connect each servo cable there in {step:servo-connections}.",
+        "Leave each terminal marked !D5 and each output G terminal empty."
       ],
       "check": "Eight Pi pins connect to S1 and S2 as in the diagrams. The base-half DATA wire is in S1 D5. The three servo output terminals are labeled.",
       "parts": {
@@ -2554,7 +2640,8 @@
         "T01": 1,
         "T04": 1,
         "T05": 1,
-        "T06": 1
+        "T06": 1,
+        "C07": "As used"
       },
       "hardware": {},
       "note": "You prepared the four button leads in {step:button-leads}. You cut the Neo jumpers in {step:pi-shifters}.",
@@ -2563,7 +2650,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 29,
+      "number": 30,
       "commands": [],
       "panels": [
         {
@@ -2581,13 +2668,12 @@
           ]
         },
         {
-          "title": "Cut and connect the S1 leads",
+          "title": "Connect the leads to S1",
           "image": "assets/circuits/gpio-lead-prepare.svg",
           "caption": "One lead end, and an enlarged level shifter terminal.",
           "actions": [
             3,
-            4,
-            5
+            4
           ]
         },
         {
@@ -2595,9 +2681,19 @@
           "image": "assets/circuits/s2-inputs.svg",
           "caption": "Pin-side view of the Pi header and level shifter S2, as for S1.",
           "actions": [
+            5,
             6,
-            7,
-            8
+            7
+          ]
+        },
+        {
+          "title": "Connect S1 D5 and label the servo outputs",
+          "image": "assets/circuits/shifter-outputs.svg",
+          "caption": "Output terminals of level shifters S1 and S2, with the base-half DATA wire and the servo labels.",
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -2609,13 +2705,16 @@
       "actions": [
         "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
         "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED \u2212 lead, labeled 20, onto pin 20 (GND).",
+        "Tie the four button leads to the tie square on the audio cradle\u2019s rear wall (C07). Trim the tail.",
         "Plug the USB-A extension cable (E23) into the Pi\u2019s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
         "Route the USB-A extension cable around the cradle, toward its open-bottom side. Leave a relaxed bend without pulling sideways on either socket."
       ],
       "check": "All twelve Pi header connections match their physical pin numbers. The switch, button light and speaker circuits are separate. The USB-A extension cable bends without pulling on either socket.",
       "parts": {
-        "E23": 1
+        "E23": 1,
+        "C07": "As used",
+        "T01": 1
       },
       "hardware": {},
       "note": "You soldered the button leads in {step:button-leads}.",
@@ -2624,7 +2723,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 30,
+      "number": 31,
       "commands": [],
       "panels": [
         {
@@ -2636,11 +2735,12 @@
           ]
         },
         {
-          "title": "Connect the button light",
+          "title": "Connect the button light and tie the button leads",
           "image": "assets/circuits/button-led.svg",
           "caption": "The Pi header from the pin side, and the button\u2019s LED pair from behind.",
           "actions": [
-            1
+            1,
+            2
           ]
         },
         {
@@ -2648,8 +2748,8 @@
           "image": "assets/circuits/usb-audio.svg",
           "caption": "The Pi, extension cable and audio module, with the two plug-in connections numbered.",
           "actions": [
-            2,
-            3
+            3,
+            4
           ]
         },
         {
@@ -2657,85 +2757,7 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail, with the base and most of the Pi cut away.",
           "actions": [
-            4
-          ]
-        }
-      ]
-    },
-    {
-      "id": "secure-base-wiring",
-      "title": "Secure the light fuse, capacitors and wires",
-      "chapter": "Base wiring",
-      "actions": [
-        "Lay the light fuse (F2) toward the rear. Lay the servo capacitor (C1) and light capacitor (C2) beside the WAGO row.",
-        "Keep the fuse holder\u2019s opening reachable. Keep each capacitor\u2019s vent end uncovered.",
-        "Choose where your wiring needs support. Place 1 \u00d7 1-inch adhesive tie squares (C17) there, on flat inside faces, with their liners still on.",
-        "Check that each square makes full contact. Its tie lock and the wiring must stay at least 4 mm from the bottom cover (FB02).",
-        "Prepare each surface as the square\u2019s instructions say. Peel the liner. Press the square down. Let it bond for the time in its instructions before loading it.",
-        "Tie the fuse holder and each capacitor body to a tie square with a cable tie (C07). Keep ties off capacitor ends and the fuse opening.",
-        "Tighten each tie only enough to stop sliding. Trim the tails.",
-        "Each body is held by its tie, not by its wires.",
-        "Route every wire around both frame-screw positions. Keep the harness opening clear. The three servo cables and the body half of the body light connector pass through it later.",
-        "Where wires run together, such as the eight GPIO leads, tie them to the nearest square. Tie the F2 output end so that cutting one tie frees it. Trim the tails.",
-        "Keep the microSD card, WAGO levers, fuse cap, plugs and vents reachable. Leave each tie lock where you can cut it."
-      ],
-      "check": "The fuse holder, capacitors and tied wires are held by ties, not by their terminals. Each tie square holds.",
-      "parts": {
-        "FB01": 1,
-        "E07": 1,
-        "F2": 1,
-        "E08": 2,
-        "C07": "As routed",
-        "C17": "As routed",
-        "T01": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "build",
-      "number": 31,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Lay out the light fuse and capacitors",
-          "image": "assets/community/power-parts-placement.png",
-          "caption": "Light fuse and capacitor positions inside the open base.",
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Stick down the tie squares",
-          "image": "assets/circuits/tie-mount.svg",
-          "caption": "Side view of a tie square holding a capacitor.",
-          "actions": [
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "title": "Tie the fuse holder and capacitors",
-          "image": "assets/circuits/tie-mount.svg",
-          "caption": "Side view of a tie square holding a capacitor.",
-          "actions": [
-            5,
-            6,
-            7
-          ]
-        },
-        {
-          "title": "Tie the wires clear of the screws and opening",
-          "image": "assets/community/base-routing-access.svg",
-          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
-          "actions": [
-            8,
-            9,
-            10
+            5
           ]
         }
       ]
@@ -2745,20 +2767,17 @@
       "title": "Check the unpowered base",
       "chapter": "Base wiring",
       "actions": [
-        "Keep the supply and BODY LIGHT connector unplugged. Leave the servo cables disconnected. Remove the light fuse (F2) from its holder.",
+        "Keep the supply and BODY LIGHT connector unplugged. Remove the light fuse (F2) from its holder.",
         "With the meter in continuity mode, check that the power jack (J1) center reaches the input WAGO (W1). Check that W1 reaches the servo power WAGO (W2).",
         "Check that the J1 sleeve reaches the ground WAGO (W3). Check that W3 reaches the servo ground WAGO (W4).",
-        "Unplug the Pi power lead from the Pi. Check that plug pin 1 reaches W1 and pin 5 reaches W3. Plug the lead back in.",
-        "Check W1 against W3, and W2 against W4, for a +5 V-to-ground short. A capacitor may cause a brief beep. If it beeps steadily, fix the fault before continuing.",
-        "With F2 removed, check that W1 does not reach the BODY LIGHT +5 V contact. Fix any connection bypassing F2.",
-        "Check F2 on its own for continuity. Read its marking: T1 A. Fit it in the holder.",
+        "Check that W1 does not reach the BODY LIGHT +5 V contact. If it does, a wire bypasses F2. Fix it before continuing.",
+        "Read the marking on F2: T1 A. Fit it in the holder.",
         "Check that W1 now reaches the BODY LIGHT +5 V contact. Check that its GND contact reaches W3.",
-        "Check W1 against W3 again. If it beeps steadily, remove F2. Fix the short before continuing.",
-        "Compare the level shifter (S1, S2) and button wiring with their diagrams. Check that every WAGO lever is closed and every terminal is tight.",
-        "Check the polarity of the servo capacitor (C1) and light capacitor (C2). Check that every joint is insulated. Check that neither speaker\u2019s negative wire connects to ground.",
-        "Remove wire offcuts and debris."
+        "Check W1 against W3, and W2 against W4, for a +5 V-to-ground short. A capacitor may cause a brief beep.",
+        "If either beeps steadily, remove F2. Find and fix the short before continuing.",
+        "Pick any wire offcuts and loose strands out of the base."
       ],
-      "check": "The unpowered checks pass. F2 (T1 A) is fitted. BODY LIGHT and the servo cables remain disconnected.",
+      "check": "J1 reaches all four WAGOs. The BODY LIGHT +5 V reaches W1 only through F2 (T1 A). Nothing is shorted.",
       "parts": {
         "T03": 1
       },
@@ -2783,7 +2802,11 @@
           ]
         },
         {
-          "title": "Check the Pi lead and look for shorts",
+          "title": "Check and fit the light fuse",
+          "safety": {
+            "level": "warning",
+            "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
+          },
           "textOnly": true,
           "actions": [
             3,
@@ -2792,32 +2815,12 @@
           ]
         },
         {
-          "title": "Check and fit the light fuse",
-          "safety": {
-            "level": "warning",
-            "text": "Fit the specified T1 A time-delay fuse in the lighting supply. Do not bypass it or fit a higher-rated fuse."
-          },
+          "title": "Check for shorts",
           "textOnly": true,
           "actions": [
             6,
             7,
             8
-          ]
-        },
-        {
-          "title": "Inspect the wiring",
-          "image": "assets/circuits/button-pins.svg",
-          "caption": "Pi header pins, viewed from above.",
-          "actions": [
-            9,
-            10
-          ]
-        },
-        {
-          "title": "Clear out the base",
-          "textOnly": true,
-          "actions": [
-            11
           ]
         }
       ]
@@ -4720,7 +4723,7 @@
         "In the base, plug the body half of the body light connector into the base half until it clicks.",
         "Gather the three servo cables and the body light connector inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
-        "If no tie square is within reach, stick one down as in {step:secure-base-wiring}. Let it bond before you tie to it.",
+        "If no tie square is within reach, stick one down as in {step:base-tie-squares}. Let it bond before you tie to it.",
         "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
         "At the top of the body, plug the head light connector\u2019s head half into its body half until it clicks.",
         "The head harness and the head light cable hang slack between the head and the body.",
@@ -6118,7 +6121,7 @@
         "Release the power jack (J1) leads from W1/1 and W3/1. Add towels under the base and backpack until a small driver fits under the base\u2019s robot-left end. Keep that end past the towels\u2019 edge.",
         "From below, remove the two M3\u00d712 screws from the power jack plate (FB21). Its nuts stay in their pockets. Lower the plate and J1 out. Draw the leads out through the opening.",
         "On the bench, fit a new J1 as in {step:power-jack}. Hold the jack body so its solder lugs do not twist. Refit the plate and insert its leads as in {step:power-wiring}.",
-        "With the supply unplugged and servo leads attached, repeat the power-path, polarity and short checks in {step:base-check}.",
+        "With the supply unplugged and servo leads attached, repeat the power-path and short checks in {step:base-check}. Check the polarity of each replaced capacitor.",
         "Fit the specified T1 A time-delay fuse in F2. Reconnect the body light connector if unplugged.",
         "Close the base as in {step:bottom-cover}."
       ],

@@ -676,7 +676,6 @@
       "pi-shifters",
       "wagos",
       "audio-cradle",
-      "secure-base-wiring",
       "frame-uprights"
     ],
     "additional_links": [
@@ -1387,8 +1386,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E07.svg",
     "steps": [
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1410,8 +1408,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/F2.svg",
     "steps": [
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1434,8 +1431,7 @@
     "image": "assets/cartoons/E08.svg",
     "steps": [
       "servo-power-capacitor",
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1998,7 +1994,10 @@
     "verification": "Example product. Check the size.",
     "image": "assets/cartoons/C07.svg",
     "steps": [
-      "secure-base-wiring",
+      "servo-power-capacitor",
+      "light-fuse-capacitor",
+      "shifter-wiring",
+      "button-audio-wiring",
       "head-harness",
       "mouth",
       "body-lights",
@@ -2154,6 +2153,8 @@
     "verification": "General workshop supplies",
     "image": "assets/cartoons/C14.svg",
     "steps": [
+      "pi-shifters",
+      "wagos",
       "button-leads",
       "power-jack",
       "power-wiring",
@@ -2197,7 +2198,7 @@
       "servo-power-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
-      "secure-base-wiring",
+      "button-audio-wiring",
       "body-light-test",
       "servo-cables",
       "head-harness",
@@ -2369,6 +2370,7 @@
       "wagos",
       "button-leads",
       "power-jack",
+      "base-tie-squares",
       "power-wiring",
       "servo-power-capacitor",
       "light-fuse-capacitor",
@@ -2925,7 +2927,7 @@
     "category": "Consumable",
     "description": "Nominal 1 \u00d7 1-inch squares with their own adhesive backing and slots for 2.5 mm ties. Choose an adhesive suitable for the printed plastic. Each square needs full contact with a flat inside surface. No mounting screws or printed pads are needed. Count the mounts after laying out the wire bundles. Each bond must hold without blocking vents or service access.",
     "steps": [
-      "secure-base-wiring",
+      "base-tie-squares",
       "light-connections"
     ],
     "link": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",

@@ -555,8 +555,9 @@ is not cracked.
 ### Example 2: Wire the servo power and capacitor (wiring)
 
 **You need:** capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) ·
-heat-shrink (C12) · solder, flux and wire labels (C14) · flush cutters (T01) ·
-soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
+heat-shrink (C12) · solder, flux and wire labels (C14) · cable ties (C07) ·
+flush cutters (T01) · soldering iron (T02) · wire stripper (T04) ·
+heat-shrink tool (T09)
 
 **Panel 1: Cut and strip the servo feed**
 
@@ -581,15 +582,24 @@ soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
 
 1. Label one 1000 µF, 10 V capacitor (E08) C1. The stripe marks its negative
    leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.
-2. Cover each leg and its joint with its own heat-shrink. Lay C1 beside the
-   WAGO row. Cut each wire to reach its port.
+2. Cover each leg and its joint with its own heat-shrink. Lay C1 at its tie
+   square. Cut each wire to reach its port.
 3. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
    Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.
 
 *Caption:* C1 with its sleeved wires, and the wire-entry faces of W2 and W3.
 
+**Panel 4: Tie C1 to its square**
+
+1. Tie C1’s body to its tie square with a cable tie (C07). Keep the tie off
+   the rubber-seal end and the vent end.
+2. Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by
+   its tie, not by its wires.
+
+*Caption:* Side view of a tie square holding a capacitor.
+
 **Check:** One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct.
-Its two insulated wires are separate.
+Its two insulated wires are separate, and its body is tied down.
 
 ### How the examples meet the limits
 
@@ -597,7 +607,7 @@ Its two insulated wires are separate.
 | --- | --- | --- |
 | Longest sentence (20 or fewer words) | 18 | 17 |
 | Longest action (35 or fewer words) | 34 | 30 |
-| Panels (6 or fewer) | 6 | 3 |
+| Panels (6 or fewer) | 6 | 4 |
 | IDs and labels named on first use | FB01, FB41, FB03 | E08, C1, W1, W2, W3 |
 | Banned terms | none | none |
 | Captions repeating an action | none | none |

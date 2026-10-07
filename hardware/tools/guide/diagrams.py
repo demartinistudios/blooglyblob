@@ -167,9 +167,12 @@ def lines(g, y, *rows, color=INK):
         g.text(24, y + i * 29, row, size=22, fill=color)
 
 
-def wago_port(g, y, block, port, color):
+def wago_port(g, y, block, port, color, label_above=False):
     """Front wire-entry face; adopted mounted order is 5,4,3,2,1."""
-    g.text(24, y, f'{block} / port {port}', size=25, weight=700)
+    if label_above:
+        g.text(205, y - 63, f'{block} / port {port}', size=25, weight=700)
+    else:
+        g.text(24, y, f'{block} / port {port}', size=25, weight=700)
     g.rect(205, y - 53, 186, 72, fill='#e5e1d6', stroke=GRAY, rx=9)
     selected_x = 228 + (5 - port) * 35
     for n in range(5):
@@ -302,17 +305,19 @@ def power_jack_circuit():
     g.rect(150, 148, 30, 9, fill='#b9c4c9', rx=0)
     g.rect(209, 183, 9, 30, fill='#47515b', rx=2)
     g.add('<path d="M115 205 L125 235 L134 232 L124 202 Z" fill="#b9c4c9" stroke="#292b3b" stroke-width="2"/>')
-    wago_port(g, 389, 'W1', 1, RED)
-    wago_port(g, 526, 'W3', 1, BLK)
+    # Labels sit above each WAGO so the ground lead's left-hand run stays clear.
+    wago_port(g, 389, 'W1', 1, RED, label_above=True)
+    wago_port(g, 526, 'W3', 1, BLK, label_above=True)
     g.wire([(125,226),(125,315),(190,315),(190,432),(368,432),port_point(1,389)], RED, 6)
     g.wire([(165, 152), (49, 152), (49, 570), (368, 570), port_point(1,526)], BLK, 6)
     sleeve(g,125,228,45)
     g.rect(139,143,44,18,fill='#47515b',rx=4)
-    g.text(219, 145, 'Sleeve −', size=22)
-    g.wire([(215,150),(183,152)], MUTED, 1.5)
-    g.text(211, 250, 'Shunt capped', size=22)
-    g.wire([(267,235),(217,205)], MUTED, 1.5)
-    g.text(141, 291, 'Center +', size=22, fill=RED)
+    g.text(258, 118, 'Sleeve → GND', size=22)
+    g.wire([(262,124),(183,150)], MUTED, 1.5)
+    g.text(262, 206, 'Unused', size=22)
+    g.text(262, 232, 'switched lug', size=22)
+    g.wire([(258,206),(219,199)], MUTED, 1.5)
+    g.text(141, 295, 'Center pin → +5 V', size=22, fill=RED)
     g.text(24, 609, '18 AWG', size=22)
     g.save('circuits/power-jack-leads.svg')
 
@@ -479,24 +484,6 @@ def f2_circuit():
     g.save('circuits/f2-connect.svg')
 
 
-def gpio_map(g, selected, y=140):
-    """Header viewed from above the pins; USB end is at the bottom."""
-    g.rect(25, y - 24, 94, 514, fill='#467952', stroke=INK, rx=6)
-    g.rect(43, y - 13, 57, 492, fill='#292d30', stroke=INK, rx=2)
-    for n in range(1, 41):
-        x = 57 if n % 2 else 85
-        yy = y + ((n - 1) // 2) * 24
-        g.circle(x, yy, 7, fill='#eec469' if n in selected else '#8c8b75', stroke='none')
-        if n in selected:
-            g.wire([(x, yy), (132, yy)], BLUE, 2)
-            g.text(144, yy + 7, f'{n} → {selected[n]}', size=23, weight=700)
-    g.text(25, y - 36, '1', size=22, weight=700)
-    g.text(90, y - 36, '2', size=22)
-    g.rect(34, y + 502, 76, 43, fill='#bfc7ca', rx=2)
-    g.rect(46, y + 513, 52, 18, fill='#30383d', rx=0)
-    g.text(144, y + 531, 'USB end of Pi', size=22)
-
-
 def traced_wire(g, points, color, width=5):
     # A paper-colored casing separates crossing insulated wires; no splice dot.
     g.wire(points, PAPER, width + 5)
@@ -607,7 +594,7 @@ def gpio_socket_insertion():
     g.save('circuits/gpio-socket-insert.svg')
 
 
-def shifter_circuit(name, selected, outputs):
+def shifter_circuit(name, selected):
     g=physical_action(f'Connect the Pi to {name}',820)
     colors={'G':BLK,'V':'#8754ad','DAT':BLUE,'CLK':ORANGE}
     pins=header_board(g,{n:colors[v.split()[-1]] for n,v in selected.items()})
@@ -620,19 +607,33 @@ def shifter_circuit(name, selected, outputs):
         g.rect(x-7,y-7,14,14,fill='#353b44',stroke=colors[key],sw=2,rx=1)
     header_labels(g,pins)
     g.text(209,487,'INPUT',size=22,weight=700)
-    if name == 'S1':
-        plug_body(g,208,518)
-        traced_wire(g,[(405,342),(413,342),(413,501),(184,501),(184,558),(208,558)],BLUE,4)
-        for yy in (530,544):
-            g.wire([(166,yy),(208,yy)],GRAY,4)
-        g.text(324,541,'Base',size=22,weight=700)
-        g.text(324,568,'half',size=22,weight=700)
 
     # Canonical mapping remains explicit below the physical view.
     for i,(n,label) in enumerate(selected.items()):
         g.text(24 if i%2==0 else 215,640+(i//2)*32,f'{n} → {label}',size=23,weight=700)
-    lines(g,718,f'D5 → {outputs[0]}',f'C5 → {outputs[1]}','!D5, output G: unused')
     g.save(f'circuits/{name.lower()}-inputs.svg')
+
+
+def shifter_outputs():
+    """Output side of S1 and S2: what each output terminal drives, as labeled at the bench."""
+    g=physical_action('Level shifter outputs',660)
+    for i,(name,d5,c5) in enumerate((('S1',None,'LEFT'),('S2','RIGHT','HEAD'))):
+        y=110+i*290
+        shifter_board(g,name,x=24,y=y)
+        for k,tag in ((1,d5),(3,c5)):
+            yy=y+31+k*38
+            if tag:
+                g.wire([(218,yy),(252,yy)],MUTED,2)
+                g.rect(252,yy-17,104,34,fill='#fffdf4',stroke=INK,sw=1.5,rx=3)
+                g.text(304,yy+8,tag,size=22,anchor='middle',weight=700)
+        if name=='S1':
+            yy=y+31+38
+            g.wire([(218,yy),(405,yy)],LEAD,5)
+            small_resistor(g,290,yy,'R2',48)
+            g.text(314,yy-16,'R2',size=22,anchor='middle',weight=700)
+            g.text(236,yy+32,'Base-half DATA',size=22)
+        g.text(24,y+214,'Output G and !D5: empty',size=22,fill=MUTED)
+    g.save('circuits/shifter-outputs.svg')
 
 def shifter_jumpers():
     # Adafruit pinouts: back, left of upper mounting hole, white Neo outline.
@@ -936,12 +937,6 @@ def button_led():
     g.text(24,625,'Pi pin 4 · +5 V → R1 → LED +',size=22)
     g.text(24,657,'Pi pin 20 · GND → LED −',size=22)
     g.save('circuits/button-led.svg')
-
-
-def button_pins():
-    g = action('Button · locate Pi pins', 745)
-    gpio_map(g, {4: 'R1 → LED +', 11: 'switch NO', 14: 'switch return', 20: 'LED −'}, 152)
-    g.save('circuits/button-pins.svg')
 
 
 def pi_bench_board(g, x, y, scale):
@@ -1551,9 +1546,10 @@ def circuit_actions():
     servo_feed_prepare(); servo_feed_circuit(); servo_feed_isolation()
     fuse_prep('F2', 'T1 A', 4, 'base-half +5 V / C2 +')
     c1_circuit(); ground_circuit(); c2_circuit(); f2_circuit()
-    shifter_circuit('S1', {1: 'S1 V', 6: 'S1 G', 12: 'S1 DAT', 32: 'S1 CLK'}, ('base-half DATA', 'LEFT'))
-    shifter_circuit('S2', {9: 'S2 G', 17: 'S2 V', 33: 'S2 DAT', 36: 'S2 CLK'}, ('RIGHT', 'HEAD'))
-    gpio_lead_preparation(); gpio_socket_insertion(); shifter_jumpers(); button_switch(); button_led(); button_pins(); usb_audio(); pi_bench_power()
+    shifter_circuit('S1', {1: 'S1 V', 6: 'S1 G', 12: 'S1 DAT', 32: 'S1 CLK'})
+    shifter_circuit('S2', {9: 'S2 G', 17: 'S2 V', 33: 'S2 DAT', 36: 'S2 CLK'})
+    shifter_outputs()
+    gpio_lead_preparation(); gpio_socket_insertion(); shifter_jumpers(); button_switch(); button_led(); usb_audio(); pi_bench_power()
     servo_circuit('LEFT', 2, 'S1 C5')
     servo_circuit('RIGHT', 3, 'S2 D5')
     servo_circuit('HEAD', 4, 'S2 C5')

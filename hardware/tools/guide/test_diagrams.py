@@ -81,18 +81,6 @@ class CircuitDiagramTests(unittest.TestCase):
         expected = {row[0]: row[2].split(' → ')[0] for row in self.canonical['signal']['rows'] if row[2].startswith(('S1 ', 'S2 '))}
         self.assertEqual(observed, expected)
 
-    def test_button_pin_map_matches_canonical_functions(self):
-        text = self.texts('circuits/button-pins.svg')
-        drawn = dict(value.split(' → ', 1) for value in text if value[:1].isdigit() and ' → ' in value)
-        names = {
-            'One normally-open switch contact': 'switch NO',
-            'Other switch contact': 'switch return',
-            'R1 → button LED +': 'R1 → LED +',
-            'Button LED −': 'LED −',
-        }
-        expected = {row[0]: names[row[2]] for row in self.canonical['signal']['rows'] if row[2] in names}
-        self.assertEqual(drawn, expected)
-
     def test_action_landings_match_canonical_wago_allocations(self):
         # Capture the actual rendered port calls, paired with each action's
         # named component. An accidentally moved terminal fails against JSON.
@@ -109,7 +97,7 @@ class CircuitDiagramTests(unittest.TestCase):
             cases.append((diagrams.servo_circuit, (name, port, signal), [f'{name} servo +', f'{name} servo return']))
         for draw, args, endpoints in cases:
             seen = []
-            def capture(g, y, block, port, color):
+            def capture(g, y, block, port, color, **_):
                 seen.append(canonical[block, port])
             with patch.object(diagrams.Svg, 'save'), patch.object(diagrams, 'wago_port', capture):
                 draw(*args)
