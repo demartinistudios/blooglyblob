@@ -1607,9 +1607,9 @@
         "Place the base (FB01) upside down, with its open bottom facing up.",
         "Find the Pi mounts at the rear and the two level shifter positions in front of them.",
         "Mark S1 nearer the Pi and S2 nearer the audio cradle.",
-        "Mark GPIO pin 1 beside the Pi header. Pin 1 is at the microSD end, farthest from the full-size USB port. Its underside pad is square.",
         "Place the Pi (E09) with its components toward the open bottom. Point its full-size USB port toward the audio cradle and its microSD end toward the rear wall.",
         "Check that the USB and power plugs fit without pressing on nearby parts. Fit four M2\u00d712 screws. Tighten them only until secure, without bowing the board.",
+        "Pin 1 of the Pi header is at the microSD end, in the inner row. Stick a wire label (C14) on the base beside it. Write 1 on it.",
         "Fit S1 in the position nearer the Pi and S2 in the position nearer the audio cradle. Face their components and screw heads toward the open bottom.",
         "Fasten each board with two M2\u00d710 screws into the seated nuts. Use no washers. Keep the terminal entries and both frame-screw paths clear.",
         "Both level shifters sit flat on their posts."
@@ -1673,7 +1673,14 @@
           "caption": "The Pi and its four screws, seen through the open bottom.",
           "actions": [
             6,
-            7,
+            7
+          ]
+        },
+        {
+          "title": "Mark pin 1",
+          "image": "assets/circuits/pi-pin1.svg",
+          "caption": "The Pi header from the pin side, with the pin 1 label on the base.",
+          "actions": [
             8
           ]
         },
@@ -2587,7 +2594,7 @@
       "chapter": "Base wiring",
       "actions": [
         "Take the eight remaining GPIO jumper leads (E24), for the level shifters (S1, S2). Label four sockets 1, 6, 12 and 32.",
-        "Hold each socket by its plastic body. Push it straight down onto its Pi pin. Pin 1 is at the microSD end of the header.",
+        "Hold each socket by its plastic body. Push it straight down onto its Pi pin. Count header rows from the microSD end: row 6 holds pins 11 and 12.",
         "Route each lead to its S1 terminal, as in the picture. Pin 1 goes to V, 6 to G, 12 to DAT and 32 to CLK.",
         "Cut each lead at its terminal, leaving slack to route and tie it. Strip only enough for the bare wire to fit fully inside.",
         "Push each wire fully into its terminal. Tighten the terminal screw. No bare strands may show outside it.",
@@ -2668,8 +2675,9 @@
       "title": "Connect the button and USB audio",
       "chapter": "Base wiring",
       "actions": [
-        "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
-        "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED \u2212 lead, labeled 20, onto pin 20 (GND).",
+        "Count header rows from the microSD end. Each row has an odd pin in the inner row and an even pin at the board edge.",
+        "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17), in row 6. Push the switch lead labeled 14 onto pin 14 (GND), in row 7.",
+        "Push the LED + lead, labeled 4, onto pin 4 (+5 V), in row 2. Push the LED \u2212 lead, labeled 20, onto pin 20 (GND), in row 10.",
         "Stick an adhesive tie square (C17) on the button leads\u2019 path, such as the side of the audio cradle. Keep it 4 mm below the rim where the bottom cover (FB02) closes.",
         "Tie the four button leads to it with a cable tie (C07). Trim the tail.",
         "Plug the USB-A extension cable (E23) into the Pi\u2019s full-size USB socket. Its other end is already in the audio module.",
@@ -2698,7 +2706,8 @@
           "image": "assets/circuits/button-switch.svg",
           "caption": "The Pi header from the pin side, and the button\u2019s switch pair from behind.",
           "actions": [
-            0
+            0,
+            1
           ]
         },
         {
@@ -2706,9 +2715,9 @@
           "image": "assets/circuits/button-led.svg",
           "caption": "The Pi header from the pin side, and the button\u2019s LED pair from behind.",
           "actions": [
-            1,
             2,
-            3
+            3,
+            4
           ]
         },
         {
@@ -2716,8 +2725,8 @@
           "image": "assets/circuits/usb-audio.svg",
           "caption": "The Pi, extension cable and audio module, with the two plug-in connections numbered.",
           "actions": [
-            4,
-            5
+            5,
+            6
           ]
         },
         {
@@ -2725,7 +2734,7 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail, with the base and most of the Pi cut away.",
           "actions": [
-            6
+            7
           ]
         }
       ]

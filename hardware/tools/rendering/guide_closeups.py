@@ -499,8 +499,8 @@ def render_board_closeups(render, output):
         'Fit four M2 by 12 screws through the Pi into its captive nuts',
         arrows=arrows,
         labels=[('4 × M2 × 12',None,(32,40)),
-                ('USB · front',[-53.5,-3,-22],(330,385)),
-                ('SD · rear',[-50,66,-15],(35,84))])
+                ('USB · front',[-53.5,-3,-22],(250,40)),
+                ('SD · rear',[-50,66,-15],(420,400))])
     support=clipped(v.parts(['FB01']),[[-36,-52,-17],[0,-4,-1.9]])
     for m in support:m['guide_color']=(177,189,202)
     board=v.parts(['E15'])

@@ -490,28 +490,60 @@ def traced_wire(g, points, color, width=5):
     g.wire(points, color, width)
 
 
-def header_board(g, selected, y=151):
-    """Enlarged header on an oriented Pi locator, physical pins from pin side."""
-    g.rect(17,y-25,106,431,fill='#397750',rx=10)
-    g.rect(24,y+99,20,76,fill='#bac5c7',rx=2)
-    g.rect(48,y-10,57,398,fill='#242a30',rx=2)
-    for n in range(1,41):
-        x=63 if n%2 else 90
-        yy=y+((n-1)//2)*20
-        g.circle(x,yy,4,fill='#daba6d',stroke='none')
-        if n in selected:
-            g.rect(x-8,yy-8,16,16,fill='#353b44',stroke=selected[n],sw=2,rx=1)
+HEADER_PITCH = 24
 
-    g.rect(28,y+408,75,40,fill='#bfc7ca',rx=2)
-    g.rect(40,y+419,51,16,fill='#30383d',rx=0)
-    g.text(24,y-38,'1',size=22,weight=700)
-    g.text(137,y+437,'USB end',size=22)
-    return {n:(63 if n%2 else 90,y+((n-1)//2)*20) for n in selected}
+
+def header_pin(n, y):
+    """Odd pins in the inner row (left), even pins in the outer row at the board edge (right)."""
+    return (66 if n % 2 else 94, y + ((n - 1) // 2) * HEADER_PITCH)
+
+
+def header_board(g, selected, y=151):
+    """Pi header from the pin side, microSD end up: every row numbered by its odd pin,
+    so the builder can count rows from the microSD end."""
+    bottom = y + 19 * HEADER_PITCH
+    # The board continues past the torn left edge; its right edge is the board edge.
+    tear = ' '.join(f'{46 + 6 * (i % 2)},{yy}' for i, yy in enumerate(range(bottom + 26, y - 27, -12)))
+    g.add(f'<polygon points="46,{y - 27} 122,{y - 27} 122,{bottom + 26} {tear}" fill="#397750" stroke="{INK}" stroke-width="2" stroke-linejoin="round"/>')
+    g.rect(54, y - 14, 54, bottom - y + 28, fill='#242a30', rx=2)
+    for n in range(1, 41):
+        x, yy = header_pin(n, y)
+        g.circle(x, yy, 4, fill='#daba6d', stroke='none')
+        if n in selected:
+            g.rect(x - 8, yy - 8, 16, 16, fill='#353b44', stroke=selected[n], sw=2, rx=1)
+        if n % 2 and n not in selected:
+            g.text(40, yy + 8, str(n), size=22, fill=MUTED, anchor='end')
+    g.text(16, y - 40, 'microSD end', size=22, weight=700)
+    g.rect(52, bottom + 34, 62, 40, fill='#bfc7ca', rx=2)
+    g.rect(62, bottom + 46, 42, 16, fill='#30383d', rx=0)
+    g.text(126, bottom + 62, 'USB end', size=22, weight=700)
+    # Rows 19-20 carry no lead in any header view, so the edge label always fits there.
+    g.text(150, bottom + 8, 'Board edge', size=22, weight=700)
+    g.wire([(148, bottom), (124, bottom - 14)], MUTED, 1.5)
+    return {n: header_pin(n, y) for n in selected}
 
 
 def header_labels(g, pins):
-    for n,(x,y) in pins.items():
-        g.label(31 if n%2 else 122,y-7,str(n),size=22,anchor='middle',weight=700,pad=1)
+    for n, (x, y) in pins.items():
+        if n % 2:
+            g.text(40, y + 8, str(n), size=22, weight=700, anchor='end')
+        else:
+            g.label(138, y + 7, str(n), size=22, anchor='middle', weight=700, pad=1)
+
+
+def pi_pin1():
+    """Pin 1 marked on the base beside the header, as seen through the open bottom."""
+    g=physical_action('Mark pin 1',720)
+    pins=header_board(g,{1:RED})
+    header_labels(g,pins)
+    x,y=pins[1]
+    # A wire label stuck on the base just past the board edge, level with row 1.
+    g.rect(150,y-20,40,40,fill='#f1e6b8',stroke=INK,sw=1.5,rx=3)
+    g.text(170,y+8,'1',size=24,weight=700,anchor='middle')
+    g.text(206,y+8,'Wire label',size=22)
+    g.text(150,y+60,'Pin 1',size=22,weight=700)
+    g.wire([(148,y+46),(x+10,y+8)],MUTED,1.5)
+    g.save('circuits/pi-pin1.svg')
 
 
 def shifter_board(g, name, x=208, y=273):
@@ -595,14 +627,14 @@ def gpio_socket_insertion():
 
 
 def shifter_circuit(name, selected):
-    g=physical_action(f'Connect the Pi to {name}',820)
+    g=physical_action(f'Connect the Pi to {name}',900)
     colors={'G':BLK,'V':'#8754ad','DAT':BLUE,'CLK':ORANGE}
     pins=header_board(g,{n:colors[v.split()[-1]] for n,v in selected.items()})
     terminals=shifter_board(g,name)
     # Sleeved socket bodies stay visible; four continuous insulated leads.
     for i,(n,label) in enumerate(selected.items()):
         key=label.split()[-1]; x,y=pins[n]; xx,yy=terminals[key]
-        lane=145+i*15
+        lane=154+i*13
         traced_wire(g,[(x,y),(lane,y),(lane,yy),(xx,yy)],colors[key],4)
         g.rect(x-7,y-7,14,14,fill='#353b44',stroke=colors[key],sw=2,rx=1)
     header_labels(g,pins)
@@ -610,7 +642,7 @@ def shifter_circuit(name, selected):
 
     # Canonical mapping remains explicit below the physical view.
     for i,(n,label) in enumerate(selected.items()):
-        g.text(24 if i%2==0 else 215,640+(i//2)*32,f'{n} → {label}',size=23,weight=700)
+        g.text(24 if i%2==0 else 215,730+(i//2)*32,f'{n} → {label}',size=23,weight=700)
     g.save(f'circuits/{name.lower()}-inputs.svg')
 
 
@@ -897,7 +929,7 @@ def r1_end_on(g, x, y):
 
 
 def button_switch():
-    g=physical_action('Connect the button switch',685)
+    g=physical_action('Connect the button switch',790)
     points=header_board(g,{11:BLUE,14:BLUE})
     tabs=button_rear(g,285,305)
     # The LED leads are drawn as stubs; they connect in the next panel.
@@ -906,17 +938,17 @@ def button_switch():
     tab_sleeve(g,lx,ly)
     r1_end_on(g,*tabs['LED+'])
     sw1,sw2=tabs['SW1'],tabs['SW2']
-    traced_wire(g,[points[11],(154,251),(154,452),(sw1[0],452),(sw1[0],sw1[1])],BLUE)
-    traced_wire(g,[points[14],(178,271),(178,478),(sw2[0],478),(sw2[0],sw2[1])],BLUE)
+    traced_wire(g,[points[11],(160,points[11][1]),(160,500),(sw1[0],500),(sw1[0],sw1[1])],BLUE)
+    traced_wire(g,[points[14],(180,points[14][1]),(180,526),(sw2[0],526),(sw2[0],sw2[1])],BLUE)
     for tx,ty in (sw1,sw2): tab_sleeve(g,tx,ty)
     header_labels(g,points)
-    g.text(24,626,'Pin 11 · GPIO17 → switch',size=22)
-    g.text(24,657,'Pin 14 · GND → other switch tab',size=22)
+    g.text(24,730,'Pin 11 · GPIO17 → switch',size=22)
+    g.text(24,761,'Pin 14 · GND → other switch tab',size=22)
     g.save('circuits/button-switch.svg')
 
 
 def button_led():
-    g=physical_action('Connect the button light',690)
+    g=physical_action('Connect the button light',790)
     points=header_board(g,{4:RED,20:BLK})
     tabs=button_rear(g,285,365)
     # The switch leads are drawn as stubs; they connect in the previous panel.
@@ -925,17 +957,17 @@ def button_led():
         g.wire([(tx,ty+33),(tx,ty+55)],BLUE,5)
         tab_sleeve(g,tx,ty)
     lx,ly=tabs['LED−']
-    traced_wire(g,[points[20],(151,331),(151,ly),(lx,ly)],BLK)
+    traced_wire(g,[points[20],(160,points[20][1]),(160,ly),(lx,ly)],BLK)
     tab_sleeve(g,lx,ly)
     px,py=tabs['LED+']
     # R1 points straight back from the LED + tab (toward the viewer); lead 4 leaves its free leg.
-    traced_wire(g,[points[4],(170,171),(170,236),(396,236),(396,py),(px,py)],RED)
+    traced_wire(g,[points[4],(176,points[4][1]),(176,236),(396,236),(396,py),(px,py)],RED)
     r1_end_on(g,px,py)
     g.label(px+40,222,'R1 · 1 kΩ',size=22,anchor='middle',weight=700)
     g.wire([(px+30,228),(px+8,py-12)],'#ae855e',2)
     header_labels(g,points)
-    g.text(24,625,'Pi pin 4 · +5 V → R1 → LED +',size=22)
-    g.text(24,657,'Pi pin 20 · GND → LED −',size=22)
+    g.text(24,730,'Pi pin 4 · +5 V → R1 → LED +',size=22)
+    g.text(24,761,'Pi pin 20 · GND → LED −',size=22)
     g.save('circuits/button-led.svg')
 
 
@@ -1549,7 +1581,7 @@ def circuit_actions():
     shifter_circuit('S1', {1: 'S1 V', 6: 'S1 G', 12: 'S1 DAT', 32: 'S1 CLK'})
     shifter_circuit('S2', {9: 'S2 G', 17: 'S2 V', 33: 'S2 DAT', 36: 'S2 CLK'})
     shifter_outputs()
-    gpio_lead_preparation(); gpio_socket_insertion(); shifter_jumpers(); button_switch(); button_led(); usb_audio(); pi_bench_power()
+    pi_pin1(); gpio_lead_preparation(); gpio_socket_insertion(); shifter_jumpers(); button_switch(); button_led(); usb_audio(); pi_bench_power()
     servo_circuit('LEFT', 2, 'S1 C5')
     servo_circuit('RIGHT', 3, 'S2 D5')
     servo_circuit('HEAD', 4, 'S2 C5')
