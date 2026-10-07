@@ -2807,25 +2807,24 @@
       "title": "Confirm the pebble strand’s input end",
       "chapter": "Light test",
       "actions": [
-        "In {step:light-fuse-capacitor} you took the pins end as the likely input. The strand does not mark it. This test confirms it before you cut six lights.",
-        "Check the base. The light fuse (F2), T1 A, is fitted. No servo cable is connected.",
+        "In {step:light-fuse-capacitor} you picked the pins end as the likely input. Neither end of the strand is labeled as the input. This test checks it before you cut six lights.",
         "Plug the strand’s pins plug, the larger shrouded one, into the base half until it clicks.",
         "Use the specified Mean Well GST40A05-P1J supply, 5 V, 5 A. Plug it into the wall with the mains cord (E21). Keep its barrel plug away from the base.",
         "Set the meter to DC volts. Put the red probe in the plug\u2019s center. Touch the black probe to its outer sleeve.",
         "The meter must read 5.0\u20135.25 V with no minus sign. If it does not, do not use this supply. Either way, unplug the supply from the wall.",
         "Push the barrel plug fully into the power jack (J1). Plug the supply into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
-        "From your computer, run the two commands below. The first stops the application. The second lights the first 16 pebbles at brightness 128.",
-        "The first 16 pebbles light one at a time from the connected end. Color patterns follow. The test clears all 16 when it ends.",
-        "The output names eye and mouth lights, but on this strand they are all pebbles. If any of the other 84 pebbles light, unplug the supply and find the fault.",
-        "Open the Pi shell. Shut the Pi down with the second command.",
-        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1.",
-        "Unplug the strand from the base half.",
-        "If the first 16 pebbles lit in order from the connected end, mark that end INPUT.",
-        "If nothing lit, check the power, DATA and contacts first. If they are correct, the other end, with sockets, is the input. Cut its socket plug off.",
-        "Plug the spare BODY LIGHT half (pins) into the base half. Label its wires to match. Solder each to the same-function strand wire at the cut end. Insulate each joint. Repeat this step."
+        "From your computer, run the two commands below. The first stops the application. The second lights the first 16 pebbles at brightness 128. Ignore the eye and mouth names in its output.",
+        "Watch the strand. The first 16 pebbles light one at a time from the connected end. Color patterns follow. All 16 clear at the end. The other 84 stay dark.",
+        "If all 16 lit in order and the rest stayed dark, label the connected end INPUT.",
+        "Open the Pi shell. Shut the Pi down with the second command. Shutting down before unplugging protects its microSD card.",
+        "Wait for the Pi’s green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1. Unplug the strand from the base half.",
+        "If pebbles lit wrongly, or extra ones lit, check the DATA and GND joints. If nothing lit, check the power, DATA and plug contacts. Fix any fault. Repeat the test.",
+        "If the wiring is correct and nothing lights, the sockets end may be the input. The base half has sockets too, so it cannot plug in there. Cut off that socket plug.",
+        "The spare BODY LIGHT half (pins) replaces it. Its three wires are all black. To tell them apart, plug it into the base half you labeled.",
+        "With the meter in continuity mode, label each spare-half wire like the base-half wire it beeps to. Unplug it. Solder each to the strand wire of the same function. Insulate each joint. Repeat the test."
       ],
-      "check": "The connected end passed the light test and is marked INPUT. The supply is unplugged.",
+      "check": "All 16 pebbles lit in order from the connected end, and the other 84 stayed dark. That end is marked INPUT. The supply and strand are unplugged.",
       "parts": {
         "E05": 1,
         "E10": 1,
@@ -2854,8 +2853,7 @@
           "caption": "The base half plugged into the strand\u2019s likely input.",
           "actions": [
             0,
-            1,
-            2
+            1
           ]
         },
         {
@@ -2867,9 +2865,9 @@
           "image": "assets/circuits/supply-polarity-test.svg",
           "caption": "Front of the barrel plug, with the meter probes in place.",
           "actions": [
+            2,
             3,
-            4,
-            5
+            4
           ]
         },
         {
@@ -2881,12 +2879,14 @@
           "image": "assets/circuits/robot-power-connection.svg",
           "caption": "Barrel plug and power jack, from the side.",
           "actions": [
-            6,
-            7
+            5,
+            6
           ]
         },
         {
-          "title": "Run the light test",
+          "title": "Run the light test and label the input end",
+          "image": "assets/circuits/strand-input-result.svg",
+          "caption": "A passing test. The dark remainder is drawn short.",
           "codeBlocks": [
             {
               "kind": "command",
@@ -2899,13 +2899,13 @@
             }
           ],
           "actions": [
+            7,
             8,
-            9,
-            10
+            9
           ]
         },
         {
-          "title": "Shut down and unplug",
+          "title": "Shut down, then fix any fault",
           "codeBlocks": [
             {
               "kind": "command",
@@ -2924,19 +2924,18 @@
             }
           ],
           "actions": [
+            10,
             11,
-            12,
-            13
+            12
           ]
         },
         {
-          "title": "Mark the input end",
-          "image": "assets/circuits/strand-input-result.svg",
-          "caption": "A passing test. The dark remainder is drawn short.",
+          "title": "If nothing lights, use the other end",
+          "textOnly": true,
           "actions": [
+            13,
             14,
-            15,
-            16
+            15
           ]
         }
       ]
