@@ -816,19 +816,25 @@ def lpoly(loc, ps):
 
 def jst_sm(p, cx, cy, kind):
     """JST-SM three-pin housing, black, standing on its cable end with the mating face up.
-    The receptacle shows three square sockets; the plug its shroud and three pins."""
+    The receptacle is the smaller housing with three square sockets and the press latch; the
+    plug is the larger, shrouded housing with three pins set inside. The receptacle slides
+    into the plug's shroud."""
     H = 12 if kind == 'rec' else 11
     def face():
         if kind == 'rec':
-            for dx in (-2.5, 0, 2.5):
-                p.flat(rrect(cx + dx - .95, cy - 1.2, 1.9, 2.4, .2), H, '#0e0f11', op=.9)
-            p.flat(rrect(cx - 1.6, cy - 3.9, 3.2, 1.5, .3), H, '#4a4c52', op=.6)
+            for dx in (-2.2, 0, 2.2):
+                p.flat(rrect(cx + dx - .8, cy - .8, 1.6, 1.6, .2), H, '#0e0f11', op=.9)
+            p.flat(rrect(cx - 1.4, cy - 3.6, 2.8, 1.3, .3), H, '#4a4c52', op=.6)
         else:
-            p.flat(rrect(cx - 3.6, cy - 2.1, 7.2, 4.4, .4), H, '#0e0f11', op=.9)
-            for dx in (-2.5, 0, 2.5):
-                p.flat(rrect(cx + dx - .45, cy - .45, .9, .9, .1), H, '#c9ced3', stroke='none')
-            p.flat(rrect(cx - 1.3, cy - 4.1, 2.6, 1.2, .3), H, '#141518', op=.8)
-    p.prism(rrect(cx - 4.2, cy - 3.2 if kind == 'rec' else cy - 3, 8.4, 6.4 if kind == 'rec' else 6, .5), 0, H, '#2e2f34', '#1b1c1f', detail=face)
+            p.flat(rrect(cx - 4.0, cy - 2.6, 8.0, 5.2, .4), H, '#0e0f11', op=.9)
+            for dx in (-2.2, 0, 2.2):
+                p.flat(rrect(cx + dx - .4, cy - .4, .8, .8, .1), H, '#c9ced3', stroke='none')
+            p.flat(rrect(cx - 1.3, cy - 3.9, 2.6, 1.0, .3), H, '#141518', op=.8)
+    if kind == 'rec':
+        outline = rrect(cx - 3.5, cy - 2.6, 7.0, 5.2, .5)
+    else:
+        outline = rrect(cx - 4.8, cy - 3.4, 9.6, 6.8, .5)
+    p.prism(outline, 0, H, '#2e2f34', '#1b1c1f', detail=face)
 
 
 def jst_sh_plug(p, cx, cy, ang):

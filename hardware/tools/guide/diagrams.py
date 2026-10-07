@@ -241,42 +241,73 @@ def sleeve(g, x, y, length=46, color='#47515b'):
     g.rect(x - 9, y, 18, length, fill=color, stroke=INK, sw=1, rx=4)
 
 
-def plug_body(g, x, y, kind=None):
-    """JST-SM half, latch up, mating face right; contacts top to bottom +5 V, DATA, GND.
+JST_BODY = '#303740'
+JST_TRIM = '#58626c'
+STRAND_WIRES = (RED, '#2f8f64', '#26262b')  # pebble strand pigtail: +5 V, DATA, GND
 
-    kind 'pins' shows metal pins in an open shroud, 'sockets' shows socket holes.
+
+def jst_sm_half(g, kind, face_x, cy, facing='right', open_face=True):
+    """JST-SM 2.5 mm half seen from its latch side; contacts +5 V, DATA, GND top to bottom.
+
+    Seen from the latch side, that order holds for a sockets half facing right and a pins
+    half facing left (the two mate). A pins half facing right is seen from below.
+
+    'pins' is the larger housing: an open shroud with three pins set back inside it and a
+    catch on top. 'sockets' is the smaller housing: three socket holes in its face and the
+    press latch on its latch side; it slides into the shroud. open_face cuts the shroud's near wall
+    away to show the pins; a mated pins half is drawn closed. Returns the x where its
+    wires leave.
     """
-    g.rect(x, y, 88, 51, fill='#303740', rx=4)
-    g.rect(x + 13, y - 8, 49, 13, fill='#58626c', rx=2)
-    for yy in (12, 26, 40):
-        g.rect(x + 4, y + yy - 4, 10, 8, fill='#171b20', stroke='none', rx=1)
+    s = 1 if facing == 'right' else -1
+
+    def box(back, front, y, h, **kw):
+        # back/front: distance behind the mating face.
+        a, b = face_x - s * back, face_x - s * front
+        g.rect(min(a, b), y, abs(a - b), h, **kw)
+
     if kind == 'pins':
-        g.rect(x + 88, y + 2, 26, 47, fill='#5a636d', stroke='#20262c', sw=2, rx=2)
-        for yy in (12, 26, 40):
-            g.rect(x + 88, y + yy - 3, 22, 6, fill='#d3d8db', stroke='#8d939a', sw=1, rx=1)
-    elif kind == 'sockets':
-        g.rect(x + 88, y + 5, 20, 41, fill='#20262c', rx=2)
-        for yy in (12, 26, 40):
-            g.rect(x + 99, y + yy - 4, 9, 8, fill='#05070a', stroke='#8d939a', sw=1, rx=1)
+        length = 96
+        box(length, 0, cy - 29, 58, fill=JST_BODY, rx=4)
+        if open_face:
+            box(34, 0, cy - 23, 46, fill='#0f1317', stroke='none', rx=1)
+            for dy in (-14, 0, 14):
+                box(34, 10, cy + dy - 2.5, 5, fill='#d3d8db', stroke='#8d939a', sw=1, rx=1)
+        else:
+            box(28, 12, cy - 5, 10, fill='#171b20', stroke='none', rx=1)
     else:
-        g.rect(x + 88, y + 5, 20, 41, fill='#20262c', rx=2)
+        length = 76
+        box(length, 0, cy - 21, 42, fill=JST_BODY, rx=4)
+        for dy in (-14, 0, 14):
+            box(10, 2, cy + dy - 4, 8, fill='#05070a', stroke='#8d939a', sw=1, rx=1)
+        box(56, 14, cy - 7, 14, fill=JST_TRIM, rx=3)
+        box(24, 14, cy - 7, 14, fill='#7d8790', stroke='none', rx=2)
+    for dy in (-14, 0, 14):
+        box(length - 2, length - 12, cy + dy - 4, 8, fill='#171b20', stroke='none', rx=1)
+    return face_x - s * length
 
 
-def socket_half(g, x, y):
-    """JST-SM socket half facing left (mates a pins half on its left), latch up."""
-    g.rect(x, y, 70, 45, fill='#303740', rx=4)
-    g.rect(x + 8, y - 11, 30, 12, fill='#58626c', rx=2)
-    for yy in (10, 22, 34):
-        g.rect(x + 2, y + yy - 4, 9, 8, fill='#05070a', stroke='#8d939a', sw=1, rx=1)
+def jst_sm_face(g, kind, cx, cy):
+    """JST-SM mating face seen end-on, latch up: pins in an open shroud, or three socket holes."""
+    if kind == 'pins':
+        g.rect(cx - 40, cy - 25, 80, 50, fill=JST_BODY, rx=4)
+        g.rect(cx - 33, cy - 18, 66, 36, fill='#0f1317', stroke='none', rx=2)
+        g.rect(cx - 9, cy - 31, 18, 7, fill=JST_TRIM, rx=2)
+        for dx in (-20, 0, 20):
+            g.rect(cx + dx - 4, cy - 4, 8, 8, fill='#d3d8db', stroke='#8d939a', sw=1, rx=1)
+    else:
+        g.rect(cx - 31, cy - 17, 62, 34, fill=JST_BODY, rx=3)
+        g.rect(cx - 9, cy - 24, 18, 8, fill=JST_TRIM, rx=2)
+        for dx in (-20, 0, 20):
+            g.rect(cx + dx - 5, cy - 5, 10, 10, fill='#05070a', stroke='#8d939a', sw=1, rx=1)
 
 
-def pins_half(g, x, y):
-    """JST-SM pins half facing left (mates a sockets half on its left), latch up."""
-    g.rect(x, y, 70, 45, fill='#303740', rx=4)
-    g.rect(x + 32, y - 11, 30, 12, fill='#58626c', rx=2)
-    g.rect(x - 26, y + 1, 26, 43, fill='#5a636d', stroke='#20262c', sw=2, rx=2)
-    for yy in (10, 22, 34):
-        g.rect(x - 22, y + yy - 3, 22, 6, fill='#d3d8db', stroke='#8d939a', sw=1, rx=1)
+def jst_sm_mated(g, join_x, cy):
+    """Sockets half (left) pushed into the pins half's shroud (right).
+
+    Returns the wire exits of the sockets half and the pins half."""
+    left = jst_sm_half(g, 'sockets', join_x + 30, cy)
+    right = jst_sm_half(g, 'pins', join_x, cy, facing='left', open_face=False)
+    return left, right
 
 
 def wago_insertion():
@@ -447,7 +478,7 @@ def c2_circuit():
     g.rect(295,468,54,20,fill='#b9c2c5',stroke=GRAY,rx=8)
     g.wire([(30,531),(160,531),(160,601),(229,601)],LEAD,5)
     small_resistor(g,62,531,'R2',56)
-    plug_body(g,229,561,'sockets')
+    jst_sm_half(g,'sockets',305,587)
     g.text(24, 390, 'From F2',size=22,fill=RED)
     g.text(24, 453, 'GND → W3/5',size=22)
     g.text(24, 508, 'R2 in DATA',size=22)
@@ -468,7 +499,7 @@ def f2_circuit():
     g.wire([(178,384),(105,384),(105,466),(256,466)],LEAD,5)
     traced_wire(g,[(256,480),(186,480),(186,645),(228,645),port_point(5,604)],LEAD,5)
     g.wire([(256,494),(46,494),(46,542)],LEAD,5)
-    plug_body(g,256,454,'sockets')
+    jst_sm_half(g,'sockets',332,480)
     # Already-insulated capacitor branch, recognizable can shown beside it.
     g.rect(160,304,76,51,fill='#314a59',rx=8)
     g.rect(218,308,13,43,fill='#cdd5d4',stroke='none',rx=0)
@@ -1132,7 +1163,7 @@ def body_output():
         g.wire([(x, 340), (x, end), (262, end)], LEAD, 4)
     for x, fn in ((180, '+5 V'), (210, 'DATA'), (240, 'GND')):
         g.text(x + 7, 284, fn, size=22, rotate=-90)
-    plug_body(g, 262, 430, 'sockets')
+    jst_sm_half(g, 'sockets', 338, 456)
     g.text(24, 520, 'HEAD LIGHT body half', size=24, weight=700)
     g.text(24, 552, 'JST-SM 2.5 mm (large)', size=22)
     g.text(24, 582, 'Sockets', size=22)
@@ -1142,7 +1173,7 @@ def body_output():
 def head_power():
     g = physical_action('Head half · eye input lead', 560)
     g.text(24, 122, 'HEAD LIGHT head half', size=24, weight=700)
-    plug_body(g, 290, 135, 'pins')
+    jst_sm_half(g, 'pins', 386, 161)
     # Black 1663 leads fan out to one joint each, then the lead's own colors.
     rows = ((147, 200, 230, '+5 V', RED), (161, 230, 300, 'DATA', '#f4f4ef'), (175, 260, 370, 'GND', '#26262b'))
     for y0, drop, row, fn, color in rows:
@@ -1301,20 +1332,25 @@ def cut_six():
 
 
 def connector_seating():
-    g = action('Plug in until it clicks', 600)
+    g = action('Plug in until it clicks', 700)
     lines(g, 133, 'JST-SM 2.5 mm (large)', '+5 V · DATA · GND, top to bottom')
-    for y, seated in ((230, False), (440, True)):
-        x2 = 202 if seated else 262
-        for dy in (12, 26, 40):
-            g.wire([(24, y + dy), (90, y + dy)], LEAD, 4)
-        plug_body(g, 90, y, 'pins')
-        socket_half(g, x2, y + 3)
-        for dy in (13, 25, 37):
-            g.wire([(x2 + 70, y + dy), (396, y + dy)], LEAD, 4)
-        if not seated:
-            g.wire([(256, y + 25), (226, y + 25)], BLUE, 3, arrow=True)
-            g.text(90, y + 88, 'Pins', size=22, weight=700)
-            g.text(262, y + 88, 'Sockets', size=22, weight=700)
+    left = jst_sm_half(g, 'sockets', 170, 262)
+    right = jst_sm_half(g, 'pins', 256, 262, facing='left')
+    g.wire([(244, 262), (184, 262)], BLUE, 3, arrow=True)
+    # The same two halves seen end-on, as you look into each mating face.
+    jst_sm_face(g, 'sockets', 112, 372)
+    jst_sm_face(g, 'pins', 304, 372)
+    g.text(24, 450, 'Sockets', size=22, weight=700)
+    g.text(396, 450, 'Pins', size=22, weight=700, anchor='end')
+    g.text(24, 479, 'Smaller', size=22)
+    g.text(396, 479, 'Larger, shrouded', size=22, anchor='end')
+    for dy in (-14, 0, 14):
+        g.wire([(24, 262 + dy), (left, 262 + dy)], LEAD, 4)
+        g.wire([(right, 262 + dy), (396, 262 + dy)], LEAD, 4)
+    left, right = jst_sm_mated(g, 182, 570)
+    for dy in (-14, 0, 14):
+        g.wire([(24, 570 + dy), (left, 570 + dy)], LEAD, 4)
+        g.wire([(right, 570 + dy), (396, 570 + dy)], LEAD, 4)
     g.save('circuits/jst-sm-seat.svg')
 
 
@@ -1337,6 +1373,7 @@ def eye_connector():
             g.wire([(148, y + 80), (190, y + 80)], BLUE, 3, arrow=True)
     lines(g, 354, 'JST-SH 1.0 mm (small)', 'Black GND · red +5 V · white DATA')
     g.save('circuits/eye-connector.svg')
+
 
 
 def eye_cable():
@@ -1402,13 +1439,11 @@ def strand_wire_identification():
 
 def strand_test_connection():
     g=physical_action('BODY LIGHT · strand test',275)
-    # Two keyed housings, fully mated; wires continue at both ends.
-    plug_body(g,118,149)
-    g.rect(226,154,61,41,fill='#303740',rx=4)
-    g.rect(238,143,28,11,fill='#58626c',rx=2)
-    for yy in (161,175,189):
-        g.wire([(24,yy),(118,yy)],LEAD,5)
-        g.wire([(287,yy),(384,yy)],'#aaa797',4)
+    # The base half's sockets pushed into the strand's shrouded pins plug.
+    left,right=jst_sm_mated(g,196,175)
+    for dy,color in zip((-14,0,14),STRAND_WIRES):
+        g.wire([(24,175+dy),(left,175+dy)],LEAD,5)
+        g.wire([(right,175+dy),(396,175+dy)],color,4)
     g.text(24,130,'Base half',size=22,weight=700)
     g.text(396,130,'Likely input',size=22,anchor='end',weight=700)
     g.text(24,245,'F2 / C2 / R2',size=22)
@@ -1420,13 +1455,15 @@ def strand_test_connection():
 def strand_input_result():
     g = action('Strand · a positive input test', 510)
     g.text(24, 131, 'Connected end · INPUT', size=24, weight=700)
-    g.rect(26, 163, 67, 42, fill='#353943', rx=4)
-    g.wire([(93, 184), (380, 184), (380, 290), (45, 290), (45, 396), (380, 396)], GRAY, 5)
+    rear = jst_sm_half(g, 'pins', 24, 184, facing='left')
+    for dy, color in zip((-14, 0, 14), STRAND_WIRES):
+        g.wire([(rear, 184 + dy), (rear + 8, 184 + dy), (rear + 16, 184)], color, 4)
+    g.wire([(rear + 16, 184), (380, 184), (380, 290), (45, 290), (45, 396), (380, 396)], GRAY, 5)
     for i in range(16):
         if i < 8:
-            x, y = 119 + i * 34, 184
+            x, y = 148 + i * 30, 184
         else:
-            x, y = 357 - (i - 8) * 34, 290
+            x, y = 358 - (i - 8) * 30, 290
         g.rect(x - 12, y - 15, 24, 30, fill='#f6dc79', stroke='#a89978', rx=9)
         g.rect(x - 6, y - 7, 12, 14, fill='#fffdec', stroke='#e7cb65', rx=3)
     g.text(24, 247, 'First 16 · lit in order', size=24, weight=700)
@@ -1568,17 +1605,18 @@ def tie_mount():
 
 def harness_connections():
     g=action('Plugs and wire ends',761)
-    for y,title,left,right in ((143,'Body light connector','Base half','Strand input'),(327,'Head light connector','Body half','Head half')):
+    for y,title,left_name,right_name in ((143,'Body light connector','Base half','Strand input'),(327,'Head light connector','Body half','Head half')):
         g.text(24,y,title,size=25,weight=700)
-        plug_body(g,60,y+36,'sockets')
-        pins_half(g,276,y+39)
-        for yy in (y+48,y+62,y+76):
-            g.wire([(24,yy),(60,yy)],LEAD,4)
-        for yy in (y+49,y+61,y+73):
-            g.wire([(346,yy),(396,yy)],LEAD,4)
-        g.wire([(244,y+62),(212,y+62)],BLUE,3,arrow=True)
-        g.text(24,y+120,left,size=22)
-        g.text(396,y+120,right,size=22,anchor='end')
+        cy=y+66
+        left=jst_sm_half(g,'sockets',138,cy)
+        right=jst_sm_half(g,'pins',250,cy,facing='left')
+        far=STRAND_WIRES if right_name=='Strand input' else (LEAD,)*3
+        for dy,color in zip((-14,0,14),far):
+            g.wire([(24,cy+dy),(left,cy+dy)],LEAD,4)
+            g.wire([(right,cy+dy),(396,cy+dy)],color,4)
+        g.wire([(238,cy),(152,cy)],BLUE,3,arrow=True)
+        g.text(24,y+120,left_name,size=22)
+        g.text(396,y+120,right_name,size=22,anchor='end')
     lines(g,486,'Both pairs: JST-SM 2.5 mm (large)','Sockets: base half, head light body half','Pins: strand input, head half')
     g.text(24,591,'Each servo: three bare wire ends',size=24,weight=700)
     # Actual clamp faces rather than a connector icon at the servo ends.
