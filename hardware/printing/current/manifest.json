@@ -16749,7 +16749,7 @@
       "master": "0"
     }
   ],
-  "status": "R31 native retained printable geometry verified. All72 source-instance comparisons retained; unchanged R29-named project binaries, settings and prior slice estimates reused. Physical qualification remains separate.",
+  "status": "R32 display-only foam update; all 72 print-source comparisons pass. Existing project binaries, settings, slice evidence and physical qualification status retained.",
   "master_project": "BlooglyBlob-R29-PLA-Production.3mf",
   "optional_petg_project": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
   "historical_source_hashes_verified": true,
@@ -16757,6 +16757,6 @@
     "key": "print_extruder_variant",
     "reason": "Machine-level value retained; per-object string-vector export causes invalid XML in Bambu 2.7.1.62. Final project re-sliced after omission."
   },
-  "cad_revision": "R31/cloud27",
-  "validation": "checks/r31-print-reuse.json"
+  "cad_revision": "R32/cloud28",
+  "validation": "checks/r32-print-reuse.json"
 }

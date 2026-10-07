@@ -1,8 +1,8 @@
 {
-  "package": "BlooglyBlob editable print set for R31 (retained R29 project binaries)",
-  "date": "2026-10-04",
-  "status": "R31 printable geometry and all72 source-instance comparisons verified; project binaries, process and prior slice evidence retained. Physical qualification and deployment separate.",
-  "cad_release": "R31/cloud27",
+  "package": "BlooglyBlob editable print set for R32 (retained R29 project binaries)",
+  "date": "2026-10-07",
+  "status": "R32 display-only foam update; all 72 source comparisons verified. Project binaries and prior slicing evidence retained.",
+  "cad_release": "R32/cloud28",
   "files": [
     {
       "path": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
@@ -16,7 +16,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a7bf15d8b488557031108be03728a8125ae39e65e3a08b609d33281653e86672",
+      "sha256": "3ebdf4d4cd76f5a9c108e7c633a85439bdc42b8635c1b9aa91ff74e84668167e",
       "bytes": 10545
     },
     {
@@ -330,6 +330,11 @@
       "bytes": 11123
     },
     {
+      "path": "checks/r32-print-reuse.json",
+      "sha256": "0a14ea63588d2fd3cbc5a7b8a8fbe275587b0e60da006c5c1cb8e78d8bfa6cfe",
+      "bytes": 11090
+    },
+    {
       "path": "checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -341,13 +346,13 @@
     },
     {
       "path": "live-source-check.json",
-      "sha256": "61504d861299268cc767cb361bfe3af477cd819b3c7355b83bb9fa0133e5bff4",
+      "sha256": "debc6179adf2d712ec61e96be2dffb8f70789b9943e88a56659790ab52262161",
       "bytes": 846
     },
     {
       "path": "manifest.json",
-      "sha256": "a7c4e3437b28917b3cd22716a0f04e21f2cfa081264443108cfecee113bd4cb3",
-      "bytes": 630659
+      "sha256": "6006c30651c6a994333fa705c41ab5775d15b331fa6d0ce54efb01314fc4f998",
+      "bytes": 630608
     },
     {
       "path": "object-settings.csv",

@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "purpose": "Mandatory R31 CAD, printing, catalog, assembly and rendering inputs; no selected delivery. Retained printed geometry is unchanged and all 72 source-instance comparisons pass. Physical qualification remains separate.",
+  "purpose": "Mandatory R32 CAD, printing, catalog, assembly and rendering inputs; no selected delivery. Retained printed geometry is unchanged and all 72 source-instance comparisons pass. Physical qualification remains separate.",
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
@@ -19,18 +19,18 @@
     },
     {
       "path": "hardware/cad/CURRENT-NOTES.md",
-      "sha256": "d363288f92435b0f09fd943e46aca025e4d527d7cb74dd55cebc719b79ca9a0d",
-      "bytes": 5745
+      "sha256": "54744221406dd5f5bda0a7bd91383124db9a0101dd2dbf8dca9fe1d38d99bf78",
+      "bytes": 6321
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
-      "sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100",
-      "bytes": 15328139
+      "sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12",
+      "bytes": 15336911
     },
     {
       "path": "hardware/cad/current/assembly.step",
-      "sha256": "dec0c6af1d7e5ad32606bff90dde072aca1cbf3529fff9487c9fbc58f2ed2cca",
-      "bytes": 21557279
+      "sha256": "22ef536edbdb34ae6ae02b84368aeec11604531484991e2a5b2e2a05468b8dcf",
+      "bytes": 21514609
     },
     {
       "path": "hardware/cad/current/evidence/audio-tape-r26.json",
@@ -51,6 +51,11 @@
       "path": "hardware/cad/current/evidence/batch-r29.json",
       "sha256": "cc11c24a755aaeff986242e411e0d089e0eb8eb7dbbe7a6b2a79b7f72ddfb208",
       "bytes": 4068
+    },
+    {
+      "path": "hardware/cad/current/evidence/body-foam-r32.json",
+      "sha256": "08c0df276aeac0ea34d640db0c7f6733593c61b18a27494b9b4ca2790915b7d2",
+      "bytes": 1319
     },
     {
       "path": "hardware/cad/current/evidence/front-grille-mesh-validation-r23.json",
@@ -144,13 +149,13 @@
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "4cb3e7062c8d04f4154f0e39d5911aa402041c4bdacf18255ce04e4200842492",
-      "bytes": 471222
+      "sha256": "2bf413c5f4e6d68aa62ba874e3f0b7525e3863cdd975597e6d06137e92ebcb95",
+      "bytes": 471202
     },
     {
       "path": "hardware/cad/current/step-export-provenance.json",
-      "sha256": "51c969c998b5ae32050f7c861e34d8b49262a9d5080c17ceb958b1859d50744e",
-      "bytes": 1946
+      "sha256": "627a3368fc56a5ec6efad656757725622e800f6fe33d6a7d8e70d8a1fb6d8b88",
+      "bytes": 1809
     },
     {
       "path": "hardware/cad/current/stl/A04.stl",
@@ -438,14 +443,19 @@
       "bytes": 650
     },
     {
+      "path": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
+      "sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684",
+      "bytes": 11289
+    },
+    {
       "path": "hardware/catalog/aliases.json",
       "sha256": "6815224c3d8a0795a95af7c206a74fe7155c316dcb3a06bca9f1933daa50a7c1",
       "bytes": 1445
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "d7e4f40cf83049418443359674eadea9a9d052bfe1e786feb7be49b36034263c",
-      "bytes": 47630
+      "sha256": "825fc4cf2174502c8445f25823f6b98293f97e6738bb60415ec1b92e4854fc32",
+      "bytes": 47627
     },
     {
       "path": "hardware/catalog/supplies.json",
@@ -464,12 +474,12 @@
     },
     {
       "path": "hardware/printing/current/PUBLISHED.json",
-      "sha256": "dff786d108f944d1b60cf9c0cd4213cfd31ce093ae2d126d4386b5cdc08cbac5",
-      "bytes": 12212
+      "sha256": "9252c5ce5f71806d89ad6fbb4b521ac8b00719b9dc7d9b91a96b5b910b1da257",
+      "bytes": 12315
     },
     {
       "path": "hardware/printing/current/README.md",
-      "sha256": "a7bf15d8b488557031108be03728a8125ae39e65e3a08b609d33281653e86672",
+      "sha256": "3ebdf4d4cd76f5a9c108e7c633a85439bdc42b8635c1b9aa91ff74e84668167e",
       "bytes": 10545
     },
     {
@@ -783,6 +793,11 @@
       "bytes": 11123
     },
     {
+      "path": "hardware/printing/current/checks/r32-print-reuse.json",
+      "sha256": "0a14ea63588d2fd3cbc5a7b8a8fbe275587b0e60da006c5c1cb8e78d8bfa6cfe",
+      "bytes": 11090
+    },
+    {
       "path": "hardware/printing/current/checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -794,13 +809,13 @@
     },
     {
       "path": "hardware/printing/current/live-source-check.json",
-      "sha256": "61504d861299268cc767cb361bfe3af477cd819b3c7355b83bb9fa0133e5bff4",
+      "sha256": "debc6179adf2d712ec61e96be2dffb8f70789b9943e88a56659790ab52262161",
       "bytes": 846
     },
     {
       "path": "hardware/printing/current/manifest.json",
-      "sha256": "a7c4e3437b28917b3cd22716a0f04e21f2cfa081264443108cfecee113bd4cb3",
-      "bytes": 630659
+      "sha256": "6006c30651c6a994333fa705c41ab5775d15b331fa6d0ce54efb01314fc4f998",
+      "bytes": 630608
     },
     {
       "path": "hardware/printing/current/object-settings.csv",
@@ -829,8 +844,8 @@
     },
     {
       "path": "hardware/printing/recipes/projects.json",
-      "sha256": "4d0873315f0198e15a116e6cc4a205dbef02fe2f776889f391a2af0c662960dd",
-      "bytes": 27586
+      "sha256": "2c57c90dd9dd2c01eb0d33c9fe18bbf296fa6c364c7c854292c98f5cb07dcc6d",
+      "bytes": 27521
     },
     {
       "path": "hardware/printing/recipes/semantic-contract.json",
@@ -839,8 +854,8 @@
     },
     {
       "path": "hardware/rendering/r22-colors.json",
-      "sha256": "1a713bec9dfbc8e3bf33b06bc813204e6943a79d6abf7e30f0bb5e353770cf38",
-      "bytes": 76739
+      "sha256": "94a4a6d8e94669836a743db251c0343fbbbeba5dd84988fc0f1f26fd597f54a4",
+      "bytes": 76735
     },
     {
       "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
@@ -854,8 +869,8 @@
     },
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "fe0242eb1248c103fa77bbfebcd162f24c9d302d1b0beda4b68f458132862e08",
-      "bytes": 18775077
+      "sha256": "aa031693482ce33cba8a8477ea5fdeeab566fdd5902a05c69fd51e20cccf8c76",
+      "bytes": 19066044
     },
     {
       "path": "hardware/rendering/scenes/views.json",
@@ -864,8 +879,8 @@
     },
     {
       "path": "hardware/rendering/source-lock.json",
-      "sha256": "cca8a0e8c8032c08a4f2952ed68ceb843724117d691f80464a640d9f8d2a1a78",
-      "bytes": 4725
+      "sha256": "b192e3bd6421d81e4c20f68179cc1db9e08025edc07be1311a9580970a7222a6",
+      "bytes": 5164
     },
     {
       "path": "hardware/tools/cad/export_service_stand.py",

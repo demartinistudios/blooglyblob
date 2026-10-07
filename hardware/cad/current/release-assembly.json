@@ -2,8 +2,8 @@
   "root_bodies": [],
   "occurrences": [
     {
-      "path": "REF Foam wrap r2 - narrow seam and knife slits:1",
-      "component": "REF Foam wrap r2 - narrow seam and knife slits",
+      "path": "REF Foam wrap r3 - round 14mm shoulder holes:1",
+      "component": "REF Foam wrap r3 - round 14mm shoulder holes",
       "transform": [
         1.0,
         0.0,
@@ -26,24 +26,24 @@
       "appearance": "Eye foam white - display only",
       "bodies": [
         {
-          "name": "REF Foam wrap r2 - narrow seam and knife slits",
-          "volume": 97.34904950212291,
-          "area": 530.3911137212834,
+          "name": "REF Foam wrap r3 - round 14mm shoulder holes",
+          "volume": 101.54963698834314,
+          "area": 538.4021448465129,
           "solid": true,
           "lumps": 1,
-          "faces": 46,
-          "edges": 132,
+          "faces": 8,
+          "edges": 16,
           "visible": true,
           "appearance": "Eye foam white - display only",
           "bounds": [
             [
-              -3.8100000000000005,
-              -3.8100000000000005,
+              -3.8099999999999996,
+              -3.81,
               0.0
             ],
             [
-              3.8100000000000005,
-              3.808687437950245,
+              3.8099999999999996,
+              3.8086874379502444,
               11.43
             ]
           ]

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "cad": "R32/cloud28",
+  "parent_cad": "R31/cloud27",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12",
+    "bytes": 15336911
+  },
+  "parent_native_sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100",
+  "changed_reference": "C04 body foam",
+  "specification_mm": {
+    "inner_radius": 34.1,
+    "outer_radius": 38.1,
+    "height": 114.3,
+    "rear_gap": 2,
+    "shoulder_hole_diameter": 14,
+    "shoulder_hole_axis": "X at Y=0, Z=90",
+    "windows": 0,
+    "knife_slits": 0,
+    "edge_notches": 0
+  },
+  "rear_seam": "Gap centered on +Y. Backing ribs remain unchanged; the owner accepts approximately 0.8 mm compression at each foam edge.",
+  "verification": {
+    "unchanged_bodies": 562,
+    "total_bodies": 563,
+    "occurrences": 331,
+    "joints": 8,
+    "unrelated_geometry_metadata_unchanged": true,
+    "foam_exact_spec_BRep": true,
+    "timeline_health_unchanged": true
+  },
+  "native_reimport": "All 563 bodies and 8 joints verified against saved MAIN; native metadata and placements preserved.",
+  "print_scope": "Display-only reference. Every printed body, STL, project, setting and modifier remains unchanged. All 72 source-instance comparisons pass."
+}

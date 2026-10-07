@@ -1,6 +1,6 @@
 # Editable print recipes
 
-The current CAD is **R31 / Fusion cloud27**, with the unchanged R29 print package: ten color/material plates,
+The current CAD is **R32 / Fusion cloud28**, with the unchanged R29 print package: ten color/material plates,
 71 required pieces / 51 types. Open **BlooglyBlob-R29-PLA-Production.3mf** in
 Bambu Studio 2.7.1.62. The optional clear PETG ball project replaces A05 on T1.
 Logical filament numbers are profiles, not physical AMS slot assignments.
@@ -20,9 +20,9 @@ and installed wiring need physical qualification before a validated-kit claim.
 
 ## Current CAD source
 
-All selected printable geometry and placements are unchanged in R31. Reuse both
+All selected printable geometry and placements are unchanged in R32. Reuse both
 R29-named 3MF projects and the selected STLs; settings, modifiers, plate estimates
-and thumbnails retain their reviewed bytes. [Reuse evidence](checks/r31-print-reuse.json)
+and thumbnails retain their reviewed bytes. [Reuse evidence](checks/r32-print-reuse.json)
 binds the current native source to the retained printable geometry and 72 exact
 source-instance comparisons. No additional slicing was needed for this update.
 

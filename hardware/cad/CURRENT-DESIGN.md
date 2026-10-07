@@ -2,14 +2,14 @@
 
 Open **Blue Glee Blob - MAIN** in Fusion → Admin Project.
 
-Accepted design **R31**, exact cloud version **v27**.
+Accepted design **R32**, exact cloud version **v28**.
 Permanent file ID: `urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg`.
 
 ## CAD acceptance record
 
 Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.
 
-Lighting F2 and its holder remain in the accepted location. All printable geometry, placements, appearances and eight arm joints are preserved. Native and full-root STEP reimports verified; existing STL and print projects retained by source-equivalence checks.
+C04 display-only foam uses two round 14 mm shoulder holes and a continuous 2 mm rear seam. Windows, knife slits and edge notches are removed. Printed geometry, appearances, placements and all eight joints are unchanged. Native and STEP reimports verified.
 
 ## Current inputs
 

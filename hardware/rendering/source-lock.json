@@ -1,20 +1,20 @@
 {
   "schema_version": 2,
   "cad": {
-    "design_revision": "R31",
+    "design_revision": "R32",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 27,
-    "release_manifest": "hardware/cad/design-control/releases/R31-fuse-reference-20261004.json",
-    "release_manifest_sha256": "608273e5c80b231a7a60ff81959f5d9639f6fa2d42cfc6ecb430b4e3a3ec43f4"
+    "cloud_version": 28,
+    "release_manifest": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
+    "release_manifest_sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684"
   },
   "scene_review_cad": {
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R31",
-    "cloud_version": 27,
-    "release_manifest": "hardware/cad/design-control/releases/R31-fuse-reference-20261004.json",
-    "release_manifest_sha256": "608273e5c80b231a7a60ff81959f5d9639f6fa2d42cfc6ecb430b4e3a3ec43f4"
+    "design_revision": "R32",
+    "cloud_version": 28,
+    "release_manifest": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
+    "release_manifest_sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684"
   },
   "roles": {
     "mesh": "hardware/rendering/r28-visible-meshes.json.gz",
@@ -34,38 +34,46 @@
   "files": [
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "fe0242eb1248c103fa77bbfebcd162f24c9d302d1b0beda4b68f458132862e08"
+      "sha256": "aa031693482ce33cba8a8477ea5fdeeab566fdd5902a05c69fd51e20cccf8c76",
+      "bytes": 19066044
     },
     {
       "path": "hardware/cad/current/native-meshes.json",
-      "sha256": "a42d17d56768750eaaa6cea082b2cc0003298c11439ca65398418df5ddb4c1cc"
+      "sha256": "a42d17d56768750eaaa6cea082b2cc0003298c11439ca65398418df5ddb4c1cc",
+      "bytes": 22763525
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "4cb3e7062c8d04f4154f0e39d5911aa402041c4bdacf18255ce04e4200842492"
+      "sha256": "2bf413c5f4e6d68aa62ba874e3f0b7525e3863cdd975597e6d06137e92ebcb95",
+      "bytes": 471202
     },
     {
       "path": "hardware/cad/current/joints.json",
-      "sha256": "c091d6695f1db283040a2470755fd35ed7174a2cb07fd192005a4af466c09d64"
+      "sha256": "c091d6695f1db283040a2470755fd35ed7174a2cb07fd192005a4af466c09d64",
+      "bytes": 2123
     },
     {
       "path": "hardware/rendering/r22-colors.json",
-      "sha256": "1a713bec9dfbc8e3bf33b06bc813204e6943a79d6abf7e30f0bb5e353770cf38"
+      "sha256": "94a4a6d8e94669836a743db251c0343fbbbeba5dd84988fc0f1f26fd597f54a4",
+      "bytes": 76735
     },
     {
       "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
-      "sha256": "37e41c2738ec50f8b4d024a6a771e6e476a6983560f961f057b0903c55ef4219"
+      "sha256": "37e41c2738ec50f8b4d024a6a771e6e476a6983560f961f057b0903c55ef4219",
+      "bytes": 810573
     },
     {
       "path": "hardware/rendering/r23-service-stand-provenance.json",
-      "sha256": "026f9dfab36be91547bc8190aaa153124c3d2efc3d87a6a26ebb5bfd4be8644e"
+      "sha256": "026f9dfab36be91547bc8190aaa153124c3d2efc3d87a6a26ebb5bfd4be8644e",
+      "bytes": 8191
     },
     {
       "path": "hardware/rendering/scenes/views.json",
-      "sha256": "1c14d7f956875b4ca787281641b31557a55178b410ba111909bcef646a9020e5"
+      "sha256": "1c14d7f956875b4ca787281641b31557a55178b410ba111909bcef646a9020e5",
+      "bytes": 104420
     }
   ],
   "frames": "Body-local cm, occurrence transform once, then cm to mm. Bed-normalized print geometry has separate frames.",
-  "scene_review": "R29/cloud25 review against hardware/cad/current/evidence/batch-r29.json: P08/P14 \u00d83.4 bores verified at (15.588457,-9), (0,18), (-15.588457,-9), Z125.3/128.3; underside pocket roof Z124.0. FB32 \u00d82.3 bores verified at (-47,-65.5) and (50,-78.35), Z-41.5/-39.5; corresponding FB24 lid nuts updated. P35/P36 former screw/nut joint removed; actual radius8.3 ring surfaces at Z33\u201338 and62\u201367 identify epoxy bonds. Source transforms and unchanged base/head-shell/belt interfaces retained. USB views locate endpoints and a separated measured connector; no final mated position or cable-bend clearance is claimed. Affected six part cards, assembly/service views, layouts and full-robot view require regenerated assets from this binding; physical qualification remains pending. R30/cloud26 preserves all retained bodies, transforms, appearances and printed interfaces under the accepted native comparison; only the F1 row is removed from the composed rendering mesh. Lighting F2 and C1/C2 placements are unchanged. The power-parts placement, base-cover, electrical layout and routing-access views are regenerated for this selection; unrelated illustrations and presentation images retain their verified geometry and original capture provenance. R31/cloud27 removes four hidden obsolete wire/splice references that were absent from the selected render composition. Retained geometry, transforms, appearances and scene inputs are unchanged; the R30-generated illustrations remain valid without rerendering.",
+  "scene_review": "R29/cloud25 review against hardware/cad/current/evidence/batch-r29.json: P08/P14 \u00d83.4 bores verified at (15.588457,-9), (0,18), (-15.588457,-9), Z125.3/128.3; underside pocket roof Z124.0. FB32 \u00d82.3 bores verified at (-47,-65.5) and (50,-78.35), Z-41.5/-39.5; corresponding FB24 lid nuts updated. P35/P36 former screw/nut joint removed; actual radius8.3 ring surfaces at Z33\u201338 and62\u201367 identify epoxy bonds. Source transforms and unchanged base/head-shell/belt interfaces retained. USB views locate endpoints and a separated measured connector; no final mated position or cable-bend clearance is claimed. Affected six part cards, assembly/service views, layouts and full-robot view require regenerated assets from this binding; physical qualification remains pending. R30/cloud26 preserves all retained bodies, transforms, appearances and printed interfaces under the accepted native comparison; only the F1 row is removed from the composed rendering mesh. Lighting F2 and C1/C2 placements are unchanged. The power-parts placement, base-cover, electrical layout and routing-access views are regenerated for this selection; unrelated illustrations and presentation images retain their verified geometry and original capture provenance. R31/cloud27 removes four hidden obsolete wire/splice references that were absent from the selected render composition. Retained geometry, transforms, appearances and scene inputs are unchanged; the R30-generated illustrations remain valid without rerendering. R32/cloud28 replaces only the C04 foam row with a saved-native tessellation of the specified round shoulder holes and plain seam. All other mesh rows and colors are unchanged. Body close-ups and illustrations showing the foam require regeneration from this binding.",
   "reference_frame_check": "Retained F2 and capacitor rows originate in the clean saved cloud19 export: body-local vertices and actual occurrence transforms. R30 native comparisons confirm unchanged retained geometry, transforms and appearances. F1 is absent from the selected composition."
 }

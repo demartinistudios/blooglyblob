@@ -4,20 +4,20 @@
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R31",
-    "cloud_version": 27,
-    "release_manifest": "hardware/cad/design-control/releases/R31-fuse-reference-20261004.json",
-    "release_manifest_sha256": "608273e5c80b231a7a60ff81959f5d9639f6fa2d42cfc6ecb430b4e3a3ec43f4"
+    "design_revision": "R32",
+    "cloud_version": 28,
+    "release_manifest": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
+    "release_manifest_sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684"
   },
   "accepted_native": {
     "path": "hardware/cad/current/assembly.f3d",
     "original_path": "hardware/cad/current/assembly.f3d",
-    "sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100"
+    "sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12"
   },
   "current_inputs": {
     "path": "hardware/cad/design-control/current-inputs.json",
-    "sha256": "ccc1750487a293e24cc09d5c165d28643822a9004c56643dc8eabccdc2f5fe10",
-    "bytes": 31749
+    "sha256": "1198dae666f6357a3682191bbc2c2b0c2a521cde1908dcf19f817fb339f3eecd",
+    "bytes": 32321
   },
   "delivery": null
 }

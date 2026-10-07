@@ -740,16 +740,16 @@
     }
   ],
   "cad": {
-    "design_revision": "R31",
+    "design_revision": "R32",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 27,
-    "release_manifest": "hardware/cad/design-control/releases/R31-fuse-reference-20261004.json",
-    "release_manifest_sha256": "608273e5c80b231a7a60ff81959f5d9639f6fa2d42cfc6ecb430b4e3a3ec43f4"
+    "cloud_version": 28,
+    "release_manifest": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
+    "release_manifest_sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684"
   },
   "semantic_contract": {
     "path": "hardware/printing/recipes/semantic-contract.json",
     "sha256": "ec6c579cca0444b1227413d4cce264e06fcdfec7fad255295cb93ddf48198368",
     "bytes": 184755
   },
-  "cad_update_status": "R31/cloud27 retained printable geometry and source frames verified; both R29-named print projects and all selected STLs reused unchanged. No new slicing required; physical qualification separate."
+  "cad_update_status": "R32/cloud28 changes only display foam. All selected STL and R29-named project bytes, source frames and print settings remain unchanged."
 }
