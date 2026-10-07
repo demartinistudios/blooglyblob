@@ -4,6 +4,7 @@
 from array import array
 import math
 import sys
+import time
 
 
 def main(command):
@@ -30,8 +31,40 @@ def main(command):
         if command == "check-audio":
             return
         rate = 48000
+
+        def play(samples):
+            stream = audio.open(
+                format=pyaudio.paInt16,
+                channels=1,
+                rate=rate,
+                output=True,
+                output_device_index=output_index,
+            )
+            try:
+                stream.write(samples)
+                # Drain playback before recording or releasing the device.
+                stream.stop_stream()
+            finally:
+                stream.close()
+
         if command == "test-mic":
-            print("Recording three seconds; speak into the microphone.", flush=True)
+            print("After the beep, speak for five seconds.", flush=True)
+            cue_frames = int(rate * 0.2)
+            fade_frames = int(rate * 0.005)
+            cue = array(
+                "h",
+                (
+                    int(
+                        1500
+                        * min(1, i / fade_frames, (cue_frames - 1 - i) / fade_frames)
+                        * math.sin(2 * math.pi * 660 * i / rate)
+                    )
+                    for i in range(cue_frames)
+                ),
+            ).tobytes()
+            play(cue)
+            time.sleep(0.3)  # Let the cue decay before opening the microphone.
+            print("Recording five seconds...", flush=True)
             stream = audio.open(
                 format=pyaudio.paInt16,
                 channels=1,
@@ -40,7 +73,7 @@ def main(command):
                 input_device_index=input_index,
             )
             try:
-                samples = b"".join(stream.read(1600) for _ in range(90))
+                samples = b"".join(stream.read(1600) for _ in range(150))
             finally:
                 stream.close()
         else:
@@ -53,17 +86,7 @@ def main(command):
                 ),
             ).tobytes()
         print("Playing through the configured speaker.", flush=True)
-        stream = audio.open(
-            format=pyaudio.paInt16,
-            channels=1,
-            rate=rate,
-            output=True,
-            output_device_index=output_index,
-        )
-        try:
-            stream.write(samples)
-        finally:
-            stream.close()
+        play(samples)
     finally:
         audio.terminate()
 
