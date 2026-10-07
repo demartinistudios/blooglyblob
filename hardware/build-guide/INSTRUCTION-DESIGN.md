@@ -104,7 +104,14 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
     leaves, in the same pose and support the actions describe. Do not cram
     several stages into one drawing or use opposed arrows; when order matters,
     add small numbered callouts. Draw tools as tools: a meter probe has a tip
-    and a handle, so it cannot be mistaken for a soldered wire. A render that
+    and a handle, so it cannot be mistaken for a soldered wire. Draw heat-shrink
+    one way, in one color, whatever tubing the builder uses: every joint, leg,
+    resistor or loose wire end the actions cover is drawn under its sleeve in
+    that panel's picture and in every later one. A sleeve over a resistor is
+    drawn see-through, so the builder sees the resistor goes inside it. A sleeve waits on its lead
+    only when the panel solders and a later panel shrinks it. Actions say
+    "cover ... with heat-shrink", and say to slide it on before soldering when
+    both wires already end in a plug or part. A render that
     contradicts its actions, such as one showing a retired stand, is recorded
     as a picture mismatch until it is re-rendered, and its caption says what it
     shows.

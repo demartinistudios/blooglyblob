@@ -160,6 +160,22 @@ class CircuitDiagramTests(unittest.TestCase):
         self.assertIn('Remaining 84 · dark', result)
         self.assertFalse(any('cut here' in t.lower() for t in result))
 
+    def test_heat_shrink_is_drawn_one_way_and_covers_what_the_actions_cover(self):
+        # INSTRUCTION-DESIGN.md rule 10: one sleeve color; a covered resistor shows through it.
+        retired = ('#424b55', '#656c74', '#444e56', '#6b7580')
+        for generated in self.out.rglob('*.svg'):
+            svg = generated.read_text()
+            for color in retired:
+                self.assertNotIn(color, svg, generated.name)
+        see_through = f'fill="{diagrams.SHRINK}" fill-opacity="{diagrams.SHRINK_OVER}"'
+        for name, key in (('circuits/c2-prepare.svg', 'R2'), ('circuits/f2-connect.svg', 'R2'),
+                          ('circuits/button-leads-done.svg', 'R1')):
+            svg = (self.out / name).read_text()
+            band = svg.find(diagrams.RESISTORS[key][1][0])
+            self.assertGreaterEqual(band, 0, name)
+            self.assertGreater(svg.find(see_through), band, f'{name}: sleeve must lie over the resistor')
+        self.assertIn('Unused wires', self.texts('circuits/pi-power.svg'))
+
     def test_drawings_carry_labels_not_titles_or_sentences(self):
         # The guide caption gives the view and the actions give instructions.
         for generated in self.out.rglob('*.svg'):

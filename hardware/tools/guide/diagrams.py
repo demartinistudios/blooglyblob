@@ -12,6 +12,9 @@ INK, MUTED, PAPER, LINE = '#292b3b', '#5c6070', '#fbfaf6', '#c9c7c0'
 RED, BLK, BLUE, GRAY, COPPER, ORANGE = '#c4302b', '#26262b', '#2f6fb5', '#8d939a', '#875b46', '#c8601d'
 LEAD = '#3a3d44'  # Adafruit 1663 JST-SM leads: black, labeled by function
 SERVO_BROWN, SERVO_ORANGE = '#6b4329', '#ee8a2c'  # Kitronik FS90MG-CL ground and signal; supply is RED
+SHRINK, SHRINK_EDGE = '#47515b', '#1c2126'  # every heat-shrink sleeve, waiting or shrunk
+SHRINK_OVER = .5  # a sleeve over a resistor lets the resistor show through
+SOLDER = '#c2c9cb'  # a bare solder joint, before it is covered
 FONT = 'Arial,Helvetica,sans-serif'
 
 
@@ -186,7 +189,7 @@ def wago_port(g, y, block, port, color, label_above=False):
 
 
 def joint(g, x, y, color):
-    g.circle(x, y, 8, fill='#b9c2c5', stroke=color, sw=3)
+    g.circle(x, y, 8, fill=SOLDER, stroke=color, sw=3)
 
 
 RESISTORS = {
@@ -237,8 +240,29 @@ def port_point(port, y):
     return (228 + (5 - port) * 35, y + 1)
 
 
-def sleeve(g, x, y, length=46, color='#47515b'):
-    g.rect(x - 9, y, 18, length, fill=color, stroke=INK, sw=1, rx=4)
+def shrink(g, x, y, w, h, rx=4):
+    """Heat-shrink, drawn the same in every picture whatever color the builder uses.
+
+    A joint, leg or part the actions sleeve is drawn under heat-shrink in the picture
+    of the panel that sleeves it and in every later picture. Only a panel that solders
+    and leaves the shrinking to a later panel shows the sleeve waiting on its lead."""
+    g.rect(x, y, w, h, fill=SHRINK, stroke=SHRINK_EDGE, sw=1, rx=rx)
+
+
+def shrink_over(g, x, y, w, h, rx=4):
+    """Heat-shrink over a resistor: the same sleeve, see-through so the part inside shows."""
+    g.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{SHRINK}" '
+          f'fill-opacity="{SHRINK_OVER}" stroke="{SHRINK_EDGE}" stroke-width="1"/>')
+
+
+def shrink_wire(g, pts, sw=12):
+    """Heat-shrink along a bent leg or lead."""
+    g.wire(pts, SHRINK_EDGE, sw + 2)
+    g.wire(pts, SHRINK, sw)
+
+
+def sleeve(g, x, y, length=46):
+    shrink(g, x - 9, y, 18, length)
 
 
 JST_BODY = '#303740'
@@ -334,7 +358,7 @@ def power_jack_circuit():
     g.circle(165, 197, 78, fill='#d8d7cf', stroke=INK, sw=3)
     g.circle(165, 197, 61, fill='#e9e5db', stroke=GRAY)
     g.rect(150, 148, 30, 9, fill='#b9c4c9', rx=0)
-    g.rect(209, 183, 9, 30, fill='#47515b', rx=2)
+    shrink(g, 209, 183, 9, 30, rx=2)
     g.add('<path d="M115 205 L125 235 L134 232 L124 202 Z" fill="#b9c4c9" stroke="#292b3b" stroke-width="2"/>')
     # Labels sit above each WAGO so the ground lead's left-hand run stays clear.
     wago_port(g, 389, 'W1', 1, RED, label_above=True)
@@ -342,7 +366,7 @@ def power_jack_circuit():
     g.wire([(125,226),(125,315),(190,315),(190,432),(368,432),port_point(1,389)], RED, 6)
     g.wire([(165, 152), (49, 152), (49, 570), (368, 570), port_point(1,526)], BLK, 6)
     sleeve(g,125,228,45)
-    g.rect(139,143,44,18,fill='#47515b',rx=4)
+    shrink(g,139,143,44,18)
     g.text(258, 118, 'Sleeve → GND', size=22)
     g.wire([(262,124),(183,150)], MUTED, 1.5)
     g.text(262, 206, 'Unused', size=22)
@@ -353,7 +377,7 @@ def power_jack_circuit():
     g.save('circuits/power-jack-leads.svg')
 
 def pi_power_circuit():
-    g = physical_action('Pi power lead', 625)
+    g = physical_action('Pi power lead', 695)
     pi_bench_board(g, 136, 111, 3.2)
     # Micro-B sits in the bottom-edge power socket, not the USB-A data port.
     g.rect(159, 292, 21, 13, fill='#bcc6cd', rx=1)
@@ -362,11 +386,17 @@ def pi_power_circuit():
         g.wire([(157,yy),(182,yy)],GRAY,1)
     g.text(24, 307, 'PWR IN', size=22)
     g.wire([(111,302),(148,300),(162,296)],MUTED,1.5)
-    wago_port(g, 426, 'W1', 2, RED)
-    wago_port(g, 549, 'W3', 2, BLK)
-    g.wire([(163,349),(163,469),(333,469),port_point(2,426)],RED,6)
-    traced_wire(g,[(176,349),(176,574),(333,574),port_point(2,549)],BLK,6)
-    g.text(24, 602, '24 AWG',size=22)
+    wago_port(g, 496, 'W1', 2, RED)
+    wago_port(g, 619, 'W3', 2, BLK)
+    g.wire([(163,370),(163,539),(333,539),port_point(2,496)],RED,6)
+    traced_wire(g,[(176,370),(176,644),(333,644),port_point(2,619)],BLK,6)
+    # Cable jacket stripped back; each unused wire ends under its own sleeve.
+    g.rect(155,349,36,26,fill='#30343a',rx=3)
+    for x, y in ((188,390),(183,406)):
+        g.wire([(x,375),(x,y),(236,y)],GRAY,4)
+        shrink(g,214,y-7,30,14)
+    g.text(254,406,'Unused wires',size=22)
+    g.text(24, 672, '24 AWG',size=22)
     g.save('circuits/pi-power.svg')
 
 def fuse_prep(name, value, input_port, output):
@@ -435,23 +465,23 @@ def c2_circuit():
     g = physical_action('Base half, C2 and R2', 721)
     capacitor(g, 130, 'C2')
     # C2's own legs reach the branch joints directly; there are no wire tails.
-    # Individual sleeves run from the rubber seal toward each solder joint.
+    # Each leg is sleeved from the rubber seal to its joint's sleeve.
     for points in (
         [(180,256),(180,314),(107,352),(107,416)],
         [(244,256),(244,314),(322,360),(322,478)],
     ):
-        g.wire(points, '#b9c2c5', 4)
-        g.wire(points[:-1] + [(points[-1][0], points[-1][1] - 14)], '#47515b', 12)
+        shrink_wire(g, points)
     # F2 output is red 18 AWG; the base half's own leads are black (1663).
     g.wire([(30,416),(107,416)],RED,6)
     g.wire([(107,416),(196,416),(196,573),(229,573)],LEAD,5)
     traced_wire(g,[(30,478),(178,478),(178,587),(229,587)],LEAD,5)
     traced_wire(g,[(322,478),(178,478)],LEAD,5)
-    # Solder wraps have length and insulation overlap, not schematic dots.
-    g.rect(80,406,55,20,fill='#b9c2c5',stroke=GRAY,rx=8)
-    g.rect(295,468,54,20,fill='#b9c2c5',stroke=GRAY,rx=8)
+    # Finished: each joint and R2 under its own sleeve.
+    shrink(g,74,403,67,26)
+    shrink(g,289,465,66,26)
     g.wire([(30,531),(160,531),(160,601),(229,601)],LEAD,5)
     small_resistor(g,62,531,'R2',56)
+    shrink_over(g,54,519,72,24)
     jst_sm_half(g,'sockets',305,587)
     g.text(24, 390, 'From F2',size=22,fill=RED)
     g.text(24, 453, 'GND → W3/5',size=22)
@@ -480,9 +510,11 @@ def f2_circuit():
     g.text(196,337,'C2',size=22,fill='#fff',anchor='middle')
     g.wire([(178,355),(178,384)],RED,5)
     traced_wire(g,[(223,355),(223,417),(186,417),(186,551)],BLK,5)
-    g.rect(151,375,55,18,fill='#47515b',rx=5)
+    shrink(g,151,375,55,18)
     sleeve(g,186,521,37)
     small_resistor(g,58,494,'R2',48)
+    shrink_over(g,50,482,64,24)
+    g.text(58, 474, 'R2', size=22)
     g.text(263, 540, 'Base half',size=24,weight=700)
     g.text(24, 574, 'S1 D5',size=22)
     g.text(24, 700, 'Base half: JST-SM 2.5 mm (large)',size=22)
@@ -707,12 +739,7 @@ def button_back(g, cx, cy):
 
 def tab_sleeve(g, x, y, down=18):
     """Shrunk heat-shrink over one tab and its joint; the lead leaves from its lower end."""
-    g.rect(x - 9, y - 15, 18, 30 + down, fill='#47515b', stroke='#1c2126', sw=1, rx=4)
-
-
-def loose_sleeve(g, x, y):
-    """A heat-shrink sleeve waiting on a vertical lead, pushed back from its joint."""
-    g.rect(x - 9, y, 18, 34, fill='#6b7580', stroke='#1c2126', sw=1, rx=4)
+    shrink(g, x - 9, y - 15, 18, 30 + down)
 
 
 def small_resistor(g, x, y, key, length=40):
@@ -825,7 +852,7 @@ def button_leads_switch():
     tabs = button_top(g, y0, 26)
     for y, pin in zip(tabs, (11, 14)):
         traced_wire(g, [(222, y), (330, y)], BLUE, 4)
-        g.rect(184, y - 8, 56, 16, fill='#47515b', stroke='#1c2126', sw=1, rx=4)   # shrunk sleeve
+        shrink(g, 184, y - 8, 56, 16)
         side_socket(g, 330, y, pin)
     g.text(205, 146, 'Switch tabs', size=22, anchor='middle', weight=700)
     g.save('circuits/button-leads-switch.svg')
@@ -840,7 +867,7 @@ def button_leads_led():
     # LED −: lead 20 soldered straight to the tab; its sleeve waits on the lead.
     traced_wire(g, [(214, minus), (330, minus)], BLK, 4)
     joint(g, 214, minus, BLK)
-    g.rect(262, minus - 7, 30, 14, fill='#6b7580', stroke='#1c2126', sw=1, rx=4)
+    shrink(g, 262, minus - 7, 30, 14)
     side_socket(g, 330, minus, 20)
     # LED +: R1 in line with the tab, pointing straight back; lead 4 on its free leg.
     g.wire([(206, plus), (234, plus)], GRAY, 3)
@@ -848,7 +875,7 @@ def button_leads_led():
     g.wire([(270, plus), (282, plus)], GRAY, 3)
     traced_wire(g, [(282, plus), (330, plus)], RED, 4)
     joint(g, 282, plus, RED)
-    g.rect(292, plus - 7, 34, 14, fill='#6b7580', stroke='#1c2126', sw=1, rx=4)
+    shrink(g, 292, plus - 7, 34, 14)
     side_socket(g, 330, plus, 4)
     g.label(252, 140, 'R1 · 1 kΩ', size=22, anchor='middle', weight=700)
     g.wire([(252, 146), (252, plus - 10)], '#ae855e', 2)
@@ -883,7 +910,7 @@ def button_insert_threading():
         traced_wire(g, [(250, y), (290, y), (326, sy), (340, sy)], color, 4)
         side_socket(g, 340, sy, pin)
     for y, pin, _ in rows:
-        g.rect(212, y - 6, 58 if pin == 4 else 40, 12, fill='#47515b', stroke='#1c2126', sw=1, rx=3)
+        shrink(g, 212, y - 6, 58 if pin == 4 else 40, 12, rx=3)
     callout(g, 360, 112, 1)
     callout(g, 74, y0 - 72, 2)
     callout(g, 152, y0 + 76, 3)
@@ -912,67 +939,76 @@ def button_leads_done():
         g.text(404, sy + 8, str(pin), size=22, anchor='end', weight=700)
     y = rows[1][0]
     small_resistor(g, 248, y, 'R1', 34)
-    g.add(f'<rect x="207" y="{y - 11}" width="80" height="22" rx="5" fill="#47515b" opacity=".55" stroke="#1c2126" stroke-width="1"/>')
+    shrink_over(g, 207, y - 11, 80, 22, rx=5)
     for yy, _, _ in (rows[0], rows[2], rows[3]):
-        g.rect(207, yy - 7, 46, 14, fill='#47515b', stroke='#1c2126', sw=1, rx=4)
+        shrink(g, 207, yy - 7, 46, 14)
     g.label(262, 150, 'R1 under sleeve', size=22, anchor='middle', weight=700)
     g.wire([(262, 156), (262, y - 12)], '#ae855e', 2)
     g.save('circuits/button-leads-done.svg')
 
 
-def button_rear(g, x, y):
-    """Finished button rear for the header views: every tab sleeved; returns the tab points."""
-    tabs = button_back(g, x, y)
-    button_tab_labels(g, tabs, x)
-    return tabs
+def upright_resistor(g, x, y, key, length=36):
+    """Vertical resistor body from y up to y - length, with its value bands."""
+    g.rect(x - 8, y - length, 16, length, fill='#e5c798', stroke=INK, sw=1, rx=6)
+    for i, col in enumerate((*RESISTORS[key][1], '#be9b36')):
+        g.rect(x - 7, y - length + 6 + i * 8, 14, 4, fill=col, stroke='none', rx=0)
 
 
-def r1_end_on(g, x, y):
-    """R1 seen end-on: it points straight back from the LED + tab, toward the viewer, under its sleeve."""
-    g.circle(x, y, 14, fill='#47515b', stroke='#1c2126', sw=1)
-    g.circle(x, y, 7, fill='#e5c798', stroke=INK, sw=1)
+def loose_socket(g, x, y, pin, side):
+    """A lead's 2.54 mm socket hanging loose, opening upward, with its label beside it."""
+    g.rect(x - 11, y - 40, 22, 40, fill='#303740', rx=3)
+    g.rect(x - 4, y - 38, 8, 8, fill='#151b20', stroke='none', rx=0)
+    tx = x - 18 if side == 'left' else x + 18
+    g.text(tx, y - 12, str(pin), size=22, anchor='end' if side == 'left' else 'start', weight=700)
+
+
+def button_header_view(g, plugged):
+    """The finished button from behind beside the Pi header. All four leads come off it,
+    drawn folded flat: the LED pair up, the switch pair down. R1 lies in line with the
+    LED + tab under a see-through sleeve. Leads in `plugged` reach their pins; the others
+    hang loose with their labeled sockets."""
+    colors = {11: BLUE, 14: BLUE, 4: RED, 20: BLK}
+    points = header_board(g, {n: colors[n] for n in plugged})
+    cx, cy = 300, 340
+    tabs = button_back(g, cx, cy)
+    button_tab_labels(g, tabs, cx)
+    sw1, sw2 = tabs['SW1'], tabs['SW2']
+    lx, ly = tabs['LED−']
+    px, py = tabs['LED+']
+    top_minus, top_plus = ly - 33, py - 66
+    if 11 in plugged:
+        traced_wire(g, [points[11], (170, points[11][1]), (170, 470), (sw1[0], 470), (sw1[0], sw1[1])], BLUE)
+        traced_wire(g, [points[14], (150, points[14][1]), (150, 496), (sw2[0], 496), (sw2[0], sw2[1])], BLUE)
+    if 20 in plugged:
+        traced_wire(g, [points[20], (200, points[20][1]), (200, 215), (lx, 215), (lx, ly)], BLK)
+        traced_wire(g, [points[4], (px, points[4][1]), (px, py)], RED)
+    else:
+        g.wire([(lx, ly), (lx, top_minus - 22)], BLK, 5)
+        loose_socket(g, lx, top_minus - 22, 20, 'left')
+        g.wire([(px, py), (px, top_plus - 22)], RED, 5)
+        loose_socket(g, px, top_plus - 22, 4, 'right')
+    for x, y in (sw1, sw2):
+        tab_sleeve(g, x, y)
+    shrink(g, lx - 9, top_minus, 18, ly + 15 - top_minus)
+    upright_resistor(g, px, py - 18, 'R1')
+    shrink_over(g, px - 11, top_plus, 22, py + 15 - top_plus)
+    g.label(240, 150, 'R1 · 1 kΩ', size=22, anchor='middle', weight=700)
+    g.wire([(285, 156), (px - 10, py - 40)], '#ae855e', 2)
+    header_labels(g, points)
+    return g
 
 
 def button_switch():
-    g=physical_action('Connect the button switch',790)
-    points=header_board(g,{11:BLUE,14:BLUE})
-    tabs=button_rear(g,285,305)
-    # The LED leads are drawn as stubs; they connect in the next panel.
-    lx,ly=tabs['LED−']
-    g.wire([(lx,ly-15),(lx,ly-35)],BLK,5)
-    tab_sleeve(g,lx,ly)
-    r1_end_on(g,*tabs['LED+'])
-    sw1,sw2=tabs['SW1'],tabs['SW2']
-    traced_wire(g,[points[11],(160,points[11][1]),(160,500),(sw1[0],500),(sw1[0],sw1[1])],BLUE)
-    traced_wire(g,[points[14],(180,points[14][1]),(180,526),(sw2[0],526),(sw2[0],sw2[1])],BLUE)
-    for tx,ty in (sw1,sw2): tab_sleeve(g,tx,ty)
-    header_labels(g,points)
-    g.text(24,730,'Pin 11 · GPIO17 → switch',size=22)
-    g.text(24,761,'Pin 14 · GND → other switch tab',size=22)
+    g = button_header_view(physical_action('Connect the button switch', 790), {11, 14})
+    g.text(24, 730, 'Pin 11 · GPIO17 → switch', size=22)
+    g.text(24, 761, 'Pin 14 · GND → other switch tab', size=22)
     g.save('circuits/button-switch.svg')
 
 
 def button_led():
-    g=physical_action('Connect the button light',790)
-    points=header_board(g,{4:RED,20:BLK})
-    tabs=button_rear(g,285,365)
-    # The switch leads are drawn as stubs; they connect in the previous panel.
-    for key in ('SW1','SW2'):
-        tx,ty=tabs[key]
-        g.wire([(tx,ty+33),(tx,ty+55)],BLUE,5)
-        tab_sleeve(g,tx,ty)
-    lx,ly=tabs['LED−']
-    traced_wire(g,[points[20],(160,points[20][1]),(160,ly),(lx,ly)],BLK)
-    tab_sleeve(g,lx,ly)
-    px,py=tabs['LED+']
-    # R1 points straight back from the LED + tab (toward the viewer); lead 4 leaves its free leg.
-    traced_wire(g,[points[4],(176,points[4][1]),(176,236),(396,236),(396,py),(px,py)],RED)
-    r1_end_on(g,px,py)
-    g.label(px+40,222,'R1 · 1 kΩ',size=22,anchor='middle',weight=700)
-    g.wire([(px+30,228),(px+8,py-12)],'#ae855e',2)
-    header_labels(g,points)
-    g.text(24,730,'Pi pin 4 · +5 V → R1 → LED +',size=22)
-    g.text(24,761,'Pi pin 20 · GND → LED −',size=22)
+    g = button_header_view(physical_action('Connect the button light', 790), {11, 14, 4, 20})
+    g.text(24, 730, 'Pi pin 4 · +5 V → R1 → LED +', size=22)
+    g.text(24, 761, 'Pi pin 20 · GND → LED −', size=22)
     g.save('circuits/button-led.svg')
 
 
@@ -1133,7 +1169,7 @@ def body_output():
     # Clear strand wire to the joints, then the black 1663 leads to the housing.
     for x, end in ((180, 470), (210, 456), (240, 442)):
         g.wire([(x, 181), (x, 300)], '#aaa797', 4)
-        g.rect(x - 7, 300, 14, 40, fill='#47515b', stroke=INK, sw=1, rx=4)
+        shrink(g, x - 7, 300, 14, 40)
         g.wire([(x, 340), (x, end), (262, end)], LEAD, 4)
     for x, fn in ((180, '+5 V'), (210, 'DATA'), (240, 'GND')):
         g.text(x + 7, 284, fn, size=22, rotate=-90)
@@ -1152,7 +1188,7 @@ def head_power():
     rows = ((147, 200, 230, '+5 V', RED), (161, 230, 300, 'DATA', '#f4f4ef'), (175, 260, 370, 'GND', '#26262b'))
     for y0, drop, row, fn, color in rows:
         g.wire([(290, y0), (drop, y0), (drop, row), (150, row)], LEAD, 4)
-        g.rect(127, row - 8, 46, 16, fill='#47515b', stroke=INK, sw=1, rx=4)
+        shrink(g, 127, row - 8, 46, 16)
         g.text(150, row + 34, fn, size=22, anchor='middle', weight=700)
     for y0, drop, row, fn, color in rows:
         slot = 290 + [c for c, _ in SH_WIRES].index(color) * 10
@@ -1221,19 +1257,19 @@ def solder_detail():
     g = action('Solder and cover each joint', 690)
     lines(g, 133, '1 Heat-shrink on first')
     g.wire([(41, 177), (153, 177)], RED, 9)
-    g.rect(68, 164, 53, 26, fill='#656c74', rx=5)
+    shrink(g, 68, 164, 53, 26)
     g.wire([(153, 177), (187, 177)], COPPER, 6)
     g.wire([(238, 177), (274, 177)], COPPER, 6)
     g.wire([(274, 177), (376, 177)], RED, 9)
     lines(g, 263, '2 Soldered joint')
     g.wire([(41, 316), (172, 316)], RED, 9)
-    g.rect(68, 303, 53, 26, fill='#656c74', rx=5)
+    shrink(g, 68, 303, 53, 26)
     g.wire([(170, 316), (251, 316)], COPPER, 6)
-    g.rect(183, 308, 55, 16, fill='#c2c9cb', stroke=GRAY, rx=8)
+    g.rect(183, 308, 55, 16, fill=SOLDER, stroke=GRAY, rx=8)
     g.wire([(252, 316), (376, 316)], RED, 9)
     lines(g, 403, '3 Joint covered')
     g.wire([(41, 453), (376, 453)], RED, 9)
-    g.rect(153, 442, 125, 22, fill='#424b55', rx=6)
+    shrink(g, 153, 440, 125, 26)
     g.save('circuits/solder-insulation.svg')
 
 
@@ -1258,13 +1294,13 @@ def capacitor_joint_detail():
         leg = [(200, y + 8), (280, y + 8), (310, y + 38), (310, y + 73)]
         g.wire(leg, '#b9c2c5', 4)
         # Negative leg continues separately to the return branch, outside detail.
-        g.wire([(355, y + 73), (355, y + 36)], '#47515b', 10)
+        shrink_wire(g, [(355, y + 73), (355, y + 36)], 10)
         g.text(355, y + 26, 'GND', size=22, anchor='middle')
         if covered:
-            g.wire(leg, '#47515b', 12)
-            g.rect(159, y - 18, 99, 39, fill='#424b55', rx=6)
+            shrink_wire(g, leg)
+            shrink(g, 159, y - 18, 99, 39)
         else:
-            g.rect(192, y - 10, 50, 24, fill='#c2c9cb', stroke=GRAY, rx=8)
+            g.rect(192, y - 10, 50, 24, fill=SOLDER, stroke=GRAY, rx=8)
         g.text(24, y + 76, 'Positive leg', size=22)
         g.wire([(149, y + 70), (300, y + 30)], MUTED, 1.5)
         g.text(24, y + 134, 'Heat-shrink to seal' if covered else 'Soldered branch', size=22)
@@ -1280,11 +1316,11 @@ def mouth_solder():
         g.rect(35 + i * 45, 129, 31, 30, fill='#f6f3e7', stroke='#adab8b', rx=3)
     for y, color, pad, source in ((330, RED, '+5V', 'Red'), (440, '#26262b', 'GND', 'Black'), (550, '#f4f4ef', 'DIN', 'White')):
         g.text(24, y - 33, source, size=22, weight=700)
-        sh_wire(g, [(28, y), (198, y)], color, 6)
-        g.rect(160, y - 12, 38, 24, fill='#444e56', rx=3)
+        # Tinned pad, short strip, no sleeve: the wire is tacked straight onto the pad.
+        sh_wire(g, [(28, y), (240, y)], color, 6)
         g.rect(234, y - 22, 141, 44, fill='#2f413c', rx=2)
         g.circle(257, y, 11, fill='#c4cbd0', stroke='#d8bc72', sw=4)
-        g.wire([(198, y), (257, y)], '#c4cbd0', 5)
+        g.wire([(240, y), (257, y)], '#c4cbd0', 5)
         g.text(281, y + 8, pad, size=24, fill='#fff', weight=700)
     lines(g, 628, 'DOUT: unused')
     g.save('circuits/mouth-solder.svg')
@@ -1530,7 +1566,7 @@ def power_jack_terminals():
         g.wire([(141, y), (188, y), (207, y + 5)], '#b9c4c9', 5)
         g.wire([(202, y + 5), (380, y + 5)], RED, 8)
         if covered:
-            g.rect(95, y - 17, 128, 36, fill='#424b55', rx=6)
+            shrink(g, 95, y - 17, 128, 36)
     lines(g, 837, 'Heat-shrink over lug and joint')
     g.save('circuits/power-jack-lugs.svg')
 

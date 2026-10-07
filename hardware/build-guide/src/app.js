@@ -234,7 +234,7 @@ function electricalHTML(){return `<article class="electrical-reference"><p class
  <details class="reference-topic" id="reference-signals"><summary>Pi pins, level shifters & button</summary><div class="reference-content">
  <p>Pin numbers are <b>physical header pin numbers</b>. Button LED: pin 4 (+5 V) → R1 (1 kΩ) → LED +, and pin 20 (GND) → LED −. The button switch uses pin 11 (GPIO17) and pin 14 (GND).</p>
  <p>S1 and S2 shift signals from 3.3 V to 5 V. They do not power the servos or lights. The !D5 outputs stay unused. The cut <a href="https://learn.adafruit.com/adafruit-pixel-shifter/pinouts" target="_blank" rel="noreferrer">Neo jumper</a> on each board disables only its onboard test LED. Both signal channels stay active.</p>
- ${referenceFigures('Show Pi and button connections',[['assets/circuits/s1-inputs.svg','Pi to S1'],['assets/circuits/s2-inputs.svg','Pi to S2'],['assets/circuits/button-switch.svg','Button switch'],['assets/circuits/button-led.svg','Button LED: power and ground']])}
+ ${referenceFigures('Show Pi and button connections',[['assets/circuits/s1-inputs.svg','Pi to S1'],['assets/circuits/s2-inputs.svg','Pi to S2'],['assets/circuits/button-led.svg','Button leads']])}
  <details class="reference-table"><summary>All Pi and signal connections as a table</summary>${table(electrical.signal.header,electrical.signal.rows,'cards')}</details>
  <p class="reference-build">Assembly: ${S('pi-shifters')} · ${S('button-leads')} · ${S('shifter-wiring')} · ${S('button-audio-wiring')}</p></div></details>
  <details class="reference-topic" id="reference-lights"><summary>Lighting: data order & power branches</summary><div class="reference-content">

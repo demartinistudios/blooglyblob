@@ -1964,7 +1964,7 @@
         "If it beeps all the time or never, press both probes firmly onto the tabs and check again. If it still fails, replace the button.",
         "Take four 30 cm GPIO jumper leads (E24). Keep the 2.54 mm female socket on one end of each. Label each socket with its Pi pin: 11, 14, 20 or 4.",
         "Cut off the connector at the other end of each lead. Strip the cut end.",
-        "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Insulate each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
+        "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Cover each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
         "Lay the button on one flat side of its square bezel, with the switch pair on top.",
         "Slide heat-shrink onto the leads labeled 11 and 14. Solder each one to a switch tab. Either lead may go on either tab.",
         "Slide each sleeve over its tab and joint. Shrink it.",
@@ -2155,7 +2155,7 @@
         "On the bench, away from printed parts, find the center-pin and sleeve lugs of the power jack (J1). Use the meter in continuity mode.",
         "The center pin is +5 V. The sleeve is the return. The third, switched lug stays unused.",
         "Solder an 18 AWG lead to each of those two lugs. Label each lead with its function. The return lead may need 150\u2013160 mm.",
-        "Insulate each joint and the unused switched lug separately.",
+        "Cover each joint and the unused switched lug with its own heat-shrink.",
         "With the meter in continuity mode, check each lead again. Check that there is no short between center and sleeve.",
         "Let the joints cool before mounting. Leave the leads long for final routing.",
         "Push J1 through the power jack plate (FB21) from the back. Its leads stay behind the plate. Fit the supplied washer and nut on the outside.",
@@ -2274,7 +2274,7 @@
         "Insert the sleeve lead into W3/1 the same way. Each WAGO 221-415 port takes one wire. Pull gently on each wire. It must stay in the port.",
         "Cut the USB-C end off the Pi power lead (E22). Keep the micro-B plug. Leave the cable long for now. Label the lead PI POWER.",
         "Strip back the outer jacket. With the meter in continuity mode, find the wire from plug pin 1. It is +5 V. The wire from pin 5 is GND.",
-        "Label the +5 V and GND wires. Insulate each of the other wires separately with heat-shrink.",
+        "Label the +5 V and GND wires. Cover the end of each other wire with its own heat-shrink.",
         "Plug the micro-B plug into the Pi\u2019s power socket. Test-route the +5 V wire to W1/2. Test-route the GND wire to W3/2. Use gentle bends through the gaps in the WAGO row.",
         "The finished 24 AWG lead, plug included, must be 150 mm or shorter. Do not add an extension or a service loop. Check that both wires reach before you cut them.",
         "Cut both wires where they reach. Insert the +5 V wire into W1/2. Insert the GND wire into W3/2.",
@@ -2464,7 +2464,7 @@
       "actions": [
         "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
         "Lay the holder roughly where the layout detail shows. Cut its wire loop in the middle. The end toward the input WAGO (W1) is the F2 input.",
-        "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
+        "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Cover each joint with heat-shrink slid on before soldering.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
         "If the marks are missing or disagree with the factory lead colors, stop. Do not wire this strand.",
         "Look at the plug at each end. The larger, shrouded plug with pins inside is normally the input. {step:body-light-test} confirms it.",
@@ -2704,7 +2704,7 @@
         {
           "title": "Connect the button switch",
           "image": "assets/circuits/button-switch.svg",
-          "caption": "The Pi header from the pin side, and the button\u2019s switch pair from behind.",
+          "caption": "The Pi header from the pin side, and the button from behind with its switch pair plugged in.",
           "actions": [
             0,
             1
@@ -2713,7 +2713,7 @@
         {
           "title": "Connect the button light and tie the button leads",
           "image": "assets/circuits/button-led.svg",
-          "caption": "The Pi header from the pin side, and the button\u2019s LED pair from behind.",
+          "caption": "The Pi header from the pin side, and the button from behind with all four leads plugged in.",
           "actions": [
             2,
             3,
@@ -2822,7 +2822,7 @@
         "If pebbles lit wrongly, or extra ones lit, check the DATA and GND joints. If nothing lit, check the power, DATA and plug contacts. Fix any fault. Repeat the test.",
         "If the wiring is correct and nothing lights, the sockets end may be the input. The base half has sockets too, so it cannot plug in there. Cut off that socket plug.",
         "The spare BODY LIGHT half (pins) replaces it. Its three wires are all black. To tell them apart, plug it into the base half you labeled.",
-        "With the meter in continuity mode, label each spare-half wire like the base-half wire it beeps to. Unplug it. Solder each to the strand wire of the same function. Insulate each joint. Repeat the test."
+        "Label each spare-half wire like the base-half wire it beeps to. Unplug it. Solder each to the strand wire of the same function. Cover each joint with heat-shrink slid on before soldering. Repeat the test."
       ],
       "check": "All 16 pebbles lit in order from the connected end, and the other 84 stayed dark. That end is marked INPUT. The supply and strand are unplugged.",
       "parts": {
@@ -3648,16 +3648,17 @@
         "Plug the body half onto the strand\u2019s INPUT plug. With the meter in continuity mode, find the body-half wire that reaches each strand wire. Label it +5 V, DATA or GND.",
         "Unplug it. Plug the head half into the body half. Label each head-half wire like the body-half wire it reaches. Keep the body half for {step:body-light-strand}.",
         "Cut the 200 mm JST-SH cable (E11) in the middle. Each half is a lead with a small plug: one is the eye input lead, the other the mouth lead.",
-        "Solder the mouth lead to the mouth stick (E04): black to GND, red to +5 V, white to DIN. Leave DOUT unused. No solder may bridge two pads. Insulate each joint.",
+        "On the mouth stick (E04), tin the GND, +5 V and DIN pads. Leave DOUT unused. Strip each mouth lead wire about 2 mm.",
+        "Solder black to GND, red to +5 V and white to DIN. No solder may bridge two pads.",
         "The mouth lead runs from the second eye\u2019s OUT to the mouth. Extend it with 22 AWG wire (C06) as needed, with slack to fit and remove the mouth.",
-        "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Insulate each joint.",
+        "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Cover each joint with heat-shrink slid on before soldering.",
         "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
         "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
         "Plug the eye input lead into the first eye\u2019s IN socket. Plug the mouth lead into the second eye\u2019s OUT. Press each plug housing, not its wires.",
         "Tie the eye wires at the eye LED cassettes (P06), with slack and joints clear of bends. Support the wired mouth beside the head until {step:mouth}. Do not let it hang from its wires.",
         "Pull the head half out until its latch is below the head\u2019s rim. If an eye board or tied joint pulls, redo the ties with more slack."
       ],
-      "check": "The head half feeds the first eye and pulls out below the head\u2019s rim. The mouth lead runs from the second eye\u2019s OUT. All joints are insulated and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
+      "check": "The head half feeds the first eye and pulls out below the head\u2019s rim. The mouth lead runs from the second eye\u2019s OUT. The head-half joints are covered and the eye plugs are seated. The wired mouth stays loose, ready for the next step.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -3691,7 +3692,8 @@
           "caption": "The back of the mouth stick (Adafruit 1426), with its pad names.",
           "actions": [
             4,
-            5
+            5,
+            6
           ]
         },
         {
@@ -3699,14 +3701,14 @@
           "image": "assets/circuits/head-power.svg",
           "caption": "The head half\u2019s wires joined to the eye input lead.",
           "actions": [
-            6
+            7
           ]
         },
         {
           "title": "Check the harness for shorts",
           "actions": [
-            7,
-            8
+            8,
+            9
           ],
           "textOnly": true
         },
@@ -3715,9 +3717,9 @@
           "image": "assets/circuits/eye-connector.svg",
           "caption": "One eye board from behind, before and after the plug goes in.",
           "actions": [
-            9,
             10,
-            11
+            11,
+            12
           ]
         }
       ]
@@ -3743,7 +3745,7 @@
       "actions": [
         "Support the wired mouth stick (E04) on the bench. Hold it against the mouth LED cassette (P30), LEDs facing away from the cassette.",
         "Put two M2\u00d78 screws through the stick and the cassette\u2019s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
-        "Keep the LED faces clear. The black cassette is not electrical insulation, so keep every joint covered.",
+        "Keep the LED faces clear.",
         "Keep the head face-down on the towel. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
         "Cut a strip of 4 mm white mouth foam (C03), 7.4 mm high and slightly long. Curve it into the mouth pocket. Trim its ends until it lies flat without bunching or stretching.",
         "Place the mouth light separator (P31) behind the foam, curved face against it. Its eight channels face the LEDs. Place the cassette behind it.",
@@ -3861,7 +3863,7 @@
         "Count six pebbles from the end marked INPUT. Cut the wire midway between the sixth and seventh pebbles.",
         "On the rest of the strand, mark the new cut end INPUT. Store it as spare lights.",
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
-        "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its +5 V, DATA and GND wires to the matching strand wires after light 5. Insulate each joint.",
+        "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its three wires to the matching strand wires after light 5. Cover each joint with heat-shrink slid on before soldering.",
         "This is the head light cable. It must reach about 10 cm above the upper foam collar (P01), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
         "With the meter in continuity mode, touch the body half\u2019s +5 V and GND contacts. The meter must not beep steadily."
       ],
