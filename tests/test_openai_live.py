@@ -240,7 +240,7 @@ async def test_bounded_input_overflow_closes():
     session, connection, manager, *_ = make_session()
     await ready(session, connection)
     with pytest.raises(RuntimeError, match="queue"):
-        for _ in range(session.INPUT_QUEUE_FRAMES + 5):
+        for _ in range(session._input.maxsize + 5):
             await session.input_audio(bytes(960))
     await session.close()
     manager.__aexit__.assert_awaited_once()
@@ -599,3 +599,33 @@ async def test_transport_frames_24khz_pcm_without_resampling():
         assert sent == pcm
     finally:
         await session.close()
+
+
+@pytest.mark.asyncio
+async def test_startup_buffer_covers_readiness_window_without_losing_opening_speech():
+    session, connection, manager, *_ = make_session(readiness_timeout=4)
+    starting = asyncio.create_task(session.start())
+    try:
+        while not connection.session.start.await_count:
+            await asyncio.sleep(0)
+        # Three seconds is still within startup's four-second deadline.
+        frames = [bytes([i % 256]) * 960 for i in range(150)]
+        for frame in frames:
+            await session.input_audio(frame)
+        assert session._input.qsize() == len(frames)
+        assert session._input.maxsize == 200
+        connection.session.input_audio.append.assert_not_awaited()
+        await connection.events.put(SimpleNamespace(type="session.started"))
+        await starting
+        await asyncio.sleep(0.05)
+        sent = [
+            base64.b64decode(call.kwargs["audio"])
+            for call in connection.session.input_audio.append.await_args_list
+        ]
+        assert sent and sent == frames[: len(sent)]
+        assert not session._closed
+    finally:
+        await session.close()
+        await asyncio.gather(starting, return_exceptions=True)
+    assert session._input.empty()
+    manager.__aexit__.assert_awaited_once()

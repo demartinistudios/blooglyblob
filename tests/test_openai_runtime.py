@@ -461,3 +461,84 @@ async def test_search_preserves_speech_and_input_while_background_stop_is_pendin
     live.append_result.assert_awaited_once_with("delegation", "Sunny")
     audio.stop_background.side_effect = audio._stop_background
     await host.close()
+
+
+@pytest.mark.asyncio
+async def test_input_overflow_during_startup_returns_to_idle_without_ownership_fault():
+    from types import SimpleNamespace
+
+    from blooglyblob.ai.live import OpenAILiveSession
+    from tests.support.live import FakeConnection
+
+    host, _, audio = session()
+    connection = FakeConnection()
+    manager = AsyncMock()
+    manager.__aenter__.return_value = connection
+    closing = asyncio.Event()
+    finish_close = asyncio.Event()
+
+    async def close_transport(*args):
+        closing.set()
+        await finish_close.wait()
+
+    manager.__aexit__.side_effect = close_transport
+    host.api = SimpleNamespace(live=SimpleNamespace(connect=Mock(return_value=manager)))
+    host.live_factory = OpenAILiveSession
+    try:
+        host.request(True)
+        for _ in range(100):
+            if connection.session.start.await_count:
+                break
+            await asyncio.sleep(0.001)
+        assert connection.session.start.await_count == 1
+        live = host.live
+        for _ in range(live._input.maxsize):
+            await host.input_audio(bytes(960))
+        overflowing = asyncio.create_task(host.input_audio(bytes(960)))
+        await asyncio.wait_for(closing.wait(), 0.5)
+        # Startup has failed and its finally block is already joining close.
+        await asyncio.sleep(0.01)
+        finish_close.set()
+        await overflowing
+        await asyncio.wait_for(host._runner, 0.5)
+        assert not host.active
+        assert not host._faulted
+        assert live.close_confirmed
+        audio.release.assert_awaited()
+        manager.__aexit__.assert_awaited_once()
+    finally:
+        finish_close.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_failed_input_from_old_session_does_not_stop_replacement():
+    host, _, _ = session()
+    entered, fail = asyncio.Event(), asyncio.Event()
+
+    async def delayed_failure(pcm):
+        entered.set()
+        await fail.wait()
+        raise RuntimeError("old session failed")
+
+    try:
+        host.request(True)
+        await asyncio.sleep(0.01)
+        old = host.live
+        old.input_audio.side_effect = delayed_failure
+        delivery = asyncio.create_task(host.input_audio(bytes(960)))
+        await entered.wait()
+        host.request(True)
+        await asyncio.sleep(0.01)
+        replacement = host.live
+        assert replacement is not old
+        fail.set()
+        await delivery
+        assert host.active
+        assert host.live is replacement
+        assert not host._faulted
+        await host.input_audio(bytes(960))
+        replacement.input_audio.assert_awaited_once()
+    finally:
+        fail.set()
+        await host.close()

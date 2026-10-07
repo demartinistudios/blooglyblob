@@ -868,10 +868,18 @@ class ConversationSession:
             and self._accept_live_input
             and self._current(self._live_generation)
         ):
+            live, generation = self.live, self._live_generation
             try:
-                await self.live.input_audio(pcm)
+                await live.input_audio(pcm)
             except Exception:  # noqa: BLE001 - invalid input or transport failure ends the activity
-                self.request(False)
+                # Startup failure may already be closing this session. Do not
+                # cancel that cleanup, or stop a replacement for a stale send.
+                if (
+                    self.live is live
+                    and self._accept_live_input
+                    and self._current(generation)
+                ):
+                    self.request(False)
 
     def button(self) -> None:
         if self._closing or self._faulted:

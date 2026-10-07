@@ -24,7 +24,7 @@ def _timestamp(value):
 
 
 class OpenAILiveSession:
-    INPUT_QUEUE_FRAMES = 100  # At most two seconds, including bounded startup capture.
+    INPUT_QUEUE_FRAMES = 100  # Minimum capacity: two seconds of PCM.
     OUTPUT_QUEUE_EVENTS = 50
     OUTPUT_QUEUE_FRAMES = 50  # At most one second, regardless of provider chunk size.
     FRAME_BYTES = 960  # 24 kHz, mono PCM16LE, 20 ms.
@@ -79,7 +79,14 @@ class OpenAILiveSession:
         self._close_task = None
         self._setup_task = None
         self._workers = []
-        self._input = asyncio.Queue(maxsize=self.INPUT_QUEUE_FRAMES)
+        # Capture can resume after the greeting while Live is still starting.
+        # Preserve that speech for the full permitted readiness window, rather
+        # than overflowing before the startup deadline. The same finite queue
+        # remains bounded during conversation (ten seconds with defaults).
+        input_frames = math.ceil(
+            readiness_timeout * SPEECH_SAMPLE_RATE * 2 / self.FRAME_BYTES
+        )
+        self._input = asyncio.Queue(maxsize=max(self.INPUT_QUEUE_FRAMES, input_frames))
         self._output = asyncio.Queue(maxsize=self.OUTPUT_QUEUE_EVENTS)
         self._audio = asyncio.Queue(maxsize=self.OUTPUT_QUEUE_FRAMES)
         self._pending_pcm = b""
