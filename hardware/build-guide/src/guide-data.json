@@ -1222,15 +1222,15 @@
         "Note the USB name after \u201cUSB-Audio - \u201d and the card ID in brackets. The example shows the name USB PnP Audio Device and the ID `Device`.",
         "If no USB audio card appears, check the module and extension connections. List the cards again.",
         "In each command below, use your card ID for `Device`, not the card number. That number can change after a reboot. Run the three commands in order to read, set and save the Speaker level.",
-        "Both channels report `[-40.00dB]`, a low starting level.",
+        "Both channels report `[100%]` and `[0.00dB]`, full level.",
         "If the Speaker control or its dB scale is missing, stop. Inspect the controls with `alsamixer -c Device` before you continue.",
-        "You read it again after a reboot and set it by ear in {step:finished-robot}.",
+        "You read it again after a reboot in {step:finished-robot}, and lower it there only if it is too loud.",
         "Type `exit` to return to your computer.",
         "On your computer, open `config/app.env`. Set `AUDIO_INPUT_DEVICE` and `AUDIO_OUTPUT_DEVICE` to the USB name you noted. If a line starts with `#`, remove the `#`.",
         "Use the same name for both. The module provides the microphone and the speaker. A missing or ambiguous name stops startup. The application never picks another device.",
         "Set `MIC_GAIN=1` to add no software gain to the microphone. It does not change speaker volume. Tune it only after a voice test."
       ],
-      "check": "Both USB playback channels are saved at \u221240 dB. Your `config/app.env` names your USB audio device for input and output, with `MIC_GAIN=1`.",
+      "check": "Both USB playback channels are saved at 100% (0 dB). Your `config/app.env` names your USB audio device for input and output, with `MIC_GAIN=1`.",
       "note": "",
       "source": [],
       "panels": [
@@ -1285,7 +1285,7 @@
           ]
         },
         {
-          "title": "Set a low playback level",
+          "title": "Set the playback level",
           "actions": [
             7,
             8,
@@ -1297,7 +1297,7 @@
               "context": "pi",
               "lines": [
                 "amixer -c Device sget Speaker",
-                "amixer -c Device -- sset Speaker playback -40dB",
+                "amixer -c Device -- sset Speaker playback 100%",
                 "sudo alsactl store Device"
               ],
               "label": "Use your USB card ID"
@@ -5471,11 +5471,11 @@
         "Leave the rear vent and side grilles uncovered. Plug the mains cord into the wall. Let the Pi boot.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "Open the Pi shell with the first command. Read the speaker level with the second. Use your card ID for `Device`.",
-        "Both channels report `[-40.00dB]`, the level you saved in {step:audio-settings}.",
-        "If they report another level, the saved level did not load. Set and save \u221240 dB again as in {step:audio-settings}.",
-        "Press the front button. Keep talking with the robot while you set the level.",
-        "The robot answers what you say.",
-        "If speech is too quiet, run the first command below. If it is too loud, run the second. Each run changes the level by 3 dB. Save a changed level with the third.",
+        "Both channels report `[100%]` and `[0.00dB]`, the level you saved in {step:audio-settings}.",
+        "If they report another level, the saved level did not load. Set and save 100% again as in {step:audio-settings}.",
+        "Press the front button. Talk with the robot.",
+        "The robot answers what you say. If speech is too quiet, see Troubleshooting.",
+        "If speech is too loud or distorted, run the first command below. Each run lowers the level by 3 dB. Save a changed level with the second.",
         "Type `exit` to leave the Pi shell. Press the front button. Ask the robot to wave. Ask it to dance.",
         "The head and arms move freely, and the body and eye lights respond. The music plays without rattles or buzzing.",
         "If the base rattles or buzzes, or anything else is wrong, see Troubleshooting. Shut down and unplug before you open the base."
@@ -5533,21 +5533,13 @@
           ]
         },
         {
-          "title": "Set the level by ear",
+          "title": "Lower the level only if needed",
           "actions": [
             6,
             7,
             8
           ],
           "codeBlocks": [
-            {
-              "kind": "command",
-              "lines": [
-                "amixer -c Device -- sset Speaker playback 3dB+"
-              ],
-              "context": "pi",
-              "label": "Use your USB card ID"
-            },
             {
               "kind": "command",
               "lines": [

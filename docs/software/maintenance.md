@@ -38,7 +38,7 @@ installation.
 | `make pi-run` | Foreground application; restore its prior active service after exit, except ownership-uncertain status 73 |
 | `make pi-servo-fit` | Hold all three assembly fit positions until STOP; release pulses and leave the application stopped |
 | `make pi-check-audio` | Enumerate audio devices without opening streams |
-| `make pi-test-audio`, `pi-test-mic` | Play a test tone, or capture three seconds and play it back |
+| `make pi-test-audio`, `pi-test-mic` | Play a test tone, or beep, record five seconds of speech and play it back |
 | `make pi-test-neopixels` | Exercise all 16 LEDs |
 
 Only one provisioning/update/interactive diagnostic operation may own the
@@ -66,9 +66,9 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 
 | Indices | Physical location | Normal application behavior |
 | --- | --- | --- |
-| 0–5 | Six body pebbles | Existing ambient and speaking patterns |
-| 6–7 | Two separate eye pixels | Existing eye on/off behavior |
-| 8–15 | Eight-pixel mouth | Dark; no mouth animation is implemented |
+| 0–5 | Six body pebbles | Slow mood colors for the current state; asleep, a dim slow rainbow |
+| 6–7 | Two separate eye pixels | Off while asleep; on and blinking while awake |
+| 8–15 | Eight-pixel mouth | Off while asleep or silent; follows the speech level while talking and the music while dancing |
 
 This data ordering does not change the power wiring. Retain the F2-protected
 lighting supply defined by the hardware wiring guide; power and data run in one
@@ -78,8 +78,8 @@ This software profile does not establish electrical or thermal qualification.
 
 `make pi-test-neopixels` first lights one pixel at a time in ascending order,
 printing its index and zone, then runs the existing solid-color and animation
-tests across all sixteen pixels. All pixels clear on exit. Mouth pixels light
-in the diagnostic but remain dark in ordinary application use. See commissioning
+tests across all sixteen pixels. All pixels clear on exit. In ordinary use the
+mouth lights only while the robot talks or dances. See commissioning
 limits below before running diagnostics on a partially assembled build.
 
 ## Commissioning limits

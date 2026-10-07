@@ -171,22 +171,25 @@ If no USB audio card appears, check the module and extension connections and
 list the cards again. Also note the bracketed card ID (`Device` above). Use this
 ID rather than the numeric index, which can change after reboot.
 
-Before the first playback, set a low starting level on the Pi. For the selected
-USB module, inspect its `Speaker` control, then set both playback channels to
-−40 dB and save the setting:
+Set the playback level on the Pi. For the specified Waveshare module and
+speakers, inspect its `Speaker` control, then set both playback channels to 100%
+(0 dB) and save the setting:
 
 ```sh
 amixer -c Device sget Speaker
-amixer -c Device -- sset Speaker playback -40dB
+amixer -c Device -- sset Speaker playback 100%
 sudo alsactl store Device
 ```
 
-Replace `Device` if your USB card has a different ID. Confirm both channels report
-`[-40.00dB]`. If the control is missing or has no dB scale, stop here and inspect
-that module's controls with `alsamixer -c Device`; do not substitute a maximum
-percentage. Percentages are device-dependent. This is a quiet starting point;
-adjust gradually during the later speaker check. Recheck the level after reboot
-with `amixer -c Device sget Speaker`.
+Replace `Device` if your USB card has a different ID. Confirm both channels are
+on and report `[100%]` and `[0.00dB]`. If the control is missing or has no dB
+scale, stop here and inspect that module's controls with `alsamixer -c Device`.
+At 100%, the module's 2.6 W per channel stays within the speakers' 3 W rating.
+Recheck the level after reboot with `amixer -c Device sget Speaker`, and turn it
+down if speech or music is too loud or distorted. If it is still too quiet at
+100%, the module has a small volume screw inside its case (clockwise is louder;
+see the [Waveshare FAQ](https://www.waveshare.com/wiki/USB_TO_AUDIO#FAQ)). Shut
+down and disconnect power before opening the module. This is optional.
 
 Leave the Pi shell:
 
