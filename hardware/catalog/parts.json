@@ -457,7 +457,6 @@
         "audio-cradle",
         "button",
         "power-jack",
-        "base-tie-squares",
         "frame-uprights"
       ],
       "guide_image": "assets/r21/part-FB01.png",
@@ -475,7 +474,6 @@
         "audio-cradle",
         "button",
         "power-jack",
-        "base-tie-squares",
         "frame-uprights"
       ],
       "print_project_status": "R28 selected STL installed on K1; eight moved post recesses/bores, four pad faces and retained R27 nut access clear of sampled support. All 15 blockers preserved; physical cleanup/fit/glue retention unqualified."
@@ -494,7 +492,7 @@
       ],
       "guide_step_ids": [
         "feet",
-        "base-tie-squares",
+        "button-audio-wiring",
         "secure-wiring",
         "bottom-cover"
       ],
@@ -504,7 +502,7 @@
       "geometry_revision": "sha256:c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
       "guide_review_step_ids": [
         "feet",
-        "base-tie-squares",
+        "button-audio-wiring",
         "secure-wiring",
         "bottom-cover",
         "base-open"

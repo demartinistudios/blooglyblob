@@ -556,7 +556,7 @@ is not cracked.
 
 **You need:** capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) ·
 heat-shrink (C12) · solder, flux and wire labels (C14) · cable ties (C07) ·
-flush cutters (T01) · soldering iron (T02) · wire stripper (T04) ·
+adhesive tie squares (C17) · flush cutters (T01) · soldering iron (T02) · wire stripper (T04) ·
 heat-shrink tool (T09)
 
 **Panel 1: Cut and strip the servo feed**
@@ -582,18 +582,20 @@ heat-shrink tool (T09)
 
 1. Label one 1000 µF, 10 V capacitor (E08) C1. The stripe marks its negative
    leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.
-2. Cover each leg and its joint with its own heat-shrink. Lay C1 at its tie
-   square. Cut each wire to reach its port.
+2. Cover each leg and its joint with its own heat-shrink. Lay C1 roughly where
+   the layout detail shows. Cut each wire to reach its port.
 3. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
    Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.
 
 *Caption:* C1 with its sleeved wires, and the wire-entry faces of W2 and W3.
 
-**Panel 4: Tie C1 to its square**
+**Panel 4: Tie C1 down**
 
-1. Tie C1’s body to its tie square with a cable tie (C07). Keep the tie off
-   the rubber-seal end and the vent end.
-2. Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by
+1. Choose a flat face beside C1. Prepare it as the square’s instructions say.
+   Stick an adhesive tie square (C17) there.
+2. Tie C1’s body to the square with a cable tie (C07). Keep the tie off the
+   rubber-seal end and the vent end.
+3. Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by
    its tie, not by its wires.
 
 *Caption:* Side view of a tie square holding a capacitor.

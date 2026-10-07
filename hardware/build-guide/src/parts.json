@@ -2370,7 +2370,6 @@
       "wagos",
       "button-leads",
       "power-jack",
-      "base-tie-squares",
       "power-wiring",
       "servo-power-capacitor",
       "light-fuse-capacitor",
@@ -2927,7 +2926,9 @@
     "category": "Consumable",
     "description": "Nominal 1 \u00d7 1-inch squares with their own adhesive backing and slots for 2.5 mm ties. Choose an adhesive suitable for the printed plastic. Each square needs full contact with a flat inside surface. No mounting screws or printed pads are needed. Count the mounts after laying out the wire bundles. Each bond must hold without blocking vents or service access.",
     "steps": [
-      "base-tie-squares",
+      "servo-power-capacitor",
+      "light-fuse-capacitor",
+      "button-audio-wiring",
       "light-connections"
     ],
     "link": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",

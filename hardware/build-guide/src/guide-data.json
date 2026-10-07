@@ -2255,72 +2255,13 @@
       ]
     },
     {
-      "id": "base-tie-squares",
-      "title": "Stick down the tie squares",
-      "chapter": "Base wiring",
-      "actions": [
-        "Find where the light fuse (F2), servo capacitor (C1) and light capacitor (C2) lie in the picture. You tie each one there.",
-        "Place a 1 \u00d7 1-inch adhesive tie square (C17) under or beside each of those places. Keep its liner on.",
-        "Place one more on the audio cradle\u2019s rear wall, the wall facing the Pi. It holds the button leads.",
-        "Check that each square makes full contact. It and its tie must stay at least 4 mm below the open rim, where the bottom cover (FB02) closes.",
-        "Prepare each surface as the square\u2019s instructions say. Peel the liner. Press the square down.",
-        "Let the squares bond while you wire. Load each one only after the bond time in its instructions.",
-        "In every base wiring step, route wires around both frame screws and the harness opening.",
-        "The three servo cables and the body half of the body light connector pass through the opening later.",
-        "Keep the microSD card, WAGO levers, fuse cap and tie locks reachable. Keep each capacitor\u2019s vent end uncovered."
-      ],
-      "check": "Each tie square is bonded flat, at least 4 mm below the open rim. The access areas are clear.",
-      "parts": {
-        "C17": "As placed",
-        "T06": 1
-      },
-      "hardware": {},
-      "note": "",
-      "source": [
-        "hardware/cad/CURRENT-NOTES.md",
-        "hardware/assembly/electrical.json"
-      ],
-      "kind": "build",
-      "number": 26,
-      "commands": [],
-      "panels": [
-        {
-          "title": "Place the tie squares",
-          "image": "assets/community/base-electrical-layout.svg",
-          "caption": "The power parts and boards in the base, seen through the open bottom.",
-          "actions": [
-            0,
-            1,
-            2
-          ]
-        },
-        {
-          "title": "Stick the tie squares down",
-          "image": "assets/circuits/tie-mount.svg",
-          "caption": "Side view of a tie square holding a capacitor.",
-          "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "title": "Keep the access areas clear",
-          "image": "assets/community/base-routing-access.svg",
-          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
-          "actions": [
-            6,
-            7,
-            8
-          ]
-        }
-      ]
-    },
-    {
       "id": "power-wiring",
       "title": "Connect the power jack, Pi power lead and ground",
       "chapter": "Base wiring",
       "actions": [
+        "In every base wiring step, route wires around both frame screws and the harness opening.",
+        "The three servo cables and the body half of the body light connector pass through the opening later.",
+        "Keep the microSD card, WAGO levers, fuse cap and tie locks reachable. Keep each capacitor\u2019s vent end uncovered.",
         "Test-route the J1 center lead to the input WAGO (W1/1): run it along its final path without fixing it. Test-route the sleeve lead to the ground WAGO (W3/1). Cut each lead where it reaches.",
         "Strip 11 mm from each lead. Do not tin it. Open the lever at W1/1. Push the bare center lead fully in. Close the lever.",
         "Insert the sleeve lead into W3/1 the same way. Each WAGO 221-415 port takes one wire. Pull gently on each wire. It must stay in the port.",
@@ -2354,9 +2295,19 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 27,
+      "number": 26,
       "commands": [],
       "panels": [
+        {
+          "title": "Keep the access areas clear",
+          "image": "assets/community/base-routing-access.svg",
+          "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
+          "actions": [
+            0,
+            1,
+            2
+          ]
+        },
         {
           "title": "Insert the power jack leads",
           "safety": {
@@ -2370,9 +2321,9 @@
             "image": "assets/circuits/wago-insert.svg"
           },
           "actions": [
-            0,
-            1,
-            2
+            3,
+            4,
+            5
           ]
         },
         {
@@ -2384,9 +2335,9 @@
           "image": "assets/circuits/pi-power.svg",
           "caption": "The micro-B plug in the Pi, with its two power wires traced to their ports.",
           "actions": [
-            3,
-            4,
-            5
+            6,
+            7,
+            8
           ]
         },
         {
@@ -2394,9 +2345,9 @@
           "image": "assets/community/pi-power-route-depth.svg",
           "caption": "Oblique view, with the base left out.",
           "actions": [
-            6,
-            7,
-            8
+            9,
+            10,
+            11
           ]
         },
         {
@@ -2404,9 +2355,9 @@
           "image": "assets/circuits/ground-link.svg",
           "caption": "Wire-entry faces of W3 and W4.",
           "actions": [
-            9,
-            10,
-            11
+            12,
+            13,
+            14
           ]
         }
       ]
@@ -2421,9 +2372,10 @@
         "Insert one end into W1/3. Insert the other end into W2/1. Close both levers.",
         "Keep W2/2 to W2/4 free for the three servos.",
         "Label one 1000 \u00b5F, 10 V capacitor (E08) C1. The stripe marks its negative leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.",
-        "Cover each leg and its joint with its own heat-shrink. Lay C1 at its tie square. Cut each wire to reach its port.",
+        "Cover each leg and its joint with its own heat-shrink. Lay C1 roughly where the layout detail shows. Cut each wire to reach its port.",
         "Insert the positive wire into W2/5. Insert the negative wire into W3/4. Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.",
-        "Tie C1\u2019s body to its tie square with a cable tie (C07). Keep the tie off the rubber-seal end and the vent end.",
+        "Choose a flat face beside C1. Prepare it as the square\u2019s instructions say. Stick an adhesive tie square (C17) there.",
+        "Tie C1\u2019s body to the square with a cable tie (C07). Keep the tie off the rubber-seal end and the vent end.",
         "Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by its tie, not by its wires."
       ],
       "check": "One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate, and its body is tied down.",
@@ -2437,7 +2389,8 @@
         "T04": 1,
         "T09": 1,
         "T06": 1,
-        "C07": "As used"
+        "C07": "As used",
+        "C17": "As used"
       },
       "hardware": {},
       "note": "",
@@ -2446,7 +2399,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 28,
+      "number": 27,
       "commands": [],
       "panels": [
         {
@@ -2479,15 +2432,20 @@
             4,
             5,
             6
-          ]
+          ],
+          "detail": {
+            "title": "Where the light fuse and capacitors lie",
+            "image": "assets/community/base-electrical-layout.svg"
+          }
         },
         {
-          "title": "Tie C1 to its square",
+          "title": "Tie C1 down",
           "image": "assets/circuits/tie-mount.svg",
           "caption": "Side view of a tie square holding a capacitor.",
           "actions": [
             7,
-            8
+            8,
+            9
           ]
         }
       ]
@@ -2498,7 +2456,7 @@
       "chapter": "Base wiring",
       "actions": [
         "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
-        "Lay the holder at its tie square. Cut its wire loop in the middle. The end toward the input WAGO (W1) is the F2 input.",
+        "Lay the holder roughly where the layout detail shows. Cut its wire loop in the middle. The end toward the input WAGO (W1) is the F2 input.",
         "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Insulate each joint.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
         "If the marks are missing or disagree with the factory lead colors, stop. Do not wire this strand.",
@@ -2511,7 +2469,8 @@
         "Strip 11 mm from the F2 input end. Insert it into the input WAGO (W1/4).",
         "Strip 11 mm from the base-half GND wire. Insert it into the ground WAGO (W3/5). It is the only wire in W3/5.",
         "Label the free end of the DATA wire, past R2, for terminal D5 of the level shifter (S1). You connect it in the next step.",
-        "Tie the fuse holder body and C2\u2019s body each to its tie square (C07). Keep ties off the fuse cap and capacitor ends.",
+        "Stick an adhesive tie square (C17) beside the fuse holder and another beside C2. Prepare each face as the square\u2019s instructions say.",
+        "Tie each body to its square (C07). Keep ties off the fuse cap and capacitor ends.",
         "Tighten each tie only enough to stop sliding. Tie the F2 output end so that cutting one tie frees it. Trim the tails."
       ],
       "check": "F2 feeds the base-half +5 V wire. C2 polarity is correct. R2 is in the DATA wire. Each joint is insulated on its own. F2 and C2 are tied down.",
@@ -2532,7 +2491,8 @@
         "T04": 1,
         "T09": 1,
         "T06": 1,
-        "C07": "As used"
+        "C07": "As used",
+        "C17": "As used"
       },
       "hardware": {},
       "note": "",
@@ -2541,7 +2501,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 29,
+      "number": 28,
       "commands": [],
       "panels": [
         {
@@ -2552,7 +2512,11 @@
             0,
             1,
             2
-          ]
+          ],
+          "detail": {
+            "title": "Where the light fuse and capacitors lie",
+            "image": "assets/community/base-electrical-layout.svg"
+          }
         },
         {
           "title": "Find the strand\u2019s likely input",
@@ -2606,12 +2570,13 @@
           ]
         },
         {
-          "title": "Tie F2 and C2 to their squares",
+          "title": "Tie F2 and C2 down",
           "image": "assets/circuits/tie-mount.svg",
           "caption": "Side view of a tie square holding a capacitor.",
           "actions": [
             14,
-            15
+            15,
+            16
           ]
         }
       ]
@@ -2650,7 +2615,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 30,
+      "number": 29,
       "commands": [],
       "panels": [
         {
@@ -2705,7 +2670,8 @@
       "actions": [
         "Push the switch lead labeled 11 onto Pi pin 11 (GPIO17). Push the switch lead labeled 14 onto pin 14 (GND).",
         "Push the LED + lead, labeled 4, onto pin 4 (+5 V). Push the LED \u2212 lead, labeled 20, onto pin 20 (GND).",
-        "Tie the four button leads to the tie square on the audio cradle\u2019s rear wall (C07). Trim the tail.",
+        "Stick an adhesive tie square (C17) on the button leads\u2019 path, such as the side of the audio cradle. Keep it 4 mm below the rim where the bottom cover (FB02) closes.",
+        "Tie the four button leads to it with a cable tie (C07). Trim the tail.",
         "Plug the USB-A extension cable (E23) into the Pi\u2019s full-size USB socket. Its other end is already in the audio module.",
         "Check that both speaker plugs are seated in the module.",
         "Route the USB-A extension cable around the cradle, toward its open-bottom side. Leave a relaxed bend without pulling sideways on either socket."
@@ -2714,7 +2680,8 @@
       "parts": {
         "E23": 1,
         "C07": "As used",
-        "T01": 1
+        "T01": 1,
+        "C17": "As used"
       },
       "hardware": {},
       "note": "You soldered the button leads in {step:button-leads}.",
@@ -2723,7 +2690,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 31,
+      "number": 30,
       "commands": [],
       "panels": [
         {
@@ -2740,7 +2707,8 @@
           "caption": "The Pi header from the pin side, and the button\u2019s LED pair from behind.",
           "actions": [
             1,
-            2
+            2,
+            3
           ]
         },
         {
@@ -2748,8 +2716,8 @@
           "image": "assets/circuits/usb-audio.svg",
           "caption": "The Pi, extension cable and audio module, with the two plug-in connections numbered.",
           "actions": [
-            3,
-            4
+            4,
+            5
           ]
         },
         {
@@ -2757,7 +2725,7 @@
           "image": "assets/community/usb-audio-route-depth.svg",
           "caption": "Oblique detail, with the base and most of the Pi cut away.",
           "actions": [
-            5
+            6
           ]
         }
       ]
@@ -2788,7 +2756,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 32,
+      "number": 31,
       "commands": [],
       "panels": [
         {
@@ -2869,7 +2837,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 33,
+      "number": 32,
       "panels": [
         {
           "title": "Plug the strand into the base",
@@ -2993,7 +2961,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 34,
+      "number": 33,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3038,7 +3006,7 @@
       "id": "servo-cables",
       "kind": "build",
       "chapter": "Frame and servos",
-      "number": 35,
+      "number": 34,
       "title": "Prepare the three servo cables",
       "parts": {
         "E01": 3,
@@ -3135,7 +3103,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 36,
+      "number": 35,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3243,7 +3211,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 37,
+      "number": 36,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3328,7 +3296,7 @@
       ],
       "note": "The horns go on the servo shafts in {step:shelf-arms}, after {step:fit-position}.",
       "kind": "build",
-      "number": 38,
+      "number": 37,
       "commands": [],
       "panels": [
         {
@@ -3378,7 +3346,7 @@
       ],
       "note": "The shelf goes on the head servo in {step:shelf-arms}.",
       "kind": "build",
-      "number": 39,
+      "number": 38,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3460,7 +3428,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 40,
+      "number": 39,
       "commands": [],
       "panels": [
         {
@@ -3519,7 +3487,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 41,
+      "number": 40,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3557,7 +3525,7 @@
       "id": "eye-boards",
       "kind": "build",
       "chapter": "Head",
-      "number": 42,
+      "number": 41,
       "title": "Fit the eye boards and straps",
       "parts": {
         "GS20": 1,
@@ -3696,7 +3664,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 43,
+      "number": 42,
       "commands": [],
       "panels": [
         {
@@ -3789,7 +3757,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 44,
+      "number": 43,
       "commands": [],
       "hardware_allocations": [
         {
@@ -3857,7 +3825,7 @@
       ],
       "note": "You can fit the antenna later, in {step:secure-wiring}, to protect it while you assemble.",
       "kind": "build",
-      "number": 45,
+      "number": 44,
       "commands": [],
       "panels": [
         {
@@ -3898,7 +3866,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 46,
+      "number": 45,
       "commands": [],
       "panels": [
         {
@@ -3955,7 +3923,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 47,
+      "number": 46,
       "commands": [],
       "panels": [
         {
@@ -4024,7 +3992,7 @@
       ],
       "note": "The backpack carrier screws hold P12 and use the two rear upright nuts in {step:backpack-carrier}.",
       "kind": "build",
-      "number": 48,
+      "number": 47,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4133,7 +4101,7 @@
       ],
       "note": "The backpack carrier screws hold the middle and upper covers in {step:backpack-carrier}.",
       "kind": "build",
-      "number": 49,
+      "number": 48,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4223,7 +4191,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 50,
+      "number": 49,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4283,7 +4251,7 @@
       ],
       "note": "You adjust the elbow stiffness at this screw in {step:arm-service}.",
       "kind": "build",
-      "number": 51,
+      "number": 50,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4356,7 +4324,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 52,
+      "number": 51,
       "commands": [],
       "panels": [
         {
@@ -4435,7 +4403,7 @@
       ],
       "note": "You loaded the two rear upright nuts in {step:body-lights}.",
       "kind": "build",
-      "number": 53,
+      "number": 52,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4500,7 +4468,7 @@
       ],
       "note": "You remove the whole backpack, with its glued parts attached, in {step:body-light-service}.",
       "kind": "build",
-      "number": 54,
+      "number": 53,
       "commands": [],
       "hardware_allocations": [
         {
@@ -4604,7 +4572,7 @@
       ],
       "note": "You open the rear belt joints in {step:body-light-service}.",
       "kind": "build",
-      "number": 55,
+      "number": 54,
       "commands": [],
       "panels": [
         {
@@ -4664,7 +4632,7 @@
       ],
       "note": "You labeled the servo cables and found their wires in {step:servo-cables}. You labeled the level shifter terminals in {step:shifter-wiring}.",
       "kind": "build",
-      "number": 56,
+      "number": 55,
       "commands": [],
       "panels": [
         {
@@ -4723,7 +4691,7 @@
         "In the base, plug the body half of the body light connector into the base half until it clicks.",
         "Gather the three servo cables and the body light connector inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
-        "If no tie square is within reach, stick one down as in {step:base-tie-squares}. Let it bond before you tie to it.",
+        "If no tie square is within reach, stick one down as in {step:servo-power-capacitor}. Let it bond before you tie to it.",
         "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
         "At the top of the body, plug the head light connector\u2019s head half into its body half until it clicks.",
         "The head harness and the head light cable hang slack between the head and the body.",
@@ -4736,7 +4704,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 57,
+      "number": 56,
       "commands": [],
       "panels": [
         {
@@ -4796,7 +4764,7 @@
       ],
       "note": "",
       "kind": "build",
-      "number": 58,
+      "number": 57,
       "commands": [],
       "panels": [
         {
@@ -4849,7 +4817,7 @@
         "hardware/assembly/electrical.json"
       ],
       "kind": "build",
-      "number": 59,
+      "number": 58,
       "commands": [],
       "panels": [
         {
@@ -4990,7 +4958,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 60,
+      "number": 59,
       "panels": [
         {
           "title": "Hold the fit position",
@@ -5104,7 +5072,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 61,
+      "number": 60,
       "hardware_allocations": [
         {
           "allocation_id": "joint-head-arm-mounting",
@@ -5213,7 +5181,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 62,
+      "number": 61,
       "hardware_allocations": [
         {
           "allocation_id": "joint-head-arm-mounting",
@@ -5281,7 +5249,7 @@
       "id": "first-movement",
       "kind": "build",
       "chapter": "Close up and test",
-      "number": 63,
+      "number": 62,
       "title": "Check the first movement",
       "parts": {},
       "hardware": {},
@@ -5387,7 +5355,7 @@
       "parts": {},
       "source": [],
       "kind": "build",
-      "number": 64,
+      "number": 63,
       "commands": [],
       "panels": [
         {
@@ -5481,7 +5449,7 @@
         "hardware/printing/current/manifest.json"
       ],
       "kind": "build",
-      "number": 65,
+      "number": 64,
       "commands": [],
       "hardware_allocations": [
         {
@@ -5555,7 +5523,7 @@
         "hardware/cad/CURRENT-NOTES.md"
       ],
       "kind": "build",
-      "number": 66,
+      "number": 65,
       "commands": [],
       "panels": [
         {
