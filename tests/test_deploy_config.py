@@ -143,7 +143,9 @@ def test_unreadable_config_error_is_private(inputs):
 
 
 def test_standalone_staged_helpers_need_only_stdlib(tmp_path):
-    for name in ("device_install.py", "deploy_config.py"):
+    from scripts.deploy import BOOTSTRAP_HELPERS
+
+    for name in BOOTSTRAP_HELPERS:
         shutil.copy(
             Path(__file__).resolve().parents[1] / "scripts" / name, tmp_path / name
         )

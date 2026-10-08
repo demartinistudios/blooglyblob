@@ -312,6 +312,7 @@ def installed(tmp_path, monkeypatch):
     monkeypatch.setattr(remote, "LOCK", tmp_path / "install.lock")
     monkeypatch.setattr(remote, "validate_platform", lambda: None)
     monkeypatch.setattr(remote, "configure_gpio", lambda mode: None)
+    monkeypatch.setattr(remote, "configure_wifi", lambda: None)
     monkeypatch.setattr(remote, "missing_packages", lambda: [])
     monkeypatch.setattr(remote, "pigpio_installed", lambda: True)
     monkeypatch.setattr(os, "chown", lambda *args: None)
@@ -1063,3 +1064,51 @@ def test_service_can_show_local_unavailable_state_before_network_is_online():
     assert "network-online.target" not in service
     assert "After=network.target sound.target pigpiod.service" in service
     assert "Requires=pigpiod.service" in service
+
+
+@pytest.mark.parametrize("mode", ["provision", "update"])
+def test_wifi_migration_is_only_part_of_provisioning(installed, monkeypatch, mode):
+    stage, manager = installed
+    monkeypatch.setattr(
+        remote, "configure_wifi", lambda: manager.calls.append(["wifi-persistence"])
+    )
+    remote.install(mode, stage)
+    assert (["wifi-persistence"] in manager.calls) == (mode == "provision")
+    if mode == "provision":
+        assert manager.calls.index(["wifi-persistence"]) < manager.calls.index(
+            stopped(manager)[0]
+        )
+
+
+def test_wifi_failure_leaves_running_application_alone(installed, monkeypatch):
+    stage, manager = installed
+
+    def fail():
+        raise RuntimeError(
+            "Wi-Fi migration requires the standard single-profile Imager setup"
+        )
+
+    monkeypatch.setattr(remote, "configure_wifi", fail)
+    with pytest.raises(RuntimeError, match="Wi-Fi"):
+        remote.install("provision", stage)
+    assert not stopped(manager)
+    assert manager.active["blooglyblob.service"] == "active"
+
+
+def test_wifi_helper_is_packaged_and_staged_for_bootstrap(monkeypatch):
+    paths = {str(p.relative_to(deploy.ROOT)) for p in deploy.payload_files()}
+    assert "scripts/wifi_persistence.py" in paths
+    monkeypatch.setattr(deploy, "check", lambda destination: None)
+    monkeypatch.setattr(
+        deploy,
+        "ssh",
+        lambda *a, **k: SimpleNamespace(stdout="/tmp/blooglyblob-deploy-abcdefgh\n"),
+    )
+    transfers = []
+    monkeypatch.setattr(subprocess, "run", lambda args, **kw: transfers.append(args))
+    deploy.install("pi@example.local", "provision", {})
+    assert any(
+        args[2].endswith("/scripts/wifi_persistence.py")
+        and args[3].endswith("/wifi_persistence.py")
+        for args in transfers
+    )

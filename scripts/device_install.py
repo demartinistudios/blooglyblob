@@ -20,8 +20,10 @@ import urllib.request
 
 if TYPE_CHECKING or __package__:
     from .deploy_config import read_env, ensure_runtime_config
+    from .wifi_persistence import configure as configure_wifi
 else:
     from deploy_config import read_env, ensure_runtime_config
+    from wifi_persistence import configure as configure_wifi
 
 APP = Path("/opt/blooglyblob/app")
 VENV = Path("/opt/blooglyblob/venv")
@@ -40,6 +42,7 @@ PACKAGES = (
     "ca-certificates",
     "python3-venv",
     "python3-dev",
+    "python3-yaml",
     "build-essential",
     "portaudio19-dev",
     "alsa-utils",
@@ -338,6 +341,7 @@ def install(mode: str, stage: Path):
             "requirements/hardware.txt",
             "scripts/audio_check.py",
             "scripts/install_led_driver.py",
+            "scripts/wifi_persistence.py",
             "systemd/blooglyblob.service",
             "systemd/pigpiod.service",
         ):
@@ -353,6 +357,7 @@ def install(mode: str, stage: Path):
             run(["apt-get", "-o", "APT::Update::Error-Mode=any", "update"])
             run(["apt-get", "install", "-y", "--no-install-recommends", *PACKAGES])
             install_pigpio()
+            configure_wifi()
         installed = [
             name
             for name in SERVICES
