@@ -137,7 +137,8 @@ def render(name,view,thumb=False):
    draw.text((h[0]-6,h[1]-12),str(mark['n']),font=font(20),fill=(103,51,11))
   if view.get('markers'):
    draw.rectangle((20,57,W-25,107),fill=(243,247,250))
-   draw.text((30,62),'Numbered circle = screw entry/head; square = nut. Installed positions; hidden joints shown.',font=font(20),fill=(109,62,25))
+   if not view.get('guide'):
+    draw.text((30,62),'Numbered circle = screw entry/head; square = nut. Installed positions; hidden joints shown.',font=font(20),fill=(109,62,25))
    for i,t in enumerate(view['legend']):draw.text((30,H-128+i*27),t,font=font(20),fill=(109,62,25))
   # Side rails keep identification outside geometry and avoid overlapping labels.
   labs=[]

@@ -33,7 +33,7 @@ def scenes():
         path = scene['output']; view = scene['view']; selected = view.get('select', ['all'])
         if path in ('assets/r18/head-fastener-cutaway.png','assets/r16/service-stand.png') or not (SRC / path).exists():
             continue
-        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path == 'assets/r16/base-cover-joints.png':
+        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r18/step-11.png'):
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
