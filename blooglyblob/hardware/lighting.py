@@ -12,7 +12,7 @@ from blooglyblob.audio.presentation import OutputPresentation, OutputSample
 RGB = tuple[int, int, int]
 BLACK = (0, 0, 0)
 EYE_COLOR = (255, 185, 75)
-SPEECH_HUES = (0.76, 0.58, 0.36, 0.08)
+SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
 SLEEP_COLORS = ((92, 0, 255), (155, 0, 255), (210, 8, 255))
 AWAKE_COLORS = (
     (255, 70, 5), (255, 8, 100), (125, 8, 255),
@@ -250,9 +250,7 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
         if level >= 0.025:
             for i in range(4):
                 amount = max(0.0, min(1.0, level * 4 - (3 - i)))
-                hue = SPEECH_HUES[i] + 0.045 * math.sin(now * math.tau / 11 + i * 0.8)
-                color = tuple(c * 255 for c in hsv_to_rgb(hue % 1, 0.90, 1))
-                mouth[i] = mouth[7 - i] = scale(color, amount * 0.75)
+                mouth[i] = mouth[7 - i] = scale(SPEECH_COLORS[i], amount * 0.75)
     elif mode == "dancing" and state.output.kind == "music":
         mouth = (
             [

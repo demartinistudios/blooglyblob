@@ -275,7 +275,7 @@ def test_lava_body_flows_slowly_without_blackouts_or_losing_state_colors():
             )
 
 
-def test_speech_spectrum_is_saturated_and_drifts_without_changing_meter_shape():
+def test_speech_uses_soft_steady_colors_without_changing_meter_shape():
     from dataclasses import replace
     from blooglyblob.audio.presentation import OutputSample
 
@@ -283,11 +283,11 @@ def test_speech_spectrum_is_saturated_and_drifts_without_changing_meter_shape():
     state.set_mode("speaking", now=0)
     snapshot = replace(state.snapshot(2), output=OutputSample(kind="speech", level=1))
     first, later = (render(snapshot, now)[8:] for now in (2, 6))
-    assert first != later
+    assert first == later
     for mouth in (first, later):
         assert mouth == mouth[::-1]
         assert len(set(mouth)) == 4
-        assert all(min(rgb) < max(rgb) * 0.2 for rgb in mouth)
+        assert all(min(rgb) > max(rgb) * 0.5 for rgb in mouth)
         assert all(max(rgb) <= 192 for rgb in mouth)
     quiet = replace(snapshot, output=OutputSample(kind="speech", level=0))
     assert render(quiet, 6)[8:] == ((0, 0, 0),) * 8
