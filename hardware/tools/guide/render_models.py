@@ -392,11 +392,7 @@ def action_diagrams(render, output):
          arrows=[([48,52,-25],[48,52,-13])])
     emit('wago-tape-back',illustrated_wago(52,12),[.3,-.8,1.4],'Put tape on the flat back',
          [])
-    parts=chosen(['FB01'])
-    for y in [52,22,-8,-38]:parts+=illustrated_wago(y)
-    emit('wago-finished-layout',parts,[.12,.3,-1.8],'Four WAGOs, rear to front',
-         ['1 = W1   2 = W3   3 = W2   4 = W4'],
-         [(i+1,[48,y,-23]) for i,y in enumerate([52,22,-8,-38])])
+    # The finished WAGO row picture comes from guide_routing.render_layout.
     # Frame attachment, one actual section plus a loose nominal nut.
     parts=cropped(chosen(['FB01','P01','P02'],{'P01':[0],'P02':[0]}),[[-9,17,-7],[9,36,17]])
     parts+=[nut(3,[0,40,6.2],[0,0,1])]
