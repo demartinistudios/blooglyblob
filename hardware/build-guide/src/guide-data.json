@@ -1371,7 +1371,7 @@
         "The output must name your Pi 3, aarch64 or arm64, Python 3.13 and trixie.",
         "If it rejects the model or OS, correct the choices in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}. Do not continue past a failed check.",
         "Keep the USB audio module (E14) connected by its USB-A extension cable (E23). The application needs it to start.",
-        "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot.",
+        "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot. It also keeps your Imager Wi-Fi setting, with no file edits.",
         "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
         "If it ends with \u201cInstallation complete\u201d, continue to {step:service-check}.",
         "If it stops with \u201cOnboard audio is loaded\u201d, reboot the Pi in the next panel. This is expected on the first run.",
@@ -4764,7 +4764,7 @@
     {
       "id": "light-connections",
       "chapter": "Final wiring",
-      "title": "Connect the light connectors and secure the cables",
+      "title": "Connect the body light and secure the cables",
       "parts": {
         "C07": "As routed",
         "C17": "As routed",
@@ -4775,13 +4775,9 @@
         "In the base, plug the body half of the body light connector into the base half until it clicks.",
         "Gather the three servo cables and the body light connector inside the harness opening. Tie them into one wire bundle with a cable tie (C07). Keep extension joints out of the tie.",
         "Tie the bundle to the nearest adhesive tie square (C17). Leave each wire slack between the tie and its terminal. Keep the bundle clear of both frame screws, the WAGO levers and the microSD card.",
-        "If no tie square is within reach, stick one down as in {step:servo-power-capacitor}. Let it bond before you tie to it.",
-        "Rest the head face up on folded towels, with its open underside toward the top of the body. Stack towels until the two line up.",
-        "At the top of the body, plug the head light connector\u2019s head half into its body half until it clicks.",
-        "The head harness and the head light cable hang slack between the head and the body.",
-        "If either is tight, move the head closer."
+        "If no tie square is within reach, stick one down as in {step:servo-power-capacitor}. Let it bond before you tie to it."
       ],
-      "check": "Both light connectors are plugged in. The servo cables and the body light connector are tied inside the harness opening, with slack to each terminal.",
+      "check": "The body light connector is plugged in. The servo cables and the body light connector are tied inside the harness opening, with slack to each terminal.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4808,22 +4804,6 @@
             2,
             3
           ]
-        },
-        {
-          "title": "Rest the head beside the body",
-          "actions": [
-            4
-          ],
-          "textOnly": true
-        },
-        {
-          "title": "Plug in the head light connector",
-          "actions": [
-            5,
-            6,
-            7
-          ],
-          "textOnly": true
         }
       ]
     },
@@ -4836,12 +4816,14 @@
       },
       "hardware": {},
       "actions": [
+        "Rest the head face up beside the top of the body. Plug the head half of the head light connector into the body half until it clicks.",
         "Keep the supply unplugged. Check the servo power WAGO (W2) against the servo ground WAGO (W4) in continuity mode. A capacitor may cause a brief beep. It must not beep steadily.",
         "Check the input WAGO (W1) against the ground WAGO (W3) the same way. With the light fuse (F2) fitted, this includes the body and head lights.",
         "If either check beeps steadily, find and fix the short before you go on.",
+        "Press the latch on the head light connector. Pull the two halves apart.",
         "Pick any wire offcuts and loose strands out of the base."
       ],
-      "check": "Neither W2 to W4 nor W1 to W3 beeps steadily. The base holds no wire offcuts.",
+      "check": "Neither W2 to W4 nor W1 to W3 beeps steadily. The head is unplugged. The base holds no wire offcuts.",
       "source": [
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
@@ -4852,20 +4834,28 @@
       "commands": [],
       "panels": [
         {
+          "title": "Plug in the head",
+          "textOnly": true,
+          "actions": [
+            0
+          ]
+        },
+        {
           "title": "Check the servo and light branches for shorts",
           "image": "assets/power-diagram.svg",
           "caption": "The three power branches from W1.",
           "actions": [
-            0,
             1,
-            2
+            2,
+            3
           ]
         },
         {
-          "title": "Clear out the base",
+          "title": "Unplug the head and clear out the base",
           "textOnly": true,
           "actions": [
-            3
+            4,
+            5
           ]
         }
       ]
@@ -4875,14 +4865,12 @@
       "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
       "actions": [
-        "Find the power jack (J1) on the rear face of the base, at the robot-left end, on your right. It faces down into the towel.",
-        "Lift the base with one hand. With the other, stack folded towels under it until the gap under J1 is longer than the barrel plug. Keep J1 past the towels\u2019 edge.",
-        "Lift the body at the backpack. Add towels under the backpack until the robot lies level. Add towels under the head until it lines up with the top of the body.",
-        "Lay the head light cable clear of the head servo shaft. Nothing may touch the three servo shafts.",
-        "Reach under the robot-left end. Push the barrel plug of the power supply (E20) fully into J1. Leave the mains cord (E21) unplugged from the wall.",
-        "If the plug or its cable touches the bench, raise the robot by one more towel at each support.",
-        "Plug the mains cord into the wall. Let the Pi boot.",
-        "The three servo shafts may turn as the application starts.",
+        "Stand the robot on its feet on a folded towel.",
+        "In front of it, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
+        "Pass the body half of the head light connector up through any open gap in the head shelf (P08). Plug it into the head half until it clicks.",
+        "Rest the shelf on the towels beside the head. Nothing may touch the three servo shafts.",
+        "Find the power jack (J1) at the robot-left end of the rear face. Push the barrel plug of the power supply (E20) fully into it.",
+        "Plug the mains cord (E21) into the wall. Let the Pi boot. The servo shafts may turn as the application starts.",
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "On your computer, in the repository folder, run the command below.",
         "Each light turns on alone, in order: body 0\u20135, first eye 6, second eye 7 and mouth 8\u201315. Next, all 16 show red, green and blue.",
@@ -4891,6 +4879,7 @@
       "check": "All 16 lights lit in order and showed red, green and blue. The robot stays powered.",
       "hardware": {},
       "parts": {
+        "P08": 1,
         "E20": 1,
         "E21": 1
       },
@@ -4902,22 +4891,20 @@
       "commands": [],
       "panels": [
         {
-          "title": "Raise the robot so the power jack hangs clear",
+          "title": "Stand the robot up",
           "textOnly": true,
           "actions": [
             0,
-            1,
-            2
+            1
           ]
         },
         {
-          "title": "Connect the barrel plug",
-          "image": "assets/circuits/robot-power-connection.svg",
-          "caption": "Barrel plug and power jack, from the side.",
+          "title": "Connect the head through the shelf",
+          "image": "assets/community/head-cable-entry.svg",
+          "caption": "The head shelf from the front left, with the head light cable through one of its gaps.",
           "actions": [
-            3,
-            4,
-            5
+            2,
+            3
           ]
         },
         {
@@ -4926,12 +4913,13 @@
             "level": "warning",
             "text": "This is the first power-up with the servos and head connected. A wiring fault could overheat parts and cause burns or fire. Keep the wall plug within reach."
           },
-          "textOnly": true,
           "actions": [
-            6,
-            7,
-            8
-          ]
+            4,
+            5,
+            6
+          ],
+          "image": "assets/circuits/robot-power-connection.svg",
+          "caption": "Barrel plug and power jack, from the side."
         },
         {
           "title": "Run the light test",
@@ -4948,9 +4936,9 @@
             }
           ],
           "actions": [
-            9,
-            10,
-            11
+            7,
+            8,
+            9
           ]
         }
       ],
@@ -4959,19 +4947,13 @@
     {
       "id": "fit-position",
       "chapter": "First power-up",
-      "title": "Set the fit position",
+      "title": "Hold the fit position",
       "actions": [
-        "With the robot still powered from {step:all-lights-test}, run the command below on your computer.",
-        "It stops the application and holds the fit position: head facing forward, arms hanging straight down. The shafts barely move, because the application set this position at startup.",
-        "If you shut the robot down, power it up again as in {step:all-lights-test}.",
-        "When the output asks, type STOP and press Enter.",
-        "The output says the servo pulses stopped and the application stays stopped.",
-        "If it says the servo output release is unconfirmed, unplug the supply from the wall at once.",
-        "Open the Pi shell. Shut the Pi down with the second command.",
-        "Wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall. Reach under the robot-left end and unplug the barrel plug from the power jack (J1).",
-        "Do not turn the three servo shafts by hand. Keep the supply unplugged until {step:first-movement}."
+        "With the robot still powered, run the command below on your computer.",
+        "It stops the application and holds the fit position: head facing forward, arms hanging straight down.",
+        "Leave it waiting while you fit the parts in {step:shelf-arms}."
       ],
-      "check": "The servos are at the fit position. The Pi is shut down and the supply is unplugged.",
+      "check": "The servos hold the fit position, and the command waits for STOP.",
       "note": "",
       "hardware": {},
       "parts": {},
@@ -4998,7 +4980,7 @@
             {
               "kind": "output",
               "lines": [
-                "Holding the fit pose. Keep the head and arms off the shafts.",
+                "Holding the fit pose. Seat the head shelf and arms now without turning the shafts.",
                 "Type STOP then Enter to release the servos:"
               ],
               "label": "Output while the servos hold"
@@ -5009,48 +4991,6 @@
             1,
             2
           ]
-        },
-        {
-          "title": "Release the servos",
-          "codeBlocks": [
-            {
-              "kind": "output",
-              "lines": [
-                "Servo pulses stopped. The application stays stopped. Shut down and unplug before fitting parts."
-              ],
-              "label": "Output after STOP"
-            }
-          ],
-          "actions": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "title": "Shut down and unplug",
-          "codeBlocks": [
-            {
-              "kind": "command",
-              "lines": [
-                "make pi-ssh"
-              ],
-              "context": "computer",
-              "label": "Repository folder"
-            },
-            {
-              "kind": "command",
-              "lines": [
-                "sudo poweroff"
-              ],
-              "context": "pi"
-            }
-          ],
-          "actions": [
-            6,
-            7,
-            8
-          ]
         }
       ]
     },
@@ -5059,24 +4999,19 @@
       "chapter": "Head and arm mounting",
       "title": "Attach the head shelf and arms",
       "actions": [
-        "Press the latch on the head light connector. Pull the two halves apart.",
-        "Move the head aside, clear of the robot.",
-        "Lift the robot off the towels, one hand under the base and one under the backpack. Keep your hands off the three servo shafts.",
-        "Stand it on its feet on a folded towel.",
-        "In front of the robot, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
-        "At the top of the body, push the head half into the body half until the latch clicks. Pull gently on the two housings. They must stay latched.",
-        "If either cable is tight, move the head closer.",
-        "Turn the head shelf assembly so its side with no nut pocket faces front. Pass the head light cable down through any open gap in the shelf, clear of the horn screws.",
-        "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17\u00b0 apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
-        "Hold the shelf still with one hand. With the other, drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Tighten it. Do not use an M2 screw.",
-        "Face the robot\u2019s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
-        "Set its horn on the shaft, with the arm hanging nearest straight down. Turn the arm, not the shaft, to mesh them. Press it on. Do not bend the arm to correct a small offset.",
-        "Hold the upper arm still. Drive its horn\u2019s center screw through the upper arm\u2019s outer face. Tighten it.",
-        "At the robot-right shoulder, on your left, attach the robot-right upper arm (AR04) the same way.",
-        "Both arms hang straight down, and the shelf front faces forward.",
-        "If a shaft turned while you worked, take its part off. Repeat {step:fit-position} before you refit it."
+        "Turn the shelf so its side with no nut pocket faces front. Keep the head light cable in its gap, clear of the horn screws.",
+        "Set the horn on the head servo shaft, shelf front nearest straight ahead. Turn the shelf, not the shaft, until the teeth mesh. Press it down.",
+        "At the robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down. Set its horn on the shaft.",
+        "Turn the arm, not the shaft, to the tooth nearest straight down. Press it on.",
+        "Seat the robot-right upper arm (AR04) the same way, on your left.",
+        "On your computer, type STOP at the waiting command. If it says the release is unconfirmed, unplug the supply from the wall at once.",
+        "Open the Pi shell with the first command. Shut the Pi down with the second command.",
+        "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall.",
+        "Hold the shelf still. Drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Do not use an M2 screw.",
+        "Hold each arm still. Drive its horn\u2019s center screw through the arm\u2019s outer face.",
+        "If a part turned, take it off. Plug the supply into the wall. Repeat {step:fit-position} and this step for it."
       ],
-      "check": "The head shelf faces forward and both arms hang straight down, each held by its center screw. The head rests in front of the robot, its light connector latched.",
+      "check": "The shelf faces forward and both arms hang straight down, each held by its center screw. The supply is unplugged from the wall.",
       "note": "",
       "hardware": {
         "CENTER": 3
@@ -5106,32 +5041,7 @@
       ],
       "panels": [
         {
-          "title": "Unplug the head light connector",
-          "textOnly": true,
-          "actions": [
-            0,
-            1
-          ]
-        },
-        {
-          "title": "Stand the robot upright",
-          "textOnly": true,
-          "actions": [
-            2,
-            3
-          ]
-        },
-        {
-          "title": "Rejoin the head light connector",
-          "textOnly": true,
-          "actions": [
-            4,
-            5,
-            6
-          ]
-        },
-        {
-          "title": "Attach the head shelf",
+          "title": "Seat the head shelf",
           "safety": {
             "level": "notice",
             "text": "A horn forced onto the spline, or pulled on by its screw, can strip its teeth. The part then slips on its servo. Seat each horn by hand before you fit its screw."
@@ -5139,29 +5049,66 @@
           "image": "assets/community/head-center-screw.svg",
           "caption": "The head shelf on the head servo.",
           "actions": [
-            7,
-            8,
-            9
+            0,
+            1
           ]
         },
         {
-          "title": "Attach the robot-left arm",
+          "title": "Seat the robot-left arm",
           "image": "assets/community/arm-center-screw-left.svg",
           "caption": "The robot-left arm on its shoulder servo, seen from the robot-left side.",
           "actions": [
-            10,
-            11,
-            12
+            2,
+            3
           ]
         },
         {
-          "title": "Attach the robot-right arm",
+          "title": "Seat the robot-right arm",
           "image": "assets/community/arm-center-screw-right.svg",
           "caption": "The robot-right arm on its shoulder servo, seen from the robot-right side.",
           "actions": [
-            13,
-            14,
-            15
+            4
+          ]
+        },
+        {
+          "title": "Release the servos and shut down",
+          "codeBlocks": [
+            {
+              "kind": "output",
+              "lines": [
+                "Servo pulses stopped. The application stays stopped. Shut down and unplug, then drive the center screws."
+              ],
+              "label": "Output after STOP"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "make pi-ssh"
+              ],
+              "context": "computer",
+              "label": "Repository folder"
+            },
+            {
+              "kind": "command",
+              "lines": [
+                "sudo poweroff"
+              ],
+              "context": "pi"
+            }
+          ],
+          "actions": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Drive the three center screws",
+          "textOnly": true,
+          "actions": [
+            8,
+            9,
+            10
           ]
         }
       ]
@@ -5272,17 +5219,15 @@
       "parts": {},
       "hardware": {},
       "actions": [
-        "Leave the robot standing on its feet on the folded towel, with the bottom cover off.",
-        "Clear tools and cables from in front of the robot and around its head. The arms swing forward up to level. The head turns about 45\u00b0 each side.",
-        "At the robot-left end of the rear face, push the barrel plug fully into the power jack (J1). Lead its cable straight back, away from the arms.",
-        "Plug the mains cord into the wall. Let the Pi boot.",
-        "The head and arms barely move as the application starts. They are already at the fit position.",
-        "Press the front button. Talk with the robot. Ask it to dance. Watch the gap under the head as it turns.",
-        "The head turns smoothly. In the gap, the head light cable stays loose and catches on nothing. The arms swing clear of the body and the supply cable.",
-        "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once. Free the cable. Take off a part that hits.",
-        "If you took off a part, plug the supply back into the wall. Run the command below and type STOP, as in {step:fit-position}.",
-        "Shut down and unplug as in the first three panels of {step:secure-wiring}.",
-        "Lift the robot by the base onto its feet on the towel. Refit the part as in {step:shelf-arms} or {step:head-shoulder-covers}. Repeat this step."
+        "Clear tools and cables from around the robot. The arms swing forward up to level. The head turns about 45\u00b0 each side.",
+        "Plug the supply into the wall. Let the Pi boot.",
+        "The head and arms may shift a little as the application starts.",
+        "Press the front button. Talk with the robot. Ask it to dance.",
+        "The head turns smoothly, and its light cable stays loose in the gap below it. The arms swing clear of the body and the supply cable.",
+        "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once.",
+        "If a part hits, take it off. Plug the supply back in and run the command below.",
+        "Fit the part as in {step:shelf-arms}. Refit its cover as in {step:head-shoulder-covers}.",
+        "Repeat this step."
       ],
       "check": "The head and arms move through a conversation and a dance without touching the body or any cable.",
       "note": "",
@@ -5294,8 +5239,7 @@
           "image": "assets/servo-fit-position.svg",
           "caption": "Fit position, in a front view and a side view.",
           "actions": [
-            0,
-            1
+            0
           ]
         },
         {
@@ -5307,9 +5251,8 @@
           "image": "assets/circuits/robot-power-connection.svg",
           "caption": "Barrel plug and power jack, from the side.",
           "actions": [
-            2,
-            3,
-            4
+            1,
+            2
           ]
         },
         {
@@ -5321,17 +5264,13 @@
           "image": "assets/r22/main-front.png",
           "caption": "The assembled robot, from the front.",
           "actions": [
-            5,
-            6,
-            7
+            3,
+            4,
+            5
           ]
         },
         {
-          "title": "Reset a part you took off",
-          "safety": {
-            "level": "caution",
-            "text": "The arms and head move without warning while the robot is powered. They can pinch fingers. Keep your hands clear of them while it is powered."
-          },
+          "title": "Refit a part that hits",
           "codeBlocks": [
             {
               "kind": "command",
@@ -5343,9 +5282,9 @@
             }
           ],
           "actions": [
-            8,
-            9,
-            10
+            6,
+            7,
+            8
           ]
         }
       ]
@@ -5530,6 +5469,7 @@
         "If speech is too loud or distorted, run the first command below. Each run lowers the level by 3 dB. Save a changed level with the second.",
         "Type `exit` to leave the Pi shell. Press the front button. Ask the robot to wave. Ask it to dance.",
         "The head and arms move freely, and the body and eye lights respond. The music plays without rattles or buzzing.",
+        "If the body glows amber, the robot cannot reach the internet. It returns to normal by itself when the connection comes back. Then press the button again.",
         "If speech is too quiet at 100%, the audio module (E14) has a small volume screw inside its case. Turning it is optional.",
         "Shut down and unplug. Remove the bottom cover and the audio cradle lid (FB32). Free the module from its tape.",
         "Pry its case open at the gap beside the USB socket. Turn the screw a little clockwise for more volume. Close the case and refit everything as before, with fresh tape."
@@ -5615,7 +5555,8 @@
           "caption": "The assembled robot, from the front.",
           "actions": [
             9,
-            10
+            10,
+            11
           ],
           "links": [
             {
@@ -5628,9 +5569,9 @@
           "title": "Raise the module volume only if needed",
           "textOnly": true,
           "actions": [
-            11,
             12,
-            13
+            13,
+            14
           ],
           "links": [
             {

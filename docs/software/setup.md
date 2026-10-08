@@ -245,6 +245,18 @@ password interactively; it is never stored in `.env`. There is no second
 `pi-update` step needed for first installation. Existing remote configuration is
 preserved on reruns.
 
+Provisioning also moves the single Wi-Fi network set in Imager into native
+NetworkManager storage, keeping its password and settings, so Raspberry Pi OS
+does not regenerate it from Netplan at boot. No Wi-Fi file edits, network restart
+or extra reboot are needed. The original files are kept in the private root-only
+backup `/var/lib/blooglyblob-wifi-backup/`. Profiles that are already native are
+left unchanged, and `pi-update` never changes networking. If provisioning finds
+more than one Wi-Fi profile or another unfamiliar layout, it stops with a
+message starting “Wi-Fi” before replacing the application. Do not delete
+profiles to get past it: write the card again with one network set in Imager,
+or move the profile to NetworkManager yourself and rerun provisioning. This keeps
+the setting from being regenerated; it does not prevent every Wi-Fi fault.
+
 ### Reboot if provisioning requests it
 
 If provisioning reports “Onboard audio is loaded and conflicts with GPIO18 LEDs”,
@@ -325,8 +337,8 @@ Unplug the bench supply and USB audio lead before mounting the Pi and boards.
 
 Follow the build guide's staged checks for the [supported LED chain](maintenance.md#supported-led-chain)
 and [servo fitting](maintenance.md#commissioning-limits). With the head and arms
-off the shafts, `make pi-servo-fit` holds the fit pose; type STOP, shut down and
-unplug before fitting the parts. Runtime uses fixed 1000–2000 µs limits at 50 Hz;
+off the shafts, `make pi-servo-fit` holds the fit pose; seat the parts while it
+holds, then type STOP, shut down, unplug and fasten them. Runtime uses fixed 1000–2000 µs limits at 50 Hz;
 saved calibration does not override them. An existing robot needs refitting if
 its horns were installed for different calibrated positions.
 

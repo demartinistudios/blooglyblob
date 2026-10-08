@@ -70,6 +70,11 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 | 6–7 | Two separate eye pixels | Off while asleep; on and blinking while awake |
 | 8–15 | Eight-pixel mouth | Off while asleep or silent; follows the speech level while talking and the music while dancing |
 
+While the cloud service is unreachable, the body shows a slow, dim amber glow with the
+eyes and mouth off. The robot stays inactive: button presses and alerts do not
+start, and nothing is queued. It returns to normal idle when connectivity
+recovers, without replaying an interrupted conversation; press the button again.
+
 This data ordering does not change the power wiring. Retain the F2-protected
 lighting supply defined by the hardware wiring guide; power and data run in one
 chain through the body lights and eyes to the mouth. The brightness setting
@@ -97,8 +102,9 @@ interrupt also releases outputs without recentering. The application stays
 stopped even if it was running beforehand. Shutdown failure reports status 73;
 if that occurs, switch off the supply and resolve the fault.
 
-Shut down the Pi and unplug before attaching parts. Unpowered shafts are not
-position-locked; do not turn them after setting the pose. Follow the
+Seat the head shelf and arms while the servos hold, then type `STOP`, shut down,
+unplug and drive the center screws while supporting each part. Unpowered shafts
+are not position-locked; if a part turns, repeat the fitting. Follow the
 [servo fit reference](../../hardware/build-guide/src/downloads/servo-fit-reference.md)
 for horn fitting and the guide's first-movement check. Every replacement servo
 needs that fitting and clearance check.

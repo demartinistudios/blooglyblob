@@ -438,7 +438,7 @@ fs.mkdirSync(OUT,{recursive:false});
       assert.deepEqual(await page.locator('.bench-list .gather > section').evaluateAll(es=>es.map(e=>({heading:e.querySelector('h2').textContent,ids:[...e.querySelectorAll('li a')].map(a=>a.getAttribute('href').replace('#parts/',''))}))),
        [partIds.length&&{heading:'Parts',ids:partIds},hwIds.length&&{heading:'Fasteners',ids:hwIds},toolIds.length&&{heading:'Tools',ids:toolIds}].filter(Boolean),'parts, fasteners and tools sections: '+route);
      }
-     if(step.id==='fit-position')assert.equal(await page.locator('.action-panel').first().locator('.code-card[data-kind="command"]').count(),1,'fit commands must precede attachment');
+     if(step.id==='fit-position')assert.match(await page.locator('.action-panel').last().locator('.code-card[data-kind="command"]').innerText(),/make pi-servo-fit/,'the fit command holds before the parts are seated');
      if(SETUP.includes(step.id)&&width===1440)await checkCopies();
     }
     for(const link of await page.locator('#page a[href^="downloads/"]').all()){assert.notEqual(await link.getAttribute('download'),null);assert.notEqual(await link.evaluate(el=>getComputedStyle(el,'::before').maskImage),'none');}

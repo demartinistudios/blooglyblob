@@ -513,6 +513,7 @@
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
       "head-shelf",
+      "all-lights-test",
       "shelf-arms"
     ],
     "additional_links": [

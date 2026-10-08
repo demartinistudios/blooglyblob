@@ -1,6 +1,6 @@
 # BlooglyBlob servo fit reference
 
-This page backs up two build guide steps: "Set the fit position" and "Attach the head shelf and arms". It lists the values the fit command uses and what to do if a part does not line up.
+This page backs up two build guide steps: "Hold the fit position" and "Attach the head shelf and arms". It lists the values the fit command uses and what to do if a part does not line up.
 
 ## The fit position
 
@@ -16,41 +16,43 @@ Robot-left is the robot's own left: on your right when you face it.
 
 The two arm pulses differ because the shoulder servos face opposite ways. The same arm position is at opposite ends of their travel.
 
-## Set the fit position
+## Hold the fit position
 
-1. Start with the head shelf, head and both upper arms off the servo shafts. In the build, the robot still lies on its back on folded towels from the light test, powered, with the power jack (J1) hanging clear.
+1. Start with the head shelf, head and both upper arms off the servo shafts. In the build, the robot stands on its feet, powered, after the light test. The head light cable runs up through a gap in the loose head shelf.
 2. On your computer, in the `blooglyblob` folder, run:
 
    ```sh
    make pi-servo-fit
    ```
 
-   It stops the robot application and holds all three servos at the fit position. The shafts barely move, because the application set this position at startup.
-3. When the output asks, type `STOP` and press Enter. The output says the servo pulses stopped and the application stays stopped. If it says the servo output release is unconfirmed, unplug the supply from the wall at once.
-4. Shut the Pi down:
+   It stops the robot application and holds all three servos at the fit position. Leave it waiting.
+
+## Fit the parts while the servos hold
+
+- **Head shelf:** turn the head shelf (P08) so its side with no nut pocket faces front. Set its horn on the head servo shaft, with the shelf front nearest straight ahead. Turn the shelf, not the shaft, to mesh them. Press it down.
+- **Arms:** at the robot-left shoulder, on your right as you face the robot, set the robot-left upper arm (AR01) on its shaft, hanging nearest straight down. Turn the arm, not the shaft, to mesh them. Press it on. Seat the robot-right upper arm (AR04) the same way.
+- If a horn does not slide on, lift it off, turn it one tooth and try again. Do not force it.
+
+The spline has 21 teeth, about 17° apart. A part can sit up to half a tooth (about 8°) from the fit position. That is normal. Choose the nearest tooth. Do not force a horn or bend an arm to make up the difference.
+
+## Release, shut down and fasten
+
+1. At the waiting command, type `STOP` and press Enter. The output says the servo pulses stopped and the application stays stopped. If it says the servo output release is unconfirmed, unplug the supply from the wall at once.
+2. Shut the Pi down:
 
    ```sh
    make pi-ssh
    sudo poweroff
    ```
 
-5. Through the open bottom, wait for the Pi's green activity light to stop flashing. Unplug the supply from the wall. Unplug the barrel plug from J1. Unplugging is the only power cutoff for the servos; there is no separate servo switch.
+3. Wait 30 seconds after SSH disconnects. Unplug the supply from the wall. Unplugging is the only power cutoff for the servos; there is no separate servo switch.
+4. Hold the shelf still and drive the horn's own center screw. Do not use an M2 screw. Hold each upper arm still and drive its horn's center screw through the arm's outer face. Do not use a center screw to pull a horn onto the spline.
 
-Do not turn the three servo shafts by hand after this. Unpowered shafts are not held in place.
-
-## Fit the parts
-
-Stand the robot on its feet on a folded towel, with one hand under the base and one under the backpack. Keep your hands off the three servo shafts.
-
-- **Head shelf:** turn the head shelf (P08) so its side with no nut pocket faces front. Set its horn on the head servo shaft, with the shelf front nearest straight ahead. Turn the shelf, not the shaft, to mesh them. Press it down. Drive the horn's own center screw. Do not use an M2 screw.
-- **Arms:** at the robot-left shoulder, on your right as you face the robot, set the robot-left upper arm (AR01) on its shaft, hanging nearest straight down. Turn the arm, not the shaft, to mesh them. Press it on. Drive its horn's center screw through the upper arm's outer face. Fit the robot-right upper arm (AR04) the same way.
-- Do not use a center screw to pull a horn onto the spline. If a horn does not slide on, lift it off, turn it one tooth and try again.
-
-The spline has 21 teeth, about 17° apart. A part can sit up to half a tooth (about 8°) from the fit position. That is normal. Choose the nearest tooth. Do not force a horn or bend an arm to make up the difference.
+Unpowered shafts are not held in place. If a part turned while you fastened it, take it off and fit it again as above.
 
 ## After fitting
 
-In the guide's "Check the first movement" step, the robot stands on its feet with the bottom cover off. When you plug the supply back in, the application starts by itself and moves each servo straight to the fit position. The head and arms barely move, because you fitted them there.
+In the guide's "Check the first movement" step, the robot stands on its feet with the bottom cover off. When you plug the supply back in, the application starts by itself and moves each servo to the fit position. The head and arms may shift a little.
 
 ## Movement limits
 
@@ -77,8 +79,8 @@ refitted for these positions before operation.
 | --- | --- |
 | `make pi-servo-fit` cannot reach the Pi | Check that the robot is plugged in and has had a minute to start, and that `make pi-check` works. |
 | A shaft does not move, or buzzes and strains | Unplug the supply. Check that servo's three connections (+, − and signal) against the table above and the wiring step. |
-| An arm or the head is a tooth off after fitting | Unplug, remove the center screw, lift the horn off, turn it one tooth and refit it. Do not turn the servo shaft by hand. |
-| A part touches the body during the first-movement check | Unplug at once. Refit that part one tooth closer to the fit position. |
+| An arm or the head is a tooth off after fitting | Unplug, remove the center screw and lift the part off. Fit it again while the servos hold, as above. Do not turn the servo shaft by hand. |
+| A part touches the body during the first-movement check | Unplug at once. Take that part off and fit it again while the servos hold, as above. |
 
 A jammed servo can keep pushing and overheat. Unplug the supply immediately if an arm or the head strains.
 
