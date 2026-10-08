@@ -18,11 +18,12 @@ from typing import Optional
 # Only import GPIO libraries when running on Pi
 try:
     from gpiozero import Servo
-    from gpiozero.pins.pigpio import PiGPIOFactory
+    from gpiozero.pins.pigpio import PiGPIOFactory, PiGPIOPin
     ON_PI = True
 except ImportError:
     ON_PI = False
     Servo = None
+    PiGPIOPin = object
 
 from blooglyblob.hardware.config import gpio_config
 from blooglyblob.hardware.local_media import HardwareReleaseError
@@ -34,6 +35,21 @@ from blooglyblob.hardware.servo_config import (
 # Default movement settings
 DEFAULT_STEP = 0.02
 DEFAULT_DELAY = 0.015  # 15ms between steps for smooth movement
+
+
+class _ServoSignalPin(PiGPIOPin):
+    """Release servo signals to pulled-down inputs instead of floating inputs."""
+
+    def close(self):
+        if self.factory.connection:
+            self.frequency = None
+            self.when_changed = None
+            # Arm the pull-down while the output is still low. gpiozero's
+            # default close floats the input, allowing stray servo pulses.
+            self.factory.connection.set_pull_up_down(
+                self._number, self.GPIO_PULL_UPS['down'])
+            self.function = 'input'
+            self.pull = 'down'
 
 
 @contextmanager
@@ -58,6 +74,7 @@ def _create_servo(pin: int) -> Optional["Servo"]:
     factory = None
     try:
         factory = PiGPIOFactory()
+        factory.pin_class = _ServoSignalPin
         return Servo(
             pin,
             initial_value=None,
