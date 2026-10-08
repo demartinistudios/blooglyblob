@@ -7,7 +7,11 @@ def test_profile_keeps_character_and_delivery_without_live_tool_procedures():
     backend = voice_profile.backend_instructions()
     assert "Blue-glee-blob" in live and "Meep" in live
     assert "curious" in live.lower() and "curious" in speech.lower()
-    assert "slang" in live.lower()
+    assert "Speak plainly and naturally" in live
+    assert "built-in dance" in live and "built-in dance" in backend
+    assert "danceMode" not in live and "danceMode" in backend
+    assert "Earth Slang" not in live + backend
+    assert "six_seven" not in live + backend
     assert "delegate" in live.lower() and "verified" in live.lower()
     assert "setTimer" not in live and "findTimers" not in live
     assert "setTimer" in backend
@@ -15,7 +19,7 @@ def test_profile_keeps_character_and_delivery_without_live_tool_procedures():
     assert voice_profile.default_voice() == "ballad"
     assert voice_profile.default_speech_voice() == voice_profile.default_voice()
     assert "British English" in live and "British English" in speech
-    assert voice_profile.default_greeting().startswith("Hey! I'm Blue-glee-blob")
+    assert voice_profile.default_greeting().startswith("Hi! I'm Blue-glee-blob")
 
 
 def test_live_greeting_is_explicit_optional_start_instruction():

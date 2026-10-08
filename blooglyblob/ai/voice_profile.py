@@ -53,7 +53,7 @@ def live_instructions(greeting: str = "") -> str:
     selected = [sections[0].strip()]
     for section in sections[1:]:
         heading, _, body = section.partition("\n")
-        if heading in {"Your Story", "Your Personality", "Earth Slang"}:
+        if heading in {"Your Story", "Your Personality", "Your Capabilities"}:
             selected.append(body.strip())
     selected += [
         speech_instructions(),
