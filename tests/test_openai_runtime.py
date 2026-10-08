@@ -565,3 +565,33 @@ async def test_failed_connection_cannot_wake_or_play_greeting():
         failure.assert_called_once_with("network")
     finally:
         await host.close()
+
+
+@pytest.mark.asyncio
+async def test_accepted_button_wakes_eyes_before_connection_without_starting_motion_or_audio():
+    import time
+
+    from blooglyblob.hardware.lighting import render
+
+    entered, release = asyncio.Event(), asyncio.Event()
+
+    class Connecting(Live):
+        async def start(self, greeting=""):
+            entered.set()
+            await release.wait()
+
+    host, hardware, audio = session()
+    host.live_factory = Connecting
+    try:
+        host.button()
+        assert hardware.lighting.snapshot(time.monotonic()).mode == "waking"
+        await entered.wait()
+        now = time.monotonic() + 0.3
+        assert render(hardware.lighting.snapshot(now), now)[6][0] > 0
+        hardware.present.assert_not_called()
+        assert not any(e["type"] == "audio" for e in audio.trace)
+        host.button()
+        assert render(hardware.lighting.snapshot(now), now)[6:] == ((0, 0, 0),) * 10
+    finally:
+        release.set()
+        await host.close()

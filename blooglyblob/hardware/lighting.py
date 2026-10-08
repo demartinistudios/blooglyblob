@@ -11,7 +11,7 @@ from blooglyblob.audio.presentation import OutputPresentation, OutputSample
 
 RGB = tuple[int, int, int]
 BLACK = (0, 0, 0)
-EYE_COLOR = (255, 200, 150)
+EYE_COLOR = (255, 185, 75)
 SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
 MUSIC_COLORS = (
     (4, 239, 168),
@@ -82,6 +82,7 @@ class LightingSnapshot:
     output: OutputSample
     music: tuple[float, ...] = ()
     eye_openness: float = 1.0
+    eye_gain: float = 1.0
 
 
 class LightingState:
@@ -96,6 +97,7 @@ class LightingState:
         self._music = None
         self._stopped = False
         self._unavailable = False
+        self._eye_wake_started = None
         self._blink = _EyeBlink(rng if rng is not None else random.Random())
 
     def set_mode(self, mode, *, now=None):
@@ -107,6 +109,10 @@ class LightingState:
             if mode != self._mode:
                 self._previous, self._mode = self._mode, mode
                 self._changed = time.monotonic() if now is None else now
+                if mode == "waking":
+                    self._eye_wake_started = self._changed
+            if mode in {"sleeping", "stopped", "fault"}:
+                self._eye_wake_started = None
             if mode in {"sleeping", "stopped"}:
                 self._pending.clear()
             if mode not in BLINK_MODES:
@@ -117,6 +123,7 @@ class LightingState:
     def set_unavailable(self, unavailable):
         with self._lock:
             self._unavailable = unavailable
+            self._eye_wake_started = None
             self._pending.clear()
             self._blink.reset()
             if self._mode not in {"fault", "stopped"}:
@@ -139,6 +146,7 @@ class LightingState:
         with self._lock:
             self._stopped = True
             self._mode = "stopped"
+            self._eye_wake_started = None
             self._pending.clear()
             self._music = None
             self._blink.reset()
@@ -157,8 +165,13 @@ class LightingState:
             if mode == "dancing" and output.kind == "music" and self._music is not None:
                 drives = self._music.at(output.position)
             openness = self._blink.sample(now) if mode in BLINK_MODES else 1.0
+            # A quick connection must not cut the button's eye fade short.
+            gain = (
+                1.0 if self._eye_wake_started is None else
+                min(1.0, max(0.0, (now - self._eye_wake_started) / 0.6))
+            )
             return LightingSnapshot(
-                mode, self._previous, self._changed, output, drives, openness
+                mode, self._previous, self._changed, output, drives, openness, gain
             )
 
 
@@ -179,22 +192,20 @@ def _body(mode, now):
             math.exp(-(((phase - center) / 0.15) ** 2)) for center in (0.3, 0.75)
         )
         return [scale((255, 132, 20), 0.12 + 0.5 * pulse)] * 6
-    if mode in {"sleeping", "dancing"}:
-        brightness = (
-            0.07 + 0.035 * (1 + math.sin(now * math.tau / 8))
-            if mode == "sleeping"
-            else 0.38
-        )
-        period = 90 if mode == "sleeping" else 36
+    if mode == "sleeping":
         return [
-            scale(
-                tuple(c * 255 for c in hsv_to_rgb((now / period + i / 8) % 1, 0.85, 1)),
-                brightness,
-            )
+            scale((125, 55, 220), 0.10 + 0.025 * math.sin(now * math.tau / 8 + i * 0.4))
             for i in range(6)
         ]
-    color = (125, 75, 200) if mode in {"waiting", "goodbye"} else (25, 190, 165)
-    return [scale(color, 0.25 + 0.08 * math.sin(now * 0.8 + i * 0.6)) for i in range(6)]
+    # Awake colors drift independently of voice energy, including the greeting.
+    period, brightness = (36, 0.38) if mode == "dancing" else (60, 0.25)
+    return [
+        scale(
+            tuple(c * 255 for c in hsv_to_rgb((now / period + i / 8) % 1, 0.78, 1)),
+            brightness,
+        )
+        for i in range(6)
+    ]
 
 
 def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
@@ -205,7 +216,7 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
     eyes = (
         [BLACK] * 2
         if mode in {"sleeping", "unavailable"}
-        else [scale(EYE_COLOR, 0.45 * state.eye_openness)] * 2
+        else [scale(EYE_COLOR, 0.45 * state.eye_openness * state.eye_gain)] * 2
     )
     mouth = [BLACK] * 8
     # Output energy alone cannot wake the robot, escape a fault or talk over music.
@@ -228,10 +239,12 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
         elapsed = max(0.0, now - state.changed)
         blend = min(1.0, elapsed / 0.6)
         previous = _body(state.previous, now)
+        if mode in {"waking", "listening", "waiting", "speaking"} and state.eye_gain < 1:
+            # Connection/pending changes must not snap the button's body fade.
+            blend = state.eye_gain
+            previous = _body("sleeping", now)
         body = [
             tuple(round(a + (b - a) * blend) for a, b in zip(old, new))
             for old, new in zip(previous, body)
         ]
-        if mode == "waking":
-            eyes = [scale(rgb, blend) for rgb in eyes]
     return tuple(body + eyes + mouth)

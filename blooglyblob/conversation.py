@@ -267,7 +267,7 @@ class ConversationSession:
         self.hardware.pending_light(self.generation, False)
         self.hardware.light(
             {
-                "conversation": "sleeping",
+                "conversation": "waking",
                 "idle": "sleeping",
                 "sleep": "goodbye",
                 "dance": "waiting",

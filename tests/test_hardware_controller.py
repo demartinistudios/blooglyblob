@@ -501,7 +501,7 @@ def test_supported_gpio_and_native_timing_profile():
     )
     assert list(BODY_LEDS) == list(range(6))
     assert list(EYE_LEDS) == [6, 7]
-    assert EYE_COLOR == (255, 200, 150)
+    assert EYE_COLOR == (255, 185, 75)
 
 
 @pytest.mark.parametrize(

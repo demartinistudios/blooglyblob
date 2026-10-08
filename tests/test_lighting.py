@@ -201,3 +201,43 @@ def test_unavailable_is_steady_amber_and_overrides_late_speech_and_sleep():
     assert state.snapshot(3).mode == "fault"
     state.stop()
     assert render(state.snapshot(4), 4) == ((0, 0, 0),) * 16
+
+
+def test_eye_wake_ramp_survives_fast_connection_and_stops_when_unavailable():
+    state = LightingState()
+    state.set_mode("waking", now=10)
+    assert render(state.snapshot(10), 10)[6:8] == ((0, 0, 0),) * 2
+    early = render(state.snapshot(10.1), 10.1)[6]
+    state.set_mode("listening", now=10.1)
+    assert render(state.snapshot(10.1), 10.1)[6] == early
+    middle = render(state.snapshot(10.3), 10.3)[6]
+    full = render(state.snapshot(10.6), 10.6)[6]
+    assert 0 < early[0] < middle[0] < full[0]
+    state.set_unavailable(True)
+    assert render(state.snapshot(10.7), 10.7)[6:] == ((0, 0, 0),) * 10
+    state.set_unavailable(False)
+    assert render(state.snapshot(10.8), 10.8)[6:] == ((0, 0, 0),) * 10
+    state.set_mode("waking", now=11)
+    assert render(state.snapshot(11), 11)[6:8] == ((0, 0, 0),) * 2
+
+
+def test_sleep_is_purple_and_waking_starts_a_continuous_rainbow_transition():
+    from dataclasses import replace
+
+    state = LightingState()
+    for now in (1, 15, 40, 90):
+        body = render(state.snapshot(now), now)[:6]
+        assert all(blue > red > green for red, green, blue in body)
+    state.set_mode("waking", now=10)
+    early = render(state.snapshot(10.1), 10.1)
+    sleeping = render(
+        replace(state.snapshot(10.1), mode="sleeping", previous="sleeping"), 10.1
+    )
+    assert early[:6] != sleeping[:6]
+    state.set_mode("listening", now=10.1)
+    assert render(state.snapshot(10.1), 10.1)[:8] == early[:8]
+    awake = render(state.snapshot(11), 11)
+    assert len(set(awake[:6])) == 6
+    red, green, blue = awake[6]
+    assert red > green > blue and green > blue * 2
+    assert render(state.snapshot(26), 26)[:6] != awake[:6]
