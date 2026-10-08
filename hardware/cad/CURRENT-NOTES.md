@@ -1,6 +1,6 @@
 # Current hardware notes
 
-The registry selects R32, Fusion cloud version 28. The native assembly, STL
+The registry selects R33, Fusion cloud version 30. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
@@ -8,12 +8,52 @@ names in current evidence identify the source of unchanged features.
 
 Download the [Fusion assembly (.f3d)](current/assembly.f3d) or the
 [STEP AP214 assembly (.step)](current/assembly.step). The STEP exports the full
-R32/cloud28 assembly, including hidden reference, layout and test components.
-Reimport into Fusion retained all 563 bodies and 331 occurrences in their assembly
+R33/cloud30 assembly, including hidden reference, layout and test components.
+Reimport into Fusion retained all 562 bodies and 330 occurrences in their assembly
 positions. It contains geometry and component placements, without Fusion
 parametric history or joints. Body names and occurrence suffixes may change on import.
 [Export provenance](current/step-export-provenance.json) records the source,
 hash and measured reimport checks.
+
+## Body lighting and head carrier
+
+R33 uses five changed pieces: P43 front upright, P04 head-servo carrier,
+P11 lower light bracket, P42 upper light bracket and P12 rear-mounted middle
+light bracket. P02 is now the unchanged rear upright only. The P13 wire guide
+is retired. There are 70 required printed pieces across 52 types, plus one
+optional print instance. P10 seam covers, base and shoulder carrier are unchanged.
+
+P43 has a deeper front chamfer, local fastening lands and an inset P04 mounting
+seat. Its opposite M3 nut recess is fully recessed relative to the post's flat
+side; the chamfer exposes part of the perimeter. Use an M3×10 countersunk screw
+for this sideways front carrier connection. Nominal projection is 0.34 mm beyond
+the nut, so verify full nut engagement without crushing the printed seat. This
+is the designed length, not a confirmed record of the owner's trial screw.
+The rear carrier connection retains M3×20.
+
+P04 thickens the front servo-ear crossbar to 5.3 mm with a shallow 1.8 mm nut
+recess and 3.5 mm of solid bearing above it. Both servo screw heads face upward:
+front M2×8 and rear M2×6, with ordinary M2 nuts below. The servo shaft points up
+at the rear end of its body, away from the front post. Assemble the servo and
+carrier on the bench while the underside nuts are accessible.
+
+P11 and P42 mount behind the front upright using two M3×14 countersunk screws
+and two M3 nuts. Install the upper light bracket before the servo carriers block
+access. P12 retains the rear mounting and brings its LEDs forward to the middle
+height. Retain six Pebbles and two ties per Pebble. The lower and middle pad ends
+have a 6 mm gap: bend the lower top exits behind their pads and the middle bottom
+exits toward the LED-facing side, after clearing the end ties. Keep excess slack
+out of servo movement and screw access. The local modeled wire envelope is
+5×0.95 mm with a 5 mm bend radius; the complete strand slack was not simulated.
+
+[Native and interface evidence](current/evidence/body-lighting-r33.json) records
+geometry and clearance checks. The accepted trial improved assembly and lighting;
+it is not a quantified strength or optical qualification. The inherited carrier
+tab edge has only 0.2 mm modeled upper-bracket clearance, while added reinforcement
+clears its adjacent bracket root by 1 mm. Check printed parts before tightening.
+
+Guide illustrations, assembly order, hardware lists and supply cards are pending
+an independent guide update. CAD acceptance does not mark that work complete.
 
 ## Body foam reference
 
@@ -28,8 +68,7 @@ Guide images showing the foam require regeneration from the current render input
 ## Electrical references
 
 The assembly contains one lighting fuse holder, F2, in its accepted location.
-Printable geometry, supports, component placements and all eight arm joints are
-unchanged. See [native verification](current/evidence/fuse-reference-r31.json)
+The F2 placement and all eight arm joints remain unchanged by R33. See [native verification](current/evidence/fuse-reference-r31.json)
 and [print reuse evidence](../printing/current/checks/r31-print-reuse.json).
 
 ## Enclosure and board layout
@@ -102,7 +141,7 @@ estimates are predictions. Prior K1 support inspection covers the moved board
 posts, nut recesses and WAGO mounting bands; W1 and W2 retain their documented
 cradle and backpack reviews.
 
-The [render source lock](../rendering/source-lock.json) selects the R32 assembly
+The [render source lock](../rendering/source-lock.json) selects the R33 assembly
 mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.
@@ -111,7 +150,7 @@ current assembly before reuse. A historical name does not imply a second design.
 
 Digital input checks, slicing and guide review do not establish printed fit,
 adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. All 72 required/optional print-source comparisons
-now pass; none remain pending. See the [semantic review contract](../printing/recipes/README.md)
+complete powered operation. The current print-source comparison receipt covers the selected R33 instances.
+Guide synchronization remains pending. See the [semantic review contract](../printing/recipes/README.md)
 and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
 is selected in the registry.

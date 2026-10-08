@@ -2,14 +2,14 @@
 
 Open **Blue Glee Blob - MAIN** in Fusion → Admin Project.
 
-Accepted design **R32**, exact cloud version **v28**.
+Accepted design **R33**, exact cloud version **v30**.
 Permanent file ID: `urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg`.
 
 ## CAD acceptance record
 
 Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.
 
-C04 display-only foam uses two round 14 mm shoulder holes and a continuous 2 mm rear seam. Windows, knife slits and edge notches are removed. Printed geometry, appearances, placements and all eight joints are unchanged. Native and STEP reimports verified.
+Accept the chamfered front upright P43, reinforced flush head-servo carrier P04, distinct lower P11/upper P42/rear-mounted middle P12 light brackets, and six LED placements. Retire P13 wire guide; rear P02 and unrelated geometry remain unchanged. Full native and STEP reimports verified; guide update remains pending.
 
 ## Current inputs
 

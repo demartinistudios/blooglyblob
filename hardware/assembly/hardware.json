@@ -82,11 +82,13 @@
     },
     {
       "id": "joint-head-servo",
-      "description": "Mount the head servo and upper collar",
+      "description": "Head servo: front M2\u00d78, rear M2\u00d76, heads above ears and nuts below; carrier-to-post front M3\u00d710 countersunk, rear M3\u00d720; upper collar retains two M3\u00d710.",
       "hardware": {
-        "M2x6": 2,
+        "M2x6": 1,
+        "M2x8": 1,
         "N2": 2,
-        "M3x20": 2,
+        "M3x20": 1,
+        "M3x10CS": 1,
         "M3x10": 2,
         "N3": 4
       }
@@ -121,10 +123,10 @@
     },
     {
       "id": "joint-body-lights",
-      "description": "Fit the six body lights and wire guide",
+      "description": "Fit six body lights: P11 lower and P42 upper attach behind front upright with M3\u00d714 countersunk screws. P12 rear-mounted middle bracket retains shared rear mounting. P13 wire guide is removed.",
       "hardware": {
-        "M3x10CS": 3,
-        "N3": 3
+        "M3x14CS": 2,
+        "N3": 2
       }
     },
     {

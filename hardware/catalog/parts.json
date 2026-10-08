@@ -1,6 +1,6 @@
 {
-  "status": "R32/cloud28: display-only C04 foam updated; 71 required pieces/51 types and all 72 required/optional print instances unchanged. Physical qualification remains separate.",
-  "cad": "R32",
+  "status": "R33/cloud30: reinforced head carrier, chamfered front upright and three distinct light brackets; P13 wire guide retired. 70 required pieces/52 types, plus one optional print instance. Guide updates pending; physical qualification remains separate.",
+  "cad": "R33",
   "parts": [
     {
       "part_id": "A04",
@@ -893,15 +893,10 @@
     },
     {
       "part_id": "P02",
-      "quantity": 2,
+      "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P02.stl",
       "geometry_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
       "instances": [
-        {
-          "id": "P02-1",
-          "plate": "W1",
-          "bambu_id": "2"
-        },
         {
           "id": "P02-1",
           "plate": "W2",
@@ -948,7 +943,7 @@
       "part_id": "P04",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P04.stl",
-      "geometry_sha256": "66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+      "geometry_sha256": "e24686e020f9e9fa826efa5a2b73544cca6f671355bb26a7996a2d4e7b53e1dc",
       "instances": [
         {
           "id": "P04-1",
@@ -957,14 +952,16 @@
         }
       ],
       "guide_step_ids": [
-        "head-servo"
+        "head-servo",
+        "body-lights"
       ],
       "guide_image": "assets/part-P04.png",
       "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:66d8e4b53bb0b03ca2cd2614536cfc0fda5b5f65db446f4947db2bb552385b46",
+      "qualification": "Owner reports improved fit and lighting with the accepted trial geometry. Inspect printed fit, support removal and nut engagement; strength and long-term durability are not quantified.",
+      "geometry_revision": "sha256:e24686e020f9e9fa826efa5a2b73544cca6f671355bb26a7996a2d4e7b53e1dc",
       "guide_review_step_ids": [
-        "head-servo"
+        "head-servo",
+        "body-lights"
       ]
     },
     {
@@ -1100,19 +1097,14 @@
     },
     {
       "part_id": "P11",
-      "quantity": 2,
+      "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P11.stl",
-      "geometry_sha256": "db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "geometry_sha256": "57af6346f7ac447ac70248a574936cea28d598795d8a0bf6443c7db1a08b3f33",
       "instances": [
         {
           "id": "P11-1",
           "plate": "W2",
           "bambu_id": "52"
-        },
-        {
-          "id": "P11-2",
-          "plate": "W2",
-          "bambu_id": "54"
         }
       ],
       "guide_step_ids": [
@@ -1121,8 +1113,8 @@
       ],
       "guide_image": "assets/part-P11.png",
       "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:db0c515a429fbc71ea88e3b07dd60ec79c7c1fc939cf7336d7794e167173037d",
+      "qualification": "Owner reports improved fit and lighting with the accepted trial geometry. Inspect printed fit, support removal and nut engagement; strength and long-term durability are not quantified.",
+      "geometry_revision": "sha256:57af6346f7ac447ac70248a574936cea28d598795d8a0bf6443c7db1a08b3f33",
       "guide_review_step_ids": [
         "body-light-strand",
         "body-lights"
@@ -1132,7 +1124,7 @@
       "part_id": "P12",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P12.stl",
-      "geometry_sha256": "174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+      "geometry_sha256": "2bfed18266e07d1afdeba6386f3518e555bff25a73674acdf8ac413810e958c1",
       "instances": [
         {
           "id": "P12-1",
@@ -1148,38 +1140,13 @@
       ],
       "guide_image": "assets/part-P12.png",
       "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:174a2999226675b0f96499052c1e6707de95c24913126c8606a91f050fd9515f",
+      "qualification": "Owner reports improved fit and lighting with the accepted trial geometry. Inspect printed fit, support removal and nut engagement; strength and long-term durability are not quantified.",
+      "geometry_revision": "sha256:2bfed18266e07d1afdeba6386f3518e555bff25a73674acdf8ac413810e958c1",
       "guide_review_step_ids": [
         "body-light-strand",
         "body-lights",
         "body-diffuser",
         "backpack-carrier"
-      ]
-    },
-    {
-      "part_id": "P13",
-      "quantity": 1,
-      "geometry_path": "hardware/cad/current/stl/P13.stl",
-      "geometry_sha256": "36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
-      "instances": [
-        {
-          "id": "P13-1",
-          "plate": "W2",
-          "bambu_id": "58"
-        }
-      ],
-      "guide_step_ids": [
-        "body-light-strand",
-        "body-lights"
-      ],
-      "guide_image": "assets/part-P13.png",
-      "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Check print quality and fit before assembly.",
-      "geometry_revision": "sha256:36a5db4d121be268a67ce48a4c9271fdb78b2ff9da18ab9e651288a4d0124026",
-      "guide_review_step_ids": [
-        "body-light-strand",
-        "body-lights"
       ]
     },
     {
@@ -1437,6 +1404,64 @@
       "geometry_revision": "sha256:17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
       "guide_review_step_ids": [
         "backpack"
+      ]
+    },
+    {
+      "part_id": "P42",
+      "quantity": 1,
+      "geometry_path": "hardware/cad/current/stl/P42.stl",
+      "geometry_sha256": "f9bcdb1e2a0b6df30c68bda870eb6c750aca94e68e8b400bcc8571f6ace51135",
+      "instances": [
+        {
+          "id": "P42-1",
+          "plate": "W2",
+          "bambu_id": "54"
+        }
+      ],
+      "guide_step_ids": [
+        "body-light-strand",
+        "body-lights",
+        "head-servo",
+        "shoulder-servos"
+      ],
+      "guide_image": "assets/part-P42.png",
+      "source": "hardware/cad/current/assembly.f3d",
+      "qualification": "Owner reports improved fit and lighting with the accepted trial geometry. Inspect printed fit, support removal and nut engagement; strength and long-term durability are not quantified.",
+      "geometry_revision": "sha256:f9bcdb1e2a0b6df30c68bda870eb6c750aca94e68e8b400bcc8571f6ace51135",
+      "guide_review_step_ids": [
+        "body-light-strand",
+        "body-lights",
+        "head-servo",
+        "shoulder-servos"
+      ]
+    },
+    {
+      "part_id": "P43",
+      "quantity": 1,
+      "geometry_path": "hardware/cad/current/stl/P43.stl",
+      "geometry_sha256": "349d4ab7bc8bc4f2b9cbe08fe1f2e09da6736c36fc988ed4307a8af18d36af81",
+      "instances": [
+        {
+          "id": "P43-1",
+          "plate": "W1",
+          "bambu_id": "2"
+        }
+      ],
+      "guide_step_ids": [
+        "frame-uprights",
+        "shoulder-servos",
+        "head-servo",
+        "body-lights"
+      ],
+      "guide_image": "assets/part-P43.png",
+      "source": "hardware/cad/current/assembly.f3d",
+      "qualification": "Owner reports improved fit and lighting with the accepted trial geometry. Inspect printed fit, support removal and nut engagement; strength and long-term durability are not quantified.",
+      "geometry_revision": "sha256:349d4ab7bc8bc4f2b9cbe08fe1f2e09da6736c36fc988ed4307a8af18d36af81",
+      "guide_review_step_ids": [
+        "frame-uprights",
+        "shoulder-servos",
+        "head-servo",
+        "body-lights"
       ]
     }
   ],

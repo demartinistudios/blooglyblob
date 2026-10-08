@@ -1,13 +1,12 @@
 {
-  "cad": "R32/cloud28",
+  "cad": "R33/cloud30",
   "native_source": {
     "path": "hardware/cad/current/assembly.f3d",
-    "original_path": "hardware/cad/current/assembly.f3d",
-    "sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12"
+    "sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e"
   },
-  "source_comparisons_verified": 72,
+  "source_comparisons_verified": 71,
   "pending_source_comparisons": 0,
-  "validation": "checks/r32-print-reuse.json",
+  "validation": "checks/r33-lighting-validation.json",
   "selected_A04_source": {
     "path": "hardware/cad/current/stl/A04.stl",
     "sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01"

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "design_revision": "R32",
+  "design_revision": "R33",
   "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-  "cloud_version": 28,
-  "native_sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12",
+  "cloud_version": 30,
+  "native_sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
   "export": {
     "path": "hardware/cad/current/assembly.step",
-    "sha256": "22ef536edbdb34ae6ae02b84368aeec11604531484991e2a5b2e2a05468b8dcf",
-    "bytes": 21514609,
+    "sha256": "bd8a38aac1e7218ee9f294be143b3b412da259fad4ee82b3fdea07552dca23f4",
+    "bytes": 21775520,
     "schema": "AP214",
     "file_schema": "AUTOMOTIVE_DESIGN { 1 0 10303 214 3 1 1 }",
     "application": "Autodesk Fusion 2705.1.25",
@@ -16,9 +16,9 @@
     "include_invisible_components": true
   },
   "verification": {
-    "body_count": 563,
-    "occurrences_before": 331,
-    "occurrences_after": 331,
+    "body_count": 562,
+    "occurrences_before": 330,
+    "occurrences_after": 330,
     "all_solid_states_match": true,
     "max_center_delta_mm": 0.0055291547607650175,
     "max_bounds_delta_mm": 0.0007346557902963013,
@@ -29,5 +29,5 @@
     "method": "Full root including hidden geometry reimported into a separate Fusion document. One-to-one body geometry and occurrence placements checked with VeryHighCalculationAccuracy physical properties."
   },
   "scope": "Full assembly geometry, including hidden reference, layout and test components. Native component occurrence placements retained. STEP import can renumber occurrence suffixes and assign generic body names; parametric history and Fusion joints are not part of this neutral geometry export.",
-  "preserved": "Geometry and placements verified against saved MAIN cloud28. STEP omits native parametric history and joints."
+  "preserved": "Geometry and placements verified against saved MAIN cloud30. STEP omits native parametric history and joints."
 }

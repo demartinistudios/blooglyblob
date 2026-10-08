@@ -559,6 +559,13 @@
       "optional": 0,
       "qty": 1,
       "quantity_scope": "required-build-supply"
+    },
+    {
+      "id": "M3x14CS",
+      "exact": "M3\u00d70.5, 14 mm overall length, 90\u00b0 countersunk head",
+      "category": "Fastener",
+      "optional": 0,
+      "quantity_scope": "derived-installed"
     }
   ]
 }

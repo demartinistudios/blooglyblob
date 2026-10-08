@@ -1,34 +1,55 @@
 # Editable print recipes
 
-The current CAD is **R32 / Fusion cloud28**, with the unchanged R29 print package: ten color/material plates,
-71 required pieces / 51 types. Open **BlooglyBlob-R29-PLA-Production.3mf** in
+The current CAD is **R33 / Fusion cloud30**, with ten color/material plates,
+70 required pieces / 52 types. Open **BlooglyBlob-R33-PLA-Production.3mf** in
 Bambu Studio 2.7.1.62. The optional clear PETG ball project replaces A05 on T1.
 Logical filament numbers are profiles, not physical AMS slot assignments.
 
-The selected enclosure layout provides four Pi posts, four shifter posts and
-four WAGO mounting pads. See [current CAD notes](../../cad/CURRENT-NOTES.md).
+Package estimate: **38h 58m 13s, 680.72 g**. W1 and W2 were freshly
+sliced for this update; eight unchanged plates retain their prior estimates.
+These are slicer predictions. The unchanged K1 enclosure estimate remains
+12h 14m 24s / 289.52 g.
 
-K1 estimate: **12h 14m 24s, 289.52 g**.
-Package estimate: **39h 1m 54s, 685.50 g**.
-Eight affected PLA plates and the optional PETG ball were re-sliced after mesh
-reconciliation. K1 and B2 estimates are inherited from their unchanged recipes. These are slicer estimates, not measured outcomes.
+All 71 required/optional source-instance comparisons pass exact triangle and
+closed-topology checks. Physical qualification remains separate; use
+`python3 hardware/tools/validation/check.py --publication` for current blockers.
+See [current review](checks/r33-lighting-validation.json).
 
-The set is digitally prepared. All 72 required/optional source-instance comparisons pass exact triangle checks.
-Physical qualification remains separate; use `python3 hardware/tools/validation/check.py
---publication` for current blockers. Support release, nut fit, adhesive retention
-and installed wiring need physical qualification before a validated-kit claim.
+## R33 lighting and head carrier
 
-## Current CAD source
+W1 contains P43 FRONT upright and reinforced P04 carrier. W2 contains the
+unchanged P02 REAR upright, P11 LOWER, P42 UPPER and P12 MIDDLE light brackets.
+Each is quantity 1. P13 front wire guide is retired. P41 is a historical grille
+identity and must not be used for the front upright. The P10 foam seam covers
+remain unchanged. Historical recipe instance IDs are preserved; explicit part
+IDs in the manifest and catalog identify the new parts.
 
-All selected printable geometry and placements are unchanged in R32. Reuse both
-R29-named 3MF projects and the selected STLs; settings, modifiers, plate estimates
-and thumbnails retain their reviewed bytes. [Reuse evidence](checks/r32-print-reuse.json)
-binds the current native source to the retained printable geometry and 72 exact
-source-instance comparisons. No additional slicing was needed for this update.
+P43 prints rear face down with countersinks up: 0.20 mm layers, 5 walls, 25% gyroid,
+supports off. P04 prints servo-seat face down: 0.16 mm, 5 walls, 25% gyroid; automatic
+trees remain enabled but this slice generates no carrier support. Both use a
+3 mm outer brim with 0.1 mm gap. The carrier's horizontal screw bores bridge;
+check bridging and nut fit after cleanup. The front post's M3×10 countersunk
+screw is nominal design sizing, not an owner-confirmed installed length; check
+full nut engagement. Rear M3×20 remains unchanged.
 
-## Source mesh reconciliation
+P11/P42/P12 print upright with accessible nut-entry openings: 0.20 mm layers,
+4 walls, 25% gyroid, 3 mm outer brim / 0.1 mm gap, automatic trees with 0.20 mm Z and
+0.35 mm XY separation. Lower/upper inset nut-entry and mounting-bore support
+samples are clear. Accessible supports remain below arms/pads and in the middle
+bracket bore. Hold the arms while clipping supports; avoid twisting the pads.
+White PLA profiles stay 220°C nozzle / 55°C textured bed / 12 mm³/s.
 
-The downloadable STLs and all 72 required/optional normal meshes now agree
+The lower and middle brackets are spaced apart on W2; its rear upright moves
+6 mm inward to give the brim clearance from the excluded bed corner. All other
+objects retain their geometry, process and placement; existing support blockers
+are preserved. The retained head opening and screw-bore support cores were
+reviewed again. See the [first layers](checks/r33-first-layer.png),
+[support review](checks/r33-support-review.png) and
+[carrier layers](checks/r33-carrier-layers.png).
+
+## Retained source mesh reconciliation
+
+The downloadable STLs and all 71 required/optional normal meshes now agree
 triangle-for-triangle in independently reviewed frames. Forty-one retained recipe
 instances were normalized without changing their print settings, orientation,
 placement or support modifiers. A04 uses a closed native STL export from the
@@ -117,9 +138,9 @@ required public build inputs.
 
 | Plate | Recipe and change | Whole-plate estimate |
 |---|---|---|
-| W1 — white, plate 1 | R29 head pair and audio cradle/lid; retained 0.16 mm layers, tree supports and brims | 3h 27m 10s, 64.26g |
-| K1 — black, plate 2 | R28 shell roof-down; 0.20mm layers, 4 walls, 25% gyroid, 5mm outer brim / 0.12mm gap; normal/snug supports, 0.20mm Z / 0.40mm XY; PLA 220°C nozzle / 60°C textured PEI | 12h 14m 24s, 289.52g |
-| W2 — white, plate 3 | R29 glue-retained backpack; existing settings and pin blockers retained | 4h 12m 45s, 65.95g |
+| W1 — white, plate 1 | R33 carrier/front upright; retained head/audio parts and blockers | 3h 28m 30s, 64.67g |
+| K1 — black, plate 2 | R28 shell roof-down; 0.20 mm layers, 4 walls, 25% gyroid, 5mm outer brim / 0.12mm gap; normal/snug supports, 0.20 mm Z / 0.40mm XY; PLA 220°C nozzle / 60°C textured PEI | 12h 14m 24s, 289.52g |
+| W2 — white, plate 3 | R33 lower/upper/middle LED brackets; rear upright and backpack retained | 4h 7m 44s, 60.76g |
 | C2 — copper, plate 7 | R29 canisters upright; silk PLA 220°C / 55°C, 7.5 mm³/s; all other copper parts/settings retained | 3h 44m 26s, 48.63g |
 
 Use the project and object-settings.csv for each object's overrides. K1 flow
@@ -154,7 +175,7 @@ none of these outcomes.
 
 manifest.json, object-settings.csv and planned-settings.json describe the selected
 recipe. source-provenance.json retains inherited recipe origins; live-source-check.json
-binds this update to the registry-selected CAD. checks/r29-mesh-consistency-* records current source/frame, fullplate and support review. Earlier checks/r29-* retains prior W1/W2/C2 review and arm frame corrections; checks/r28-* retains the unchanged K1 review; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
+binds this update to the registry-selected CAD. checks/r33-lighting-validation.json records the current changed-source, W1/W2 and preservation review. Earlier checks/r29-mesh-consistency-* records prior source/frame and support review, reused only for unchanged scope. Earlier checks/r29-* retains prior W1/W2/C2 review and arm frame corrections; checks/r28-* retains the unchanged K1 review; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
 base/cradle review. Other checks files preserve explicitly historical R23 evidence
 for inherited recipes; they are not new R29 results. PUBLISHED.json is a current
 file inventory, not proof of deployment or user approval. Git preserves superseded

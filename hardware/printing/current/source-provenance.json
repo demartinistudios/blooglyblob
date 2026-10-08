@@ -11604,5 +11604,10 @@
     "revision": "R29/cloud25",
     "operation": "P08/P14 direct-native export replacement to remove exact-coordinate seam gaps; unchanged design/settings/placements",
     "record": "hardware/printing/current/checks/r29-head-topology-validation.json"
+  },
+  {
+    "revision": "R33/cloud30",
+    "operation": "Approved lighting/head-carrier geometry and trial process transferred to full W1/W2;P13 retired; eight other plates and optional PETG reused.",
+    "record": "hardware/printing/current/checks/r33-lighting-validation.json"
   }
 ]

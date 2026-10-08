@@ -5,9 +5,9 @@
   "policy": "Whole 3MF is the portable editable recipe: model hierarchy, transforms, modifiers, plate/object settings, resolved material settings and scripts. Member lock detects byte changes. Installed profiles are not runtime inputs to validation or staging.",
   "projects": [
     {
-      "path": "hardware/printing/current/BlooglyBlob-R29-PLA-Production.3mf",
-      "sha256": "cdfb9d9392e6d4bf770fe849ff11da996b578f494480cb0011f6e5311663413a",
-      "instances": 71,
+      "path": "hardware/printing/current/BlooglyBlob-R33-PLA-Production.3mf",
+      "sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
+      "instances": 70,
       "members": [
         {
           "path": "[Content_Types].xml",
@@ -46,13 +46,13 @@
         },
         {
           "path": "3D/3dmodel.model",
-          "sha256": "ed9911c33cf4d0e4970e6dd73f11f1347bc8e3a8213f69d9336be4188b63c6b9",
-          "bytes": 42005
+          "sha256": "01324143e847e48f0349340279375c3123ae7c29fe70aba4f01a67bc3403a117",
+          "bytes": 41588
         },
         {
           "path": "3D/_rels/3dmodel.model.rels",
-          "sha256": "2f787b6774122a5f1f2f4e68a0cbcffc0d9cc662c1c758c0ea369e5062a3f656",
-          "bytes": 9637
+          "sha256": "c4fcd0b3bb99b120622dd31d181acc65a7760b49d6302e1799a9a242d51e6d14",
+          "bytes": 9505
         },
         {
           "path": "3D/Objects/object_19.model",
@@ -71,13 +71,13 @@
         },
         {
           "path": "3D/Objects/object_3.model",
-          "sha256": "3ab33b9370c8f8de8d34ef0658464094c7dca2a9d0a48bed9e0a2bb57f6d4de5",
-          "bytes": 54343
+          "sha256": "7c1e2666abe5cfc32ffbbedcce42ddff417a666113b44506462edaaef4a19de8",
+          "bytes": 72436
         },
         {
           "path": "3D/Objects/object_20.model",
-          "sha256": "bb1e8adf6c5564538873f5f0b5c60ca553d94f1f37f100f6ea66c4e2b93a6660",
-          "bytes": 55658
+          "sha256": "0e0857e1d122b90e7273f0adad2332fd8b98ed2f241a91d6ac5ff2705011562b",
+          "bytes": 48062
         },
         {
           "path": "3D/Objects/object_17.model",
@@ -91,13 +91,13 @@
         },
         {
           "path": "3D/Objects/object_1.model",
-          "sha256": "f75f6622d9780920499c00968473b4e2c81c112b6c5def5c7bd8b41facbf4a60",
-          "bytes": 130535
+          "sha256": "23cc4da0cf7a467f50defa1063c90ce9df6513e6359e3c5b5791bbd7b8d5c5e0",
+          "bytes": 217163
         },
         {
           "path": "3D/Objects/object_21.model",
-          "sha256": "e5c3dedad26d24157c5273346f00682335fdc50831834546577f4b2b8088623c",
-          "bytes": 55658
+          "sha256": "d87bd38c1ef20ea7033374b879f06233581096be8c4c305ae01385f875a558b6",
+          "bytes": 34223
         },
         {
           "path": "3D/Objects/object_14.model",
@@ -106,8 +106,8 @@
         },
         {
           "path": "3D/Objects/object_22.model",
-          "sha256": "726359a5957db82b1c5944c9f73fcf5f5ed97a1ae247b6e269039170b7506342",
-          "bytes": 43025
+          "sha256": "1188a8d933552b84d82ae29f7f7b85d6783b9fb3b7f3e67f6fbe502bb9c13c04",
+          "bytes": 63314
         },
         {
           "path": "3D/Objects/object_31.model",
@@ -123,11 +123,6 @@
           "path": "3D/Objects/object_4.model",
           "sha256": "ba3cad4e2519bdea8308f2b388013aee04330e49268691aed3daa453bcd250f0",
           "bytes": 131549
-        },
-        {
-          "path": "3D/Objects/object_23.model",
-          "sha256": "856a88ecdc2dc2bb8013dec17edfda832251e2bc1b530c5035e6bc0f07d028cb",
-          "bytes": 52881
         },
         {
           "path": "3D/Objects/object_12.model",
@@ -416,8 +411,8 @@
         },
         {
           "path": "Metadata/model_settings.config",
-          "sha256": "35754c29c0029902a9f44bef6c535c97963403f106fe52eaaad07b8879b0ee77",
-          "bytes": 931761
+          "sha256": "e0762b4ec88447ec34ab260d6948151988c8ae07aa316399eb2ebe34e832714b",
+          "bytes": 919001
         },
         {
           "path": "Metadata/cut_information.xml",
@@ -453,31 +448,6 @@
           "path": "Metadata/pick_2.png",
           "sha256": "3a70d21df509a11e6377e74ba79f58025d9df5faed889fd3a58c4a491592fc05",
           "bytes": 3038
-        },
-        {
-          "path": "Metadata/plate_3.png",
-          "sha256": "1d32d30399aac8417d67144cb861c7d9d1b4d2f92fccc25cc1df7877b426a1d2",
-          "bytes": 15583
-        },
-        {
-          "path": "Metadata/plate_3_small.png",
-          "sha256": "13f5003752dea6d5f16e50117c4df827a2a96068d69f417607f31d28b219c2e7",
-          "bytes": 4091
-        },
-        {
-          "path": "Metadata/plate_no_light_3.png",
-          "sha256": "df23b5757ad7d7f766dbd7368ece93877d89db444cc5da339159165f97ca0199",
-          "bytes": 4688
-        },
-        {
-          "path": "Metadata/top_3.png",
-          "sha256": "f052751900957a55c10c00443a1f4eddbb9843ac9545cedd2e6dda453b04f65c",
-          "bytes": 8865
-        },
-        {
-          "path": "Metadata/pick_3.png",
-          "sha256": "acc7111659cac00c8a86ad43270a990d9826bc2d6e2a9f45565ac13d36790cf9",
-          "bytes": 4077
         },
         {
           "path": "Metadata/plate_4.png",
@@ -631,28 +601,43 @@
         },
         {
           "path": "Metadata/plate_1.png",
-          "sha256": "ea05f67f7de0ffc2507c1f76315267036c4b5b3ea021cce770a2a2b8441d5b72",
-          "bytes": 14488
-        },
-        {
-          "path": "Metadata/plate_1_small.png",
-          "sha256": "5747f4037d7ebb6b729457094dbd575904bbe138d61dede60a5fdd0f54e037ca",
-          "bytes": 4634
+          "sha256": "eaa944ed19c1d360f0888a8380c99ad86b67e09697f4d356757c376606f59da3",
+          "bytes": 15438
         },
         {
           "path": "Metadata/plate_no_light_1.png",
-          "sha256": "99d7470f94725e28f98c4661c8ac21a62b23ad1c22c4ae400e2aa7e7f167a1ec",
-          "bytes": 5397
+          "sha256": "af5f2298a7f25551d231eb15fa28ef06c888ba7c2bd6d5b3c8692101275aaf68",
+          "bytes": 5403
         },
         {
           "path": "Metadata/top_1.png",
-          "sha256": "feb6ec3abaccd3e392b1a99ff0928a9e252828bec1b08ddae693929bfe9507e3",
-          "bytes": 8247
+          "sha256": "7676e17d78146e894ea0d20ffb4cc6c84cecbdbc806a456b83de3c8f37c6b80e",
+          "bytes": 9798
         },
         {
           "path": "Metadata/pick_1.png",
-          "sha256": "2b2eaed8a278f8581e1b76aac99c72867fca340fb2c141f3c69620a7aed9c8dd",
-          "bytes": 4884
+          "sha256": "60003ae4cac468124b8894d21de6795390e2df3cbdc8ef6da6f7ad5f0c177117",
+          "bytes": 4848
+        },
+        {
+          "path": "Metadata/plate_3.png",
+          "sha256": "3152262fcde4f33686cf371f2bc316a3b58206d56518542565f5639e71304075",
+          "bytes": 15181
+        },
+        {
+          "path": "Metadata/plate_no_light_3.png",
+          "sha256": "8363e34fef6cd06471844ec9a68d16129a4566be605188d1942bde0ff811c6ec",
+          "bytes": 4750
+        },
+        {
+          "path": "Metadata/top_3.png",
+          "sha256": "09de0f82b4d24ae1e6bb21c3b802bab2e1bfd6e9a1c8c3563e23dbcd7a14363e",
+          "bytes": 9206
+        },
+        {
+          "path": "Metadata/pick_3.png",
+          "sha256": "5c725ee3eccace94c23fdc2e2674a1f5be6b49b70af9d4b5d156e040877056c6",
+          "bytes": 4095
         }
       ]
     },
@@ -740,16 +725,16 @@
     }
   ],
   "cad": {
-    "design_revision": "R32",
+    "design_revision": "R33",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 28,
-    "release_manifest": "hardware/cad/design-control/releases/R32-body-foam-20261007.json",
-    "release_manifest_sha256": "4123e7100a3013de6a646a6462d690b0683f37b916dd3ecae0da6bd06cfb3684"
+    "cloud_version": 30,
+    "release_manifest": "hardware/cad/design-control/releases/R33-body-lighting-20261008.json",
+    "release_manifest_sha256": "a96501ca1f8912be5cf439629b7130562d69d8028bc1aa300b28001af37ac05e"
   },
   "semantic_contract": {
     "path": "hardware/printing/recipes/semantic-contract.json",
-    "sha256": "ec6c579cca0444b1227413d4cce264e06fcdfec7fad255295cb93ddf48198368",
-    "bytes": 184755
+    "sha256": "8d73d21fb1f9e6733b5f17bd8bd5ada440d1f2f9725e43efaddec8c747e12c20",
+    "bytes": 183014
   },
-  "cad_update_status": "R32/cloud28 changes only display foam. All selected STL and R29-named project bytes, source frames and print settings remain unchanged."
+  "cad_update_status": "R33/cloud30 complete lighting/carrier update. W1/W2 freshly sliced;71 exact source comparisons,70required/52types/10plates. Guide and physical qualification separate."
 }

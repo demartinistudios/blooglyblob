@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "cad": "R33/cloud30",
+  "parent_cad": "R32/cloud28",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
+    "bytes": 15430078
+  },
+  "parent_native_sha256": "1e2c1b0ea1a00a54b844e25fe682838ad4edde398484810c7c9f4e0a95667b12",
+  "scope": {
+    "changed_parts": [
+      "P04",
+      "P11",
+      "P12",
+      "P42",
+      "P43"
+    ],
+    "retired_parts": [
+      "P13"
+    ],
+    "reused_rear_upright": "P02 quantity 1",
+    "moved_references": "six body Pebble LED poses",
+    "unchanged": "Base, shoulder carrier, head shell, foam, electrical allocations and eight arm joints; retained appearances and unrelated geometry."
+  },
+  "verification": {
+    "retained_bodies_exact": 557,
+    "changed_printed_bodies": 5,
+    "removed_wire_guide": "P13 Open body wire guide r0 - front service mount:1",
+    "moved_LED_references": 6,
+    "occurrences": 330,
+    "bodies": 562,
+    "joints_preserved": 8,
+    "timeline_health_unchanged": true,
+    "geometry_matches_approved_sources": true,
+    "retained_appearances_visibility_transforms_preserved": true
+  },
+  "native_reimport": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 30,
+    "latest": 30,
+    "complete": true,
+    "modified": false,
+    "native_sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
+    "step_sha256": "bd8a38aac1e7218ee9f294be143b3b412da259fad4ee82b3fdea07552dca23f4",
+    "retained_bodies_exact_bidirectional_BRep": 562,
+    "retained_occurrences": 330,
+    "joints_preserved": 8,
+    "appearance_visibility_transforms_body_statistics_preserved": true,
+    "timeline_health_unchanged": true,
+    "removed": []
+  },
+  "mesh_checks": [
+    {
+      "part_id": "P43",
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "positive_volume": true,
+      "bounds_match": true,
+      "relative_volume_error": 0.0002745237685011695
+    },
+    {
+      "part_id": "P04",
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "positive_volume": true,
+      "bounds_match": true,
+      "relative_volume_error": 0.00018058614012429156
+    },
+    {
+      "part_id": "P11",
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "positive_volume": true,
+      "bounds_match": true,
+      "relative_volume_error": 4.324747345261689e-05
+    },
+    {
+      "part_id": "P42",
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "positive_volume": true,
+      "bounds_match": true,
+      "relative_volume_error": 7.336819785892118e-05
+    },
+    {
+      "part_id": "P12",
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "positive_volume": true,
+      "bounds_match": true,
+      "relative_volume_error": 0.0002724743287899189
+    }
+  ],
+  "static_collision_check": "No intersections between affected candidate bodies and the checked frame, servo and LED reference bodies. This does not qualify dynamic motion, wire slack or physical tolerance.",
+  "print_source_frame": "hardware/cad/current/frames/body-lighting-r33.json",
+  "reinforced_carrier_mm": {
+    "front_crossbar_depth": 5.3,
+    "front_nut_pocket_depth": 1.8,
+    "front_nut_pocket_AF": 4.3,
+    "solid_bearing_above_nut": 3.5,
+    "front_servo_screw": "M2\u00d78 downward; nut below",
+    "rear_servo_screw": "M2\u00d76 downward; nut below",
+    "minimum_inherited_upper_light_tab_clearance": 0.2,
+    "added_material_to_upper_light_root_clearance": 1.0
+  },
+  "front_post_joint_mm": {
+    "nut_pocket_AF": 5.8,
+    "nut_pocket_depth": 2.65,
+    "modeled_nut_thickness": 2.35,
+    "screw": "M3\u00d710, 90\u00b0 countersunk, overall length including head",
+    "nominal_tip_past_nut": 0.34,
+    "nominal_tip_past_post_flat_face": 0.04,
+    "remaining_axial_post_web": 3.35,
+    "qualification": "Design-intended length; the owner withdrew certainty about the screw used. Verify full nut engagement in the printed assembly."
+  },
+  "front_LED_mount_screws": "Two M3\u00d714 countersunk screws, ordinary M3 nuts, front-to-rear through post to back-mounted P11/P42.",
+  "physical_evidence": "Owner reports improved assembly and lighting from the accepted printed trial. No quantified load, fatigue, thermal or optical calibration is claimed.",
+  "downstream": {
+    "printing": "Updated selected recipes and evidence are maintained by the printer owner.",
+    "guide": "Pending separate owner-managed guide update; no synchronized kit release claimed."
+  }
+}
