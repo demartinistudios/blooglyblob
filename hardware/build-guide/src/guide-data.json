@@ -3452,9 +3452,9 @@
         "Drop an M3\u00d78 screw down through the flange and shelf at each hole. The screw heads rest on the flange.",
         "Keep the shelf level in one hand. With a fingertip of that hand, press an M3 nut up into the pocket under one screw.",
         "With your other hand, turn that screw with a hex key until it catches the nut. Repeat for the other two screws.",
-        "Tighten all three screws. Keep the shelf\u2019s open cable entry clear. The shelf, adapter and horn are now the head shelf assembly."
+        "Tighten all three screws. The shelf, adapter and horn are now the head shelf assembly."
       ],
-      "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The cable entry and the horn\u2019s center hole are clear.",
+      "check": "The horn, adapter and shelf are secure. The screw heads sit on the flange, and the nuts sit in the pockets below. The horn\u2019s center hole is clear.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -5066,7 +5066,7 @@
         "In front of the robot, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
         "At the top of the body, push the head half into the body half until the latch clicks. Pull gently on the two housings. They must stay latched.",
         "If either cable is tight, move the head closer.",
-        "Turn the head shelf assembly so its side with no nut pocket faces front. Lay the head light cable into its side entry from the side, clear of the horn screws.",
+        "Turn the head shelf assembly so its side with no nut pocket faces front. Pass the head light cable down through any open gap in the shelf, clear of the horn screws.",
         "Set the horn on the head servo shaft, shelf front nearest straight ahead. The spline has 21 teeth, about 17\u00b0 apart. Turn the shelf, not the shaft, to mesh them. Press the shelf down.",
         "Hold the shelf still with one hand. With the other, drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Tighten it. Do not use an M2 screw.",
         "Face the robot\u2019s front. At its robot-left shoulder, on your right, hold the robot-left upper arm (AR01) hanging straight down.",
@@ -5142,11 +5142,7 @@
             7,
             8,
             9
-          ],
-          "detail": {
-            "title": "Lay the cable into the side entry",
-            "image": "assets/community/head-cable-entry-detail.svg"
-          }
+          ]
         },
         {
           "title": "Attach the robot-left arm",
@@ -5178,7 +5174,7 @@
         "Drop an M2 nut into each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
         "Lift the head off the towels. Hold it upright a few centimetres above the shelf, face forward, its screw holes above the nut pockets.",
         "With your other hand, push the joined head light connector up into the head. Rest it on top of the mouth LED cassette (P30).",
-        "Lower the head straight onto the shelf, without twisting it. Push the head light cable slack down through the side entry, into a relaxed loop below the shelf.",
+        "Lower the head straight onto the shelf, without twisting it. Push the head light cable slack down through its gap, into a relaxed loop below the shelf.",
         "If the head does not sit level, lift it. Free the trapped wire.",
         "Hold the head still with one hand. With the other, start an M2\u00d78 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
         "Tighten each screw only until the shell is held firmly.",
@@ -5218,7 +5214,7 @@
         {
           "title": "Load the head nuts",
           "image": "assets/community/head-cable-entry.svg",
-          "caption": "The head shelf from above, with the head light cable in its side entry.",
+          "caption": "The head shelf from the front left, with the head light cable through one of its gaps.",
           "actions": [
             0
           ]

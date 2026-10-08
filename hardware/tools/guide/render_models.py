@@ -434,15 +434,12 @@ def action_diagrams(render, output):
     emit('head-horn-offset-holes',parts,[.5,-1,-1],'Fasten the horn to P14 first',
          ['1 M2 × 6 screws · 2 Center hole, left open'],
          [('1',[-9,0,98]),('1',[9,0,98]),('2',[0,0,107])],arrows=[([0,0,108],[0,0,116])])
-    parts=chosen(['P08'])+tube([[-12,-24,101],[-10,-26,110],[-10,-26,123],[-10,-26,133],[-12,-28,140],[-18,-31,143],[-25,-33,140],[-28,-32,133]],1.2)
-    emit('head-cable-entry',parts,[-.8,-1,1.3],'Lay in the head light cable',
+    # Any open gap between the spokes takes the cable (owner bench, F38); draw the
+    # plain front gap on the robot-left (+X) side, clear of the horn screws.
+    parts=chosen(['P08'])+tube([[17,-21,z] for z in range(96,152,8)],1.2)
+    emit('head-cable-entry',parts,[.8,-1,1.3],'Pass the head light cable through a gap',
          ['1 Head light cable'],
-         [('1',[-10,-26,123])],arrows=[([-27,-26,124],[-12,-26,124])])
-    parts=cropped(chosen(['P08']),[[-22,-34,121.3],[0,-17,125.4]])
-    parts+=tube([[-10,-26,115],[-10,-26,123],[-10,-26,133]],1.2)
-    emit('head-cable-entry-detail',parts,[-.8,-1,1.3],'Place the cable through the side slot',
-         [],
-         arrows=[([-24,-26,123],[-12,-26,123])])
+         [('1',[17,-21,106])])
     # Mouth board screws are the inner pair; clamp screws are the outer pair.
     parts=translated(chosen(['P30','E04']),{'E04':[0,-10,0]})
     for x in [-12.7,12.7]:parts+=screw(2,8,[x,-36,136.65],[0,1,0])+[nut(2,[x,-12.5,136.65],[0,1,0])]
