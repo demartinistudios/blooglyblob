@@ -1,13 +1,13 @@
 {
   "source": {
     "path": "hardware/cad/current/assembly.f3d",
-    "sha256": "d4af71cf7b34e8528acdc9f1ef09b46229da4bf3c96a73d472f1f595d34f2ffa",
-    "design_revision": "R29",
-    "cloud_version": 25
+    "sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
+    "design_revision": "R33",
+    "cloud_version": 30
   },
   "output": {
     "path": "hardware/build-guide/src/assets/r22/main-front.png",
-    "sha256": "eab0f7fc2f9bd2858edbf54cef0be7770faaaee35490f55d98ebd01431dc3991",
+    "sha256": "979b8ffdf0827c147f7f343129c58ddba1b30fe8360e99729e5ff985136a7a9c",
     "width": 1400,
     "height": 1600,
     "transparent": true
@@ -42,7 +42,7 @@
   "visibility_changes": false,
   "post_processing": {
     "method": "Masked raster compositing on the native Fusion capture; no generative image used in the final asset.",
-    "base_capture_sha256": "a8cbac248c8d2a6f6c8a9bcc2a75a54cec9950b57de63e084d23fcba3e6264db",
+    "base_capture_sha256": "17b6dbaab2ac6260a96a8b7c8b399bff545d2c56f9c9a5a860dda2432430bdf3",
     "lighting": "Warm-white eyes, eight connected rainbow mouth zones with feathered transitions and no separator lines, and softly blended cyan/blue/lavender/mint body illumination. Glow is illustrative, not an optical simulation.",
     "fasteners": {
       "finish": "Black hex-socket heads with raised crowns and contact shadows",
@@ -51,7 +51,7 @@
       "top_button_plate": 2
     },
     "preserved": "Original camera, framing, mouth aperture, CAD part geometry and alpha channel. CAD and print files are unchanged.",
-    "base_capture_git_revision": "8a72de2896cdb1b682f472856744d0cf4435149e"
+    "revision_update": "R33 recapture with the same camera and settings registers with the R29 base (identical framing and alpha bounds); only the former rectangular foam shoulder window changed visibly. Edits were carried over pixel by pixel: unedited pixels take the new capture, edited pixels keep their light as a screen layer, and the newly visible foam joins the body mask with the neighbouring body color and the body-shade formula. Fasteners, eyes and mouth are unchanged. The R29 base is main-front.png at git 8a72de2896cdb1b682f472856744d0cf4435149e."
   },
   "homepage_animation": {
     "renderer": "hardware/build-guide/src/hero-motion.js",
@@ -65,7 +65,7 @@
     "assets": [
       {
         "path": "hardware/build-guide/src/assets/hero/base.png",
-        "sha256": "98b0f96458a896a9f95f8c6e8dd2dd493105aa5a91a34fa02652f5f9b28dd57e"
+        "sha256": "2091a2ec49804a928daafb6cadb5eaa1535608ff56f7b2053b7184d0554f5e6e"
       },
       {
         "path": "hardware/build-guide/src/assets/hero/mouth-mask.png",
@@ -73,7 +73,7 @@
       },
       {
         "path": "hardware/build-guide/src/assets/hero/body-mask.png",
-        "sha256": "90392cc809c9450c36c79ec2c37b9e60965956235f5094bb51fc6ee3da7baa13"
+        "sha256": "13852182cc60b0c2370d8895932a6d6956de3e8e2303f964a5365cce1be12ed7"
       },
       {
         "path": "hardware/build-guide/src/assets/hero/eyes-mask.png",
@@ -81,7 +81,7 @@
       },
       {
         "path": "hardware/build-guide/src/assets/hero/body-shade.png",
-        "sha256": "f54b47f6de5d89ae60e7cf1c2e13af18b0e6fc4b53ea50cad4410e0a88140141"
+        "sha256": "ea91289bcba7399e6ec01a1c94f64e077442627a6f569ee51433ae6eaa64ba56"
       }
     ],
     "glow": "Normalized separable Gaussian canvas compositing, shared across browsers without requiring CanvasRenderingContext2D.filter. Glow opacity stays in the supported 0\u20131 range; eye glow follows blink openness."
