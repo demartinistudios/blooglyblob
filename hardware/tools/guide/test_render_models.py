@@ -114,8 +114,10 @@ class CloseupReadabilityTests(unittest.TestCase):
                      'audio-module-seating', 'audio-tape-back', 'audio-tape-contact',
                      'audio-module-connections', 'audio-lid-fastening',
                      'frame-uprights-fastening', 'shoulder-servo-insertion',
-                     'shoulder-servo-fastening', 'shoulder-carrier-front',
-                     'shoulder-carrier-rear', 'head-servo-fastening',
+                     'shoulder-servo-fastening', 'shoulder-carrier-insertion',
+                     'shoulder-carrier-front', 'shoulder-carrier-rear',
+                     'front-light-bracket-lower', 'front-light-bracket-upper',
+                     'middle-light-bracket', 'head-servo-fastening',
                      'upper-collar-fastening']:
             with self.subTest(name=name):
                 svg = ET.parse(directory / (name + '.svg')).getroot()

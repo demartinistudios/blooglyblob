@@ -44,7 +44,19 @@ def scenes():
         result[f'assets/community/{name}.png'] = dict(view=view,thumbnail=False)
     # The presentation front view is captured in Fusion, not this renderer.
     # Its settings and source are recorded in rendering/presentation-front.json.
+    # R33 body-light brackets on both uprights with the six light references.
+    pebble = 'REF Pebble 12 x 5 x 3.37 - cable included:'
+    result['assets/community/body-brackets.png'] = dict(view=dict(
+        select=['P43','P02','P11','P42','P12','E05'],camera=[-.85,-1.6,.85],
+        label_roots=['P43 Front upright r33 - chamfered recessed mounts:1','P02 Upright r3 - modular accessory mounting:1',
+                     'P11 Lower light bracket r33 - rear mount:1','P42 Upper light bracket r33 - servo clearance:1',
+                     'P12 Rear-mounted middle light bracket r33:1',pebble+'2'],
+        labels_by_root={pebble+'2':'E05'}),colors={'E05':[223,226,221]},thumbnail=False)
     result['assets/part-P35.png'] = dict(view=dict(select=['P35'],camera=[.9,-1.6,.9],clean=True),thumbnail=True)
+    # R33 changed or new uprights and brackets, in the plain blue of the
+    # other frame part images.
+    for pid in ['P02','P04','P11','P12','P42','P43']:
+        result[f'assets/part-{pid}.png'] = dict(view=dict(select=[pid],camera=[.9,-1.6,.9],clean=True),thumbnail=True,plain=True)
     result['assets/r16/step-29.png'] = dict(view=dict(select=['P35','P36','P37','P38','P39','P40'],camera=[.9,1.6,.9],offset={'P37':[0,0,-12],'P38':[0,0,10],'P39':[0,0,10],'P40':[0,9,0]},title='Test-fit the backpack details',footer='Fit the tanks first; arrows show the parts coming together'),thumbnail=False)
     for path, scene in result.items():
         v = scene['view']
@@ -391,6 +403,11 @@ def action_diagrams(render, output):
     emit('frame-base-fastening',parts,[.8,1,.35],'Load each upright foot nut',
          [],
          arrows=[([0,37,6.2],[0,28,6.2])])
+    parts=cropped(chosen(['FB01','P01','P43'],{'P01':[0]}),[[-9,-36,-7],[9,-17,17]])
+    parts+=[nut(3,[0,-40,6.2],[0,0,1])]
+    emit('front-foot-fastening',parts,[.8,-1,.35],'Load the front upright foot nut',
+         [],
+         arrows=[([0,-37,6.2],[0,-28,6.2])])
     # P14 and P08 are a bench assembly. The servo is deliberately absent.
     # The whole parts establish the three-hole orientation; the section below
     # separately reveals the underside nut pocket without hiding their shapes.
@@ -443,9 +460,12 @@ def action_diagrams(render, output):
          [('1',[-28.3,-22,129.53]),('1',[28.3,-22,129.53])])
     # Upright pockets remain accessible until the foam is wrapped.
     parts=chosen(['P02'],{'P02':[0]})
-    emit('rear-seam-nuts',parts,[.8,1,.1],'Load the rear seam nuts first',
-         ['M3 nuts: 1 middle slot · 2 upper slot'],
-         [('1',[0,27,46]),('2',[0,27,90])],bounds=[[-12,16,34],[12,36,102]])
+    # The three side slots open on P02's robot-right face (X -5) at Z 22, 46, 90.
+    for z in [22,46,90]:parts.append(nut(3,[-13,25.4,z],[0,1,0]))
+    emit('rear-seam-nuts',parts,[-1,1.1,.3],'Load the three rear upright nuts first',
+         ['M3 nuts: 1 lower · 2 middle · 3 upper slot'],
+         [(str(i+1),[-13,25.4,z+7]) for i,z in enumerate([22,46,90])],
+         arrows=[([-10,25.4,z],[-5.5,25.4,z]) for z in [22,46,90]],bounds=[[-17,16,12],[8,36,102]])
     parts=chosen(['P34','P02','P09','P10','P12'],{'P02':[0]})
     for xx in [-23,23]:
         for zz in [40,80]:parts.append(nut(3,[xx,41.4,zz],[0,1,0]))
@@ -485,21 +505,28 @@ def action_diagrams(render, output):
     emit('tank-ring-bond',parts,[.5,1,.85],'Bond the tanks inside both rings',
          ['1, 2 Rings · gold: contact surfaces'],
          marks=[('1',[28,43,35.5]),('2',[28,43,64.5])])
-    # P11 light pads and actual tie slots. No fixed tie-lock position implied.
-    parts=cropped(chosen(['P11'],{'P11':[0]}),[[9,-36,8],[26,-16,36]])
-    # Recognizable resin/LED/wire illustration on the accepted pad. Geometry
-    # dimensions are nominal reference bounds; tie routing is illustrative.
+    # R33 P11 robot-left lower pad, from its E05 light reference: centre
+    # (23.15,-7.01,20), pad 8 mm wide and 3 mm thick behind the LED plane,
+    # with 3 mm tie necks centred at Z 12 and Z 28. Resin, LED, wire and ties
+    # are nominal drawing shapes; the ties wrap the necks and the wire.
+    c=np.array([23.15,-7.01,20.]);w=np.array([.766,-.643,0.]);n=np.cross([0,0,1],w)
+    def at(a,b,z):return c+a*w+b*n+[0,0,z-20]
+    parts=cropped(chosen(['P11'],{'P11':[0]}),[[15,-15,8],[32,1,32]])
+    basis=np.column_stack([w,n,[0,0,1]])
     resin=trimesh.creation.icosphere(subdivisions=3,radius=1)
-    resin.vertices*=np.array([2.5,1.685,6.]);resin.apply_translation([17.5,-21.935,22])
+    resin.vertices=(resin.vertices*[2.5,1.685,6.])@basis.T+at(0,-.4,20)
     parts.append(dict(id='Pebble resin',occ=0,root='Pebble illustration',v=resin.vertices,f=resin.faces,source={}))
-    led=trimesh.creation.box([2.6,.3,3.0]);led.apply_translation([17.5,-23.8,22])
+    led=trimesh.creation.box([2.6,.3,3.0]);led.vertices=led.vertices@basis.T+at(0,-2.2,20)
     parts.append(dict(id='LED face',occ=0,root='LED face',v=led.vertices,f=led.faces,source={},flat_shading=True))
-    parts+=tube([[17.5,-21.9,9],[17.5,-21.9,16]],.48,'Wire')+tube([[17.5,-21.9,28],[17.5,-21.9,35]],.48,'Wire')
-    for zz in [14.5,29.5]:
-        parts+=tube([[11.8,-17.1,zz],[11.8,-23,zz],[23.2,-23,zz],[23.2,-17.1,zz],[11.8,-17.1,zz]],.75,'Tie')
-    emit('pebble-wire-restraint',parts,[.3,-1.4,.4],'Tie the wires, not the light',
+    parts+=tube([at(0,-.4,4),at(0,-.4,14)],.48,'Wire')+tube([at(0,-.4,26),at(0,-.4,36)],.48,'Wire')
+    for zz in [12,28]:
+        parts+=tube([at(-3.4,-1.2,zz),at(3.4,-1.2,zz),at(3.4,4.9,zz),at(-3.4,4.9,zz),at(-3.4,-1.2,zz)],.6,'Tie')
+    view=(-1.3*n+.5*w+[0,0,.45]).tolist()
+    pts=np.array([at(a,b,z) for a in (-6,6.5) for b in (-3,5) for z in (5,35)])
+    emit('pebble-wire-restraint',parts,view,'Tie the wires, not the light',
          ['1, 2 Cable ties'],
-         [('1',[17.5,-23,14.5]),('2',[17.5,-23,29.5])],bounds=[[8,-36,8],[27,-15,36]])
+         [('1',at(5.5,-1.2,12)),('2',at(5.5,-1.2,28))],
+         bounds=np.array([np.min(pts,0),np.max(pts,0)]).tolist())
     parts=chosen(['P04','P14','P08','E01'],{'E01':[2]})
     emit('head-center-screw',parts,[.6,-1,1.3],'Seat the head horn at the fit position',
          ['1 Center screw'],
@@ -547,9 +574,11 @@ def main():
         if row['path'] in ('hardware/rendering/r22-colors.json','hardware/rendering/scenes/views.json') and digest(ROOT/row['path']) != row['sha256']:
             raise ValueError('Changed scene/palette input: '+row['path'])
     palette={(r['path'],r['body']):r['chosen_rgb'] for r in json.loads((ROOT/'hardware/rendering/r22-colors.json').read_text())['assignments']}
-    base=render.col;lighten=True
+    base=render.col;lighten=True;plain=False;overrides={}
     def color(m,highlight):
         if 'guide_color' in m:return m['guide_color']
+        if m['id'] in overrides:return tuple(overrides[m['id']])
+        if plain:return base(m,highlight)
         if m['id'] in ('M3 screw','M3 nut'):return render.colors[m['id']]
         if m['id'] in ('Cable','Wire'):return (58,112,180)
         if m['id']=='Tie':return (183,103,53)
@@ -577,6 +606,7 @@ def main():
         for index,(path,scene) in enumerate(selected.items()):
             scene=dict(scene,view=dict(scene['view'],guide=True))
             lighten='main-front' not in path and 'overview-back' not in path
+            plain=scene.get('plain',False);overrides=scene.get('colors',{})
             name='scene-'+str(index)
             if path == 'assets/r21/base-cover.png':
                 from guide_closeups import pose_parts
@@ -592,7 +622,7 @@ def main():
                 render.render(name,scene['view'],scene['thumbnail'])
             outputs[path]=args.output/(name+'.png')
             print('Rendered',path,flush=True)
-    lighten=True
+    lighten=True;plain=False;overrides={}
     if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.actions_only and not args.closeups_only and not args.scene):
         for path in front_diagrams(render,args.output):outputs[path]=args.output/Path(path).name
     if not args.body_only and (not args.legacy_only and not args.joint_actions_only and not args.context_only and not args.boards_only and not args.inlet_only and not args.audio_only and not args.front_only and not args.closeups_only and not args.scene and not args.mount_closeups_only):

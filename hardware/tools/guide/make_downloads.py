@@ -113,7 +113,7 @@ def hardware_totals():
 
 def screw_key(form, w, h):
     TOT = hardware_totals()
-    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,18,20])] for n in lengths} | {'M3x10CS'}
+    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,18,20])] for n in lengths} | {'M3x10CS', 'M3x14CS'}
     if {k for k in TOT if re.fullmatch(r'M[0-9]+x[0-9]+(?:CS)?', k)} != supported:
         raise ValueError('Review screw-key drawing dimensions/layout for the changed screw specification set')
     s = '#142b3d'
@@ -142,21 +142,23 @@ def screw_key(form, w, h):
             b += [rect(x - hh, hy - hd / 2, hh, hd), rect(x, hy - dia / 2, L, dia), ln(f'M{x} {hy-5}V{hy+5}', 0.25)]
     b += [text(15, 161, f'Three of the {TOT["M2x8"]} M2 × 8 are button heads (drawn: 3.5 × 1.3 mm).', 2.7),
           text(15, 166, 'They fix the head to its shelf, without washers.', 2.7),
-          text(15, 172, f'M3 × 10 countersunk · {TOT["M3x10CS"]} used', 3.2)]
-    x, y = 54, 181
-    b.append(ln(f'M{x} {y-3}L{x+1.5} {y-1.5}H{x+10}V{y+1.5}H{x+1.5}L{x} {y+3}Z', 0.25))
-    b.append(ln(f'M{x} {y-5}V{y+5}', 0.25))
-    b.append(text(15, 190, 'Length 10 mm including the head; 90° head, 6 mm across.', 2.9))
-    b.append(text(15, 202, 'Nuts, seen from above (ordinary hex nuts)', 3))
+          text(15, 172, 'M3 countersunk: 90° head, 6 mm across', 3.2),
+          text(15, 177, 'Head top on the start line. The length includes the head.', 2.7)]
+    for y, L in [(186, 10), (197, 14)]:
+        b.append(text(15, y, f'M3 × {L} · {TOT[f"M3x{L}CS"]} used', 2.9))
+        x, hy = 54, y - 1
+        b.append(ln(f'M{x} {hy-3}L{x+1.5} {hy-1.5}H{x+L}V{hy+1.5}H{x+1.5}L{x} {hy+3}Z', 0.25))
+        b.append(ln(f'M{x} {hy-4}V{hy+4}', 0.25))
+    b.append(text(15, 208, 'Nuts, seen from above (ordinary hex nuts)', 3))
     for xx, d, af in [(25, 2, 4), (57, 3, 5.5)]:
         r = af / math.sqrt(3)
-        pts = ' '.join(f'{xx + r*math.cos(math.radians(i*60)):.4f},{213 + r*math.sin(math.radians(i*60)):.4f}' for i in range(6))
-        b += [f'<polygon points="{pts}" fill="none" stroke="{s}" stroke-width="0.25"/>', circ(xx, 213, d / 2),
-              text(xx - 10, 222, f'M{d} nuts · {TOT[f"N{d}"]} used', 2.9)]
-    b.append(text(15, 235, 'Washers: inside and outside diameter', 3.2))
+        pts = ' '.join(f'{xx + r*math.cos(math.radians(i*60)):.4f},{219 + r*math.sin(math.radians(i*60)):.4f}' for i in range(6))
+        b += [f'<polygon points="{pts}" fill="none" stroke="{s}" stroke-width="0.25"/>', circ(xx, 219, d / 2),
+              text(xx - 10, 228, f'M{d} nuts · {TOT[f"N{d}"]} used', 2.9)]
+    b.append(text(15, 241, 'Washers: inside and outside diameter', 3.2))
     for xx, di, do, label in [(28, 2.31, 4.37, f'M2 metal: {TOT["W2"]}, 0.25 mm thick'), (71, 3.20, 7.01, f'M3: {TOT["W3"]}, 0.53 mm thick')]:
-        b += [circ(xx, 244, do / 2), circ(xx, 244, di / 2), text(xx - 15, 254, label, 2.7)]
-    b += [text(15, 263, 'M2 nuts are 4 mm across the flats and 1.6 mm thick.', 2.7),
+        b += [circ(xx, 250, do / 2), circ(xx, 250, di / 2), text(xx - 15, 260, label, 2.7)]
+    b += [text(15, 269, 'M2 nuts are 4 mm across the flats and 1.6 mm thick.', 2.7),
           text(110, 225, f'Servo center screws · {TOT["CENTER"]}', 3.2),
           text(110, 232, 'These come with the servos and aren’t drawn here.', 2.8),
           text(110, 238, 'Keep each one with its servo horn.', 2.8),

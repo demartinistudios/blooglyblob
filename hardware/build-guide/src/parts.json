@@ -413,18 +413,18 @@
   },
   {
     "id": "P02",
-    "name": "Frame upright",
+    "name": "Rear upright",
     "exact": "P02 Upright r3 - modular accessory mounting",
-    "qty": 2,
+    "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "One of the two vertical frame posts, front and rear. The servo brackets, collars, light brackets and backpack carrier fasten to them.",
+    "description": "The rear vertical frame post. The shoulder-servo bracket, head-servo bracket, middle light bracket and backpack carrier fasten to it.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P02.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "frame-uprights"
+      "shoulder-servos"
     ],
     "additional_links": [
       {
@@ -458,11 +458,11 @@
   {
     "id": "P04",
     "name": "Head-servo bracket",
-    "exact": "P04 Head servo carrier r1 - side entry",
+    "exact": "P04 Head servo carrier r33 - reinforced flush",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds the head servo. Slide the wired servo in from the side before the bracket goes on the frame.",
+    "description": "Holds the head servo. Screw the servo in on the bench, then fit the bracket between the two uprights.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P04.png",
     "link": "",
@@ -568,18 +568,18 @@
   },
   {
     "id": "P11",
-    "name": "Front body-light bracket",
-    "exact": "P11 Two-pebble bracket r2 - head screw and driver clearance",
-    "qty": 2,
+    "name": "Lower body-light bracket",
+    "exact": "P11 Lower light bracket r33 - rear mount",
+    "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds two body lights facing forward. One fits at the lower front of the frame and one at the upper front.",
+    "description": "Holds the two lower body lights. It fits behind the lowest hole of the front upright.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P11.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "body-lights"
+      "front-light-brackets"
     ],
     "additional_links": [
       {
@@ -590,12 +590,12 @@
   },
   {
     "id": "P12",
-    "name": "Rear body-light bracket",
-    "exact": "P12 Forward-angled rear LEDs and seam backing r1",
+    "name": "Middle body-light bracket",
+    "exact": "P12 Rear-mounted middle light bracket r33",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds the two rear body lights, angled forward and slightly outward. It also backs the middle rear seam.",
+    "description": "Mounts on the rear upright. Its long arms reach forward so the two middle body lights sit at the sides. It also backs the middle rear seam.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P12.png",
     "link": "",
@@ -611,24 +611,46 @@
     ]
   },
   {
-    "id": "P13",
-    "name": "Body wire guide",
-    "exact": "P13 Open body wire guide r0 - front service mount",
+    "id": "P42",
+    "name": "Upper body-light bracket",
+    "exact": "P42 Upper light bracket r33 - servo clearance",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Keeps the body wires apart at the middle front of the frame.",
+    "description": "Holds the two upper body lights. It fits behind the highest hole of the front upright, under the shoulder-servo bracket.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
-    "image": "assets/part-P13.png",
+    "image": "assets/part-P42.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "body-lights"
+      "front-light-brackets"
     ],
     "additional_links": [
       {
-        "url": "downloads/stl/P13.stl",
-        "label": "Raw STL \u2014 P13"
+        "url": "downloads/stl/P42.stl",
+        "label": "Raw STL \u2014 P42"
+      }
+    ]
+  },
+  {
+    "id": "P43",
+    "name": "Front upright",
+    "exact": "P43 Front upright r33 - chamfered recessed mounts",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "The front vertical frame post. Its front edge is chamfered. The light brackets and the shoulder-servo and head-servo brackets fasten to it.",
+    "status": "Print it from this release\u2019s files. Clean it before assembly.",
+    "image": "assets/part-P43.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "frame-uprights"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P43.stl",
+        "label": "Raw STL \u2014 P43"
       }
     ]
   },
@@ -2296,6 +2318,7 @@
       "power-jack",
       "shifter-wiring",
       "frame-uprights",
+      "front-light-brackets",
       "shoulder-servos",
       "head-servo",
       "head-shelf",
@@ -2458,7 +2481,7 @@
     "id": "N3",
     "name": "M3 hex nut",
     "exact": "Ordinary M3 hex nut",
-    "qty": 60,
+    "qty": 59,
     "optional": 0,
     "category": "Fastener",
     "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
@@ -2474,11 +2497,11 @@
       "button",
       "power-jack",
       "frame-uprights",
+      "front-light-brackets",
       "shoulder-servos",
       "head-servo",
       "head-shelf",
       "body-lights",
-      "body-diffuser",
       "elbows",
       "backpack"
     ],
@@ -2494,7 +2517,7 @@
     "id": "M2x6",
     "name": "M2\u00d76",
     "exact": "M2\u00d76",
-    "qty": 16,
+    "qty": 15,
     "optional": 0,
     "category": "Fastener",
     "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
@@ -2575,7 +2598,7 @@
     "id": "M3x20",
     "name": "M3\u00d720",
     "exact": "M3\u00d720",
-    "qty": 2,
+    "qty": 1,
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
@@ -2682,15 +2705,16 @@
     "id": "M2x8",
     "name": "M2\u00d78",
     "exact": "M2\u00d70.4, 8 mm under-head length",
-    "qty": 9,
+    "qty": 10,
     "optional": 0,
     "category": "Fastener",
-    "description": "Nine: four for the mouth, two for the audio lid and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
+    "description": "Ten: four for the mouth, two for the audio lid, one for the head servo's front ear and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
     "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
     "verification": "BelMetric SB2X8SS is an example button head. Measure the head.",
     "image": "assets/cartoons/M2x8.svg",
     "steps": [
       "audio-module",
+      "head-servo",
       "mouth",
       "head-shoulder-covers"
     ],
@@ -2706,21 +2730,43 @@
     "id": "M3x10CS",
     "name": "M3\u00d710 countersunk",
     "exact": "M3\u00d710 countersunk",
-    "qty": 3,
+    "qty": 1,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
+    "description": "One, for the head-servo bracket's front screw. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
     "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
     "verification": "BelMetric SF3X10SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
     "image": "assets/cartoons/M3x10CS.svg",
     "steps": [
-      "body-lights"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
       {
         "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
         "label": "BelMetric SF3X10SS dimensional drawing"
+      }
+    ]
+  },
+  {
+    "id": "M3x14CS",
+    "name": "M3\u00d714 countersunk",
+    "exact": "M3\u00d70.5, 14 mm overall length, 90\u00b0 countersunk head",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Two, for the light brackets. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
+    "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X14SS",
+    "verification": "BelMetric SF3X14SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
+    "image": "assets/cartoons/M3x14CS.svg",
+    "steps": [
+      "front-light-brackets"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
+        "label": "BelMetric SF3X14SS dimensional drawing"
       }
     ]
   },
@@ -2825,6 +2871,7 @@
     "verification": "BelMetric BSH3X18SS is an example. Measure them.",
     "image": "assets/cartoons/M3x18.svg",
     "steps": [
+      "body-lights",
       "backpack-carrier"
     ],
     "status": "Check it when it arrives",

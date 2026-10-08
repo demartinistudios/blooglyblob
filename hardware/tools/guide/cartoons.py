@@ -1617,6 +1617,7 @@ ITEMS = {
     'M3x18': (screw(3, 18), 'M3 x 18 socket-head screw', FS, FO),
     'M3x20': (screw(3, 20), 'M3 x 20 socket-head screw', FS, FO),
     'M3x10CS': (screw(3, 10, 'cs'), 'M3 x 10 countersunk screw', FS, FO),
+    'M3x14CS': (screw(3, 14, 'cs'), 'M3 x 14 countersunk screw', FS, FO),
     'CENTER': (center_screw, 'Supplied servo centre screw', FS, FO),
     'N2': (nut(2), 'M2 hex nut', NS, FC),
     'N3': (nut(3), 'M3 hex nut', NS, FC),

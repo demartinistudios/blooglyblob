@@ -1452,6 +1452,56 @@ def strand_wire_identification():
     g.save('circuits/strand-wire-identification.svg')
 
 
+def body_light_wire_exits():
+    """Lower and middle body lights from the front, to scale.
+
+    R33 pads: centres X ±23.15; lower Z 10-30, middle Z 36-56; front upright
+    X ±5. The pads face out at 40°, so behind a pad is toward the middle of the
+    robot. In the owner's bench build every wire between the two rows bends in
+    behind its pad and crosses behind the front upright, clear of the lights."""
+    s, cx, top = 6, 210, 70  # px per mm, robot centre, y of Z 60
+    def y(z):
+        return top + (60 - z) * s
+    def x(xmm):
+        return cx + xmm * s
+    g = physical_action('Body lights · wire exits', 520)
+    def clear_wire(path):
+        for color, width in (('#d7d9d3', 9), ('#aaa797', 2)):
+            g.add(f'<path d="{path}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round"/>')
+    # Wires that cross behind the front upright are drawn before it.
+    for side in (-1, 1):
+        px = x(side * 23.15)
+        # Lower top exit: straight past the tie, then in behind the pad.
+        clear_wire(f'M{px} {y(30)} L{px} {y(31.5)} Q{px} {y(32.6)} {px - side * 3 * s} {y(32.8)} L{cx} {y(35.5)}')
+        # Middle bottom exit: straight past the tie, then in behind the pad.
+        clear_wire(f'M{px} {y(36)} L{px} {y(34.5)} Q{px} {y(33.4)} {px - side * 3 * s} {y(33.2)} L{cx} {y(30.5)}')
+    # Bracket arms reach the pads from the uprights.
+    for z0 in (10, 36):
+        for side in (-1, 1):
+            g.rect(min(x(side * 4), x(side * 20)), y(z0 + 12), abs(x(20) - x(4)), 4 * s, fill='#d9dcdf', stroke=MUTED, sw=1.5, rx=2)
+    g.rect(x(-5), y(60), 10 * s, 56 * s, fill='#c9cdd2', stroke=MUTED, rx=2)
+    for z0 in (10, 36):
+        for side in (-1, 1):
+            px = x(side * 23.15)
+            g.rect(px - 9, y(z0 + 20), 18, 20 * s, fill='#e3ded1', stroke=MUTED, rx=2)
+            clear_wire(f'M{px} {y(z0) + 2} L{px} {y(z0 + 20) - 2}')
+            g.add(f'<ellipse cx="{px}" cy="{y(z0 + 10)}" rx="12" ry="{6 * s}" fill="#eef0e6" fill-opacity=".85" stroke="{MUTED}" stroke-width="2"/>')
+            for zt in (z0 + 2, z0 + 18):
+                g.rect(px - 12, y(zt + 1.25), 24, round(2.5 * s), fill=BLK, stroke=BLK, sw=1, rx=2)
+    # The other exits leave straight; the loose loops between lights come next.
+    for side in (-1, 1):
+        px = x(side * 23.15)
+        clear_wire(f'M{px} {y(10)} L{px} {y(6)}')
+        clear_wire(f'M{px} {y(56)} L{px} {y(60)}')
+    g.text(24, y(60) - 14, 'Middle lights', size=22, weight=700)
+    g.text(24, y(6) + 34, 'Lower lights', size=22, weight=700)
+    g.text(406, y(6) + 34, 'Front upright', size=22, weight=700, anchor='end')
+    g.wire([(330, y(6) + 14), (x(3), y(8))], MUTED, 1.5)
+    g.text(406, y(60) - 14, 'Wires behind', size=22, weight=700, anchor='end')
+    g.wire([(350, y(60) - 6), (x(-9), y(33.5))], MUTED, 1.5)
+    g.save('circuits/body-light-wire-exits.svg')
+
+
 def strand_test_connection():
     g=physical_action('BODY LIGHT · strand test',275)
     # The base half's sockets pushed into the strand's shrouded pins plug.
@@ -1668,7 +1718,7 @@ def circuit_actions():
     wago_reference()
     solder_detail(); capacitor_joint_detail(); mouth_solder(); cut_six()
     connector_seating(); eye_connector(); eye_cable(); power_overview()
-    strand_wire_identification(); strand_test_connection(); strand_input_result()
+    strand_wire_identification(); strand_test_connection(); strand_input_result(); body_light_wire_exits()
     supply_polarity_test(); robot_power_connection()
     power_jack_terminals(); button_terminals(); button_switch_check(); button_leads_prepare()
     button_leads_switch(); button_leads_led(); button_leads_done(); button_insert_threading(); tie_mount()

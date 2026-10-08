@@ -174,11 +174,12 @@ def render_closeups(render, output):
          labels=[('2 × M2 × 6',[44,0,98.7],(400,40)),('2 × M2 nuts',[15.5,0,98.7],(20,40)),
                  ('P03',[24,0,64],(40,380))],label_size=32))
     parts=v.parts(['P04'])+v.parts(['E01'],2)
-    for y in [-19,8.7]:parts+=hardware(2,6,[0,y,114],[0,0,-1])+[nut([0,y,90],[0,0,1])]
+    # R33: M2x8 through the reinforced front ear support, M2x6 at the rear.
+    for y,length in [(-19,8),(8.7,6)]:parts+=hardware(2,length,[0,y,114],[0,0,-1])+[nut([0,y,90],[0,0,1])]
     v.paths.append(compact_view(render,output,'head-servo-fastening',parts,[1,-.35,.2],
          'Hold each M2 nut under its pocket and screw down through the servo ear',
          arrows=[([0,y,113],[0,y,105.5]) for y in [-19,8.7]]+[([0,y,91],[0,y,98.5]) for y in [-19,8.7]],
-         labels=[('2 × M2 × 6',[0,-19,116],(30,40)),('2 × M2 nuts',[0,-19,89],(30,390)),
+         labels=[('M2 × 8',[0,-19,116],(30,40)),('M2 × 6',[0,8.7,116],(450,40)),('2 × M2 nuts',[0,-19,89],(30,390)),
                  ('P04',[0,24,97],(470,330))],label_size=32))
     # Horn product geometry is not in CAD: use an explicitly schematic outline.
     body='<circle cx="210" cy="240" r="140" fill="#e3dccb" stroke="#675d4b" stroke-width="3"/>'
@@ -531,9 +532,9 @@ def render_body_closeups(render, output):
     v=Views(render,output)
     foam=v.parts(['FOAM'])
     for m in foam:m['guide_color']=(232,236,240)
-    frame=v.parts(['P01','P02','P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
+    frame=v.parts(['P01','P43','P02','P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
     for m in frame:
-        if m['id'] in ('P01','P02','P03'):m['guide_color']=(177,189,202)
+        if m['id'] in ('P01','P43','P02','P03'):m['guide_color']=(177,189,202)
     backing=[m for m in v.parts(['P09']) if m['v'][:,2].min()>70]
     for m in backing:m['guide_color']=(41,114,140)
     v.emit('body-foam-holes',frame+backing+foam,[-1.35,.95,.4],
@@ -546,7 +547,8 @@ def render_body_closeups(render, output):
     seam=clipped(foam,[[-14,20,0],[14,45,FOAM_H]])
     def moved(parts,dy):
         return [dict(m,v=m['v']+[0,dy,0]) for m in parts]
-    backs=v.parts(['P09'])+v.parts(['P12'])
+    # Only P12's seam backing plate; its light arms reach forward out of view.
+    backs=v.parts(['P09'])+clipped(v.parts(['P12']),[[-40,30,0],[40,45,120]])
     for m in backs:m['guide_color']=(41,114,140)
     covers=v.parts(['P10'])
     for m in covers:m['guide_color']=(41,114,140)
@@ -556,7 +558,7 @@ def render_body_closeups(render, output):
     parts=upright+nuts+moved(backs,14)+moved(seam,30)+moved(covers,48)+moved(screw,64)
     v.emit('rear-seam-stack',parts,[1.6,.55,.3],
            'The rear seam from behind, drawn apart: upright and nuts, seam backings, foam ends, seam covers and the lower screw',
-           ['1  Rear upright (P02), nuts inside','2  Seam backing (P09) ×2','3  Rear body-light bracket (P12)','4  Foam ends (C04)','5  Seam cover (P10) ×3','6  M3×16, lower cover only'],
+           ['1  Rear upright (P02), nuts inside','2  Seam backing (P09) ×2','3  Middle body-light bracket (P12)','4  Foam ends (C04)','5  Seam cover (P10) ×3','6  M3×16, lower cover only'],
            marks=[('1',[0,30,112]),('2',[0,52,104]),('3',[0,52,62]),('4',[0,68,112]),('5',[0,88,104]),('6',[0,108,30])])
     render.meshes=v.original
     return v.paths

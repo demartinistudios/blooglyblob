@@ -554,6 +554,16 @@
     },
     {
       "parts": [
+        "M3x14CS"
+      ],
+      "title": "BelMetric SF3X14SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
+      "checked": "2026-10-08",
+      "reference_id": "ref-079"
+    },
+    {
+      "parts": [
         "M3x6"
       ],
       "title": "BelMetric BSH3X6SS dimensional drawing",

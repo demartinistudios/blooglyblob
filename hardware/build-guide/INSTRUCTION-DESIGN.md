@@ -430,16 +430,15 @@ the part card changes to match.
 | GS12 | robot-left eye housing | Robot-left copper goggle housing |
 | GS20 | head shell | same |
 | P01 | foam collar | Round foam collar |
-| P02 | frame upright | same |
+| P02 | rear upright | same |
 | P03 | shoulder-servo bracket | same |
 | P04 | head-servo bracket | same |
 | P06 | eye LED cassette | same |
 | P08 | head shelf | Rotating head shelf |
 | P09 | rear seam backing | same |
 | P10 | rear seam cover | same |
-| P11 | front body-light bracket | same |
-| P12 | rear body-light bracket | Rear body-light bracket and seam backing |
-| P13 | body wire guide | same |
+| P11 | lower body-light bracket | same |
+| P12 | middle body-light bracket | same |
 | P14 | head horn adapter | same |
 | P30 | mouth LED cassette | same |
 | P31 | mouth light separator | same |
@@ -450,6 +449,8 @@ the part card changes to match.
 | P38 | robot-left backpack elbow | same |
 | P39 | robot-right backpack elbow | same |
 | P40 | backpack top band | same |
+| P42 | upper body-light bracket | same |
+| P43 | front upright | same |
 
 ### Banned terms
 
