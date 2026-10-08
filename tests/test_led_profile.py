@@ -125,3 +125,30 @@ def test_diagnostic_interrupt_clears_every_pixel(monkeypatch):
     monkeypatch.setattr(test_neopixels.time, "sleep", interrupt_during_mouth)
     assert test_neopixels.main() == 0
     assert set(strip.frames[-1].values()) == {(0, 0, 0)}
+
+
+def physical_rgb(frame, index):
+    """Decode the driver's GRB bytes as the actual pixel would consume them."""
+    red, green, blue = frame[index]
+    wire = (green, red, blue)
+    if index in config.BODY_LEDS:  # Pebbles consume BGR; face consumes GRB.
+        return wire[2], wire[1], wire[0]
+    return wire[1], wire[0], wire[2]
+
+
+def test_runtime_primary_colors_purple_and_amber_match_across_mixed_chain(monkeypatch):
+    use_strip(monkeypatch, led_controller)
+    leds = led_controller.LEDController()
+    for rgb in ((80, 0, 0), (0, 80, 0), (0, 0, 80), (60, 0, 100), (48, 20, 0)):
+        for index in range(16):
+            leds._set_pixel(index, *rgb)
+        assert [physical_rgb(leds.strip.pixels, i) for i in range(16)] == [rgb] * 16
+
+
+def test_diagnostic_primary_colors_purple_and_amber_match_runtime(monkeypatch):
+    use_strip(monkeypatch, test_neopixels)
+    monkeypatch.setattr(test_neopixels.time, "sleep", lambda _: None)
+    strip = test_neopixels.create_strip()
+    for rgb in ((80, 0, 0), (0, 80, 0), (0, 0, 80), (60, 0, 100), (48, 20, 0)):
+        test_neopixels.solid_color(strip, *rgb, "regression")
+        assert [physical_rgb(strip.pixels, i) for i in range(16)] == [rgb] * 16

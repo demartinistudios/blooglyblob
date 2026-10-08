@@ -184,7 +184,7 @@ def test_body_does_not_follow_speech_level_or_pauses():
             assert render(speaking, 5)[:6] == quiet
 
 
-def test_unavailable_is_steady_amber_and_overrides_late_speech_and_sleep():
+def test_unavailable_is_amber_and_overrides_late_speech_and_sleep():
     output = OutputPresentation()
     state = LightingState(output)
     owner = output.begin("speech")
@@ -193,7 +193,9 @@ def test_unavailable_is_steady_amber_and_overrides_late_speech_and_sleep():
     for mode in ("speaking", "sleeping", "alert", "dancing"):
         state.set_mode(mode, now=0)
         state.pending("late", True)
-        assert render(state.snapshot(1), 1) == ((48, 20, 0),) * 6 + ((0, 0, 0),) * 10
+        frame = render(state.snapshot(1), 1)
+        assert all(red > green > 0 and blue == 0 for red, green, blue in frame[:6])
+        assert frame[6:] == ((0, 0, 0),) * 10
     state.set_unavailable(False)
     assert state.snapshot(2).mode == "sleeping"
     state.set_unavailable(True)
@@ -241,3 +243,51 @@ def test_sleep_is_purple_and_waking_starts_a_continuous_rainbow_transition():
     red, green, blue = awake[6]
     assert red > green > blue and green > blue * 2
     assert render(state.snapshot(26), 26)[:6] != awake[:6]
+
+
+def test_lava_body_flows_slowly_without_blackouts_or_losing_state_colors():
+    for mode, ceiling in (("sleeping", 123), ("listening", 64), ("unavailable", 49)):
+        state = LightingState()
+        if mode == "unavailable":
+            state.set_unavailable(True)
+        else:
+            state.set_mode(mode, now=0)
+        frames = [
+            render(state.snapshot(10 + tick / 30), 10 + tick / 30)[:6]
+            for tick in range(1800)
+        ]
+        assert len(set(frames[0])) > 2  # Distinct pools rather than a uniform pulse.
+        assert frames[0] != frames[300] != frames[900]
+        for frame in frames:
+            assert all(ceiling * 0.70 <= max(rgb) <= ceiling for rgb in frame)
+            if mode == "sleeping":
+                assert all(blue > red > green for red, green, blue in frame)
+            if mode == "unavailable":
+                assert all(red > green > 0 and blue == 0 for red, green, blue in frame)
+        for before, after in zip(frames, frames[1:]):
+            assert (
+                max(
+                    abs(a - b)
+                    for old, new in zip(before, after)
+                    for a, b in zip(old, new)
+                )
+                <= 3
+            )
+
+
+def test_speech_spectrum_is_saturated_and_drifts_without_changing_meter_shape():
+    from dataclasses import replace
+    from blooglyblob.audio.presentation import OutputSample
+
+    state = LightingState()
+    state.set_mode("speaking", now=0)
+    snapshot = replace(state.snapshot(2), output=OutputSample(kind="speech", level=1))
+    first, later = (render(snapshot, now)[8:] for now in (2, 6))
+    assert first != later
+    for mouth in (first, later):
+        assert mouth == mouth[::-1]
+        assert len(set(mouth)) == 4
+        assert all(min(rgb) < max(rgb) * 0.2 for rgb in mouth)
+        assert all(max(rgb) <= 192 for rgb in mouth)
+    quiet = replace(snapshot, output=OutputSample(kind="speech", level=0))
+    assert render(quiet, 6)[8:] == ((0, 0, 0),) * 8

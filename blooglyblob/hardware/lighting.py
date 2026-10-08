@@ -12,7 +12,13 @@ from blooglyblob.audio.presentation import OutputPresentation, OutputSample
 RGB = tuple[int, int, int]
 BLACK = (0, 0, 0)
 EYE_COLOR = (255, 185, 75)
-SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
+SPEECH_HUES = (0.76, 0.58, 0.36, 0.08)
+SLEEP_COLORS = ((92, 0, 255), (155, 0, 255), (210, 8, 255))
+AWAKE_COLORS = (
+    (255, 70, 5), (255, 8, 100), (125, 8, 255),
+    (0, 180, 255), (15, 255, 110), (255, 160, 8),
+)
+AMBER_COLORS = ((255, 70, 0), (255, 135, 0), (255, 175, 0))
 MUSIC_COLORS = (
     (4, 239, 168),
     (0, 187, 255),
@@ -179,13 +185,33 @@ def scale(rgb, amount):
     return tuple(round(max(0.0, min(255.0, channel * amount))) for channel in rgb)
 
 
+def _lava(now, palette, brightness):
+    """Broad color pools drift past one another without a whole-body pulse."""
+    pixels = []
+    for i in range(6):
+        # Opposing waves blend and separate over unequal, slow periods.
+        position = (0.5 + 0.30 * math.sin(i * 0.85 - now * math.tau / 23)
+                    + 0.20 * math.sin(i * 1.45 + now * math.tau / 37))
+        position = min(position * (len(palette) - 1), len(palette) - 1)
+        index = min(int(position), len(palette) - 2)
+        blend = position - index
+        blend = blend * blend * (3 - 2 * blend)
+        color = tuple(a + (b - a) * blend
+                      for a, b in zip(palette[index], palette[index + 1]))
+        # Gentle local shading; no pixel disappears between passing pools.
+        glow = 0.91 + 0.09 * math.sin(i * 1.1 + now * math.tau / 29)
+        # Keep blends equally vivid instead of dimming between palette colors.
+        pixels.append(scale(color, brightness * glow * 255 / max(color)))
+    return pixels
+
+
 def _body(mode, now):
     if mode == "stopped":
         return [BLACK] * 6
     if mode == "fault":
         return [(90, 24, 18)] * 6
     if mode == "unavailable":
-        return [(48, 20, 0)] * 6
+        return _lava(now, AMBER_COLORS, 0.19)
     if mode == "alert":
         phase = now % 2.4
         pulse = sum(
@@ -193,12 +219,11 @@ def _body(mode, now):
         )
         return [scale((255, 132, 20), 0.12 + 0.5 * pulse)] * 6
     if mode == "sleeping":
-        return [
-            scale((125, 55, 220), 0.10 + 0.025 * math.sin(now * math.tau / 8 + i * 0.4))
-            for i in range(6)
-        ]
+        return _lava(now, SLEEP_COLORS, 0.48)
     # Awake colors drift independently of voice energy, including the greeting.
-    period, brightness = (36, 0.38) if mode == "dancing" else (60, 0.25)
+    if mode != "dancing":
+        return _lava(now, AWAKE_COLORS, 0.25)
+    period, brightness = 36, 0.38
     return [
         scale(
             tuple(c * 255 for c in hsv_to_rgb((now / period + i / 8) % 1, 0.78, 1)),
@@ -225,7 +250,9 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
         if level >= 0.025:
             for i in range(4):
                 amount = max(0.0, min(1.0, level * 4 - (3 - i)))
-                mouth[i] = mouth[7 - i] = scale(SPEECH_COLORS[i], amount * 0.75)
+                hue = SPEECH_HUES[i] + 0.045 * math.sin(now * math.tau / 11 + i * 0.8)
+                color = tuple(c * 255 for c in hsv_to_rgb(hue % 1, 0.90, 1))
+                mouth[i] = mouth[7 - i] = scale(color, amount * 0.75)
     elif mode == "dancing" and state.output.kind == "music":
         mouth = (
             [
