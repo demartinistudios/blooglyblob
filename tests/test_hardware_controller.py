@@ -592,3 +592,18 @@ async def test_lighting_states_preserve_servo_mode_and_shutdown_wins(tmp_path):
     await hardware.close()
     hardware.light("dancing")
     assert render(hardware.lighting.snapshot(2), 2) == ((0, 0, 0),) * 16
+
+
+async def test_availability_changes_do_not_dispatch_idle_pose(tmp_path):
+    from blooglyblob.hardware.conversation_state import ConversationMode
+
+    hardware, _, _ = rig(tmp_path)
+    hardware.servos = MagicMock()
+    hardware._gesture = MagicMock()
+    hardware.presentation.mode = ConversationMode.SPEAKING
+    hardware.set_unavailable(True)
+    assert hardware.presentation.mode == ConversationMode.IDLE
+    assert hardware.lighting.snapshot(0).mode == "unavailable"
+    hardware.set_unavailable(False)
+    hardware._gesture.assert_not_called()
+    assert hardware.lighting.snapshot(0).mode == "sleeping"

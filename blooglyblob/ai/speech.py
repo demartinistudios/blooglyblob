@@ -6,6 +6,7 @@ import asyncio
 import math
 from collections.abc import Awaitable, Callable
 
+from blooglyblob.connectivity import failure_category
 from blooglyblob.audio.stream import PCMPacer
 from blooglyblob.ai.voice_profile import default_speech_voice, speech_instructions
 
@@ -15,6 +16,10 @@ _FRAME_BYTES = 960
 
 class SpeechError(RuntimeError):
     """Finite speech could not be fully delivered to the audio callback."""
+
+    def __init__(self, message: str, *, category: str | None = None):
+        super().__init__(message)
+        self.category = category
 
 
 class SpeechTimeout(SpeechError):
@@ -120,8 +125,10 @@ class OpenAISpeech:
             raise SpeechTimeout("Finite speech exceeded its deadline") from None
         except SpeechError:
             raise
-        except Exception:  # noqa: BLE001 - provider/callback failures cross a public boundary
-            raise SpeechError("Finite speech delivery failed") from None
+        except Exception as error:  # noqa: BLE001 - provider/callback failures cross a public boundary
+            raise SpeechError(
+                "Finite speech delivery failed", category=failure_category(error)
+            ) from None
 
     async def _stream(self, text, on_audio, *, speed=1.0):
         pending = bytearray()

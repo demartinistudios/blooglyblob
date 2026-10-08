@@ -19,7 +19,7 @@ class Speech:
 
 
 @pytest.mark.asyncio
-async def test_greeting_completion_keeps_waiting_for_connection():
+async def test_greeting_waits_for_connection_before_accepting_speech():
     connected = asyncio.Event()
     host, hardware, _ = session(speech=Speech(), greeting="Hello")
 
@@ -30,12 +30,13 @@ async def test_greeting_completion_keeps_waiting_for_connection():
     host.live_factory = SlowLive
     host.request(True)
     try:
-        await wait_until(lambda: host._accept_live_input)
-        assert hardware.lighting.snapshot(time.monotonic()).mode == "waiting"
+        await wait_until(lambda: host.live is not None)
+        assert not host._accept_live_input
+        assert not any(x.get("state") == "speaking" for x in hardware.trace)
+        assert hardware.lighting.snapshot(time.monotonic() + 2).mode == "sleeping"
         connected.set()
-        await wait_until(
-            lambda: hardware.lighting.snapshot(time.monotonic()).mode == "listening"
-        )
+        await wait_until(lambda: host._accept_live_input)
+        assert hardware.lighting.snapshot(time.monotonic() + 2).mode == "listening"
     finally:
         connected.set()
         await host.close()

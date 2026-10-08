@@ -95,6 +95,7 @@ class LightingState:
         self._pending = set()
         self._music = None
         self._stopped = False
+        self._unavailable = False
         self._blink = _EyeBlink(rng if rng is not None else random.Random())
 
     def set_mode(self, mode, *, now=None):
@@ -112,6 +113,15 @@ class LightingState:
                 self._blink.reset()
             if mode == "stopped":
                 self._stopped = True
+
+    def set_unavailable(self, unavailable):
+        with self._lock:
+            self._unavailable = unavailable
+            self._pending.clear()
+            self._blink.reset()
+            if self._mode not in {"fault", "stopped"}:
+                self._previous = self._mode = "sleeping"
+                self._changed = time.monotonic()
 
     def pending(self, identity, active):
         with self._lock:
@@ -136,6 +146,8 @@ class LightingState:
     def snapshot(self, now):
         with self._lock:
             mode = self._mode
+            if self._unavailable and mode not in {"fault", "stopped"}:
+                mode = "unavailable"
             if mode == "waking" and now - self._changed >= 0.6:
                 mode = "listening"
             if mode == "listening" and self._pending:
@@ -159,6 +171,8 @@ def _body(mode, now):
         return [BLACK] * 6
     if mode == "fault":
         return [(90, 24, 18)] * 6
+    if mode == "unavailable":
+        return [(48, 20, 0)] * 6
     if mode == "alert":
         phase = now % 2.4
         pulse = sum(
@@ -190,12 +204,12 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
     body = _body(mode, now)
     eyes = (
         [BLACK] * 2
-        if mode == "sleeping"
+        if mode in {"sleeping", "unavailable"}
         else [scale(EYE_COLOR, 0.45 * state.eye_openness)] * 2
     )
     mouth = [BLACK] * 8
     # Output energy alone cannot wake the robot, escape a fault or talk over music.
-    if mode not in {"sleeping", "fault", "dancing"} and state.output.kind == "speech":
+    if mode not in {"sleeping", "fault", "dancing", "unavailable"} and state.output.kind == "speech":
         level = state.output.level
         if level >= 0.025:
             for i in range(4):
@@ -210,7 +224,7 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
             if state.music
             else mouth
         )
-    if mode not in {"fault", "stopped"}:
+    if mode not in {"fault", "stopped", "unavailable"}:
         elapsed = max(0.0, now - state.changed)
         blend = min(1.0, elapsed / 0.6)
         previous = _body(state.previous, now)

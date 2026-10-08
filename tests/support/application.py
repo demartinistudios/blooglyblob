@@ -43,6 +43,7 @@ def app_rig(monkeypatch, tmp_path):
         audio_factory=lambda **kwargs: audio,
         hardware_factory=lambda *args, **kwargs: hardware,
         ready=ready,
+        connectivity_probe=AsyncMock(return_value=True),
     )
     app._speech = SimpleNamespace(prepare=AsyncMock(), speak=AsyncMock())
     return app, api, audio, hardware, ready

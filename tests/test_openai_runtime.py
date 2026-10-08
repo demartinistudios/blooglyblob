@@ -359,7 +359,7 @@ async def test_stop_during_real_live_startup_bounds_stalled_transport_close():
         assert host._faulted
         assert host.live is None
         trace = audio.trace
-        assert trace[-1].get("state") == "idle"
+        assert not any(item.get("type") == "present" for item in trace)
     finally:
         release.set()
         await host.close()
@@ -464,7 +464,7 @@ async def test_search_preserves_speech_and_input_while_background_stop_is_pendin
 
 
 @pytest.mark.asyncio
-async def test_input_overflow_during_startup_returns_to_idle_without_ownership_fault():
+async def test_startup_does_not_forward_input_and_stop_confirms_transport_closure():
     from types import SimpleNamespace
 
     from blooglyblob.ai.live import OpenAILiveSession
@@ -492,14 +492,12 @@ async def test_input_overflow_during_startup_returns_to_idle_without_ownership_f
             await asyncio.sleep(0.001)
         assert connection.session.start.await_count == 1
         live = host.live
-        for _ in range(live._input.maxsize):
+        for _ in range(live._input.maxsize + 1):
             await host.input_audio(bytes(960))
-        overflowing = asyncio.create_task(host.input_audio(bytes(960)))
+        assert live._input.empty()
+        host.button()
         await asyncio.wait_for(closing.wait(), 0.5)
-        # Startup has failed and its finally block is already joining close.
-        await asyncio.sleep(0.01)
         finish_close.set()
-        await overflowing
         await asyncio.wait_for(host._runner, 0.5)
         assert not host.active
         assert not host._faulted
@@ -541,4 +539,29 @@ async def test_failed_input_from_old_session_does_not_stop_replacement():
         replacement.input_audio.assert_awaited_once()
     finally:
         fail.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_failed_connection_cannot_wake_or_play_greeting():
+    from types import SimpleNamespace
+
+    class OfflineLive(Live):
+        async def start(self, greeting=""):
+            raise TimeoutError("offline")
+
+    speech = SimpleNamespace(speak=AsyncMock())
+    failure = Mock()
+    host, hardware, audio = session(greeting="Hello", speech=speech)
+    host.live_factory = OfflineLive
+    host._on_unavailable = failure
+    try:
+        host.button()
+        await host._runner
+        speech.speak.assert_not_awaited()
+        assert not any(
+            x.args == ("listening",) for x in hardware.present.call_args_list
+        )
+        failure.assert_called_once_with("network")
+    finally:
         await host.close()

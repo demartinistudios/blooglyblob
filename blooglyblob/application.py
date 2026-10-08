@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import asyncio
-from collections.abc import Callable, Coroutine
+from collections.abc import Awaitable, Callable, Coroutine
 from typing import TYPE_CHECKING, TypeVar
 
 from concurrent.futures import Future, ThreadPoolExecutor
@@ -16,6 +16,7 @@ import threading
 import time
 
 from blooglyblob.config import validate_settings
+from blooglyblob.connectivity import Availability, ReachabilityProbe, failure_category
 
 if TYPE_CHECKING:
     from openai import AsyncOpenAI
@@ -60,6 +61,7 @@ class Application:
         audio_factory: Callable[..., AudioController] | None = None,
         hardware_factory: Callable[..., HardwareController] | None = None,
         ready: Callable[[], None] = notify_ready,
+        connectivity_probe: Callable[[], Awaitable[bool]] | None = None,
         shutdown_seconds: float = SHUTDOWN_SECONDS,
         on_shutdown: Callable[[], None] = lambda: None,
     ) -> None:
@@ -73,6 +75,10 @@ class Application:
         self._timer_manager: TimerManager | None = None
         self._ring_handler: RingHandler | None = None
         self._speech: OpenAISpeech | None = None
+        self.availability: Availability | None = None
+        self._connectivity_probe = connectivity_probe
+        self._greeting_task: asyncio.Task[None] | None = None
+        self._greeting_prepared = False
         self._loop: asyncio.AbstractEventLoop | None = None
         self._stopping = False
         self._ready = False
@@ -96,6 +102,31 @@ class Application:
             self.hardware.mute_media()
             self.hardware.light("fault")
         self._shutdown_requested()
+
+    def _can_start(self) -> bool:
+        return bool(
+            self.availability and self.availability.ready and not self._stopping
+        )
+
+    def _availability_changed(self, available: bool) -> None:
+        if self._stopping:
+            return
+        if self.hardware:
+            self.hardware.set_unavailable(not available)
+        if not available:
+            if (
+                self._greeting_task
+                and self._greeting_task is not asyncio.current_task()
+            ):
+                self._greeting_task.cancel()
+            if self.session:
+                self.session.suspend()
+        elif not self._greeting_prepared:
+            self._greeting_task = self._own(self._prepare_greeting())
+
+    def _unavailable(self, reason: str) -> None:
+        if self.availability:
+            self.availability.fail(reason)
 
     def _button(self) -> None:
         if self._ready and not self._stopping:
@@ -168,7 +199,11 @@ class Application:
         try:
             assert self._speech is not None
             await self._speech.prepare(default_greeting(), speed=GREETING_SPEED)
+            self._greeting_prepared = True
         except Exception as error:
+            category = failure_category(error)
+            if category:
+                self._unavailable(category)
             logger.warning(
                 "Greeting preparation failed (%s); speech will stream on demand",
                 type(error).__name__,
@@ -252,6 +287,7 @@ class Application:
                 on_dance_finished=self._dance_finished,
                 on_failure=self._media_failure,
             )
+            self.hardware.set_unavailable(True)
             await self.hardware.prepare()
             self._check_starting()
             try:
@@ -299,10 +335,20 @@ class Application:
                 pool=self._pool,
             )
             model = os.getenv("OPENAI_RESPONSES_MODEL", "gpt-5.6-terra")
+            self.availability = Availability(
+                probe=self._connectivity_probe
+                or ReachabilityProbe(str(self._api.base_url)),
+                changed=self._availability_changed,
+                live_connected=lambda: bool(
+                    self.session and self.session.live_connected
+                ),
+            )
             self.session = ConversationSession(
                 audio=self.audio,
                 hardware=self.hardware,
                 on_fault=self._fault,
+                can_start=self._can_start,
+                on_unavailable=self._unavailable,
                 api=self._api,
                 live_factory=OpenAILiveSession,
                 instructions=instructions,
@@ -326,7 +372,8 @@ class Application:
                 raise OwnershipUncertain("Startup ownership unconfirmed")
             self._ready = True
             self._notify_ready()
-            self._own(self._prepare_greeting())
+            self._own(self.availability.run())
+            await asyncio.sleep(0)  # Start monitoring without waiting for the network.
             logger.info("Application ready: local controls initialized")
         except BaseException:
             await self.stop()

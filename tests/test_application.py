@@ -506,3 +506,123 @@ async def test_shutdown_waits_within_deadline_for_actual_integration_completion(
     finally:
         finish.set()
         await work
+
+
+@pytest.mark.asyncio
+async def test_offline_boot_suppresses_all_starts_and_recovers_without_replay(app_rig):
+    from tests.support.conversation import Live
+    from tests.support.asyncio import wait_until
+
+    app, _, audio, hardware, ready = app_rig
+    app._connectivity_probe.return_value = False
+    await app.start()
+    ready.assert_called_once()
+    app.session.live_factory = Live
+    app.session.greeting = ""
+    for _ in range(3):
+        app._button()
+        app._alert("timer")
+        app.session.request(True)
+    assert not app.session.active and app.session.live is None
+    assert hardware.lighting.snapshot(100).mode == "unavailable"
+    hardware.present.assert_not_called()
+    hardware.chime.assert_not_awaited()
+    app._speech.prepare.assert_not_awaited()
+    audio.begin.assert_not_awaited()
+    app._connectivity_probe.return_value = True
+    await app.availability.check()
+    assert not app.availability.ready
+    await app.availability.check()
+    assert app.availability.ready
+    assert not app.session.active
+    hardware.present.assert_not_called()
+    app._button()
+    await wait_until(lambda: app.session.live_connected)
+    assert app.session.active
+    await app.stop()
+
+
+@pytest.mark.asyncio
+async def test_active_network_failure_mutes_fences_and_recovers_only_to_idle(app_rig):
+    from blooglyblob.ai.live import LiveSessionError
+    from tests.support.conversation import Live
+    from tests.support.asyncio import wait_until
+
+    app, _, audio, hardware, _ = app_rig
+    await app.start()
+    app.session.live_factory = Live
+    app.session.greeting = ""
+    app._button()
+    await wait_until(lambda: app.session.live_connected)
+    old = app.session.live
+    await old.callbacks["on_error"](
+        LiveSessionError("connection lost", category="network")
+    )
+    await app.session._runner
+    assert not app._faulted
+    assert not app.availability.ready and not app.session.active
+    assert hardware.lighting.snapshot(100).mode == "unavailable"
+    audio.mute.assert_called()
+    audio.audio.reset_mock()
+    await old.callbacks["on_audio"](bytes(960))
+    audio.audio.assert_not_awaited()
+    app._alert("missed timer")
+    hardware.chime.assert_not_awaited()
+    await app.availability.check()
+    await app.availability.check()
+    assert app.availability.ready and not app.session.active
+    assert hardware.lighting.snapshot(100).mode == "sleeping"
+    app._button()
+    await wait_until(lambda: app.session.live_connected)
+    assert app.session.live is not old
+    await app.stop()
+
+
+@pytest.mark.asyncio
+async def test_provider_error_during_startup_cleanup_does_not_cancel_its_own_close(
+    app_rig,
+):
+    from blooglyblob.ai.live import OpenAILiveSession
+    from tests.support.live import FakeConnection
+    from tests.support.asyncio import wait_until
+
+    app, _, _, _, _ = app_rig
+    await app.start()
+    connection = FakeConnection()
+    manager = AsyncMock()
+    manager.__aenter__.return_value = connection
+    app.session.api = SimpleNamespace(
+        live=SimpleNamespace(connect=Mock(return_value=manager))
+    )
+    app.session.live_factory = OpenAILiveSession
+    app.session.greeting = ""
+    app._button()
+    await wait_until(lambda: connection.session.start.await_count == 1)
+    await connection.events.put(
+        SimpleNamespace(type="error", error=SimpleNamespace(code="invalid_api_key"))
+    )
+    await wait_until(lambda: not app.session.active)
+    await app.session._runner
+    try:
+        assert app.availability.reason == "auth"
+        assert not app._faulted and not app._stopping
+        manager.__aexit__.assert_awaited_once()
+    finally:
+        await app.stop()
+
+
+@pytest.mark.asyncio
+async def test_prefetch_auth_failure_stays_inactive_despite_reachable_internet(app_rig):
+    from blooglyblob.ai.speech import SpeechError
+    from tests.support.asyncio import wait_until
+
+    app, _, _, hardware, _ = app_rig
+    app._speech.prepare.side_effect = SpeechError("denied", category="auth")
+    await app.start()
+    await wait_until(lambda: app.availability.reason == "auth")
+    await app.availability.check()
+    app._button()
+    assert not app.session.active
+    assert hardware.lighting.snapshot(100).mode == "unavailable"
+    assert not app._faulted
+    await app.stop()

@@ -72,6 +72,7 @@ class Hardware:
         self.lighting = LightingState(audio.presentation)
         self.light = self.lighting.set_mode
         self.pending_light = self.lighting.pending
+        self.set_unavailable = self.lighting.set_unavailable
         self.trace = audio.trace
         self.mute_media = Mock()
         self.execute = AsyncMock(return_value="Going to sleep")

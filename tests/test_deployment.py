@@ -1052,3 +1052,14 @@ def test_led_driver_failure_leaves_application_stopped(installed):
         remote.install("update", stage)
     assert stopped(manager)
     assert not any(c[:2] == ["systemctl", "start"] for c in manager.calls)
+
+
+def test_service_can_show_local_unavailable_state_before_network_is_online():
+    from pathlib import Path
+
+    service = (
+        Path(__file__).resolve().parents[1] / "systemd/blooglyblob.service"
+    ).read_text()
+    assert "network-online.target" not in service
+    assert "After=network.target sound.target pigpiod.service" in service
+    assert "Requires=pigpiod.service" in service

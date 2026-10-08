@@ -121,7 +121,12 @@ async def test_cancel_readiness_closes_and_disables_reconnection():
     await session.close()
     manager.__aexit__.assert_awaited_once()
     session.client.live.connect.assert_called_once_with(
-        max_retries=0, websocket_connection_options={"close_timeout": 0.5}
+        max_retries=0,
+        websocket_connection_options={
+            "close_timeout": 0.5,
+            "ping_interval": 10,
+            "ping_timeout": 10,
+        },
     )
 
 

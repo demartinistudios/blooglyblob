@@ -182,3 +182,22 @@ def test_body_does_not_follow_speech_level_or_pauses():
                 snapshot, output=OutputSample(kind="speech", level=level)
             )
             assert render(speaking, 5)[:6] == quiet
+
+
+def test_unavailable_is_steady_amber_and_overrides_late_speech_and_sleep():
+    output = OutputPresentation()
+    state = LightingState(output)
+    owner = output.begin("speech")
+    output.commit(owner, start=0.95, end=1.1, position=0, level=1)
+    state.set_unavailable(True)
+    for mode in ("speaking", "sleeping", "alert", "dancing"):
+        state.set_mode(mode, now=0)
+        state.pending("late", True)
+        assert render(state.snapshot(1), 1) == ((48, 20, 0),) * 6 + ((0, 0, 0),) * 10
+    state.set_unavailable(False)
+    assert state.snapshot(2).mode == "sleeping"
+    state.set_unavailable(True)
+    state.set_mode("fault")
+    assert state.snapshot(3).mode == "fault"
+    state.stop()
+    assert render(state.snapshot(4), 4) == ((0, 0, 0),) * 16

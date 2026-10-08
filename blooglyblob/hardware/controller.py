@@ -246,6 +246,11 @@ class HardwareController:
             return
         self.lighting.set_mode(mode)
 
+    def set_unavailable(self, unavailable):
+        # Stop ambient motion without dispatching the normal idle-pose gesture.
+        self.presentation.mode = ConversationMode.IDLE
+        self.lighting.set_unavailable(unavailable)
+
     def pending_light(self, identity, active):
         self.lighting.pending(identity, active)
 
