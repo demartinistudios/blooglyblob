@@ -64,15 +64,6 @@ The limits are built into the software. There is no calibration file to adjust, 
 | Robot-right arm | 1000–2000 µs | From hanging down (1000) up to about level in front |
 | Head | 1000–2000 µs | About 45° each way from forward (1500) |
 
-The Kitronik FS90MG-CL (Kitronik 25105) datasheet specifies nominal 180° travel
-across 500–2500 µs, 1500 µs center, and an 8 µs dead band. The narrower operating
-window above spans roughly 90° nominally. The datasheet does not specify endpoint
-tolerance, a guaranteed margin to mechanical stops, or exact installed angles.
-The 8 µs dead band is not a safety margin. Keep the fixed limits until clearance
-has been checked on the new assembly; do not widen them from the datasheet alone.
-Older calibration files are ignored, so previously calibrated builds must be
-refitted for these positions before operation.
-
 ## If something is wrong
 
 | What you see | What to do |

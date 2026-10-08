@@ -63,6 +63,8 @@ def main(argv=None):
                 signal.signal(sig, handler)
     if result == OWNERSHIP_UNCERTAIN_EXIT:
         print("Servo output release is unconfirmed. Switch off the supply.")
+    elif result:
+        print("Servo pulses stopped. The application stays stopped.")
     else:
         print(
             "Servo pulses stopped. The application stays stopped. "

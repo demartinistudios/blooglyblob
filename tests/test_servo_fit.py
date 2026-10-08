@@ -45,7 +45,7 @@ def native_servos(monkeypatch):
 
 @pytest.mark.parametrize("ending", ["STOP", "eof", "interrupt", "SIGTERM", "SIGHUP"])
 def test_fit_holds_all_axes_and_releases_without_recentering(
-    native_servos, monkeypatch, ending
+    native_servos, monkeypatch, capsys, ending
 ):
     from blooglyblob.hardware import servo_fit
 
@@ -76,6 +76,10 @@ def test_fit_holds_all_axes_and_releases_without_recentering(
     handlers = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGHUP)}
     assert servo_fit.main([]) == (0 if ending == "STOP" else 1)
     assert len(prompts) == 2
+    # Only a completed hold tells the builder to fasten the parts.
+    output = capsys.readouterr().out
+    assert "Servo pulses stopped" in output
+    assert ("drive the center screws" in output) == (ending == "STOP")
     for servo in native_servos:
         assert servo.values[-1] is None
         assert len(servo.values) == 3  # off, fit, off; no center or sweep

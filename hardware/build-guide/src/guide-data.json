@@ -4874,7 +4874,7 @@
         "If you notice smoke, an unusual smell or overheating, unplug the supply at once.",
         "On your computer, in the repository folder, run the command below.",
         "Each light turns on alone, in order: body 0\u20135, first eye 6, second eye 7 and mouth 8\u201315. Next, all 16 show red, green and blue.",
-        "If a light is missing or out of order, shut down the Pi and unplug the supply. Check that light\u2019s input and output connections."
+        "If a light is missing or out of order, shut down the Pi and unplug the supply from the wall. Check that light\u2019s input and output connections. Then repeat this step."
       ],
       "check": "All 16 lights lit in order and showed red, green and blue. The robot stays powered.",
       "hardware": {},
@@ -4942,7 +4942,7 @@
           ]
         }
       ],
-      "note": "Leave the robot powered for {step:fit-position}."
+      "note": ""
     },
     {
       "id": "fit-position",
@@ -5009,7 +5009,7 @@
         "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall.",
         "Hold the shelf still. Drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Do not use an M2 screw.",
         "Hold each arm still. Drive its horn\u2019s center screw through the arm\u2019s outer face.",
-        "If a part turned, take it off. Plug the supply into the wall. Repeat {step:fit-position} and this step for it."
+        "If a part turned, remove its center screw and lift it off. Plug the supply into the wall. Let the Pi boot. Repeat {step:fit-position} and this step for it."
       ],
       "check": "The shelf faces forward and both arms hang straight down, each held by its center screw. The supply is unplugged from the wall.",
       "note": "",
@@ -5225,9 +5225,9 @@
         "Press the front button. Talk with the robot. Ask it to dance.",
         "The head turns smoothly, and its light cable stays loose in the gap below it. The arms swing clear of the body and the supply cable.",
         "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once.",
-        "If a part hits, take it off. Plug the supply back in and run the command below.",
-        "Fit the part as in {step:shelf-arms}. Refit its cover as in {step:head-shoulder-covers}.",
-        "Repeat this step."
+        "If a part hits, unplug the supply from the wall. Take the part off.",
+        "Plug the supply back in. Let the Pi boot. Run the command below.",
+        "Fit the part as in {step:shelf-arms}. Refit its cover as in {step:head-shoulder-covers}. Repeat this step."
       ],
       "check": "The head and arms move through a conversation and a dance without touching the body or any cable.",
       "note": "",
@@ -5295,13 +5295,11 @@
       "title": "Shut down and secure the wiring",
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
-        "Stack folded towels higher than the barrel plug is long. Beside them, stack towels about 4 cm higher.",
-        "Hold the base with both hands. Lay the robot on its back, base on the lower stack and backpack on the higher one. Keep the power jack end, on your right, past the edge.",
-        "The open bottom faces you, and the barrel plug hangs clear. The head touches nothing. The arms may swing back onto the towels.",
-        "Through the open bottom, wait for the Pi\u2019s green activity light to stop flashing. Unplug the supply from the wall.",
-        "At the robot-left end, on your right, unplug the barrel plug from the power jack (J1).",
+        "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall. Unplug the barrel plug from the power jack (J1).",
+        "Lay the robot on its back on a folded towel. Turn it so the open bottom of the base faces you.",
+        "Put a second folded towel under the backpack. The head touches nothing. The arms may swing back onto the towels.",
         "If you left the antenna off in {step:antenna}, fit it now as in that step.",
-        "Hold the head still with your other hand while you turn the coil.",
+        "Hold the head still while you turn the coil.",
         "Push the slack of the servo cables and the body light connector into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
         "Keep all wires and tie locks clear of the four corners, where the cover screws go in.",
         "Take a photo of the wiring through the open bottom. Keep it for repairs."
@@ -5316,9 +5314,10 @@
       "commands": [],
       "panels": [
         {
-          "title": "Shut down the Pi",
+          "title": "Shut down and unplug",
           "actions": [
-            0
+            0,
+            1
           ],
           "codeBlocks": [
             {
@@ -5341,27 +5340,18 @@
         {
           "title": "Lay the robot on its back",
           "actions": [
-            1,
             2,
             3
           ],
           "textOnly": true
         },
         {
-          "title": "Unplug the supply",
-          "textOnly": true,
-          "actions": [
-            4,
-            5
-          ]
-        },
-        {
           "title": "Fit the antenna",
           "image": "assets/r18/step-11.png",
           "caption": "The coil and ball above the head\u2019s threaded socket.",
           "actions": [
-            6,
-            7
+            4,
+            5
           ]
         },
         {
@@ -5369,9 +5359,9 @@
           "image": "assets/community/base-routing-access.svg",
           "caption": "View through the open bottom. Dashed rings mark the harness opening and the two frame screws.",
           "actions": [
-            8,
-            9,
-            10
+            6,
+            7,
+            8
           ]
         }
       ]
