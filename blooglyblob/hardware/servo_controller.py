@@ -10,6 +10,7 @@ Fit parts with `make pi-servo-fit` before checking assembled clearance.
 """
 
 from contextlib import contextmanager
+import logging
 import signal
 import threading
 import time
@@ -35,6 +36,7 @@ from blooglyblob.hardware.servo_config import (
 # Default movement settings
 DEFAULT_STEP = 0.02
 DEFAULT_DELAY = 0.015  # 15ms between steps for smooth movement
+logger = logging.getLogger(__name__)
 
 
 class _ServoSignalPin(PiGPIOPin):
@@ -119,9 +121,18 @@ class BaseServo:
     def position(self, value: float):
         """Set position immediately (no smoothing)."""
         value = self.profile.clamp(value)
+        changed = value != self._position
         self._position = value
         if self._servo:
             self._servo.value = value
+        if changed:
+            self._trace_head('target', value)
+
+    def _trace_head(self, phase: str, target: float):
+        """Record commanded targets, not measured shaft positions."""
+        if self.pin == gpio_config.HEAD_PIN:
+            logger.info('Head command phase=%s target=%.4f source=%s',
+                        phase, target, threading.current_thread().name)
 
     def move_to(self, target: float, speed: float = 1.0):
         """Move smoothly to target position.
@@ -131,9 +142,11 @@ class BaseServo:
             speed: Movement speed multiplier (0.5 = half speed, 2.0 = double)
         """
         target = self.profile.clamp(target)
+        self._trace_head('start', target)
 
         if self._servo is None:
             self._position = target
+            self._trace_head('complete', target)
             return
 
         step = DEFAULT_STEP * speed
@@ -149,6 +162,7 @@ class BaseServo:
 
         self._servo.value = target
         self._position = target
+        self._trace_head('complete', target)
 
     def neutral(self, speed: float = 1.0):
         """Return to the fixed rest position."""
