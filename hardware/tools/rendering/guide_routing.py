@@ -100,19 +100,7 @@ def render_routes(render, output, parts):
     for name in ['H2-jacket','H2-positive','H2-return']:
         row = routes[name]
         power.append(cable(row['points_mm'],row['diameter_mm']/2,row['color']))
-    paths = [emit('pi-power-route', 'Route H2 from the Pi power socket to W1 port 2 and W3 port 2', power, [
-        ('Pi POWER',[-22,53.4,-22],[480,150]),
-        ('W1 / 2',[42,42.7,-17.2],[70,285]),
-        ('W3 / 2',[42,12.7,-17.2],[70,430]),
-        ('+5 V',[30,45,-46.5],[370,250]),
-        ('GND',routes['H2-return']['points_mm'][15],[400,380]),
-    ], crop=[50,110,810,410])]
-    # The fully mated position and final bend are unmeasured.
-    # Locate endpoints without asserting a cable pose.
-    paths.append(emit('usb-audio-route', 'USB endpoints in the open base', [], [
-        ('Pi USB',[-53.5,-3,-22],[750,430]),
-        ('Audio USB',[-25,-80,-26],[350,790]),
-    ], crop=[330,385,560,435]))
+    paths = []
     # Access guide highlights real openings rather than inventing a complete,
     # physically untested wire harness or fixed adhesive-anchor locations.
     overlay=''

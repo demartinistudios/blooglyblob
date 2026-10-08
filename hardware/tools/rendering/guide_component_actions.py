@@ -28,14 +28,6 @@ def render_component_actions(render, output):
     def emit(*args,**kwargs):v.paths.append(compact_view(render,output,*args,label_size=32,**kwargs))
     def moved(rows,offset):return [dict(m,v=m['v']+offset) for m in rows]
     button=v.parts(['E17']);button+=button_leads(button);plate=v.parts(['FB20'])
-    nut=[m for m in button if m.get('component_detail') in ('button retaining nut','nut grip')]
-    body=[m for m in button if m.get('component_detail') not in ('button retaining nut','nut grip')]
-    parts=plate+moved(body,[0,0,32])+moved(nut,[0,0,-30])
-    emit('button-insert-assembly',parts,[.8,-1.4,.35],
-         'Put the button through FB20 from the outside, then tighten its retaining nut from behind',
-         arrows=[([85,-76,10],[85,-76,0]),([85,-76,-29],[85,-76,-14])],
-         labels=[('Button',[85,-76,32],(30,42)),('FB20',[97,-66,-3],(430,220)),
-                 ('Retaining nut',[85,-76,-37.5],(30,386))])
     # Accepted FB01 pockets: top Z=-6.2, mouth Z=-9.0. The foot column
     # blocks the right axial path; load that nut laterally from smaller X.
     shell=clipped(v.parts(['FB01']),[[67,-84,-15],[104,-68,0]])

@@ -97,12 +97,6 @@ def front_diagrams(render, output):
     def nut(position):
         return hex_nut(3, position, [0,1,0])
     render.colors.update({'M3 screw':(177,186,197),'M3 nut':(177,186,197)})
-    def panel(name, parts, title, footer, camera):
-        render.meshes=parts
-        render.render(name,dict(select=['all'],camera=camera,title=title,footer=footer,clean=True,size=[900,850],margin=65))
-    # Nominal nut midplane y=-90.6, seat centre z=-40.5; the insertion lift is +Z.
-    panel('front-nut-low',[local[0],nut(np.array([-27,-90.6,-46.5]))],'','',[.8,1,-.15])
-    panel('front-nut-seated',[local[0],nut(np.array([-27,-90.6,-40.5]))],'','',[.8,1,-.15])
     # Installed screw: head underside at panel front y=-95; 6 mm shank ends -89.
     installed=[*local,nut(np.array([-27,-90.6,-40.5]))]+fastener_screw(3,6,[-27,-95,-40.5],[0,1,0])
     # Exact planar intersections avoid showing open mesh cuts as solid material.
@@ -129,15 +123,9 @@ def front_diagrams(render, output):
             y=1020*i
             canvas.paste(Image.open(output/(pic+'.png')),(0,y))
             d.multiline_text((28,y+855),labels[i],font=ImageFont.truetype(fontpath,48),fill=(34,56,78),spacing=10)
-        if name == 'front-nut-entry.png':
-            d.line([(770,615),(770,385)],fill=(166,91,53),width=8)
-            d.polygon([(770,360),(751,399),(789,399)],fill=(166,91,53))
-            d.text((722,302),'UP',font=ImageFont.truetype(fontpath,48),fill=(34,56,78))
-            d.text((700,640),'6 mm',font=ImageFont.truetype(fontpath,48),fill=(34,56,78))
         canvas.save(output/name,optimize=True)
-    compose('front-nut-entry.png',['front-nut-low','front-nut-seated'],['M3 nut, 6 mm below the seat','Seated'])
     compose('front-grille-fastening.png',['front-fastening-section'],['M3 × 6 · no washer'])
-    return ['assets/community/front-nut-entry.png','assets/community/front-grille-fastening.png']
+    return ['assets/community/front-grille-fastening.png']
 
 def verify_stand_reuse(provenance, registry, accepted, rows):
     """Keep the original export identity; allow reuse only with unchanged fixtures."""
