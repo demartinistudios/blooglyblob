@@ -2974,7 +2974,7 @@
         "N3": 1
       },
       "actions": [
-        "Rest the base (FB01) on its robot-left side on a folded towel, open bottom toward you. You work inside it from there.",
+        "Rest the base (FB01) on its robot-left side, open bottom toward you. You work inside it from there.",
         "Inside the base, move any wire away from the screw holes in front of and behind the harness opening. Keep the opening clear.",
         "The front upright (P43) has a chamfered front edge and countersunk holes in its front face. The rear upright (P02) has neither. It goes on in {step:shoulder-servos}, after the shoulder-servo bracket.",
         "Slide an M3 nut into the slot near the foot of the front upright. Fitted, the slot faces forward. If the nut slides out, hold it with tweezers.",
@@ -3593,7 +3593,7 @@
         "Do not push a nut through its round hole. Do not glue the nuts.",
         "Seat the robot-right eye housing (GS11) in its socket on the head shell (GS20), from the face side. Seat the robot-left eye housing (GS12) the same way.",
         "Their short tapered pegs align them. They do not snap in. Hold them in place with your fingers.",
-        "Turn the head face-down onto a folded towel. Keep it face-down until the eye cassettes are fastened. This keeps the loose nuts and foam in place."
+        "Turn the head face-down on the bench. Keep it face-down until the eye cassettes are fastened. This keeps the loose nuts and foam in place."
       ],
       "check": "Both housings sit without force. Each has two seated nuts. The film and foam lie flat.",
       "source": [
@@ -3872,7 +3872,7 @@
         "Support the wired mouth stick (E04) on the bench. Hold it against the mouth LED cassette (P30), LEDs facing away from the cassette.",
         "Put two M2\u00d78 screws through the stick and the cassette\u2019s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
         "Keep the LED faces clear.",
-        "Keep the head face-down on the towel. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
+        "Keep the head face-down. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
         "Cut a strip of 4 mm white mouth foam (C03), 7.4 mm high and slightly long. Curve it into the mouth pocket. Trim its ends until it lies flat without bunching or stretching.",
         "Place the mouth light separator (P31) behind the foam, curved face against it. Its eight channels face the LEDs. Place the cassette behind it.",
         "From the rear, put an M2\u00d78 screw through each outer cassette hole into a head nut. Use no washers. Tighten both. Tie the wires at the cassette without pulling a joint."
@@ -4699,8 +4699,8 @@
       },
       "hardware": {},
       "actions": [
-        "Lay the robot on its back on a folded towel. Turn it so the open bottom of the base faces you.",
-        "Put a second folded towel under the backpack to support the body. Only the base and the backpack touch the towels.",
+        "Lay the robot on its back, open bottom of the base toward you.",
+        "Prop it up with a couple of folded towels so it lies level and supported.",
         "Find the left arm servo cable (LEFT) in the harness opening. Insert its supply wire into W2/2. Insert its ground wire into W4/2.",
         "On the level shifter (S1), connect its signal wire to S1 C5, labeled LEFT. Tighten the terminal screw.",
         "Pull gently on each of the three wires. Each must stay in its port or terminal.",
@@ -4865,8 +4865,8 @@
       "chapter": "First power-up",
       "title": "Power up and test all 16 lights",
       "actions": [
-        "Stand the robot on its feet on a folded towel.",
-        "In front of it, rest the head face up on towels, open underside toward the top of the body. Stack towels until the two line up.",
+        "Stand the robot on its feet on the bench.",
+        "In front of it, rest the head face up on folded towels, open underside toward the body. Prop it up enough that the head light cable does not pull.",
         "Pass the body half of the head light connector up through any open gap in the head shelf (P08). Plug it into the head half until it clicks.",
         "Rest the shelf on the towels beside the head. Nothing may touch the three servo shafts.",
         "Find the power jack (J1) at the robot-left end of the rear face. Push the barrel plug of the power supply (E20) fully into it.",
@@ -5296,8 +5296,8 @@
       "actions": [
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
         "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall. Unplug the barrel plug from the power jack (J1).",
-        "Lay the robot on its back on a folded towel. Turn it so the open bottom of the base faces you.",
-        "Put a second folded towel under the backpack. The head touches nothing. The arms may swing back onto the towels.",
+        "Lay the robot on its back, open bottom of the base toward you.",
+        "Prop it up with a couple of folded towels so it lies level and supported. Keep weight off the head.",
         "If you left the antenna off in {step:antenna}, fit it now as in that step.",
         "Hold the head still while you turn the coil.",
         "Push the slack of the servo cables and the body light connector into the base. Keep it at least 4 mm deeper than the four corner faces where the bottom cover (FB02) seats.",
