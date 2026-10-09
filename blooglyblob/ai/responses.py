@@ -68,6 +68,7 @@ class OpenAIResponses:
         timeout_seconds=30,
         max_rounds=6,
         terminal_pending=lambda: False,
+        work=asyncio.to_thread,
     ):
         if (
             type(timeout_seconds) not in (int, float)
@@ -84,6 +85,7 @@ class OpenAIResponses:
         self.timeout_seconds = timeout_seconds
         self.max_rounds = max_rounds
         self.terminal_pending = terminal_pending
+        self._work = work
         self._pending_tasks: set[asyncio.Task] = set()
         self.usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         if self.bridge.search is None:
@@ -131,7 +133,7 @@ class OpenAIResponses:
         )
         try:
             result = await self._bounded(
-                self.client.responses.create(
+                self._request(
                     model=self.model,
                     instructions=self.instructions,
                     input=inputs,
@@ -171,6 +173,22 @@ class OpenAIResponses:
                 "Incomplete output item; no partial actions accepted."
             )
         return result
+
+    async def _request(self, **kwargs):
+        # The async SDK still builds response schemas synchronously. Keep network
+        # I/O on this loop, but parse the fully buffered body in an owned worker.
+        raw = await self.client.responses.with_raw_response.create(**kwargs)
+        self._check()
+        if len(self._pending_tasks) >= 8:
+            raise OpenAIResponsesError("Too many unfinished backend requests.")
+        parsing = asyncio.create_task(self._work(raw.parse))
+        self._pending_tasks.add(parsing)
+        parsing.add_done_callback(self._pending_tasks.discard)
+        parsing.add_done_callback(consume_task_exception)
+        # A synchronous parser cannot be stopped by task cancellation. Retain it
+        # against the pending-work limit until it actually finishes; its caller's
+        # existing deadline and ownership checks reject any late result.
+        return await asyncio.shield(parsing)
 
     def _text(self, response, limit=400, *, allow_empty=False):
         if any(

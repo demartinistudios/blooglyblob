@@ -363,6 +363,7 @@ class Application:
                 registry=registry,
                 executor=self._executor,
                 backend_instructions=backend,
+                backend_work=self._work,
                 responses_model=model,
                 speech=self._speech,
                 acknowledge=OpenAIAlertAcknowledgement(self._api, model=model),

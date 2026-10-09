@@ -110,6 +110,19 @@ class MediaCoordinator:
             raise MediaError("Playback was canceled")
         self.generation = None
 
+    async def flush(self) -> None:
+        """Retire speaker playback while retaining the microphone and driver."""
+        generation, self.generation, self._ended = self.generation, None, True
+        try:
+            await asyncio.wait_for(self._release_lock.acquire(), self.timeout)
+        except TimeoutError:
+            raise MediaError("Search cleanup unconfirmed") from None
+        try:
+            if generation is not None:
+                await self._complete(self.audio_owner.flush(generation))
+        finally:
+            self._release_lock.release()
+
     async def release(self) -> None:
         """Invalidate now; attempt every retiring owner even after a failure."""
         generation, self.generation, self._ended = self.generation, None, True

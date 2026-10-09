@@ -147,13 +147,15 @@ class FunctionsOnlyClient:
 
     def __init__(self, client):
         self._client = client
-        self.responses = SimpleNamespace(create=self.create)
+        self.responses = SimpleNamespace(
+            with_raw_response=SimpleNamespace(create=self.create)
+        )
 
     async def create(self, **kwargs):
         kwargs["tools"] = [
             tool for tool in kwargs["tools"] if tool["type"] == "function"
         ]
-        return await self._client.responses.create(**kwargs)
+        return await self._client.responses.with_raw_response.create(**kwargs)
 
 
 async def evaluate_case(client, model, case):

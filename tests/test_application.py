@@ -651,3 +651,46 @@ async def test_shutdown_reports_measurements_recorded_during_audio_close(caplog)
     assert json.loads(summaries[0].removeprefix("Audio diagnostics: "))["counts"] == {
         "capture_samples": 123
     }
+
+
+@pytest.mark.asyncio
+async def test_cancelled_backend_parser_remains_owned_until_worker_finishes(app_rig):
+    import threading
+    from tests.support.asyncio import wait_until
+
+    app, api, audio, _, _ = app_rig
+    entered, release = threading.Event(), threading.Event()
+
+    def parse():
+        entered.set()
+        assert release.wait(2), "test did not release parser"
+        return SimpleNamespace(status="completed", output=[], usage=None)
+
+    api.responses.with_raw_response = SimpleNamespace(
+        create=AsyncMock(return_value=SimpleNamespace(parse=parse))
+    )
+    await app.start()
+    engine = app.session.responses
+    request = asyncio.create_task(engine.run([], lambda: True))
+    stopping = None
+    try:
+        await wait_until(entered.is_set)
+        request.cancel()
+        with pytest.raises(asyncio.CancelledError):
+            await request
+        assert any(not worker.done() for worker in app._workers)
+        stopping = asyncio.create_task(app.stop())
+        await asyncio.sleep(0.01)
+        assert not stopping.done()
+        release.set()
+        await stopping
+        await wait_until(lambda: not engine._pending_tasks)
+        assert not app._faulted
+        audio.close.assert_awaited_once()
+    finally:
+        release.set()
+        await asyncio.gather(request, *(engine._pending_tasks), return_exceptions=True)
+        if stopping is not None:
+            await stopping
+        else:
+            await app.stop()

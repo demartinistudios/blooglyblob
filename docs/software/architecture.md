@@ -85,12 +85,16 @@ flowing. Completion, failure or cancellation removes the effect. Background-only
 samples do not drive talking gestures. Dance and
 alert recordings use sequential speaker ownership.
 
-For clear standalone sleep/dance requests, the conversation briefly withholds
-Live playback while Responses selects the action. This narrow hint does not
-authorize an action. It expires after six seconds and releases on a nonterminal
-result, failure, or new speech. Negation and questions about those activities do
-not trigger it. Tool arguments still pass schema validation; uncertain actions
-are not automatically replayed under a new call ID.
+When Live delegates a request, the application withholds speculative playback
+while Responses decides which tool or answer is needed. This decision does not
+close the microphone. Selecting a nonterminal tool reopens speech before the
+work runs, so conversation can continue over the ducked scanner sound. Sleep and
+dance keep playback withheld until the application's single finite announcement.
+A result, failure, or new user speech releases the decision gate; the backend's
+request deadline bounds the wait. New speech cancels an undecided request. Work
+already running can continue, but older context cannot subsequently authorize a
+sleep or dance transition. Tool arguments still pass schema validation; uncertain
+actions are not automatically replayed under a new call ID.
 
 Sleep/dance announcements must physically drain before the action starts.
 Matching dance completion returns to conversation with the existing greeting.

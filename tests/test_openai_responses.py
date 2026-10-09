@@ -56,7 +56,18 @@ def runner(outputs, execute=None, **kwargs):
     execute = execute or AsyncMock(return_value='{"status":"started"}')
     bridge = OpenAIToolBridge(registry(), execute)
     client = SimpleNamespace(
-        responses=SimpleNamespace(create=AsyncMock(side_effect=outputs))
+        responses=SimpleNamespace(
+            with_raw_response=SimpleNamespace(
+                create=AsyncMock(
+                    side_effect=[
+                        item
+                        if isinstance(item, Exception)
+                        else SimpleNamespace(parse=lambda item=item: item)
+                        for item in outputs
+                    ]
+                )
+            )
+        )
     )
     engine = OpenAIResponses(
         client, instructions="Be concise.", bridge=bridge, **kwargs
@@ -209,12 +220,14 @@ async def test_parallel_items_reasoning_round_trip_and_usage():
         == "The movement started."
     )
     assert execute.await_count == 2
-    inputs = client.responses.create.await_args_list[1].kwargs["input"]
+    inputs = client.responses.with_raw_response.create.await_args_list[1].kwargs[
+        "input"
+    ]
     assert reasoning in inputs
     assert [
         item["call_id"] for item in inputs if item.get("type") == "function_call_output"
     ] == ["a", "b"]
-    for request in client.responses.create.await_args_list:
+    for request in client.responses.with_raw_response.create.await_args_list:
         assert request.kwargs["store"] is False
         assert request.kwargs["max_output_tokens"] <= 2000
         assert request.kwargs["reasoning"] == {"effort": "low"}
@@ -233,7 +246,7 @@ async def test_web_search_uses_only_openai_never_legacy_dispatch():
     )
     assert await engine.run([], lambda: True) == "Rain is forecast."
     execute.assert_not_awaited()
-    search_request = client.responses.create.await_args_list[1].kwargs
+    search_request = client.responses.with_raw_response.create.await_args_list[1].kwargs
     assert search_request["tools"] == [{"type": "web_search"}]
     assert search_request["tool_choice"] == "required"
 
@@ -430,7 +443,7 @@ async def test_confirmed_terminal_handoff_stops_remaining_tools_and_model_calls(
     result = await engine.run([{"role": "user", "content": "Goodbye"}], lambda: True)
     assert "host" in result
     execute.assert_awaited_once_with("sleep", "goToSleep", {})
-    client.responses.create.assert_awaited_once()
+    client.responses.with_raw_response.create.assert_awaited_once()
 
 
 @pytest.mark.asyncio
@@ -440,7 +453,7 @@ async def test_silent_completed_reply_preserves_short_tool_outcome_without_repla
     result = await engine.run([], lambda: True)
     assert result == "Backend results: Head movement started; completion is unverified."
     execute.assert_awaited_once()
-    assert client.responses.create.await_count == 2
+    assert client.responses.with_raw_response.create.await_count == 2
 
 
 @pytest.mark.asyncio
@@ -522,3 +535,139 @@ async def test_preparing_real_sdk_resources_is_idempotent_and_makes_no_requests(
         result = await api.responses.create(model="test", input="test", store=False)
         assert result.status == "completed"
         assert len(requests) == 1
+
+
+@pytest.mark.asyncio
+async def test_sdk_response_parsing_runs_outside_the_audio_event_loop(monkeypatch):
+    import threading
+    import httpx2
+    from openai import AsyncOpenAI
+    from blooglyblob.ai.responses import prepare_responses
+
+    loop_thread = threading.get_ident()
+    parsing_threads = []
+
+    async def handler(request):
+        return httpx2.Response(
+            200,
+            json={
+                "id": "resp_offline",
+                "object": "response",
+                "created_at": 0,
+                "model": "test",
+                "status": "completed",
+                "output": [
+                    {
+                        "type": "message",
+                        "id": "msg_offline",
+                        "role": "assistant",
+                        "status": "completed",
+                        "content": [
+                            {"type": "output_text", "text": "Done.", "annotations": []}
+                        ],
+                    }
+                ],
+            },
+        )
+
+    async with AsyncOpenAI(
+        api_key="offline-test",
+        http_client=httpx2.AsyncClient(transport=httpx2.MockTransport(handler)),
+    ) as api:
+        await asyncio.to_thread(prepare_responses, api)
+        original = api._process_response_data
+
+        def parse(**kwargs):
+            parsing_threads.append(threading.get_ident())
+            return original(**kwargs)
+
+        monkeypatch.setattr(api, "_process_response_data", parse)
+        engine = OpenAIResponses(
+            api,
+            instructions="Synthetic test.",
+            bridge=OpenAIToolBridge(registry(), AsyncMock()),
+        )
+        assert (
+            await engine.run([{"role": "user", "content": "Test."}], lambda: True)
+            == "Done."
+        )
+        assert parsing_threads
+        assert all(thread != loop_thread for thread in parsing_threads)
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("ending", ["cancel", "timeout", "superseded"])
+async def test_late_parsed_tool_result_never_dispatches_after_request_ends(ending):
+    import threading
+    from tests.support.asyncio import wait_until
+
+    entered, release = threading.Event(), threading.Event()
+    current = True
+    engine, client, execute = runner(
+        [], timeout_seconds=0.08 if ending == "timeout" else 2
+    )
+
+    def parse():
+        entered.set()
+        assert release.wait(2), "test did not release parser"
+        return response(call())
+
+    create = client.responses.with_raw_response.create
+    create.side_effect = None
+    create.return_value = SimpleNamespace(parse=parse)
+    pending = asyncio.create_task(engine.run([], lambda: current))
+    try:
+        await wait_until(entered.is_set)
+        if ending == "cancel":
+            pending.cancel()
+            with pytest.raises(asyncio.CancelledError):
+                await pending
+        elif ending == "timeout":
+            with pytest.raises(ResponsesTimeout):
+                await pending
+        else:
+            current = False
+            release.set()
+            with pytest.raises(StaleResponse):
+                await pending
+        if ending != "superseded":
+            # Cancellation of the request does not pretend the worker finished.
+            await wait_until(lambda: len(engine._pending_tasks) == 1)
+        execute.assert_not_awaited()
+    finally:
+        release.set()
+        await asyncio.gather(pending, *engine._pending_tasks, return_exceptions=True)
+    await wait_until(lambda: not engine._pending_tasks)
+    execute.assert_not_awaited()
+    assert engine.usage == {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+
+
+@pytest.mark.asyncio
+async def test_cancelled_parsers_still_count_against_pending_work_limit():
+    import threading
+    from tests.support.asyncio import wait_until
+
+    release = threading.Event()
+    engine, client, _ = runner([])
+
+    def parse():
+        assert release.wait(2), "test did not release parser"
+        return response(text="Done.")
+
+    create = client.responses.with_raw_response.create
+    create.side_effect = None
+    create.return_value = SimpleNamespace(parse=parse)
+    try:
+        for count in range(1, 9):
+            request = asyncio.create_task(engine._request())
+            await wait_until(lambda: len(engine._pending_tasks) == count)
+            request.cancel()
+            with pytest.raises(asyncio.CancelledError):
+                await request
+        with pytest.raises(OpenAIResponsesError, match="unfinished"):
+            await engine._request()
+        assert len(engine._pending_tasks) == 8
+    finally:
+        release.set()
+        await asyncio.gather(*engine._pending_tasks)
+    await wait_until(lambda: not engine._pending_tasks)

@@ -6,7 +6,6 @@ import asyncio
 import json
 import logging
 import math
-import re
 import time
 import uuid
 from collections import deque
@@ -40,24 +39,6 @@ GREETING_SPEED = 1.25
 DANCE_RETURN_GREETING = "That was fun! What's next?"
 
 
-def _terminal_speech_candidate(context: list[dict[str, str]]) -> bool:
-    """A conservative playback hint, never authorization to execute an action."""
-    text = next(
-        (item["content"] for item in reversed(context) if item["role"] == "user"), ""
-    )
-    text = " ".join(text.lower().replace("’", "'").split()).strip(" .!?")
-    return (
-        re.fullmatch(
-            r"(?:please )?(?:(?:can|could|would|will) you (?:please )?)?"
-            r"(?:go(?: back)? to sleep|go to bed|sleep|start dancing|dance|"
-            r"let(?:'s| us) (?:have a )?dance(?: party)?)"
-            r"(?: now| please| for me| blooglyblob)*",
-            text,
-        )
-        is not None
-    )
-
-
 class TranscriptFragment(TypedDict):
     role: str
     text: str
@@ -73,8 +54,6 @@ class ActionRecord(TypedDict):
 
 class ConversationSession:
     """Serialize media ownership while fencing concurrent backend work."""
-
-    SPEECH_GATE_SECONDS = 6.0
 
     def __init__(
         self,
@@ -100,6 +79,9 @@ class ConversationSession:
         executor: ToolExecutor | None = None,
         backend_instructions: str = "",
         responses_model: str = "gpt-5.6-terra",
+        backend_work: Callable[
+            [Callable[[], object]], Awaitable[object]
+        ] = asyncio.to_thread,
         acknowledge: OpenAIAlertAcknowledgement | None = None,
         media_timeout: float = 3.0,
         alert_voice_seconds: float = 120.0,
@@ -157,9 +139,9 @@ class ConversationSession:
         self._jobs: set[asyncio.Task[None]] = set()
         self._job: asyncio.Task[None] | None = None
         self._job_id: str | None = None
-        self._speech_gate: float | None = None
-        self._terminal_job_id: str | None = None
-        self._terminal_input_cutoff = 0
+        self._speech_gate: str | None = None
+        self._job_input_cutoff = 0
+        self._job_input_changed = False
         self._pending_terminal: (
             tuple[str, str, str] | tuple[str, str, str, ActionRecord] | None
         ) = None
@@ -185,6 +167,7 @@ class ConversationSession:
                 instructions=backend_instructions,
                 bridge=bridge,
                 terminal_pending=lambda: self._pending_terminal is not None,
+                work=backend_work,
             )
 
     def _current(self, generation: str | None) -> bool:
@@ -243,7 +226,6 @@ class ConversationSession:
     def _cancel_job(self) -> None:
         self.hardware.pending_light(self._job_id, False)
         self._clear_speech_gate()
-        self._terminal_job_id = None
         self._pending_terminal = None
         self._job_id = None
         self.backend_busy = False
@@ -313,7 +295,17 @@ class ConversationSession:
             or not self._owns_job(owner[1], owner[2])
         ):
             raise StaleResponse("Terminal action no longer owns the conversation")
+        if self._job_input_changed:
+            return (
+                "Action not performed: the user spoke again after this request. "
+                "Clarify their latest intent before requesting the action again."
+            )
         self._pending_terminal = (owner[1], owner[2], name)
+        # A compound request may already have reopened speech for another tool.
+        # Reacquire terminal ownership until the finite announcement takes over.
+        self._speech_gate = owner[2]
+        if self.live:
+            self.live.discard_output()
         logger.info("Terminal selected: tool=%s generation=%s", name, owner[1])
         return "Terminal request accepted; speech and action are not yet complete."
 
@@ -435,14 +427,17 @@ class ConversationSession:
                 self._last_activity = time.monotonic()
                 if (
                     role == "user"
-                    and self._terminal_job_id == self._job_id
-                    and self._terminal_job_id is not None
-                    and start_ms >= self._terminal_input_cutoff
+                    and self._job_id is not None
+                    and start_ms >= self._job_input_cutoff
                     and any(char.isalnum() for char in delta)
                 ):
-                    self.diagnostics.count("gate_corrections")
-                    # New speech may correct the action. Never deliver its old result.
-                    self._cancel_job()
+                    # Search can keep running after new speech, but a terminal
+                    # action must never be selected from that older context.
+                    self._job_input_changed = True
+                    if self._speech_gate == self._job_id:
+                        self.diagnostics.count("gate_corrections")
+                        # New speech may correct the action. Never deliver its old result.
+                        self._cancel_job()
                 self.transcripts.append(
                     {
                         "role": role,
@@ -458,18 +453,30 @@ class ConversationSession:
                 if self.on_delegation:
                     await self.on_delegation(self, generation, delegation_id, offset_ms)
                 else:
+                    audio_ready = asyncio.Event()
                     self._delegate(
-                        generation, delegation_id, alert=alert, offset_ms=offset_ms
+                        generation,
+                        delegation_id,
+                        alert=alert,
+                        offset_ms=offset_ms,
+                        audio_ready=audio_ready,
                     )
-                    if self._speech_gate is not None:
-                        assert live is not None
-                        live.discard_output()
-                        if opening_done:
-                            # Fence the old speaker queue before a pending preamble arrives.
-                            await self.media.release()
-                            if self._current(generation):
-                                audio_generation = uuid.uuid4().hex
-                                await self.media.begin(audio_generation)
+                    try:
+                        if self._speech_gate is not None:
+                            assert live is not None
+                            live.discard_output()
+                            if opening_done:
+                                # Fence only playback. Keep capture alive while
+                                # the backend decides who owns the next response.
+                                await self.media.flush()
+                                if self._current(generation):
+                                    audio_generation = uuid.uuid4().hex
+                                    await self.media.begin(audio_generation)
+                    except BaseException:
+                        self._cancel_job()
+                        raise
+                    finally:
+                        audio_ready.set()
 
         failed = asyncio.Event()
         exit_recorded = False
@@ -543,12 +550,6 @@ class ConversationSession:
                     await failure(transport_error)
                     break
                 now = time.monotonic()
-                if self._speech_gate is not None and now >= self._speech_gate:
-                    self.diagnostics.count("gate_expiries")
-                    self._clear_speech_gate()
-                    logger.info(
-                        "Pending terminal speech gate expired; conversation audio resumed"
-                    )
                 if now - started >= (duration or self.max_session_seconds):
                     record_exit("exit_ceiling")
                     break
@@ -673,6 +674,7 @@ class ConversationSession:
         *,
         alert: bool = False,
         offset_ms: int = 0,
+        audio_ready: asyncio.Event | None = None,
     ) -> None:
         self._cancel_job()
         if len(self._jobs) >= 4:
@@ -681,16 +683,16 @@ class ConversationSession:
             return
         job_id = uuid.uuid4().hex
         self._job_id = job_id
+        self._job_input_changed = False
+        self._job_input_cutoff = offset_ms
         self.backend_busy = True
         self.hardware.pending_light(job_id, True)
         context = self._context()
-        if not alert and _terminal_speech_candidate(context):
+        if not alert:
             self.diagnostics.count("gate_starts")
-            self._speech_gate = time.monotonic() + self.SPEECH_GATE_SECONDS
-            self._terminal_job_id = job_id
-            self._terminal_input_cutoff = offset_ms
+            self._speech_gate = job_id
         self._job = asyncio.create_task(
-            self._work(generation, job_id, delegation_id, context, alert)
+            self._work(generation, job_id, delegation_id, context, alert, audio_ready)
         )
         self._jobs.add(self._job)
         self._job.add_done_callback(self._jobs.discard)
@@ -702,6 +704,7 @@ class ConversationSession:
         delegation_id: str,
         context: list[dict[str, str]],
         alert: bool,
+        audio_ready: asyncio.Event | None,
     ) -> None:
         token = _tool_owner.set((self, generation, job_id))
 
@@ -709,6 +712,10 @@ class ConversationSession:
             return self._owns_job(generation, job_id)
 
         try:
+            if audio_ready is not None:
+                await audio_ready.wait()
+            if not owns():
+                raise StaleResponse("Backend job was replaced during audio handoff")
             if alert:
                 if (
                     self.acknowledge
@@ -758,7 +765,6 @@ class ConversationSession:
             self.hardware.pending_light(job_id, False)
             if self._job_id == job_id:
                 self._clear_speech_gate()
-                self._terminal_job_id = None
                 self.backend_busy = False
                 self._last_activity = time.monotonic()
                 self._job_id = None
@@ -771,6 +777,9 @@ class ConversationSession:
         def owns() -> bool:
             return self._owns_job(owner[1], owner[2])
 
+        if not owns():
+            raise StaleResponse("Search no longer owns this conversation")
+        self._clear_speech_gate()
         try:
             async with self.media.search_sound(owns):
                 assert self.responses is not None
@@ -795,6 +804,8 @@ class ConversationSession:
         def owns() -> bool:
             return self._owns_job(owner[1], owner[2])
 
+        if not owns():
+            raise StaleResponse("Tool no longer owns this conversation")
         if name in self._uncertain_terminals:
             return json.dumps(
                 {
@@ -802,6 +813,8 @@ class ConversationSession:
                     "message": "The previous terminal action was not confirmed; do not retry.",
                 }
             )
+        if name not in {"goToSleep", "danceMode"}:
+            self._clear_speech_gate()
         record: ActionRecord = {
             "name": name,
             "params": params,

@@ -57,7 +57,7 @@ async def test_galactic_scan_owns_local_sound_until_search_finishes(ending):
         finish.set()
         await task
         live.append_result.assert_awaited_once_with("delegation", "Sunny")
-        live.discard_output.assert_not_called()
+        live.discard_output.assert_called_once()  # Fence the initial decision preamble.
         assert not host.media.searching
         await host.input_audio(bytes(960))
         live.input_audio.assert_awaited_once()
@@ -453,11 +453,11 @@ async def test_search_preserves_speech_and_input_while_background_stop_is_pendin
     assert audio.trace[-1]["type"] == "audio"
     await host.input_audio(bytes(640))
     live.input_audio.assert_awaited_once()
-    live.discard_output.assert_not_called()
+    live.discard_output.assert_called_once()  # Fence the initial decision preamble.
     live.append_result.assert_not_awaited()
     resume.set()
     await host._job
-    live.discard_output.assert_not_called()
+    live.discard_output.assert_called_once()  # Fence the initial decision preamble.
     live.append_result.assert_awaited_once_with("delegation", "Sunny")
     audio.stop_background.side_effect = audio._stop_background
     await host.close()

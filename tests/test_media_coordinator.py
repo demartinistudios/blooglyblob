@@ -227,3 +227,43 @@ async def test_noncooperative_search_cannot_block_independent_media_release():
     finally:
         finish.set()
         await task
+
+
+@pytest.mark.asyncio
+async def test_speaker_flush_waits_for_search_cleanup_without_releasing_capture():
+    media, audio, hardware = media_pair()
+    entered, finish = asyncio.Event(), asyncio.Event()
+    await media.begin("old")
+
+    async def search():
+        async with media.search_sound(lambda: True):
+            entered.set()
+            await finish.wait()
+
+    searching = asyncio.create_task(search())
+    await entered.wait()
+    flushing = asyncio.create_task(media.flush())
+    await asyncio.sleep(0)
+    await media.audio("old", b"stale")
+    audio.audio.assert_not_awaited()
+    audio.flush.assert_not_awaited()
+    finish.set()
+    await searching
+    await flushing
+    audio.flush.assert_awaited_once_with("old")
+    audio.release.assert_not_awaited()
+    hardware.stop_media.assert_not_awaited()
+    await media.begin("new")
+    await media.audio("new", b"current")
+    audio.audio.assert_awaited_once_with("new", b"current")
+
+
+@pytest.mark.asyncio
+async def test_failed_speaker_flush_propagates_and_full_cleanup_still_releases_driver():
+    media, audio, _ = media_pair()
+    audio.flush.side_effect = RuntimeError("writer stuck")
+    await media.begin("old")
+    with pytest.raises(MediaError):
+        await media.flush()
+    await media.release()
+    audio.release.assert_awaited_once()

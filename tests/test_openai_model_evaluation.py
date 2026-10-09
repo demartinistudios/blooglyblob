@@ -34,7 +34,18 @@ def call(name, params, call_id="call1"):
 
 def fake_client(*responses):
     return SimpleNamespace(
-        responses=SimpleNamespace(create=AsyncMock(side_effect=responses))
+        responses=SimpleNamespace(
+            with_raw_response=SimpleNamespace(
+                create=AsyncMock(
+                    side_effect=[
+                        item
+                        if isinstance(item, Exception)
+                        else SimpleNamespace(parse=lambda item=item: item)
+                        for item in responses
+                    ]
+                )
+            )
+        )
     )
 
 
@@ -117,7 +128,7 @@ async def test_actual_responses_loop_only_mocks_effects_and_records_usage(monkey
     assert result["elapsed_seconds"] >= 0
     assert result["error_class"] is None
     assert "Timer confirmed" not in json.dumps(result)
-    for request in client.responses.create.call_args_list:
+    for request in client.responses.with_raw_response.create.call_args_list:
         assert len(request.kwargs["tools"]) == 10
         assert all(
             tool["type"] == "function" and tool["strict"]
@@ -146,7 +157,7 @@ async def test_terminal_request_stops_without_extra_reasoning_round(case_index):
     client = fake_client(response(call(case.expected_calls[0]["name"], {})))
     result = await evaluation.evaluate_case(client, evaluation.MODELS[0], case)
     assert result["success"]
-    assert client.responses.create.await_count == 1
+    assert client.responses.with_raw_response.create.await_count == 1
 
 
 @pytest.mark.asyncio
@@ -160,7 +171,9 @@ async def test_find_then_cancel_uses_mock_id_only():
         client, evaluation.MODELS[1], evaluation.CASES[5]
     )
     assert result["success"]
-    history = client.responses.create.call_args_list[1].kwargs["input"]
+    history = client.responses.with_raw_response.create.call_args_list[1].kwargs[
+        "input"
+    ]
     tool_result = next(
         item["output"] for item in history if item.get("type") == "function_call_output"
     )
@@ -194,7 +207,7 @@ async def test_programmatic_bounds_reject_before_network(models, count):
     client = fake_client()
     with pytest.raises(ValueError):
         await evaluation.run_evaluation(client, models, count)
-    client.responses.create.assert_not_called()
+    client.responses.with_raw_response.create.assert_not_called()
 
 
 @pytest.mark.asyncio

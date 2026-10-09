@@ -75,11 +75,12 @@ async def test_late_startup_cannot_relight_button_stopped_conversation():
 
 
 @pytest.mark.asyncio
-async def test_delegation_uses_transcripts_and_barge_in_keeps_work():
+async def test_nonterminal_selection_preserves_barge_in_while_work_runs():
     entered, finish = asyncio.Event(), asyncio.Event()
 
     async def run(context, owns):
         assert context == [{"role": "user", "content": "set a timer"}]
+        await host._execute_tool("timer", "setTimer", {"duration_seconds": 60})
         entered.set()
         await finish.wait()
         assert owns()
@@ -87,6 +88,7 @@ async def test_delegation_uses_transcripts_and_barge_in_keeps_work():
 
     responses = SimpleNamespace(run=AsyncMock(side_effect=run))
     host, hardware, _ = session(responses=responses)
+    host.executor = SimpleNamespace(execute=AsyncMock(return_value="Timer set."))
     host.request(True)
     await wait_until(lambda: host.live is not None)
     live = host.live
@@ -617,21 +619,18 @@ async def test_unconfirmed_live_close_blocks_terminal_speech_and_action(activity
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize(
-    "utterance,muted",
+    "utterance",
     [
-        ("Please go to sleep now", True),
-        ("Let's have a dance party", True),
-        ("Can you dance for me?", True),
-        ("Don't go to sleep", False),
-        ("Why do people go to sleep?", False),
-        ("Go to sleep after setting a timer", False),
-        ("Set a timer", False),
-        ("Search for a dinosaur fact", False),
+        "Please go to sleep now",
+        "Hey, can you dance for me?",
+        "Don't go to sleep",
+        "Why do people go to sleep?",
+        "Go to sleep after setting a timer",
+        "Set a timer",
+        "Search for a dinosaur fact",
     ],
 )
-async def test_only_clear_terminal_delegations_suppress_pending_speech(
-    utterance, muted
-):
+async def test_delegation_holds_preamble_until_backend_decides(utterance):
     entered, finish = asyncio.Event(), asyncio.Event()
 
     async def run(context, owns):
@@ -650,7 +649,7 @@ async def test_only_clear_terminal_delegations_suppress_pending_speech(
         audio.trace.clear()
         await live.callbacks["on_audio"](bytes(960))
         chunks = [c for c in audio.trace if c["type"] == "audio"]
-        assert bool(chunks) is not muted
+        assert not chunks
         finish.set()
         await wait_until(lambda: not host.backend_busy)
         await live.callbacks["on_audio"](bytes(960))
@@ -698,23 +697,27 @@ async def test_new_speech_releases_terminal_gate_and_invalidates_old_work():
 
 
 @pytest.mark.asyncio
-async def test_terminal_suppression_has_a_deadline_without_canceling_valid_work():
+async def test_backend_deadline_releases_decision_gate_and_reports_failure():
     finish = asyncio.Event()
 
     async def run(context, owns):
         await finish.wait()
-        return "Please clarify."
+        from blooglyblob.ai.responses import ResponsesTimeout
+
+        raise ResponsesTimeout("Request deadline expired")
 
     host, _, audio = session(responses=SimpleNamespace(run=run), inactivity_seconds=0.1)
-    host.SPEECH_GATE_SECONDS = 0.02
     try:
         host.request(True)
         await wait_until(lambda: host.live is not None)
         live = host.live
         await live.callbacks["on_transcript"]("user", "Go to sleep", 0, 1000)
         await live.callbacks["on_delegation"]("d1", 1000)
+        assert host._speech_gate is not None
+        finish.set()
         await wait_until(lambda: host._speech_gate is None)
-        assert host.backend_busy
+        assert not host.backend_busy
+        live.append_result.assert_awaited_once()
         audio.trace.clear()
         await live.callbacks["on_audio"](bytes(960))
         assert any(c["type"] == "audio" for c in audio.trace)
@@ -755,6 +758,184 @@ async def test_first_greeting_frame_lights_mouth_before_greeting_finishes():
         assert not host._accept_live_input
         finish.set()
         await wait_until(lambda: host._accept_live_input)
+    finally:
+        finish.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_terminal_gate_preserves_capture_during_speaker_flush():
+    from blooglyblob.audio.controller import AudioController
+    from blooglyblob.conversation import ConversationSession
+    from tests.support.audio import Driver
+    from tests.support.conversation import Audio, Hardware
+
+    drivers = []
+    finish = asyncio.Event()
+    backend_started = asyncio.Event()
+
+    def factory():
+        driver = Driver()
+        drivers.append(driver)
+        return driver
+
+    async def capture(pcm):
+        await host.input_audio(pcm)
+
+    async def backend(*args):
+        backend_started.set()
+        await finish.wait()
+        return "Please clarify."
+
+    audio = AudioController(driver_factory=factory, on_input=capture)
+    host = ConversationSession(
+        audio=audio,
+        hardware=Hardware(Audio()),
+        api=object(),
+        live_factory=Live,
+        instructions="test",
+        responses=SimpleNamespace(run=backend),
+    )
+    try:
+        host.request(True)
+        await wait_until(lambda: host._accept_live_input)
+        live = host.live
+        await live.callbacks["on_transcript"]("user", "Go to sleep", 0, 1000)
+        driver = drivers[0]
+        driver.out_stream.allow_drain.clear()
+        delegating = asyncio.create_task(live.callbacks["on_delegation"]("d1", 1000))
+        await wait_until(driver.out_stream.draining.is_set)
+        driver.on_input(bytes(960))
+        await wait_until(lambda: live.input_audio.await_count == 1)
+        assert not backend_started.is_set()
+        driver.out_stream.allow_drain.set()
+        await delegating
+        await wait_until(backend_started.is_set)
+        driver.on_input(bytes(960))
+        await wait_until(lambda: live.input_audio.await_count == 2)
+        assert len(drivers) == 1
+        assert not driver.stopped
+        assert audio._physical.locked()
+    finally:
+        finish.set()
+        for driver in drivers:
+            driver.out_stream.allow_drain.set()
+        await host.close()
+        await audio.close()
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("utterance", ["Hey, can you dance?", "Goodnight"])
+async def test_terminal_selection_rejects_context_superseded_by_new_speech(utterance):
+    started, finish = asyncio.Event(), asyncio.Event()
+    host, hardware, _ = session(speech=Speech())
+    tool_results = []
+
+    async def execute(call_id, name, params, owns):
+        return host.terminal(name, params)
+
+    async def run(context, owns):
+        started.set()
+        await finish.wait()
+        tool_results.append(await host._execute_tool("old", "danceMode", {}))
+        return "The action was not performed. Please confirm your latest request."
+
+    host.responses = SimpleNamespace(run=run)
+    host.executor = SimpleNamespace(execute=execute)
+    try:
+        host.request(True)
+        await wait_until(lambda: host._accept_live_input)
+        live = host.live
+        await live.callbacks["on_transcript"]("user", utterance, 0, 1000)
+        await live.callbacks["on_delegation"]("d1", 1000)
+        await started.wait()
+        await live.callbacks["on_transcript"](
+            "user", "Actually, don't do that.", 1200, 2000
+        )
+        finish.set()
+        await wait_until(lambda: not host.backend_busy)
+        assert host.activity == "conversation"
+        hardware.execute.assert_not_awaited()
+        assert not tool_results
+        live.append_result.assert_not_awaited()
+    finally:
+        finish.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_nonterminal_followup_cannot_select_terminal_from_older_context():
+    started, finish = asyncio.Event(), asyncio.Event()
+    host, hardware, _ = session(speech=Speech())
+    outcomes = []
+
+    async def execute(call_id, name, params, owns):
+        return host.terminal(name, params) if name == "danceMode" else "Timer set."
+
+    async def run(context, owns):
+        await host._execute_tool("timer", "setTimer", {"duration_seconds": 60})
+        started.set()
+        await finish.wait()
+        outcomes.append(await host._execute_tool("dance", "danceMode", {}))
+        return "The dance was not performed; please confirm your latest request."
+
+    host.responses = SimpleNamespace(run=run)
+    host.executor = SimpleNamespace(execute=execute)
+    try:
+        host.request(True)
+        await wait_until(lambda: host._accept_live_input)
+        live = host.live
+        await live.callbacks["on_transcript"]("user", "Set a timer then dance", 0, 1000)
+        await live.callbacks["on_delegation"]("d1", 1000)
+        await started.wait()
+        await live.callbacks["on_transcript"](
+            "user", "Actually don't dance", 1200, 2000
+        )
+        assert host.backend_busy
+        finish.set()
+        await wait_until(lambda: not host.backend_busy)
+        assert "not performed" in outcomes[0].lower()
+        assert host.activity == "conversation"
+        hardware.execute.assert_not_awaited()
+        live.append_result.assert_awaited_once()
+    finally:
+        finish.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_correction_after_terminal_selection_cancels_composite_action():
+    selected, finish = asyncio.Event(), asyncio.Event()
+    host, hardware, _ = session(speech=Speech())
+
+    async def execute(call_id, name, params, owns):
+        return host.terminal(name, params) if name == "goToSleep" else "Timer set."
+
+    async def run(context, owns):
+        await host._execute_tool("timer", "setTimer", {"duration_seconds": 60})
+        await host._execute_tool("sleep", "goToSleep", {})
+        selected.set()
+        try:
+            await finish.wait()
+        except asyncio.CancelledError:
+            await finish.wait()
+        return "Terminal selected."
+
+    host.responses = SimpleNamespace(run=run)
+    host.executor = SimpleNamespace(execute=execute)
+    try:
+        host.request(True)
+        await wait_until(lambda: host._accept_live_input)
+        live = host.live
+        await live.callbacks["on_transcript"]("user", "Set a timer then sleep", 0, 1000)
+        await live.callbacks["on_delegation"]("d1", 1000)
+        await selected.wait()
+        await live.callbacks["on_transcript"]("user", "Actually stay awake", 1200, 2000)
+        finish.set()
+        await wait_until(lambda: not host._jobs)
+        assert host.activity == "conversation"
+        assert host._pending_terminal is None
+        hardware.execute.assert_not_awaited()
     finally:
         finish.set()
         await host.close()
