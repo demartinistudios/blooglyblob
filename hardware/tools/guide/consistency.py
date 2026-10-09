@@ -172,6 +172,8 @@ WRITING = {
         ('BODY (connector)', r'(?<!→)\bBODY\b(?! LIGHT)', True, 'text'),
         ('HEAD (connector)', r'\bHEAD (?:tails?|plugs?|latch(?:es)?|connectors?|power|lighting)\b', True, 'text'),
         ('pigtail', r'\bpigtails?\b', False, 'text'),
+        ('head power pair', r'\bhead power pairs?\b', False, 'text'),
+        ('input harness', r'\binput harness(?:es)?\b', False, 'text'),
         ('service stand', r'\bservice stands?\b|\bstand (?:board|blocks?)\b', False, 'text'),
         ('simply', r'\bsimply\b', False, 'text'),
         ('just', r'\bjust\b', False, 'text'),
@@ -274,6 +276,8 @@ def check_writing(guide, parts):
     ids = {p['id'] for p in parts if p.get('category') != 'Fastener'} | set(limits['labels'])
     id_pattern = re.compile(r'(?<![\w.])(' + '|'.join(sorted(map(re.escape, ids), key=len, reverse=True)) + r')(?!\w)')
     warnings = []
+    captions = {}
+    pictures = {}
     for step in guide['steps']:
         sid = step['id']
         panels = step.get('panels', [])
@@ -310,6 +314,17 @@ def check_writing(guide, parts):
             covered = [actions[i] for i in panel.get('actions', []) if type(i) is int and 0 <= i < len(actions)]
             if caption and set(map(normal, sentences(caption))) & {normal(s) for a in covered for s in sentences(a)}:
                 warnings.append(f'caption-repeats-action: {sid} panels[{j}].caption: repeats its action text')
+            if caption and not panel.get('image'):
+                warnings.append(f'caption-without-picture: {sid} panels[{j}].caption: a caption sits under a picture')
+            if panel.get('image') and not caption:
+                warnings.append(f'caption-missing: {sid} panels[{j}]: every picture says what it shows and from where')
+            if panel.get('image') and caption:
+                first = captions.setdefault(panel['image'], (sid, caption))
+                if first[1] != caption:
+                    warnings.append(f"caption-mismatch: {sid} panels[{j}].caption: {panel['image']} has a different caption in {first[0]}")
+                other = pictures.setdefault(caption, panel['image'])
+                if other != panel['image']:
+                    warnings.append(f'caption-shared: {sid} panels[{j}].caption: {other} has the same caption; say what differs')
     for where, field, text in card_texts(parts):
         for term in banned_terms(text, field):
             warnings.append(f'banned-term: {where}: {term}')
@@ -410,7 +425,7 @@ def format_facts(inventory):
 
 
 def check_quantities(hardware, supplies, catalog, guide, parts):
-    """Technical allocations and editorial preparation/service references stay distinct."""
+    """Each installed allocation is consumed once, by build-step install or preload references."""
     allocations = indexed(hardware['allocations'], 'id', 'installed allocations')
     totals = allocation_totals(allocations)
     steps = indexed(guide['steps'], 'id', 'guide steps')
@@ -426,17 +441,13 @@ def check_quantities(hardware, supplies, catalog, guide, parts):
         projected = Counter()
         for ref in step.get('hardware_allocations', []):
             aid, role = ref['allocation_id'], ref['role']
-            if aid not in allocations or role not in ('install', 'preload', 'service'):
+            if aid not in allocations or role not in ('install', 'preload'):
                 raise ValueError(f'{sid}: unknown allocation or role: {aid}/{role}')
             quantity = counts(ref['hardware'], sid)
             if quantity - Counter(allocations[aid]['hardware']):
                 raise ValueError(f'{sid}: references more hardware than allocated to {aid}')
-            if role == 'service':
-                if step['kind'] != 'service':
-                    raise ValueError(f'{sid}: service reuse must be a service step')
-                continue  # service refers to existing hardware; it never adds installed demand
             if step['kind'] != 'build':
-                raise ValueError(f'{sid}: service step cannot consume installed demand')
+                raise ValueError(f'{sid}: only build steps consume installed hardware')
             consumed[aid].update(quantity)
             projected.update(quantity)
         if dict(projected) != step['hardware']:

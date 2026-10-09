@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "design_revision": "R31",
+  "design_revision": "R33",
   "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-  "cloud_version": 27,
-  "native_sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100",
+  "cloud_version": 30,
+  "native_sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
   "export": {
     "path": "hardware/cad/current/assembly.step",
-    "sha256": "dec0c6af1d7e5ad32606bff90dde072aca1cbf3529fff9487c9fbc58f2ed2cca",
-    "bytes": 21557279,
+    "sha256": "bd8a38aac1e7218ee9f294be143b3b412da259fad4ee82b3fdea07552dca23f4",
+    "bytes": 21775520,
     "schema": "AP214",
     "file_schema": "AUTOMOTIVE_DESIGN { 1 0 10303 214 3 1 1 }",
     "application": "Autodesk Fusion 2705.1.25",
@@ -16,9 +16,9 @@
     "include_invisible_components": true
   },
   "verification": {
-    "body_count": 563,
-    "occurrences_before": 331,
-    "occurrences_after": 331,
+    "body_count": 562,
+    "occurrences_before": 330,
+    "occurrences_after": 330,
     "all_solid_states_match": true,
     "max_center_delta_mm": 0.0055291547607650175,
     "max_bounds_delta_mm": 0.0007346557902963013,
@@ -26,8 +26,8 @@
     "max_volume_delta_mm3": 2.8850837420050084,
     "status": "PASS",
     "max_transform_coefficient_delta": 1.2434497875801753e-14,
-    "method": "Full native root exported with hidden geometry; reimport into separate Fusion document. Match component paths allowing renumbered instance suffixes; verify one-to-one body properties, bounds, and occurrence transforms. VeryHighCalculationAccuracy physical properties."
+    "method": "Full root including hidden geometry reimported into a separate Fusion document. One-to-one body geometry and occurrence placements checked with VeryHighCalculationAccuracy physical properties."
   },
   "scope": "Full assembly geometry, including hidden reference, layout and test components. Native component occurrence placements retained. STEP import can renumber occurrence suffixes and assign generic body names; parametric history and Fusion joints are not part of this neutral geometry export.",
-  "preserved": "Retained bodies and assembly placements verified against saved MAIN cloud27. STEP is a neutral geometry export; joints and parametric history remain in the native archive."
+  "preserved": "Geometry and placements verified against saved MAIN cloud30. STEP omits native parametric history and joints."
 }

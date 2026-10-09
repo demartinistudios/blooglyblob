@@ -60,7 +60,7 @@ class AmbientAnimator:
         Args:
             servo_controller: Controller for head and arm servos
             conversation_state: Shared state for mode and audio level
-            animation_lock: Lock used by LLM animations (we check if locked)
+            animation_lock: Shared ownership lock for each ambient frame and gesture
         """
         self._servo_controller = servo_controller
         self._conversation_state = conversation_state
@@ -76,6 +76,7 @@ class AmbientAnimator:
 
         # Track if LLM animation was running (to resync after)
         self._was_locked = False
+        self._last_positions = None
 
         # Hold timers - don't move until this time (set by LLM tool calls)
         self._head_hold_until = 0.0
@@ -94,7 +95,7 @@ class AmbientAnimator:
         self._sync_from_servos()
 
         self._running = True
-        self._thread = threading.Thread(target=self._guarded_loop, daemon=True)
+        self._thread = threading.Thread(target=self._guarded_loop, name="ambient-motion", daemon=True)
         self._thread.start()
         print("  Ambient animator started!")
 
@@ -145,7 +146,13 @@ class AmbientAnimator:
 
         self._right_arm_current = sc.right_arm.profile.percent_at(sc.right_arm.position)
         self._right_arm_target = self._right_arm_current
+        self._last_positions = self._positions()
 
+    def _positions(self):
+        sc = self._servo_controller
+        if sc is None:
+            return None
+        return sc.head.position, sc.left_arm.position, sc.right_arm.position
 
     def _guarded_loop(self):
         try:
@@ -163,20 +170,19 @@ class AmbientAnimator:
         while self._running:
             start = time.time()
 
-            # Check if LLM animation is running
-            is_locked = self._animation_lock.locked()
-
-            if is_locked:
-                # Don't interfere with LLM animations
+            # Own the lock through the write, not just an earlier observation.
+            if not self._animation_lock.acquire(blocking=False):
                 self._was_locked = True
             else:
-                # If we just came out of a lock, resync positions
-                if self._was_locked:
-                    self._sync_from_servos()
+                try:
+                    # A short gesture can start and finish between our frames.
+                    if self._was_locked or self._positions() != self._last_positions:
+                        self._sync_from_servos()
                     self._was_locked = False
-
-                # Update based on current mode
-                self._update()
+                    self._update()
+                    self._last_positions = self._positions()
+                finally:
+                    self._animation_lock.release()
 
             # Maintain frame rate
             elapsed = time.time() - start

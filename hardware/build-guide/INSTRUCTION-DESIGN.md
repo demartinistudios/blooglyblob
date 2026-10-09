@@ -78,9 +78,9 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
    polarity, order, access constraints and the check for success. Remove internal
    coordinates, render commentary, revision stories and duplicated descriptions.
    Essential cautions belong before the action they affect, never in hidden help.
-   State the general power rule once. Repeat it at power-state transitions,
-   specific hazards and standalone service entry points, not throughout an
-   uninterrupted unpowered assembly sequence.
+   State the general power rule once. Repeat it at power-state transitions
+   and specific hazards, not throughout an uninterrupted unpowered assembly
+   sequence.
 7. **Prepare before mounting.** Test-route when length depends on fit, mark it,
    then solder and heat-shrink off the assembly. Check and cool the work before
    fitting it. Load captive nuts before access disappears; close covers last.
@@ -104,11 +104,22 @@ These rules cover pictures and page layout. The [writing standard](#writing-stan
     leaves, in the same pose and support the actions describe. Do not cram
     several stages into one drawing or use opposed arrows; when order matters,
     add small numbered callouts. Draw tools as tools: a meter probe has a tip
-    and a handle, so it cannot be mistaken for a soldered wire. A render that
+    and a handle, so it cannot be mistaken for a soldered wire. Draw heat-shrink
+    one way, in one color, whatever tubing the builder uses: every joint, leg,
+    resistor or loose wire end the actions cover is drawn under its sleeve in
+    that panel's picture and in every later one. A sleeve over a resistor is
+    drawn see-through, so the builder sees the resistor goes inside it. A sleeve waits on its lead
+    only when the panel solders and a later panel shrinks it. Actions say
+    "cover ... with heat-shrink", and say to slide it on before soldering when
+    both wires already end in a plug or part. A render that
     contradicts its actions, such as one showing a retired stand, is recorded
     as a picture mismatch until it is re-rendered, and its caption says what it
     shows.
-11. **Make detail optional, not the instruction.** Parts lists and references may
+11. **Build steps only.** The guide has no service or repair steps; a builder
+    who needs to open the robot reverses the build steps. After the last build
+    chapter, the sidebar lists the reference pages under a plain chapter
+    heading, Reference, without numbers and without a collapsible menu.
+12. **Make detail optional, not the instruction.** Parts lists and references may
     expand on demand. The operation, required dimensions and safety information
     remain visible. Preserve keyboard navigation, readable contrast, image
     descriptions, zoom controls and printable output.
@@ -248,11 +259,28 @@ carry it over silently or guess a new procedure.
 
 ### Captions
 
-A caption says what the picture shows: the view direction, what is cut away,
-and what is highlighted. It never repeats the action, gives an instruction,
-disclaims the drawing ("not to scale", "illustrative only", "does not show")
-or carries a fact the builder needs. Put needed facts in the action. Leave the
-caption empty when the panel title already says what the picture shows.
+Each kind of text has one job, the same in every picture:
+
+- **Inside the picture: labels only.** Part names and IDs, wire colors and
+  functions, pins, ports, sizes, quantities, connector size (JST-SM 2.5 mm or
+  JST-SH 1.0 mm), a key for numbered marks or colors, and short pointers at one
+  spot ("Cut here", "Slide in"). No title, no view line, no sentences, no
+  instructions, results or disclaimers.
+- **Under the picture: the caption.** Every step picture has one. It says what
+  the picture shows and from where: the view direction, what is cut away or
+  drawn apart, and what is highlighted. A picture used in several places has
+  the same caption everywhere; two different pictures never share one, so the
+  caption names what differs (LEFT or RIGHT cable, switch or LED pair). Name a part in full the first time a step
+  mentions it, even in a caption.
+- **In the actions: everything the builder does or checks.** A caption never
+  repeats an action, gives an instruction, disclaims the drawing ("not to
+  scale", "illustrative only", "does not show") or carries a fact the builder
+  needs. Put needed facts in the action.
+
+The writing check enforces the caption rules (`caption-missing`,
+`caption-mismatch`, `caption-shared`, `caption-repeats-action`,
+`caption-without-picture`), and
+the drawing tests reject sentences inside generated wiring drawings.
 
 ## Safety messages
 
@@ -286,9 +314,9 @@ Placement and form:
   "be careful" or "danger" in actions, notes or captions.
 - The general power rule and the general soldering, cutting and printing
   precautions live on the Safety and responsibility page. Repeat a power
-  warning only at power-state changes, specific hazards and service steps that
-  a builder may open directly (rule 6 above). Do not add a generic soldering
-  caution to every soldering action: the audience already solders.
+  warning only at power-state changes and specific hazards (rule 6 above). Do
+  not add a generic soldering caution to every soldering action: the audience
+  already solders.
 - Keep "Stop and unplug if…" instructions at power-up in the action list, as
   recovery lines, with a WARNING before the power-up action.
 
@@ -318,13 +346,14 @@ way in actions, titles, captions, diagram labels, part cards and reference pages
 
 | Thing | Name in text | Label written on it | Replaces |
 | --- | --- | --- | --- |
-| First JST-SM pair (E10), between the base and the body strand | body light connector; its two halves are the **base half** and the **body half** | BODY LIGHT | BASE→BODY, H3, BODY, lighting lead |
-| Wires from F2, C2 and S1 D5 to the base half | base-half wires (+5 V, GND, DATA) | — | H3 +5 V, H3 return, H3 DATA |
+| First JST-SM pair (E10), between the base and the body strand | body light connector; its two halves are the **base half** and the **body half** (the plug on the strand’s input end) | BODY LIGHT | BASE→BODY, H3, BODY, lighting lead |
+| Wires from F2, C2 and S1 D5 (through R2) to the base half | base-half wires (+5 V, GND, DATA) | — | H3 +5 V, H3 return, H3 DATA |
 | Second JST-SM pair (E10), between the body and the head | head light connector; its two halves are the **body half** and the **head half** | HEAD LIGHT | HEAD (as a connector), HEAD plug, HEAD latch |
-| Two 22 AWG wires (+5 V, GND) from the strand input to the head light connector | head power pair | — | HEAD power tails, HEAD tails, HEAD power feed |
-| Head power pair plus the DATA wire from light 5, running up to the head light connector | head light cable | — | three-wire HEAD lighting cable |
-| Body half of the body light connector, R2 and the head power pair, soldered to the strand input | input harness | — | BODY/R2 harness, BODY pigtail, prepared input wiring, permanent BODY input |
-| Head half of the head light connector, the eye leads and the mouth leads | head harness | — | mouth board and harness |
+| The strand’s three wires after light 5, with any extension, running up to the head light connector | head light cable | — | three-wire HEAD lighting cable, head power pair |
+| Half of the cut JST-SH cable (E11), from the head half to the first eye’s IN | eye input lead | — | eye lead, 5755 lead |
+| Other half of the cut JST-SH cable (E11), from the second eye’s OUT to the mouth pads | mouth lead | — | mouth leads, mouth power leads |
+| Head half of the head light connector, the eye input lead, the eye cable and the mouth lead | head harness | — | mouth board and harness |
+| Head shelf (P08) with the head horn adapter (P14) and its horn screwed on | head shelf assembly | — | — |
 | Micro-USB lead (E22) from W1 and W3 to the Pi | Pi power lead | PI POWER | H2 |
 | Servo cables | left arm servo cable, right arm servo cable, head servo cable | LEFT, RIGHT, HEAD | HEAD cable (for the servo) |
 | Panel jack (E18) | power jack (J1); its contacts are the **center** and the **sleeve** | J1 | inlet, panel jack |
@@ -401,16 +430,15 @@ the part card changes to match.
 | GS12 | robot-left eye housing | Robot-left copper goggle housing |
 | GS20 | head shell | same |
 | P01 | foam collar | Round foam collar |
-| P02 | frame upright | same |
+| P02 | rear upright | same |
 | P03 | shoulder-servo bracket | same |
 | P04 | head-servo bracket | same |
 | P06 | eye LED cassette | same |
 | P08 | head shelf | Rotating head shelf |
 | P09 | rear seam backing | same |
 | P10 | rear seam cover | same |
-| P11 | front body-light bracket | same |
-| P12 | rear body-light bracket | Rear body-light bracket and seam backing |
-| P13 | body wire guide | same |
+| P11 | lower body-light bracket | same |
+| P12 | middle body-light bracket | same |
 | P14 | head horn adapter | same |
 | P30 | mouth LED cassette | same |
 | P31 | mouth light separator | same |
@@ -421,6 +449,8 @@ the part card changes to match.
 | P38 | robot-left backpack elbow | same |
 | P39 | robot-right backpack elbow | same |
 | P40 | backpack top band | same |
+| P42 | upper body-light bracket | same |
+| P43 | front upright | same |
 
 ### Banned terms
 
@@ -439,9 +469,10 @@ each with the name or wording given.
 | inlet, panel jack | power jack (J1) |
 | central opening, central wire hole | harness opening |
 | BASE→BODY, H3, BODY (as a connector) | body light connector, base half, body half |
-| HEAD (as a connector), HEAD tails | head light connector, head power pair |
+| HEAD (as a connector), HEAD tails | head light connector, head light cable |
 | H2 | Pi power lead |
-| pigtail | input harness, or the named lead |
+| pigtail | the named lead: eye input lead, mouth lead |
+| head power pair, input harness | retired with the daisy-chained lights: name the head light cable, the body half or the base-half wires |
 | service stand, stand board, stand blocks | folded towels; say which way the robot lies |
 | simply, just, easily, carefully, please, make sure, note that | delete |
 | warning, caution, be careful, danger (outside a safety entry, except when quoting a message the software shows) | a safety entry |
@@ -537,8 +568,9 @@ is not cracked.
 ### Example 2: Wire the servo power and capacitor (wiring)
 
 **You need:** capacitor (E08), 1000 µF, 10 V · 18 AWG wire (C05) ·
-heat-shrink (C12) · solder, flux and wire labels (C14) · flush cutters (T01) ·
-soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
+heat-shrink (C12) · solder, flux and wire labels (C14) · cable ties (C07) ·
+adhesive tie squares (C17) · flush cutters (T01) · soldering iron (T02) · wire stripper (T04) ·
+heat-shrink tool (T09)
 
 **Panel 1: Cut and strip the servo feed**
 
@@ -546,14 +578,14 @@ soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
    WAGO (W2/1). Mark where it reaches without tension.
 2. Cut the wire at the mark. Strip 11 mm from each end.
 
-*Caption:* Red 18 AWG lead with an 11 mm stripped end at each side.
+*Caption:* The servo feed wire, stripped at both ends.
 
 **Panel 2: Connect the servo feed**
 
 1. Insert one end into W1/3. Insert the other end into W2/1. Close both levers.
 2. Keep W2/2 to W2/4 free for the three servos.
 
-*Caption:* Direct connection from W1/3 to W2/1.
+*Caption:* Wire-entry faces of W1 and W2.
 
 **Panel 3: Prepare and connect the servo capacitor**
 
@@ -563,15 +595,26 @@ soldering iron (T02) · wire stripper (T04) · heat-shrink tool (T09)
 
 1. Label one 1000 µF, 10 V capacitor (E08) C1. The stripe marks its negative
    leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.
-2. Cover each leg and its joint with its own heat-shrink. Lay C1 beside the
-   WAGO row. Cut each wire to reach its port.
+2. Cover each leg and its joint with its own heat-shrink. Lay C1 roughly where
+   the layout detail shows. Cut each wire to reach its port.
 3. Insert the positive wire into W2/5. Insert the negative wire into W3/4.
    Bend the wires gently at the rubber-seal end. Keep the vent end uncovered.
 
-*Caption:* Connection view of C1, W2 and W3.
+*Caption:* C1 with its sleeved wires, and the wire-entry faces of W2 and W3.
+
+**Panel 4: Tie C1 down**
+
+1. Choose a flat face beside C1. Prepare it as the square’s instructions say.
+   Stick an adhesive tie square (C17) there.
+2. Tie C1’s body to the square with a cable tie (C07). Keep the tie off the
+   rubber-seal end and the vent end.
+3. Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by
+   its tie, not by its wires.
+
+*Caption:* Side view of a tie square holding a capacitor.
 
 **Check:** One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct.
-Its two insulated wires are separate.
+Its two insulated wires are separate, and its body is tied down.
 
 ### How the examples meet the limits
 
@@ -579,7 +622,7 @@ Its two insulated wires are separate.
 | --- | --- | --- |
 | Longest sentence (20 or fewer words) | 18 | 17 |
 | Longest action (35 or fewer words) | 34 | 30 |
-| Panels (6 or fewer) | 6 | 3 |
+| Panels (6 or fewer) | 6 | 4 |
 | IDs and labels named on first use | FB01, FB41, FB03 | E08, C1, W1, W2, W3 |
 | Banned terms | none | none |
 | Captions repeating an action | none | none |
@@ -593,7 +636,6 @@ expected light/sound/movement. Do not ask builders to qualify current budgets,
 fuse margins, thermal performance or endurance, or buy instruments for those
 tests. Maintain that engineering evidence in hardware records. Removing those
 tasks from the guide is not evidence that design qualification has happened.
-Troubleshooting may provide targeted measurements when a fault occurs.
 
 ## Common failure patterns
 

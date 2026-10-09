@@ -4,20 +4,20 @@
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R31",
-    "cloud_version": 27,
-    "release_manifest": "hardware/cad/design-control/releases/R31-fuse-reference-20261004.json",
-    "release_manifest_sha256": "608273e5c80b231a7a60ff81959f5d9639f6fa2d42cfc6ecb430b4e3a3ec43f4"
+    "design_revision": "R33",
+    "cloud_version": 30,
+    "release_manifest": "hardware/cad/design-control/releases/R33-body-lighting-20261008.json",
+    "release_manifest_sha256": "a96501ca1f8912be5cf439629b7130562d69d8028bc1aa300b28001af37ac05e"
   },
   "accepted_native": {
     "path": "hardware/cad/current/assembly.f3d",
     "original_path": "hardware/cad/current/assembly.f3d",
-    "sha256": "e93b3817cae8901e702d523125e00f737c8edb7ec8a34a68ff2e46a993966100"
+    "sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e"
   },
   "current_inputs": {
     "path": "hardware/cad/design-control/current-inputs.json",
-    "sha256": "43e037000f441bfb7ba808b8eddceec5cabf7483ddc7d2ffe5938b1a47c9de20",
-    "bytes": 31749
+    "sha256": "e8a7206e5d628c05de12c339fec2e1394dbdb5cbe3a39025f89489ba778817a1",
+    "bytes": 33700
   },
   "delivery": null
 }

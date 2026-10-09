@@ -99,11 +99,11 @@
       "id": "E11",
       "quotes": [
         {
-          "pack_price_usd": "1.5",
+          "pack_price_usd": "1.75",
           "pack_quantity": "1",
           "unit": "each",
           "pack_label": "1 each",
-          "url": "https://www.adafruit.com/product/5755"
+          "url": "https://www.adafruit.com/product/6406"
         }
       ]
     },
@@ -503,6 +503,19 @@
           "pack_label": "1 each",
           "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
           "note": "BelMetric SF3X10SS, A2 stainless; 90° head, 6 mm diameter; length includes head."
+        }
+      ]
+    },
+    {
+      "id": "M3x14CS",
+      "quotes": [
+        {
+          "pack_price_usd": "0.11",
+          "pack_quantity": "1",
+          "unit": "each",
+          "pack_label": "1 each",
+          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X14SS",
+          "note": "BelMetric SF3X14SS, A2 stainless; 90° head, 6 mm diameter; length includes head."
         }
       ]
     },

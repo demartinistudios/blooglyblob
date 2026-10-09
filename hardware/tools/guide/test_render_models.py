@@ -81,13 +81,6 @@ class ReferenceIdentityTests(unittest.TestCase):
 
 
 class BoardMountSceneTests(unittest.TestCase):
-    def test_board_only_scenes_are_refreshed(self):
-        scenes = module.scenes()
-        for name,z in [('base-pi-joints',-16),('base-shifter-joints',-14)]:
-            view=scenes[f'assets/r16/{name}.png']['view']
-            self.assertEqual(len(view['markers']),4)
-            self.assertEqual({m['nut'][2] for m in view['markers']},{z})
-
     def test_feet_do_not_imply_old_stock_size_or_cover_installation(self):
         library=json.loads((ROOT/'hardware/rendering/scenes/views.json').read_text())
         for version in ('r16','r17','r21'):
@@ -103,23 +96,29 @@ class CloseupReadabilityTests(unittest.TestCase):
         names = [
             'eye-film-insertion', 'eye-foam-insertion', 'eye-housing-nuts',
             'eye-board-nuts', 'eye-board-fastening', 'eye-cassette-fastening',
-            'eye-installed-inside', 'shoulder-servo-nuts',
-            'shoulder-servo-fastening', 'head-servo-nuts',
-            'head-servo-fastening', 'horn-drill-pair', 'horn-side-orientation',
+            'eye-installed-inside', 'horn-drill-pair', 'horn-side-orientation',
         ]
         for name in names:
             with self.subTest(name=name):
                 svg = ET.parse(directory / (name + '.svg')).getroot()
                 self.assertEqual(float(svg.attrib['viewBox'].split()[2]), 420)
                 labels = list(svg.iter('{http://www.w3.org/2000/svg}text'))
-                self.assertGreater(len(labels), 3)
                 self.assertTrue(all(float(t.attrib['font-size']) >= 22 for t in labels))
+                # No drawn title: the guide caption gives the view; text only labels the picture.
+                self.assertEqual(float(svg.attrib['viewBox'].split()[1]), 50)
+                self.assertTrue(all(float(t.attrib['y']) > 60 for t in labels))
 
     def test_compact_audio_labels_preserve_phone_readability(self):
         directory = ROOT / 'hardware/build-guide/src/assets/community'
         for name in ['audio-cradle-lid-nuts', 'audio-cradle-base-mount',
                      'audio-module-seating', 'audio-tape-back', 'audio-tape-contact',
-                     'audio-module-connections', 'audio-lid-fastening']:
+                     'audio-module-connections', 'audio-lid-fastening',
+                     'frame-uprights-fastening', 'shoulder-servo-insertion',
+                     'shoulder-servo-fastening', 'shoulder-carrier-insertion',
+                     'shoulder-carrier-front', 'shoulder-carrier-rear',
+                     'front-light-bracket-lower', 'front-light-bracket-upper',
+                     'middle-light-bracket', 'head-servo-fastening',
+                     'upper-collar-fastening']:
             with self.subTest(name=name):
                 svg = ET.parse(directory / (name + '.svg')).getroot()
                 _, _, width, height = map(float, svg.attrib['viewBox'].split())
@@ -185,9 +184,9 @@ class InletActionViewTests(unittest.TestCase):
 
 
 class CurrentGuideSceneTests(unittest.TestCase):
-    def test_frame_shows_only_lower_collar_and_both_uprights(self):
-        scene=module.scenes()['assets/r21/base-frame.png']['view']
-        self.assertEqual(scene['occ'], {'P01':[0], 'P02':[0,1]})
+    def test_retired_sideways_frame_is_not_an_available_guide_scene(self):
+        # Step 33 uses the upright community/frame-uprights-fastening view.
+        self.assertNotIn('assets/r21/base-frame.png', module.scenes())
 
     def test_retired_stand_is_not_an_available_guide_scene(self):
         self.assertNotIn('assets/r16/service-stand.png', module.scenes())

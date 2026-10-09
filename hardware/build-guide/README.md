@@ -62,7 +62,7 @@ Unknown relationships require review. In the ignored local work record, name eac
 affected surface and record whether it changed, was reused with unchanged
 relevant dependencies, or was reviewed:
 
-- Steps and service/repeat-build instructions, and step IDs and their links.
+- Steps and repeat-build instructions, and step IDs and their links.
 - Part/supply/plate cards, fastener allocations, quantities, estimates and downloads.
 - Models, diagrams, assembly close-ups, templates and hardware keys.
 - Wiring/reference pages, component specifications and software commands.

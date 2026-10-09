@@ -92,8 +92,9 @@ def test_missing_explicit_file_fails_clearly(tmp_path):
 def test_audio_diagnostic_uses_shared_selection_and_unchanged_pcm(
     monkeypatch, tmp_path, command
 ):
-    from unittest.mock import Mock
+    from unittest.mock import Mock, call
     from types import SimpleNamespace
+    import time
     from scripts import audio_check
 
     monkeypatch.setattr(os, "environ", dict(os.environ))
@@ -116,20 +117,36 @@ def test_audio_diagnostic_uses_shared_selection_and_unchanged_pcm(
     monkeypatch.setitem(
         sys.modules, "pyaudio", SimpleNamespace(PyAudio=lambda: pa, paInt16=8)
     )
+    monkeypatch.setattr(time, "sleep", pa.pause)
     audio_check.main(command)
     pa.terminate.assert_called_once()
     if command == "check-audio":
         pa.open.assert_not_called()
     else:
-        for call in pa.open.call_args_list:
-            assert call.kwargs["rate"] == 48000
-            assert call.kwargs["channels"] == 1
+        for opened in pa.open.call_args_list:
+            assert opened.kwargs["rate"] == 48000
+            assert opened.kwargs["channels"] == 1
         assert pa.open.call_args.kwargs["output_device_index"] == 1
         samples = pa.open.return_value.write.call_args.args[0]
         if command == "test-mic":
-            assert pa.open.call_args_list[0].kwargs["input_device_index"] == 2
-            assert pa.open.return_value.read.call_count == 90
-            assert samples == b"\x01\x02" * 48000 * 3
+            from array import array
+
+            assert len(pa.open.call_args_list) == 3
+            assert pa.open.call_args_list[0].kwargs["output_device_index"] == 1
+            assert pa.open.call_args_list[1].kwargs["input_device_index"] == 2
+            cue = pa.open.return_value.write.call_args_list[0].args[0]
+            assert len(cue) == 9600 * 2  # 200 ms, mono 16-bit at 48 kHz
+            assert 0 < max(abs(x) for x in array("h", cue)) <= 1500
+            calls = pa.mock_calls
+            cue_write = calls.index(call.open().write(cue))
+            assert calls[cue_write + 1 : cue_write + 4] == [
+                call.open().stop_stream(),
+                call.open().close(),
+                call.pause(0.3),
+            ]
+            assert calls[cue_write + 4].kwargs.get("input") is True
+            assert pa.open.return_value.read.call_count == 150
+            assert samples == b"\x01\x02" * 48000 * 5
         else:
             from array import array
 
@@ -162,4 +179,34 @@ def test_audio_diagnostic_lists_candidates_even_when_selection_fails(
     assert "[0] USB Candidate Mic (in=1, out=0)" in output
     assert "[1] USB Candidate Speaker (in=0, out=2)" in output
     pa.open.assert_not_called()
+    pa.terminate.assert_called_once()
+
+
+def test_microphone_does_not_record_when_start_cue_fails(monkeypatch):
+    from types import SimpleNamespace
+    from unittest.mock import Mock
+    from scripts import audio_check
+
+    monkeypatch.setattr(
+        os,
+        "environ",
+        {"AUDIO_INPUT_DEVICE": "USB audio", "AUDIO_OUTPUT_DEVICE": "USB audio"},
+    )
+    pa = Mock()
+    pa.get_device_count.return_value = 1
+    pa.get_device_info_by_index.return_value = {
+        "name": "USB audio",
+        "maxInputChannels": 1,
+        "maxOutputChannels": 2,
+    }
+    pa.open.return_value.write.side_effect = RuntimeError("cue playback failed")
+    monkeypatch.setitem(
+        sys.modules, "pyaudio", SimpleNamespace(PyAudio=lambda: pa, paInt16=8)
+    )
+    with pytest.raises(RuntimeError, match="cue playback failed"):
+        audio_check.main("test-mic")
+    pa.open.assert_called_once()
+    assert pa.open.call_args.kwargs["output"] is True
+    pa.open.return_value.read.assert_not_called()
+    pa.open.return_value.close.assert_called_once()
     pa.terminate.assert_called_once()

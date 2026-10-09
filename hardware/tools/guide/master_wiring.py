@@ -11,7 +11,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 import diagrams
-from diagrams import Svg, INK, MUTED, PAPER, RED, BLK, BLUE, GRAY
+from diagrams import Svg, INK, MUTED, PAPER, RED, BLK, BLUE, GRAY, SERVO_BROWN, SERVO_ORANGE
 
 PURPLE, GREEN = "#7150a0", "#34765b"
 WIDTH, HEIGHT = 2640, 2120
@@ -49,8 +49,10 @@ class Circuit:
         elif kind == "wago-h":
             ports = {str(n): (x + 30 + (n - 1) * 60, y + 70) for n in range(1, 6)}
         elif kind == "pi":
+            # Top view, header along the board's top edge: pin 1 at the microSD end
+            # (left), odd pins on the inner row, even pins on the board-edge row.
             ports = {
-                str(n): (x + 20 + ((n - 1) // 2) * 18, y + (12 if n % 2 else 42))
+                str(n): (x + 20 + ((n - 1) // 2) * 18, y + (42 if n % 2 else 12))
                 for n in range(1, 41)
             }
             ports.update({"USB": (x + 400, y + 160), "POWER": (x + 100, y + 310)})
@@ -99,7 +101,9 @@ class Circuit:
                 ports["in" + p] = (x, y + 12 + i * 30)
                 ports["out" + p] = (x + 84, y + 12 + i * 30)
         elif kind in ("pebble", "eye"):
-            for i, p in enumerate(["+", "DATA", "−"]):
+            # Eye JST-SH sockets are GND, +5 V, DATA; pebbles follow the strand.
+            order = ["−", "+", "DATA"] if kind == "eye" else ["+", "DATA", "−"]
+            for i, p in enumerate(order):
                 ports["in" + p] = (x, y + 10 + i * 20)
                 ports["out" + p] = (x + 60, y + 10 + i * 20)
         elif kind == "mouth":
@@ -141,15 +145,11 @@ def circuit():
         ("LEFT", "servo", 1690, 1030, "Left arm"),
         ("RIGHT", "servo", 2010, 1030, "Right arm"),
         ("HEAD-SERVO", "servo", 2330, 1030, "Head servo"),
-        ("body-light", "plug", 1380, 768, "Body light connector"),
-        ("head-light", "plug", 1520, 523, "Head light connector · JST-SM"),
-        ("R2", "resistor", 1480, 810, "R2 · 330 Ω"),
+        ("body-light", "plug", 1380, 768, "Body light connector · JST-SM (large)"),
+        ("head-light", "plug", 1520, 523, "Head light connector · JST-SM (large)"),
+        ("R2", "resistor", 1150, 320, "R2 · 330 Ω"),
         ("lighting+", "joint", 1340, 780),
         ("lighting−", "joint", 1310, 840),
-        ("body+", "joint", 1480, 710),
-        ("body−", "joint", 1500, 750),
-        ("head+", "joint", 1710, 150),
-        ("head−", "joint", 1690, 450),
         ("eye6", "eye", 1740, 230, "Eye 1 · light 6"),
         ("eye7", "eye", 2020, 230, "Eye 2 · light 7"),
         ("mouth", "mouth", 2240, 240, "Mouth · lights 8–15"),
@@ -188,87 +188,56 @@ def circuit():
         gx, _ = c.ports[f"{name}.−"]
         C(f"W2.{n}", f"{name}.+", RED, [(c.ports[f"W2.{n}"][0], y), (px, y)])
         gy = 1840 + n * 50
-        C(f"W4.{n}", f"{name}.−", BLK, [(c.ports[f"W4.{n}"][0], gy), (gx, gy)])
-    # Individual GPIO wires, from actual numbered header contacts.
-    for pin, port, lane, y in [
-        (1, "V", 520, 620),
-        (6, "G", 500, 812),
-        (12, "DAT", 480, 832),
-        (32, "CLK", 460, 892),
-    ]:
-        px, py = c.ports[f"Pi.{pin}"]
-        tx, ty = c.ports[f"S1.{port}"]
-        # Even contacts escape downward before turning left, clear of odd contacts.
-        via = py if pin % 2 else y
-        C(
-            f"Pi.{pin}",
-            f"S1.{port}",
-            PURPLE if port == "V" else BLK if port == "G" else BLUE,
-            [(px, via), (lane, via), (lane, ty)],
-        )
-    for pin, port, lane, y in [
-        (17, "V", 900, 620),
-        (9, "G", 920, 640),
-        (33, "DAT", 940, 660),
-        (36, "CLK", 1020, 680),
-    ]:
-        px, py = c.ports[f"Pi.{pin}"]
-        tx, ty = c.ports[f"S2.{port}"]
-        via = y if pin % 2 else 790
-        C(
-            f"Pi.{pin}",
-            f"S2.{port}",
-            PURPLE if port == "V" else BLK if port == "G" else BLUE,
-            [(px, via), (lane, via), (lane, ty)],
-        )
-    C("S1.D5", "body-light.inDATA", BLUE, [(850, 430), (850, 320), (1330, 320), (1330, 810)])
+        C(f"W4.{n}", f"{name}.−", SERVO_BROWN, [(c.ports[f"W4.{n}"][0], gy), (gx, gy)])
+    # Individual GPIO wires, from actual numbered header contacts. Even pins on the
+    # board-edge row leave upward; odd pins on the inner row leave downward.
+    C("Pi.1", "S1.V", PURPLE, [(450, 762), (450, 395)])
+    C("Pi.6", "S1.G", BLK, [(656, 640), (500, 640), (500, 435)])
+    C("Pi.12", "S1.DAT", BLUE, [(710, 620), (480, 620), (480, 475)])
+    C("Pi.32", "S1.CLK", BLUE, [(890, 560), (460, 560), (460, 515)])
+    C("Pi.17", "S2.V", PURPLE, [(764, 805), (1016, 805), (1016, 395)])
+    C("Pi.9", "S2.G", BLK, [(692, 820), (1028, 820), (1028, 435)])
+    C("Pi.33", "S2.DAT", BLUE, [(908, 790), (1004, 790), (1004, 475)])
+    C("Pi.36", "S2.CLK", BLUE, [(926, 690), (1040, 690), (1040, 515)])
+    C("S1.D5", "R2.in", BLUE, [(850, 430), (850, 320)])
+    C("R2.out", "body-light.inDATA", BLUE, [(1330, 320), (1330, 810)])
     C(
         "S1.C5",
         "LEFT.SIG",
-        BLUE,
+        SERVO_ORANGE,
         [(870, 500), (870, 570), (1360, 570), (1360, 1210), (1760, 1210)],
     )
-    C("S2.D5", "RIGHT.SIG", BLUE, [(1350, 430), (1350, 1180), (2080, 1180)])
-    C("S2.C5", "HEAD-SERVO.SIG", BLUE, [(1370, 500), (1370, 1250), (2400, 1250)])
+    C("S2.D5", "RIGHT.SIG", SERVO_ORANGE, [(1350, 430), (1350, 1180), (2080, 1180)])
+    C("S2.C5", "HEAD-SERVO.SIG", SERVO_ORANGE, [(1370, 500), (1370, 1250), (2400, 1250)])
     # Four separate button leads; only its LED-positive wire has R1.
-    C("Pi.4", "R1.out", RED, [(638, 792), (435, 792), (435, 650)])
+    C("Pi.4", "R1.out", RED, [(638, 650)])
     C("R1.in", "BTN.LED+", RED, [(275, 650), (275, 770)])
-    C("Pi.20", "BTN.LED−", BLK, [(782, 872), (360, 872), (360, 800)])
-    C("Pi.11", "BTN.SW1", BLUE, [(710, 700), (400, 700), (400, 830)])
-    C("Pi.14", "BTN.SW2", BLK, [(728, 852), (380, 852), (380, 860)])
+    C("Pi.20", "BTN.LED−", BLK, [(782, 580), (360, 580), (360, 800)])
+    C("Pi.11", "BTN.SW1", BLUE, [(710, 812), (380, 812), (380, 830)])
+    C("Pi.14", "BTN.SW2", BLK, [(728, 600), (400, 600), (400, 860)])
     C("Pi.USB", "AUDIO.USB", PURPLE, [(1055, 880), (1055, 915)], cable=True)
     C("AUDIO.L+", "SPK-L.+", GREEN, [(1285, 887), (1285, 990), (1045, 990)])
     C("AUDIO.L−", "SPK-L.−", PURPLE, [(1295, 905), (1295, 1010), (1075, 1010)])
     C("AUDIO.R+", "SPK-R.+", GREEN, [(1305, 935), (1305, 1030), (1225, 1030)])
     C("AUDIO.R−", "SPK-R.−", PURPLE, [(1320, 953), (1320, 1050), (1255, 1050)])
-    # One continuous lighting network, with two detachable plugs.
-    C("body-light.out+", "body+.wire", RED, [(1480, 780)])
-    C("body+.wire", "body0.in+", RED)
-    C("body+.wire", "head-light.in+", RED, [(1480, 535)])
-    C("body-light.out−", "body−.wire", BLK, [(1500, 840)])
-    C("body−.wire", "body0.in−", BLK)
-    C("body−.wire", "head-light.in−", BLK, [(1500, 595)])
-    C("body-light.outDATA", "R2.in", BLUE)
-    C("R2.out", "body0.inDATA", BLUE, [(1640, 810), (1640, 730)])
+    # One continuous lighting chain: power and data pass through every light.
+    C("body-light.out+", "body0.in+", RED, [(1480, 780), (1480, 710)])
+    C("body-light.out−", "body0.in−", BLK, [(1500, 840), (1500, 750)])
+    C("body-light.outDATA", "body0.inDATA", BLUE, [(1640, 810), (1640, 730)])
     for i in range(5):
         for port, color in [("+", RED), ("DATA", BLUE), ("−", BLK)]:
             C(f"body{i}.out{port}", f"body{i + 1}.in{port}", color)
-    C(
-        "body5.outDATA",
-        "head-light.inDATA",
-        BLUE,
-        [(2450, 730), (2450, 630), (1460, 630), (1460, 565)],
-    )
-    C("head-light.out+", "head+.wire", RED, [(1630, 535), (1630, 150)])
-    C("head+.wire", "eye6.in+", RED, [(1710, 240)])
-    C("head+.wire", "mouth.+", RED, [(2380, 150)])
-    C("head-light.out−", "head−.wire", BLK, [(1650, 595), (1650, 450)])
-    C("head−.wire", "eye6.in−", BLK, [(1690, 280)])
-    C("head−.wire", "mouth.−", BLK, [(2470, 450)])
-    C("head-light.outDATA", "eye6.inDATA", BLUE, [(1670, 565), (1670, 260)])
+    C("body5.out+", "head-light.in+", RED, [(2470, 710), (2470, 610), (1440, 610), (1440, 535)])
+    C("body5.outDATA", "head-light.inDATA", BLUE, [(2450, 730), (2450, 630), (1460, 630), (1460, 565)])
+    C("body5.out−", "head-light.in−", BLK, [(2430, 750), (2430, 650), (1480, 650), (1480, 595)])
+    C("head-light.out+", "eye6.in+", RED, [(1630, 535), (1630, 260)])
+    C("head-light.outDATA", "eye6.inDATA", BLUE, [(1670, 565), (1670, 280)])
+    C("head-light.out−", "eye6.in−", BLK, [(1710, 595), (1710, 240)])
     for port, color in [("+", RED), ("DATA", BLUE), ("−", BLK)]:
         C(f"eye6.out{port}", f"eye7.in{port}", color)
-    C("eye7.outDATA", "mouth.DIN", BLUE, [(2150, 260), (2150, 270)])
+    C("eye7.outDATA", "mouth.DIN", BLUE, [(2150, 280), (2150, 270)])
+    C("eye7.out+", "mouth.+", RED, [(2120, 260), (2120, 150), (2380, 150)])
+    C("eye7.out−", "mouth.−", BLK, [(2100, 240), (2100, 130), (2470, 130)])
     return c
 
 
@@ -306,7 +275,7 @@ def draw_node(g, n, c):
     elif name == "head-light":
         label(g, x + 190, y + 20, n.label, 22, weight=700)
     elif name == "R2":
-        label(g, x + 50, y + 48, n.label, 24, weight=700)
+        label(g, x + 20, y - 22, n.label, 24, weight=700)
     elif name == "C2":
         label(g, x, y - 45, "C2", 24, weight=700)
         label(g, x + 70, y - 25, "1000 µF / 10 V", 18, anchor="end")
@@ -409,7 +378,7 @@ def draw_node(g, n, c):
             )
             if pin in used:
                 stagger = ((pin - 1) // 2 % 2) * 18
-                baseline = py - 10 - stagger if pin % 2 else py + 22 + stagger
+                baseline = py + 22 + stagger if pin % 2 else py - 10 - stagger
                 g.rect(
                     px - 11, baseline - 16, 22, 21, fill="#22292c", stroke="none", rx=3
                 )
@@ -529,19 +498,13 @@ def draw_node(g, n, c):
 def draw():
     c = circuit()
     g = Svg(WIDTH, HEIGHT, "BlooglyBlob · complete wiring")
-    label(
-        g,
-        28,
-        80,
-        "Every component appears once. Follow each continuous wire from its source to its destination.",
-        25,
-        fill=MUTED,
-    )
     for x, col, title in [
         (30, RED, "+5 V"),
         (200, BLK, "Ground"),
         (415, BLUE, "Signal / data"),
         (685, PURPLE, "3.3 V or USB cable"),
+        (1740, SERVO_BROWN, "Servo ground"),
+        (1960, SERVO_ORANGE, "Servo signal"),
     ]:
         g.wire([(x, 113), (x + 40, 113)], col, 5)
         label(g, x + 52, 121, title, 21)
@@ -580,17 +543,9 @@ def draw():
     g.rect(685, 1030, 30, 13, fill="#bcc5cb", rx=2)
     label(g, 748, 1048, "Pi power lead · micro-USB", 20, weight=700)
     label(g, 748, 1075, "≤150 mm incl. plug", 18, fill=MUTED)
-    # Exposed unused output power tails are capped individually.
-    for name in ["body5", "eye7"]:
-        for p, col in [("+", RED), ("−", BLK)]:
-            x, y = c.ports[f"{name}.out{p}"]
-            g.wire([(x, y), (x + 27, y)], col, 4)
-            g.rect(x + 22, y - 5, 14, 10, fill="#434d56", rx=3)
-    label(g, 2170, 385, "Eye OUT + / − insulated", 19, fill=MUTED)
-    label(g, 2270, 805, "Last pebble + / − insulated", 19, fill=MUTED)
-    label(g, 1860, 865, "Body data → eyes → mouth", 25, weight=700)
-    label(g, 1730, 915, "Head power branches before light 0.", 22, fill=MUTED)
-    label(g, 1780, 390, "JST-SH: 5755 → eyes via 6404 → 5755", 20, fill=MUTED)
+    label(g, 1860, 865, "Body → eyes → mouth", 25, weight=700)
+    label(g, 1860, 915, "Power and data run in one chain.", 22, fill=MUTED)
+    label(g, 1780, 390, "JST-SH (small): eye input lead → eyes → mouth lead", 20, fill=MUTED)
     label(g, 900, 1224, "Speaker outputs stay separate from ground.", 18, fill=MUTED)
     label(
         g,

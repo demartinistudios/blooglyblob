@@ -33,8 +33,13 @@ def main(argv=None):
     result = 0
     try:
         controller = servo_controller.ServoController()
-        print("Holding the fit pose. Keep the head and arms off the shafts.")
-        while input("Type STOP then Enter to release the servos: ").strip().upper() != "STOP":
+        print(
+            "Holding the fit pose. Seat the head shelf and arms now without turning the shafts."
+        )
+        while (
+            input("Type STOP then Enter to release the servos: ").strip().upper()
+            != "STOP"
+        ):
             pass
     except (EOFError, KeyboardInterrupt):
         print("Servo fitting interrupted.")
@@ -58,8 +63,13 @@ def main(argv=None):
                 signal.signal(sig, handler)
     if result == OWNERSHIP_UNCERTAIN_EXIT:
         print("Servo output release is unconfirmed. Switch off the supply.")
+    elif result:
+        print("Servo pulses stopped. The application stays stopped.")
     else:
-        print("Servo pulses stopped. The application stays stopped. Shut down and unplug before fitting parts.")
+        print(
+            "Servo pulses stopped. The application stays stopped. "
+            "Shut down and unplug, then drive the center screws."
+        )
     return result
 
 

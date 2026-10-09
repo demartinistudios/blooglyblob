@@ -22,9 +22,13 @@ else:
 
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = ("PI_HOST", "PI_USER", "BLOOGLYBLOB_ENV_FILE")
-HELPERS = (
+BOOTSTRAP_HELPERS = (
     "deploy_config.py",
     "device_install.py",
+    "wifi_persistence.py",
+)
+HELPERS = (
+    *BOOTSTRAP_HELPERS,
     "audio_check.py",
     "install_led_driver.py",
 )
@@ -194,8 +198,7 @@ def install(destination: str, mode: str, config: dict[str, str]):
         try:
             transfers = [
                 (archive, "app.tar.gz"),
-                (ROOT / "scripts/device_install.py", "device_install.py"),
-                (ROOT / "scripts/deploy_config.py", "deploy_config.py"),
+                *[(ROOT / "scripts" / name, name) for name in BOOTSTRAP_HELPERS],
                 *[(p, n) for n, p in inputs.items()],
             ]
             for source, name in transfers:

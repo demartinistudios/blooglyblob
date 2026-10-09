@@ -413,18 +413,18 @@
   },
   {
     "id": "P02",
-    "name": "Frame upright",
+    "name": "Rear upright",
     "exact": "P02 Upright r3 - modular accessory mounting",
-    "qty": 2,
+    "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "One of the two vertical frame posts, front and rear. The servo brackets, collars, light brackets and backpack carrier fasten to them.",
+    "description": "The rear vertical frame post. The shoulder-servo bracket, head-servo bracket, middle light bracket and backpack carrier fasten to it.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P02.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "frame-uprights"
+      "shoulder-servos"
     ],
     "additional_links": [
       {
@@ -458,11 +458,11 @@
   {
     "id": "P04",
     "name": "Head-servo bracket",
-    "exact": "P04 Head servo carrier r1 - side entry",
+    "exact": "P04 Head servo carrier r33 - reinforced flush",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds the head servo. Slide the wired servo in from the side before the bracket goes on the frame.",
+    "description": "Holds the head servo. Screw the servo in on the bench, then fit the bracket between the two uprights.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P04.png",
     "link": "",
@@ -506,14 +506,14 @@
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Rotating shelf that carries the head. The three M2 nuts for the head screws go into pockets on top, right before the head goes on. The nuts are 4 mm across flats \u00d7 1.6 mm thick. Measure yours. The open side entry takes the head light cable. Open reliefs let the head lift off. Clear stray threads from the three underside pockets without breaking their roofs. The head horn adapter (P14) joins the shelf with three M3\u00d78 screws. They drive down into M3 nuts in the pockets underneath.",
+    "description": "Rotating shelf that carries the head. The three M2 nuts for the head screws go into pockets on top, right before the head goes on. The nuts are 4 mm across flats \u00d7 1.6 mm thick. Measure yours. The head light cable passes down through one of its open gaps. Open reliefs let the head lift off. Clear stray threads from the three underside pockets without breaking their roofs. The head horn adapter (P14) joins the shelf with three M3\u00d78 screws. They drive down into M3 nuts in the pockets underneath.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/r18/part-P08.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
       "head-shelf",
-      "head-light-cable",
+      "all-lights-test",
       "shelf-arms"
     ],
     "additional_links": [
@@ -569,18 +569,18 @@
   },
   {
     "id": "P11",
-    "name": "Front body-light bracket",
-    "exact": "P11 Two-pebble bracket r2 - head screw and driver clearance",
-    "qty": 2,
+    "name": "Lower body-light bracket",
+    "exact": "P11 Lower light bracket r33 - rear mount",
+    "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds two body lights facing forward. One fits at the lower front of the frame and one at the upper front.",
+    "description": "Holds the two lower body lights. It fits behind the lowest hole of the front upright.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P11.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "body-lights"
+      "front-light-brackets"
     ],
     "additional_links": [
       {
@@ -591,12 +591,12 @@
   },
   {
     "id": "P12",
-    "name": "Rear body-light bracket",
-    "exact": "P12 Forward-angled rear LEDs and seam backing r1",
+    "name": "Middle body-light bracket",
+    "exact": "P12 Rear-mounted middle light bracket r33",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds the two rear body lights, angled forward and slightly outward. It also backs the middle rear seam.",
+    "description": "Mounts on the rear upright. Its long arms reach forward so the two middle body lights sit at the sides. It also backs the middle rear seam.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P12.png",
     "link": "",
@@ -612,24 +612,46 @@
     ]
   },
   {
-    "id": "P13",
-    "name": "Body wire guide",
-    "exact": "P13 Open body wire guide r0 - front service mount",
+    "id": "P42",
+    "name": "Upper body-light bracket",
+    "exact": "P42 Upper light bracket r33 - servo clearance",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Keeps the body wires apart at the middle front of the frame.",
+    "description": "Holds the two upper body lights. It fits behind the highest hole of the front upright, under the shoulder-servo bracket.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
-    "image": "assets/part-P13.png",
+    "image": "assets/part-P42.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "body-lights"
+      "front-light-brackets"
     ],
     "additional_links": [
       {
-        "url": "downloads/stl/P13.stl",
-        "label": "Raw STL \u2014 P13"
+        "url": "downloads/stl/P42.stl",
+        "label": "Raw STL \u2014 P42"
+      }
+    ]
+  },
+  {
+    "id": "P43",
+    "name": "Front upright",
+    "exact": "P43 Front upright r33 - chamfered recessed mounts",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "The front vertical frame post. Its front edge is chamfered. The light brackets and the shoulder-servo and head-servo brackets fasten to it.",
+    "status": "Print it from this release\u2019s files. Clean it before assembly.",
+    "image": "assets/part-P43.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "frame-uprights"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P43.stl",
+        "label": "Raw STL \u2014 P43"
       }
     ]
   },
@@ -676,7 +698,6 @@
       "pi-shifters",
       "wagos",
       "audio-cradle",
-      "secure-base-wiring",
       "frame-uprights"
     ],
     "additional_links": [
@@ -1077,7 +1098,6 @@
     "steps": [
       "eye-housings",
       "eye-boards",
-      "head-light-cable",
       "head-shoulder-covers"
     ],
     "additional_links": [
@@ -1213,8 +1233,7 @@
     "steps": [
       "servo-cables",
       "shoulder-servos",
-      "head-servo",
-      "fit-servo"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1321,13 +1340,14 @@
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "Adafruit NeoPixel Pebble / Seed LED strand. It has 100 lights about 100 mm (4 inches) apart on 10 m of thin solid wire. It has a three-pin JST-SM connector at each end. You use six lights cut from the input end. Keep the rest as spares. Each light is a small resin-coated \u201cpebble\u201d.",
+    "description": "Adafruit NeoPixel Pebble / Seed LED strand. It has 100 lights about 100 mm (4 inches) apart on 10 m of thin solid wire. It has a three-pin JST-SM, 2.5 mm (large) plug at each end: pins at one end, sockets at the other. The pins end is normally the input; the light test confirms it. You use six lights cut from the input end. Keep the rest as spares. Each light is a small resin-coated \u201cpebble\u201d.",
     "link": "https://www.adafruit.com/product/6026",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E05.svg",
     "steps": [
-      "body-light-input",
+      "light-fuse-capacitor",
       "body-light-test",
+      "head-harness",
       "body-light-strand",
       "body-lights"
     ],
@@ -1386,8 +1406,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/E07.svg",
     "steps": [
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1409,8 +1428,7 @@
     "verification": "Exact product specified",
     "image": "assets/cartoons/F2.svg",
     "steps": [
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1433,8 +1451,7 @@
     "image": "assets/cartoons/E08.svg",
     "steps": [
       "servo-power-capacitor",
-      "light-fuse-capacitor",
-      "secure-base-wiring"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1497,13 +1514,13 @@
     "qty": 2,
     "optional": 0,
     "category": "Purchased",
-    "description": "Two plug-and-socket sets: the body light connector (BODY LIGHT) and the head light connector (HEAD LIGHT). They have 22 AWG leads. Check the +5 V, GND and DATA pin order by continuity.",
+    "description": "Two three-pin JST-SM, 2.5 mm (large) plug-and-socket sets: the body light connector (BODY LIGHT) and the head light connector (HEAD LIGHT). Each set is one half with pins and one half with sockets. They mate with the pebble strand\u2019s plugs. They have 22 AWG leads whose colors vary, often all black, so label each wire by continuity.",
     "link": "https://www.mouser.com/ProductDetail/Adafruit/1663?qs=GURawfaeGuBbzkAfeSrhnA%3D%3D",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E10.svg",
     "steps": [
       "light-fuse-capacitor",
-      "body-light-input",
+      "body-light-test",
       "head-harness",
       "body-light-strand"
     ],
@@ -1512,14 +1529,14 @@
   },
   {
     "id": "E11",
-    "name": "JST-SH three-pin lead (eye leads)",
-    "exact": "Adafruit 5755 JST-SH to header donor",
-    "qty": 2,
+    "name": "Adafruit 6406 JST-SH cable (head leads)",
+    "exact": "Adafruit 6406 JST-SH plug\u2013plug cable, 200 mm",
+    "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "Three-pin JST-SH (1.0 mm pitch) plug to male header pins, about 100 mm long. Adafruit 5755 is one example. One is the first eye\u2019s IN lead. The other\u2019s DATA wire runs from the second eye to the mouth. Insulate its unused red and black wires separately.",
-    "link": "https://www.adafruit.com/product/5755",
-    "verification": "Any lead that meets the description",
+    "description": "Three-pin JST-SH, 1.0 mm (small) plug at each end, 200 mm long, black, red and white wires. You cut it in the middle: one half is the eye input lead, the other the mouth lead. On the eye boards, black is GND, red +5 V and white DATA.",
+    "link": "https://www.adafruit.com/product/6406",
+    "verification": "Exact product specified",
     "image": "assets/cartoons/E11.svg",
     "steps": [
       "head-harness"
@@ -1534,12 +1551,12 @@
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "100 mm cable between the two eyes. Use the 200 mm #6406 only if your routing needs it.",
+    "description": "Three-pin JST-SH, 1.0 mm (small) plug at each end, 100 mm long. It joins the first eye\u2019s OUT to the second eye\u2019s IN.",
     "link": "https://www.adafruit.com/product/6404",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E12.svg",
     "steps": [
-      "head-harness"
+      "eye-boards"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -1840,13 +1857,12 @@
     "qty": 1,
     "optional": 0,
     "category": "Purchased",
-    "description": "330 \u03a9, \u00b15%, \u00bc W. The data resistor sits in the DATA wire, near the DIN of light 0, the first pebble. Packs usually contain extras.",
+    "description": "330 \u03a9, \u00b15%, \u00bc W. The data resistor sits in the base-half DATA wire, between the level shifter (S1) and the body light connector. Packs usually contain extras.",
     "link": "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-330R/1636",
     "verification": "Exact product specified",
     "image": "assets/cartoons/R2.svg",
     "steps": [
-      "body-light-input",
-      "body-light-strand"
+      "light-fuse-capacitor"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -1973,13 +1989,12 @@
     "qty": "1 multicolor wire assortment",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the head power pair, light wiring and servo extensions. Use red, black and a separate color for signals. Cut each run after test-routing it. Leave service slack.",
+    "description": "For light wiring extensions and servo extensions. Use red, black and a separate color for signals. Leave service slack.",
     "link": "https://www.adafruit.com/product/3111",
     "verification": "Example product",
     "image": "assets/cartoons/C06.svg",
     "steps": [
       "light-fuse-capacitor",
-      "body-light-input",
       "servo-cables",
       "head-harness",
       "body-light-strand"
@@ -1999,19 +2014,14 @@
     "verification": "Example product. Check the size.",
     "image": "assets/cartoons/C07.svg",
     "steps": [
-      "secure-base-wiring",
+      "servo-power-capacitor",
+      "light-fuse-capacitor",
+      "shifter-wiring",
+      "button-audio-wiring",
       "head-harness",
       "mouth",
       "body-lights",
-      "light-connections",
-      "mouth-eye-removal",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "light-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2107,12 +2117,10 @@
       "power-wiring",
       "servo-power-capacitor",
       "light-fuse-capacitor",
-      "body-light-input",
+      "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2155,18 +2163,18 @@
     "verification": "General workshop supplies",
     "image": "assets/cartoons/C14.svg",
     "steps": [
+      "pi-shifters",
+      "wagos",
       "button-leads",
       "power-jack",
       "power-wiring",
       "servo-power-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
-      "body-light-input",
       "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
@@ -2199,20 +2207,12 @@
       "servo-power-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
-      "secure-base-wiring",
-      "body-light-input",
+      "button-audio-wiring",
+      "body-light-test",
       "servo-cables",
       "head-harness",
       "body-light-strand",
-      "light-connections",
-      "mouth-eye-removal",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "light-connections"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2234,13 +2234,10 @@
       "power-jack",
       "servo-power-capacitor",
       "light-fuse-capacitor",
-      "body-light-input",
+      "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service",
-      "head-light-service",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2267,9 +2264,7 @@
       "body-light-test",
       "head-harness",
       "body-light-strand",
-      "power-up-inspection",
-      "power-parts-service",
-      "body-light-service"
+      "power-up-inspection"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2293,12 +2288,10 @@
       "servo-power-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
-      "body-light-input",
+      "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "fit-servo",
-      "body-light-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2310,7 +2303,7 @@
     "qty": 1,
     "optional": 0,
     "category": "Tool",
-    "description": "Drivers that fit the M2 and M3 screws, 2.5 mm hex tools, fine pliers and a small terminal screwdriver.",
+    "description": "Drivers that fit the M2 and M3 screws, 2.5 mm hex tools, fine pliers, fine tweezers for holding small nuts in their pockets, and a small terminal screwdriver.",
     "link": "",
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T05.svg",
@@ -2326,6 +2319,7 @@
       "power-jack",
       "shifter-wiring",
       "frame-uprights",
+      "front-light-brackets",
       "shoulder-servos",
       "head-servo",
       "head-shelf",
@@ -2340,17 +2334,7 @@
       "servo-connections",
       "shelf-arms",
       "head-shoulder-covers",
-      "bottom-cover",
-      "head-open",
-      "mouth-eye-removal",
-      "arm-service",
-      "base-open",
-      "power-parts-service",
-      "audio-service",
-      "remove-servo",
-      "fit-servo",
-      "head-light-service",
-      "body-light-service"
+      "bottom-cover"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2375,13 +2359,11 @@
       "servo-power-capacitor",
       "light-fuse-capacitor",
       "shifter-wiring",
-      "body-light-input",
       "servo-cables",
       "servo-horns",
       "eye-windows",
       "head-harness",
       "mouth",
-      "head-light-cable",
       "body-light-strand"
     ],
     "status": "Check it when it arrives",
@@ -2394,7 +2376,7 @@
     "qty": 1,
     "optional": 0,
     "category": "Tool",
-    "description": "Use scissors for film and foam outlines, and a craft knife on the mat for foam slits. The deburring knife and files remove burrs without enlarging holes or pockets. Wear safety glasses when cutting.",
+    "description": "Use scissors for film and foam outlines, and a craft knife on the mat for the round shoulder holes in the body foam. The deburring knife and files remove burrs without enlarging holes or pockets. Wear safety glasses when cutting.",
     "link": "",
     "verification": "Any tool that meets the description",
     "image": "assets/cartoons/T07.svg",
@@ -2404,6 +2386,7 @@
       "servo-horns",
       "eye-windows",
       "mouth",
+      "body-light-strand",
       "body-diffuser"
     ],
     "status": "Check it when it arrives",
@@ -2445,11 +2428,10 @@
       "power-wiring",
       "servo-power-capacitor",
       "light-fuse-capacitor",
-      "body-light-input",
+      "body-light-test",
       "servo-cables",
       "head-harness",
-      "body-light-strand",
-      "power-parts-service"
+      "body-light-strand"
     ],
     "status": "Check it when it arrives",
     "additional_links": []
@@ -2500,7 +2482,7 @@
     "id": "N3",
     "name": "M3 hex nut",
     "exact": "Ordinary M3 hex nut",
-    "qty": 60,
+    "qty": 59,
     "optional": 0,
     "category": "Fastener",
     "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
@@ -2516,11 +2498,11 @@
       "button",
       "power-jack",
       "frame-uprights",
+      "front-light-brackets",
       "shoulder-servos",
       "head-servo",
       "head-shelf",
       "body-lights",
-      "body-diffuser",
       "elbows",
       "backpack"
     ],
@@ -2536,7 +2518,7 @@
     "id": "M2x6",
     "name": "M2\u00d76",
     "exact": "M2\u00d76",
-    "qty": 16,
+    "qty": 15,
     "optional": 0,
     "category": "Fastener",
     "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
@@ -2617,7 +2599,7 @@
     "id": "M3x20",
     "name": "M3\u00d720",
     "exact": "M3\u00d720",
-    "qty": 2,
+    "qty": 1,
     "optional": 0,
     "category": "Fastener",
     "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
@@ -2724,15 +2706,16 @@
     "id": "M2x8",
     "name": "M2\u00d78",
     "exact": "M2\u00d70.4, 8 mm under-head length",
-    "qty": 9,
+    "qty": 10,
     "optional": 0,
     "category": "Fastener",
-    "description": "Nine: four for the mouth, two for the audio lid and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws. They are test-fitted in {step:head-light-cable}.",
+    "description": "Ten: four for the mouth, two for the audio lid, one for the head servo's front ear and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
     "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
     "verification": "BelMetric SB2X8SS is an example button head. Measure the head.",
     "image": "assets/cartoons/M2x8.svg",
     "steps": [
       "audio-module",
+      "head-servo",
       "mouth",
       "head-shoulder-covers"
     ],
@@ -2748,21 +2731,43 @@
     "id": "M3x10CS",
     "name": "M3\u00d710 countersunk",
     "exact": "M3\u00d710 countersunk",
-    "qty": 3,
+    "qty": 1,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
+    "description": "One, for the head-servo bracket's front screw. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
     "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
     "verification": "BelMetric SF3X10SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
     "image": "assets/cartoons/M3x10CS.svg",
     "steps": [
-      "body-lights"
+      "head-servo"
     ],
     "status": "Check it when it arrives",
     "additional_links": [
       {
         "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
         "label": "BelMetric SF3X10SS dimensional drawing"
+      }
+    ]
+  },
+  {
+    "id": "M3x14CS",
+    "name": "M3\u00d714 countersunk",
+    "exact": "M3\u00d70.5, 14 mm overall length, 90\u00b0 countersunk head",
+    "qty": 2,
+    "optional": 0,
+    "category": "Fastener",
+    "description": "Two, for the light brackets. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
+    "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X14SS",
+    "verification": "BelMetric SF3X14SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
+    "image": "assets/cartoons/M3x14CS.svg",
+    "steps": [
+      "front-light-brackets"
+    ],
+    "status": "Check it when it arrives",
+    "additional_links": [
+      {
+        "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
+        "label": "BelMetric SF3X14SS dimensional drawing"
       }
     ]
   },
@@ -2867,6 +2872,7 @@
     "verification": "BelMetric BSH3X18SS is an example. Measure them.",
     "image": "assets/cartoons/M3x18.svg",
     "steps": [
+      "body-lights",
       "backpack-carrier"
     ],
     "status": "Check it when it arrives",
@@ -2904,9 +2910,7 @@
     "description": "Four cut pieces for the WAGOs and one patch for the back of the audio module case. The audio patch must be under 1 mm thick. Gorilla Double-Sided Tape is listed at 14 mil, about 0.36 mm. Cut it to size. Choose tape that bonds to both surfaces. WAGO levers must open fully and clear the cover. Clean and dry both surfaces, then press the tape on firmly.",
     "steps": [
       "wagos",
-      "audio-module",
-      "base-open",
-      "audio-service"
+      "audio-module"
     ],
     "link": "https://www.lowes.com/pd/Gorilla-1-41-in-x-8-Yard-s-Double-Sided-Tape/5003091145",
     "image": "assets/cartoons/C16.svg",
@@ -2928,7 +2932,9 @@
     "category": "Consumable",
     "description": "Nominal 1 \u00d7 1-inch squares with their own adhesive backing and slots for 2.5 mm ties. Choose an adhesive suitable for the printed plastic. Each square needs full contact with a flat inside surface. No mounting screws or printed pads are needed. Count the mounts after laying out the wire bundles. Each bond must hold without blocking vents or service access.",
     "steps": [
-      "secure-base-wiring",
+      "servo-power-capacitor",
+      "light-fuse-capacitor",
+      "button-audio-wiring",
       "light-connections"
     ],
     "link": "https://www.securecableties.com/1-inch-black-square-adhesive-tie-mount-100-pack",

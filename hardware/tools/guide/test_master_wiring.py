@@ -87,33 +87,34 @@ class MasterWiringTests(unittest.TestCase):
         self.assertEqual(observed, expected)
         self.assertIn(frozenset(("R1.in", "BTN.LED+")), self.pairs)
 
-    def test_lighting_data_order_and_separate_head_power(self):
+    def test_pi_header_rows_match_the_board(self):
+        # Header along the board's top edge: even pins on the edge row, odd inner.
+        for pin in range(1, 41):
+            x, y = self.c.ports[f"Pi.{pin}"]
+            edge_row = self.c.ports["Pi.2"][1]
+            self.assertEqual(y == edge_row, pin % 2 == 0, pin)
+        self.assertLess(self.c.ports["Pi.1"][0], self.c.ports["Pi.39"][0])
+
+    def test_lighting_is_one_chain_for_power_and_data(self):
         expected = [
-            ("S1.D5", "body-light.inDATA"),
-            ("body-light.outDATA", "R2.in"),
-            ("R2.out", "body0.inDATA"),
-            ("body5.outDATA", "head-light.inDATA"),
-            ("head-light.outDATA", "eye6.inDATA"),
-            ("eye6.outDATA", "eye7.inDATA"),
-            ("eye7.outDATA", "mouth.DIN"),
+            ("S1.D5", "R2.in"),
+            ("R2.out", "body-light.inDATA"),
             ("F2.out", "lighting+.wire"),
             ("C2.+", "lighting+.wire"),
             ("C2.−", "lighting−.wire"),
+            ("eye7.outDATA", "mouth.DIN"),
         ]
-        expected += [(f"body{i}.outDATA", f"body{i + 1}.inDATA") for i in range(5)]
-        for suffix in ["+", "−"]:
+        for port in ["+", "DATA", "−"]:
             expected += [
-                (f"body{suffix}.wire", f"head-light.in{suffix}"),
-                (f"body{suffix}.wire", f"body0.in{suffix}"),
-                (f"head{suffix}.wire", f"eye6.in{suffix}"),
-                (f"head{suffix}.wire", f"mouth.{suffix}"),
+                (f"body-light.out{port}", f"body0.in{port}"),
+                (f"body5.out{port}", f"head-light.in{port}"),
+                (f"head-light.out{port}", f"eye6.in{port}"),
+                (f"eye6.out{port}", f"eye7.in{port}"),
             ]
-            for capped in ["body5.out" + suffix, "eye7.out" + suffix]:
-                self.assertFalse(
-                    any(capped in (e.source, e.target) for e in self.c.edges)
-                )
-        for edge in expected:
-            self.assertIn(frozenset(edge), self.pairs)
+            expected += [(f"body{i}.out{port}", f"body{i + 1}.in{port}") for i in range(5)]
+        expected += [("eye7.out+", "mouth.+"), ("eye7.out−", "mouth.−")]
+        # No branch joints bypass the chain.
+        self.assertFalse(any(n.name in ("body+", "body−", "head+", "head−") for n in self.c.nodes))
         for edge in [
             ("S1.C5", "LEFT.SIG"),
             ("S2.D5", "RIGHT.SIG"),
@@ -201,8 +202,8 @@ class MasterWiringTests(unittest.TestCase):
         root = ET.fromstring(self.drawn())
         texts = labels(root)
         texts += [v for e in root.iter() for k, v in e.attrib.items() if k.startswith("data-")]
-        self.assertIn("Body light connector", texts)
-        self.assertIn("Head light connector · JST-SM", texts)
+        self.assertIn("Body light connector · JST-SM (large)", texts)
+        self.assertIn("Head light connector · JST-SM (large)", texts)
         self.assertEqual([(t, retired_names(t)) for t in texts if retired_names(t)], [])
 
     def drawn(self):

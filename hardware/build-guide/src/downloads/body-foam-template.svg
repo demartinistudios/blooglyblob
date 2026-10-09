@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="270mm" height="155mm" viewBox="0 0 270 155">
+<svg xmlns="http://www.w3.org/2000/svg" width="279.4mm" height="215.9mm" viewBox="0 0 279.4 215.9">
 <title>BlooglyBlob body foam template, actual size</title>
-<rect width="270" height="155" fill="white"/>
+<rect width="279.4" height="215.9" fill="white"/>
 <g font-family="Arial, Helvetica, sans-serif">
-<text x="12" y="9" font-size="4.2" text-anchor="start" font-weight="bold" fill="#17232b">BlooglyBlob body foam template</text>
-<text x="12" y="15" font-size="2.9" text-anchor="start" font-weight="normal" fill="#17232b">Print at 100% (actual size) and check the 50 mm bar. Cut from 4 mm white foam.</text>
-<g transform="translate(20 20)" stroke-width="0.3">
-<polygon points="0,0 0,15.1 1.0009,15.1 1.0009,33.5 0,33.5 0,59.1 1.0009,59.1 1.0009,77.5 0,77.5 0,83.1 1.0009,83.1 1.0009,101.5 0,101.5 0,114.3 224.8227,114.3 224.8227,101.5 223.8218,101.5 223.8218,83.1 224.8227,83.1 224.8227,77.5 223.8218,77.5 223.8218,59.1 224.8227,59.1 224.8227,33.5 223.8218,33.5 223.8218,15.1 224.8227,15.1 224.8227,0" fill="none" stroke="#17232b"/>
-<rect x="46.5056" y="11.3" width="18.4" height="36" rx="2" fill="#eee" stroke="#17232b"/>
-<text x="55.7056" y="31" font-size="2.6" text-anchor="middle" font-weight="normal" fill="#17232b">shoulder</text>
-<rect x="159.917" y="11.3" width="18.4" height="36" rx="2" fill="#eee" stroke="#17232b"/>
-<text x="169.117" y="31" font-size="2.6" text-anchor="middle" font-weight="normal" fill="#17232b">shoulder</text>
-<path d="M1.0009 24.3H46.5056M178.3171 24.3H223.8218" fill="none" stroke="#c55028" stroke-dasharray="2 1"/>
-<text x="112.411" y="59" font-size="2.8" text-anchor="middle" font-weight="bold" fill="#17232b">FRONT CENTER</text>
-<text x="112.411" y="66" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">224.8 × 114.3 mm, 4 mm foam</text>
-<text x="112.411" y="73" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">The two short edges meet at the back with a 2 mm gap.</text>
-<text x="112.411" y="80" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">Orange dashed lines: knife slits to each shoulder. Don’t remove any foam.</text>
-<text x="112.411" y="87" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">Edge notches, 1 mm deep × 18.4 mm tall: they clear the seam-cover clips.</text>
+<text x="20" y="20" font-size="4" text-anchor="start" font-weight="bold" fill="#17232b">BlooglyBlob</text>
+<text x="20" y="30" font-size="8" text-anchor="start" font-weight="bold" fill="#17232b">Body foam template</text>
+<text x="20" y="40" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Print at 100% (actual size), landscape. Turn off Fit, Shrink and Scale to page.</text>
+<text x="20" y="46" font-size="3.6" text-anchor="start" font-weight="normal" fill="#17232b">Check the 50 mm bar with a ruler before cutting. Cut from 4 mm white foam.</text>
+<g transform="translate(27 62)" stroke-width="0.3">
+<rect width="224.8227" height="114.3" fill="none" stroke="#17232b"/>
+<circle cx="55.7056" cy="24.3" r="7" fill="none" stroke="#17232b"/>
+<path d="M53.7056 24.3H57.7056M55.7056 22.3V26.3" stroke="#17232b" stroke-width="0.2"/>
+<text x="55.7056" y="35.8" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">Shoulder hole, 14 mm</text>
+<circle cx="169.117" cy="24.3" r="7" fill="none" stroke="#17232b"/>
+<path d="M167.117 24.3H171.117M169.117 22.3V26.3" stroke="#17232b" stroke-width="0.2"/>
+<text x="169.117" y="35.8" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">Shoulder hole, 14 mm</text>
+<text x="112.411" y="-2.5" font-size="2.8" text-anchor="middle" font-weight="bold" fill="#17232b">TOP EDGE · upper collar</text>
+<text x="112.411" y="56" font-size="2.8" text-anchor="middle" font-weight="bold" fill="#17232b">FRONT CENTER</text>
+<text x="112.411" y="63" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">224.8 × 114.3 mm</text>
+<text x="112.411" y="70" font-size="2.8" text-anchor="middle" font-weight="normal" fill="#17232b">The two short edges meet at the back with a 2 mm gap.</text>
 </g>
-<path d="M20 143H70M20 140V146M70 140V146" stroke="#17232b" stroke-width="0.35" fill="none"/>
-<text x="45" y="150" font-size="3" text-anchor="middle" font-weight="normal" fill="#17232b">50 mm</text>
-<text x="84" y="143" font-size="2.7" text-anchor="start" font-weight="normal" fill="#17232b">Round the notch corners slightly. Cut it a little long, dry-wrap it between the collars, then trim.</text>
-<text x="84" y="150" font-size="2.7" text-anchor="start" font-weight="normal" fill="#17232b">Keep the notches full size: the seam-cover screws and ribs pass through them.</text>
+<path d="M20 196H70M20 193V199M70 193V199" stroke="#17232b" stroke-width="0.35" fill="none"/>
+<text x="45" y="203" font-size="3" text-anchor="middle" font-weight="normal" fill="#17232b">50 mm</text>
+<text x="84" y="193" font-size="3.2" text-anchor="start" font-weight="normal" fill="#17232b">Cut the outline a little long. Trim the ends after a test-fit between the collars.</text>
+<text x="84" y="199" font-size="3.2" text-anchor="start" font-weight="normal" fill="#17232b">At the test-fit, mark each hole center over its shoulder servo shaft.</text>
 </g>
 </svg>

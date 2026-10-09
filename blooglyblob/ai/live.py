@@ -9,12 +9,17 @@ import time
 from blooglyblob.audio.stream import PCMPacer
 from blooglyblob.audio.resampler import SPEECH_SAMPLE_RATE
 from blooglyblob.ai.utils import field
+from blooglyblob.connectivity import failure_category
 
 _LOG = logging.getLogger(__name__)
 
 
 class LiveSessionError(RuntimeError):
     """A deliberately sanitized transport/protocol failure."""
+
+    def __init__(self, message, *, category=None):
+        super().__init__(message)
+        self.category = category
 
 
 def _timestamp(value):
@@ -24,7 +29,7 @@ def _timestamp(value):
 
 
 class OpenAILiveSession:
-    INPUT_QUEUE_FRAMES = 100  # At most two seconds, including bounded startup capture.
+    INPUT_QUEUE_FRAMES = 100  # Minimum capacity: two seconds of PCM.
     OUTPUT_QUEUE_EVENTS = 50
     OUTPUT_QUEUE_FRAMES = 50  # At most one second, regardless of provider chunk size.
     FRAME_BYTES = 960  # 24 kHz, mono PCM16LE, 20 ms.
@@ -79,7 +84,14 @@ class OpenAILiveSession:
         self._close_task = None
         self._setup_task = None
         self._workers = []
-        self._input = asyncio.Queue(maxsize=self.INPUT_QUEUE_FRAMES)
+        # Capture can resume after the greeting while Live is still starting.
+        # Preserve that speech for the full permitted readiness window, rather
+        # than overflowing before the startup deadline. The same finite queue
+        # remains bounded during conversation (ten seconds with defaults).
+        input_frames = math.ceil(
+            readiness_timeout * SPEECH_SAMPLE_RATE * 2 / self.FRAME_BYTES
+        )
+        self._input = asyncio.Queue(maxsize=max(self.INPUT_QUEUE_FRAMES, input_frames))
         self._output = asyncio.Queue(maxsize=self.OUTPUT_QUEUE_EVENTS)
         self._audio = asyncio.Queue(maxsize=self.OUTPUT_QUEUE_FRAMES)
         self._pending_pcm = b""
@@ -87,6 +99,10 @@ class OpenAILiveSession:
         self._connected_at = None
         self._disconnected_at = None
         self._send_lock = asyncio.Lock()
+
+    @property
+    def failure(self):
+        return self._failure
 
     @property
     def connected_seconds(self):
@@ -105,6 +121,8 @@ class OpenAILiveSession:
             )
             if not done:
                 raise TimeoutError
+            if self._failure:
+                raise self._failure
             self._setup_task.result()
         except asyncio.CancelledError:
             self._begin_close()
@@ -112,17 +130,23 @@ class OpenAILiveSession:
         except asyncio.TimeoutError:
             self._begin_close()
             raise TimeoutError("Live session readiness timed out") from None
-        except Exception:  # noqa: BLE001 - sanitize SDK/device boundary failures.
+        except Exception as error:  # noqa: BLE001 - sanitize SDK/device boundary failures.
             self._begin_close()
             raise self._failure or LiveSessionError(
-                "Live session startup failed"
+                "Live session startup failed",
+                category=failure_category(error) or "protocol",
             ) from None
 
     async def _start(self, greeting):
         # This manager is the sole owner of transport closure. SDK reconnect and
         # queued audio replay are explicitly disabled for conversation ownership.
         self._manager = self.client.live.connect(
-            max_retries=0, websocket_connection_options={"close_timeout": 0.5}
+            max_retries=0,
+            websocket_connection_options={
+                "close_timeout": 0.5,
+                "ping_interval": 10,
+                "ping_timeout": 10,
+            },
         )
         self._connection = await self._manager.__aenter__()
         self._connected_at = time.monotonic()
@@ -207,7 +231,9 @@ class OpenAILiveSession:
         except asyncio.CancelledError:
             raise
         except Exception:  # noqa: BLE001 - sanitize SDK/device boundary failures.
-            self._fail(LiveSessionError("Live input transport failed"))
+            self._fail(
+                LiveSessionError("Live input transport failed", category="network")
+            )
 
     async def _read(self):
         try:
@@ -220,15 +246,24 @@ class OpenAILiveSession:
                     continue
                 self._receive(event)
             if not self._closed:
-                self._fail(LiveSessionError("Live transport ended unexpectedly"))
+                self._fail(
+                    LiveSessionError(
+                        "Live transport ended unexpectedly", category="network"
+                    )
+                )
         except asyncio.CancelledError:
             raise
         except LiveSessionError as exc:
             self._fail(exc)
         except asyncio.QueueFull:
             self._fail(LiveSessionError("Live output queue overflow"))
-        except Exception:  # noqa: BLE001 - sanitize SDK/device boundary failures.
-            self._fail(LiveSessionError("Live transport or event failed"))
+        except Exception as error:  # noqa: BLE001 - sanitize SDK/device boundary failures.
+            self._fail(
+                LiveSessionError(
+                    "Live transport or event failed",
+                    category=failure_category(error) or "protocol",
+                )
+            )
 
     def _receive(self, event):
         kind = field(event, "type")
@@ -287,7 +322,19 @@ class OpenAILiveSession:
                 self._finalized.set()
                 self._fail(LiveSessionError("Live session ended"))
         elif kind == "error":
-            self._fail(LiveSessionError("Live provider reported an error"))
+            code = field(field(event, "error"), "code")
+            category = (
+                "auth"
+                if code
+                in {"invalid_api_key", "authentication_error", "permission_denied"}
+                else "service"
+                if code
+                in {"rate_limit_exceeded", "server_error", "service_unavailable"}
+                else "protocol"
+            )
+            self._fail(
+                LiveSessionError("Live provider reported an error", category=category)
+            )
         # Future event types are deliberately ignored. Audio/transcript fragments
         # do not imply a turn boundary and never synthesize an audio_done event.
 

@@ -45,7 +45,7 @@ def native_servos(monkeypatch):
 
 @pytest.mark.parametrize("ending", ["STOP", "eof", "interrupt", "SIGTERM", "SIGHUP"])
 def test_fit_holds_all_axes_and_releases_without_recentering(
-    native_servos, monkeypatch, ending
+    native_servos, monkeypatch, capsys, ending
 ):
     from blooglyblob.hardware import servo_fit
 
@@ -76,6 +76,10 @@ def test_fit_holds_all_axes_and_releases_without_recentering(
     handlers = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGHUP)}
     assert servo_fit.main([]) == (0 if ending == "STOP" else 1)
     assert len(prompts) == 2
+    # Only a completed hold tells the builder to fasten the parts.
+    output = capsys.readouterr().out
+    assert "Servo pulses stopped" in output
+    assert ("drive the center screws" in output) == (ending == "STOP")
     for servo in native_servos:
         assert servo.values[-1] is None
         assert len(servo.values) == 3  # off, fit, off; no center or sweep
@@ -384,3 +388,45 @@ def test_guide_fit_table_and_operating_ranges_match_native_outputs(native_servos
             seen.add((cells[0], "range"))
     assert seen == {(name, kind) for name in axes for kind in ("fit", "range")}
     controller.cleanup()
+
+
+def test_servo_factory_uses_low_idle_pin_release(native_servos):
+    from blooglyblob.hardware import servo_controller
+
+    arm = servo_controller.ArmServo(12, servo_controller.LEFT_ARM, "Left")
+    assert arm._servo.pin_factory.pin_class is servo_controller._ServoSignalPin
+    arm.cleanup()
+
+
+def test_servo_pin_release_enables_pull_down_before_becoming_input():
+    from blooglyblob.hardware import servo_controller
+
+    events = []
+
+    class Pin:
+        _number = 12
+        GPIO_PULL_UPS = {"down": 1}
+        factory = Mock()
+
+        def __setattr__(self, name, value):
+            events.append((name, value))
+            object.__setattr__(self, name, value)
+
+    pin = Pin()
+    pin.factory.connection.set_pull_up_down.side_effect = lambda gpio, pull: (
+        events.append(("pull_down", gpio, pull))
+    )
+    servo_controller._ServoSignalPin.close(pin)
+    assert events == [
+        ("frequency", None),
+        ("when_changed", None),
+        ("pull_down", 12, 1),
+        ("function", "input"),
+        ("pull", "down"),
+    ]
+    # Closing the owning factory closes the pin again; it must stay low.
+    servo_controller._ServoSignalPin.close(pin)
+    assert events[5:] == events[:5]
+    pin.factory.connection = None
+    servo_controller._ServoSignalPin.close(pin)
+    assert len(events) == 10

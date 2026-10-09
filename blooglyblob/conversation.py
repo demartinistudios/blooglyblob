@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from contextvars import ContextVar
 
+from blooglyblob.connectivity import failure_category
 from blooglyblob.media import MediaCoordinator, MediaError
 from blooglyblob.ai.tool_bridge import OpenAIToolBridge, StaleResponse
 from blooglyblob.audio.voice_effects import RingModulator
@@ -80,6 +81,8 @@ class ConversationSession:
         audio: AudioController,
         hardware: HardwareController,
         on_fault: Callable[[], None] = lambda: None,
+        can_start: Callable[[], bool] = lambda: True,
+        on_unavailable: Callable[[str], None] = lambda reason: None,
         api: AsyncOpenAI,
         live_factory: Callable[..., OpenAILiveSession],
         instructions: str,
@@ -118,6 +121,8 @@ class ConversationSession:
             raise ValueError("Session time limits must be positive and finite")
         self.audio, self.hardware, self.api = audio, hardware, api
         self._on_fault = on_fault
+        self._can_start, self._on_unavailable = can_start, on_unavailable
+        self._presented_generation: str | None = None
         self._closing = False
         self.live_factory, self.instructions = live_factory, instructions
         self.voice, self.model, self.greeting = voice, model, greeting
@@ -144,6 +149,7 @@ class ConversationSession:
         self._live_generation: str | None = None
         self._runner: asyncio.Task[None] | None = None
         self._accept_live_input = False
+        self._live_ready = False
         self._retiring: set[asyncio.Task[None]] = set()
         self._jobs: set[asyncio.Task[None]] = set()
         self._job: asyncio.Task[None] | None = None
@@ -184,7 +190,39 @@ class ConversationSession:
             and self.generation == generation
             and not self._closing
             and not self._faulted
+            and self._can_start()
         )
+
+    @property
+    def live_connected(self) -> bool:
+        return bool(
+            self.live and self._live_ready and self._current(self._live_generation)
+        )
+
+    def _report_failure(self, error: Exception) -> None:
+        category = failure_category(error)
+        if category:
+            self.audio.mute()
+            self.hardware.mute_media()
+            self._cancel_job()
+            self._on_unavailable(category)
+
+    def suspend(self) -> None:
+        self.audio.mute()
+        self.hardware.mute_media()
+        if self.active:
+            if self._cloud_closers:
+                # The transport reports failure from its close callback. Fence
+                # outputs, but do not cancel the owner already joining that close.
+                self.active = False
+                self._cancel_job()
+            else:
+                self.request(False)
+
+    def _present(self, generation: str, state: str) -> None:
+        if self._current(generation):
+            self._presented_generation = generation
+            self.hardware.present(state)
 
     def _ownership_failed(self) -> None:
         self._faulted = True
@@ -221,7 +259,9 @@ class ConversationSession:
         message: str = "",
         terminal_record: ActionRecord | None = None,
     ) -> None:
-        if self._closing and activity != "idle":
+        if activity != "idle" and (
+            self._closing or self._faulted or not self._can_start()
+        ):
             return
         self._cancel_job()
         self.hardware.pending_light(self.generation, False)
@@ -237,8 +277,6 @@ class ConversationSession:
         self.active, self.activity = activity != "idle", activity
         self.generation = uuid.uuid4().hex
         generation = self.generation
-        if activity == "conversation":
-            self.hardware.pending_light(generation, True)
         logger.info("Activity requested: %s generation=%s", activity, generation)
         if self._runner and not self._runner.done():
             if self._runner is not asyncio.current_task():
@@ -253,7 +291,12 @@ class ConversationSession:
         )
 
     def alert(self, message: str) -> bool:
-        if self.activity == "alert" or self._closing or self._faulted:
+        if (
+            self.activity == "alert"
+            or self._closing
+            or self._faulted
+            or not self._can_start()
+        ):
             return False
         self._alert_message = message
         self._request_activity("alert", message=message)
@@ -307,6 +350,8 @@ class ConversationSession:
         except asyncio.CancelledError:
             raise
         except Exception as error:  # noqa: BLE001 - fail closed at lifecycle boundaries
+            if self.generation == generation:
+                self._report_failure(error)
             logger.warning("Activity ended (%s)", type(error).__name__)
         finally:
             if terminal_record and terminal_record["outcome"].startswith(
@@ -330,7 +375,9 @@ class ConversationSession:
                     # current activity may put the robot to sleep. A handoff to
                     # farewell/dance speech must keep its eyes and posture awake.
                     if self.generation == generation:
-                        self.hardware.present("idle")
+                        if self._can_start() and self._presented_generation is not None:
+                            self.hardware.present("idle")
+                            self._presented_generation = None
                         self.hardware.light("sleeping")
                 except Exception:  # noqa: BLE001 - disconnect cleanup is best effort
                     logger.warning("Idle state could not be delivered")
@@ -349,7 +396,7 @@ class ConversationSession:
         effect = self.voice_effect_factory()
         live: OpenAILiveSession | None = None
         opening_done = not greeted
-        self._accept_live_input = not greeted
+        self._accept_live_input = False
 
         async def output(pcm: bytes) -> None:
             if self._current(generation) and opening_done and self._speech_gate is None:
@@ -359,8 +406,8 @@ class ConversationSession:
 
         async def opening() -> None:
             nonlocal opening_done
-            # The cloud connection opens concurrently, but cached Speech has no
-            # acoustic echo reference in Live. Keep its microphone input isolated.
+            # Cached Speech has no acoustic echo reference in Live.
+            # Keep microphone input isolated until its greeting has drained.
             await asyncio.sleep(0.15)
             await self._finite(generation, greeting, speed=GREETING_SPEED)
             if self._current(generation):
@@ -369,7 +416,7 @@ class ConversationSession:
                 live.discard_output()
                 opening_done = True
                 self._accept_live_input = True
-                self.hardware.present("listening")
+                self._present(generation, "listening")
                 self.hardware.light("listening")
 
         async def transcript(role: str, delta: str, start_ms: int, end_ms: int) -> None:
@@ -417,6 +464,7 @@ class ConversationSession:
         async def failure(error: Exception) -> None:
             if self._current(generation):
                 logger.warning("Live connection failed (%s)", type(error).__name__)
+                self._report_failure(error)
                 failed.set()
 
         instructions = self.instructions
@@ -444,23 +492,17 @@ class ConversationSession:
                 max_session_seconds=duration or self.max_session_seconds,
             )
             self.live, self._live_generation = live, generation
-            self.hardware.present("alert" if alert else "listening")
-            if alert:
-                self.hardware.light("listening")
-            if greeted:
-                startup = asyncio.create_task(live.start())
-                cached_greeting = asyncio.create_task(opening())
-                try:
-                    await asyncio.gather(startup, cached_greeting)
-                finally:
-                    startup.cancel()
-                    cached_greeting.cancel()
-                    await asyncio.gather(
-                        startup, cached_greeting, return_exceptions=True
-                    )
-            else:
+            if not greeted:
                 await self.media.begin(audio_generation)
-                await live.start(greeting=greeting)
+            await live.start(greeting="" if greeted else greeting)
+            if not self._current(generation):
+                return
+            self._live_ready = True
+            self._present(generation, "alert" if alert else "listening")
+            if greeted:
+                await opening()
+            else:
+                self._accept_live_input = True
             self.hardware.pending_light(generation, False)
             if self._current(generation):
                 self.hardware.light("listening")
@@ -468,6 +510,10 @@ class ConversationSession:
             started = time.monotonic()
             while self._current(generation) and not failed.is_set():
                 await asyncio.sleep(min(0.25, self.inactivity_seconds / 2))
+                transport_error = getattr(live, "failure", None)
+                if transport_error:
+                    await failure(transport_error)
+                    break
                 now = time.monotonic()
                 if self._speech_gate is not None and now >= self._speech_gate:
                     self._clear_speech_gate()
@@ -485,6 +531,7 @@ class ConversationSession:
         finally:
             self.hardware.pending_light(generation, False)
             self._accept_live_input = False
+            self._live_ready = False
             if self.generation == generation:
                 # Cancel the background search before releasing all media.
                 self._cancel_job()
@@ -737,7 +784,7 @@ class ConversationSession:
         audio_generation = uuid.uuid4().hex
         self.hardware.pending_light(audio_generation, True)
         try:
-            self.hardware.present("speaking")
+            self._present(generation, "speaking")
             await self.media.begin(audio_generation)
 
             async def output(pcm: bytes) -> None:
@@ -793,7 +840,7 @@ class ConversationSession:
         activity_id = uuid.uuid4().hex
         self._dance_id, self._dance_done = activity_id, asyncio.Event()
         try:
-            self.hardware.present("dancing")
+            self._present(generation, "dancing")
             self.hardware.light("dancing")
             await self._dispatch_terminal(
                 generation, name, {"activity_id": activity_id}, record
@@ -833,7 +880,7 @@ class ConversationSession:
 
     async def _run_alert(self, generation: str, message: str) -> None:
         deadline = time.monotonic() + self.alert_total_seconds
-        self.hardware.present("alert")
+        self._present(generation, "alert")
         self.hardware.light("alert")
         try:
             await self.media.chime(uuid.uuid4().hex)
@@ -849,6 +896,7 @@ class ConversationSession:
         except asyncio.CancelledError:
             raise
         except Exception as error:  # noqa: BLE001 - keep button dismissal available during provider outages
+            self._report_failure(error)
             logger.warning(
                 "Alert voice unavailable (%s); button dismissal remains available",
                 type(error).__name__,
@@ -858,7 +906,7 @@ class ConversationSession:
             except Exception:  # noqa: BLE001 - never reopen a failed media owner
                 self._ownership_failed()
         if self._current(generation):
-            self.hardware.present("alert")
+            self._present(generation, "alert")
             self.hardware.light("alert")
             await asyncio.sleep(max(0, deadline - time.monotonic()))
 
@@ -868,10 +916,20 @@ class ConversationSession:
             and self._accept_live_input
             and self._current(self._live_generation)
         ):
+            live, generation = self.live, self._live_generation
             try:
-                await self.live.input_audio(pcm)
-            except Exception:  # noqa: BLE001 - invalid input or transport failure ends the activity
-                self.request(False)
+                await live.input_audio(pcm)
+            except Exception as error:  # noqa: BLE001 - invalid input or transport failure ends the activity
+                # Startup failure may already be closing this session. Do not
+                # cancel that cleanup, or stop a replacement for a stale send.
+                if (
+                    self.live is live
+                    and self._accept_live_input
+                    and self._current(generation)
+                ):
+                    self._report_failure(error)
+                    if self._current(generation):
+                        self.request(False)
 
     def button(self) -> None:
         if self._closing or self._faulted:

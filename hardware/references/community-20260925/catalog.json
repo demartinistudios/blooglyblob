@@ -50,10 +50,10 @@
       "part_ids": [
         "E11"
       ],
-      "title": "Adafruit 5755 JST-SH to header donor — official product specifications",
+      "title": "Adafruit 6406 JST-SH plug–plug cable, 200 mm — official product specifications",
       "kind": "product",
-      "official_url": "https://www.adafruit.com/product/5755",
-      "checked_date": "2026-09-26",
+      "official_url": "https://www.adafruit.com/product/6406",
+      "checked_date": "2026-10-06",
       "model_match": "exact-model",
       "limitations": "Product specifications; no separate exact-product datasheet PDF found.",
       "source_type": "manufacturer",
@@ -799,6 +799,21 @@
       "download_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf"
     },
     {
+      "id": "ref-079",
+      "part_ids": [
+        "M3x14CS"
+      ],
+      "title": "BelMetric SF3X14SS dimensional drawing",
+      "kind": "drawing",
+      "official_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
+      "checked_date": "2026-10-08",
+      "model_match": "example-product",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide.",
+      "source_type": "supplier",
+      "publisher": "BelMetric",
+      "download_url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf"
+    },
+    {
       "id": "ref-057",
       "part_ids": [
         "M3x6"
@@ -1229,7 +1244,7 @@
     },
     {
       "part_id": "E11",
-      "name": "Adafruit 5755 JST-SH to header donor",
+      "name": "Adafruit 6406 JST-SH plug–plug cable, 200 mm",
       "reference_ids": [
         "ref-004"
       ],
@@ -1511,6 +1526,15 @@
       "name": "M3×10 countersunk",
       "reference_ids": [
         "ref-056"
+      ],
+      "coverage": "links-only",
+      "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."
+    },
+    {
+      "part_id": "M3x14CS",
+      "name": "M3×14 countersunk",
+      "reference_ids": [
+        "ref-079"
       ],
       "coverage": "links-only",
       "limitations": "Dimensions of the priced product example; use the screw length and head profile specified in the guide."

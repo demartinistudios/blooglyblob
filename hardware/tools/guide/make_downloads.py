@@ -74,26 +74,34 @@ def eye_film():
 
 
 # ---------------------------------------------------------------- body foam
+SHOULDER_HOLE = 14  # mm: the servo's round top is 12.1 mm across (Kitronik 25105 envelope)
+
+
 def body_foam():
-    notches = '0,0 0,15.1 1.0009,15.1 1.0009,33.5 0,33.5 0,59.1 1.0009,59.1 1.0009,77.5 0,77.5 0,83.1 1.0009,83.1 1.0009,101.5 0,101.5 0,114.3 224.8227,114.3 224.8227,101.5 223.8218,101.5 223.8218,83.1 224.8227,83.1 224.8227,77.5 223.8218,77.5 223.8218,59.1 224.8227,59.1 224.8227,33.5 223.8218,33.5 223.8218,15.1 224.8227,15.1 224.8227,0'
-    b = [text(12, 9, 'BlooglyBlob body foam template', 4.2, weight='bold'),
-         text(12, 15, 'Print at 100% (actual size) and check the 50 mm bar. Cut from 4 mm white foam.', 2.9),
-         '<g transform="translate(20 20)" stroke-width="0.3">',
-         f'<polygon points="{notches}" fill="none" stroke="{INK}"/>']
-    for x in (46.5056, 159.9171):
-        b.append(f'<rect x="{x:g}" y="11.3" width="18.4" height="36" rx="2" fill="#eee" stroke="{INK}"/>')
-        b.append(text(x + 9.2, 31, 'shoulder', 2.6, 'middle'))
-    b.append('<path d="M1.0009 24.3H46.5056M178.3171 24.3H223.8218" fill="none" stroke="#c55028" stroke-dasharray="2 1"/>')
-    for i, s in enumerate(['FRONT CENTER', '224.8 × 114.3 mm, 4 mm foam',
-                           'The two short edges meet at the back with a 2 mm gap.',
-                           'Orange dashed lines: knife slits to each shoulder. Don’t remove any foam.',
-                           'Edge notches, 1 mm deep × 18.4 mm tall: they clear the seam-cover clips.']):
-        b.append(text(112.411, 59 + i * 7, s, 2.8, 'middle', 'bold' if i == 0 else 'normal'))
+    # US Letter landscape; everything also sits inside an A4 landscape page.
+    w, h = 279.4, 215.9
+    ox, oy = 27, 62  # foam outline origin: top-left corner, top edge at the upper collar
+    b = [text(20, 20, 'BlooglyBlob', 4, weight='bold'),
+         text(20, 30, 'Body foam template', 8, weight='bold'),
+         text(20, 40, 'Print at 100% (actual size), landscape. Turn off Fit, Shrink and Scale to page.', 3.6),
+         text(20, 46, 'Check the 50 mm bar with a ruler before cutting. Cut from 4 mm white foam.', 3.6),
+         f'<g transform="translate({ox} {oy})" stroke-width="0.3">',
+         f'<rect width="224.8227" height="114.3" fill="none" stroke="{INK}"/>']
+    for x in (55.7056, 169.1171):
+        r = SHOULDER_HOLE / 2
+        b.append(f'<circle cx="{x:g}" cy="24.3" r="{r:g}" fill="none" stroke="{INK}"/>')
+        b.append(f'<path d="M{x-2:g} 24.3H{x+2:g}M{x:g} 22.3V26.3" stroke="{INK}" stroke-width="0.2"/>')
+        b.append(text(x, 24.3 + r + 4.5, f'Shoulder hole, {SHOULDER_HOLE} mm', 2.8, 'middle'))
+    b.append(text(112.411, -2.5, 'TOP EDGE · upper collar', 2.8, 'middle', 'bold'))
+    for i, s in enumerate(['FRONT CENTER', '224.8 × 114.3 mm',
+                           'The two short edges meet at the back with a 2 mm gap.']):
+        b.append(text(112.411, 56 + i * 7, s, 2.8, 'middle', 'bold' if i == 0 else 'normal'))
     b.append('</g>')
-    b += scale_bar(20, 143, 50, '50 mm')
-    b.append(text(84, 143, 'Round the notch corners slightly. Cut it a little long, dry-wrap it between the collars, then trim.', 2.7))
-    b.append(text(84, 150, 'Keep the notches full size: the seam-cover screws and ribs pass through them.', 2.7))
-    write('body-foam-template.svg', svg(270, 155, b, 'BlooglyBlob body foam template, actual size'))
+    b += scale_bar(20, 196, 50, '50 mm')
+    b.append(text(84, 193, 'Cut the outline a little long. Trim the ends after a test-fit between the collars.', 3.2))
+    b.append(text(84, 199, 'At the test-fit, mark each hole center over its shoulder servo shaft.', 3.2))
+    write('body-foam-template.svg', svg(w, h, b, 'BlooglyBlob body foam template, actual size'))
+    to_pdf('body-foam-template.svg')
 
 
 # ---------------------------------------------------------------- screw key
@@ -105,7 +113,7 @@ def hardware_totals():
 
 def screw_key(form, w, h):
     TOT = hardware_totals()
-    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,18,20])] for n in lengths} | {'M3x10CS'}
+    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,18,20])] for n in lengths} | {'M3x10CS', 'M3x14CS'}
     if {k for k in TOT if re.fullmatch(r'M[0-9]+x[0-9]+(?:CS)?', k)} != supported:
         raise ValueError('Review screw-key drawing dimensions/layout for the changed screw specification set')
     s = '#142b3d'
@@ -134,21 +142,23 @@ def screw_key(form, w, h):
             b += [rect(x - hh, hy - hd / 2, hh, hd), rect(x, hy - dia / 2, L, dia), ln(f'M{x} {hy-5}V{hy+5}', 0.25)]
     b += [text(15, 161, f'Three of the {TOT["M2x8"]} M2 × 8 are button heads (drawn: 3.5 × 1.3 mm).', 2.7),
           text(15, 166, 'They fix the head to its shelf, without washers.', 2.7),
-          text(15, 172, f'M3 × 10 countersunk · {TOT["M3x10CS"]} used', 3.2)]
-    x, y = 54, 181
-    b.append(ln(f'M{x} {y-3}L{x+1.5} {y-1.5}H{x+10}V{y+1.5}H{x+1.5}L{x} {y+3}Z', 0.25))
-    b.append(ln(f'M{x} {y-5}V{y+5}', 0.25))
-    b.append(text(15, 190, 'Length 10 mm including the head; 90° head, 6 mm across.', 2.9))
-    b.append(text(15, 202, 'Nuts, seen from above (ordinary hex nuts)', 3))
+          text(15, 172, 'M3 countersunk: 90° head, 6 mm across', 3.2),
+          text(15, 177, 'Head top on the start line. The length includes the head.', 2.7)]
+    for y, L in [(186, 10), (197, 14)]:
+        b.append(text(15, y, f'M3 × {L} · {TOT[f"M3x{L}CS"]} used', 2.9))
+        x, hy = 54, y - 1
+        b.append(ln(f'M{x} {hy-3}L{x+1.5} {hy-1.5}H{x+L}V{hy+1.5}H{x+1.5}L{x} {hy+3}Z', 0.25))
+        b.append(ln(f'M{x} {hy-4}V{hy+4}', 0.25))
+    b.append(text(15, 208, 'Nuts, seen from above (ordinary hex nuts)', 3))
     for xx, d, af in [(25, 2, 4), (57, 3, 5.5)]:
         r = af / math.sqrt(3)
-        pts = ' '.join(f'{xx + r*math.cos(math.radians(i*60)):.4f},{213 + r*math.sin(math.radians(i*60)):.4f}' for i in range(6))
-        b += [f'<polygon points="{pts}" fill="none" stroke="{s}" stroke-width="0.25"/>', circ(xx, 213, d / 2),
-              text(xx - 10, 222, f'M{d} nuts · {TOT[f"N{d}"]} used', 2.9)]
-    b.append(text(15, 235, 'Washers: inside and outside diameter', 3.2))
+        pts = ' '.join(f'{xx + r*math.cos(math.radians(i*60)):.4f},{219 + r*math.sin(math.radians(i*60)):.4f}' for i in range(6))
+        b += [f'<polygon points="{pts}" fill="none" stroke="{s}" stroke-width="0.25"/>', circ(xx, 219, d / 2),
+              text(xx - 10, 228, f'M{d} nuts · {TOT[f"N{d}"]} used', 2.9)]
+    b.append(text(15, 241, 'Washers: inside and outside diameter', 3.2))
     for xx, di, do, label in [(28, 2.31, 4.37, f'M2 metal: {TOT["W2"]}, 0.25 mm thick'), (71, 3.20, 7.01, f'M3: {TOT["W3"]}, 0.53 mm thick')]:
-        b += [circ(xx, 244, do / 2), circ(xx, 244, di / 2), text(xx - 15, 254, label, 2.7)]
-    b += [text(15, 263, 'M2 nuts are 4 mm across the flats and 1.6 mm thick.', 2.7),
+        b += [circ(xx, 250, do / 2), circ(xx, 250, di / 2), text(xx - 15, 260, label, 2.7)]
+    b += [text(15, 269, 'M2 nuts are 4 mm across the flats and 1.6 mm thick.', 2.7),
           text(110, 225, f'Servo center screws · {TOT["CENTER"]}', 3.2),
           text(110, 232, 'These come with the servos and aren’t drawn here.', 2.8),
           text(110, 238, 'Keep each one with its servo horn.', 2.8),

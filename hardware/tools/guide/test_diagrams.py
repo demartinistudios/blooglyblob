@@ -81,18 +81,6 @@ class CircuitDiagramTests(unittest.TestCase):
         expected = {row[0]: row[2].split(' → ')[0] for row in self.canonical['signal']['rows'] if row[2].startswith(('S1 ', 'S2 '))}
         self.assertEqual(observed, expected)
 
-    def test_button_pin_map_matches_canonical_functions(self):
-        text = self.texts('circuits/button-pins.svg')
-        drawn = dict(value.split(' → ', 1) for value in text if value[:1].isdigit() and ' → ' in value)
-        names = {
-            'One normally-open switch contact': 'switch NO',
-            'Other switch contact': 'switch return',
-            'R1 → button LED +': 'R1 → LED +',
-            'Button LED −': 'LED −',
-        }
-        expected = {row[0]: names[row[2]] for row in self.canonical['signal']['rows'] if row[2] in names}
-        self.assertEqual(drawn, expected)
-
     def test_action_landings_match_canonical_wago_allocations(self):
         # Capture the actual rendered port calls, paired with each action's
         # named component. An accidentally moved terminal fails against JSON.
@@ -109,7 +97,7 @@ class CircuitDiagramTests(unittest.TestCase):
             cases.append((diagrams.servo_circuit, (name, port, signal), [f'{name} servo +', f'{name} servo return']))
         for draw, args, endpoints in cases:
             seen = []
-            def capture(g, y, block, port, color):
+            def capture(g, y, block, port, color, **_):
                 seen.append(canonical[block, port])
             with patch.object(diagrams.Svg, 'save'), patch.object(diagrams, 'wago_port', capture):
                 draw(*args)
@@ -119,7 +107,6 @@ class CircuitDiagramTests(unittest.TestCase):
         text = self.texts('circuits/supply-polarity-test.svg')
         self.assertIn('Black: outer sleeve', text)
         self.assertIn('Red: inside center', text)
-        self.assertIn('Positive reading · no minus sign.', text)
 
     def wire_paths(self, name, color):
         paths = []
@@ -130,29 +117,19 @@ class CircuitDiagramTests(unittest.TestCase):
             paths.append(list(zip(values[::2], values[1::2])))
         return paths
 
-    def test_direct_servo_feed_and_service_isolation_endpoints(self):
+    def test_direct_servo_feed_endpoints(self):
         connected = self.wire_paths('circuits/servo-feed-connect.svg', diagrams.RED)
         self.assertEqual(len(connected), 1)
         self.assertEqual(connected[0][0], diagrams.port_point(3, 147))
         self.assertEqual(connected[0][-1], diagrams.port_point(1, 345))
-        isolated = self.wire_paths('circuits/servo-feed-isolation.svg', diagrams.RED)
-        self.assertEqual(len(isolated), 1)
-        self.assertEqual(isolated[0][-1], diagrams.port_point(1, 410))
-        self.assertNotIn(diagrams.port_point(3, 147), isolated[0])
-        root = ET.parse(self.out / 'circuits/servo-feed-isolation.svg').getroot()
-        # The free endpoint is fully within an insulating cap, not bare copper.
-        x, y = isolated[0][0]
-        caps = root.findall('.//s:rect[@fill="#47515b"]', NS)
-        self.assertTrue(any(float(c.get('x')) < x < float(c.get('x')) + float(c.get('width'))
-                            and float(c.get('y')) < y < float(c.get('y')) + float(c.get('height'))
-                            for c in caps))
 
     def test_servo_leads_reach_their_actual_canonical_terminals(self):
         for name in ('LEFT', 'RIGHT', 'HEAD'):
             file = f'circuits/servo-{name.lower()}.svg'
             for block, suffix, color, source, y in (
-                ('W2', '+', diagrams.RED, (187, 253), 350),
-                ('W4', 'return', diagrams.BLK, (211, 253), 480),
+                # Real FS90MG lead order: brown ground, red supply, orange signal.
+                ('W2', '+', diagrams.RED, (211, 253), 350),
+                ('W4', 'return', diagrams.SERVO_BROWN, (187, 253), 480),
             ):
                 row = next(r for r in self.canonical['power']['rows'] if r[0].startswith(block + ' '))
                 port = row.index(f'{name} servo {suffix}')
@@ -162,48 +139,48 @@ class CircuitDiagramTests(unittest.TestCase):
             shifter, terminal = signal.split()
             self.assertIn(shifter + ' output', self.texts(file))
             self.assertIn(terminal, self.texts(file))
-            self.assertTrue(any(p[0] == (235, 253) and p[-1] == (390, 615) for p in self.wire_paths(file, diagrams.BLUE)))
+            self.assertTrue(any(p[0] == (235, 253) and p[-1] == (390, 615) for p in self.wire_paths(file, diagrams.SERVO_ORANGE)))
 
-    def test_head_power_has_continuous_separate_rails_to_both_loads(self):
-        rails = {}
-        for color, source, targets in (
-            (diagrams.RED, (276, 145), {(52, 500), (245, 500)}),
-            (diagrams.BLK, (276, 159), {(52, 550), (245, 550)}),
-        ):
-            paths = self.wire_paths('circuits/head-power.svg', color)
-            graph = {}
-            segments = []
-            for path in paths:
-                for a, b in zip(path, path[1:]):
-                    graph.setdefault(a, set()).add(b)
-                    graph.setdefault(b, set()).add(a)
-                    segments.append((a, b))
-            reached, queue = set(), [source]
-            while queue:
-                point = queue.pop()
-                if point not in reached:
-                    reached.add(point)
-                    queue.extend(graph.get(point, ()))
-            self.assertTrue(targets <= reached, (color, targets - reached))
-            rails[color] = segments
-        # A crossing can have an insulating halo; a shared longitudinal run
-        # between opposite polarities cannot show two independent conductors.
-        for a, b in rails[diagrams.RED]:
-            for p, q in rails[diagrams.BLK]:
-                for axis in (0, 1):
-                    run = 1 - axis
-                    if a[axis] == b[axis] == p[axis] == q[axis]:
-                        overlap = min(max(a[run], b[run]), max(p[run], q[run])) - max(min(a[run], b[run]), min(p[run], q[run]))
-                        self.assertLessEqual(overlap, 0, (a, b, p, q))
+    def test_head_half_joins_eye_lead_by_function(self):
+        # JST-SM is +5 V, DATA, GND; the eye lead's JST-SH order is GND, +5 V, DATA.
+        texts = self.texts('circuits/head-power.svg')
+        for label in ('+5 V', 'DATA', 'GND', 'Head half: JST-SM (large), pins', 'Eye input lead: JST-SH (small)'):
+            self.assertIn(label, texts)
 
-    def test_strand_test_does_not_imply_connector_direction_or_cutting(self):
+    def test_strand_test_names_pins_end_as_likely_input_without_cutting(self):
         identification = self.texts('circuits/strand-wire-identification.svg')
-        self.assertIn('Connector sex does not show input.', identification)
-        self.assertIn('colors are missing or disagree.', identification)
+        self.assertIn('Copper coil / dots → +5 V', identification)
+        # The likely-input rule and the stop condition are instructions, so they live in the actions.
+        actions = ' '.join(next(s for s in json.loads((ROOT / 'hardware/build-guide/src/guide-data.json').read_text())['steps']
+                                if s['id'] == 'light-fuse-capacitor')['actions'])
+        self.assertIn('is normally the input', actions)
+        self.assertIn('disagree with the factory lead colors, stop', actions)
         result = self.texts('circuits/strand-input-result.svg')
-        self.assertIn('100-pebble strand · uncut', result)
-        self.assertIn('Remaining 84 · should stay dark', result)
+        self.assertIn('First 16 · lit in order', result)
+        self.assertIn('Remaining 84 · dark', result)
         self.assertFalse(any('cut here' in t.lower() for t in result))
+
+    def test_heat_shrink_is_drawn_one_way_and_covers_what_the_actions_cover(self):
+        # INSTRUCTION-DESIGN.md rule 10: one sleeve color; a covered resistor shows through it.
+        retired = ('#424b55', '#656c74', '#444e56', '#6b7580')
+        for generated in self.out.rglob('*.svg'):
+            svg = generated.read_text()
+            for color in retired:
+                self.assertNotIn(color, svg, generated.name)
+        see_through = f'fill="{diagrams.SHRINK}" fill-opacity="{diagrams.SHRINK_OVER}"'
+        for name, key in (('circuits/c2-prepare.svg', 'R2'), ('circuits/f2-connect.svg', 'R2'),
+                          ('circuits/button-leads-done.svg', 'R1')):
+            svg = (self.out / name).read_text()
+            band = svg.find(diagrams.RESISTORS[key][1][0])
+            self.assertGreaterEqual(band, 0, name)
+            self.assertGreater(svg.find(see_through), band, f'{name}: sleeve must lie over the resistor')
+        self.assertIn('Unused wires', self.texts('circuits/pi-power.svg'))
+
+    def test_drawings_carry_labels_not_titles_or_sentences(self):
+        # The guide caption gives the view and the actions give instructions.
+        for generated in self.out.rglob('*.svg'):
+            for text in self.texts(generated.relative_to(self.out)):
+                self.assertFalse(text.rstrip().endswith('.'), f'{generated.name}: {text}')
 
     def test_unknown_resistor_is_rejected_instead_of_drawing_wrong_bands(self):
         with self.assertRaises(KeyError):

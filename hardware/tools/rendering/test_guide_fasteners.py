@@ -52,6 +52,22 @@ class ScrewGeometryTests(unittest.TestCase):
         self.assertTrue(trimesh.Trimesh(row['v'],row['f'],process=False).is_watertight)
 
 
+class CountersunkTests(unittest.TestCase):
+    def test_countersunk_head_is_flush_closed_and_inside_overall_length(self):
+        rows=screw(3,10,[0,0,0],[0,0,1],head='countersunk')
+        head=rows[1]['v']
+        self.assertAlmostEqual(head[:,2].min(),0)
+        self.assertAlmostEqual(head[:,2].max(),1.5)
+        self.assertLessEqual(np.linalg.norm(head[:,:2],axis=1).max(),3+1e-10)
+        self.assertAlmostEqual(rows[0]['v'][:,2].max(),10)
+        mesh=trimesh.Trimesh(rows[1]['v'],rows[1]['f'],process=False)
+        self.assertTrue(mesh.is_watertight)
+        self.assertTrue(mesh.is_winding_consistent)
+        self.assertGreater(mesh.volume,0)
+        with self.assertRaises(ValueError):
+            screw(2,8,[0,0,0],[0,0,1],head='countersunk')
+
+
 class NutAndWasherTests(unittest.TestCase):
     def test_nut_flats_phase_size_and_thickness_are_preserved(self):
         for d,af,thickness in ((2,4,1.6),(3,5.5,2.4)):

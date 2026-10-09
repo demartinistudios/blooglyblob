@@ -27,14 +27,14 @@ except ImportError:
     print("Note: rpi_ws281x not available - running in simulation mode")
 
 from blooglyblob.hardware.config import BODY_LEDS, EYE_LEDS, MOUTH_LEDS, gpio_config
+from blooglyblob.hardware.led_colors import driver_rgb
 
-# NeoPixel configuration for WS2812 (Adafruit 6023 Pebble LEDs)
-# WS2812 uses GRB color order at 800kHz
+# Shared GRB transport at 800kHz; body pebbles are encoded separately as BGR.
 LED_FREQ_HZ = 800000      # LED signal frequency (800kHz)
 LED_DMA = 10              # DMA channel for generating signal
 LED_INVERT = False        # True to invert the signal
 LED_CHANNEL = 0           # PWM channel
-LED_STRIP_TYPE = ws.WS2811_STRIP_GRB if ON_PI else None  # WS2812 uses GRB order
+LED_STRIP_TYPE = ws.WS2811_STRIP_GRB if ON_PI else None  # Face pixels use GRB order
 
 
 def create_strip() -> "PixelStrip":
@@ -56,6 +56,11 @@ def create_strip() -> "PixelStrip":
     return strip
 
 
+def set_pixel(strip, index, r, g, b):
+    """Use the same per-zone channel ordering as normal operation."""
+    strip.setPixelColor(index, Color(*driver_rgb(index, r, g, b)))
+
+
 def clear_strip(strip: "PixelStrip"):
     """Turn off all LEDs."""
     if strip is None:
@@ -63,7 +68,7 @@ def clear_strip(strip: "PixelStrip"):
         return
 
     for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(0, 0, 0))
+        set_pixel(strip, i, 0, 0, 0)
     strip.show()
 
 
@@ -75,11 +80,11 @@ def test_pixel_order(strip: "PixelStrip"):
         for index in indices:
             print(f"    Pixel {index}: {zone}", flush=True)
             if strip is not None:
-                strip.setPixelColor(index, Color(32, 32, 32))
+                set_pixel(strip, index, 32, 32, 32)
                 strip.show()
             time.sleep(0.5)
             if strip is not None:
-                strip.setPixelColor(index, Color(0, 0, 0))
+                set_pixel(strip, index, 0, 0, 0)
                 strip.show()
 
 
@@ -92,7 +97,7 @@ def solid_color(strip: "PixelStrip", r: int, g: int, b: int, name: str, duration
         return
 
     for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(r, g, b))
+        set_pixel(strip, i, r, g, b)
     strip.show()
     time.sleep(duration)
 
@@ -109,15 +114,15 @@ def rainbow_cycle(strip: "PixelStrip", cycles: int = 2, wait_ms: int = 20):
         for i in range(strip.numPixels()):
             # Distribute colors evenly across LEDs
             pixel_index = (i * 256 // strip.numPixels()) + j
-            strip.setPixelColor(i, wheel(pixel_index & 255))
+            set_pixel(strip, i, *wheel(pixel_index & 255))
         strip.show()
         time.sleep(wait_ms / 1000.0)
 
 
-def wheel(pos: int) -> "Color":
+def wheel(pos: int) -> tuple[int, int, int]:
     """Return a fully saturated rainbow color for a 0-255 hue position."""
     red, green, blue = colorsys.hsv_to_rgb(pos / 256, 1, 1)
-    return Color(round(red * 255), round(green * 255), round(blue * 255))
+    return round(red * 255), round(green * 255), round(blue * 255)
 
 
 def pulse(strip: "PixelStrip", r: int, g: int, b: int, cycles: int = 3, steps: int = 50):
@@ -132,18 +137,18 @@ def pulse(strip: "PixelStrip", r: int, g: int, b: int, cycles: int = 3, steps: i
         # Fade in
         for brightness in range(0, steps):
             factor = brightness / steps
-            color = Color(int(r * factor), int(g * factor), int(b * factor))
+            color = (int(r * factor), int(g * factor), int(b * factor))
             for i in range(strip.numPixels()):
-                strip.setPixelColor(i, color)
+                set_pixel(strip, i, *color)
             strip.show()
             time.sleep(0.02)
 
         # Fade out
         for brightness in range(steps, 0, -1):
             factor = brightness / steps
-            color = Color(int(r * factor), int(g * factor), int(b * factor))
+            color = (int(r * factor), int(g * factor), int(b * factor))
             for i in range(strip.numPixels()):
-                strip.setPixelColor(i, color)
+                set_pixel(strip, i, *color)
             strip.show()
             time.sleep(0.02)
 
@@ -161,11 +166,11 @@ def sparkle(strip: "PixelStrip", r: int, g: int, b: int, duration: float = 2.0, 
     while time.time() < end_time:
         # Light random pixel
         pixel = random.randint(0, strip.numPixels() - 1)
-        strip.setPixelColor(pixel, Color(r, g, b))
+        set_pixel(strip, pixel, r, g, b)
         strip.show()
         time.sleep(delay_ms / 1000.0)
         # Turn it off
-        strip.setPixelColor(pixel, Color(0, 0, 0))
+        set_pixel(strip, pixel, 0, 0, 0)
         strip.show()
 
 
@@ -181,9 +186,9 @@ def chase(strip: "PixelStrip", r: int, g: int, b: int, cycles: int = 3, wait_ms:
         for offset in range(3):
             for i in range(strip.numPixels()):
                 if (i + offset) % 3 == 0:
-                    strip.setPixelColor(i, Color(r, g, b))
+                    set_pixel(strip, i, r, g, b)
                 else:
-                    strip.setPixelColor(i, Color(0, 0, 0))
+                    set_pixel(strip, i, 0, 0, 0)
             strip.show()
             time.sleep(wait_ms / 1000.0)
 
@@ -197,7 +202,7 @@ def wipe(strip: "PixelStrip", r: int, g: int, b: int, wait_ms: int = 50):
         return
 
     for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(r, g, b))
+        set_pixel(strip, i, r, g, b)
         strip.show()
         time.sleep(wait_ms / 1000.0)
 

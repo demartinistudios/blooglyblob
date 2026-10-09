@@ -63,7 +63,7 @@
       [
         "12",
         "BCM18, lighting data",
-        "S1 DAT \u2192 S1 D5 \u2192 BODY LIGHT \u2192 R2 near light 0 \u2192 light 0 DIN"
+        "S1 DAT \u2192 S1 D5 \u2192 R2 \u2192 BODY LIGHT \u2192 light 0 DIN"
       ],
       [
         "32",
@@ -156,5 +156,5 @@
       ]
     ]
   },
-  "diagram": "Mean Well GST40A05-P1J (5 V, 5 A) \u2192 J1 center \u2192 W1/1 INPUT +5 V\n  W1/2 \u2192 Pi power lead (micro-USB) \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n  W1/3 \u2192 red 18 AWG feed \u2192 W2/1 SERVO +5 V\n    W2/2\u20134 \u2192 three servos; W2/5 \u2192 C1 + (1000 \u00b5F)\n  W1/4 \u2192 F2 T1 A \u2192 C2 + (1000 \u00b5F) / BODY LIGHT positive junction\n    BODY LIGHT \u2192 body lights + dedicated head power pair \u2192 eyes and mouth\n    C2 \u2212 \u2192 BODY LIGHT return junction \u2192 W3/5\n\nJ1 sleeve \u2192 W3/1 GND\n  W3/2 \u2192 Pi power lead return\n  W3/3 \u2192 18 AWG ground link \u2192 W4/1; W4/2\u20134 \u2192 three servo returns\n  W3/4 \u2192 C1 \u2212; W3/5 \u2192 BODY LIGHT return / C2 \u2212\nS1 D5 \u2192 BODY LIGHT \u2192 R2 near first pebble \u2192 light 0 DIN\nPi GPIO \u2192 two level shifters (S1, S2) \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
+  "diagram": "Mean Well GST40A05-P1J (5 V, 5 A) \u2192 J1 center \u2192 W1/1 INPUT +5 V\n  W1/2 \u2192 Pi power lead (micro-USB) \u2192 Pi \u2192 USB cable \u2192 18833 \u2192 two speakers\n  W1/3 \u2192 red 18 AWG feed \u2192 W2/1 SERVO +5 V\n    W2/2\u20134 \u2192 three servos; W2/5 \u2192 C1 + (1000 \u00b5F)\n  W1/4 \u2192 F2 T1 A \u2192 C2 + (1000 \u00b5F) / BODY LIGHT positive junction\n    BODY LIGHT \u2192 body lights \u2192 HEAD LIGHT \u2192 eyes \u2192 mouth (power and data chained)\n    C2 \u2212 \u2192 BODY LIGHT return junction \u2192 W3/5\n\nJ1 sleeve \u2192 W3/1 GND\n  W3/2 \u2192 Pi power lead return\n  W3/3 \u2192 18 AWG ground link \u2192 W4/1; W4/2\u20134 \u2192 three servo returns\n  W3/4 \u2192 C1 \u2212; W3/5 \u2192 BODY LIGHT return / C2 \u2212\nS1 D5 \u2192 R2 \u2192 BODY LIGHT \u2192 light 0 DIN\nPi GPIO \u2192 two level shifters (S1, S2) \u2192 three servo signals + one LED data chain\nPi GPIO17 \u2192 momentary switch \u2192 Pi GND\nPi header 5 V \u2192 1 k\u03a9 resistor \u2192 button LED \u2192 Pi GND\n"
 }

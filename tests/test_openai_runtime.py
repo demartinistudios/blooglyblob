@@ -359,7 +359,7 @@ async def test_stop_during_real_live_startup_bounds_stalled_transport_close():
         assert host._faulted
         assert host.live is None
         trace = audio.trace
-        assert trace[-1].get("state") == "idle"
+        assert not any(item.get("type") == "present" for item in trace)
     finally:
         release.set()
         await host.close()
@@ -461,3 +461,137 @@ async def test_search_preserves_speech_and_input_while_background_stop_is_pendin
     live.append_result.assert_awaited_once_with("delegation", "Sunny")
     audio.stop_background.side_effect = audio._stop_background
     await host.close()
+
+
+@pytest.mark.asyncio
+async def test_startup_does_not_forward_input_and_stop_confirms_transport_closure():
+    from types import SimpleNamespace
+
+    from blooglyblob.ai.live import OpenAILiveSession
+    from tests.support.live import FakeConnection
+
+    host, _, audio = session()
+    connection = FakeConnection()
+    manager = AsyncMock()
+    manager.__aenter__.return_value = connection
+    closing = asyncio.Event()
+    finish_close = asyncio.Event()
+
+    async def close_transport(*args):
+        closing.set()
+        await finish_close.wait()
+
+    manager.__aexit__.side_effect = close_transport
+    host.api = SimpleNamespace(live=SimpleNamespace(connect=Mock(return_value=manager)))
+    host.live_factory = OpenAILiveSession
+    try:
+        host.request(True)
+        for _ in range(100):
+            if connection.session.start.await_count:
+                break
+            await asyncio.sleep(0.001)
+        assert connection.session.start.await_count == 1
+        live = host.live
+        for _ in range(live._input.maxsize + 1):
+            await host.input_audio(bytes(960))
+        assert live._input.empty()
+        host.button()
+        await asyncio.wait_for(closing.wait(), 0.5)
+        finish_close.set()
+        await asyncio.wait_for(host._runner, 0.5)
+        assert not host.active
+        assert not host._faulted
+        assert live.close_confirmed
+        audio.release.assert_awaited()
+        manager.__aexit__.assert_awaited_once()
+    finally:
+        finish_close.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_failed_input_from_old_session_does_not_stop_replacement():
+    host, _, _ = session()
+    entered, fail = asyncio.Event(), asyncio.Event()
+
+    async def delayed_failure(pcm):
+        entered.set()
+        await fail.wait()
+        raise RuntimeError("old session failed")
+
+    try:
+        host.request(True)
+        await asyncio.sleep(0.01)
+        old = host.live
+        old.input_audio.side_effect = delayed_failure
+        delivery = asyncio.create_task(host.input_audio(bytes(960)))
+        await entered.wait()
+        host.request(True)
+        await asyncio.sleep(0.01)
+        replacement = host.live
+        assert replacement is not old
+        fail.set()
+        await delivery
+        assert host.active
+        assert host.live is replacement
+        assert not host._faulted
+        await host.input_audio(bytes(960))
+        replacement.input_audio.assert_awaited_once()
+    finally:
+        fail.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_failed_connection_cannot_wake_or_play_greeting():
+    from types import SimpleNamespace
+
+    class OfflineLive(Live):
+        async def start(self, greeting=""):
+            raise TimeoutError("offline")
+
+    speech = SimpleNamespace(speak=AsyncMock())
+    failure = Mock()
+    host, hardware, audio = session(greeting="Hello", speech=speech)
+    host.live_factory = OfflineLive
+    host._on_unavailable = failure
+    try:
+        host.button()
+        await host._runner
+        speech.speak.assert_not_awaited()
+        assert not any(
+            x.args == ("listening",) for x in hardware.present.call_args_list
+        )
+        failure.assert_called_once_with("network")
+    finally:
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_accepted_button_wakes_eyes_before_connection_without_starting_motion_or_audio():
+    import time
+
+    from blooglyblob.hardware.lighting import render
+
+    entered, release = asyncio.Event(), asyncio.Event()
+
+    class Connecting(Live):
+        async def start(self, greeting=""):
+            entered.set()
+            await release.wait()
+
+    host, hardware, audio = session()
+    host.live_factory = Connecting
+    try:
+        host.button()
+        assert hardware.lighting.snapshot(time.monotonic()).mode == "waking"
+        await entered.wait()
+        now = time.monotonic() + 0.3
+        assert render(hardware.lighting.snapshot(now), now)[6][0] > 0
+        hardware.present.assert_not_called()
+        assert not any(e["type"] == "audio" for e in audio.trace)
+        host.button()
+        assert render(hardware.lighting.snapshot(now), now)[6:] == ((0, 0, 0),) * 10
+    finally:
+        release.set()
+        await host.close()

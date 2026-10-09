@@ -225,3 +225,20 @@ async def test_invalid_speed_never_calls_provider(speed):
     with pytest.raises(ValueError, match="speed"):
         await speech.speak("Hello!", AsyncMock(), speed=speed)
     create.assert_not_called()
+
+
+@pytest.mark.asyncio
+async def test_speech_preserves_network_category_without_exposing_provider_text():
+    import httpx2
+    from openai import APIConnectionError
+    from blooglyblob.connectivity import failure_category
+
+    error = APIConnectionError(
+        message="private provider detail",
+        request=httpx2.Request("GET", "https://example.com"),
+    )
+    speech, _, _ = adapter([error])
+    with pytest.raises(SpeechError) as caught:
+        await speech.speak("Hello", AsyncMock())
+    assert "private" not in str(caught.value)
+    assert failure_category(caught.value) == "network"

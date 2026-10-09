@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 
 
-# One data chain; F2 protects lighting, with a dedicated head power pair.
+# One chain for lighting data and power; F2 protects lighting.
 BODY_LEDS = range(0, 6)
 EYE_LEDS = range(6, 8)
 MOUTH_LEDS = range(8, 16)

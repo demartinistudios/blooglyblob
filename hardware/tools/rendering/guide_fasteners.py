@@ -2,7 +2,8 @@
 
 These are drawing solids, not vendor CAD or manufacturing models. Screw length
 is measured from its bearing face to its tip. Head envelopes are M2 Ø3.8 × 2
-and M3 Ø5.5 × 3; external thread pitches are 0.4 and 0.5 mm respectively.
+and M3 Ø5.5 × 3; an M3 countersunk head is Ø6 with a 90° cone and its
+length is overall, measured from the flush head face; external thread pitches are 0.4 and 0.5 mm respectively.
 Hex sockets illustrate a recessed drive, without specifying a purchased drive.
 All dimensions are millimetres; washer outer/inner arguments are radii.
 """
@@ -78,8 +79,10 @@ def screw(d, length, seat, axis, *, head="socket"):
     """
     if d not in _SCREWS or length <= 0 or not math.isfinite(length):
         raise ValueError('Screws require M2 or M3 and a positive finite length')
-    if head not in ('socket','button'):
-        raise ValueError('Head must be socket or button')
+    if head not in ('socket','button','countersunk'):
+        raise ValueError('Head must be socket, button or countersunk')
+    if head=='countersunk' and d!=3:
+        raise ValueError('Only M3 countersunk screws are drawn')
     pitch, head_d, head_h, socket_af = _SCREWS[d]
     if head=='button':head_h=.55*d
     major=d/2; depth=.61343*pitch
@@ -102,6 +105,8 @@ def screw(d, length, seat, axis, *, head="socket"):
     _cap(vertices,faces,(len(levels)-1)*_SECTIONS,_SECTIONS,length)
     rows=[_row(vertices,faces,f'M{d} screw thread',seat,axis)]
 
+    if head=='countersunk':
+        return rows+_countersunk_head(seat,axis,angles,major)
     # Head outer wall, bearing face and top annulus all join a blind hex socket.
     bevel=min(.25,head_h*.12);outer=head_d/2
     vertices=[];faces=[]
@@ -134,6 +139,30 @@ def screw(d, length, seat, axis, *, head="socket"):
     _circle(vertices,angles,_hex_radius(angles,socket_af*.96),-head_h+head_h*.62-.01)
     _cap(vertices,faces,0,_SECTIONS,-head_h+head_h*.62-.01,reverse=True)
     rows.append(_row(vertices,faces,f'M{d} socket recess',seat,axis,RECESS))
+    return rows
+
+
+def _countersunk_head(seat, axis, angles, major, outer=3.0, socket_af=2.0, depth=1.1):
+    """Ø6 × 90° M3 head with its flush face at the seat, cone along +axis."""
+    vertices=[];faces=[]
+    profile=[(major,outer-major),(outer,.12),(outer-.08,0)]
+    for radius,z in profile:
+        _circle(vertices,angles,radius,z)
+    for level in range(len(profile)-1):
+        _bridge(faces,level*_SECTIONS,(level+1)*_SECTIONS,_SECTIONS,reverse=True)
+    start=len(profile)*_SECTIONS
+    for af,z in [(socket_af+.2,0),(socket_af,.12),(socket_af,depth)]:
+        _circle(vertices,angles,_hex_radius(angles,af),z)
+    _bridge(faces,start-_SECTIONS,start,_SECTIONS,reverse=True)
+    _bridge(faces,start,start+_SECTIONS,_SECTIONS,reverse=True)
+    _bridge(faces,start+_SECTIONS,start+2*_SECTIONS,_SECTIONS,reverse=True)
+    _cap(vertices,faces,start+2*_SECTIONS,_SECTIONS,depth,reverse=True)
+    _cap(vertices,faces,0,_SECTIONS,outer-major)
+    rows=[_row(vertices,faces,'M3 countersunk head',seat,axis,HEAD_STEEL)]
+    vertices=[];faces=[]
+    _circle(vertices,angles,_hex_radius(angles,socket_af*.96),depth-.01)
+    _cap(vertices,faces,0,_SECTIONS,depth-.01)
+    rows.append(_row(vertices,faces,'M3 socket recess',seat,axis,RECESS))
     return rows
 
 

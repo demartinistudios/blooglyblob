@@ -82,14 +82,12 @@ class QuantityTests(unittest.TestCase):
              'hardware_allocations': [{'allocation_id': 'eye-joint', 'role': 'preload', 'hardware': {'N2': 4}}]},
             {'id': 'fit', 'kind': 'build', 'parts': {'EYE': 1}, 'hardware': {'M2x6': 4},
              'hardware_allocations': [{'allocation_id': 'eye-joint', 'role': 'install', 'hardware': {'M2x6': 4}}]},
-            {'id': 'repair', 'kind': 'service', 'parts': {'EYE': 1}, 'hardware': {},
-             'hardware_allocations': [{'allocation_id': 'eye-joint', 'role': 'service', 'hardware': {'M2x6': 4}}]},
         ]}
 
     def run_check(self):
         return c.check_quantities(self.hardware, self.supplies, self.catalog, self.guide, self.parts)
 
-    def test_split_preload_and_service_do_not_duplicate_demand(self):
+    def test_split_preload_and_install_do_not_duplicate_demand(self):
         self.assertEqual(self.run_check(), {'N2': 4, 'M2x6': 4})
         self.guide['steps'].reverse()  # editorial ordering is not joint identity
         self.run_check()
@@ -119,12 +117,12 @@ class QuantityTests(unittest.TestCase):
 class ToolListTests(unittest.TestCase):
     """Each step lists the tools its work needs; each tool card lists those steps (R3)."""
     def setUp(self):
-        self.parts = [dict(id='T01', category='Tool', steps=['cut', 'service']),
+        self.parts = [dict(id='T01', category='Tool', steps=['cut', 'trim']),
                       dict(id='T02', category='Tool', steps=['cut']),
                       dict(id='EYE', category='Printed', steps=['fit'])]
         self.guide = {'steps': [dict(id='cut', parts={'T01': 1, 'T02': 1}),
                                 dict(id='fit', parts={'EYE': 1}),
-                                dict(id='service', parts={'T01': 1})]}
+                                dict(id='trim', parts={'T01': 1})]}
 
     def check(self):
         c.check_tools(self.guide, self.parts)
@@ -133,7 +131,7 @@ class ToolListTests(unittest.TestCase):
         self.check()
 
     def test_tool_card_must_list_every_step_that_uses_it_in_order(self):
-        for steps in (['cut'], ['service', 'cut'], ['cut', 'fit', 'service']):
+        for steps in (['cut'], ['trim', 'cut'], ['cut', 'fit', 'trim']):
             with self.subTest(steps=steps):
                 self.parts[0]['steps'] = steps
                 with self.assertRaisesRegex(ValueError, r'^T01: tool card steps differ from the steps that use it'):
@@ -345,6 +343,27 @@ class WritingTests(unittest.TestCase):
         found = self.warnings()
         self.assertEqual(len(found), 1, found)
         self.assertTrue(found[0].startswith('caption-repeats-action: fixture panels[0].caption'))
+
+    def test_picture_without_caption_warns(self):
+        self.step['panels'][0]['caption'] = ''
+        self.assertEqual(len(self.warnings('caption-missing')), 1)
+
+    def test_reused_picture_keeps_one_caption(self):
+        self.step['panels'].append(dict(title='Again', image='fit.svg', caption='Side view.', actions=[]))
+        found = self.warnings('caption-mismatch')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('fixture panels[1].caption', found[0])
+
+    def test_different_pictures_need_different_captions(self):
+        self.step['panels'].append(dict(title='Other', image='other.svg', caption='Front view.', actions=[]))
+        found = self.warnings('caption-shared')
+        self.assertEqual(len(found), 1, found)
+        self.assertIn('fixture panels[1].caption: fit.svg', found[0])
+
+    def test_caption_without_picture_warns(self):
+        del self.step['panels'][0]['image']
+        found = self.warnings()
+        self.assertTrue(any(w.startswith('caption-without-picture: fixture panels[0].caption') for w in found))
 
     def test_banned_terms_in_actions_notes_and_captions(self):
         self.step['actions'][0] = 'Dress the cable along the rib.'
@@ -613,7 +632,7 @@ class ReviewTests(unittest.TestCase):
 
     def test_real_sentence_over_the_limit_fails_the_check(self):
         step = dict(id='fixture', title='Fit the grille', actions=[' '.join(['word'] * 21) + '.'], check='', note='',
-                    panels=[dict(title='Fit', image='fit.svg', caption='', actions=[0])])
+                    panels=[dict(title='Fit', image='fit.svg', caption='Front view.', actions=[0])])
         self.write(c.GUIDE + '/references.html', '')
         with ExitStack() as stack:
             for name in ('check_panels', 'check_quantities', 'check_tools', 'check_animation_assets', 'check_references', 'check_reference_page'):

@@ -28,14 +28,6 @@ def render_component_actions(render, output):
     def emit(*args,**kwargs):v.paths.append(compact_view(render,output,*args,label_size=32,**kwargs))
     def moved(rows,offset):return [dict(m,v=m['v']+offset) for m in rows]
     button=v.parts(['E17']);button+=button_leads(button);plate=v.parts(['FB20'])
-    nut=[m for m in button if m.get('component_detail') in ('button retaining nut','nut grip')]
-    body=[m for m in button if m.get('component_detail') not in ('button retaining nut','nut grip')]
-    parts=plate+moved(body,[0,0,32])+moved(nut,[0,0,-30])
-    emit('button-insert-assembly',parts,[.8,-1.4,.35],
-         'Put the button through FB20 from the outside, then tighten its retaining nut from behind',
-         arrows=[([85,-76,10],[85,-76,0]),([85,-76,-29],[85,-76,-14])],
-         labels=[('Button',[85,-76,32],(30,42)),('FB20',[97,-66,-3],(430,220)),
-                 ('Retaining nut',[85,-76,-37.5],(30,386))])
     # Accepted FB01 pockets: top Z=-6.2, mouth Z=-9.0. The foot column
     # blocks the right axial path; load that nut laterally from smaller X.
     shell=clipped(v.parts(['FB01']),[[67,-84,-15],[104,-68,0]])
@@ -62,12 +54,15 @@ def render_component_actions(render, output):
          arrows=[([x,-76,9],[x,-76,-1]) for x in [73,97]],
          labels=[('2 × M3 × 8',None,(28,36)),('FB20',[96,-68,-2],(425,385))])
     # Brackets are still loose on the bench. Only the three servos move;
-    # shoulders enter from the open -Y side, head enters from the open +X side.
-    shoulders=v.parts(['P03'])+moved([m for m in v.parts(['E01']) if m['occ'] in (0,1)],[0,-25,0])
-    emit('shoulder-servo-insertion',shoulders,[.9,-1.5,.7],
-         'Slide both shoulder servos into loose P03 from its open side',
-         arrows=[([25,-18,83],[25,-4,83]),([-25,-18,83],[-25,-4,83])],
-         labels=[('P03',[20,12,85],(435,50)),('Slide in',None,(30,385))])
+    # Shoulders enter from the open rear (+Y): each P03 arm closes at the front
+    # (Y -10 to -6.5). Head enters from the open +X side. Each floor slot
+    # (X 10 to 21, Y -3 to 3) takes that servo's cable down to the base.
+    shoulders=v.parts(['P03'])+moved([m for m in v.parts(['E01']) if m['occ'] in (0,1)],[0,25,0])
+    emit('shoulder-servo-insertion',shoulders,[.35,1,1.25],
+         'Slide both shoulder servos into loose P03 from its open rear side',
+         arrows=[([25,40,83],[25,26,83]),([-25,40,83],[-25,26,83])],
+         labels=[('LEFT',[37,25,96],(30,40)),('RIGHT',[-37,25,96],(470,40)),
+                 ('P03',[0,-14,74],(250,40)),('Cable slot',[-15.5,0,68],(400,395))])
     head=v.parts(['P04'])+moved(v.parts(['E01'],2),[25,0,0])
     emit('head-servo-insertion',head,[1.4,-1,.7],
          'Slide the head servo into loose P04 from the open side',

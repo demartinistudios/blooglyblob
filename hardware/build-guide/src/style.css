@@ -131,7 +131,6 @@ nav h3 { font-family: var(--reading); font-size: 11px; font-weight: 700; letter-
 nav .num { display: inline-block; width: 29px; color: var(--muted); font-size: 12px; }
 nav .active .num { color: #fff; }
 nav .done::after { content: '✓'; float: right; font-weight: 700; }
-#reference-nav { border-bottom: 1px solid var(--line); padding-bottom: 16px; }
 #step-nav { padding-top: 4px; }
 .side-note { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 28px 10px; }
 main { margin-left: var(--sidebar-width); max-width: 1600px; padding: 46px 48px 72px; min-height: calc(100vh - 155px); }
@@ -292,6 +291,7 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
 .diagram button:focus-visible, .product-photo-button:focus-visible, .part-reference:focus-visible { outline-offset: -4px; }
 .diagram img { display: block; width: 100%; height: auto; }
 .diagram figcaption { padding: 14px 18px; font-size: 13px; line-height: 1.7; color: var(--muted); background: var(--surface); }
+.diagram-caption { margin: 0 0 4px; }
 .diagram .enlarge-label { display: block; width: auto; color: var(--blue); font-size: 13px; font-weight: 650; padding: 0 0 7px; cursor: zoom-in; text-decoration: underline; }
 .details .diagram { margin: 18px 0; max-width: 1000px; }
 .details > .diagram { max-width: 850px; }
@@ -537,7 +537,6 @@ dialog.large .zoom-hint { display: none; }
 .action-copy .instructions li::before { display: none; }
 .action-panel-command .action-panel-body { display: block; }
 .action-panel-command .action-copy { max-width: 72ch; }
-.action-note { margin: 10px 0 0; color: inherit; font-size: inherit; line-height: inherit; }
 /* Before you start: tools in two columns where they fit; each chapter's step range follows its name, or sits under it on narrow screens. */
 #start-tools { columns: 2 280px; column-gap: 32px; }
 #start-tools li { break-inside: avoid; }
@@ -551,7 +550,6 @@ dialog.large .zoom-hint { display: none; }
   :is(.action-panel, .harness-overview) .diagram { max-width: 360px; justify-self: center; }
   :is(.action-panel, .harness-overview) .diagram img { max-height: 400px; }
   .action-panel-circuit .diagram img { max-height: 640px; }
-  .action-note { margin-top: 10px; }
 }
 @media print {
   .action-sequence { container-type: normal; }
@@ -560,15 +558,13 @@ dialog.large .zoom-hint { display: none; }
   .action-copy { max-width: none; }
   :is(.action-panel, .harness-overview) .diagram { max-width: 100%; }
   :is(.action-panel, .harness-overview) .diagram img, .action-panel-circuit .diagram img { max-height: 140mm; }
-  :is(.action-panel, .harness-overview) .diagram figcaption { display: none; }
-  .action-note { color: var(--ink); }
+  /* The enlarge link is hidden in print; keep the caption under its picture. */
+  :is(.action-panel, .harness-overview) .diagram figcaption:not(:has(.diagram-caption)) { display: none; }
 }
 
 /* Reference diagrams remain legible at their natural aspect ratio. */
 .circuit-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; align-items: start; }
 .circuit-grid .diagram { min-width: 0; margin: 0; }
-#reference-nav { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); border-bottom: 0; }
-#reference-menu > summary { font-weight: 650; cursor: pointer; padding: 12px 0; }
 @media (max-width: 800px) { .circuit-grid { grid-template-columns: 1fr; } }
 
 /* Download affordance follows the actual native download behavior. */

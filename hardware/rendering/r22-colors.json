@@ -382,8 +382,8 @@
   },
   "assignments": [
     {
-      "path": "REF Foam wrap r2 - narrow seam and knife slits:1",
-      "body": "REF Foam wrap r2 - narrow seam and knife slits",
+      "path": "REF Foam wrap r3 - round 14mm shoulder holes:1",
+      "body": "REF Foam wrap r3 - round 14mm shoulder holes",
       "part_id": null,
       "accepted_appearance": "Eye foam white - display only",
       "chosen_appearance": "Eye foam white - display only",
@@ -477,8 +477,8 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P04 Head servo carrier r1 - side entry:1",
-      "body": "P04 side-entry carrier r1",
+      "path": "P04 Head servo carrier r33 - reinforced flush:1",
+      "body": "P04 Head servo carrier r33 - reinforced flush",
       "part_id": "P04",
       "accepted_appearance": "Head carrier - display only",
       "chosen_appearance": "Head carrier - display only",
@@ -553,9 +553,9 @@
       "chosen_rgb_exact": false
     },
     {
-      "path": "P02 Upright r3 - modular accessory mounting:2",
-      "body": "P02 upright - print two",
-      "part_id": "P02",
+      "path": "P43 Front upright r33 - chamfered recessed mounts:1",
+      "body": "P43 Front upright r33 - chamfered recessed mounts",
+      "part_id": "P43",
       "accepted_appearance": "Frame prototype - display only",
       "chosen_appearance": "Frame prototype - display only",
       "chosen_overrides_accepted": false,
@@ -1237,8 +1237,8 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P11 Two-pebble bracket r2 - head screw and driver clearance:1",
-      "body": "Two-pebble holder - tie wires only",
+      "path": "P11 Lower light bracket r33 - rear mount:1",
+      "body": "P11 Lower light bracket r33 - rear mount",
       "part_id": "P11",
       "accepted_appearance": "Steel - Satin",
       "chosen_appearance": "Steel - Satin",
@@ -1275,28 +1275,9 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P12 Forward-angled rear LEDs and seam backing r1:1",
-      "body": "Middle seam backing with two light pads",
+      "path": "P12 Rear-mounted middle light bracket r33:1",
+      "body": "P12 Rear-mounted middle light bracket r33",
       "part_id": "P12",
-      "accepted_appearance": "Steel - Satin",
-      "chosen_appearance": "Steel - Satin",
-      "chosen_overrides_accepted": false,
-      "accepted_rgb": [
-        160,
-        160,
-        160
-      ],
-      "chosen_rgb": [
-        160,
-        160,
-        160
-      ],
-      "chosen_rgb_exact": true
-    },
-    {
-      "path": "P13 Open body wire guide r0 - front service mount:1",
-      "body": "Lay-in wire guide - do not clamp coating",
-      "part_id": "P13",
       "accepted_appearance": "Steel - Satin",
       "chosen_appearance": "Steel - Satin",
       "chosen_overrides_accepted": false,
@@ -1446,9 +1427,9 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P11 Two-pebble bracket r2 - head screw and driver clearance:3",
-      "body": "Two-pebble holder - tie wires only",
-      "part_id": "P11",
+      "path": "P42 Upper light bracket r33 - servo clearance:1",
+      "body": "P42 Upper light bracket r33 - servo clearance",
+      "part_id": "P42",
       "accepted_appearance": "Steel - Satin",
       "chosen_appearance": "Steel - Satin",
       "chosen_overrides_accepted": false,
@@ -3175,6 +3156,6 @@
       "chosen_overrides_accepted": false
     }
   ],
-  "source": "Accepted R18 body appearances; unchanged R16 material RGB palette.",
+  "source": "Accepted R18 body appearances; unchanged R16 material RGB palette. R33 updates five component identities and removes the retired wire guide; assigned colors are unchanged.",
   "limitation": "Flat RGB cannot reproduce textured copper. Native release screenshots preserve the accepted material appearance."
 }

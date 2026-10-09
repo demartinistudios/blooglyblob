@@ -816,19 +816,25 @@ def lpoly(loc, ps):
 
 def jst_sm(p, cx, cy, kind):
     """JST-SM three-pin housing, black, standing on its cable end with the mating face up.
-    The receptacle shows three square sockets; the plug its shroud and three pins."""
+    The receptacle is the smaller housing with three square sockets and the press latch; the
+    plug is the larger, shrouded housing with three pins set inside. The receptacle slides
+    into the plug's shroud."""
     H = 12 if kind == 'rec' else 11
     def face():
         if kind == 'rec':
-            for dx in (-2.5, 0, 2.5):
-                p.flat(rrect(cx + dx - .95, cy - 1.2, 1.9, 2.4, .2), H, '#0e0f11', op=.9)
-            p.flat(rrect(cx - 1.6, cy - 3.9, 3.2, 1.5, .3), H, '#4a4c52', op=.6)
+            for dx in (-2.2, 0, 2.2):
+                p.flat(rrect(cx + dx - .8, cy - .8, 1.6, 1.6, .2), H, '#0e0f11', op=.9)
+            p.flat(rrect(cx - 1.4, cy - 3.6, 2.8, 1.3, .3), H, '#4a4c52', op=.6)
         else:
-            p.flat(rrect(cx - 3.6, cy - 2.1, 7.2, 4.4, .4), H, '#0e0f11', op=.9)
-            for dx in (-2.5, 0, 2.5):
-                p.flat(rrect(cx + dx - .45, cy - .45, .9, .9, .1), H, '#c9ced3', stroke='none')
-            p.flat(rrect(cx - 1.3, cy - 4.1, 2.6, 1.2, .3), H, '#141518', op=.8)
-    p.prism(rrect(cx - 4.2, cy - 3.2 if kind == 'rec' else cy - 3, 8.4, 6.4 if kind == 'rec' else 6, .5), 0, H, '#2e2f34', '#1b1c1f', detail=face)
+            p.flat(rrect(cx - 4.0, cy - 2.6, 8.0, 5.2, .4), H, '#0e0f11', op=.9)
+            for dx in (-2.2, 0, 2.2):
+                p.flat(rrect(cx + dx - .4, cy - .4, .8, .8, .1), H, '#c9ced3', stroke='none')
+            p.flat(rrect(cx - 1.3, cy - 3.9, 2.6, 1.0, .3), H, '#141518', op=.8)
+    if kind == 'rec':
+        outline = rrect(cx - 3.5, cy - 2.6, 7.0, 5.2, .5)
+    else:
+        outline = rrect(cx - 4.8, cy - 3.4, 9.6, 6.8, .5)
+    p.prism(outline, 0, H, '#2e2f34', '#1b1c1f', detail=face)
 
 
 def jst_sh_plug(p, cx, cy, ang):
@@ -840,23 +846,12 @@ def jst_sh_plug(p, cx, cy, ang):
     return conn(p, cx, cy, ang, 4.4, 5.2, 2.9, WHITE_PL, '#cfc9b9', top, r=.25)
 
 
-def header_pin(p, cx, cy, ang):
-    """A crimped 2.54 mm male header pin in its black sleeve."""
-    loc = local(cx, cy, ang)
-    a, b = loc(-7.4, 0), loc(-11.5, 0)
-    p.wire([a, b], '#d9dde1', .64, z=1.3)
-    conn(p, cx, cy, ang, 14, 2.5, 2.5, '#2c2d31', '#161719', r=.2)
-
-
 def jst_eye_lead(p):
-    """Adafruit 5755: JST-SH plug to three male header pins, black / red / white, 100 mm."""
-    cols = (BLACK_W, RED_W, '#eeeeea')
-    ends = [(-8, 26), (-3, 34), (3, 42)]
-    for i, (col, (ex, ey)) in enumerate(zip(cols, ends)):
-        cable(p, [(40, -.9 + i * .9), (30, -1 + i * 1.8), (12, 2 + i * 6), (ex + 2, ey - 16), (ex, ey - 7.5)], [col], .9)
-    for ex, ey in ends:
-        header_pin(p, ex, ey, -95)
-    jst_sh_plug(p, 42.2, 0, 180)
+    """Adafruit 6406: JST-SH plug to plug, black / red / white, 200 mm, loosely coiled."""
+    cable(p, [(-40, 22), (-40, 6), (-30, -8), (-8, -14), (14, -10), (30, 2), (24, 16), (6, 18),
+              (-6, 10), (4, 0), (22, 4), (40, 14), (40, 22)], (BLACK_W, RED_W, '#eeeeea'), .9)
+    jst_sh_plug(p, -40, 24.2, -90)
+    jst_sh_plug(p, 40, 24.2, -90)
 
 
 def jst_link(p):
@@ -924,7 +919,8 @@ def jumper_leads(p):
 # ------------------------------------------------------------------ strands, supplies and cords
 def pebble_strand(p):
     """Adafruit 6026 NeoPixel Pebble strand: thin clear three-core wire with a milky resin
-    pebble every 100 mm, coiled; red / green / black lead to a JST-SM plug at each end."""
+    pebble every 100 mm, coiled; red / green / black lead to a JST-SM housing at each end:
+    sockets (receptacle) at one end, pins (plug) at the other."""
     wire = '#dfe4ea'
     loops = []
     for k in range(5):
@@ -939,11 +935,11 @@ def pebble_strand(p):
             pts_ = [((x0 + x1) / 2 + 2.6 * math.cos(t) * math.cos(a) - 1.15 * math.sin(t) * math.sin(a),
                      (y0 + y1) / 2 + 2.6 * math.cos(t) * math.sin(a) + 1.15 * math.sin(t) * math.cos(a)) for t in [i * math.pi / 12 for i in range(24)]]
             p.prism(pts_, .2, 1.8, '#f3f0e8', '#cfc9bb')
-    for sgn, (sx, sy) in ((-1, (-32, 4)), (1, (38, 6))):
+    for sgn, (sx, sy), kind in ((-1, (-32, 4), 'rec'), (1, (38, 6), 'plug')):
         tail = [(sx, sy), (sx + sgn * 8, sy + 10), (sx + sgn * 14, sy + 22)]
         p.wire(tail, wire, 1.1)
         cable(p, [tail[-1], (sx + sgn * 17, sy + 30), (sx + sgn * 18, sy + 38)], (RED_W, '#2f8f64', BLACK_W), 1.0)
-        conn(p, sx + sgn * 18, sy + 44, -90, 11, 8.4, 5.8, '#2c2d31', '#161719', r=.5)
+        jst_sm(p, sx + sgn * 18, sy + 42, kind)
 
 
 def barrel_plug(p, x, yc, ang=0):
@@ -987,7 +983,8 @@ def mains_cord(p):
 # ------------------------------------------------------------------ mechanical parts
 def servo(p):
     """Kitronik 25105 (FS90MG-CL) clippable servo lying on its label side: translucent blue
-    case, brass 21T output spline, orange / red / brown leads to crocodile clips."""
+    case, brass 21T output spline, orange / red / brown leads leaving the output end, low,
+    to crocodile clips."""
     blue, blue_side = '#3d64d8', '#2743a0'
     T = 12.1
     # profile from the Kitronik drawing, output up the page (y down)
@@ -1007,9 +1004,10 @@ def servo(p):
         p.text(16.1, 23.2, T, 'CLIPPABLE SERVO', 1.75, '#ffffff')
         p.text(16.1, 26.0, T, '25105', 1.75, '#ffffff')
     p.prism(body, 0, T, blue, blue_side, detail=label)
-    p.prism(rrect(12.8, 4, 14.4, 5, .8), 1, T - 1, blue, blue_side)
-    p.prism(rrect(18.6, 0, 5.4, 4.4, .4), 3.6, T - 3.6, '#d0a64c', '#9a7630',
-            detail=lambda: [p.line([(19.2 + i * .85, .4), (19.2 + i * .85, 4)], T - 3.6, '#9a7630', .9) for i in range(6)])
+    # The output sits toward the cable end (owner's bench build, reference photo).
+    p.prism(rrect(5.1, 4, 14.4, 5, .8), 1, T - 1, blue, blue_side)
+    p.prism(rrect(8.3, 0, 5.4, 4.4, .4), 3.6, T - 3.6, '#d0a64c', '#9a7630',
+            detail=lambda: [p.line([(8.85 + i * .85, .4), (8.85 + i * .85, 4)], T - 3.6, '#9a7630', .9) for i in range(6)])
 
 
 def horn(p):
@@ -1619,6 +1617,7 @@ ITEMS = {
     'M3x18': (screw(3, 18), 'M3 x 18 socket-head screw', FS, FO),
     'M3x20': (screw(3, 20), 'M3 x 20 socket-head screw', FS, FO),
     'M3x10CS': (screw(3, 10, 'cs'), 'M3 x 10 countersunk screw', FS, FO),
+    'M3x14CS': (screw(3, 14, 'cs'), 'M3 x 14 countersunk screw', FS, FO),
     'CENTER': (center_screw, 'Supplied servo centre screw', FS, FO),
     'N2': (nut(2), 'M2 hex nut', NS, FC),
     'N3': (nut(3), 'M3 hex nut', NS, FC),
@@ -1636,7 +1635,7 @@ ITEMS = {
     'R2': (resistor(('#e07b22', '#e07b22', '#7a4a2a', '#c9a13e')), '330 ohm resistor', None, None),
     'F2': (fuse('T1A 250V'), '1 A time-delay fuse', None, None),
     'E10': (jst_sm_pair, 'Adafruit 1663 JST-SM three-pin plug and receptacle', None, None),
-    'E11': (jst_eye_lead, 'JST-SH three-pin to male header lead', None, None),
+    'E11': (jst_eye_lead, 'Adafruit 6406 JST-SH plug-to-plug cable, 200 mm', None, None),
     'E12': (jst_link, 'Adafruit 6404 JST-SH plug-to-plug cable', None, None),
     'E22': (usb_c_panel_cable, 'Adafruit 4056 panel USB-C to micro-B cable', None, None),
     'E23': (usb_extension, 'USB-A extension cable', None, None),

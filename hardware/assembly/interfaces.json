@@ -57,6 +57,30 @@
         "capacitor insulation/vent clearance, F2 holder restraint and lighting-fuse service access",
         "FB24 rear-face tape contact under 1 mm, case seating, connector clearance and service removal"
       ]
+    },
+    {
+      "parts": [
+        "P43",
+        "P02",
+        "P04",
+        "P03",
+        "P11",
+        "P42",
+        "P12",
+        "E01",
+        "E05"
+      ],
+      "checks": [
+        "front upright and head-carrier flush seating",
+        "front M3\u00d710 countersunk full nut engagement; nominal tip 0.34 mm past nut",
+        "both head-servo screw heads above ears; front M2\u00d78 and rear M2\u00d76",
+        "upper light bracket installation before servo carriers",
+        "upper bracket clearance to reinforced carrier and servo body",
+        "six millimeter lower/middle pad gap and separated wire bends",
+        "tie threading and screw access before final tightening",
+        "powered foam shadow and hotspot inspection",
+        "printed strength, nut retention and support removal"
+      ]
     }
   ]
 }

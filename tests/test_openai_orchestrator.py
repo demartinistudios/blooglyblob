@@ -121,7 +121,8 @@ async def main():
     api=SimpleNamespace(close=AsyncMock(), responses=SimpleNamespace())
     with patch('openai.AsyncOpenAI', return_value=api), patch('blooglyblob.ai.responses.prepare_responses'), patch('blooglyblob.tools.timer_manager.TimerManager.start'):
         app=Application(config=AIConfig(openai_api_key='offline'), audio_factory=lambda **kw: audio,
-            hardware_factory=lambda *args,**kw: hardware, ready=lambda: None)
+            hardware_factory=lambda *args,**kw: hardware, ready=lambda: None,
+            connectivity_probe=AsyncMock(return_value=True))
         app._speech=SimpleNamespace(prepare=AsyncMock(), speak=AsyncMock())
         await app.start()
         app.session.live_factory=Live; app.session.greeting=''

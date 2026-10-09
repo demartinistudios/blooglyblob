@@ -168,25 +168,30 @@ Find the USB audio card and note the name after `USB-Audio -`. For example:
 ```
 
 If no USB audio card appears, check the module and extension connections and
-list the cards again. Also note the bracketed card ID (`Device` above). Use this
-ID rather than the numeric index, which can change after reboot.
+list the cards again. Note two names: the full name after `USB-Audio -` (for
+`config/app.env` below) and the short card ID in brackets (`Device`). The volume
+commands use the card ID, never the leading number, which can change after reboot.
 
-Before the first playback, set a low starting level on the Pi. For the selected
-USB module, inspect its `Speaker` control, then set both playback channels to
-−40 dB and save the setting:
+Set the playback level on the Pi. For the specified Waveshare module and
+speakers, inspect its `Speaker` control, then set both playback channels to 100%
+(0 dB) and save the setting:
 
 ```sh
 amixer -c Device sget Speaker
-amixer -c Device -- sset Speaker playback -40dB
+amixer -c Device sset Speaker playback 100%
 sudo alsactl store Device
 ```
 
-Replace `Device` if your USB card has a different ID. Confirm both channels report
-`[-40.00dB]`. If the control is missing or has no dB scale, stop here and inspect
-that module's controls with `alsamixer -c Device`; do not substitute a maximum
-percentage. Percentages are device-dependent. This is a quiet starting point;
-adjust gradually during the later speaker check. Recheck the level after reboot
-with `amixer -c Device sget Speaker`.
+With the specified module, run them exactly as shown. If your brackets show a
+different ID, type it in place of `Device`. Confirm both channels are
+on and report `[100%]` and `[0.00dB]`. If the control is missing or has no dB
+scale, stop here and inspect that module's controls with `alsamixer -c Device`.
+At 100%, the module's 2.6 W per channel stays within the speakers' 3 W rating.
+Recheck the level after reboot with `amixer -c Device sget Speaker`, and turn it
+down if speech or music is too loud or distorted. If it is still too quiet at
+100%, the module has a small volume screw inside its case (clockwise is louder;
+see the [Waveshare FAQ](https://www.waveshare.com/wiki/USB_TO_AUDIO#FAQ)). Shut
+down and disconnect power before opening the module. This is optional.
 
 Leave the Pi shell:
 
@@ -239,6 +244,18 @@ starts the application and enables it at boot. Sudo may request the Pi account's
 password interactively; it is never stored in `.env`. There is no second
 `pi-update` step needed for first installation. Existing remote configuration is
 preserved on reruns.
+
+Provisioning also moves the single Wi-Fi network set in Imager into native
+NetworkManager storage, keeping its password and settings, so Raspberry Pi OS
+does not regenerate it from Netplan at boot. No Wi-Fi file edits, network restart
+or extra reboot are needed. The original files are kept in the private root-only
+backup `/var/lib/blooglyblob-wifi-backup/`. Profiles that are already native are
+left unchanged, and `pi-update` never changes networking. If provisioning finds
+more than one Wi-Fi profile or another unfamiliar layout, it stops with a
+message starting “Wi-Fi” before replacing the application. Do not delete
+profiles to get past it: write the card again with one network set in Imager,
+or move the profile to NetworkManager yourself and rerun provisioning. This keeps
+the setting from being regenerated; it does not prevent every Wi-Fi fault.
 
 ### Reboot if provisioning requests it
 
@@ -320,8 +337,8 @@ Unplug the bench supply and USB audio lead before mounting the Pi and boards.
 
 Follow the build guide's staged checks for the [supported LED chain](maintenance.md#supported-led-chain)
 and [servo fitting](maintenance.md#commissioning-limits). With the head and arms
-off the shafts, `make pi-servo-fit` holds the fit pose; type STOP, shut down and
-unplug before fitting the parts. Runtime uses fixed 1000–2000 µs limits at 50 Hz;
+off the shafts, `make pi-servo-fit` holds the fit pose; seat the parts while it
+holds, then type STOP, shut down, unplug and fasten them. Runtime uses fixed 1000–2000 µs limits at 50 Hz;
 saved calibration does not override them. An existing robot needs refitting if
 its horns were installed for different calibrated positions.
 

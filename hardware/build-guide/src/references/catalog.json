@@ -36,10 +36,10 @@
       "parts": [
         "E11"
       ],
-      "title": "Adafruit 5755 JST-SH to header — official product specifications",
+      "title": "Adafruit 6406 JST-SH plug–plug cable, 200 mm — official product specifications",
       "publisher": "Adafruit",
-      "url": "https://www.adafruit.com/product/5755",
-      "checked": "2026-09-26",
+      "url": "https://www.adafruit.com/product/6406",
+      "checked": "2026-10-06",
       "reference_id": "ref-004"
     },
     {
@@ -551,6 +551,16 @@
       "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
       "checked": "2026-10-01",
       "reference_id": "ref-056"
+    },
+    {
+      "parts": [
+        "M3x14CS"
+      ],
+      "title": "BelMetric SF3X14SS dimensional drawing",
+      "publisher": "BelMetric",
+      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
+      "checked": "2026-10-08",
+      "reference_id": "ref-079"
     },
     {
       "parts": [

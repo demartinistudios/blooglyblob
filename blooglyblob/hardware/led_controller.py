@@ -17,8 +17,9 @@ except ImportError:
 
 from .config import gpio_config
 from .lighting import LightingState, render
+from .led_colors import driver_rgb
 
-# WS2812/NeoPixel GRB chain; Adafruit 6026 body lights, 5975 eyes, 1426 mouth.
+# GRB transport; led_colors adapts the BGR body pixels in this mixed chain.
 LED_FREQ_HZ = 800000
 LED_DMA = 10
 LED_INVERT = False
@@ -96,7 +97,7 @@ class LEDController:
         """Set a single pixel color."""
         if self.strip is None:
             return
-        self.strip.setPixelColor(index, Color(r, g, b))
+        self.strip.setPixelColor(index, Color(*driver_rgb(index, r, g, b)))
 
     def _show(self):
         """Update the LED strip display."""

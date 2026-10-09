@@ -19,7 +19,7 @@ class Speech:
 
 
 @pytest.mark.asyncio
-async def test_greeting_completion_keeps_waiting_for_connection():
+async def test_greeting_waits_for_connection_before_accepting_speech():
     connected = asyncio.Event()
     host, hardware, _ = session(speech=Speech(), greeting="Hello")
 
@@ -30,12 +30,16 @@ async def test_greeting_completion_keeps_waiting_for_connection():
     host.live_factory = SlowLive
     host.request(True)
     try:
-        await wait_until(lambda: host._accept_live_input)
-        assert hardware.lighting.snapshot(time.monotonic()).mode == "waiting"
+        await wait_until(lambda: host.live is not None)
+        assert not host._accept_live_input
+        assert not any(x.get("state") == "speaking" for x in hardware.trace)
+        # Eyes acknowledge the press immediately, but media/motion still waits
+        # for the connection. A lighting mode is not microphone readiness.
+        assert hardware.lighting.snapshot(time.monotonic() + 2).mode == "listening"
+        hardware.present.assert_not_called()
         connected.set()
-        await wait_until(
-            lambda: hardware.lighting.snapshot(time.monotonic()).mode == "listening"
-        )
+        await wait_until(lambda: host._accept_live_input)
+        assert hardware.lighting.snapshot(time.monotonic() + 2).mode == "listening"
     finally:
         connected.set()
         await host.close()
@@ -714,6 +718,43 @@ async def test_terminal_suppression_has_a_deadline_without_canceling_valid_work(
         audio.trace.clear()
         await live.callbacks["on_audio"](bytes(960))
         assert any(c["type"] == "audio" for c in audio.trace)
+    finally:
+        finish.set()
+        await host.close()
+
+
+@pytest.mark.asyncio
+async def test_first_greeting_frame_lights_mouth_before_greeting_finishes():
+    from blooglyblob.hardware.lighting import render
+
+    emitted, finish = asyncio.Event(), asyncio.Event()
+
+    class HeldSpeech:
+        async def speak(self, text, output, **kwargs):
+            await output(bytes(960))
+            emitted.set()
+            await finish.wait()
+
+    host, hardware, audio = session(speech=HeldSpeech(), greeting="Hello")
+
+    async def audible_frame(generation, pcm):
+        # Model the speaker writer publishing its first audible PCM interval.
+        now = time.monotonic()
+        owner = audio.presentation.begin("speech")
+        audio.presentation.commit(
+            owner, start=now, end=now + 0.1, position=0, level=0.8
+        )
+        mouth = render(hardware.lighting.snapshot(now), now)[8:]
+        assert any(pixel != (0, 0, 0) for pixel in mouth)
+        assert not host._accept_live_input
+
+    audio.audio.side_effect = audible_frame
+    host.request(True)
+    try:
+        await wait_until(emitted.is_set)
+        assert not host._accept_live_input
+        finish.set()
+        await wait_until(lambda: host._accept_live_input)
     finally:
         finish.set()
         await host.close()
