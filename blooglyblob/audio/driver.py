@@ -3,6 +3,9 @@
 import os
 import queue
 import threading
+import time
+
+from .diagnostics import AudioDiagnostics
 
 import numpy as np
 
@@ -51,11 +54,15 @@ def select_output_device(pa, selected: int | None = None, *, devices=None) -> in
 class AudioDriver:
     """One continuous duplex device lifetime, owned by AudioController."""
 
-    def __init__(self):
+    def __init__(self, *, diagnostics=None):
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self.p = self.in_stream = self.out_stream = None
         self._thread = None
         self._stop = threading.Event()
         self._raw = queue.Queue(maxsize=128)
+        # One callback writer publishes immutable totals; the capture worker
+        # samples them without making the native callback wait on diagnostics.
+        self._capture_totals = self._reported_totals = (0, 0, 0, 0, 0)
         self._resampler = PCMResampler(DEVICE_SAMPLE_RATE, SPEECH_SAMPLE_RATE)
 
     def start(self, on_input, on_failure):
@@ -71,10 +78,19 @@ class AudioDriver:
         output_index = select_output_device(self.p, devices=devices)
 
         def capture(data, frame_count, time_info, status):
+            callbacks, samples, flagged, overflows, full = self._capture_totals
+            self._capture_totals = (
+                callbacks + 1,
+                samples + frame_count,
+                flagged + int(bool(status)),
+                overflows + int(bool(status & 2)),
+                full,
+            )  # PortAudio paInputOverflow = 0x02; still forward the PCM.
             if not self._stop.is_set():
                 try:
-                    self._raw.put_nowait(data)
+                    self._raw.put_nowait((time.monotonic(), data))
                 except queue.Full:
+                    self._capture_totals = (*self._capture_totals[:4], full + 1)
                     self._stop.set()
                     on_failure("input_overflow")
             return None, pyaudio.paContinue
@@ -102,11 +118,33 @@ class AudioDriver:
         )
         self._thread.start()
 
+    def _observe_capture(self):
+        totals = self._capture_totals
+        for name, value, previous in zip(
+            (
+                "capture_callbacks",
+                "capture_samples",
+                "capture_status",
+                "capture_overflows",
+                "capture_queue_full",
+            ),
+            totals,
+            self._reported_totals,
+        ):
+            self.diagnostics.count(name, value - previous)
+        self._reported_totals = totals
+
     def _capture(self):
         gain = self._gain
         while not self._stop.is_set():
             try:
-                pcm = self._raw.get(timeout=0.1)
+                captured_at, pcm = self._raw.get(timeout=0.1)
+                self._observe_capture()
+                self.diagnostics.maximum("capture_queue_packets", self._raw.qsize() + 1)
+                self.diagnostics.maximum(
+                    "capture_age_ms", (time.monotonic() - captured_at) * 1000
+                )
+                self.diagnostics.pcm("mic_raw", pcm)
                 pcm = self._resampler.process(pcm)
                 if gain > 1:
                     samples = np.frombuffer(pcm, dtype=np.int16)
@@ -115,6 +153,8 @@ class AudioDriver:
                         .astype(np.int16)
                         .tobytes()
                     )
+                self.diagnostics.pcm("mic_processed", pcm)
+                self.diagnostics.count("capture_processed_samples", len(pcm) // 2)
                 self._on_input(pcm)
             except queue.Empty:
                 continue
@@ -137,3 +177,4 @@ class AudioDriver:
         if self.p:
             self.p.terminate()
             self.p = None
+        self._observe_capture()

@@ -1112,3 +1112,72 @@ def test_wifi_helper_is_packaged_and_staged_for_bootstrap(monkeypatch):
         and args[3].endswith("/wifi_persistence.py")
         for args in transfers
     )
+
+
+def test_journal_policy_is_installed_and_bounded_on_repeat_update(installed):
+    import configparser
+
+    stage, manager = installed
+    remote.install("update", stage)
+    policy = remote.SYSTEMD.parent / "journald@blooglyblob.conf"
+    config = configparser.ConfigParser()
+    config.read(policy)
+    assert config["Journal"]["Storage"] == "persistent"
+    assert config["Journal"]["SystemMaxUse"] == "64M"
+    assert config["Journal"]["SystemMaxFileSize"] == "4M"
+    assert config["Journal"]["RuntimeMaxUse"] == "8M"
+    assert config["Journal"]["SystemKeepFree"] == "512M"
+    assert config["Journal"]["MaxRetentionSec"] == "7day"
+    assert (
+        "LogNamespace=blooglyblob"
+        in (remote.SYSTEMD / "blooglyblob.service").read_text()
+    )
+    assert [
+        "systemctl",
+        "restart",
+        "systemd-journald@blooglyblob.service",
+    ] in manager.calls
+    before = policy.read_bytes()
+    remote.install("update", stage)
+    assert policy.read_bytes() == before
+    assert (
+        manager.calls.count(
+            ["systemctl", "restart", "systemd-journald@blooglyblob.service"]
+        )
+        == 2
+    )
+    assert not (remote.SYSTEMD.parent / "journald.conf").exists()
+
+
+def test_logs_include_named_journal_and_previous_default_history(monkeypatch):
+    execute = Mock()
+    monkeypatch.setattr(
+        deploy, "settings", lambda: {"PI_HOST": "robot.local", "PI_USER": "pi"}
+    )
+    monkeypatch.setattr(deploy, "ssh", execute)
+    assert deploy.main(["logs"]) == 0
+    command = execute.call_args.args[1]
+    assert "--namespace=+blooglyblob" in command
+    assert command[command.index("-u") + 1] == "blooglyblob"
+
+
+def test_update_retries_journal_activation_after_interrupted_install(
+    installed, monkeypatch
+):
+    stage, manager = installed
+    attempts = 0
+
+    def interrupted(command, **kwargs):
+        nonlocal attempts
+        if command == ["systemctl", "restart", "systemd-journald@blooglyblob.service"]:
+            attempts += 1
+            if attempts == 1:
+                raise subprocess.CalledProcessError(1, command)
+        return manager.run(command, **kwargs)
+
+    monkeypatch.setattr(remote, "run", interrupted)
+    with pytest.raises(subprocess.CalledProcessError):
+        remote.install("update", stage)
+    assert (remote.SYSTEMD.parent / "journald@blooglyblob.conf").is_file()
+    remote.install("update", stage)
+    assert attempts == 2

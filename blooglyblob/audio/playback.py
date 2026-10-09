@@ -4,6 +4,9 @@ from collections import deque
 from concurrent.futures import Future
 from dataclasses import dataclass
 import threading
+import time
+
+from .diagnostics import AudioDiagnostics
 
 import numpy as np
 
@@ -20,7 +23,17 @@ class Command:
 
 
 class Playback:
-    def __init__(self, stream, on_failure, on_level, *, capacity=20, presentation=None):
+    def __init__(
+        self,
+        stream,
+        on_failure,
+        on_level,
+        *,
+        capacity=20,
+        presentation=None,
+        diagnostics=None,
+    ):
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self.presentation = (
             presentation if presentation is not None else OutputPresentation()
         )
@@ -60,19 +73,25 @@ class Playback:
     def submit(self, kind, generation=None, data=None):
         # Completion is registered before work can reach the worker.
         future = Future() if kind != "chunk" else None
+        if kind == "chunk":
+            self.diagnostics.count("playback_submitted_samples", len(data) // 2)
         with self._condition:
             if self._fault or self._stopping:
                 if future is None:
+                    self.diagnostics.count("playback_discarded_samples", len(data) // 2)
                     raise RuntimeError(self._fault or "Playback closed")
                 self._finish(future, self._fault or "Playback closed")
                 return future
             if kind in {"chunk", "end", "background_start"} and (
                 generation != self._generation or not self._accept or self._muted
             ):
-                if kind != "chunk":
+                if kind == "chunk":
+                    self.diagnostics.count("playback_discarded_samples", len(data) // 2)
+                else:
                     self._finish(future, "Stale playback generation")
                 return future
             if kind == "chunk" and len(data) % 2:
+                self.diagnostics.count("playback_discarded_samples", len(data) // 2)
                 self._fail(generation, "invalid_pcm")
                 return future
             if kind == "flush":
@@ -89,12 +108,21 @@ class Playback:
                 if kind == "chunk"
                 else [data]
             )
+            queued_bytes = 0
             for piece in pieces:
                 if len(self._commands) >= self._capacity:
+                    if kind == "chunk":
+                        self.diagnostics.count(
+                            "playback_discarded_samples",
+                            (len(data) - queued_bytes) // 2,
+                        )
                     self._fail(generation, "output_overflow")
                     self._finish(future, "output_overflow")
                     break
                 self._commands.append(Command(kind, generation, piece, future))
+                if kind == "chunk":
+                    queued_bytes += len(piece)
+                self.diagnostics.maximum("playback_queue_frames", len(self._commands))
             self._condition.notify()
         return future
 
@@ -102,6 +130,10 @@ class Playback:
         kept = deque()
         for command in self._commands:
             if command.kind in {"chunk", "background_start"}:
+                if command.kind == "chunk":
+                    self.diagnostics.count(
+                        "playback_discarded_samples", len(command.data) // 2
+                    )
                 self._finish(command.done, "Playback muted")
             else:
                 kept.append(command)
@@ -121,19 +153,24 @@ class Playback:
             self.presentation.retire(self._visual_owner)
             self._fault = reason
             self._muted, self._accept = True, False
-            for command in self._commands:
-                self._finish(command.done, reason)
-            self._commands.clear()
+            self._clear_commands(reason)
         self._failure(generation, reason)
+
+    def _clear_commands(self, reason):
+        for command in self._commands:
+            if command.kind == "chunk":
+                self.diagnostics.count(
+                    "playback_discarded_samples", len(command.data) // 2
+                )
+            self._finish(command.done, reason)
+        self._commands.clear()
 
     def stop(self):
         with self._condition:
             self.presentation.retire(self._visual_owner)
             self._stopping = True
             self._muted = True
-            for command in self._commands:
-                self._finish(command.done, "Playback stopped")
-            self._commands.clear()
+            self._clear_commands("Playback stopped")
             self._condition.notify()
         self._thread.join(timeout=2)
         if self._thread.is_alive():
@@ -185,9 +222,20 @@ class Playback:
                         self.stream, DEVICE_SAMPLE_RATE, self.presentation, visual_owner
                     )
                 timeline.before_write()
+                started = time.monotonic()
                 self.stream.write(frame)
+                self.diagnostics.maximum(
+                    "playback_write_ms", (time.monotonic() - started) * 1000
+                )
+                written_samples = len(frame) // 2
+                self.diagnostics.count(
+                    "playback_written_samples"
+                    if voice
+                    else "background_written_samples",
+                    written_samples,
+                )
                 # retire() fences observations even when mute raced this write.
-                timeline.written(len(frame) // 2, level)
+                timeline.written(written_samples, level)
                 if background is not None and background.finished:
                     clear_background()
 
@@ -247,6 +295,9 @@ class Playback:
                 elif command.kind == "chunk":
                     with self._condition:
                         if self._muted or generation != self._generation:
+                            self.diagnostics.count(
+                                "playback_discarded_samples", len(command.data) // 2
+                            )
                             continue
                     if converter_generation != generation:
                         converter = PCMResampler(SPEECH_SAMPLE_RATE, DEVICE_SAMPLE_RATE)

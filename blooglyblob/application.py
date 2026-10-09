@@ -15,6 +15,7 @@ import socket
 import threading
 import time
 
+from blooglyblob.audio.diagnostics import AudioDiagnostics
 from blooglyblob.config import validate_settings
 from blooglyblob.connectivity import Availability, ReachabilityProbe, failure_category
 
@@ -65,6 +66,7 @@ class Application:
         shutdown_seconds: float = SHUTDOWN_SECONDS,
         on_shutdown: Callable[[], None] = lambda: None,
     ) -> None:
+        self.diagnostics = AudioDiagnostics()
         self.config = config
         self.audio: AudioController | None = None
         self.hardware: HardwareController | None = None
@@ -275,6 +277,7 @@ class Application:
             await self._work(lambda: prepare_responses(self._api))
             self._check_starting()
             self.audio = (self._audio_factory or AudioController)(
+                diagnostics=self.diagnostics,
                 on_input=self._audio_input,
                 on_failure=self._media_failure,
                 on_level=self._level,
@@ -346,6 +349,7 @@ class Application:
             self.session = ConversationSession(
                 audio=self.audio,
                 hardware=self.hardware,
+                diagnostics=self.diagnostics,
                 on_fault=self._fault,
                 can_start=self._can_start,
                 on_unavailable=self._unavailable,
@@ -373,6 +377,7 @@ class Application:
             self._ready = True
             self._notify_ready()
             self._own(self.availability.run())
+            self._own(self.diagnostics.run())
             await asyncio.sleep(0)  # Start monitoring without waiting for the network.
             logger.info("Application ready: local controls initialized")
         except BaseException:
@@ -456,6 +461,7 @@ class Application:
             )
             if pending:
                 errors.append("TaskStillRunning")
+        self.diagnostics.report()
         if self._pool:
             self._pool.shutdown(wait=False, cancel_futures=True)
         assert self._shutdown_deadline is not None  # Cleanup follows _begin_shutdown.

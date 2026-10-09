@@ -3,12 +3,23 @@
 import asyncio
 from collections import deque
 import threading
+import time
+
+from .diagnostics import AudioDiagnostics
 
 
 class CaptureHandoff:
     def __init__(
-        self, consume, on_failure, *, capacity=128, batch_size=8, retirement_timeout=1.0
+        self,
+        consume,
+        on_failure,
+        *,
+        capacity=128,
+        batch_size=8,
+        retirement_timeout=1.0,
+        diagnostics=None,
     ):
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self._loop = asyncio.get_running_loop()
         self._consume, self._on_failure = consume, on_failure
         self._capacity, self._batch_size = capacity, batch_size
@@ -48,6 +59,10 @@ class CaptureHandoff:
         with self._lock:
             self._epoch = None
             self._failure = None
+            self.diagnostics.count(
+                "handoff_discarded_samples",
+                sum(len(pcm) // 2 for _, _, pcm in self._packets),
+            )
             self._packets.clear()
         if (
             self._task is not None
@@ -67,14 +82,21 @@ class CaptureHandoff:
         self._task = None
 
     def submit(self, epoch, pcm):
+        self.diagnostics.count("handoff_received_samples", len(pcm) // 2)
         with self._lock:
             if self._closed or epoch != self._epoch or self._failure:
+                self.diagnostics.count("handoff_discarded_samples", len(pcm) // 2)
                 return
             if len(self._packets) == self._capacity:
+                self.diagnostics.count(
+                    "handoff_discarded_samples",
+                    len(pcm) // 2 + sum(len(p) // 2 for _, _, p in self._packets),
+                )
                 self._packets.clear()
                 self._failure = epoch, "capture_overflow"
             else:
-                self._packets.append((epoch, pcm))
+                self._packets.append((epoch, time.monotonic(), pcm))
+                self.diagnostics.maximum("handoff_queue_packets", len(self._packets))
             if not self._pending:
                 self._pending = True
                 self.wakeups += 1
@@ -100,18 +122,34 @@ class CaptureHandoff:
                     self._event.clear()
             if failure:
                 self._on_failure(*failure)
-            for epoch, pcm in batch:
+            for index, (epoch, captured_at, pcm) in enumerate(batch):
                 with self._lock:
                     current = epoch == self._epoch and not self._closed
                 if current:
                     try:
+                        self.diagnostics.maximum(
+                            "handoff_age_ms", (time.monotonic() - captured_at) * 1000
+                        )
                         await self._consume(pcm)
+                        self.diagnostics.count(
+                            "handoff_delivered_samples", len(pcm) // 2
+                        )
                     except asyncio.CancelledError:
+                        self.diagnostics.count(
+                            "handoff_discarded_samples",
+                            sum(len(p) // 2 for _, _, p in batch[index:]),
+                        )
                         raise
                     except Exception:
+                        self.diagnostics.count(
+                            "handoff_discarded_samples",
+                            sum(len(p) // 2 for _, _, p in batch[index:]),
+                        )
                         self.stop()
                         self._on_failure(epoch, "capture_delivery_failed")
                         break
+                else:
+                    self.diagnostics.count("handoff_discarded_samples", len(pcm) // 2)
             await asyncio.sleep(0)
 
     async def close(self):

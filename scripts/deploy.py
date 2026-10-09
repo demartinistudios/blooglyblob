@@ -33,6 +33,7 @@ HELPERS = (
     "install_led_driver.py",
 )
 UNITS = ("blooglyblob.service", "pigpiod.service")
+JOURNAL_CONFIG = "journald@blooglyblob.conf"
 MEDIA = (
     "songs/dance_song.wav",
     "songs/dance_song_beats.json",
@@ -156,6 +157,7 @@ def payload_files(root: Path = ROOT) -> list[Path]:
     names.extend(MEDIA)
     names.extend("scripts/" + name for name in HELPERS)
     names.extend("systemd/" + name for name in UNITS)
+    names.append("systemd/" + JOURNAL_CONFIG)
     files = []
     for name in sorted(set(names)):
         path = root / name
@@ -274,7 +276,16 @@ def main(argv=None):
         elif args.command == "logs":
             ssh(
                 destination,
-                ["sudo", "journalctl", "-u", "blooglyblob", "-n", "100", "-f"],
+                [
+                    "sudo",
+                    "journalctl",
+                    "--namespace=+blooglyblob",
+                    "-u",
+                    "blooglyblob",
+                    "-n",
+                    "100",
+                    "-f",
+                ],
                 tty=True,
             )
         elif args.command == "status":

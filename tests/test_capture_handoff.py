@@ -26,12 +26,19 @@ async def test_bounded_overflow_is_coalesced_and_faults_only_current_epoch():
     await asyncio.sleep(0.01)
     assert failures == [(1, "capture_overflow")]
     assert received == []
+    counts = bridge.diagnostics.snapshot()["counts"]
+    assert counts["handoff_received_samples"] == 1000
+    assert counts["handoff_discarded_samples"] == 1000
     await bridge.begin(2)
     bridge.submit(1, b"old")
     bridge.submit(2, b"new")
     await asyncio.sleep(0.01)
     assert received == [b"new"]
     await bridge.close()
+    counts = bridge.diagnostics.snapshot()["counts"]
+    assert counts["handoff_received_samples"] == 2
+    assert counts["handoff_discarded_samples"] == 1
+    assert counts["handoff_delivered_samples"] == 1
 
 
 @pytest.mark.asyncio
@@ -80,6 +87,10 @@ async def test_epoch_switch_cancels_old_inflight_delivery_before_new_delivery():
     await asyncio.sleep(0.01)
     assert received == [b"new"]
     await bridge.close()
+    counts = bridge.diagnostics.snapshot()["counts"]
+    assert counts["handoff_received_samples"] == 2
+    assert counts["handoff_discarded_samples"] == 1
+    assert counts["handoff_delivered_samples"] == 1
 
 
 @pytest.mark.asyncio

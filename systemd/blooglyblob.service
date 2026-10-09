@@ -21,6 +21,7 @@ TimeoutStopSec=20
 KillSignal=SIGINT
 StandardOutput=journal
 StandardError=journal
+LogNamespace=blooglyblob
 
 [Install]
 WantedBy=multi-user.target

@@ -324,6 +324,8 @@ async def test_real_application_session_media_audio_chain(monkeypatch, app_rig):
     )
     await app.start()
     ready.assert_called_once()
+    assert app.audio.diagnostics is app.diagnostics
+    assert app.session.diagnostics is app.diagnostics
     assert not drivers
     app.session.live_factory = Live
     app.session.voice_effect_factory = lambda: SimpleNamespace(
@@ -626,3 +628,26 @@ async def test_prefetch_auth_failure_stays_inactive_despite_reachable_internet(a
     assert hardware.lighting.snapshot(100).mode == "unavailable"
     assert not app._faulted
     await app.stop()
+
+
+@pytest.mark.asyncio
+async def test_shutdown_reports_measurements_recorded_during_audio_close(caplog):
+    import json
+    import logging
+    from blooglyblob.application import Application
+
+    app = Application(config=AIConfig(openai_api_key="fake"))
+
+    async def close_audio():
+        app.diagnostics.count("capture_samples", 123)
+
+    app.audio = SimpleNamespace(mute=Mock(), close=AsyncMock(side_effect=close_audio))
+    with caplog.at_level(logging.INFO, logger="blooglyblob.audio.diagnostics"):
+        await app.stop()
+    summaries = [
+        r.message for r in caplog.records if r.name == "blooglyblob.audio.diagnostics"
+    ]
+    assert len(summaries) == 1
+    assert json.loads(summaries[0].removeprefix("Audio diagnostics: "))["counts"] == {
+        "capture_samples": 123
+    }

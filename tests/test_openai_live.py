@@ -1,4 +1,5 @@
 from tests.support.live import FakeConnection
+from tests.support.asyncio import wait_until
 import asyncio
 import base64
 from types import SimpleNamespace
@@ -204,7 +205,7 @@ async def test_known_errors_fail_closed_and_are_sanitized(event, caplog):
     session, connection, manager, *_ = make_session(on_error=errors)
     await ready(session, connection)
     await connection.events.put(event)
-    await asyncio.sleep(0.02)
+    await wait_until(lambda: manager.__aexit__.await_count == 1)
     manager.__aexit__.assert_awaited_once()
     errors.assert_awaited_once()
     assert "sk-secret" not in str(errors.call_args.args[0])
@@ -235,7 +236,7 @@ async def test_callback_failure_closes_and_unknown_events_are_ignored():
             delta=base64.b64encode(bytes(960)).decode(),
         )
     )
-    await asyncio.sleep(0.02)
+    await wait_until(lambda: manager.__aexit__.await_count == 1)
     manager.__aexit__.assert_awaited_once()
     errors.assert_awaited_once()
 
@@ -249,6 +250,8 @@ async def test_bounded_input_overflow_closes():
             await session.input_audio(bytes(960))
     await session.close()
     manager.__aexit__.assert_awaited_once()
+    counts = session.diagnostics.snapshot()["counts"]
+    assert counts["input_discarded_samples"] == (session._input.maxsize + 1) * 480
 
 
 @pytest.mark.asyncio
@@ -299,7 +302,7 @@ async def test_output_queue_pressure_closes_even_when_device_is_blocked():
     )
     for _ in range(100):
         await connection.events.put(event)
-    await asyncio.sleep(0.02)
+    await wait_until(lambda: manager.__aexit__.await_count == 1)
     manager.__aexit__.assert_awaited_once()
     errors.assert_awaited_once()
     assert session._output.qsize() == 0
@@ -320,7 +323,7 @@ async def test_reader_eof_closes():
     manager.__aenter__.return_value = connection
     await ready(session, connection)
     await connection.events.put(None)
-    await asyncio.sleep(0.02)
+    await wait_until(lambda: manager.__aexit__.await_count == 1)
     manager.__aexit__.assert_awaited_once()
     errors.assert_awaited_once()
 
@@ -550,6 +553,11 @@ async def test_startup_audio_is_bounded_paced_and_purged_on_stop():
     assert 1 <= connection.session.input_audio.append.await_count <= 3
     await session.close()
     assert session._input.empty()
+    summary = session.diagnostics.snapshot()
+    assert summary["counts"]["input_enqueued_samples"] == (
+        summary["counts"]["input_sent_samples"]
+        + summary["counts"]["input_discarded_samples"]
+    )
     count = connection.session.input_audio.append.await_count
     await session.input_audio(bytes(960))
     await asyncio.sleep(0.025)
@@ -582,6 +590,7 @@ async def test_discard_output_fences_paced_frame_without_stopping_microphone():
     await session.input_audio(bytes(4800))
     await asyncio.sleep(0.05)
     audio.assert_not_awaited()
+    assert session.diagnostics.snapshot()["counts"]["output_discarded_samples"] > 0
     assert connection.session.input_audio.append.await_count > 0
     await session.close()
 
@@ -602,6 +611,10 @@ async def test_transport_frames_24khz_pcm_without_resampling():
             for call in connection.session.input_audio.append.await_args_list
         )
         assert sent == pcm
+        summary = session.diagnostics.snapshot()
+        assert summary["counts"]["input_enqueued_samples"] == 960
+        assert summary["counts"]["input_sent_samples"] == 960
+        assert summary["max"]["input_age_ms"] >= 0
     finally:
         await session.close()
 
@@ -634,3 +647,25 @@ async def test_startup_buffer_covers_readiness_window_without_losing_opening_spe
         await asyncio.gather(starting, return_exceptions=True)
     assert session._input.empty()
     manager.__aexit__.assert_awaited_once()
+
+
+@pytest.mark.asyncio
+async def test_partial_output_admission_counts_unqueued_remainder():
+    session, connection, _, *_ = make_session()
+    await ready(session, connection)
+
+    def event(frames):
+        return SimpleNamespace(
+            type="session.output_audio.delta",
+            delta=base64.b64encode(bytes(960 * frames)).decode(),
+        )
+
+    # No await between dispatches: leave one slot, then submit two frames.
+    session._receive(event(session._audio.maxsize - 1))
+    with pytest.raises(asyncio.QueueFull):
+        session._receive(event(2))
+    await session.close()
+    summary = session.diagnostics.snapshot()
+    counts = summary["counts"]
+    assert counts["output_received_samples"] == counts["output_discarded_samples"]
+    assert summary["max"]["output_queue_frames"] == session._audio.maxsize

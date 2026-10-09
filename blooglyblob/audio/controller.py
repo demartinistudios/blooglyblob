@@ -7,6 +7,7 @@ import threading
 import wave
 
 from .background import BackgroundSound
+from .diagnostics import AudioDiagnostics
 from .capture import CaptureHandoff
 from .driver import AudioDriver, select_input_device, select_output_device
 from .playback import Playback
@@ -34,15 +35,19 @@ class AudioController:
     def __init__(
         self,
         *,
-        driver_factory=AudioDriver,
+        driver_factory=None,
+        diagnostics=None,
         on_input=_ignore_input,
         on_failure=lambda *_: None,
         on_level=lambda _: None,
         operation_timeout=5.0,
     ):
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self.presentation = OutputPresentation()
         self._loop = asyncio.get_running_loop()
-        self._factory = driver_factory
+        self._factory = driver_factory or (
+            lambda: AudioDriver(diagnostics=self.diagnostics)
+        )
         self._failure, self._level = on_failure, on_level
         self._driver = self._writer = None
         self._generation = None
@@ -53,6 +58,7 @@ class AudioController:
         self._capture = CaptureHandoff(
             on_input,
             self._capture_failed,
+            diagnostics=self.diagnostics,
             retirement_timeout=min(1.0, operation_timeout),
         )
         self._physical = threading.Lock()
@@ -205,6 +211,7 @@ class AudioController:
                     lambda gen, reason: self._playback_failed(epoch, gen, reason),
                     self._level,
                     presentation=self.presentation,
+                    diagnostics=self.diagnostics,
                 )
             if mute_version != self._mute_version:
                 raise RuntimeError("Audio startup muted")

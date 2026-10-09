@@ -288,12 +288,24 @@ def replace_application(source: Path):
 
 
 def install_units(source):
+    # The application is stopped before this point. Install policy before its
+    # journal sockets are used, including when updating an existing namespace.
+    journal_name = "journald@blooglyblob.conf"
+    journal = SYSTEMD.parent / journal_name
+    desired = (source / "systemd" / journal_name).read_bytes()
+    temporary = journal.with_suffix(".conf.tmp")
+    temporary.write_bytes(desired)
+    temporary.chmod(0o644)
+    temporary.replace(journal)
     for name in (*SERVICES, "pigpiod.service"):
         temporary = SYSTEMD / (name + ".tmp")
         temporary.write_bytes((source / "systemd" / name).read_bytes())
         temporary.chmod(0o644)
         temporary.replace(SYSTEMD / name)
     run(["systemctl", "daemon-reload"])
+    # Always activate the installed policy: an earlier attempt may have stopped
+    # after writing it but before restarting the namespace.
+    run(["systemctl", "restart", "systemd-journald@blooglyblob.service"])
     run(["systemctl", "enable", "pigpiod.service", *SERVICES])
 
 
@@ -344,6 +356,7 @@ def install(mode: str, stage: Path):
             "scripts/wifi_persistence.py",
             "systemd/blooglyblob.service",
             "systemd/pigpiod.service",
+            "systemd/journald@blooglyblob.conf",
         ):
             if not (source / name).is_file():
                 raise RuntimeError(f"Incomplete runtime payload: {name}")

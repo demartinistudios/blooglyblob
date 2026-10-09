@@ -19,6 +19,7 @@ from blooglyblob.connectivity import failure_category
 from blooglyblob.media import MediaCoordinator, MediaError
 from blooglyblob.ai.tool_bridge import OpenAIToolBridge, StaleResponse
 from blooglyblob.audio.voice_effects import RingModulator
+from blooglyblob.audio.diagnostics import AudioDiagnostics
 
 if TYPE_CHECKING:
     from openai import AsyncOpenAI
@@ -106,6 +107,7 @@ class ConversationSession:
         dance_timeout: float = 300.0,
         cloud_close_timeout: float = 3.0,
         voice_effect_factory: Callable[[], RingModulator] = RingModulator,
+        diagnostics: AudioDiagnostics | None = None,
     ) -> None:
         if any(
             not math.isfinite(value) or value <= 0
@@ -119,6 +121,7 @@ class ConversationSession:
             )
         ):
             raise ValueError("Session time limits must be positive and finite")
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self.audio, self.hardware, self.api = audio, hardware, api
         self._on_fault = on_fault
         self._can_start, self._on_unavailable = can_start, on_unavailable
@@ -391,6 +394,7 @@ class ConversationSession:
         duration: float | None = None,
         greeted: bool = False,
     ) -> None:
+        self.diagnostics.count("session_starts")
         self._last_activity = time.monotonic()
         audio_generation = uuid.uuid4().hex
         effect = self.voice_effect_factory()
@@ -403,6 +407,13 @@ class ConversationSession:
                 processed = effect.process(pcm)
                 if processed:
                     await self.media.audio(audio_generation, processed)
+            else:
+                self.diagnostics.count(
+                    "output_gated_samples"
+                    if self._current(generation)
+                    else "output_stale_samples",
+                    len(pcm) // 2,
+                )
 
         async def opening() -> None:
             nonlocal opening_done
@@ -429,6 +440,7 @@ class ConversationSession:
                     and start_ms >= self._terminal_input_cutoff
                     and any(char.isalnum() for char in delta)
                 ):
+                    self.diagnostics.count("gate_corrections")
                     # New speech may correct the action. Never deliver its old result.
                     self._cancel_job()
                 self.transcripts.append(
@@ -460,9 +472,24 @@ class ConversationSession:
                                 await self.media.begin(audio_generation)
 
         failed = asyncio.Event()
+        exit_recorded = False
+
+        def record_exit(reason: str) -> None:
+            nonlocal exit_recorded
+            if not exit_recorded:
+                self.diagnostics.count(reason)
+                exit_recorded = True
+
+        def record_failure(error: Exception) -> None:
+            record_exit(
+                "exit_ceiling"
+                if getattr(error, "reason", None) == "duration_limit"
+                else "exit_failed"
+            )
 
         async def failure(error: Exception) -> None:
             if self._current(generation):
+                record_failure(error)
                 logger.warning("Live connection failed (%s)", type(error).__name__)
                 self._report_failure(error)
                 failed.set()
@@ -490,6 +517,7 @@ class ConversationSession:
                 on_delegation=delegation,
                 on_error=failure,
                 max_session_seconds=duration or self.max_session_seconds,
+                diagnostics=self.diagnostics,
             )
             self.live, self._live_generation = live, generation
             if not greeted:
@@ -516,19 +544,29 @@ class ConversationSession:
                     break
                 now = time.monotonic()
                 if self._speech_gate is not None and now >= self._speech_gate:
+                    self.diagnostics.count("gate_expiries")
                     self._clear_speech_gate()
                     logger.info(
                         "Pending terminal speech gate expired; conversation audio resumed"
                     )
                 if now - started >= (duration or self.max_session_seconds):
+                    record_exit("exit_ceiling")
                     break
                 if (
                     not alert
                     and not self.backend_busy
                     and now - self._last_activity >= self.inactivity_seconds
                 ):
+                    record_exit("exit_idle")
                     break
+        except asyncio.CancelledError:
+            record_exit("exit_cancelled")
+            raise
+        except Exception as error:
+            record_failure(error)
+            raise
         finally:
+            self.diagnostics.count("session_ends")
             self.hardware.pending_light(generation, False)
             self._accept_live_input = False
             self._live_ready = False
@@ -647,6 +685,7 @@ class ConversationSession:
         self.hardware.pending_light(job_id, True)
         context = self._context()
         if not alert and _terminal_speech_candidate(context):
+            self.diagnostics.count("gate_starts")
             self._speech_gate = time.monotonic() + self.SPEECH_GATE_SECONDS
             self._terminal_job_id = job_id
             self._terminal_input_cutoff = offset_ms
@@ -696,6 +735,7 @@ class ConversationSession:
             elif owns() and self.live:
                 self._clear_speech_gate()
                 await self.live.append_result(delegation_id, result)
+                self.diagnostics.count("tool_results")
         except asyncio.CancelledError:
             raise
         except StaleResponse:
@@ -734,7 +774,11 @@ class ConversationSession:
         try:
             async with self.media.search_sound(owns):
                 assert self.responses is not None
-                return await self.responses.search(query)
+                self.diagnostics.count("scanner_starts")
+                try:
+                    return await self.responses.search(query)
+                finally:
+                    self.diagnostics.count("scanner_stops")
         except MediaError:
             if self.media.ownership_uncertain:
                 self._ownership_failed()
@@ -911,6 +955,7 @@ class ConversationSession:
             await asyncio.sleep(max(0, deadline - time.monotonic()))
 
     async def input_audio(self, pcm: bytes) -> None:
+        self.diagnostics.count("input_received_samples", len(pcm) // 2)
         if (
             self.live
             and self._accept_live_input
@@ -919,6 +964,7 @@ class ConversationSession:
             live, generation = self.live, self._live_generation
             try:
                 await live.input_audio(pcm)
+                self.diagnostics.count("input_accepted_samples", len(pcm) // 2)
             except Exception as error:  # noqa: BLE001 - invalid input or transport failure ends the activity
                 # Startup failure may already be closing this session. Do not
                 # cancel that cleanup, or stop a replacement for a stale send.
@@ -930,6 +976,8 @@ class ConversationSession:
                     self._report_failure(error)
                     if self._current(generation):
                         self.request(False)
+        else:
+            self.diagnostics.count("input_not_listening_samples", len(pcm) // 2)
 
     def button(self) -> None:
         if self._closing or self._faulted:

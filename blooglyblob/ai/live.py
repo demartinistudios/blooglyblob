@@ -7,6 +7,7 @@ import math
 import time
 
 from blooglyblob.audio.stream import PCMPacer
+from blooglyblob.audio.diagnostics import AudioDiagnostics
 from blooglyblob.audio.resampler import SPEECH_SAMPLE_RATE
 from blooglyblob.ai.utils import field
 from blooglyblob.connectivity import failure_category
@@ -17,9 +18,10 @@ _LOG = logging.getLogger(__name__)
 class LiveSessionError(RuntimeError):
     """A deliberately sanitized transport/protocol failure."""
 
-    def __init__(self, message, *, category=None):
+    def __init__(self, message, *, category=None, reason=None):
         super().__init__(message)
         self.category = category
+        self.reason = reason
 
 
 def _timestamp(value):
@@ -52,11 +54,13 @@ class OpenAILiveSession:
         model="gpt-live-1",
         on_error=None,
         max_session_seconds=600,
+        diagnostics=None,
     ):
         if not math.isfinite(readiness_timeout) or readiness_timeout <= 0:
             raise ValueError("Readiness timeout must be finite and positive")
         if not math.isfinite(max_session_seconds) or max_session_seconds <= 0:
             raise ValueError("Session ceiling must be finite and positive")
+        self.diagnostics = diagnostics or AudioDiagnostics()
         self.client = client
         self.instructions = instructions
         self.voice = voice
@@ -203,8 +207,11 @@ class OpenAILiveSession:
                     self._pending_pcm[: self.FRAME_BYTES],
                     self._pending_pcm[self.FRAME_BYTES :],
                 )
-                self._input.put_nowait(frame)
+                self._input.put_nowait((time.monotonic(), frame))
+                self.diagnostics.count("input_enqueued_samples", len(frame) // 2)
+                self.diagnostics.maximum("input_queue_frames", self._input.qsize())
         except asyncio.QueueFull:
+            self.diagnostics.count("input_discarded_samples", len(frame) // 2)
             error = LiveSessionError("Live input queue overflow")
             self._fail(error)
             await self.close()
@@ -218,16 +225,32 @@ class OpenAILiveSession:
         pacer = PCMPacer()
         try:
             while not self._closed:
-                frame = await self._input.get()
-                await pacer.wait(0.02)
-                if self._closed:
-                    return
-                async with self._send_lock:
+                queued_at, frame = await self._input.get()
+                sent = False
+                try:
+                    await pacer.wait(0.02)
                     if self._closed:
                         return
-                    await self._connection.session.input_audio.append(
-                        audio=base64.b64encode(frame).decode("ascii")
-                    )
+                    async with self._send_lock:
+                        if self._closed:
+                            return
+                        started = time.monotonic()
+                        self.diagnostics.maximum(
+                            "input_age_ms", (started - queued_at) * 1000
+                        )
+                        await self._connection.session.input_audio.append(
+                            audio=base64.b64encode(frame).decode("ascii")
+                        )
+                        sent = True
+                        self.diagnostics.count("input_sent_samples", len(frame) // 2)
+                        self.diagnostics.maximum(
+                            "input_send_ms", (time.monotonic() - started) * 1000
+                        )
+                finally:
+                    if not sent:
+                        self.diagnostics.count(
+                            "input_discarded_samples", len(frame) // 2
+                        )
         except asyncio.CancelledError:
             raise
         except Exception:  # noqa: BLE001 - sanitize SDK/device boundary failures.
@@ -280,8 +303,18 @@ class OpenAILiveSession:
             pcm = base64.b64decode(delta, validate=True)
             if len(pcm) % 2:
                 raise LiveSessionError("Malformed Live audio")
+            self.diagnostics.count("output_received_samples", len(pcm) // 2)
             for offset in range(0, len(pcm), self.FRAME_BYTES):
-                self._audio.put_nowait(pcm[offset : offset + self.FRAME_BYTES])
+                try:
+                    self._audio.put_nowait(
+                        (time.monotonic(), pcm[offset : offset + self.FRAME_BYTES])
+                    )
+                except asyncio.QueueFull:
+                    self.diagnostics.count(
+                        "output_discarded_samples", (len(pcm) - offset) // 2
+                    )
+                    raise
+                self.diagnostics.maximum("output_queue_frames", self._audio.qsize())
         elif kind in {
             "session.input_transcript.delta",
             "session.output_transcript.delta",
@@ -292,7 +325,9 @@ class OpenAILiveSession:
             if not isinstance(delta, str) or len(delta) > 16000 or end < start:
                 raise LiveSessionError("Malformed Live transcript")
             role = "user" if kind == "session.input_transcript.delta" else "assistant"
+            self.diagnostics.count(role + "_transcript_events")
             self._output.put_nowait(("transcript", (role, delta, start, end)))
+            self.diagnostics.maximum("output_queue_events", self._output.qsize())
         elif kind == "session.delegation.created":
             delegation = field(event, "delegation")
             identifier = field(delegation, "id")
@@ -305,7 +340,9 @@ class OpenAILiveSession:
             if field(delegation, "target") != "client":
                 raise LiveSessionError("Unexpected Live delegation target")
             offset = _timestamp(field(event, "offset_ms"))
+            self.diagnostics.count("delegations")
             self._output.put_nowait(("delegation", (identifier, offset)))
+            self.diagnostics.maximum("output_queue_events", self._output.qsize())
         elif kind in {"session.usage.updated", "session.closed"}:
             seconds = field(field(event, "usage"), "seconds")
             if (
@@ -355,13 +392,27 @@ class OpenAILiveSession:
         pacer = PCMPacer()
         try:
             while not self._closed:
-                pcm = await self._audio.get()
+                queued_at, pcm = await self._audio.get()
                 epoch = self._output_epoch
-                await pacer.wait(len(pcm) / 48000)
-                if self._closed:
-                    return
-                if epoch == self._output_epoch:
-                    await self.on_audio(pcm)
+                delivered = False
+                try:
+                    await pacer.wait(len(pcm) / 48000)
+                    if self._closed:
+                        return
+                    if epoch == self._output_epoch:
+                        self.diagnostics.maximum(
+                            "output_age_ms", (time.monotonic() - queued_at) * 1000
+                        )
+                        await self.on_audio(pcm)
+                        delivered = True
+                        self.diagnostics.count(
+                            "output_delivered_samples", len(pcm) // 2
+                        )
+                finally:
+                    if not delivered:
+                        self.diagnostics.count(
+                            "output_discarded_samples", len(pcm) // 2
+                        )
         except asyncio.CancelledError:
             raise
         except Exception:  # noqa: BLE001 - sanitize SDK/device boundary failures.
@@ -371,11 +422,16 @@ class OpenAILiveSession:
         """Discard queued and in-flight playback without changing microphone flow."""
         self._output_epoch += 1
         while not self._audio.empty():
-            self._audio.get_nowait()
+            _, pcm = self._audio.get_nowait()
+            self.diagnostics.count("output_discarded_samples", len(pcm) // 2)
 
     async def _ceiling(self):
         await asyncio.sleep(self.max_session_seconds)
-        self._fail(LiveSessionError("Live session duration limit reached"))
+        self._fail(
+            LiveSessionError(
+                "Live session duration limit reached", reason="duration_limit"
+            )
+        )
 
     async def append_result(self, delegation_id, content):
         if (
@@ -456,10 +512,17 @@ class OpenAILiveSession:
         for task in tasks:
             task.cancel()
         await asyncio.gather(*tasks, return_exceptions=True)
+        self.diagnostics.count("input_discarded_samples", len(self._pending_pcm) // 2)
         self._pending_pcm = b""
-        for queue in (self._input, self._output, self._audio):
+        for queue, counter in (
+            (self._input, "input_discarded_samples"),
+            (self._audio, "output_discarded_samples"),
+        ):
             while not queue.empty():
-                queue.get_nowait()
+                _, pcm = queue.get_nowait()
+                self.diagnostics.count(counter, len(pcm) // 2)
+        while not self._output.empty():
+            self._output.get_nowait()
         try:
             if self.session_started and not self.finalization_confirmed:
                 try:

@@ -70,12 +70,28 @@ async def test_worker_failure_reaches_waiter_sanitized_and_prevents_replacement(
 
     audio = AudioController(driver_factory=lambda: driver, on_failure=on_failure)
     await audio.begin(1)
-    driver.out_stream.fail = True
+    driver.out_stream.allow_write.clear()
+    await audio.audio(1, bytes(960 * 4))
+    await wait_set(driver.out_stream.writing)
     await audio.audio(1, bytes(960 * 2))
+    queued_samples = sum(
+        len(command.data) // 2
+        for command in audio._writer._commands
+        if command.kind == "chunk"
+    )
+    assert queued_samples >= 960
+    driver.out_stream.fail = True
+    driver.out_stream.allow_write.set()
     with pytest.raises(RuntimeError, match="playback_failed"):
         await audio.drain(1)
     await asyncio.wait_for(failure_received.wait(), timeout=1)
     assert failures == [(1, "playback_failed")]
+    # The failed in-flight write has uncertain delivery; queued chunks are
+    # definitely discarded by failure cleanup.
+    assert (
+        audio.diagnostics.snapshot()["counts"]["playback_discarded_samples"]
+        == queued_samples
+    )
     with pytest.raises(RuntimeError):
         await audio.begin(2)
     await audio.close()
@@ -214,6 +230,11 @@ async def test_output_overflow_fails_without_claiming_drain():
     await asyncio.wait_for(failure_received.wait(), timeout=1)
     assert failures == [(1, "output_overflow")]
     await audio.close()
+    summary = audio.diagnostics.snapshot()
+    assert summary["counts"]["playback_submitted_samples"] == 48000
+    assert summary["counts"]["playback_discarded_samples"] == 48000
+    assert summary["counts"].get("playback_written_samples", 0) == 0
+    assert summary["max"]["playback_queue_frames"] == 20
 
 
 @pytest.mark.asyncio
@@ -369,7 +390,6 @@ async def test_capture_epoch_rejects_old_driver_after_release_and_reopen():
 async def test_real_driver_captures_while_writer_is_blocked(monkeypatch):
     import sys
     import types
-    from blooglyblob.audio.driver import AudioDriver
 
     output = Stream()
     output.close = lambda: None
@@ -408,12 +428,23 @@ async def test_real_driver_captures_while_writer_is_blocked(monkeypatch):
     async def capture(pcm):
         received.append(pcm)
 
-    audio = AudioController(driver_factory=AudioDriver, on_input=capture)
+    audio = AudioController(on_input=capture)
     await audio.begin(1)
     output.allow_write.clear()
     await audio.audio(1, bytes(1920))
     await wait_set(output.writing)
-    opened[0]["stream_callback"](bytes(4096), 2048, None, 0)
+    # A stalled reporter must not make the native callback wait on its lock.
+    callback_done = threading.Event()
+
+    def native_callback():
+        opened[0]["stream_callback"](bytes(4096), 2048, None, 2)
+        callback_done.set()
+
+    with audio.diagnostics._lock:
+        callback = threading.Thread(target=native_callback)
+        callback.start()
+        assert callback_done.wait(0.5)
+    callback.join()
     for _ in range(100):
         if received:
             break
@@ -424,6 +455,12 @@ async def test_real_driver_captures_while_writer_is_blocked(monkeypatch):
     )  # Continuous 48-to-24 kHz filter may retain a tail.
     output.allow_write.set()
     await audio.close()
+    summary = audio.diagnostics.snapshot()
+    assert summary["counts"]["capture_overflows"] == 1
+    assert summary["counts"]["capture_samples"] == 2048
+    assert summary["counts"]["handoff_delivered_samples"] == len(received[0]) // 2
+    assert summary["levels"]["mic_raw"]["samples"] == 2048
+    assert summary["levels"]["mic_processed"]["samples"] == len(received[0]) // 2
 
 
 @pytest.mark.asyncio

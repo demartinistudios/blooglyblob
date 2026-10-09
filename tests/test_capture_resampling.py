@@ -1,6 +1,7 @@
 """Exercise the real capture processing worker without opening a microphone."""
 
 import queue
+import time
 
 import numpy as np
 import pytest
@@ -18,10 +19,13 @@ def capture(pcm, packet_samples, *, gain=1):
     class Input:
         def get(self, timeout):
             try:
-                return next(packets)
+                return time.monotonic(), next(packets)
             except StopIteration:
                 driver._stop.set()
                 raise queue.Empty
+
+        def qsize(self):
+            return 0
 
     def failed(reason):
         raise AssertionError(reason)

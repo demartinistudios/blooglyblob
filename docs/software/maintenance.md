@@ -200,9 +200,69 @@ saved timers still contain the information needed to perform the requested work.
 
 Review logs before sharing them: other diagnostics can include paths, configured
 device identifiers, network information, or third-party output. This cleanup
-does not sanitize existing journal entries or change their retention. Interactive
+does not sanitize existing journal entries. Interactive
 Roku discovery intentionally displays device names and addresses so you can
 select the right device; keep that output private.
+
+## Audio diagnostics and retention
+
+The service emits one `Audio diagnostics:` JSON summary per ten-second reporting
+window when measurements exist, plus remaining measurements at orderly shutdown.
+Idle periods produce no diagnostic entries. Each window resets its counters and
+maximums; audio can cross a window boundary, so compare several adjacent windows.
+These summaries contain numeric counts, levels and timings, never microphone
+recordings, transcript text, tool arguments or provider payloads. Existing activity
+and generation entries place summaries in the conversation timeline.
+
+- `capture_samples` counts 48 kHz microphone samples. `capture_overflows` counts
+  PortAudio callbacks reporting lost input; it cannot recover or count the exact
+  missing samples. `mic_raw` and `mic_processed` report sample count, RMS, peak
+  and samples at the PCM clipping ceiling before and after resampling/gain.
+- `handoff_*` counts 24 kHz PCM moving from the capture worker to the application.
+  `input_not_listening_samples` identifies intentional rejection outside active
+  listening (including the opening greeting). `input_accepted_samples` means the
+  Live adapter accepted the call; `input_sent_samples` means the SDK append
+  completed, which does **not** prove server recognition.
+- `input_queue_frames` is the maximum queued 20 ms frames. `input_age_ms` measures
+  enqueue-to-send-start delay; `input_send_ms` measures a completed SDK append.
+  Capture and handoff queues have their own age/depth maxima. These are local
+  queue measurements, not network round-trip times.
+- `user_transcript_events` and `assistant_transcript_events` count fragments,
+  not sentences or turns. `output_*` counts 24 kHz samples received, handed to the
+  conversation, discarded by the adapter, or suppressed by conversation policy.
+  Delivery to the conversation is not proof of speaker playback.
+- `playback_written_samples` counts 48 kHz voice/mixed samples submitted
+  successfully to the speaker; `background_written_samples` counts scanner-only
+  output. Neither proves acoustic audibility. Playback submissions/discards are
+  counted at 24 kHz before conversion. Queue cancellation and in-flight canceled
+  SDK calls can leave delivery uncertain; discard counts describe known local
+  disposal. Resampler buffers and failed native writes prevent an exact
+  end-to-end sample balance.
+- Session exit, speech gate, scanner and tool-result counters help distinguish
+  idle timeout, cancellation and deliberately suppressed speech. `loop_lag_ms`
+  measures lateness of the ten-second reporting timer, not every brief loop stall.
+
+Use `make pi-logs` for recent service logs. For a bounded diagnostic export on the
+Pi, run:
+
+```sh
+sudo journalctl --namespace=+blooglyblob -u blooglyblob --since '10 minutes ago' --no-pager
+sudo journalctl --namespace=blooglyblob --disk-usage
+```
+
+Provisioning and updates install `/etc/systemd/journald@blooglyblob.conf`; the
+service writes to that dedicated namespace. Journald rotates at 4 MiB per file,
+uses a 64 MiB persistent budget, retains at most seven days of archived history,
+and reserves 512 MiB free space. Size pressure can remove history sooner. The
+volatile fallback budget is 8 MiB. Active files and journal overhead mean these
+are journal budgets rather than byte-exact filesystem quotas. Normal messages
+sync at most every 30 seconds, so abrupt power loss may lose the newest entries.
+
+The policy covers this service's stdout/stderr as well as diagnostics. Other
+services' retention is unchanged. Pre-upgrade entries remain in the default
+journal under its existing policy; `+blooglyblob` includes those when reading.
+Foreground `make pi-run` output goes to its terminal, not this retained journal.
+There is no second application log file or custom rotation process.
 
 ## Local sound effects
 
