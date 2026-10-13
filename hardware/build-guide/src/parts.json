@@ -3006,5 +3006,31 @@
       "service-check"
     ],
     "additional_links": []
+  },
+  {
+    "id": "C19",
+    "name": "Black electrical tape",
+    "exact": "Thin black vinyl electrical tape",
+    "qty": "As used",
+    "optional": 0,
+    "category": "Consumable",
+    "description": "One thin layer over the back, edges and seams of the mouth assembly helps block light escaping through translucent head filament. Keep the diffuser face and mating surfaces clear. Example: 3M Temflex 1700, 7 mil (about 0.18 mm) thick.",
+    "steps": [
+      "mouth"
+    ],
+    "link": "https://www.homedepot.com/p/310698741",
+    "image": "assets/cartoons/C19.svg",
+    "verification": "Manufacturer lists 7 mil thickness; light blocking depends on coverage and filament.",
+    "status": "Check before assembly",
+    "additional_links": [
+      {
+        "url": "https://www.3m.com/3M/en_US/p/d/v101363404/",
+        "label": "3M Temflex 1700 product information"
+      },
+      {
+        "url": "https://multimedia.3m.com/mws/media/41145O/3m-temflex-vinyl-electrical-tape-1700.pdf",
+        "label": "3M Temflex 1700 datasheet"
+      }
+    ]
   }
 ]

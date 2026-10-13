@@ -3832,7 +3832,8 @@
         "C03": 1,
         "T05": 1,
         "T06": 1,
-        "T07": 1
+        "T07": 1,
+        "C19": "As used"
       },
       "hardware": {
         "M2x8": 2,
@@ -3843,7 +3844,10 @@
         "Place the wired mouth stick (E04) in the rear cover (P30), with the LEDs facing the holder\u2019s channels. Lay the wires through the open notch. The board needs no screws.",
         "Keep the head face-down. Slide an M2 nut into each mouth boss. The slots open toward the middle of the mouth.",
         "Seat the holder behind the smile, with the foam against the opening. Fit the rear cover and board onto the holder, keeping the wires in the notch.",
-        "From behind, put two M2\u00d78 screws through the cover into the head nuts. Use no washers. Tighten until the assembly holds without bending the prints."
+        "From behind, put two M2\u00d78 screws through the cover into the head nuts. Use no washers. Tighten until the assembly holds without bending the prints.",
+        "Cover the exposed back and edges of the mouth assembly with one thin layer of black electrical tape (C19). This helps prevent light shining through the head shell.",
+        "Bridge gaps and seams with narrow strips. Use only a small overlap at tape edges.",
+        "Keep the mouth opening, diffuser face, screw heads and wire exit clear. Keep tape out of mating surfaces."
       ],
       "check": "The foam follows the smile. The board is captured by the cover, and the wires leave through the notch without pinching.",
       "source": [
@@ -3896,6 +3900,15 @@
           "actions": [
             3,
             4
+          ]
+        },
+        {
+          "title": "Block light around the mouth",
+          "textOnly": true,
+          "actions": [
+            5,
+            6,
+            7
           ]
         }
       ]

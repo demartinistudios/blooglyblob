@@ -1255,6 +1255,13 @@ def mounting_tape(p):
     p.prism([(47,17),(72,17),(72,26),(47,24)], 1, 2, '#eddcc0', '#d1b98e')
 
 
+def electrical_tape(p):
+    """Generic black vinyl roll and thin strip, without a release liner."""
+    p.prism(circle(20, 20, 20), 0, 8, '#32343a', '#1c1d21',
+            detail=lambda: p.hole(20, 20, 11, 8))
+    p.prism(rrect(47, 17, 25, 18, .5), 0, .18, '#32343a', '#1c1d21')
+
+
 def adhesive_tie_square(p):
     """Nominal one-inch square; generic slot construction, not a selected model."""
     p.prism(rrect(0, 0, 25.4, 25.4, 1), 0, 1, '#d8c5a3', '#ad9673')
@@ -1660,6 +1667,7 @@ ITEMS = {
     'C16': (mounting_tape, 'Double-sided mounting tape, generic illustration', None, None),
     'C17': (adhesive_tie_square, 'One-inch adhesive tie mount, generic illustration', None, None),
     'C18': (ca_glue, 'CA glue for nut pockets', None, None),
+    'C19': (electrical_tape, 'Black electrical tape, generic illustration', None, None),
     'T02': (soldering_station, 'Soldering iron, stand and fume extractor', None, None),
     'T03': (multimeter, 'Digital multimeter with leads', None, None),
     'T04': (wire_stripper, 'Wire stripper', None, None),

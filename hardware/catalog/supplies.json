@@ -566,6 +566,14 @@
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
+    },
+    {
+      "id": "C19",
+      "exact": "Thin black vinyl electrical tape",
+      "category": "Consumable",
+      "optional": 0,
+      "qty": "As used",
+      "quantity_scope": "consumable-allowance"
     }
   ]
 }
