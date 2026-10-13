@@ -155,25 +155,13 @@
       },
       "hardware": {},
       "actions": [
-        "Let each part cool before you remove its supports.",
-        "Remove supports and brims in small pieces.",
-        "As you work, hold thin fingers, eye housing lips, horn seats, antenna turns, threads and nut-channel ledges from behind.",
-        "On the backpack shell (P35), hold the belt tabs while you clear the hinge gaps and lower screw passages.",
-        "Clear the P35 pin holes.",
-        "In the base (FB01), clear the small support lips from the front nut-entry channels.",
-        "Clear the screw holes and cable slots in the base. Clear the nut pockets for the boards, bottom cover, audio cradle, rear vent, button and power jack plate. Clear the side grille nut channels.",
-        "Smooth rough edges at the harness opening, the central hole in the base\u2019s top wall. Do not enlarge it.",
-        "On the audio cradle (FB24), clear the end windows and lid-nut slots. Keep the thin roofs above the slots intact.",
-        "Clear support from the horn recesses in both upper arms (AR01, AR04).",
-        "On the head shelf (P08), trim loose strands from the three underside nut pockets. Keep the pocket roofs intact.",
-        "On the three body-light brackets (P11, P42, P12), hold each arm or pad while you clip the support under it. Do not twist or lever on it.",
-        "Clear the support from the mounting hole of the middle bracket (P12).",
-        "Clear the sideways screw hole in the front tab of the head-servo bracket (P04). Clear the matching hole in the front upright (P43).",
-        "Test-fit the real screws, nuts and mating parts. Do not force them. Test-fit means fitting parts without glue or final tightening, and removing them afterwards.",
-        "Check how the eye LED cassettes (P06), eye housings and head shelf (P08) fit the head shell (GS20).",
-        "Set aside cracked, warped or delaminated parts for reprinting."
+        "Let the prints cool before removing supports and brims.",
+        "Hold thin features from behind while clipping supports. Do not twist the light brackets or antenna.",
+        "Clear screw holes, pin holes, cable slots, nut pockets and horn recesses.",
+        "Include the sideways screw holes in the head-servo bracket (P04) and front upright (P43).",
+        "Check each print for cracks, warping or layers separating. Reprint any damaged parts."
       ],
-      "check": "The base, its grilles and the rear vent are clean. Their screw holes, nut pockets and cable paths are clear.",
+      "check": "Supports are removed, openings are clear and the prints have no visible damage or warping.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -188,57 +176,27 @@
           "textOnly": true,
           "actions": [
             0,
-            1,
-            2
+            1
           ]
         },
         {
-          "title": "Clear the backpack shell",
-          "textOnly": true,
-          "actions": [
-            3,
-            4
-          ]
-        },
-        {
-          "title": "Clear the base",
+          "title": "Clear the openings",
           "image": "assets/community/front-support-cleanup.svg",
           "caption": "Front nut-entry channel, seen from inside the base.",
           "safety": {
             "level": "notice",
-            "text": "The plastic behind the front nuts is thin. Too much force can crack it. Clear the channels without thinning that plastic."
+            "text": "Thin nut-pocket roofs and channel walls can crack. Remove support without cutting into these features."
           },
           "actions": [
-            5,
-            6,
-            7
+            2,
+            3
           ]
         },
         {
-          "title": "Clear the cradle, arms and head shelf",
+          "title": "Check for damage",
           "textOnly": true,
           "actions": [
-            8,
-            9,
-            10
-          ]
-        },
-        {
-          "title": "Clear the light brackets and front upright",
-          "textOnly": true,
-          "actions": [
-            11,
-            12,
-            13
-          ]
-        },
-        {
-          "title": "Test-fit and check each part",
-          "textOnly": true,
-          "actions": [
-            14,
-            15,
-            16
+            4
           ]
         }
       ]
