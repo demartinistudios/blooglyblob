@@ -4,10 +4,10 @@
   "frame_convention": "12 coefficients: row-vector3x3 rotation followed by translation in millimetres. STL -> raw normal-part mesh -> component transform -> build transform. Retained frames are preserved; R33 frames use accepted native component axes and trial-reviewed print orientation. Every oriented triangle is checked; tessellation mismatch requires review.",
   "projects": [
     {
-      "path": "hardware/printing/current/BlooglyBlob-R33-PLA-Production.3mf",
-      "project_sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
+      "path": "hardware/printing/current/BlooglyBlob-R34-PLA-Production.3mf",
+      "project_sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
       "role": "required",
-      "global_settings_sha256": "75f3692f66601635b2bd6fd47cf33842ff0d01e655983482a919b7c025c7be26",
+      "global_settings_sha256": "c9db6e193106d0d5c7c4a62bbfb1fee51c0f6cd8af1c5ab9ea53e24a70334cf6",
       "plate_settings_sha256": "52196ae61ea1d730eefda90957cc69a98270923920347b2e93a890d5a71a8474",
       "instances": [
         {
@@ -954,25 +954,25 @@
           "object_id": "34",
           "plate_id": "K1",
           "plate_number": 2,
-          "source_sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+          "source_sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
           "source_status": "verified_triangle_geometry",
           "stl_to_mesh": [
-            1.0,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            -1.8530272427597083e-08,
-            -4.632568106899271e-09,
-            -8.48499966
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            -134.86499786376953,
+            -13.550000190734863
           ],
           "invariants": {
             "printable": true,
-            "settings_sha256": "9e715c8ddbd96a768428a337ebc9ea528bb7bcde16c2b3ae619f5cbf7a36c6ff",
+            "settings_sha256": "964c22218b35fff9fa07f619dac26bf7dcc1a29e5f43c78ff971a178805a2963",
             "build": [
               1.0,
               0.0,
@@ -985,13 +985,13 @@
               1.0,
               380.2,
               238.0,
-              8.48499966
+              0.0
             ],
             "parts": [
               {
                 "type": "normal_part",
-                "settings_sha256": "3b190dbf63f920e91188c76cd18ea055e1ce0101512ba938926766c77b741f0b",
-                "mesh_sha256": "15ed969fc98ffcbee6ad354ae4491065ef49930dfd9935d1e0090d8eca87aebb",
+                "settings_sha256": "822e359d29c3178eb14b4444946208148ccc5fa29b2143e3b9877319d72644a4",
+                "mesh_sha256": "d734be886b71c0fbc68e9129ac15b42a6216a21cb39502793eab552ebe477f2c",
                 "transform": [
                   1.0,
                   0.0,
@@ -1016,25 +1016,25 @@
           "object_id": "36",
           "plate_id": "K1",
           "plate_number": 2,
-          "source_sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+          "source_sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
           "source_status": "verified_triangle_geometry",
           "stl_to_mesh": [
-            1.0,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            2.7533289537196026e-10,
-            0.0,
-            -2.7533289537196026e-10,
-            1.0,
-            3.7060548407907845e-08,
-            4.708192946623058e-09,
-            -9.372317309955395
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            -134.16500091552734,
+            -18.600000381469727
           ],
           "invariants": {
             "printable": true,
-            "settings_sha256": "9e715c8ddbd96a768428a337ebc9ea528bb7bcde16c2b3ae619f5cbf7a36c6ff",
+            "settings_sha256": "737a00bc46656b5cbda9f8263a40fb7dc9204bd9b3cf899ee7476d46cb9c5194",
             "build": [
               1.0,
               0.0,
@@ -1046,14 +1046,33 @@
               0.0,
               1.0,
               468.2,
-              240.0,
-              9.37063694
+              238.0,
+              0.0
             ],
             "parts": [
               {
                 "type": "normal_part",
-                "settings_sha256": "fbf51193bb4bf56c676cd45897ed2af1de9a785db20e62042ceed4b130ce4c7e",
-                "mesh_sha256": "37321276d6c135399fd3c6e45696e538bcfe6fd78880a4fff59095720b85cd00",
+                "settings_sha256": "822e359d29c3178eb14b4444946208148ccc5fa29b2143e3b9877319d72644a4",
+                "mesh_sha256": "2f7ad1f1fe4f99e8537fee93c99932f59922930a15cb618eed97194c84bc01ff",
+                "transform": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "type": "support_blocker",
+                "settings_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+                "mesh_sha256": "e34942d1b1c9a397ff9fa25469e7d0a57c24e9082ddd40a5c3e39abb9d989145",
                 "transform": [
                   1.0,
                   0.0,
@@ -2346,29 +2365,29 @@
         },
         {
           "recipe_instance_id": "kit-P01-02",
-          "part": "P01",
+          "part": "P44",
           "object_id": "88",
           "plate_id": "C1",
           "plate_number": 4,
-          "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "source_sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
           "source_status": "verified_triangle_geometry",
           "stl_to_mesh": [
-            0.25746724013730443,
-            0.9662870282006502,
-            0.0,
-            -0.9662870282006502,
-            0.25746724013730443,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            0.0028148250729112937,
-            1.6999482888402188e-06,
-            -1.5
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
           ],
           "invariants": {
             "printable": true,
-            "settings_sha256": "c125758edefcb14d6c752f6f33defc17e360738d3426d397379bdd27a348f073",
+            "settings_sha256": "3b958e832c6dcb085a90be173e6d04bd3da175e3ec5f56cfe1d2cc4639423c25",
             "build": [
               1.0,
               0.0,
@@ -2379,15 +2398,15 @@
               0.0,
               0.0,
               1.0,
-              984.495948,
-              182.693443,
-              3.5
+              984.4971841037164,
+              182.69577423553682,
+              0.0
             ],
             "parts": [
               {
                 "type": "normal_part",
-                "settings_sha256": "fa39b98b134a38b550cca9b07a8e7971e6890e59682b8b588c114f2c07f10fe0",
-                "mesh_sha256": "737ced0f4f5a78557f0673cd84bf49627024ccc82f6d841406880005efbf5f8e",
+                "settings_sha256": "f49b6daf3ae6327b4fbd3ca98b95852c8b23f4633366413c0ae98508f7d35d50",
+                "mesh_sha256": "feac4a51f7f2308cc4be6a2887d4856091f18c085f31881163ddb662766c9614",
                 "transform": [
                   1.0,
                   0.0,
@@ -5686,9 +5705,9 @@
     }
   ],
   "review_evidence": {
-    "status": "71 exact selected-source comparisons. R33 W1/W2 complete-plate slice/support/layout review; eight unchanged plates and optional PETG retain bounded prior evidence only for unchanged scope.",
-    "support_scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly. All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes. P08/P14 same-design native export replacement: W1 re-sliced, center opening reviewed and M3 bore core support samples zero; see r29-head-topology-validation.json. R33 supersedes W1/W2 review for changed carrier/upright/LED brackets and layouts; inherited modifiers and untouched objects checked. P13 removed; P42/P43 added as distinct catalog identities. See r33-lighting-validation.json.",
-    "estimates_sha256": "764b56207662f46ec1aedbe32b1d615776e574328324051d3cbe1cfca89d8bd6",
+    "status": "71 exact source comparisons; R34 K1/C1 whole-plate review; eight unchanged plates and optional PETG retain prior evidence only for unchanged scope.",
+    "support_scope": "Protected head/audio/backpack/canister cores remain clear of sampled support. Antenna thread and both ball bore cores clear. Belt solid-knuckle pin cores clear on all14axes; fullheight blocker envelopes include open clevis slots/undersides with expected removable supports. Clear slots while supporting ears before assembly. All9affected fullplate object counts match, none skipped/outside; max0.1mm sampled centerlines including arcs stay in256mm bounds with X1C Y+2 compensation. First-layer/model previews inspected. Centerlines are not full bead envelopes. P08/P14 same-design native export replacement: W1 re-sliced, center opening reviewed and M3 bore core support samples zero; see r29-head-topology-validation.json. R33 supersedes W1/W2 review for changed carrier/upright/LED brackets and layouts; inherited modifiers and untouched objects checked. P13 removed; P42/P43 added as distinct catalog identities. See r33-lighting-validation.json. R34 K1/C1 supersede mouth/collar review; prior unrelated evidence remains bounded to unchanged objects. P30 cap and P44 collar support-free; P31 two exposed pads only.",
+    "estimates_sha256": "271501828e16a5fcbf5fe105552f9c8bb8a7390e44b2f2ec8f459dfe9c3612ba",
     "files": [
       {
         "path": "hardware/printing/current/checks/validation.json",
@@ -5873,11 +5892,16 @@
       {
         "path": "hardware/printing/current/checks/r33-lighting-validation.json",
         "sha256": "e772c87338859002ebffb0bf6b48b97a982961862c611ff611688db5d7d8f47a"
+      },
+      {
+        "path": "hardware/printing/current/checks/r34-mouth-collar-validation.json",
+        "sha256": "537fc6c9654b1a6f9d191e469d7645c5a08c1cbf1a0e4be32455c3eb0ba57adc",
+        "bytes": 29620
       }
     ],
     "inputs": {
-      "hardware/printing/current/BlooglyBlob-R33-PLA-Production.3mf": {
-        "project_sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
+      "hardware/printing/current/BlooglyBlob-R34-PLA-Production.3mf": {
+        "project_sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
         "sources": {
           "kit-P02-01": "349d4ab7bc8bc4f2b9cbe08fe1f2e09da6736c36fc988ed4307a8af18d36af81",
           "kit-P03-01": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
@@ -5888,8 +5912,8 @@
           "kit-FB24-01": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
           "kit-FB32-01": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
           "kit-FB01-01": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
-          "kit-P30-01": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
-          "kit-P31-01": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+          "kit-P30-01": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+          "kit-P31-01": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
           "kit-P02-02": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
           "kit-P06-02": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
           "kit-P09-01": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
@@ -5905,7 +5929,7 @@
           "kit-AR01-01": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
           "kit-AR04-01": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
           "kit-P01-01": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
-          "kit-P01-02": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+          "kit-P01-02": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
           "kit-GS11-01": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
           "kit-GS12-01": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
           "kit-AR02-01": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",

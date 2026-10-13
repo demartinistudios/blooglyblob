@@ -1,6 +1,6 @@
 {
-  "status": "R33/cloud30: reinforced head carrier, chamfered front upright and three distinct light brackets; P13 wire guide retired. 70 required pieces/52 types, plus one optional print instance. Guide updates pending; physical qualification remains separate.",
-  "cad": "R33",
+  "status": "R34/cloud32: upper bearing collar P44 and two-piece mouth P30/P31; P01 is the unchanged lower collar. 70 required pieces across 53 types, plus one optional print instance.",
+  "cad": "R34",
   "parts": [
     {
       "part_id": "A04",
@@ -859,7 +859,7 @@
     },
     {
       "part_id": "P01",
-      "quantity": 2,
+      "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P01.stl",
       "geometry_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
       "instances": [
@@ -867,17 +867,10 @@
           "id": "P01-1",
           "plate": "C1",
           "bambu_id": "86"
-        },
-        {
-          "id": "P01-2",
-          "plate": "C1",
-          "bambu_id": "88"
         }
       ],
       "guide_step_ids": [
         "frame-uprights",
-        "head-servo",
-        "body-light-strand",
         "body-diffuser"
       ],
       "guide_image": "assets/part-P01.png",
@@ -886,8 +879,6 @@
       "geometry_revision": "sha256:77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
       "guide_review_step_ids": [
         "frame-uprights",
-        "head-servo",
-        "body-light-strand",
         "body-diffuser"
       ]
     },
@@ -1183,7 +1174,7 @@
       "part_id": "P30",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P30.stl",
-      "geometry_sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+      "geometry_sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
       "instances": [
         {
           "id": "P30-1",
@@ -1197,8 +1188,8 @@
       ],
       "guide_image": "assets/r20/part-P30.png",
       "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Replacement geometry ready; actual-material print and fit checks pending",
-      "geometry_revision": "sha256:899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
+      "qualification": "Owner accepted for the maintained assembly. Remove prescribed print cleanup features and verify seating and free head rotation during assembly.",
+      "geometry_revision": "sha256:c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
       "guide_review_step_ids": [
         "mouth",
         "head-shoulder-covers"
@@ -1208,7 +1199,7 @@
       "part_id": "P31",
       "quantity": 1,
       "geometry_path": "hardware/cad/current/stl/P31.stl",
-      "geometry_sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+      "geometry_sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
       "instances": [
         {
           "id": "P31-1",
@@ -1221,8 +1212,8 @@
       ],
       "guide_image": "assets/r20/part-P31.png",
       "source": "hardware/cad/current/assembly.f3d",
-      "qualification": "Replacement geometry ready; actual-material print and fit checks pending",
-      "geometry_revision": "sha256:e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
+      "qualification": "Owner accepted for the maintained assembly. Remove prescribed print cleanup features and verify seating and free head rotation during assembly.",
+      "geometry_revision": "sha256:fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
       "guide_review_step_ids": [
         "mouth"
       ]
@@ -1462,6 +1453,33 @@
         "shoulder-servos",
         "head-servo",
         "body-lights"
+      ]
+    },
+    {
+      "part_id": "P44",
+      "quantity": 1,
+      "geometry_path": "hardware/cad/current/stl/P44.stl",
+      "geometry_sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "instances": [
+        {
+          "id": "P44-1",
+          "plate": "C1",
+          "bambu_id": "88"
+        }
+      ],
+      "guide_step_ids": [
+        "head-servo",
+        "body-light-strand",
+        "body-diffuser"
+      ],
+      "guide_image": "assets/part-P44.png",
+      "source": "hardware/cad/current/assembly.f3d",
+      "qualification": "Owner accepted for the maintained assembly. Remove prescribed print cleanup features and verify seating and free head rotation during assembly.",
+      "geometry_revision": "sha256:466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "guide_review_step_ids": [
+        "head-servo",
+        "body-light-strand",
+        "body-diffuser"
       ]
     }
   ],

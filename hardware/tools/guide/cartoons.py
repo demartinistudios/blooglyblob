@@ -1138,16 +1138,11 @@ def foam_dots(p, x0, y0, w, h, z, n=26, seed=1):
 
 
 def clear_film(p):
-    """Clear eye film: a transparency offcut with the two cut rounded rectangles (12.6 x 8.6 mm)."""
-    film, edge = '#e3eef4', '#b9ccd8'
-    def sheet():
-        for x in (6, 23):
-            p.flat(rrect(x, 7, 12.6, 8.6, 4.2), .25, BG, stroke='#8aa3b3', sw=1.2, op=.9)
-        p.line([(3, 20), (13, 2)], .25, '#ffffff', 2.2, extra=' stroke-opacity=".8"')
-    p.prism(rrect(0, 0, 42, 24, .4), 0, .25, film, edge, detail=sheet)
-    for x, y in ((8, 30), (25, 31.5)):
-        p.prism(rrect(x, y, 12.6, 8.6, 4.2), 0, .25, film, edge,
-                detail=lambda x=x, y=y: p.line([(x + 2.5, y + 7), (x + 6, y + 1.5)], .25, '#ffffff', 2, extra=' stroke-opacity=".8"'))
+    """A clear flexible sheet, shared by the eye windows and head bearing disc."""
+    def sheen():
+        for x in (18,49):
+            p.line([(x,72),(x+27,8)], .19, '#ffffff', 2.2, extra=' stroke-opacity=".8"')
+    p.prism(rrect(0,0,90,100,.4),0,.19,'#e3eef4','#b9ccd8',detail=sheen)
 
 
 def eye_foam(p):
@@ -1157,10 +1152,10 @@ def eye_foam(p):
 
 
 def mouth_foam(p):
-    """A strip of white 4 mm Plastazote, 7.4 mm wide, cut long and gently curved."""
+    """A strip of white 4 mm Plastazote, 5.75 mm wide, cut long and gently curved."""
     cl = [(40 * math.sin(math.radians(a)), 18 - 18 * math.cos(math.radians(a))) for a in range(-60, 61, 6)]
-    strip = p.ribbon(cl, [7.4] * len(cl))
-    p.prism(strip, 0, 4, FOAM, FOAM_SIDE, detail=lambda: foam_dots(p, -30, 2, 60, 10, 4, 30, 7))
+    strip = p.ribbon(cl, [5.75] * len(cl))
+    p.prism(strip, 0, 4, FOAM, FOAM_SIDE, detail=lambda: [p.flat(circle(x,y,.22,10),4,'#dedbd1',stroke='none') for x,y in cl])
 
 
 def body_foam(p):
@@ -1650,7 +1645,7 @@ ITEMS = {
     'E17': (button, 'Adafruit 1479 illuminated pushbutton', None, None),
     'E18': (power_jack, 'Switchcraft 721AU solder-lug power jack', None, None),
     'E25': (rubber_feet, 'Adhesive rubber feet', None, None),
-    'C01': (clear_film, 'Clear eye film', None, None),
+    'C01': (clear_film, 'Clear film', None, None),
     'C02': (eye_foam, 'Eye diffuser foam patches', None, None),
     'C03': (mouth_foam, 'Mouth diffuser foam strip', None, None),
     'C04': (body_foam, 'Body diffuser foam sheet', None, None),

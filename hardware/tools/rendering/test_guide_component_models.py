@@ -20,7 +20,8 @@ class ComponentModelsTests(unittest.TestCase):
             pid=r.get('part_id')
             if 'FS90MG' in r['path']:pid='E01'
             if 'Capacitor' in r['path']:pid='E08'
-            if pid not in ('E01','E08','E09','E14','E17'):continue
+            if 'Mouth1426' in r['path']:pid='E04'
+            if pid not in ('E01','E04','E08','E09','E14','E17'):continue
             t=np.array(r['transform']).reshape(4,4)
             vertices=np.array(r['vertices_cm']).reshape(-1,3)
             vertices=(vertices@t[:3,:3].T+t[:3,3])*10
@@ -37,6 +38,17 @@ class ComponentModelsTests(unittest.TestCase):
         self.assertEqual({r['root'] for r in detailed},{r['root'] for r in before})
         self.assertTrue(all(r.get('component_detail') for r in detailed))
         self.assertEqual(len(replace_envelopes(detailed)),len(detailed))
+
+    def test_mouth_colors_preserve_every_accepted_triangle(self):
+        original=next(r for r in self.rows if r['id']=='E04')
+        rows=replace_envelopes([original])
+        def triangles(parts):
+            return sorted(tuple(triangle.flatten()) for row in parts
+                          for triangle in row['v'][row['f']])
+        self.assertEqual(triangles(rows),triangles([original]))
+        self.assertEqual({r['component_detail'] for r in rows},
+                         {'LED packages','surface components','PCB'})
+        self.assertTrue(all(len(r['f']) for r in rows))
 
     def test_button_terminals_are_in_total_height_and_nut_bears_on_plate(self):
         rows=replace_envelopes([r for r in self.rows if r['id']=='E17'])

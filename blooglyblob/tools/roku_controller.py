@@ -8,6 +8,9 @@ import time
 import requests
 from roku import Roku
 
+from blooglyblob.ai.tool_bridge import StaleResponse
+from .execution_scope import check_current, effect_boundary, request_timeout
+
 logger = logging.getLogger(__name__)
 
 # Map common service names to Roku app display names
@@ -29,7 +32,8 @@ class _BoundedRoku(Roku):
     """Bound SDK requests so an offline TV cannot hold up the backend."""
 
     def _call(self, method, path, *args, **kwargs):
-        kwargs["timeout"] = 5.0
+        check_current()
+        kwargs["timeout"] = request_timeout(5.0)
         return super()._call(method, path, *args, **kwargs)
 
 
@@ -61,6 +65,8 @@ class RokuController:
                     if app_display_name.lower() == app_name_lower:
                         self.channel_ids[service] = app
             logger.info(f"Found {len(apps)} installed Roku apps")
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to query Roku apps: {type(e).__name__}")
 
@@ -137,20 +143,25 @@ class RokuController:
                     "mediaType": roku_media_type,
                 }
 
-            response = requests.post(url, params=params, timeout=10)
+            effect_boundary()
+            response = requests.post(url, params=params, timeout=request_timeout())
             if response.status_code == 200:
                 logger.info("Launched Roku content")
 
                 # Netflix doesn't auto-play via deep link - send Select after loading
                 if service.lower() == "netflix":
                     time.sleep(5)  # Wait for Netflix to load content page
-                    self.select()
+                    check_current()
+                    if not self.select():
+                        return False
                     logger.info("Sent Select keypress to start Netflix playback")
 
                 return True
             else:
                 logger.warning(f"Roku returned status {response.status_code}")
                 return False
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error("Failed to launch Roku content (%s)", type(e).__name__)
             return False
@@ -169,9 +180,12 @@ class RokuController:
             if app is None:
                 return False
 
+            effect_boundary()
             app.launch()
             logger.info("Launched Roku app")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error("Failed to launch Roku app (%s)", type(e).__name__)
             return False
@@ -183,9 +197,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.power()
             logger.debug("Toggled power")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to toggle power: {type(e).__name__}")
             return False
@@ -197,9 +214,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.volume_up()
             logger.debug("Volume up")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to increase volume: {type(e).__name__}")
             return False
@@ -211,9 +231,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.volume_down()
             logger.debug("Volume down")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to decrease volume: {type(e).__name__}")
             return False
@@ -225,9 +248,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.mute()
             logger.debug("Toggled mute")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to toggle mute: {type(e).__name__}")
             return False
@@ -239,9 +265,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.play()
             logger.debug("Toggled play/pause")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to toggle play/pause: {type(e).__name__}")
             return False
@@ -253,9 +282,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.home()
             logger.debug("Pressed home")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to go home: {type(e).__name__}")
             return False
@@ -267,9 +299,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.back()
             logger.debug("Pressed back")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to go back: {type(e).__name__}")
             return False
@@ -281,9 +316,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.select()
             logger.debug("Pressed select")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to press select: {type(e).__name__}")
             return False
@@ -295,9 +333,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.up()
             logger.debug("Pressed up")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to navigate up: {type(e).__name__}")
             return False
@@ -309,9 +350,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.down()
             logger.debug("Pressed down")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to navigate down: {type(e).__name__}")
             return False
@@ -323,9 +367,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.left()
             logger.debug("Pressed left")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to navigate left: {type(e).__name__}")
             return False
@@ -337,9 +384,12 @@ class RokuController:
             True on success, False on failure
         """
         try:
+            effect_boundary()
             self.roku.right()
             logger.debug("Pressed right")
             return True
+        except StaleResponse:
+            raise
         except Exception as e:
             logger.error(f"Failed to navigate right: {type(e).__name__}")
             return False

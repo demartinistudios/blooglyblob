@@ -541,55 +541,6 @@
       ]
     },
     {
-      "path": "P01 Foam collar r1 - rotating horn screw clearance:2",
-      "component": "P01 Foam collar r1 - rotating horn screw clearance",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        -1.0,
-        -1.2246467991473532e-16,
-        0.0,
-        0.0,
-        1.2246467991473532e-16,
-        -1.0,
-        11.43,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "GS r1 copper goggles",
-      "bodies": [
-        {
-          "name": "P01 collar - print two",
-          "volume": 7.86165690711265,
-          "area": 98.88078981972708,
-          "solid": true,
-          "lumps": 1,
-          "faces": 18,
-          "edges": 35,
-          "visible": true,
-          "appearance": "GS r1 copper goggles",
-          "bounds": [
-            [
-              -3.9900000000000007,
-              -3.9900000000000007,
-              -0.2
-            ],
-            [
-              3.9900000000000007,
-              3.9900000000000007,
-              0.49999999999999994
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "REF FS90MG-CL - Kitronik 25105 drawing:2",
       "component": "REF FS90MG-CL - Kitronik 25105 drawing",
       "transform": [
@@ -11413,104 +11364,6 @@
       ]
     },
     {
-      "path": "P30 Mouth cassette EXP inset r4 - internal clamp seats:1",
-      "component": "P30 Mouth cassette EXP inset r4 - internal clamp seats",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "Eye retainer gray - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 3.2260017160633057,
-          "area": 42.57051728729826,
-          "solid": true,
-          "lumps": 1,
-          "faces": 140,
-          "edges": 414,
-          "visible": true,
-          "appearance": "Eye retainer gray - display only",
-          "bounds": [
-            [
-              -3.24,
-              -2.07,
-              12.533000000000001
-            ],
-            [
-              3.24,
-              0.10000000000000009,
-              14.230000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs:1",
-      "component": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "Eye bezel black - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 2.390188253725828,
-          "area": 50.129588789679694,
-          "solid": true,
-          "lumps": 1,
-          "faces": 183,
-          "edges": 544,
-          "visible": true,
-          "appearance": "Eye bezel black - display only",
-          "bounds": [
-            [
-              -3.14,
-              -3.560000000000304,
-              12.483
-            ],
-            [
-              3.14,
-              -1.6857046004560001,
-              13.583000000000002
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "path": "REF Mouth1426 PCB and components - source layout nominal heights:1",
       "component": "REF Mouth1426 PCB and components - source layout nominal heights",
       "transform": [
@@ -11521,11 +11374,11 @@
         0.0,
         1.0,
         0.0,
-        0.0,
+        -0.24,
         0.0,
         0.0,
         1.0,
-        0.0,
+        0.3,
         0.0,
         0.0,
         0.0,
@@ -11554,55 +11407,6 @@
               2.555,
               -1.46,
               13.870999999999999
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "path": "REF Mouth Plastazote EXP inset r4 - recessed continuous diffuser:1",
-      "component": "REF Mouth Plastazote EXP inset r4 - recessed continuous diffuser",
-      "transform": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "visible": true,
-      "appearance": "Eye foam white - display only",
-      "bodies": [
-        {
-          "name": "Body1",
-          "volume": 1.6020746408197333,
-          "area": 13.133173586997533,
-          "solid": true,
-          "lumps": 1,
-          "faces": 6,
-          "edges": 12,
-          "visible": true,
-          "appearance": "Eye foam white - display only",
-          "bounds": [
-            [
-              -2.48,
-              -3.9799999999999995,
-              12.583000000000002
-            ],
-            [
-              2.48,
-              -2.58185979479909,
-              13.322999999999997
             ]
           ]
         }
@@ -21492,6 +21296,251 @@
               3.237811217885471,
               3.84,
               1.0999999999999996
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P44 Upper bearing collar r34 - keyed clear film:1",
+      "component": "P44 Upper bearing collar r34 - keyed clear film",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "P44 Upper bearing collar r34 - keyed clear film",
+          "volume": 16.339059889884606,
+          "area": 123.5007975638444,
+          "solid": true,
+          "lumps": 1,
+          "faces": 86,
+          "edges": 190,
+          "visible": true,
+          "appearance": "GS r1 copper goggles",
+          "bounds": [
+            [
+              -4.15,
+              -4.15,
+              10.93
+            ],
+            [
+              4.15,
+              4.15,
+              12.05
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P30 Mouth rear cover r34 - recessed screw access:1",
+      "component": "P30 Mouth rear cover r34 - recessed screw access",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "P30 Mouth rear cover r34 - recessed screw access",
+          "volume": 2.935206168866177,
+          "area": 35.266984587882355,
+          "solid": true,
+          "lumps": 1,
+          "faces": 83,
+          "edges": 233,
+          "visible": true,
+          "appearance": "Eye retainer gray - display only",
+          "bounds": [
+            [
+              -3.18,
+              -2.07,
+              12.583
+            ],
+            [
+              3.18,
+              -1.3549999999999998,
+              14.390000000000002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "P31 Mouth holder r34 - eight channels and PCB seat:1",
+      "component": "P31 Mouth holder r34 - eight channels and PCB seat",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "P31 Mouth holder r34 - eight channels and PCB seat",
+          "volume": 2.8803733211728426,
+          "area": 68.72341806056819,
+          "solid": true,
+          "lumps": 1,
+          "faces": 221,
+          "edges": 634,
+          "visible": true,
+          "appearance": "Eye bezel black - display only",
+          "bounds": [
+            [
+              -3.14,
+              -3.9899999999999998,
+              12.583000000000002
+            ],
+            [
+              3.14,
+              -1.8599999999999999,
+              14.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "REF Mouth diffuser r34 - installed LD45 envelope:1",
+      "component": "REF Mouth diffuser r34 - installed LD45 envelope",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "REF Mouth diffuser r34 - installed LD45 envelope",
+          "volume": 0.9289275288096048,
+          "area": 9.691889715286884,
+          "solid": true,
+          "lumps": 1,
+          "faces": 6,
+          "edges": 12,
+          "visible": true,
+          "appearance": "Eye foam white - display only",
+          "bounds": [
+            [
+              -2.4,
+              -3.9,
+              12.670000000000002
+            ],
+            [
+              2.4,
+              -2.6698501830627124,
+              13.244999999999997
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C01 Clear bearing film r34 - 0.17mm folded tabs:1",
+      "component": "C01 Clear bearing film r34 - 0.17mm folded tabs",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "visible": true,
+      "appearance": null,
+      "bodies": [
+        {
+          "name": "C01 Clear bearing film r34 - 0.17mm folded tabs",
+          "volume": 0.40051464703131945,
+          "area": 47.908928747330854,
+          "solid": true,
+          "lumps": 1,
+          "faces": 15,
+          "edges": 38,
+          "visible": true,
+          "appearance": "C01 clear film - display only",
+          "bounds": [
+            [
+              -4.13,
+              -4.13,
+              11.8
+            ],
+            [
+              4.13,
+              4.13,
+              12.067
             ]
           ]
         }

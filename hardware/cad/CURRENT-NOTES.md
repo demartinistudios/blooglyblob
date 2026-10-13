@@ -1,6 +1,6 @@
 # Current hardware notes
 
-The registry selects R33, Fusion cloud version 30. The native assembly, STL
+The registry selects R34, Fusion cloud version 32. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
 
@@ -8,19 +8,39 @@ names in current evidence identify the source of unchanged features.
 
 Download the [Fusion assembly (.f3d)](current/assembly.f3d) or the
 [STEP AP214 assembly (.step)](current/assembly.step). The STEP exports the full
-R33/cloud30 assembly, including hidden reference, layout and test components.
-Reimport into Fusion retained all 562 bodies and 330 occurrences in their assembly
+R34/cloud32 assembly, including hidden reference, layout and test components.
+Reimport into Fusion retained all 563 bodies and 331 occurrences in their assembly
 positions. It contains geometry and component placements, without Fusion
 parametric history or joints. Body names and occurrence suffixes may change on import.
 [Export provenance](current/step-export-provenance.json) records the source,
 hash and measured reimport checks.
+
+## Mouth and upper bearing collar
+
+R34 replaces the mouth with the matching P31 eight-channel holder and P30 rear
+cover. Fit the 4 mm LD45 strip trimmed to 5.75 mm high, seat the board in the
+cover pocket with LEDs forward, and route its leads through the open notch.
+Two M2×8 screws enter from the rear into the retained head nuts. There are no
+separate PCB screws or washers. The head shell and head adapters are unchanged.
+
+P44 is the upper copper bearing collar; P01 is now the unchanged lower collar
+only. P44 has an 11.2 mm overall height and bearing surface at Z120.5 mm. The
+original two M3×10 screws remain seated at Z116.3 mm below the bearing face.
+Clear the two 0.20 mm sacrificial screw-bore films after printing. The C01 clear
+bearing film is nominally 0.17 mm thick, with two 3.2 mm inward tabs folded down
+2.5 mm into the locating slots. Its outer diameter is 82.6 mm and inner circle
+is 62 mm. Secure the servo horn normally and check free head rotation.
+
+The [release evidence](current/evidence/mouth-collar-r34.json) and
+[STL frames](current/frames/mouth-collar-r34.json) bind these parts to the saved
+native assembly. All unrelated geometry and original part colors are retained.
 
 ## Body lighting and head carrier
 
 R33 uses five changed pieces: P43 front upright, P04 head-servo carrier,
 P11 lower light bracket, P42 upper light bracket and P12 rear-mounted middle
 light bracket. P02 is now the unchanged rear upright only. The P13 wire guide
-is retired. There are 70 required printed pieces across 52 types, plus one
+is retired. There are 70 required printed pieces across 53 types, plus one
 optional print instance. P10 seam covers, base and shoulder carrier are unchanged.
 
 P43 has a deeper front chamfer, local fastening lands and an inset P04 mounting
@@ -52,8 +72,9 @@ it is not a quantified strength or optical qualification. The inherited carrier
 tab edge has only 0.2 mm modeled upper-bracket clearance, while added reinforcement
 clears its adjacent bracket root by 1 mm. Check printed parts before tightening.
 
-Guide illustrations, assembly order, hardware lists and supply cards are pending
-an independent guide update. CAD acceptance does not mark that work complete.
+The build guide provides the assembly order, illustrations, hardware lists and
+supply cards. Its [review summary](../build-guide/REVIEW.md) records the scope of
+the source and visual checks.
 
 ## Body foam reference
 
@@ -63,7 +84,7 @@ seam has a continuous 2 mm gap, without windows, knife slits or edge notches.
 Backing ribs remain unchanged; the foam edges compress against them.
 [Native verification](current/evidence/body-foam-r32.json) and
 [print reuse](../printing/current/checks/r32-print-reuse.json) record this reference-only update.
-Guide images showing the foam require regeneration from the current render inputs.
+Guide images showing the foam use the selected rendering inputs.
 
 ## Electrical references
 
@@ -91,7 +112,7 @@ do not glue them. Fastener counts and allocations are maintained in
 
 P08/P14 use the same three M3 × 8 screws and M3 nuts with the fastening
 pattern rotated 60 degrees. Assemble this joint on the bench before installing
-the head/mouth. The head shell and P31 remain unchanged.
+the head/mouth. The head shell remains unchanged; R34 replaces P31 as described above.
 
 P08/P14 use direct native STL exports with closed edges at exact serialized
 coordinates. Their source frames and the Fusion design are unchanged;
@@ -141,7 +162,7 @@ estimates are predictions. Prior K1 support inspection covers the moved board
 posts, nut recesses and WAGO mounting bands; W1 and W2 retain their documented
 cradle and backpack reviews.
 
-The [render source lock](../rendering/source-lock.json) selects the R33 assembly
+The [render source lock](../rendering/source-lock.json) selects the R34 assembly
 mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.
@@ -150,7 +171,7 @@ current assembly before reuse. A historical name does not imply a second design.
 
 Digital input checks, slicing and guide review do not establish printed fit,
 adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. The current print-source comparison receipt covers the selected R33 instances.
-Guide synchronization remains pending. See the [semantic review contract](../printing/recipes/README.md)
+complete powered operation. The current print-source comparison receipt covers the selected release instances.
+See the [semantic review contract](../printing/recipes/README.md)
 and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
 is selected in the registry.

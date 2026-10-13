@@ -939,3 +939,34 @@ async def test_correction_after_terminal_selection_cancels_composite_action():
     finally:
         finish.set()
         await host.close()
+
+
+@pytest.mark.asyncio
+async def test_quiet_tool_result_is_context_and_timing_contains_no_conversation(caplog):
+    from blooglyblob.ai.responses import QuietToolResult
+
+    responses = SimpleNamespace(
+        run=AsyncMock(return_value=QuietToolResult("Moving head left"))
+    )
+    host, _, _ = session(responses=responses)
+    host.request(True)
+    try:
+        await wait_until(lambda: host.live is not None)
+        live = host.live
+        with caplog.at_level("INFO", logger="blooglyblob.tools.timing"):
+            await live.callbacks["on_transcript"](
+                "user", "private request text", 0, 100
+            )
+            await live.callbacks["on_delegation"]("private-provider-id", 100)
+            await wait_until(lambda: not host.backend_busy)
+        live.append_result.assert_awaited_once_with(
+            "private-provider-id", "Moving head left", spoken=False
+        )
+        assert "stage=delegation" in caplog.text
+        assert "stage=audio_ready" in caplog.text
+        assert "stage=result_supplied" in caplog.text
+        assert "stage=job_finished" in caplog.text
+        assert "private request" not in caplog.text
+        assert "private-provider-id" not in caplog.text
+    finally:
+        await host.close()

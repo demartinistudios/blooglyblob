@@ -669,3 +669,18 @@ async def test_partial_output_admission_counts_unqueued_remainder():
     counts = summary["counts"]
     assert counts["output_received_samples"] == counts["output_discarded_samples"]
     assert summary["max"]["output_queue_frames"] == session._audio.maxsize
+
+
+@pytest.mark.asyncio
+async def test_quiet_result_uses_thinking_without_requesting_spoken_commentary():
+    session, connection, _manager, *_ = make_session()
+    connection.session.thinking = SimpleNamespace(append=AsyncMock())
+    await ready(session, connection)
+    await session.append_result("job", "Head movement started", spoken=False)
+    connection.session.thinking.append.assert_awaited_once_with(
+        delegation_id="job", content="Head movement started"
+    )
+    connection.session.commentary.append.assert_not_awaited()
+    with pytest.raises(ValueError):
+        await session.append_result("", "Head movement started", spoken=False)
+    await session.close()

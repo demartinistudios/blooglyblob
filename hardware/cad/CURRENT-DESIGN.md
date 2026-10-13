@@ -2,14 +2,14 @@
 
 Open **Blue Glee Blob - MAIN** in Fusion → Admin Project.
 
-Accepted design **R33**, exact cloud version **v30**.
+Accepted design **R34**, exact cloud version **v32**.
 Permanent file ID: `urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg`.
 
 ## CAD acceptance record
 
 Recorded when this CAD revision was accepted; delivery status above may supersede downstream status below.
 
-Accept the chamfered front upright P43, reinforced flush head-servo carrier P04, distinct lower P11/upper P42/rear-mounted middle P12 light brackets, and six LED placements. Retire P13 wire guide; rear P02 and unrelated geometry remain unchanged. Full native and STEP reimports verified; guide update remains pending.
+Upper bearing collar P44 with keyed clear film; P30 rear mouth cover and P31 eight-channel holder, moved mouth PCB and updated diffuser reference. Lower P01 collar and unrelated assembly geometry are retained.
 
 ## Current inputs
 

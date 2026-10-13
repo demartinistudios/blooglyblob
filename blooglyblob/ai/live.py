@@ -433,14 +433,16 @@ class OpenAILiveSession:
             )
         )
 
-    async def append_result(self, delegation_id, content):
+    async def append_result(self, delegation_id, content, *, spoken=True):
         if (
             not isinstance(delegation_id, str)
             or not delegation_id
             or len(delegation_id) > 256
         ):
             raise ValueError("Invalid delegation identifier")
-        await self._append("commentary", content, delegation_id)
+        await self._append(
+            "commentary" if spoken else "thinking", content, delegation_id
+        )
 
     async def append_instruction(self, content):
         await self._append("instructions", content, None)

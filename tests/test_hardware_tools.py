@@ -78,10 +78,11 @@ async def test_tool_errors_sleep_busy_and_diagnostics():
     hardware.animation_lock.acquire()
     assert (
         await hardware.execute("playAnimation", {"animation": "think"})
-        == "Error: Animation already playing"
+        == "Error: Motion busy; no action dispatched."
     )
     assert (
-        await hardware.execute("moveHead", {"direction": "left"}) == "Moving head left"
+        await hardware.execute("moveHead", {"direction": "left"})
+        == "Error: Motion busy; no action dispatched."
     )
     hardware.present("idle")
     hardware.servos.head.center.assert_not_called()

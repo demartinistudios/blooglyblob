@@ -1,0 +1,1019 @@
+{
+  "status": "PASS bounded digital verification",
+  "cad": "R34/cloud32",
+  "project_sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
+  "native_sha256": "29ba97cd9783a657646284f8c9541107a0d64cb8fa217b3b521086f29c72dfa8",
+  "machine": "Bambu X1 Carbon /0.4mm /textured PEI",
+  "bambu_studio": "2.7.1.62",
+  "required_pieces": 70,
+  "required_types": 53,
+  "plates": 10,
+  "source_comparisons_verified": 71,
+  "pending_source_comparisons": 0,
+  "source_checks": [
+    {
+      "recipe_instance_id": "kit-P02-01",
+      "part": "P43",
+      "source_sha256": "349d4ab7bc8bc4f2b9cbe08fe1f2e09da6736c36fc988ed4307a8af18d36af81",
+      "triangles": 2928,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P03-01",
+      "part": "P03",
+      "source_sha256": "325619cb52573a0ea969b53945d6138e14a2fdb0d6625aeb01a6e624afb32fbc",
+      "triangles": 1340,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P04-01",
+      "part": "P04",
+      "source_sha256": "e24686e020f9e9fa826efa5a2b73544cca6f671355bb26a7996a2d4e7b53e1dc",
+      "triangles": 1036,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P06-01",
+      "part": "P06",
+      "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "triangles": 1704,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P08-01",
+      "part": "P08",
+      "source_sha256": "c49f2d427894d423609fedb005cef7c83e9753646e19a7c1f9a8bf7640d4fb9d",
+      "triangles": 5232,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P14-01",
+      "part": "P14",
+      "source_sha256": "fa1c05767e04f587ac36ae2e4d055f0508843f5febc926039dc05821e044c267",
+      "triangles": 3878,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB24-01",
+      "part": "FB24",
+      "source_sha256": "a5085cc46c4bfa1b9baf50504286e785236ce94c8babbe1dec8836625c840f57",
+      "triangles": 18608,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB32-01",
+      "part": "FB32",
+      "source_sha256": "e1d8960990ea07d499527aefe611baa0e910ece3074c8030ecdff22c073acf57",
+      "triangles": 5920,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB01-01",
+      "part": "FB01",
+      "source_sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c",
+      "triangles": 136852,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P30-01",
+      "part": "P30",
+      "source_sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+      "triangles": 1292,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P31-01",
+      "part": "P31",
+      "source_sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
+      "triangles": 2620,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P02-02",
+      "part": "P02",
+      "source_sha256": "3048035b7bc6baf7c3a00eea9a5536ab6369fdd33a75b22c19a2e2a33fb9dc1b",
+      "triangles": 1700,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P06-02",
+      "part": "P06",
+      "source_sha256": "b2b2ac212c732b124a0b0c1d9a854dac63e321bc078c509075fb5162bdbd0ad4",
+      "triangles": 1704,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P09-01",
+      "part": "P09",
+      "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "triangles": 436,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P09-02",
+      "part": "P09",
+      "source_sha256": "ad10b9f266f2511f6dad3cc17ec166f8ccf6691dc11fade4503294e00d93d40d",
+      "triangles": 436,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-01",
+      "part": "P10",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-02",
+      "part": "P10",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P10-03",
+      "part": "P10",
+      "source_sha256": "c06c7b7339ab71c65fd4ccd0f9f22f2bfcc44614b2f0ac103bd09a5021a98ec7",
+      "triangles": 404,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P11-01",
+      "part": "P11",
+      "source_sha256": "57af6346f7ac447ac70248a574936cea28d598795d8a0bf6443c7db1a08b3f33",
+      "triangles": 640,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P11-02",
+      "part": "P42",
+      "source_sha256": "f9bcdb1e2a0b6df30c68bda870eb6c750aca94e68e8b400bcc8571f6ace51135",
+      "triangles": 468,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P12-01",
+      "part": "P12",
+      "source_sha256": "2bfed18266e07d1afdeba6386f3518e555bff25a73674acdf8ac413810e958c1",
+      "triangles": 868,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P34-01",
+      "part": "P34",
+      "source_sha256": "f491f574101336b066b26037b92d86bfbe6779541174ee556333b337979a85f9",
+      "triangles": 2112,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P35-01",
+      "part": "P35",
+      "source_sha256": "334140df9c81bef592d0e0b1fbbbbeaaef5642b1ab30678b06bd405b61299af4",
+      "triangles": 42188,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR01-01",
+      "part": "AR01",
+      "source_sha256": "6b3148a7779496e34a5e57936a6a84509747fd746142be3cc5124c4ac47a6328",
+      "triangles": 64604,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR04-01",
+      "part": "AR04",
+      "source_sha256": "440c0f52495b04d5bfeb426b44e6030de684b1f2b7a197980bcd28b5309051eb",
+      "triangles": 64614,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P01-01",
+      "part": "P01",
+      "source_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
+      "triangles": 2128,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P01-02",
+      "part": "P44",
+      "source_sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "triangles": 6768,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS11-01",
+      "part": "GS11",
+      "source_sha256": "678d27fda651205b8b8624544131c19032fcf7e9b95e51a8921639678830890a",
+      "triangles": 8646,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS12-01",
+      "part": "GS12",
+      "source_sha256": "c8ad650720c3de7e808ce56445c844968a25fff932dfb8d6ac923651893c7e7b",
+      "triangles": 8646,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR02-01",
+      "part": "AR02",
+      "source_sha256": "a4149aa2033a08358b3dc843b446b3f09bf52a676c3067295feba87b71b9ce2a",
+      "triangles": 56514,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR05-01",
+      "part": "AR05",
+      "source_sha256": "208b4b25cef2c987654498d3cc6662a7830eb8d7aee69a181ce20715b0884417",
+      "triangles": 56572,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR03-01",
+      "part": "AR03",
+      "source_sha256": "2128a51bbccb5a14c0c43e8632a04aecc8a9d97925144fd3cba5647d5e83e145",
+      "triangles": 263250,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR06-01",
+      "part": "AR06",
+      "source_sha256": "b97ee351de06822cf93222980e7cf516f0f689598b10754b991ad79d2b66b56a",
+      "triangles": 263602,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR08-01",
+      "part": "AR08",
+      "source_sha256": "0e5f6a77a87822c1a51c8ff0d31f997afa937cdb4cfadbd1a83d02df54935e03",
+      "triangles": 19378,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-AR09-01",
+      "part": "AR09",
+      "source_sha256": "83c0d4bda9c00ffd65a2fb988412808965d9520f3a0ce2e930d09fe99ca0743f",
+      "triangles": 19378,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-A04-01",
+      "part": "A04",
+      "source_sha256": "3827a77d17a27ff553390a45b4025bc2adaec2166959a7dbfc120f3ff680ba01",
+      "triangles": 98700,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS20-01",
+      "part": "GS20",
+      "source_sha256": "359126afef2ea6c04522f231bff17d8fc4d5c4e1cd47fc85f086fdaf080a7cf7",
+      "triangles": 46930,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB03-01",
+      "part": "FB03",
+      "source_sha256": "0ee2065493e8d8b38f0f3947684d218ac01e3ca8711b95cc57221e91bf7de4a9",
+      "triangles": 1364,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB19-01",
+      "part": "FB19",
+      "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+      "triangles": 2848,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB19-02",
+      "part": "FB19",
+      "source_sha256": "19ea8f43667f89ff0dd9048b2a4ff8363bc48a2e0c580c087db1a00ef8955534",
+      "triangles": 2848,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB20-01",
+      "part": "FB20",
+      "source_sha256": "63f3047829174ede457dd7fcbfa6c2cc2e72b0c33684630deb7feffe18bd6c0a",
+      "triangles": 1360,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB21-01",
+      "part": "FB21",
+      "source_sha256": "6114ec65de9499bee5ffa758ca620f0d91294beb1b85ed6fd0622ca107c7ce41",
+      "triangles": 1284,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB41-01",
+      "part": "FB41",
+      "source_sha256": "efbf10f2ab603e7a2f4a8c9aeb4c06c87791e5fc74b4109f5f731cf779856d90",
+      "triangles": 10196,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P36-01",
+      "part": "P36",
+      "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
+      "triangles": 16676,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P36-02",
+      "part": "P36",
+      "source_sha256": "c0007caca3c6da1c31bcdec0ede86bd5b519c39020d1abc97a631ed041c712bb",
+      "triangles": 16676,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P38-01",
+      "part": "P38",
+      "source_sha256": "c7e9715f8f83eae3a5ea832b1a110f4ffe6c560cb23a254e783a068c681b5968",
+      "triangles": 11950,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P39-01",
+      "part": "P39",
+      "source_sha256": "003b29a0f28004714767eba19ac3a3a4fe77909949b6e6905c466dc1a703ce82",
+      "triangles": 11950,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P40-01",
+      "part": "P40",
+      "source_sha256": "17bcfb4ffd6c58b4eb24520c5fa4765d2d12a4e81666f03a358faf7701430712",
+      "triangles": 452,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B01-01",
+      "part": "B01",
+      "source_sha256": "3edc16a111b71cd71a13f12a50c5346b6abd4ac3647fd43485a9080c588ef5b8",
+      "triangles": 1344,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-01",
+      "part": "B02",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-02",
+      "part": "B02",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-03",
+      "part": "B02",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B02-04",
+      "part": "B02",
+      "source_sha256": "63784f391d29e5f553487cda5b2e9b99ddcaa4d6456c72cd2798e54c0d2edcc5",
+      "triangles": 1820,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B03-01",
+      "part": "B03",
+      "source_sha256": "bc77a00b4bb8c67a869a86584b0db133697479cb4e738214c59f92edebad85c1",
+      "triangles": 2388,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B04-01",
+      "part": "B04",
+      "source_sha256": "c74f85f2d17a3c8d2936cb58b27e652c5373055fbf69deac208cdaa94f7d1ed9",
+      "triangles": 944,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-01",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-02",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-03",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-04",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-05",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-06",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-07",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-B09-08",
+      "part": "B09",
+      "source_sha256": "328f7fb4197e26d544502eacc0ecc7d3d90e7df2c7145a332198a7e6b8459ae2",
+      "triangles": 912,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS01-01",
+      "part": "GS01",
+      "source_sha256": "5fbcd7fdf56f9816479ae4780460a26bd3282d51be3df12ed29633d5ee1e6020",
+      "triangles": 3556,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS02-01",
+      "part": "GS02",
+      "source_sha256": "b2a97a2afb5ed0ea368eba57b7a732b95148416b2371335e9982ae31a238697e",
+      "triangles": 3534,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-GS03-01",
+      "part": "GS03",
+      "source_sha256": "e6a0749f74defc8d4c16fedff072f134f06c69b6a196d3f6709b88dc2740b358",
+      "triangles": 3012,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-FB02-01",
+      "part": "FB02",
+      "source_sha256": "c3754b2b33b0e4d84e6cb72949fdbee34c3f5eff85d1b102a29ed832370ed772",
+      "triangles": 1812,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P37-01",
+      "part": "P37",
+      "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "triangles": 1106,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-P37-02",
+      "part": "P37",
+      "source_sha256": "2cb698cbea238d4a0f37f1307d38436eaee94325753c8dc5947b0d158c50709c",
+      "triangles": 1106,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "kit-A05-01",
+      "part": "A05",
+      "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "triangles": 15802,
+      "result": "verified_triangle_geometry"
+    },
+    {
+      "recipe_instance_id": "optional-petg-A05-01",
+      "part": "A05",
+      "source_sha256": "8385e35a307e62b8b6e51e011d152f2d51a7d6c2260f565a2765c53b33ce92be",
+      "triangles": 15802,
+      "result": "verified_triangle_geometry"
+    }
+  ],
+  "changed_instances": [
+    {
+      "object_id": "34",
+      "part": "P30",
+      "stl_to_mesh": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        -134.86499786376953,
+        -13.550000190734863
+      ],
+      "source_sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570"
+    },
+    {
+      "object_id": "36",
+      "part": "P31",
+      "stl_to_mesh": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        -134.16500091552734,
+        -18.600000381469727
+      ],
+      "source_sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29"
+    },
+    {
+      "object_id": "88",
+      "part": "P44",
+      "stl_to_mesh": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4"
+    }
+  ],
+  "preservation": {
+    "unchanged_required_instances": 67,
+    "unchanged_plates": [
+      "W1",
+      "W2",
+      "B1",
+      "B2",
+      "C2",
+      "G1",
+      "K2",
+      "T1"
+    ],
+    "unchanged_optional_project_sha256": "befcd84edb8abcf64ea33f51f901ea15e1221ff9ba8661d254a17ce921ca4797",
+    "global_change": "Only K1 PLA volumetric limit12to8mm3/s; all other material settings retained",
+    "inherited_modifiers": "All retained; P31 trial central optical support blocker added"
+  },
+  "fullplate_slices": [
+    {
+      "plate": "K1",
+      "project_sha256": "955762ab7d6cf1f3ad84260369648b06724b20b0d7dcb6409e7bb8285cf2bef1",
+      "slice_sha256": "c6fbc85ab4d20a61bb16c4dc11c72232a29090f1ad0ae37129e4e3b3dbea9a9b",
+      "metadata": {
+        "index": "2",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "46817",
+        "weight": "288.82",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "filaments": [
+        {
+          "id": "2",
+          "tray_info_idx": "",
+          "type": "PLA",
+          "color": "#202020",
+          "used_m": "96.84",
+          "used_g": "288.82",
+          "group_id": "0",
+          "nozzle_diameter": "0.40",
+          "volume_type": "Standard",
+          "used_for_object": "true",
+          "used_for_support": "true"
+        }
+      ],
+      "objects": [
+        {
+          "identify_id": "15226",
+          "name": "FB01-1 | Black",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15237",
+          "name": "P30 R34 mouth cap",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15248",
+          "name": "P31 R34 mouth holder",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          18.538,
+          13.639
+        ],
+        [
+          237.462,
+          251.497
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 1522479
+    },
+    {
+      "plate": "C1",
+      "project_sha256": "955762ab7d6cf1f3ad84260369648b06724b20b0d7dcb6409e7bb8285cf2bef1",
+      "slice_sha256": "09782dc730f5bbfd4279511fd4b0f7a995f134d3d318c163e391fa229c8eb543",
+      "metadata": {
+        "index": "4",
+        "extruder_type": "0",
+        "nozzle_volume_type": "0",
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "timelapse_type": "0",
+        "prediction": "20122",
+        "weight": "54.84",
+        "first_layer_time": "0.000000",
+        "outside": "false",
+        "support_used": "true",
+        "label_object_enabled": "true",
+        "enable_filament_dynamic_map": "false",
+        "has_filament_switcher": "false",
+        "filament_maps": "1 1 1 1 1 1 1 1 1 1",
+        "limit_filament_maps": "0 0 0 0 0 0 0 0 0 0"
+      },
+      "filaments": [
+        {
+          "id": "4",
+          "tray_info_idx": "",
+          "type": "PLA",
+          "color": "#B87333",
+          "used_m": "18.39",
+          "used_g": "54.84",
+          "group_id": "0",
+          "nozzle_diameter": "0.40",
+          "volume_type": "Standard",
+          "used_for_object": "true",
+          "used_for_support": "true"
+        }
+      ],
+      "objects": [
+        {
+          "identify_id": "15462",
+          "name": "AR01-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15521",
+          "name": "AR04-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15532",
+          "name": "P01-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15543",
+          "name": "P44 R34 upper collar",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15566",
+          "name": "GS11-1 | Copper",
+          "skipped": "false"
+        },
+        {
+          "identify_id": "15589",
+          "name": "GS12-1 | Copper",
+          "skipped": "false"
+        }
+      ],
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "3",
+          "error_code": "1000C001"
+        }
+      ],
+      "full_height_centerline_bounds_mm": [
+        [
+          14.336,
+          29.835
+        ],
+        [
+          229.63210728400784,
+          231.257
+        ]
+      ],
+      "sample_spacing_max_mm": 0.1,
+      "support_samples": 294421
+    }
+  ],
+  "mouth_and_collar_support_review": {
+    "mouth_support_samples": 10044,
+    "holder_support_samples": 10044,
+    "cap_support_samples": 0,
+    "holder_max_support_height_mm": 1.92,
+    "holder_central_nonbase_support_samples": 0,
+    "collar_support_samples": 0,
+    "scope": "Full plate supports sampled at <=.1mm including arcs. P31 two exposed ear pads only; P30 cap and P44 collar no support. Preserve two .20mm collar screw membranes until cleanup. Bounded centerline checks, not printed release/fit proof."
+  },
+  "mouth_corner_coverage": {
+    "r34": {
+      "layers": 40,
+      "samples": 80,
+      "escape_samples": [],
+      "occupied_seeds": []
+    }
+  },
+  "retained_shell_support": {
+    "posts": [
+      {
+        "family": "Pi",
+        "center": [
+          -74.5,
+          2.5
+        ],
+        "mouth_z": -17,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "Pi",
+        "center": [
+          -74.5,
+          60.5
+        ],
+        "mouth_z": -17,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "Pi",
+        "center": [
+          -25.5,
+          2.5
+        ],
+        "mouth_z": -17,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "Pi",
+        "center": [
+          -25.5,
+          60.5
+        ],
+        "mouth_z": -17,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "shifter",
+        "center": [
+          -18,
+          -22.08
+        ],
+        "mouth_z": -15,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "shifter",
+        "center": [
+          -18,
+          -11.92
+        ],
+        "mouth_z": -15,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "shifter",
+        "center": [
+          -18,
+          -44.08
+        ],
+        "mouth_z": -15,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      },
+      {
+        "family": "shifter",
+        "center": [
+          -18,
+          -33.92
+        ],
+        "mouth_z": -15,
+        "nut_AF_mm": 4.3,
+        "nut_depth_mm": 1.8,
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bore_support_samples": 0
+      }
+    ],
+    "pads": [
+      {
+        "center": [
+          48,
+          52
+        ],
+        "pad_face_z": -12,
+        "face_adjacent_support_samples": 0
+      },
+      {
+        "center": [
+          48,
+          22
+        ],
+        "pad_face_z": -12,
+        "face_adjacent_support_samples": 0
+      },
+      {
+        "center": [
+          48,
+          -8
+        ],
+        "pad_face_z": -12,
+        "face_adjacent_support_samples": 0
+      },
+      {
+        "center": [
+          48,
+          -38
+        ],
+        "pad_face_z": -12,
+        "face_adjacent_support_samples": 0
+      }
+    ],
+    "mounts": [
+      {
+        "family": "rear",
+        "center": [
+          -26,
+          83.5,
+          -12.5
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "rear",
+        "center": [
+          -26,
+          83.5,
+          -49.5
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "rear",
+        "center": [
+          58,
+          83.5,
+          -12.5
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "rear",
+        "center": [
+          58,
+          83.5,
+          -49.5
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "power",
+        "center": [
+          80,
+          84,
+          -27
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "power",
+        "center": [
+          80,
+          84,
+          -53
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "audio",
+        "center": [
+          -62,
+          -78.2,
+          -7
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "audio",
+        "center": [
+          0,
+          -78.2,
+          -7
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      },
+      {
+        "family": "audio",
+        "center": [
+          62,
+          -78.2,
+          -7
+        ],
+        "slot_support_samples": 0,
+        "approach_support_samples": 0,
+        "bounds": null
+      }
+    ]
+  },
+  "visual_review": "First layers reviewed: separated footprints/brims, mouth channels open, collar bearing face down/groove up. Mouth ear supports only, cap/collar unsupported. Two intentional .20mm collar screw membranes removed after printing.",
+  "limitations": [
+    "Bounded path/support sampling is not a strength or material-opacity simulation.",
+    "Printed assembly accepted by owner; adjusted corner roof remains a digitally checked correction awaiting its separate replacement print.",
+    "Generic PLA bed-temperature warning retained with reviewed220C nozzle/60C bed.",
+    "No physical dispatch authorized by release update."
+  ]
+}

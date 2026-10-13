@@ -3285,12 +3285,14 @@
     {
       "id": "head-servo",
       "chapter": "Frame and servos",
-      "title": "Mount the head servo and upper foam collar",
+      "title": "Mount the head servo and upper support collar",
       "parts": {
         "P04": 1,
-        "P01": 1,
         "E01": 1,
-        "T05": 1
+        "T05": 1,
+        "P44": 1,
+        "C01": 1,
+        "T07": 1
       },
       "hardware": {
         "M2x6": 1,
@@ -3311,11 +3313,13 @@
         "From robot-left, push an M3\u00d720 screw through the bracket\u2019s rear end and the rear upright. Hold an M3 nut on its tip at the robot-right face and turn the screw until it catches.",
         "Check that the bracket does not press on the upper light bracket below it. Then tighten both screws. The front screw\u2019s tip must reach the outer face of its nut.",
         "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
-        "Slide an M3 nut into the slot near the top of each upright, from its outer face.",
-        "Place the second foam collar (P01) on the upright tops, tabs over the holes. Put an M3\u00d710 screw down through each tab into its nut. Tighten both.",
-        "The head-bracket screw heads stay reachable from robot-left."
+        "Clear the thin printing membranes from the upper support collar\u2019s (P44) two screw holes. Slide an M3 nut into each upright\u2019s upper slot, from its outer face.",
+        "Place the upper support collar (P44) on the upright tops, tabs over the holes. Put an M3\u00d710 screw through each tab into its nut. Tighten both.",
+        "The head-bracket screw heads stay reachable from robot-left.",
+        "Print the bearing-film template at 100% and check its scale bar. Cut the outer and inner outlines from clear film (C01), keeping both tabs.",
+        "Fold the two tabs down along the dashed lines. Lay the disc flat on the collar and insert its tabs into the slots."
       ],
-      "check": "The head-servo bracket is firm, with its front tab in its seat, and the upper collar is level. The servo shaft points up at the rear end, with a clear cable path.",
+      "check": "The head-servo bracket is firm, with its front tab in its seat, and the upper collar is level. The servo shaft points up at the rear end, with a clear cable path. The film lies flat on the collar, with both tabs in their slots.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json",
@@ -3386,6 +3390,15 @@
             9,
             10,
             11
+          ]
+        },
+        {
+          "title": "Fit the bearing film",
+          "image": "assets/community/head-bearing-film.svg",
+          "caption": "The film disc above the collar, with both tabs folded toward their slots.",
+          "actions": [
+            12,
+            13
           ]
         }
       ]
@@ -3861,23 +3874,20 @@
         "C03": 1,
         "T05": 1,
         "T06": 1,
-        "C07": "As needed",
         "T07": 1
       },
       "hardware": {
-        "M2x8": 4,
-        "N2": 4
+        "M2x8": 2,
+        "N2": 2
       },
       "actions": [
-        "Support the wired mouth stick (E04) on the bench. Hold it against the mouth LED cassette (P30), LEDs facing away from the cassette.",
-        "Put two M2\u00d78 screws through the stick and the cassette\u2019s inner holes, from the LED side. Fit an M2 nut on each. Use no washers.",
-        "Keep the LED faces clear.",
-        "Keep the head face-down. Slide an M2 nut into the slot in each mouth boss. Each slot opens toward the middle of the mouth.",
-        "Cut a strip of 4 mm white mouth foam (C03), 7.4 mm high and slightly long. Curve it into the mouth pocket. Trim its ends until it lies flat without bunching or stretching.",
-        "Place the mouth light separator (P31) behind the foam, curved face against it. Its eight channels face the LEDs. Place the cassette behind it.",
-        "From the rear, put an M2\u00d78 screw through each outer cassette hole into a head nut. Use no washers. Tighten both. Tie the wires at the cassette without pulling a joint."
+        "Cut a strip of 4 mm white mouth foam (C03), 5.75 mm high and slightly long. Curve it into the mouth holder (P31). Trim the ends until it sits without bunching.",
+        "Place the wired mouth stick (E04) in the rear cover (P30), with the LEDs facing the holder\u2019s channels. Lay the wires through the open notch. The board needs no screws.",
+        "Keep the head face-down. Slide an M2 nut into each mouth boss. The slots open toward the middle of the mouth.",
+        "Seat the holder behind the smile, with the foam against the opening. Fit the rear cover and board onto the holder, keeping the wires in the notch.",
+        "From behind, put two M2\u00d78 screws through the cover into the head nuts. Use no washers. Tighten until the assembly holds without bending the prints."
       ],
-      "check": "All eight LEDs align behind the smile, with the end LEDs in their channels. The gaps of about 0.7 mm to the LED faces and 2.3 mm to the board stay empty. The foam lies flat. The cassette can come out through the open rim.",
+      "check": "The foam follows the smile. The board is captured by the cover, and the wires leave through the notch without pinching.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/printing/current/manifest.json"
@@ -3891,20 +3901,26 @@
           "allocation_id": "joint-mouth",
           "role": "install",
           "hardware": {
-            "M2x8": 4,
-            "N2": 4
+            "M2x8": 2,
+            "N2": 2
           }
         }
       ],
       "panels": [
         {
-          "title": "Screw the mouth stick to its cassette",
-          "image": "assets/community/mouth-board-fastening.svg",
-          "caption": "The mouth cassette with the stick in front of it.",
+          "title": "Fit the foam in the holder",
+          "image": "assets/community/mouth-foam-insertion.svg",
+          "caption": "The curved foam strip entering the holder\u2019s front seat.",
           "actions": [
-            0,
-            1,
-            2
+            0
+          ]
+        },
+        {
+          "title": "Place the board in the rear cover",
+          "image": "assets/community/mouth-board-fastening.svg",
+          "caption": "The mouth stick and rear cover, with the wire exit notch visible.",
+          "actions": [
+            1
           ]
         },
         {
@@ -3912,21 +3928,16 @@
           "image": "assets/community/mouth-head-nuts.svg",
           "caption": "The lower rim of the head from inside, with the two mouth bosses.",
           "actions": [
-            3
+            2
           ]
         },
         {
-          "title": "Fit the foam, separator and cassette",
+          "title": "Fasten the mouth assembly",
           "image": "assets/community/mouth-clamp-fastening.svg",
-          "caption": "The separator and cassette, with the two outer clamp screws.",
-          "detail": {
-            "title": "One mouth channel in section",
-            "image": "assets/r20/side-section.png"
-          },
+          "caption": "The mouth assembly behind the smile, with the head cut away and the two screws shown apart.",
           "actions": [
-            4,
-            5,
-            6
+            3,
+            4
           ]
         }
       ]
@@ -3992,7 +4003,7 @@
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
         "Split the three strand wires apart for about 15 mm after light 5. Push the craft knife tip between two wires. Pull one wire gently along the blade. The wires are thin.",
         "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its three wires to the matching strand wires after light 5. Cover each joint with heat-shrink slid on before soldering.",
-        "This is the head light cable. It must reach about 10 cm above the upper foam collar (P01), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
+        "This is the head light cable. It must reach about 10 cm above the upper support collar (P44), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
         "With the meter in continuity mode, touch the body half\u2019s +5 V and GND contacts. The meter must not beep steadily."
       ],
       "check": "Lights 0 to 5 are cut from INPUT. The head light connector\u2019s body half is soldered on after light 5, and +5 V does not reach GND.",
@@ -4155,7 +4166,7 @@
         "Keep them clear of the rear seam and of sharp edges.",
         "Print the body foam template at 100% (actual size), landscape. Check its 50 mm bar with a ruler.",
         "Cut the body foam (C04) from 4 mm foam along the template outline, slightly long.",
-        "Test-fit the foam between the two foam collars (P01), top edge up, front center at the front upright. Trim both ends to a 2 mm gap at the rear upright.",
+        "Test-fit the foam between the lower collar (P01) and upper support collar (P44). Keep its top edge up and front center at the front upright. Trim the ends to a 2 mm rear gap.",
         "With the foam still in place, feel each shoulder servo shaft through it. Mark the foam over the center of each shaft.",
         "Unwrap the foam. Cut a round 14 mm hole at each mark, the size of the circle on the template.",
         "Hold a rear seam backing (P09) on the back of the rear upright, over the upper nut. Line up the holes. Tape it there with low-tack tape.",
@@ -5007,7 +5018,7 @@
         "On your computer, type STOP at the waiting command. If it says the release is unconfirmed, unplug the supply from the wall at once.",
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
         "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall.",
-        "Hold the shelf still. Drive the horn\u2019s own center screw down through the head horn adapter\u2019s center. Do not use an M2 screw.",
+        "Hold the shelf still. Fit the horn\u2019s own center screw through the adapter. Do not use an M2 screw. Tighten gently until seated.",
         "Hold each arm still. Drive its horn\u2019s center screw through the arm\u2019s outer face.",
         "If a part turned, remove its center screw and lift it off. Plug the supply into the wall. Let the Pi boot. Repeat {step:fit-position} and this step for it."
       ],
@@ -5109,7 +5120,11 @@
             8,
             9,
             10
-          ]
+          ],
+          "safety": {
+            "level": "notice",
+            "text": "Slight left\u2013right rotational play of the head shelf, viewed from above, is normal. Check with a light touch only. Do not force the servo shaft to turn or overtighten to remove this play."
+          }
         }
       ]
     },
@@ -5120,9 +5135,9 @@
       "actions": [
         "Drop an M2 nut into each of the three pockets on top of the head shelf (P08). Each nut stands on edge.",
         "Lift the head off the towels. Hold it upright a few centimetres above the shelf, face forward, its screw holes above the nut pockets.",
-        "With your other hand, push the joined head light connector up into the head. Rest it on top of the mouth LED cassette (P30).",
+        "With your other hand, push the joined head light connector up into the head. Rest it on top of the mouth rear cover (P30).",
         "Lower the head straight onto the shelf, without twisting it. Push the head light cable slack down through its gap, into a relaxed loop below the shelf.",
-        "If the head does not sit level, lift it. Free the trapped wire.",
+        "If the head does not sit level, lift it. Free any trapped wire and lay the bearing film flat.",
         "Hold the head still with one hand. With the other, start an M2\u00d78 button-head screw by hand in each hole, on the two sides and the back. Use no washers or plugs.",
         "Tighten each screw only until the shell is held firmly.",
         "If a screw does not catch, lift the head off. Check that its nut stands on edge in its pocket.",
@@ -5223,13 +5238,13 @@
         "Plug the supply into the wall. Let the Pi boot.",
         "The head and arms may shift a little as the application starts.",
         "Press the front button. Talk with the robot. Ask it to dance.",
-        "The head turns smoothly, and its light cable stays loose in the gap below it. The arms swing clear of the body and the supply cable.",
+        "Watch the head turn smoothly over the bearing film, with its light cable loose below. The arms should clear the body and supply cable.",
         "If a part binds, a cable pulls tight or you notice smoke, unplug the supply from the wall at once.",
         "If a part hits, unplug the supply from the wall. Take the part off.",
         "Plug the supply back in. Let the Pi boot. Run the command below.",
         "Fit the part as in {step:shelf-arms}. Refit its cover as in {step:head-shoulder-covers}. Repeat this step."
       ],
-      "check": "The head and arms move through a conversation and a dance without touching the body or any cable.",
+      "check": "The head turns smoothly over the bearing film through a conversation and a dance. The arms and cables stay clear.",
       "note": "",
       "source": [],
       "commands": [],
@@ -5579,8 +5594,8 @@
     "N3": 59,
     "W3": 8,
     "M3x8": 5,
-    "M2x8": 10,
-    "N2": 37,
+    "M2x8": 8,
+    "N2": 35,
     "M2x12": 4,
     "M2x10": 8,
     "M3x16": 7,

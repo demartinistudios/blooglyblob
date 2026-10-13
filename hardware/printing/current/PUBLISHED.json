@@ -1,8 +1,8 @@
 {
-  "package": "BlooglyBlob R33 editable print set",
-  "date": "2026-10-08",
-  "status": "Current selected print inputs; full W1/W2 reviewed; guide update/physical qualification/deployment separate.",
-  "cad_release": "R33/cloud30",
+  "package": "BlooglyBlob R34 editable print set",
+  "date": "2026-10-13",
+  "status": "Maintained editable inputs; validated K1/C1 slices; deployment separate.",
+  "cad_release": "R34/cloud32",
   "files": [
     {
       "path": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
@@ -10,14 +10,14 @@
       "bytes": 349549
     },
     {
-      "path": "BlooglyBlob-R33-PLA-Production.3mf",
-      "sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
-      "bytes": 19109159
+      "path": "BlooglyBlob-R34-PLA-Production.3mf",
+      "sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
+      "bytes": 19090223
     },
     {
       "path": "README.md",
-      "sha256": "ad5ea5220dd562828157c5348144dde75082a9ce2a7bb8bf44a1a5ff81a517de",
-      "bytes": 11886
+      "sha256": "742bd4f4d2f113cba8f9de649198639af076d68777fd513209cdb1ec76b9b797",
+      "bytes": 13566
     },
     {
       "path": "checks/first-layers.png",
@@ -355,6 +355,21 @@
       "bytes": 1394120
     },
     {
+      "path": "checks/r34-first-layer.png",
+      "sha256": "5e3dd540abb0c1ca7d15f7874d86ffe57dbea761ed77408d5f170c42eedc16c7",
+      "bytes": 785301
+    },
+    {
+      "path": "checks/r34-mouth-collar-validation.json",
+      "sha256": "537fc6c9654b1a6f9d191e469d7645c5a08c1cbf1a0e4be32455c3eb0ba57adc",
+      "bytes": 29620
+    },
+    {
+      "path": "checks/r34-mouth-supports.png",
+      "sha256": "ad113c29a2a7e768de5a8bd1570c326087e6584e3f072e9208ff73ed120a23d8",
+      "bytes": 52193
+    },
+    {
       "path": "checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -366,28 +381,28 @@
     },
     {
       "path": "live-source-check.json",
-      "sha256": "9421e3bba1904dad23444f64d862d4ff7be06eb4f2d4250c0fc2058f908e3ce1",
-      "bytes": 796
+      "sha256": "1ea2b759138baf214bb4071fb6a43f3a6f6e3d63d5541808e6e2e5df4cf2862f",
+      "bytes": 800
     },
     {
       "path": "manifest.json",
-      "sha256": "52f25b0001101fa33c37c6ce5eced15a543ca93a143beb62f9a57fe184768aa2",
-      "bytes": 621925
+      "sha256": "19342a45a907d9d5c123da5c7a965398cc01f099eb3f9a83dd5aa2a2cc2bf545",
+      "bytes": 622188
     },
     {
       "path": "object-settings.csv",
-      "sha256": "80f9bfde131180bdae3e05bf80d7e2100c488e25205c989492b0816b59e7425d",
-      "bytes": 7932
+      "sha256": "740f49529a04fd60e741f04e1966a2a06f523d17a1dd0417725c29b949f047bb",
+      "bytes": 7899
     },
     {
       "path": "planned-settings.json",
-      "sha256": "467d9c3d39b4b4e9b71d2ded42d62ad7be3eebae9be93d96c884aabfdf209679",
-      "bytes": 85130
+      "sha256": "cad270e52c13f14a511e7e20026941a2b6c4c5afb736fffb3f6a2cf7cf09154e",
+      "bytes": 75881
     },
     {
       "path": "source-provenance.json",
-      "sha256": "9acf363e9d800f73694669e9c1a61e1110b5914976d3c238c1fcf833eda49087",
-      "bytes": 439911
+      "sha256": "656503cfc8b4c9059bf4b1882989475361ee011c0eed40d44fed366634d29f38",
+      "bytes": 440197
     }
   ]
 }

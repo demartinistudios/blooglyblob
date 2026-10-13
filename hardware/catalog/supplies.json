@@ -220,10 +220,10 @@
     },
     {
       "id": "C01",
-      "exact": "Flexible clear front-eye film",
+      "exact": "Clear flexible film for eye windows and head bearing",
       "category": "Consumable",
       "optional": 0,
-      "qty": 2,
+      "qty": 3,
       "quantity_scope": "consumable-allowance"
     },
     {

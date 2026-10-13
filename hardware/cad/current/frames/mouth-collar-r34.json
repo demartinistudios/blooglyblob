@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "cad": "R34/cloud32",
+  "units": "mm",
+  "transform_convention": "STL mm to assembly mm uses the explicit row-major 4x4 matrix once. Native mesh rows instead use local cm and occurrence transforms.",
+  "parts": [
+    {
+      "part_id": "P30",
+      "sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+      "source_frame": "assembly mm",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 2935.4725059095304,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P30.stl",
+      "occurrence": "P30 Mouth rear cover r34 - recessed screw access:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "part_id": "P31",
+      "sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
+      "source_frame": "assembly mm",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 2880.2547983661684,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P31.stl",
+      "occurrence": "P31 Mouth holder r34 - eight channels and PCB seat:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "part_id": "P44",
+      "sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "source_frame": "bearing-face-down print frame",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          120.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 16338.229904467158,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P44.stl",
+      "occurrence": "P44 Upper bearing collar r34 - keyed clear film:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

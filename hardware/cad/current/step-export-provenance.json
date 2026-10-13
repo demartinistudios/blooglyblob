@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "design_revision": "R33",
+  "design_revision": "R34",
   "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-  "cloud_version": 30,
-  "native_sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
+  "cloud_version": 32,
+  "native_sha256": "29ba97cd9783a657646284f8c9541107a0d64cb8fa217b3b521086f29c72dfa8",
   "export": {
     "path": "hardware/cad/current/assembly.step",
-    "sha256": "bd8a38aac1e7218ee9f294be143b3b412da259fad4ee82b3fdea07552dca23f4",
-    "bytes": 21775520,
+    "sha256": "91e80d1afff668366b4b2eb372b4ea36fae0d1f4e077775d262a12128d50db31",
+    "bytes": 21907281,
     "schema": "AP214",
     "file_schema": "AUTOMOTIVE_DESIGN { 1 0 10303 214 3 1 1 }",
     "application": "Autodesk Fusion 2705.1.25",
@@ -16,9 +16,9 @@
     "include_invisible_components": true
   },
   "verification": {
-    "body_count": 562,
-    "occurrences_before": 330,
-    "occurrences_after": 330,
+    "body_count": 563,
+    "occurrences_before": 331,
+    "occurrences_after": 331,
     "all_solid_states_match": true,
     "max_center_delta_mm": 0.0055291547607650175,
     "max_bounds_delta_mm": 0.0007346557902963013,
@@ -26,8 +26,8 @@
     "max_volume_delta_mm3": 2.8850837420050084,
     "status": "PASS",
     "max_transform_coefficient_delta": 1.2434497875801753e-14,
-    "method": "Full root including hidden geometry reimported into a separate Fusion document. One-to-one body geometry and occurrence placements checked with VeryHighCalculationAccuracy physical properties."
+    "method": "Full root including hidden geometry reimported separately; one-to-one body properties and occurrence transforms checked with VeryHighCalculationAccuracy."
   },
   "scope": "Full assembly geometry, including hidden reference, layout and test components. Native component occurrence placements retained. STEP import can renumber occurrence suffixes and assign generic body names; parametric history and Fusion joints are not part of this neutral geometry export.",
-  "preserved": "Geometry and placements verified against saved MAIN cloud30. STEP omits native parametric history and joints."
+  "preserved": "Geometry and placements verified against saved MAIN cloud32. STEP omits native parametric history and joints."
 }

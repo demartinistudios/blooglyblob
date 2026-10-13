@@ -1,11 +1,17 @@
 """Direct hardware operations; importing this module never imports Pi drivers."""
 import asyncio
+from concurrent.futures import Future
 from contextlib import ExitStack
+from contextvars import copy_context
 from importlib.resources import as_file, files
 import logging
 import os
 from pathlib import Path
 import threading
+import time
+
+from blooglyblob.tools.outcomes import NotDispatched
+from blooglyblob.tools.timing import stage
 
 from .lighting import LightingState
 from .music_lights import load_lights
@@ -63,7 +69,7 @@ class HardwareController:
     def __init__(self, audio, on_button=lambda: None, on_dance_finished=lambda _: None,
                  on_failure=lambda *_: None, *, media_dir=None,
                  servo_factory=_servos, led_factory=_leds, ambient_factory=_ambient,
-                 button_factory=_button, operation_timeout=3.):
+                 button_factory=_button, operation_timeout=3., admission_timeout=.25):
         self._loop = asyncio.get_running_loop()
         self.audio = audio
         self._on_button, self._on_dance, self._on_failure = on_button, on_dance_finished, on_failure
@@ -79,6 +85,7 @@ class HardwareController:
         self._resources = ExitStack()
         self.alert_path = self.dance_path = self.beats_path = self.search_path = None
         self._timeout = operation_timeout
+        self._admission_timeout = admission_timeout
         self.media = LocalMedia(audio, self, timeout=operation_timeout)
         self._prepared = self._closed = False
         self._prepare_task = None
@@ -276,7 +283,8 @@ class HardwareController:
             finally:
                 self.animation_lock.release()
         try:
-            worker = Worker(run, 'hardware-gesture')
+            context = copy_context()
+            worker = Worker(lambda: context.run(run), 'hardware-gesture')
         except Exception:
             self.animation_lock.release()
             raise
@@ -302,7 +310,52 @@ class HardwareController:
             self._gesture_error = False
             raise RuntimeError('gesture_failed')
 
-    async def execute(self, name, params):
+    async def _admit_gesture(self, operation, is_current, name):
+        started = Future()
+        cancelled = threading.Event()
+        admission = threading.Lock()
+        began = time.monotonic()
+        deadline = began + self._admission_timeout
+
+        def current():
+            return not cancelled.is_set() and not self._closed and time.monotonic() < deadline and is_current()
+
+        def guarded():
+            # Publish the dispatch decision atomically against a timed-out waiter.
+            with admission:
+                accepted = current()
+                started.set_result(accepted)
+            if accepted:
+                stage('tool_admitted', tool=name)
+                stage('effect_dispatch', tool=name)
+                log.info('motion_effect_start elapsed_ms=%.3f', (time.monotonic() - began) * 1000)
+                operation()
+
+        try:
+            while current():
+                if self._gesture(guarded):
+                    try:
+                        accepted = await asyncio.wait_for(
+                            asyncio.shield(asyncio.wrap_future(started)),
+                            max(0, deadline - time.monotonic()))
+                    except asyncio.TimeoutError:
+                        with admission:
+                            cancelled.set()
+                            # A worker may have begun before its loop notification.
+                            accepted = started.done() and started.result()
+                    log.info('motion_admission elapsed_ms=%.3f accepted=%d', (time.monotonic() - began) * 1000, accepted)
+                    return accepted
+                if self.ownership_uncertain or self.media.dancing or time.monotonic() >= deadline:
+                    break
+                await asyncio.sleep(min(.01, max(0, deadline - time.monotonic())))
+            log.info('motion_admission elapsed_ms=%.3f accepted=0', (time.monotonic() - began) * 1000)
+            return False
+        except asyncio.CancelledError:
+            with admission:
+                cancelled.set()
+            raise
+
+    async def execute(self, name, params, *, is_current=lambda: True):
         if self._closed or self.ownership_uncertain:
             raise RuntimeError('Hardware closed or ownership uncertain')
         if name == 'goToSleep':
@@ -319,8 +372,8 @@ class HardwareController:
                 getattr(self.servos, ANIMATIONS[animation])()
                 if self.ambient:
                     self.ambient.hold_all(5.)
-            if not self._gesture(animate):
-                return 'Error: Animation already playing'
+            if not await self._admit_gesture(animate, is_current, name):
+                return NotDispatched('Error: Motion busy; no action dispatched.')
             return f'Playing {animation}'
         if name == 'moveHead':
             direction = params.get('direction', '').lower()
@@ -333,7 +386,8 @@ class HardwareController:
                 getattr(self.servos.head, {'left':'look_left', 'right':'look_right', 'center':'center'}[direction])(speed=speed)
                 if self.ambient:
                     self.ambient.hold_head(5.)
-            self._gesture(move)
+            if not await self._admit_gesture(move, is_current, name):
+                return NotDispatched('Error: Motion busy; no action dispatched.')
             return f'Moving head {direction}'
         return f"Error: Unknown tool '{name}'"
 

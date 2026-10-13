@@ -1,19 +1,42 @@
 # Editable print recipes
 
-The current CAD is **R33 / Fusion cloud30**, with ten color/material plates,
-70 required pieces / 52 types. Open **BlooglyBlob-R33-PLA-Production.3mf** in
-Bambu Studio 2.7.1.62. The optional clear PETG ball project replaces A05 on T1.
-Logical filament numbers are profiles, not physical AMS slot assignments.
+The current CAD is **R34 / Fusion cloud32**, with ten color/material plates,
+70 required pieces / 53 types. Open **BlooglyBlob-R34-PLA-Production.3mf** in
+Bambu Studio 2.7.1.62. The optional clear PETG ball replaces A05 on T1.
+Logical filament profiles are independent of physical AMS slots.
 
-Package estimate: **38h 58m 13s, 680.72 g**. W1 and W2 were freshly
-sliced for this update; eight unchanged plates retain their prior estimates.
-These are slicer predictions. The unchanged K1 enclosure estimate remains
-12h 14m 24s / 289.52 g.
-
+Package estimate: **40h 7m 21s, 687.32 g**. K1 and C1 were freshly
+sliced for this release; eight other plates retain their verified prior estimates.
 All 71 required/optional source-instance comparisons pass exact triangle and
-closed-topology checks. Physical qualification remains separate; use
-`python3 hardware/tools/validation/check.py --publication` for current blockers.
-See [current review](checks/r33-lighting-validation.json).
+closed-topology checks. See [current review](checks/r34-mouth-collar-validation.json).
+
+## R34 mouth and upper collar
+
+K1 contains the enclosure, **P30 rigid rear cap** and **P31 eight-channel mouth
+holder**. Both mouth parts print rear face down at 0.16 mm layers, with 0.20 mm
+first layer, five walls and a 5 mm outer brim / 0.12 mm gap. P30 uses 100%
+rectilinear infill and no supports. P31 uses 35% gyroid and bed-only snug supports;
+a central blocker keeps supports out of the channels, diffuser pocket and board
+recess. Remove the two short, exposed supports below its mounting ears before
+assembly. The holder and cap use the existing two M2×8 screws and nuts.
+
+The whole K1 logical black PLA profile uses **220°C nozzle / 60°C bed / 8 mm³/s**,
+retaining the mouth trial's flow limit. Its full-plate estimate is **13h 0m 17s /
+288.82 g**. The enclosure geometry, orientation and support blockers are retained.
+Flow calibration stays off for K1 because its layout crosses that calibration area.
+
+C1 contains one unchanged **P01 lower collar** and one **P44 upper bearing collar**,
+plus the retained arm cores and goggles. P44 prints bearing face down, groove up:
+0.20 mm layers, five walls, 35% gyroid, supports off, 8 mm outer brim / 0.08 mm gap.
+The copper silk profile remains **220°C / 60°C / 6 mm³/s**. Clear only the two
+0.20 mm sacrificial screw-hole membranes; preserve the surrounding seats and
+bearing surface. The bearing film is cut using the guide's 1:1 template and is
+not a printed part. C1's full-plate estimate is **5h 35m 22s / 54.84 g**.
+
+[Full-plate first layers](checks/r34-first-layer.png) show separate brims and
+support footprints. [Mouth support review](checks/r34-mouth-supports.png) confirms
+accessible ear pads, with no sampled support inside the channels. Assembly feedback,
+digital geometry checks and material-specific printing results are recorded separately.
 
 ## R33 lighting and head carrier
 
@@ -139,7 +162,7 @@ required public build inputs.
 | Plate | Recipe and change | Whole-plate estimate |
 |---|---|---|
 | W1 — white, plate 1 | R33 carrier/front upright; retained head/audio parts and blockers | 3h 28m 30s, 64.67g |
-| K1 — black, plate 2 | R28 shell roof-down; 0.20 mm layers, 4 walls, 25% gyroid, 5mm outer brim / 0.12mm gap; normal/snug supports, 0.20 mm Z / 0.40mm XY; PLA 220°C nozzle / 60°C textured PEI | 12h 14m 24s, 289.52g |
+| K1 — black, plate 2 | R34 rear-down P30 cap/P31 holder with retained roof-down shell; black PLA 220°C / 60°C / 8 mm³/s | 13h 0m 17s, 288.82g |
 | W2 — white, plate 3 | R33 lower/upper/middle LED brackets; rear upright and backpack retained | 4h 7m 44s, 60.76g |
 | C2 — copper, plate 7 | R29 canisters upright; silk PLA 220°C / 55°C, 7.5 mm³/s; all other copper parts/settings retained | 3h 44m 26s, 48.63g |
 
@@ -149,15 +172,15 @@ Y12. The generic PLA bed-temperature warning remains. Confirm the X1 Carbon,
 0.4mm nozzle, textured plate and selected material before printing.
 
 The selected fingers-up/peg-down hands, side-down arm cores, front-down goggles,
-collar inner-and-outer 8mm brims, P35 pin blockers, unsupported upright P10 and
+P01 inner-and-outer 8mm brims and P44 outer-only 8mm brim, P35 pin blockers, unsupported upright P10 and
 antenna thread protection remain. Copper silk settings, including the C2
-220°C nozzle / 55°C bed and 7.5mm³/s flow limit, are preserved. K1 and B2 plate estimates are inherited. The optional PETG ball uses the same
+220°C nozzle / 55°C bed and 7.5mm³/s flow limit, are preserved. B2 retains its prior estimate; K1 was re-sliced for R34. The optional PETG ball uses the same
 selected A05 mesh as the PLA project, with its own retained PETG process and a
 fresh slice estimate of 22 m 25 s / 1.36 g.
 
 ## Support removal and assembly checks
 
-K1 has four switch, six front and four rear blockers, plus one narrow
+The K1 enclosure has four switch, six front and four rear blockers, plus one narrow
 full-height blocker protecting both power nut slots and their screw bores.
 Sampled paths show clear board/cover nut insertion regions. The FB24 tie slits
 are intentionally closed. Small accessible front entry-edge support remains
@@ -175,7 +198,7 @@ none of these outcomes.
 
 manifest.json, object-settings.csv and planned-settings.json describe the selected
 recipe. source-provenance.json retains inherited recipe origins; live-source-check.json
-binds this update to the registry-selected CAD. checks/r33-lighting-validation.json records the current changed-source, W1/W2 and preservation review. Earlier checks/r29-mesh-consistency-* records prior source/frame and support review, reused only for unchanged scope. Earlier checks/r29-* retains prior W1/W2/C2 review and arm frame corrections; checks/r28-* retains the unchanged K1 review; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
+binds this update to the registry-selected CAD. checks/r34-mouth-collar-validation.json records the current K1/C1 source, support and preservation review. checks/r33-lighting-validation.json retains W1/W2 evidence for unchanged scope. Earlier checks/r29-mesh-consistency-* records prior source/frame and support review, reused only for unchanged scope. Earlier checks/r29-* retains prior W1/W2/C2 review and arm frame corrections; checks/r28-* retains prior enclosure geometry/support evidence within K1; checks/r27-* preserves prior nut-slot evidence; checks/r26-* preserves W1; checks/r25-* preserves W2, and checks/r24-* preserves the preceding
 base/cradle review. Other checks files preserve explicitly historical R23 evidence
 for inherited recipes; they are not new R29 results. PUBLISHED.json is a current
 file inventory, not proof of deployment or user approval. Git preserves superseded

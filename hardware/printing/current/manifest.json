@@ -2036,7 +2036,7 @@
       "source_stl_sha256": "c3b1d40e0a738c05f88b7b41c67703cf200616ec95963396ae2855b6ace59d0c"
     },
     {
-      "label": "P30-1 | Black",
+      "label": "P30 R34 mouth cap",
       "part": "P30",
       "object_id": "34",
       "plate": 2,
@@ -2053,7 +2053,7 @@
         0.0,
         0.0
       ],
-      "source_key": "14",
+      "source_key": "R34",
       "settings": {
         "accel_to_decel_enable": "0",
         "accel_to_decel_factor": "50%",
@@ -2065,7 +2065,7 @@
         "bottom_surface_pattern": "monotonic",
         "bridge_flow": "1",
         "bridge_no_support": "0",
-        "bridge_speed": "50,50",
+        "bridge_speed": "25,25",
         "brim_object_gap": "0.12",
         "brim_type": "outer_only",
         "brim_width": "5",
@@ -2081,7 +2081,7 @@
         "enable_circle_compensation": "0",
         "enable_height_slowdown": "0,0",
         "enable_overhang_speed": "1,1",
-        "enable_support": "1",
+        "enable_support": "0",
         "enable_support_ironing": "0",
         "enable_tower_interface_features": "0",
         "enable_wrapping_detection": "0",
@@ -2193,18 +2193,18 @@
         "smooth_coefficient": "150",
         "solid_infill_filament": "0",
         "sparse_infill_acceleration": "100%,100%",
-        "sparse_infill_density": "35%",
+        "sparse_infill_density": "100%",
         "sparse_infill_filament": "0",
         "sparse_infill_lattice_angle_1": "-45",
         "sparse_infill_lattice_angle_2": "45",
         "sparse_infill_line_width": "0.45",
-        "sparse_infill_pattern": "gyroid",
+        "sparse_infill_pattern": "rectilinear",
         "sparse_infill_speed": "80",
         "spiral_mode": "0",
         "standby_temperature_delta": "-5",
         "support_base_pattern": "default",
         "support_base_pattern_spacing": "2.5",
-        "support_bottom_z_distance": "0.24",
+        "support_bottom_z_distance": "0.2",
         "support_expansion": "0",
         "support_filament": "0",
         "support_interface_bottom_layers": "2",
@@ -2221,13 +2221,13 @@
         "support_ironing_spacing": "0.15",
         "support_ironing_speed": "30",
         "support_line_width": "0.42",
-        "support_object_xy_distance": "0.4",
-        "support_on_build_plate_only": "0",
+        "support_object_xy_distance": "0.35",
+        "support_on_build_plate_only": "1",
         "support_speed": "150,150",
-        "support_style": "default",
+        "support_style": "snug",
         "support_threshold_angle": "30",
-        "support_top_z_distance": "0.24",
-        "support_type": "tree(auto)",
+        "support_top_z_distance": "0.2",
+        "support_type": "normal(auto)",
         "symmetric_infill_y_axis": "0",
         "top_color_penetration_layers": "5",
         "top_shell_layers": "5",
@@ -2257,10 +2257,12 @@
         "xy_hole_compensation": "0",
         "z_direction_outwall_speed_continuous": "0"
       },
-      "stable_instance_key": "2:P30-1"
+      "stable_instance_key": "2:P30-1",
+      "source_stl_sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+      "geometry_revision": "R34"
     },
     {
-      "label": "P31-1 | Black",
+      "label": "P31 R34 mouth holder",
       "part": "P31",
       "object_id": "36",
       "plate": 2,
@@ -2269,7 +2271,7 @@
       "filament_index": 2,
       "xy": [
         161.0,
-        240.0
+        238.0
       ],
       "z_rotation_degrees": 0,
       "plate_origin": [
@@ -2277,7 +2279,7 @@
         0.0,
         0.0
       ],
-      "source_key": "14",
+      "source_key": "R34",
       "settings": {
         "accel_to_decel_enable": "0",
         "accel_to_decel_factor": "50%",
@@ -2288,8 +2290,8 @@
         "bottom_surface_density": "100%",
         "bottom_surface_pattern": "monotonic",
         "bridge_flow": "1",
-        "bridge_no_support": "0",
-        "bridge_speed": "50,50",
+        "bridge_no_support": "1",
+        "bridge_speed": "25,25",
         "brim_object_gap": "0.12",
         "brim_type": "outer_only",
         "brim_width": "5",
@@ -2428,7 +2430,7 @@
         "standby_temperature_delta": "-5",
         "support_base_pattern": "default",
         "support_base_pattern_spacing": "2.5",
-        "support_bottom_z_distance": "0.24",
+        "support_bottom_z_distance": "0.2",
         "support_expansion": "0",
         "support_filament": "0",
         "support_interface_bottom_layers": "2",
@@ -2445,13 +2447,13 @@
         "support_ironing_spacing": "0.15",
         "support_ironing_speed": "30",
         "support_line_width": "0.42",
-        "support_object_xy_distance": "0.4",
-        "support_on_build_plate_only": "0",
+        "support_object_xy_distance": "0.35",
+        "support_on_build_plate_only": "1",
         "support_speed": "150,150",
-        "support_style": "default",
-        "support_threshold_angle": "30",
-        "support_top_z_distance": "0.24",
-        "support_type": "tree(auto)",
+        "support_style": "snug",
+        "support_threshold_angle": "15",
+        "support_top_z_distance": "0.2",
+        "support_type": "normal(auto)",
         "symmetric_infill_y_axis": "0",
         "top_color_penetration_layers": "5",
         "top_shell_layers": "5",
@@ -2479,9 +2481,12 @@
         "wipe_tower_no_sparse_layers": "0",
         "xy_contour_compensation": "0",
         "xy_hole_compensation": "0",
-        "z_direction_outwall_speed_continuous": "0"
+        "z_direction_outwall_speed_continuous": "0",
+        "bridge_angle": "90"
       },
-      "stable_instance_key": "2:P31-1"
+      "stable_instance_key": "2:P31-1",
+      "source_stl_sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
+      "geometry_revision": "R34"
     },
     {
       "label": "P02-1 | White",
@@ -5870,24 +5875,24 @@
       "geometry_revision": "R29"
     },
     {
-      "label": "P01-2 | Copper",
-      "part": "P01",
+      "label": "P44 R34 upper collar",
+      "part": "P44",
       "object_id": "88",
       "plate": 4,
       "plate_id": "C1",
       "color": "Copper",
       "filament_index": 4,
       "xy": [
-        62.89718410371648,
+        62.89718410371654,
         182.69577423553682
       ],
-      "z_rotation_degrees": 90,
+      "z_rotation_degrees": 0,
       "plate_origin": [
         921.5999999999999,
         0.0,
         0.0
       ],
-      "source_key": "13",
+      "source_key": "R34",
       "settings": {
         "accel_to_decel_enable": "0",
         "accel_to_decel_factor": "50%",
@@ -5901,7 +5906,7 @@
         "bridge_no_support": "0",
         "bridge_speed": "25,25",
         "brim_object_gap": "0.08",
-        "brim_type": "outer_and_inner",
+        "brim_type": "outer_only",
         "brim_width": "8",
         "circle_compensation_manual_offset": "0",
         "default_acceleration": "10000,10000",
@@ -5915,7 +5920,7 @@
         "enable_circle_compensation": "0",
         "enable_height_slowdown": "0,0",
         "enable_overhang_speed": "1,1",
-        "enable_support": "1",
+        "enable_support": "0",
         "enable_support_ironing": "0",
         "enable_tower_interface_features": "0",
         "enable_wrapping_detection": "0",
@@ -5963,7 +5968,7 @@
         "ironing_spacing": "0.15",
         "ironing_speed": "30",
         "ironing_type": "no ironing",
-        "layer_height": "0.16",
+        "layer_height": "0.2",
         "line_width": "0.42",
         "locked_skeleton_infill_pattern": "zigzag",
         "locked_skin_infill_pattern": "crosszag",
@@ -6092,8 +6097,8 @@
         "z_direction_outwall_speed_continuous": "0"
       },
       "stable_instance_key": "4:P01-2",
-      "source_stl_sha256": "77b2d4ff6932fcca7b195b96f4eafe099b602cdc6dcf9ad40a43c820b39c4933",
-      "geometry_revision": "R29"
+      "source_stl_sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "geometry_revision": "R34"
     },
     {
       "label": "GS11-1 | Copper",
@@ -15810,11 +15815,11 @@
         "P31": 1
       },
       "piece_count": 3,
-      "purpose": "R28 roof-down shell with relocated Pi/shifter posts and straight Wago pad row; unchanged mouth pair and all 15 inherited blockers.",
-      "status": "R28 full K1 slice/layout reviewed; eight moved post recesses/bores and four pad faces clear of sampled support paths; physical cleanup and nut retention pending",
+      "purpose": "Roof-down enclosure with rear-down rigid P30 cap and eight-channel P31 mouth holder.",
+      "status": "R34 whole-plate slice, bounds, first-layer and support review passed.",
       "dispatch_authorized": false,
-      "estimated_seconds": 44064,
-      "estimated_grams": 289.52,
+      "estimated_seconds": 46817,
+      "estimated_grams": 288.82,
       "plate_number": 2
     },
     {
@@ -15845,16 +15850,17 @@
       "parts": {
         "AR01": 1,
         "AR04": 1,
-        "P01": 2,
+        "P01": 1,
+        "P44": 1,
         "GS11": 1,
         "GS12": 1
       },
       "piece_count": 6,
-      "purpose": "Matched arm cores, both foam collars and current goggles. Require satisfactory chosen-material core cleanup/fit before committing both cores.",
-      "status": "Current source mesh normalization; full-plate slice and bounded support/layout review complete. Physical fit and cleanup remain unqualified.",
+      "purpose": "Arm cores, goggles, unchanged lower P01 collar and upper P44 bearing collar.",
+      "status": "R34 whole-plate slice, bounds, first-layer and support review passed.",
       "dispatch_authorized": false,
-      "estimated_seconds": 18727,
-      "estimated_grams": 47.54,
+      "estimated_seconds": 20122,
+      "estimated_grams": 54.84,
       "plate_number": 4
     },
     {
@@ -16521,16 +16527,24 @@
       "setting": "full_fan_speed_layer",
       "source": "5",
       "master": "0"
+    },
+    {
+      "revision": "R34",
+      "plate": "K1",
+      "setting": "filament_max_volumetric_speed",
+      "source": "12",
+      "master": "8",
+      "reason": "Retain mouth trial flow cap in shared black profile; full K1 freshly sliced."
     }
   ],
-  "status": "70 required pieces /52 types plus optional replacement; all71 source-instance comparisons verified. W1/W2 freshly sliced and reviewed. Physical qualification remains separate.",
-  "master_project": "BlooglyBlob-R33-PLA-Production.3mf",
+  "status": "70 required pieces /53 types plus optional ball replacement;71 exact source comparisons. K1/C1 freshly sliced; eight other plates retained.",
+  "master_project": "BlooglyBlob-R34-PLA-Production.3mf",
   "optional_petg_project": "BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
   "historical_source_hashes_verified": true,
   "omitted_redundant_hardware_override": {
     "key": "print_extruder_variant",
     "reason": "Machine-level value retained; per-object string-vector export causes invalid XML in Bambu 2.7.1.62. Final project re-sliced after omission."
   },
-  "cad_revision": "R33/cloud30",
-  "validation": "checks/r33-lighting-validation.json"
+  "cad_revision": "R34/cloud32",
+  "validation": "checks/r34-mouth-collar-validation.json"
 }

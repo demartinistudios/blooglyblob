@@ -71,16 +71,23 @@ device selection and microphone gain remain unchanged.
 
 ## Conversations and activities
 
-Greeting preparation runs after local readiness and can make a billable Speech
-request even before the first button press. A prepared greeting is reused;
-otherwise Speech streams it on demand. Its existing voice and speed are retained.
+The initial greeting, sleep farewell, dance introduction and dance-return greeting
+are prepared after local readiness. First preparation can make up to four billable
+Speech requests before the first button press. Complete PCM is cached in four
+fixed slots under the application state directory and reused across restarts.
+Text, model, voice, instructions or speed changes invalidate the affected slot.
+Unprepared speech streams on demand; failed or canceled synthesis is not cached.
+Successful on-demand speech is retained in memory; background preparation saves
+it to disk without putting a cache write between playback and the requested action.
+The existing voice, speed and physical playback barriers are retained.
 Live connects concurrently. Microphone input is withheld until the greeting
 physically drains, to avoid forwarding that locally generated speech as input.
 Normal duplex capture resumes immediately afterward. A bounded queue covers any
 remaining Live connection setup; stopping discards that session's input.
 
-The scanner loops quietly through the conversation's speaker writer during web
-search. Speech lowers its volume; microphone capture and incoming speech keep
+All delegated web searches use the Galactic Scanner tool; the main task loop
+does not expose a second hosted-search route. The scanner loops quietly through
+the conversation's speaker writer during web search. Speech lowers its volume; microphone capture and incoming speech keep
 flowing. Completion, failure or cancellation removes the effect. Background-only
 samples do not drive talking gestures. Dance and
 alert recordings use sequential speaker ownership.
@@ -95,6 +102,20 @@ request deadline bounds the wait. New speech cancels an undecided request. Work
 already running can continue, but older context cannot subsequently authorize a
 sleep or dance transition. Tool arguments still pass schema validation; uncertain
 actions are not automatically replayed under a new call ID.
+
+Explicit gestures wait briefly for the motion owner and report a verified refusal
+if it stays busy. They never claim movement started when admission failed. A
+refused command can be requested again; uncertain effects retain replay protection.
+When the backend finishes a successful gesture without an answer, its factual
+outcome is supplied as quiet context. Clarifications, errors and mixed-tool results
+remain spoken. Dependent requests, such as finding a timer before canceling it,
+retain their model rounds.
+
+Integration workers retain their slots until they actually exit. Content lookup
+shares the backend deadline and reuses provider results within that request.
+Cancellation is checked before later TV commands, including delayed Netflix
+selection. A dispatched command cannot be recalled; failed acknowledgements do
+not trigger an automatic alternative launch.
 
 Sleep/dance announcements must physically drain before the action starts.
 Matching dance completion returns to conversation with the existing greeting.

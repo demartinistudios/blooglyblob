@@ -671,3 +671,61 @@ async def test_cancelled_parsers_still_count_against_pending_work_limit():
         release.set()
         await asyncio.gather(*engine._pending_tasks)
     await wait_until(lambda: not engine._pending_tasks)
+
+
+@pytest.mark.asyncio
+async def test_main_backend_search_must_go_through_scanner_tool():
+    engine, client, _ = runner([response(text="A factual answer.")])
+    await engine.run([], lambda: True)
+    tools = client.responses.with_raw_response.create.call_args.kwargs["tools"]
+    assert not any(tool["type"] == "web_search" for tool in tools)
+    assert any(tool.get("name") == "galacticScan" for tool in tools)
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "name,arguments,outcome",
+    [
+        ("moveHead", '{"direction":"left","speed":null}', "Moving head left"),
+        ("playAnimation", '{"animation":"celebrate"}', "Playing celebrate animation"),
+    ],
+)
+async def test_silent_gesture_facts_are_quiet_but_clarification_remains_spoken(
+    name, arguments, outcome
+):
+    from blooglyblob.ai.responses import QuietToolResult
+
+    engine, _, execute = runner(
+        [response(call(name=name, arguments=arguments)), response()]
+    )
+    execute.return_value = outcome
+    result = await engine.run([], lambda: True)
+    assert isinstance(result, QuietToolResult)
+    assert result.text == f"Backend results: {outcome}"
+
+    engine, _, execute = runner(
+        [
+            response(call(name=name, arguments=arguments)),
+            response(text="How long for the timer?"),
+        ]
+    )
+    execute.return_value = outcome
+    assert await engine.run([], lambda: True) == "How long for the timer?"
+
+
+@pytest.mark.asyncio
+async def test_empty_backend_reply_keeps_errors_and_mixed_results_audible():
+    engine, _, execute = runner([response(call()), response()])
+    execute.return_value = "Error: Movement refused"
+    result = await engine.run([], lambda: True)
+    assert isinstance(result, str) and "unknown" in result
+
+    engine, _, execute = runner(
+        [
+            response(call(), call("timer", "setTimer", '{"duration_seconds":60}')),
+            response(),
+        ]
+    )
+    execute.side_effect = ["Moving head left", "Timer set for 1 minute"]
+    result = await engine.run([], lambda: True)
+    assert isinstance(result, str) and "Timer set" in result
