@@ -37,7 +37,9 @@ The print instructions match the selected production package: 70 pieces across
 53 required part types on 10 plates, with all 71 required and optional source
 instances compared to the selected exports. Plate previews and downloadable
 STLs/3MF are bundled from those current inputs. Head-horn fastening now calls for
-gentle seating without overtightening to eliminate the assembly's slight play.
+gentle seating without overtightening to eliminate slight left–right rotational
+play, viewed from above. The check uses a light touch, without forcing the servo
+shaft to turn.
 
 ## Validation boundaries
 

@@ -5018,7 +5018,7 @@
         "On your computer, type STOP at the waiting command. If it says the release is unconfirmed, unplug the supply from the wall at once.",
         "Open the Pi shell with the first command. Shut the Pi down with the second command.",
         "Wait 30 seconds after SSH disconnects. Unplug the supply from the wall.",
-        "Hold the shelf still. Fit the horn\u2019s own center screw through the adapter. Do not use an M2 screw. Tighten gently until seated. Do not overtighten to remove the head assembly\u2019s slight wiggle.",
+        "Hold the shelf still. Fit the horn\u2019s own center screw through the adapter. Do not use an M2 screw. Tighten gently until seated.",
         "Hold each arm still. Drive its horn\u2019s center screw through the arm\u2019s outer face.",
         "If a part turned, remove its center screw and lift it off. Plug the supply into the wall. Let the Pi boot. Repeat {step:fit-position} and this step for it."
       ],
@@ -5120,7 +5120,11 @@
             8,
             9,
             10
-          ]
+          ],
+          "safety": {
+            "level": "notice",
+            "text": "Slight left\u2013right rotational play of the head shelf, viewed from above, is normal. Check with a light touch only. Do not force the servo shaft to turn or overtighten to remove this play."
+          }
         }
       ]
     },
