@@ -15,6 +15,10 @@ def test_profile_keeps_character_and_delivery_without_live_tool_procedures():
     assert "delegate" in live.lower() and "verified" in live.lower()
     assert "setTimer" not in live and "findTimers" not in live
     assert "setTimer" in backend
+    # Live sees capability descriptions, not the backend's movement schema.
+    assert "Head movement:" in live
+    assert "left, right, or center" in live
+    assert "require backend execution" in live
     assert "[excited]" not in live + speech + backend
     assert voice_profile.default_voice() == "ballad"
     assert voice_profile.default_speech_voice() == voice_profile.default_voice()
