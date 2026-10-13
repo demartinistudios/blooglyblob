@@ -15,8 +15,7 @@ EYE_COLOR = (255, 185, 75)
 SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
 SLEEP_COLORS = ((92, 0, 255), (155, 0, 255), (210, 8, 255))
 AWAKE_COLORS = (
-    (255, 70, 5), (255, 8, 100), (125, 8, 255),
-    (0, 180, 255), (15, 255, 110), (255, 160, 8),
+    (0, 24, 255), (0, 75, 255), (0, 135, 255),
 )
 AMBER_COLORS = ((255, 70, 0), (255, 135, 0), (255, 175, 0))
 MUSIC_COLORS = (
@@ -42,6 +41,7 @@ MODES = {
     "stopped",
 }
 BLINK_MODES = {"listening", "waiting", "speaking", "dancing", "goodbye"}
+SCANNER_MODES = {"waking", "listening", "waiting", "speaking"}
 
 
 class _EyeBlink:
@@ -89,6 +89,7 @@ class LightingSnapshot:
     music: tuple[float, ...] = ()
     eye_openness: float = 1.0
     eye_gain: float = 1.0
+    scanner_elapsed: float | None = None
 
 
 class LightingState:
@@ -101,6 +102,7 @@ class LightingState:
         self._changed = time.monotonic()
         self._pending = set()
         self._music = None
+        self._scanner = None
         self._stopped = False
         self._unavailable = False
         self._eye_wake_started = None
@@ -121,6 +123,8 @@ class LightingState:
                 self._eye_wake_started = None
             if mode in {"sleeping", "stopped"}:
                 self._pending.clear()
+            if mode not in SCANNER_MODES:
+                self._scanner = None
             if mode not in BLINK_MODES:
                 self._blink.reset()
             if mode == "stopped":
@@ -131,6 +135,7 @@ class LightingState:
             self._unavailable = unavailable
             self._eye_wake_started = None
             self._pending.clear()
+            self._scanner = None
             self._blink.reset()
             if self._mode not in {"fault", "stopped"}:
                 self._previous = self._mode = "sleeping"
@@ -148,6 +153,14 @@ class LightingState:
         with self._lock:
             self._music = analysis
 
+    def scanner(self, identity, active, *, now=None):
+        with self._lock:
+            if active:
+                if not self._stopped and not self._unavailable and self._mode in SCANNER_MODES:
+                    self._scanner = (identity, time.monotonic() if now is None else now)
+            elif self._scanner is not None and self._scanner[0] == identity:
+                self._scanner = None
+
     def stop(self):
         with self._lock:
             self._stopped = True
@@ -155,6 +168,7 @@ class LightingState:
             self._eye_wake_started = None
             self._pending.clear()
             self._music = None
+            self._scanner = None
             self._blink.reset()
 
     def snapshot(self, now):
@@ -177,7 +191,9 @@ class LightingState:
                 min(1.0, max(0.0, (now - self._eye_wake_started) / 0.6))
             )
             return LightingSnapshot(
-                mode, self._previous, self._changed, output, drives, openness, gain
+                mode, self._previous, self._changed, output, drives, openness, gain,
+                max(0.0, now - self._scanner[1])
+                if self._scanner is not None and mode in SCANNER_MODES else None,
             )
 
 
@@ -223,21 +239,54 @@ def _body(mode, now):
     # Awake colors drift independently of voice energy, including the greeting.
     if mode != "dancing":
         return _lava(now, AWAKE_COLORS, 0.25)
-    period, brightness = 36, 0.38
-    return [
-        scale(
-            tuple(c * 255 for c in hsv_to_rgb((now / period + i / 8) % 1, 0.78, 1)),
-            brightness,
-        )
-        for i in range(6)
-    ]
+    # No committed music interval: keep a quiet flow rather than inventing beats.
+    return _lava(now, MUSIC_COLORS, 0.18)
+
+
+def _scanner_body(elapsed):
+    # generate_search_sound.py spaces chirps 105–170 ms apart. A 140 ms step gives the
+    # same brisk pace without adding audio analysis or another timing worker.
+    head = 5 - abs((elapsed / 0.14) % 10 - 5)
+    pixels = []
+    for i in range(6):
+        beam = math.exp(-((i - head) / 0.85) ** 2)
+        pixels.append(scale((0, 55 + 130 * beam, 255), 0.06 + 0.32 * beam))
+    return pixels
+
+
+def _dance_body(position, music):
+    # Playback time keeps patterns tied to the song through delayed writes.
+    # Alternate a comet, mirrored sweeps, and interleaved waves each phrase.
+    phrase = int(position / 8) % 3
+    phase = position * 7
+    head = 5 - abs(phase % 10 - 5)
+    bass = max(music[:3], default=0.0)
+    pixels = []
+    for i in range(6):
+        if phrase == 0:
+            distance = abs((i - phase + 3) % 6 - 3)
+            beam = math.exp(-(distance / 0.9) ** 2)
+        elif phrase == 1:
+            distance = min(abs(i - head), abs(5 - i - head))
+            beam = math.exp(-(distance / 0.75) ** 2)
+        else:
+            beam = (0.5 + 0.5 * math.sin(position * math.tau * 2 + i * math.pi)) ** 2
+        drive = music[round(i * 7 / 5)] if music else 0.0
+        color = tuple(c * 255 for c in hsv_to_rgb((position / 10 + i / 6) % 1, 1, 1))
+        pixels.append(scale(color, 0.07 + 0.15 * beam + 0.16 * max(drive, bass * 0.7)))
+    return pixels
 
 
 def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
     mode = state.mode
     if mode == "stopped":
         return (BLACK,) * 16
-    body = _body(mode, now)
+    if state.scanner_elapsed is not None and mode in SCANNER_MODES:
+        body = _scanner_body(state.scanner_elapsed)
+    elif mode == "dancing" and state.output.kind == "music":
+        body = _dance_body(state.output.position, state.music)
+    else:
+        body = _body(mode, now)
     eyes = (
         [BLACK] * 2
         if mode in {"sleeping", "unavailable"}

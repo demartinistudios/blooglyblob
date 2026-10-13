@@ -223,7 +223,7 @@ def test_eye_wake_ramp_survives_fast_connection_and_stops_when_unavailable():
     assert render(state.snapshot(11), 11)[6:8] == ((0, 0, 0),) * 2
 
 
-def test_sleep_is_purple_and_waking_starts_a_continuous_rainbow_transition():
+def test_sleep_is_purple_and_waking_starts_a_continuous_blue_transition():
     from dataclasses import replace
 
     state = LightingState()
@@ -240,6 +240,9 @@ def test_sleep_is_purple_and_waking_starts_a_continuous_rainbow_transition():
     assert render(state.snapshot(10.1), 10.1)[:8] == early[:8]
     awake = render(state.snapshot(11), 11)
     assert len(set(awake[:6])) == 6
+    assert all(
+        blue > green > red and red < blue * 0.1 for red, green, blue in awake[:6]
+    )
     red, green, blue = awake[6]
     assert red > green > blue and green > blue * 2
     assert render(state.snapshot(26), 26)[:6] != awake[:6]
@@ -262,6 +265,11 @@ def test_lava_body_flows_slowly_without_blackouts_or_losing_state_colors():
             assert all(ceiling * 0.70 <= max(rgb) <= ceiling for rgb in frame)
             if mode == "sleeping":
                 assert all(blue > red > green for red, green, blue in frame)
+            if mode == "listening":
+                assert all(
+                    blue > green > red and red < blue * 0.1
+                    for red, green, blue in frame
+                )
             if mode == "unavailable":
                 assert all(red > green > 0 and blue == 0 for red, green, blue in frame)
         for before, after in zip(frames, frames[1:]):
@@ -291,3 +299,74 @@ def test_speech_uses_soft_steady_colors_without_changing_meter_shape():
         assert all(max(rgb) <= 192 for rgb in mouth)
     quiet = replace(snapshot, output=OutputSample(kind="speech", level=0))
     assert render(quiet, 6)[8:] == ((0, 0, 0),) * 8
+
+
+def test_scanner_chases_quickly_and_only_changes_body_while_speech_continues():
+    from dataclasses import replace
+    from blooglyblob.audio.presentation import OutputSample
+
+    state = LightingState()
+    state.set_mode("listening", now=0)
+    state.scanner("search", True, now=10)
+    bodies = []
+    for now in (10.2, 10.34, 10.48, 10.62):
+        snapshot = replace(
+            state.snapshot(now), output=OutputSample(kind="speech", level=0.8)
+        )
+        scanning = render(snapshot, now)
+        normal = render(replace(snapshot, scanner_elapsed=None), now)
+        assert scanning[6:] == normal[6:]
+        assert all(max(rgb) <= 97 for rgb in scanning[:6])
+        bodies.append(scanning[:6])
+    assert len(set(bodies)) == 4
+    assert len({max(range(6), key=lambda i: max(body[i])) for body in bodies}) >= 3
+    state.scanner("search", False)
+    assert state.snapshot(11).scanner_elapsed is None
+
+
+def test_scanner_cannot_leak_into_other_activities_or_be_cleared_by_old_search():
+    state = LightingState()
+    state.set_mode("listening", now=0)
+    state.scanner("old", True, now=1)
+    state.scanner("new", True, now=2)
+    state.scanner("old", False)
+    assert state.snapshot(3).scanner_elapsed == 1
+    for mode in ("sleeping", "dancing", "alert", "fault", "stopped"):
+        state = LightingState()
+        state.set_mode("listening", now=0)
+        state.scanner("old", True, now=1)
+        state.set_mode(mode, now=2)
+        state.scanner("late", True, now=3)
+        assert state.snapshot(4).scanner_elapsed is None
+    state = LightingState()
+    state.set_mode("listening", now=0)
+    state.scanner("old", True, now=1)
+    state.set_unavailable(True)
+    state.scanner("late", True, now=2)
+    state.set_unavailable(False)
+    state.set_mode("listening", now=3)
+    assert state.snapshot(4).scanner_elapsed is None
+
+
+def test_dance_body_follows_playback_position_and_spectrum_without_changing_face():
+    from dataclasses import replace
+    from blooglyblob.audio.presentation import OutputSample
+
+    state = LightingState()
+    state.set_mode("dancing", now=0)
+    snapshot = replace(
+        state.snapshot(10),
+        output=OutputSample(kind="music", position=2),
+        music=(0.8,) * 8,
+    )
+    assert render(snapshot, 10) == render(snapshot, 20)
+    # Fast motion and phrase changes are driven by song position, not wall time.
+    frames = [
+        render(replace(snapshot, output=replace(snapshot.output, position=t)), 10)
+        for t in (2, 2.15, 10, 18)
+    ]
+    assert len({frame[:6] for frame in frames}) == 4
+    assert all(frame[6:] == frames[0][6:] for frame in frames)
+    quiet = render(replace(snapshot, music=(0.0,) * 8), 10)
+    assert sum(map(sum, quiet[:6])) < sum(map(sum, frames[0][:6]))
+    assert all(max(rgb) <= 97 for frame in frames for rgb in frame[:6])

@@ -84,12 +84,14 @@ class MediaCoordinator:
                 await self._complete(
                     self.audio_owner.start_background(activity, self.generation)
                 )
+                self.hardware.lighting.scanner(activity, True)
                 yield
             finally:
                 try:
                     await self._complete(self.audio_owner.stop_background(activity))
                 finally:
                     self._search_activity = None
+                    self.hardware.lighting.scanner(activity, False)
 
     async def begin(self, generation: str) -> None:
         if self.generation is not None:

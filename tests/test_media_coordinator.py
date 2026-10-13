@@ -1,6 +1,7 @@
 """Direct barriers preserve speech, cancellation and physical release semantics."""
 
 import asyncio
+import time
 
 import pytest
 from tests.support.conversation import Audio, Hardware
@@ -17,13 +18,17 @@ def media_pair(timeout=0.1):
 @pytest.mark.asyncio
 @pytest.mark.parametrize("outcome", ["success", "error", "cancel"])
 async def test_search_sound_preserves_voice_and_stops_on_each_outcome(outcome):
-    media, audio, _ = media_pair()
+    media, audio, hardware = media_pair()
+    hardware.light("listening", now=0)
     await media.begin("voice")
     entered = asyncio.Event()
 
     async def search():
         async with media.search_sound(lambda: True):
             entered.set()
+            assert (
+                hardware.lighting.snapshot(time.monotonic()).scanner_elapsed is not None
+            )
             await media.audio("voice", b"voice continues")
             if outcome == "error":
                 raise ValueError("search failed")
@@ -48,13 +53,15 @@ async def test_search_sound_preserves_voice_and_stops_on_each_outcome(outcome):
         "stop_background",
     ]
     assert not media.searching
+    assert hardware.lighting.snapshot(time.monotonic()).scanner_elapsed is None
     await media.audio("voice", b"answer")
     assert audio.trace[-1]["type"] == "audio"
 
 
 @pytest.mark.asyncio
 async def test_search_stop_timeout_fails_without_reopening_or_flushing_speech():
-    media, audio, _ = media_pair(0.01)
+    media, audio, hardware = media_pair(0.01)
+    hardware.light("listening", now=0)
 
     async def stuck(*args):
         await asyncio.Event().wait()
@@ -63,7 +70,10 @@ async def test_search_stop_timeout_fails_without_reopening_or_flushing_speech():
     await media.begin("voice")
     with pytest.raises(MediaError):
         async with media.search_sound(lambda: True):
-            pass
+            assert (
+                hardware.lighting.snapshot(time.monotonic()).scanner_elapsed is not None
+            )
+    assert hardware.lighting.snapshot(time.monotonic()).scanner_elapsed is None
     await media.audio("voice", b"voice continues")
     audio.begin.assert_awaited_once()
     audio.flush.assert_not_awaited()
@@ -83,7 +93,8 @@ async def test_replaced_search_stops_its_effect_without_changing_voice_generatio
 
 @pytest.mark.asyncio
 async def test_search_start_timeout_still_stops_unconfirmed_playback():
-    media, audio, _ = media_pair(0.01)
+    media, audio, hardware = media_pair(0.01)
+    hardware.light("listening", now=0)
 
     async def stuck(*args):
         await asyncio.Event().wait()
@@ -95,6 +106,7 @@ async def test_search_start_timeout_still_stops_unconfirmed_playback():
             pytest.fail("Search must wait for actual attachment")
     audio.stop_background.assert_awaited_once()
     assert media.generation == "voice"
+    assert hardware.lighting.snapshot(time.monotonic()).scanner_elapsed is None
 
 
 @pytest.mark.asyncio

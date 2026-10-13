@@ -66,7 +66,7 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 
 | Indices | Physical location | Normal application behavior |
 | --- | --- | --- |
-| 0–5 | Six body pebbles | Slow mood colors for the current state; asleep, a dim slow rainbow |
+| 0–5 | Six body pebbles | Purple asleep, saturated blue awake; fast blue/cyan scanner chase and song-driven dance patterns |
 | 6–7 | Two separate eye pixels | Off while asleep; on and blinking while awake |
 | 8–15 | Eight-pixel mouth | Off while asleep or silent; follows the speech level while talking and the music while dancing |
 
