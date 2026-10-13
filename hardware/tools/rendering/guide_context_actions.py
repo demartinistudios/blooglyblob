@@ -35,7 +35,7 @@ def _compact(v, name, parts, camera, title, arrows=(), labels=(), label_size=24)
     for a, b in arrows:
         a, b = project(a), project(b)
         path = f'M{a[0]:.2f},{a[1]:.2f}L{b[0]:.2f},{b[1]:.2f}'
-        body += f'<path d="{path}" stroke="white" stroke-width="7"/><path d="{path}" stroke="#a95522" stroke-width="3.5" marker-end="url(#arrow)"/>'
+        body += f'<path d="{path}" stroke="#a95522" stroke-width="3.5" marker-end="url(#arrow)"/>'
     for label, point, xy in labels:
         p = project(point)
         body += f'<path d="M{xy[0]},{xy[1]+6}L{p[0]:.2f},{p[1]:.2f}" stroke="#526576" stroke-width="1.5"/>'

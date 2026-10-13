@@ -418,7 +418,7 @@ def compact_view(render,output,name,parts,camera,title,arrows=(),labels=(),label
     for a,b in arrows:
         a,b=project(a),project(b)
         path=f'M{a[0]:.2f},{a[1]:.2f}L{b[0]:.2f},{b[1]:.2f}'
-        body+=f'<path d="{path}" stroke="white" stroke-width="7"/><path d="{path}" stroke="#a95522" stroke-width="3.5" marker-end="url(#arrow)"/>'
+        body+=f'<path d="{path}" stroke="#a95522" stroke-width="3.5" marker-end="url(#arrow)"/>'
     for label,p,xy in labels:
         if p is not None:
             q=project(p)
