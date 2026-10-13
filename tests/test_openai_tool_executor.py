@@ -1,7 +1,7 @@
 import asyncio
 import threading
 from types import SimpleNamespace
-from unittest.mock import AsyncMock
+from unittest.mock import ANY, AsyncMock
 
 import pytest
 
@@ -112,7 +112,9 @@ async def test_hardware_uses_direct_owner_and_search_uses_provider_bridge():
         "1", "moveHead", {"direction": "left"}, lambda: True
     )
     assert result == "Movement started"
-    hardware.execute.assert_awaited_once_with("moveHead", {"direction": "left"})
+    hardware.execute.assert_awaited_once_with(
+        "moveHead", {"direction": "left"}, is_current=ANY
+    )
     with pytest.raises(ValueError):
         await executor.execute("2", "galacticScan", {"query": "weather"}, lambda: True)
     executor.close()

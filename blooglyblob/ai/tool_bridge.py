@@ -11,6 +11,7 @@ import math
 from typing import Callable
 
 from blooglyblob.tools.registry import ToolRegistry
+from blooglyblob.tools.outcomes import NotDispatched
 
 
 class ToolBridgeError(RuntimeError):
@@ -241,7 +242,7 @@ class OpenAIToolBridge:
                 return _UNKNOWN
             # Error strings can represent a lost acknowledgment. Fail closed even
             # when retained handlers return an error instead of raising it.
-            if _unconfirmed(result):
+            if not isinstance(result, NotDispatched) and _unconfirmed(result):
                 self._calls[call_id] = (signature, _UNKNOWN)
                 return _UNKNOWN
             self._uncertain.discard(signature)

@@ -2,9 +2,13 @@
 
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
+from contextvars import copy_context
+import time
 
 from blooglyblob.ai.tool_bridge import StaleResponse
 from .registry import HARDWARE_TOOLS
+from .execution_scope import ExecutionScope, execution_scope
+from .timing import stage
 
 
 class ToolExecutor:
@@ -18,7 +22,20 @@ class ToolExecutor:
         self._pending = set()
         self._closed = False
 
-    async def execute(self, call_id, name, params, is_current):
+    async def execute(self, call_id, name, params, is_current, *, deadline=None):
+        scope = ExecutionScope(
+            lambda: not self._closed and is_current(),
+            deadline if deadline is not None else time.monotonic() + 30,
+            tool=name,
+        )
+        try:
+            with execution_scope(scope):
+                return await self._execute(call_id, name, params, scope.current)
+        except asyncio.CancelledError:
+            scope.cancelled.set()
+            raise
+
+    async def _execute(self, call_id, name, params, is_current):
         if self._closed or not is_current():
             raise StaleResponse("Request no longer owns this action")
         if name == "galacticScan":
@@ -26,7 +43,7 @@ class ToolExecutor:
         if name in {"goToSleep", "danceMode"}:
             return await self.terminal(name, params)
         if name in HARDWARE_TOOLS:
-            return await self.hardware.execute(name, params)
+            return await self.hardware.execute(name, params, is_current=is_current)
         handler = self.handlers.get_handler(name)
         if handler is None:
             raise ValueError("Unknown integration")
@@ -39,10 +56,12 @@ class ToolExecutor:
         def guarded_call():
             if self._closed or not is_current():
                 raise StaleResponse("Request superseded before execution")
+            stage("tool_admitted", tool=name)
             return handler(params)
 
         try:
-            future = self._pool.submit(guarded_call)
+            context = copy_context()
+            future = self._pool.submit(context.run, guarded_call)
         except RuntimeError:
             self._slots.release()
             raise

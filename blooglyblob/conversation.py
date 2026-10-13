@@ -17,6 +17,14 @@ from contextvars import ContextVar
 from blooglyblob.connectivity import failure_category
 from blooglyblob.media import MediaCoordinator, MediaError
 from blooglyblob.ai.tool_bridge import OpenAIToolBridge, StaleResponse
+from blooglyblob.ai.responses import QuietToolResult, request_deadline
+from blooglyblob.ai.announcements import (
+    GREETING_SPEED,
+    DANCE_RETURN_GREETING,
+    SLEEP_FAREWELL,
+    DANCE_INTRODUCTION,
+)
+from blooglyblob.tools.timing import begin_trace, end_trace, stage
 from blooglyblob.audio.voice_effects import RingModulator
 from blooglyblob.audio.diagnostics import AudioDiagnostics
 
@@ -35,8 +43,6 @@ logger = logging.getLogger(__name__)
 _tool_owner: ContextVar[tuple[ConversationSession, str, str] | None] = ContextVar(
     "conversation_tool_owner", default=None
 )
-GREETING_SPEED = 1.25
-DANCE_RETURN_GREETING = "That was fun! What's next?"
 
 
 class TranscriptFragment(TypedDict):
@@ -707,6 +713,8 @@ class ConversationSession:
         audio_ready: asyncio.Event | None,
     ) -> None:
         token = _tool_owner.set((self, generation, job_id))
+        trace_token = begin_trace(job_id)
+        stage("delegation")
 
         def owns() -> bool:
             return self._owns_job(generation, job_id)
@@ -714,6 +722,7 @@ class ConversationSession:
         try:
             if audio_ready is not None:
                 await audio_ready.wait()
+            stage("audio_ready")
             if not owns():
                 raise StaleResponse("Backend job was replaced during audio handoff")
             if alert:
@@ -741,7 +750,13 @@ class ConversationSession:
                 )
             elif owns() and self.live:
                 self._clear_speech_gate()
-                await self.live.append_result(delegation_id, result)
+                if isinstance(result, QuietToolResult):
+                    await self.live.append_result(
+                        delegation_id, result.text, spoken=False
+                    )
+                else:
+                    await self.live.append_result(delegation_id, result)
+                stage("result_supplied")
                 self.diagnostics.count("tool_results")
         except asyncio.CancelledError:
             raise
@@ -759,6 +774,8 @@ class ConversationSession:
                 except Exception:  # noqa: BLE001 - a failed handoff ends the session
                     self.request(False)
         finally:
+            stage("job_finished")
+            end_trace(trace_token)
             _tool_owner.reset(token)
             if not alert and self.responses and hasattr(self.responses, "usage"):
                 logger.info("Cumulative Responses usage: %s", self.responses.usage)
@@ -779,14 +796,17 @@ class ConversationSession:
 
         if not owns():
             raise StaleResponse("Search no longer owns this conversation")
+        stage("tool_selected", tool="galacticScan")
         self._clear_speech_gate()
         try:
             async with self.media.search_sound(owns):
                 assert self.responses is not None
                 self.diagnostics.count("scanner_starts")
                 try:
+                    stage("search_started", tool="galacticScan")
                     return await self.responses.search(query)
                 finally:
+                    stage("search_finished", tool="galacticScan")
                     self.diagnostics.count("scanner_stops")
         except MediaError:
             if self.media.ownership_uncertain:
@@ -806,6 +826,7 @@ class ConversationSession:
 
         if not owns():
             raise StaleResponse("Tool no longer owns this conversation")
+        stage("tool_selected", tool=name)
         if name in self._uncertain_terminals:
             return json.dumps(
                 {
@@ -822,7 +843,10 @@ class ConversationSession:
         }
         self.actions.append(record)
         assert self.executor is not None
-        result = await self.executor.execute(call_id, name, params, owns)
+        deadline = request_deadline()
+        options = {"deadline": deadline} if deadline is not None else {}
+        result = await self.executor.execute(call_id, name, params, owns, **options)
+        stage("tool_result", tool=name)
         if owns():
             if name in {"goToSleep", "danceMode"} and self._pending_terminal:
                 record["outcome"] = "pending speech; physical action not dispatched"
@@ -879,9 +903,7 @@ class ConversationSession:
     ) -> None:
         await self._finite(
             generation,
-            "Goodnight! Catch you on the next orbit."
-            if activity == "sleep"
-            else "Let's dance! Time to party!",
+            SLEEP_FAREWELL if activity == "sleep" else DANCE_INTRODUCTION,
         )
         # Speaker drain and local-media ownership are separate ownership barriers.
         await self.media.release()
@@ -921,6 +943,7 @@ class ConversationSession:
         # it may have acted but before the awaited completion is observed.
         self._uncertain_terminals.add(name)
         record["outcome"] = "unknown; may have started, never retry automatically"
+        stage("effect_dispatch", tool=name)
         logger.info("Terminal dispatch: tool=%s generation=%s", name, generation)
         result = await self.hardware.execute(name, params)
         if not self._current(generation):
@@ -933,6 +956,7 @@ class ConversationSession:
             raise RuntimeError("Terminal action was not confirmed")
         self._uncertain_terminals.remove(name)
         record["outcome"] = result[:2000]
+        stage("tool_result", tool=name)
         logger.info("Terminal acknowledged: tool=%s generation=%s", name, generation)
 
     async def _run_alert(self, generation: str, message: str) -> None:

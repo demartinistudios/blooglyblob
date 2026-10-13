@@ -694,3 +694,21 @@ async def test_cancelled_backend_parser_remains_owned_until_worker_finishes(app_
             await stopping
         else:
             await app.stop()
+
+
+@pytest.mark.asyncio
+async def test_prepares_all_fixed_announcements_after_readiness(app_rig):
+    from tests.support.asyncio import wait_until
+
+    app, _, _, _, ready = app_rig
+    await app.start()
+    try:
+        await wait_until(lambda: app._announcements_prepared)
+        ready.assert_called_once()
+        assert app._speech.prepare.await_count == 4
+        prepared = [call.args[0] for call in app._speech.prepare.await_args_list]
+        assert "Goodnight! Catch you on the next orbit." in prepared
+        assert "Let's dance! Time to party!" in prepared
+        assert "That was fun! What's next?" in prepared
+    finally:
+        await app.stop()

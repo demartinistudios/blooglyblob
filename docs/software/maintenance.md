@@ -15,8 +15,8 @@ An update stops the application, replaces its code, restarts it, and waits for
 systemd readiness. Required configuration, resources, audio-device selection and
 button setup must succeed before the service reports ready. This does not start
 a conversation or prove cloud access, acoustic quality or mechanical movement.
-After readiness, background greeting preparation can make a billable Speech
-request; starting the service is therefore not an offline-only operation.
+After readiness, background preparation of missing fixed announcements can make
+billable Speech requests; starting the service is therefore not an offline-only operation.
 If it fails after stopping, the robot may remain unavailable.
 Inspect the reported step and logs, fix the cause, and rerun. There is **no
 automatic rollback**, retained previous installation, or rollback command.
@@ -134,8 +134,16 @@ rebooting later can also initiate motion; STOP is not a latched power cutoff.
 | `/opt/blooglyblob/app` | Replaceable application and bundled resources |
 | `/opt/blooglyblob/venv` | Application Python environment |
 | `/etc/blooglyblob/app.env` | OpenAI key, audio settings and optional integration credentials |
-| `/var/lib/blooglyblob/brain` | Persistent timers |
+| `/var/lib/blooglyblob/brain` | Persistent timers and four cached announcements |
 | `/var/lib/blooglyblob/device` | Preserved legacy device files; calibration is unused |
+
+The `announcements/` subdirectory contains generated mono 24 kHz PCM for the
+four fixed phrases. It is bounded to four entries of at most 30 seconds each
+(about 5.8 MB total audio), plus bounded temporary staging files. Changed voice
+settings replace entries rather than accumulating versions. Missing, corrupt or
+unwritable cache files leave on-demand speech available; they can make the first
+use slower. The cache contains no conversation recordings and is not deployed
+back into the repository.
 
 Explicit service environment values take precedence over the selected config
 file. Files are parsed as data, without shell execution or implicit searches
@@ -295,3 +303,14 @@ To replace a bundled sound, use its repository path as the output, update the
 asset manifest and license hash, and run the deployment/package checks.
 Dance playback remains local, using the song and its beat-timing file; see the
 [beat analysis helper](beat-analysis.md) when preparing a replacement song.
+
+### Tool latency diagnostics
+
+`Tool stage` entries carry a local job ID, fixed stage/tool names and monotonic
+elapsed milliseconds. They distinguish backend request/receipt/parse, tool
+selection/admission/dispatch/result and delivery to the voice model. `Speech
+stage` entries identify memory/disk/provider delivery and time to first PCM;
+finite-speech drain entries remain the evidence that playback completed. These
+logs contain no transcript, tool arguments or provider result text and use the
+existing bounded application journal. Compare request-to-dispatch separately from
+announcement duration; a short sample does not establish a latency percentile.

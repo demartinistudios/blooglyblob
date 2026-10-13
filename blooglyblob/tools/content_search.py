@@ -6,6 +6,50 @@ from dataclasses import dataclass
 import requests
 from rapidfuzz import fuzz
 from tmdbv3api import TMDb, Search, TV, Season
+from tmdbv3api.as_obj import AsObj
+
+from blooglyblob.ai.tool_bridge import StaleResponse
+from .execution_scope import cached_lookup, check_current, request_timeout
+
+
+class _BoundedTMDB:
+    """Keep SDK object parsing, with an owned, finite transport and no retry sleep."""
+
+    def _request_obj(
+        self,
+        action,
+        params="",
+        call_cached=True,
+        method="GET",
+        data=None,
+        json=None,
+        key=None,
+    ):
+        response = requests.request(
+            method,
+            f"{self._base}{action}?api_key={self.api_key}&{params}&language={self.language}",
+            data=data,
+            json=json,
+            timeout=request_timeout(),
+        )
+        check_current()
+        response.raise_for_status()
+        payload = response.json()
+        if "errors" in payload or payload.get("success") is False:
+            raise ValueError("Content provider refused request")
+        return AsObj(payload, key=key)
+
+
+class _Search(_BoundedTMDB, Search):
+    pass
+
+
+class _TV(_BoundedTMDB, TV):
+    pass
+
+
+class _Season(_BoundedTMDB, Season):
+    pass
 
 
 @dataclass
@@ -85,8 +129,8 @@ class ContentSearch:
         self.tmdb = TMDb()
         self.tmdb.api_key = tmdb_api_key
         self.watchmode_api_key = watchmode_api_key
-        self.search_client = Search()
-        self.tv_client = TV()
+        self.search_client = _Search()
+        self.tv_client = _TV()
 
     def search(self, query: str, service: str | None = None) -> ContentResult | None:
         """Search TMDB for movie/show with title-similarity-aware ranking.
@@ -111,7 +155,9 @@ class ContentSearch:
 
         try:
             # Search for multi (movies and TV shows)
+            check_current()
             results = self.search_client.multi(query)
+            check_current()
 
             if not results:
                 return None
@@ -234,6 +280,8 @@ class ContentSearch:
 
             # Fall back to first result if nothing is released yet
             return candidates[0][1]
+        except StaleResponse:
+            raise
         except Exception:
             return None
 
@@ -250,14 +298,18 @@ class ContentSearch:
 
         try:
             # Get TV show details to find number of seasons
+            check_current()
             tv_details = self.tv_client.details(tmdb_id)
+            check_current()
             num_seasons = getattr(tv_details, "number_of_seasons", 0)
 
             # Fetch each season's episodes
-            season_client = Season()
+            season_client = _Season()
             for season_num in range(1, num_seasons + 1):
                 try:
+                    check_current()
                     season_details = season_client.details(tmdb_id, season_num)
+                    check_current()
                     season_episodes = getattr(season_details, "episodes", [])
 
                     for ep in season_episodes:
@@ -269,10 +321,14 @@ class ContentSearch:
                                 overview=getattr(ep, "overview", None) or None,
                             )
                         )
+                except StaleResponse:
+                    raise
                 except Exception:
                     # Skip seasons that fail to load
                     continue
 
+        except StaleResponse:
+            raise
         except Exception:
             return []
 
@@ -355,7 +411,11 @@ class ContentSearch:
             url = f"https://api.watchmode.com/v1/title/{watchmode_id}/details/"
             params = {"apiKey": self.watchmode_api_key, "append_to_response": "sources"}
 
-            response = requests.get(url, params=params, timeout=10)
+            response = cached_lookup(
+                ("watchmode", tmdb_id, media_type),
+                lambda: requests.get(url, params=params, timeout=request_timeout()),
+            )
+            check_current()
 
             if response.status_code != 200:
                 return None
@@ -378,6 +438,8 @@ class ContentSearch:
 
             return None
 
+        except StaleResponse:
+            raise
         except Exception:
             return None
 
@@ -412,7 +474,10 @@ class ContentSearch:
             )
             params = {"apiKey": self.watchmode_api_key}
 
-            response = requests.get(episodes_url, params=params, timeout=10)
+            response = requests.get(
+                episodes_url, params=params, timeout=request_timeout()
+            )
+            check_current()
             if response.status_code != 200:
                 return None
 
@@ -446,6 +511,8 @@ class ContentSearch:
 
             return None
 
+        except StaleResponse:
+            raise
         except Exception:
             return None
 
@@ -539,6 +606,12 @@ class ContentSearch:
         return None
 
     def get_streaming_links(self, tmdb_id: int, media_type: str) -> dict:
+        return cached_lookup(
+            ("streaming_links", tmdb_id, media_type),
+            lambda: self._get_streaming_links(tmdb_id, media_type),
+        )
+
+    def _get_streaming_links(self, tmdb_id: int, media_type: str) -> dict:
         """Get streaming availability from TMDB watch providers.
 
         Args:
@@ -555,7 +628,8 @@ class ContentSearch:
             base_url = "https://api.themoviedb.org/3"
             url = f"{base_url}/{media_type}/{tmdb_id}/watch/providers?api_key={self.tmdb.api_key}"
 
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=request_timeout())
+            check_current()
 
             if response.status_code != 200:
                 return {}
@@ -604,6 +678,8 @@ class ContentSearch:
                         "provider_name": provider_name,
                     }
 
+        except StaleResponse:
+            raise
         except Exception:
             return {}
 

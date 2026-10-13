@@ -14,9 +14,10 @@ import signal
 import socket
 import threading
 import time
+from pathlib import Path
 
 from blooglyblob.audio.diagnostics import AudioDiagnostics
-from blooglyblob.config import validate_settings
+from blooglyblob.config import STATE_DEFAULTS, validate_settings
 from blooglyblob.connectivity import Availability, ReachabilityProbe, failure_category
 
 if TYPE_CHECKING:
@@ -79,8 +80,8 @@ class Application:
         self._speech: OpenAISpeech | None = None
         self.availability: Availability | None = None
         self._connectivity_probe = connectivity_probe
-        self._greeting_task: asyncio.Task[None] | None = None
-        self._greeting_prepared = False
+        self._announcement_task: asyncio.Task[None] | None = None
+        self._announcements_prepared = False
         self._loop: asyncio.AbstractEventLoop | None = None
         self._stopping = False
         self._ready = False
@@ -117,14 +118,16 @@ class Application:
             self.hardware.set_unavailable(not available)
         if not available:
             if (
-                self._greeting_task
-                and self._greeting_task is not asyncio.current_task()
+                self._announcement_task
+                and self._announcement_task is not asyncio.current_task()
             ):
-                self._greeting_task.cancel()
+                self._announcement_task.cancel()
             if self.session:
                 self.session.suspend()
-        elif not self._greeting_prepared:
-            self._greeting_task = self._own(self._prepare_greeting())
+        elif not self._announcements_prepared and (
+            self._announcement_task is None or self._announcement_task.done()
+        ):
+            self._announcement_task = self._own(self._prepare_announcements())
 
     def _unavailable(self, reason: str) -> None:
         if self.availability:
@@ -194,20 +197,20 @@ class Application:
         task.add_done_callback(completed)
         return task
 
-    async def _prepare_greeting(self) -> None:
-        from blooglyblob.ai.voice_profile import default_greeting
-        from blooglyblob.conversation import GREETING_SPEED
+    async def _prepare_announcements(self) -> None:
+        from blooglyblob.ai.announcements import fixed_announcements
 
         try:
             assert self._speech is not None
-            await self._speech.prepare(default_greeting(), speed=GREETING_SPEED)
-            self._greeting_prepared = True
+            for text, speed in fixed_announcements().values():
+                await self._speech.prepare(text, speed=speed)
+            self._announcements_prepared = True
         except Exception as error:
             category = failure_category(error)
             if category:
                 self._unavailable(category)
             logger.warning(
-                "Greeting preparation failed (%s); speech will stream on demand",
+                "Announcement preparation failed (%s); speech will stream on demand",
                 type(error).__name__,
             )
 
@@ -273,6 +276,13 @@ class Application:
                     os.getenv("OPENAI_VOICE", default_speech_voice()),
                 ),
                 model=os.getenv("OPENAI_SPEECH_MODEL", "gpt-4o-mini-tts"),
+                cache_dir=Path(
+                    os.getenv(
+                        "BLOOGLYBLOB_STATE_DIR", STATE_DEFAULTS["BLOOGLYBLOB_STATE_DIR"]
+                    )
+                )
+                / "announcements",
+                work=self._work,
             )
             await self._work(lambda: prepare_responses(self._api))
             self._check_starting()

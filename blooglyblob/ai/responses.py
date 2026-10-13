@@ -4,10 +4,19 @@ import asyncio
 import copy
 import math
 from contextvars import ContextVar
+from dataclasses import dataclass
 from typing import Callable
 
 from blooglyblob.ai.tool_bridge import OpenAIToolBridge, StaleResponse
 from blooglyblob.ai.utils import consume_task_exception, field
+from blooglyblob.tools.timing import stage
+
+
+@dataclass(frozen=True)
+class QuietToolResult:
+    """Verified facts from a completed silent gesture, not a request to speak."""
+
+    text: str
 
 
 class OpenAIResponsesError(RuntimeError):
@@ -30,11 +39,19 @@ UTF-8 bytes; preserve uncertainty and relevant qualifiers. Do not expose interna
 reasoning or tool names. The application owns finite farewell/dance introductions:
 request the terminal tool without inventing spoken or playback completion.
 Your output is private factual data for the voice frontend, not spoken action
-narration. Return a verification summary even for a silent physical action.
+narration. When only successful moveHead/playAnimation work remains and no reply
+or clarification is needed, finish with no output text; the application supplies
+verified quiet facts. Otherwise return the brief factual answer or clarification.
 """
 
 # Context-local ownership/deadline also applies to nested galacticScan calls.
 _request_scope: ContextVar = ContextVar("openai_responses_scope", default=None)
+
+
+def request_deadline() -> float | None:
+    """The current backend's monotonic deadline, shared by owned tool workers."""
+    scope = _request_scope.get()
+    return scope[0] if scope else None
 
 
 def prepare_responses(client):
@@ -132,6 +149,7 @@ class OpenAIResponses:
             else self.timeout_seconds
         )
         try:
+            stage("backend_request")
             result = await self._bounded(
                 self._request(
                     model=self.model,
@@ -154,6 +172,7 @@ class OpenAIResponses:
         except Exception:  # noqa: BLE001 - sanitize provider/integration boundary failures
             raise OpenAIResponsesError("OpenAI Responses request failed.") from None
         self._check()
+        stage("backend_parsed")
         usage = field(result, "usage")
         for name in self.usage:
             count = field(usage, name, 0)
@@ -178,6 +197,7 @@ class OpenAIResponses:
         # The async SDK still builds response schemas synchronously. Keep network
         # I/O on this loop, but parse the fully buffered body in an owned worker.
         raw = await self.client.responses.with_raw_response.create(**kwargs)
+        stage("backend_received")
         self._check()
         if len(self._pending_tasks) >= 8:
             raise OpenAIResponsesError("Too many unfinished backend requests.")
@@ -214,7 +234,9 @@ class OpenAIResponses:
             )
         return text
 
-    async def run(self, context: list[dict], is_current: Callable[[], bool]) -> str:
+    async def run(
+        self, context: list[dict], is_current: Callable[[], bool]
+    ) -> str | QuietToolResult:
         loop = asyncio.get_running_loop()
         deadline = loop.time() + self.timeout_seconds
         active = True
@@ -235,10 +257,9 @@ class OpenAIResponses:
 
     async def _run(self, inputs, is_current):
         tool_results = []
+        quiet = True
         for _ in range(self.max_rounds):
-            result = await self._create(
-                inputs=inputs, tools=self.bridge.tools() + [{"type": "web_search"}]
-            )
+            result = await self._create(inputs=inputs, tools=self.bridge.tools())
             output = [_dump(item) for item in field(result, "output", [])]
             calls = [item for item in output if item.get("type") == "function_call"]
             if not calls:
@@ -250,7 +271,7 @@ class OpenAIResponses:
                 # uncertainty, without another action or provider retry.
                 fallback = "Backend results: " + "\n".join(tool_results)
                 if tool_results and len(fallback.encode("utf-8")) <= 400:
-                    return fallback
+                    return QuietToolResult(fallback) if quiet else fallback
                 raise OpenAIResponsesError("No short factual result was returned.")
             # Keep the full reasoning/function/message chain for store=False.
             inputs.extend(output)
@@ -264,6 +285,18 @@ class OpenAIResponses:
                 )
                 self._check()
                 tool_results.append(tool_result)
+                # Only the concrete accepted gesture contract can be quiet. A
+                # final answer/clarification above always retains spoken delivery.
+                quiet = quiet and (
+                    (
+                        item.get("name") == "moveHead"
+                        and tool_result.startswith("Moving head ")
+                    )
+                    or (
+                        item.get("name") == "playAnimation"
+                        and tool_result.startswith("Playing ")
+                    )
+                )
                 if (
                     item.get("name") in {"goToSleep", "danceMode"}
                     and self.terminal_pending()

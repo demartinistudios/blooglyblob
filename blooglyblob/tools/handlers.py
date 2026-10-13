@@ -11,6 +11,7 @@ from typing import Callable
 from blooglyblob.tools.content_search import ContentSearch
 from blooglyblob.tools.roku_controller import RokuController
 from blooglyblob.tools.timer_manager import TimerManager
+from .execution_scope import check_current, effect_boundary
 
 
 # Preferred streaming services in order
@@ -94,6 +95,8 @@ def create_stream_content_handler(
             available = ", ".join(links.keys())
             return f"'{title}' isn't on {service}. Available on: {available}"
 
+        check_current()
+
         # 5. Launch on Roku
         deep_link = links.get(service, {})
         content_id = deep_link.get("content_id")
@@ -109,17 +112,16 @@ def create_stream_content_handler(
                 launch_media_type = "episode"  # Roku auto-plays episodes
                 print("[STREAM] Using episode-specific content")
 
+        check_current()
         if content_id:
             if roku_controller.launch_with_content(
                 service, content_id, launch_media_type
             ):
                 return f"Playing {result.title}{episode_info} on {service}"
-            else:
-                roku_controller.launch_app(service)
-                return f"Opened {service}. Search for {result.title}{episode_info}"
-        else:
-            roku_controller.launch_app(service)
+            return "Uncertain delivery: Roku playback was not confirmed; do not retry."
+        if roku_controller.launch_app(service):
             return f"Opened {service}. Search for {result.title}{episode_info}"
+        return "Uncertain delivery: Roku app launch was not confirmed; do not retry."
 
     return stream_content_handler
 
@@ -154,13 +156,14 @@ def create_roku_control_handler(
             "select": roku_controller.select,
         }
 
+        check_current()
         if action == "launch_app":
             if not app:
                 return "Error: No app specified"
             if roku_controller.launch_app(app):
                 return f"Launched {app}"
             else:
-                return f"Couldn't launch {app}"
+                return "Uncertain delivery: Roku app launch was not confirmed; do not retry."
         elif action in action_map:
             if action_map[action]():
                 return f"Done: {action.replace('_', ' ')}"
@@ -193,6 +196,7 @@ def create_timer_handlers(
             return "Error: Invalid duration"
 
         label = parameters.get("label", "")
+        effect_boundary()
         timer_manager.add_timer(duration_seconds, label)
 
         # Format duration for response
@@ -229,6 +233,7 @@ def create_timer_handlers(
 
         timer_id = parameters.get("timer_id", "")
 
+        effect_boundary()
         if timer_id.lower() == "all":
             count = timer_manager.cancel_all()
             if count > 0:
