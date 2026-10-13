@@ -32,6 +32,10 @@ the collar views show its screw seats and the bearing-film tabs. Board colors
 identify the eight LED packages without changing any source triangles. The
 obsolete mouth section has been removed. The template was checked at actual
 PDF/SVG size, and the screw keys were regenerated from current allocations.
+The full-character still, homepage animation base and social card now use the
+R34 collar in its native pose, with the existing lighting and framing retained.
+The [presentation record](../rendering/presentation-front.json) records the
+capture source and image hashes.
 
 The print instructions match the selected production package: 70 pieces across
 53 required part types on 10 plates, with all 71 required and optional source
