@@ -4,6 +4,40 @@ from blooglyblob.hardware.lighting import LightingState, render
 from blooglyblob.audio.presentation import OutputPresentation
 
 
+def test_mouth_end_cap_preserves_colors_and_leaves_other_pixels_unchanged(monkeypatch):
+    from dataclasses import replace
+
+    from blooglyblob.audio.presentation import OutputSample
+    from blooglyblob.hardware import lighting
+
+    for mode, kind in (("speaking", "speech"), ("dancing", "music")):
+        state = LightingState()
+        state.set_mode(mode, now=0)
+        for level in (0, 0.1, 0.8, 1):
+            snapshot = replace(
+                state.snapshot(5),
+                output=OutputSample(kind=kind, level=level),
+                music=(level,) * 8,
+            )
+            with monkeypatch.context() as baseline:
+                baseline.setattr(lighting, "MOUTH_END_CAP", 255)
+                original = render(snapshot, 5)
+            capped = render(snapshot, 5)
+            assert capped[:8] == original[:8]
+            assert capped[9:15] == original[9:15]
+            for index in (8, 15):
+                peak = max(original[index])
+                assert max(capped[index]) <= 64
+                if peak <= 64:
+                    assert capped[index] == original[index]
+                else:
+                    assert max(capped[index]) == 64
+                    assert all(
+                        abs(after - before * 64 / peak) <= 0.5
+                        for before, after in zip(original[index], capped[index])
+                    )
+
+
 def test_all_modes_cover_chain_and_sleep_stop_are_dark_faced():
     state = LightingState()
     for mode in (

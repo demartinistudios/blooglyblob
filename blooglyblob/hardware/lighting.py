@@ -11,6 +11,9 @@ from blooglyblob.audio.presentation import OutputPresentation, OutputSample
 
 RGB = tuple[int, int, int]
 BLACK = (0, 0, 0)
+# Limit light escaping around the mouth ends (chain pixels 8 and 15).
+# Peak RGB channel before the existing strip-wide brightness setting.
+MOUTH_END_CAP = 64
 EYE_COLOR = (255, 185, 75)
 SPEECH_COLORS = ((183, 161, 245), (195, 148, 227), (231, 164, 198), (247, 187, 141))
 SLEEP_COLORS = ((92, 0, 255), (155, 0, 255), (210, 8, 255))
@@ -321,4 +324,8 @@ def render(state: LightingSnapshot, now: float) -> tuple[RGB, ...]:
             tuple(round(a + (b - a) * blend) for a, b in zip(old, new))
             for old, new in zip(previous, body)
         ]
+    for index in (0, 7):
+        peak = max(mouth[index])
+        if peak > MOUTH_END_CAP:
+            mouth[index] = scale(mouth[index], MOUTH_END_CAP / peak)
     return tuple(body + eyes + mouth)
