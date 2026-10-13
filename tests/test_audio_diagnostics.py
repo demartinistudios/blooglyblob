@@ -56,7 +56,9 @@ def test_metric_names_cannot_become_unbounded_or_contain_content():
     assert stats.snapshot() == {"counts": {}, "max": {}, "levels": {}}
 
 
-async def test_reporting_has_no_idle_output_and_has_a_fixed_cadence(monkeypatch):
+async def test_reporting_measures_stalls_between_reports_without_idle_output(
+    monkeypatch,
+):
     import asyncio
     import pytest
     import blooglyblob.audio.diagnostics as module
@@ -65,21 +67,33 @@ async def test_reporting_has_no_idle_output_and_has_a_fixed_cadence(monkeypatch)
     stats = AudioDiagnostics()
     logger = Mock()
     monkeypatch.setattr(module, "_LOG", logger)
-    calls = []
+    now = 0.0
+    sleeps = []
+
+    def clock():
+        return now
 
     async def tick(seconds):
-        calls.append(seconds)
-        if len(calls) == 2:
+        nonlocal now
+        sleeps.append(seconds)
+        previous = now
+        now = round(now + seconds, 6)
+        if previous < 11 <= now:
             stats.count("input_sent_samples", 480)
-        elif len(calls) == 3:
+        if 15 <= now < 15.25:
+            now = 15.25  # Only wakeups due during the stall are delayed.
+        if now >= 21:
             raise asyncio.CancelledError
 
+    monkeypatch.setattr(module.time, "monotonic", clock)
     monkeypatch.setattr(module.asyncio, "sleep", tick)
     with pytest.raises(asyncio.CancelledError):
         await stats.run()
-    assert calls == [10, 10, 10]
+    assert len(sleeps) <= 212  # Bounded observation work, not an audio-rate poll.
     logger.info.assert_called_once()
-    assert "input_sent_samples" in logger.info.call_args.args[1]
+    summary = json.loads(logger.info.call_args.args[1])
+    assert summary["counts"]["input_sent_samples"] == 480
+    assert summary["max"]["loop_lag_ms"] == pytest.approx(250)
 
 
 async def test_real_conversation_reports_gated_output_without_recording_text():

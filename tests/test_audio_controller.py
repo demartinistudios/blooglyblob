@@ -727,3 +727,24 @@ async def test_real_output_drives_mouth_through_drain_without_touching_capture(
     await drain
     assert audio.presentation.sample(now).kind is None
     await audio.close()
+
+
+def test_capture_callback_gap_is_separate_from_worker_queue_age():
+    from blooglyblob.audio.driver import AudioDriver
+
+    driver = AudioDriver()
+    received = []
+    driver._gain = 1
+    driver._raw.put((1.0, bytes(4096)))
+    driver._raw.put((1.125, bytes(4096)))
+
+    def consume(pcm):
+        received.append(pcm)
+        if len(received) == 2:
+            driver._stop.set()
+
+    driver._on_input = consume
+    driver._on_failure = lambda reason: pytest.fail(reason)
+    driver._capture()
+    assert len(received) == 2
+    assert driver.diagnostics.snapshot()["max"]["capture_callback_gap_ms"] == 125

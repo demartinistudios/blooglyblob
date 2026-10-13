@@ -27,7 +27,7 @@ exit_idle exit_ceiling exit_failed exit_cancelled
 )
 _MAXIMA = frozenset(
     """
-capture_queue_packets capture_age_ms handoff_queue_packets handoff_age_ms
+capture_queue_packets capture_age_ms capture_callback_gap_ms handoff_queue_packets handoff_age_ms
 input_queue_frames input_age_ms input_send_ms output_queue_frames output_queue_events
 output_age_ms playback_queue_frames playback_write_ms loop_lag_ms
 """.split()
@@ -103,14 +103,18 @@ class AudioDiagnostics:
             )
 
     async def run(self):
+        next_report = time.monotonic() + 10
         while True:
             started = time.monotonic()
-            await asyncio.sleep(10)
+            # Sample between reports: a ten-second sleep misses stalls that
+            # finish before that sleep's deadline.
+            await asyncio.sleep(0.1)
+            now = time.monotonic()
             # Do not create idle logs just to record the reporter's own timer.
             with self._lock:
                 active = bool(self._counts)
             if active:
-                self.maximum(
-                    "loop_lag_ms", max(0, time.monotonic() - started - 10) * 1000
-                )
-            self.report()
+                self.maximum("loop_lag_ms", max(0, now - started - 0.1) * 1000)
+            if now >= next_report:
+                self.report()
+                next_report = now + 10
