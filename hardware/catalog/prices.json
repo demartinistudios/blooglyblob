@@ -920,6 +920,20 @@
           "note": "Selected plate estimate; only material used is charged, not a whole spool."
         }
       ]
+    },
+    {
+      "id": "C19",
+      "quotes": [
+        {
+          "pack_price_usd": "2.98",
+          "pack_quantity": "18.288",
+          "unit": "m",
+          "pack_label": "3M Temflex 1700 black electrical tape, 3/4 in × 60 ft",
+          "url": "https://www.homedepot.com/p/310698741",
+          "used_quantity": "0.5",
+          "note": "Allowance: 0.5 m for the mouth covering, including trimming spare; not measured from a build. Price checked 2026-10-13."
+        }
+      ]
     }
   ],
   "single_color": "Black"

@@ -66,7 +66,7 @@ The application supports one 16-pixel GRB NeoPixel **data** chain on GPIO18:
 
 | Indices | Physical location | Normal application behavior |
 | --- | --- | --- |
-| 0–5 | Six body pebbles | Slow mood colors for the current state; asleep, a dim slow rainbow |
+| 0–5 | Six body pebbles | Purple asleep, saturated blue awake; fast blue/cyan scanner chase and song-driven dance patterns |
 | 6–7 | Two separate eye pixels | Off while asleep; on and blinking while awake |
 | 8–15 | Eight-pixel mouth | Off while asleep or silent; follows the speech level while talking and the music while dancing |
 
@@ -226,6 +226,10 @@ and generation entries place summaries in the conversation timeline.
   PortAudio callbacks reporting lost input; it cannot recover or count the exact
   missing samples. `mic_raw` and `mic_processed` report sample count, RMS, peak
   and samples at the PCM clipping ceiling before and after resampling/gain.
+  `capture_callback_gap_ms` measures the longest interval between native capture
+  callbacks (normally about 43 ms). Compare it with `capture_age_ms`, which starts
+  when the callback queues a packet: a late callback can lose input even when
+  that queue stays empty. Neither measurement alone identifies the cause.
 - `handoff_*` counts 24 kHz PCM moving from the capture worker to the application.
   `input_not_listening_samples` identifies intentional rejection outside active
   listening (including the opening greeting). `input_accepted_samples` means the
@@ -248,7 +252,9 @@ and generation entries place summaries in the conversation timeline.
   end-to-end sample balance.
 - Session exit, speech gate, scanner and tool-result counters help distinguish
   idle timeout, cancellation and deliberately suppressed speech. `loop_lag_ms`
-  measures lateness of the ten-second reporting timer, not every brief loop stall.
+  measures the maximum observed delay of a 100 ms event-loop timer within each
+  reporting window. Short stalls between samples can still go unobserved. The
+  sampling does not increase log frequency or retain individual timing events.
 
 Use `make pi-logs` for recent service logs. For a bounded diagnostic export on the
 Pi, run:

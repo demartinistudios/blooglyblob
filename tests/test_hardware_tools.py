@@ -39,19 +39,20 @@ async def test_each_animation_holds_and_releases_lock(name):
     [("left", "look_left"), ("right", "look_right"), ("center", "center")],
 )
 @pytest.mark.parametrize(
-    "speed,value", [("slow", 0.5), ("normal", 1.0), ("fast", 2.5), ("unknown", 1.0)]
+    "speed,value",
+    [(None, 2.0), ("slow", 0.5), ("normal", 2.0), ("fast", 2.5), ("unknown", 2.0)],
 )
 async def test_head_speeds_and_holds(direction, method, speed, value):
     hardware = HardwareController(MagicMock())
     hardware.servos, hardware.ambient = MagicMock(), MagicMock()
-    assert (
-        await hardware.execute("moveHead", {"direction": direction, "speed": speed})
-        == f"Moving head {direction}"
-    )
+    params = {"direction": direction}
+    if speed is not None:
+        params["speed"] = speed
+    assert await hardware.execute("moveHead", params) == f"Moving head {direction}"
     await hardware.wait_gestures()
     getattr(hardware.servos.head, method).assert_called_once_with(speed=value)
     hardware.ambient.hold_head.assert_called_once_with(5.0)
-    assert HEAD_SPEEDS == {"slow": 0.5, "normal": 1.0, "fast": 2.5}
+    assert HEAD_SPEEDS == {"slow": 0.5, "normal": 2.0, "fast": 2.5}
 
 
 async def test_tool_errors_sleep_busy_and_diagnostics():

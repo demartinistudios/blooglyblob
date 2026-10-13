@@ -782,6 +782,16 @@
       "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
       "checked": "2026-10-01",
       "reference_id": "ref-078"
+    },
+    {
+      "parts": [
+        "C19"
+      ],
+      "title": "3M Temflex 1700 vinyl electrical tape — datasheet",
+      "publisher": "3M",
+      "url": "https://multimedia.3m.com/mws/media/41145O/3m-temflex-vinyl-electrical-tape-1700.pdf",
+      "checked": "2026-10-13",
+      "reference_id": "ref-mouth-electrical-tape"
     }
   ]
 }

@@ -146,13 +146,20 @@ applies. Optional integrations retain their existing roles and configuration.
   restart explicitly after resolving the cause. Startup and shutdown have
   finite deadlines, including foreground execution and Python thread teardown.
 
-Talking gestures and body lights follow actual speaker level while conversation
+Talking gestures and the mouth meter follow actual speaker level while conversation
 remains listening. Silence, drain, flush, mute and failures clear that level.
-Pose holds and animation locks remain authoritative; sleep, dance and alert
-presentation retain their existing behavior. Eyes are controlled separately.
+Pose holds and animation locks remain authoritative. Eyes are controlled separately.
+The body drifts through purple while sleeping and saturated blues while awake,
+with a continuous fade when waking. A fast blue/cyan chase accompanies the
+Galactic Scanner at roughly the sound's chirp pace; it is not sample-synchronized.
+Its identity-bound state clears when search ends, including failure or cancellation.
+During dance, body comets, mirrored sweeps and alternating waves change every
+eight seconds of playback. Brightness accents reuse the mouth's precomputed song
+analysis at the committed speaker position, with no additional audio processing.
+Missing playback timing falls back to a quiet color flow.
 The supported 16-pixel data chain uses body indices 0–5, eyes 6–7, and mouth
-8–15. The mouth is explicitly dark during normal operation; this profile update
-does not add a mouth animation. The [LED diagnostic](maintenance.md#supported-led-chain)
+8–15. The mouth displays a symmetric speech meter or eight-band dance spectrum,
+and stays dark while sleeping. The [LED diagnostic](maintenance.md#supported-led-chain)
 exercises every pixel without changing the F2-protected lighting supply.
 
 ## Verification

@@ -136,10 +136,17 @@ class AudioDriver:
 
     def _capture(self):
         gain = self._gain
+        previous_capture = None
         while not self._stop.is_set():
             try:
                 captured_at, pcm = self._raw.get(timeout=0.1)
                 self._observe_capture()
+                if previous_capture is not None:
+                    self.diagnostics.maximum(
+                        "capture_callback_gap_ms",
+                        (captured_at - previous_capture) * 1000,
+                    )
+                previous_capture = captured_at
                 self.diagnostics.maximum("capture_queue_packets", self._raw.qsize() + 1)
                 self.diagnostics.maximum(
                     "capture_age_ms", (time.monotonic() - captured_at) * 1000

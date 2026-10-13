@@ -1126,6 +1126,20 @@
       "limitations": "3.20 mm ID × 7.01 mm OD × 0.53 mm thick; zinc-plated steel. No separate datasheet linked.",
       "source_type": "supplier",
       "publisher": "DigiKey"
+    },
+    {
+      "id": "ref-mouth-electrical-tape",
+      "part_ids": [
+        "C19"
+      ],
+      "title": "3M Temflex 1700 vinyl electrical tape — datasheet",
+      "kind": "datasheet",
+      "official_url": "https://multimedia.3m.com/mws/media/41145O/3m-temflex-vinyl-electrical-tape-1700.pdf",
+      "checked_date": "2026-10-13",
+      "model_match": "exact-model",
+      "limitations": "Tape properties only; light blocking in the printed mouth is not manufacturer-qualified.",
+      "source_type": "manufacturer",
+      "publisher": "3M"
     }
   ],
   "parts": [

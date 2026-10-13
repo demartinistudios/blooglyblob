@@ -69,6 +69,8 @@ def live_instructions(greeting: str = "") -> str:
             "Backend tools:\n"
             "- Sleep and goodbye: play the robot's farewell and put it to sleep.\n"
             "- Dance: play the robot's introduction and start its built-in dance.\n"
+            "- Head movement: physically look or turn your head left, right, or center. "
+            'Requests such as "look left" require backend execution, even if you could verbally acknowledge them.\n'
             "- Physical actions, timers, media, and device controls.\n"
             "- Galactic Scanner: look up current information on the Internet.\n"
             "\n"

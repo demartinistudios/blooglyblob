@@ -16,7 +16,7 @@ def test_lighting_does_not_repurpose_servo_state():
         assert servo.audio_level == 0.8
 
 
-def test_dance_body_and_eyes_are_independent_of_music_energy():
+def test_dance_body_and_mouth_follow_music_energy_but_eyes_stay_steady():
     from dataclasses import replace
     from blooglyblob.audio.presentation import OutputSample
 
@@ -25,6 +25,7 @@ def test_dance_body_and_eyes_are_independent_of_music_energy():
     state = replace(lights.snapshot(2), output=OutputSample("music", 0, 1))
     quiet = render(replace(state, music=(0.1,) * 8), 2)
     loud = render(replace(state, music=(0.9,) * 8), 2)
-    assert quiet[:8] == loud[:8]
+    assert quiet[:6] != loud[:6]
+    assert quiet[6:8] == loud[6:8]
     assert quiet[8:] != loud[8:]
     assert len(set(loud[8:])) == 8

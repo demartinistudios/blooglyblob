@@ -20,7 +20,7 @@ from .local_media import HardwareReleaseError, LocalMedia, Worker
 
 log = logging.getLogger(__name__)
 ANIMATIONS = {name: name for name in ('wave_hello', 'celebrate', 'think', 'shrug', 'six_seven', 'attention')}
-HEAD_SPEEDS = {'slow': .5, 'normal': 1., 'fast': 2.5}
+HEAD_SPEEDS = {'slow': .5, 'normal': 2., 'fast': 2.5}
 
 
 def _servos():
@@ -381,7 +381,7 @@ class HardwareController:
                 return f"Error: Invalid direction '{direction}'"
             if self.servos is None:
                 return 'Error: Servo controller not initialized'
-            speed = HEAD_SPEEDS.get(params.get('speed', 'normal').lower(), 1.)
+            speed = HEAD_SPEEDS.get(params.get('speed', 'normal').lower(), HEAD_SPEEDS['normal'])
             def move():
                 getattr(self.servos.head, {'left':'look_left', 'right':'look_right', 'center':'center'}[direction])(speed=speed)
                 if self.ambient:
