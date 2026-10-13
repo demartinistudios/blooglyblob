@@ -82,7 +82,7 @@
     },
     {
       "id": "joint-head-servo",
-      "description": "Head servo: front M2\u00d78, rear M2\u00d76, heads above ears and nuts below; carrier-to-post front M3\u00d710 countersunk, rear M3\u00d720; upper collar retains two M3\u00d710.",
+      "description": "Head servo: front M2\u00d78, rear M2\u00d76, heads above ears and nuts below; carrier-to-post front M3\u00d710 countersunk, rear M3\u00d720; P44 upper bearing collar retains two M3\u00d710.",
       "hardware": {
         "M2x6": 1,
         "M2x8": 1,
@@ -115,10 +115,10 @@
     },
     {
       "id": "joint-mouth",
-      "description": "Assemble the mouth",
+      "description": "P30 rear cover and P31 holder use two M2\u00d78 screws inserted from the rear into the retained head nuts. PCB is captured without separate board screws or washers.",
       "hardware": {
-        "M2x8": 4,
-        "N2": 4
+        "M2x8": 2,
+        "N2": 2
       }
     },
     {

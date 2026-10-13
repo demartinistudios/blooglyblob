@@ -5,19 +5,14 @@
   "policy": "Whole 3MF is the portable editable recipe: model hierarchy, transforms, modifiers, plate/object settings, resolved material settings and scripts. Member lock detects byte changes. Installed profiles are not runtime inputs to validation or staging.",
   "projects": [
     {
-      "path": "hardware/printing/current/BlooglyBlob-R33-PLA-Production.3mf",
-      "sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
+      "path": "hardware/printing/current/BlooglyBlob-R34-PLA-Production.3mf",
+      "sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
       "instances": 70,
       "members": [
         {
           "path": "[Content_Types].xml",
           "sha256": "4acce1f577c7f0af6d9d5923faac96a76aeb1c06f0eef1762b2c8905cc0c846b",
           "bytes": 432
-        },
-        {
-          "path": "Metadata/plate_2_small.png",
-          "sha256": "a1f44f3eddf101dbf3b1def33239a688e3d8fcc1d0c50e71a32074c6e7a47560",
-          "bytes": 3647
         },
         {
           "path": "Metadata/plate_6.png",
@@ -46,13 +41,13 @@
         },
         {
           "path": "3D/3dmodel.model",
-          "sha256": "01324143e847e48f0349340279375c3123ae7c29fe70aba4f01a67bc3403a117",
-          "bytes": 41588
+          "sha256": "0375e5678d1c3f6e7443e0bd83626de5915c0fa51f5a6ed1f3b017a12ec2436c",
+          "bytes": 41236
         },
         {
           "path": "3D/_rels/3dmodel.model.rels",
-          "sha256": "c4fcd0b3bb99b120622dd31d181acc65a7760b49d6302e1799a9a242d51e6d14",
-          "bytes": 9505
+          "sha256": "4c1d65eb0544da27cc5a35a6761f180deed72a7be304bf022e4bf109c6910333",
+          "bytes": 9706
         },
         {
           "path": "3D/Objects/object_19.model",
@@ -125,11 +120,6 @@
           "bytes": 131549
         },
         {
-          "path": "3D/Objects/object_12.model",
-          "sha256": "a007cbcf72189471c6c7a87a4eadd4d37e0c71250ced306b515909568e3de904",
-          "bytes": 338605
-        },
-        {
           "path": "3D/Objects/object_53.model",
           "sha256": "f49d5e0dab158a5e7ffaeda998a1cd9c08c374ef7dcf3baae5cc1ac829a291cd",
           "bytes": 34624
@@ -138,11 +128,6 @@
           "path": "3D/Objects/object_71.model",
           "sha256": "326fb460d3425af6e0486f5725018aa963c175ee931d7c17426c79c441ba3753",
           "bytes": 228669
-        },
-        {
-          "path": "3D/Objects/object_32.model",
-          "sha256": "a34f2f91fcbe8903e9b0ebe509bfb881bf636cbf4787a60de5caf8e2931c7894",
-          "bytes": 149387
         },
         {
           "path": "3D/Objects/object_5.model",
@@ -183,11 +168,6 @@
           "path": "3D/Objects/object_73.model",
           "sha256": "d84560246c82a2037af5f21339ed8a8995b9495eeb269a9324fd410093baec0c",
           "bytes": 78646
-        },
-        {
-          "path": "3D/Objects/object_11.model",
-          "sha256": "4e496ddba4d8b4b3ef5d0f89bd28d8ce4143aa6639d8243f4e5f487147965e10",
-          "bytes": 492099
         },
         {
           "path": "3D/Objects/object_74.model",
@@ -406,13 +386,13 @@
         },
         {
           "path": "Metadata/project_settings.config",
-          "sha256": "467d9c3d39b4b4e9b71d2ded42d62ad7be3eebae9be93d96c884aabfdf209679",
-          "bytes": 85130
+          "sha256": "e86706aa16ff3470c827bca84b504bfe03f9dd1910a8bc386df75e158a8c397a",
+          "bytes": 66104
         },
         {
           "path": "Metadata/model_settings.config",
-          "sha256": "e0762b4ec88447ec34ab260d6948151988c8ae07aa316399eb2ebe34e832714b",
-          "bytes": 919001
+          "sha256": "ed3e257550e5ac41236927a2e40d04fe50a99c9fa11674cea326cd68c42e559b",
+          "bytes": 918396
         },
         {
           "path": "Metadata/cut_information.xml",
@@ -428,51 +408,6 @@
           "path": "_rels/.rels",
           "sha256": "eba9728f3f5482ecaee5c07f78ab85ac1b537747f60035da471f79678f858aa9",
           "bytes": 673
-        },
-        {
-          "path": "Metadata/plate_2.png",
-          "sha256": "8d56898af28b60e11e5c8a7fc5ac860ac390235880530f50754d394c5c1f5ea4",
-          "bytes": 12683
-        },
-        {
-          "path": "Metadata/plate_no_light_2.png",
-          "sha256": "db5dbf40e9cf3e63a4c7808a7834bf58d215d45606c4d256f3b8839503c011f4",
-          "bytes": 3937
-        },
-        {
-          "path": "Metadata/top_2.png",
-          "sha256": "256f40451ad36d5086a65d6d7e68082c65c1a56ee9764e4b1ac5e255308c65aa",
-          "bytes": 7348
-        },
-        {
-          "path": "Metadata/pick_2.png",
-          "sha256": "3a70d21df509a11e6377e74ba79f58025d9df5faed889fd3a58c4a491592fc05",
-          "bytes": 3038
-        },
-        {
-          "path": "Metadata/plate_4.png",
-          "sha256": "9069b513a0c94e46d6a5871b4bd7fddfdbe32cb8ffbdf8e06aeb6065b7355d80",
-          "bytes": 19896
-        },
-        {
-          "path": "Metadata/plate_4_small.png",
-          "sha256": "b5c508cb983ade4da4c7e3f3a76c8a379565c8e8a252cbd638e8250c1688eb1d",
-          "bytes": 4208
-        },
-        {
-          "path": "Metadata/plate_no_light_4.png",
-          "sha256": "d86461adcd9b33e3836158ff79da040dc0ed5d24a1dffbad498418e83161d7f0",
-          "bytes": 4423
-        },
-        {
-          "path": "Metadata/top_4.png",
-          "sha256": "08ffcc23dfe1917ebec3b26f30b4b40a3d4089f1e3e64d622741797389923c37",
-          "bytes": 18629
-        },
-        {
-          "path": "Metadata/pick_4.png",
-          "sha256": "e74e964ddb55caeb8de0348f1e347abe5aae122209addd7c6124397d009ad3d7",
-          "bytes": 3951
         },
         {
           "path": "Metadata/plate_5.png",
@@ -638,6 +573,76 @@
           "path": "Metadata/pick_3.png",
           "sha256": "5c725ee3eccace94c23fdc2e2674a1f5be6b49b70af9d4b5d156e040877056c6",
           "bytes": 4095
+        },
+        {
+          "path": "3D/Objects/object_1001.model",
+          "sha256": "3ca370a9a108ab9daa97fa5f182a8f4aee6b14b37b4af8c3dcb67464ebd6444a",
+          "bytes": 96467
+        },
+        {
+          "path": "3D/Objects/object_1002.model",
+          "sha256": "c9f407e5a33b79e33b1112e09cd57b1fffc59f0097582d7cdb1d8ec1321b750f",
+          "bytes": 198434
+        },
+        {
+          "path": "3D/Objects/object_1003.model",
+          "sha256": "c0383a0e0f9721e0a1dfb6abea5f9b70f10fc8bc26472fb614a8db95c1f39b85",
+          "bytes": 1083
+        },
+        {
+          "path": "3D/Objects/object_1004.model",
+          "sha256": "7d351a6bf799737733aa5ab6378bcf0e4df983d5a08bd7ab1502084957a441e6",
+          "bytes": 525612
+        },
+        {
+          "path": "Metadata/plate_2.png",
+          "sha256": "54f7e1e642816fcdf51737947bf0c01b6b172099e7c1f5e139263072400af945",
+          "bytes": 12375
+        },
+        {
+          "path": "Metadata/plate_no_light_2.png",
+          "sha256": "873eb4d596a899d21aa4c5e7f407a000cc68c5046ac5694183d5b090e879acd6",
+          "bytes": 3811
+        },
+        {
+          "path": "Metadata/top_2.png",
+          "sha256": "134bbd12131f4993c1078abdc4a44dab0671a9700e6a0e6482cc94876ca2d535",
+          "bytes": 7120
+        },
+        {
+          "path": "Metadata/pick_2.png",
+          "sha256": "136aadeeb7fdafca5a6d92c5945f9f51942f0a4ad46106c253668f52ee534212",
+          "bytes": 2993
+        },
+        {
+          "path": "Metadata/plate_2_small.png",
+          "sha256": "cf9243a35bf7c93371bc31b3f37396e27ecc482b04661eac2dea7a1d278a5298",
+          "bytes": 3552
+        },
+        {
+          "path": "Metadata/plate_4.png",
+          "sha256": "5ea23eca97725297d7462090c15fa2efe0b15f1de5fc61b6b10490c48c63b5bf",
+          "bytes": 21273
+        },
+        {
+          "path": "Metadata/plate_no_light_4.png",
+          "sha256": "dc7e4de8076176920da833838600fd155305b30dad281bddbd46cc752eddc0c1",
+          "bytes": 4360
+        },
+        {
+          "path": "Metadata/top_4.png",
+          "sha256": "a520a4cb6d3f317149226d0b1521b89303482c3d190853b6ce673a9cacedd769",
+          "bytes": 21039
+        },
+        {
+          "path": "Metadata/pick_4.png",
+          "sha256": "91501cd8c952633a49cf1c151b64bb4d331860cc4e04952a8f7f91ae57958335",
+          "bytes": 3937
+        },
+        {
+          "path": "Metadata/plate_4_small.png",
+          "sha256": "730ab95b2b0485f7e7e7e582d2638404f863299aedf13bfb06a53c4473fa24b0",
+          "bytes": 4276
         }
       ]
     },
@@ -725,16 +730,16 @@
     }
   ],
   "cad": {
-    "design_revision": "R33",
+    "design_revision": "R34",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 30,
-    "release_manifest": "hardware/cad/design-control/releases/R33-body-lighting-20261008.json",
-    "release_manifest_sha256": "a96501ca1f8912be5cf439629b7130562d69d8028bc1aa300b28001af37ac05e"
+    "cloud_version": 32,
+    "release_manifest": "hardware/cad/design-control/releases/R34-mouth-collar-20261013.json",
+    "release_manifest_sha256": "a4debc2fb4eaeeb5ab5903357a075362c44af20232393f823ea3584e1fcb0b1c"
   },
   "semantic_contract": {
     "path": "hardware/printing/recipes/semantic-contract.json",
-    "sha256": "8d73d21fb1f9e6733b5f17bd8bd5ada440d1f2f9725e43efaddec8c747e12c20",
-    "bytes": 183014
+    "sha256": "96579c7d0987e67ae4e19361acee7ef86dc61cb9c84301be558d3a3295a80ca1",
+    "bytes": 183718
   },
-  "cad_update_status": "R33/cloud30 complete lighting/carrier update. W1/W2 freshly sliced;71 exact source comparisons,70required/52types/10plates. Guide and physical qualification separate."
+  "cad_update_status": "R34 mouth/collar update: K1/C1 re-sliced;71 exact source comparisons,70required/53types/10plates."
 }

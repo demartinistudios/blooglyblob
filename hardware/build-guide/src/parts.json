@@ -390,24 +390,45 @@
   },
   {
     "id": "P01",
-    "name": "Foam collar",
+    "name": "Lower foam collar",
     "exact": "P01 Foam collar r1 - rotating horn screw clearance",
-    "qty": 2,
+    "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Two collars, lower and upper, hold the body foam around the frame. The foam is test-fitted between them before the seam is closed, in {step:body-diffuser}.",
+    "description": "The lower collar holds the bottom edge of the body foam around the frame.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P01.png",
     "link": "",
     "verification": "Compare your cleaned print with the picture.",
     "steps": [
-      "frame-uprights",
-      "head-servo"
+      "frame-uprights"
     ],
     "additional_links": [
       {
         "url": "downloads/stl/P01.stl",
         "label": "Raw STL \u2014 P01"
+      }
+    ]
+  },
+  {
+    "id": "P44",
+    "name": "Upper support collar",
+    "exact": "P44 Upper bearing collar r34 - keyed clear film",
+    "qty": 1,
+    "optional": 0,
+    "category": "Printed",
+    "description": "Supports the rotating head on a clear film disc and holds the top edge of the body foam.",
+    "status": "Print it from this release\u2019s files. Clean it before assembly.",
+    "image": "assets/part-P44.png",
+    "link": "",
+    "verification": "Compare your cleaned print with the picture.",
+    "steps": [
+      "head-servo"
+    ],
+    "additional_links": [
+      {
+        "url": "downloads/stl/P44.stl",
+        "label": "Raw STL \u2014 P44"
       }
     ]
   },
@@ -843,12 +864,12 @@
   },
   {
     "id": "P30",
-    "name": "Mouth LED cassette",
-    "exact": "P30 Mouth cassette EXP inset r4 - internal clamp seats",
+    "name": "Mouth rear cover",
+    "exact": "P30 Mouth rear cover r34 - recessed screw access",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Holds the mouth LED board. Print it in black. The drawings show it gray for clarity. The joined head light connector rests on top of it, inside the head.",
+    "description": "Black PLA rear cover that captures the mouth LED board. The wires leave through its open notch. Two screws fasten the mouth assembly to the head.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/r20/part-P30.png",
     "link": "",
@@ -865,12 +886,12 @@
   },
   {
     "id": "P31",
-    "name": "Mouth light separator",
-    "exact": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs",
+    "name": "Mouth holder",
+    "exact": "P31 Mouth holder r34 - eight channels and PCB seat",
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Black PLA separator with a roof, floor, side walls and seven dividers. They form eight channels, one per LED. It holds one continuous foam strip behind the smile opening. No seal or inserts are needed. Check the clearance and light bleed once assembled.",
+    "description": "Black PLA holder with eight light channels and a curved seat for the mouth diffuser foam.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/r20/part-P31.png",
     "link": "",
@@ -1874,16 +1895,17 @@
   },
   {
     "id": "C01",
-    "name": "Clear eye film",
-    "exact": "Flexible clear front-eye film",
-    "qty": 2,
+    "name": "Clear film",
+    "exact": "Clear flexible film for eye windows and head bearing",
+    "qty": 3,
     "optional": 0,
     "category": "Consumable",
-    "description": "Any clear, flexible transparency sheet. Cut two 12.6 \u00d7 8.6 mm rounded rectangles, with 4.2 mm corners, from the template. Each must lie flat with its edge captured, without forcing the lip.",
+    "description": "Cut two eye windows and one head-bearing disc from a clear, flexible sheet about 0.17\u20130.19 mm thick. Use the full-size templates in the assembly steps.",
     "link": "https://www.12x12cardstock.shop/products/acetate-clear-0075-grafix",
     "verification": "Any suitable sheet",
     "image": "assets/cartoons/C01.svg",
     "steps": [
+      "head-servo",
       "eye-windows",
       "eye-housings"
     ],
@@ -1925,7 +1947,7 @@
     "qty": 1,
     "optional": 0,
     "category": "Consumable",
-    "description": "One continuous strip of white 4 mm Plastazote LD45, 7.4 mm high. Cut it long. Curve it into the pocket and trim it to fit. It follows a 37.8 mm radius across a 49.6 mm chord. The chord is not the strip length.",
+    "description": "One continuous strip of white 4 mm Plastazote LD45, cut 5.75 mm high. Curve it into the holder and trim its ends to fit.",
     "link": "https://coscomcosplaysupplies.com/products/plastazote-ld45?variant=47590849413352",
     "verification": "White Plastazote LD45, 4 mm. Test-fit the cut pieces.",
     "image": "assets/cartoons/C03.svg",
@@ -2019,7 +2041,6 @@
       "shifter-wiring",
       "button-audio-wiring",
       "head-harness",
-      "mouth",
       "body-lights",
       "light-connections"
     ],
@@ -2383,6 +2404,7 @@
     "steps": [
       "workbench",
       "print-cleanup",
+      "head-servo",
       "servo-horns",
       "eye-windows",
       "mouth",
@@ -2544,10 +2566,10 @@
     "id": "N2",
     "name": "M2 hex nut",
     "exact": "Ordinary M2 hex nut",
-    "qty": 37,
+    "qty": 35,
     "optional": 0,
     "category": "Fastener",
-    "description": "37 standard M2 hex nuts, nominal 4 mm across flats \u00d7 1.6 mm thick. Do not use nylon-insert locknuts. Check the printed fit. The eight board nuts are glued into open pockets before the boards go in.",
+    "description": "35 standard M2 hex nuts, nominal 4 mm across flats \u00d7 1.6 mm thick. Do not use nylon-insert locknuts. Check the printed fit. The eight board nuts are glued into open pockets before the boards go in.",
     "link": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR2SS",
     "verification": "Check against the actual-size screw key",
     "image": "assets/cartoons/N2.svg",
@@ -2706,10 +2728,10 @@
     "id": "M2x8",
     "name": "M2\u00d78",
     "exact": "M2\u00d70.4, 8 mm under-head length",
-    "qty": 10,
+    "qty": 8,
     "optional": 0,
     "category": "Fastener",
-    "description": "Ten: four for the mouth, two for the audio lid, one for the head servo's front ear and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
+    "description": "Eight: two for the mouth, two for the audio lid, one for the head servo's front ear and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
     "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
     "verification": "BelMetric SB2X8SS is an example button head. Measure the head.",
     "image": "assets/cartoons/M2x8.svg",

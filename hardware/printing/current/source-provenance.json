@@ -11609,5 +11609,10 @@
     "revision": "R33/cloud30",
     "operation": "Approved lighting/head-carrier geometry and trial process transferred to full W1/W2;P13 retired; eight other plates and optional PETG reused.",
     "record": "hardware/printing/current/checks/r33-lighting-validation.json"
+  },
+  {
+    "revision": "R34/cloud32",
+    "operation": "Accepted mouth pair and upper collar transferred with trial orientation/process/blocker; K1/C1 fully sliced; eight plates/optionalball retained",
+    "record": "hardware/printing/current/checks/r34-mouth-collar-validation.json"
   }
 ]

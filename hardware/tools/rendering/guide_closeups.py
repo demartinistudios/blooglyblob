@@ -532,9 +532,9 @@ def render_body_closeups(render, output):
     v=Views(render,output)
     foam=v.parts(['FOAM'])
     for m in foam:m['guide_color']=(232,236,240)
-    frame=v.parts(['P01','P43','P02','P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
+    frame=v.parts(['P01','P44','P43','P02','P03'])+v.parts(['E01'],0)+v.parts(['E01'],1)
     for m in frame:
-        if m['id'] in ('P01','P43','P02','P03'):m['guide_color']=(177,189,202)
+        if m['id'] in ('P01','P44','P43','P02','P03'):m['guide_color']=(177,189,202)
     backing=[m for m in v.parts(['P09']) if m['v'][:,2].min()>70]
     for m in backing:m['guide_color']=(41,114,140)
     v.emit('body-foam-holes',frame+backing+foam,[-1.35,.95,.4],

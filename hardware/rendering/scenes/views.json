@@ -1948,7 +1948,8 @@
         "E03",
         "P30",
         "E04",
-        "P08"
+        "P08",
+        "P31"
       ],
       "angle": "rear",
       "title": "R18 / HEAD AND CARRIER"
@@ -3333,23 +3334,23 @@
         0.75
       ],
       "offset": {
-        "P31": [
+        "MOUTHFOAM": [
           0,
-          8,
-          0
-        ],
-        "E04": [
-          0,
-          24,
+          -12,
           0
         ],
         "P30": [
           0,
-          40,
+          24,
+          0
+        ],
+        "E04": [
+          0,
+          12,
           0
         ]
       },
-      "title": "MOUTH STACK \u2022 dome omitted for access"
+      "title": "Mouth assembly"
     },
     "thumbnail": false,
     "source_audit_name": "r20-render-audit.json",
@@ -3365,7 +3366,8 @@
         "E03",
         "P30",
         "E04",
-        "P08"
+        "P08",
+        "P31"
       ],
       "angle": "rear"
     },
@@ -3461,8 +3463,8 @@
         0.9,
         -0.6
       ],
-      "title": "R20 / MOUTH ASSEMBLY FROM INSIDE THE HEAD",
-      "footer": "Head omitted \u2022 gray cassette, black separator and one continuous diffuser"
+      "title": "Mouth assembly from inside the head",
+      "footer": ""
     },
     "thumbnail": false,
     "source_audit_name": "r20-render-audit.json",
@@ -4111,7 +4113,8 @@
         "E03",
         "P30",
         "E04",
-        "P08"
+        "P08",
+        "P31"
       ],
       "angle": "rear",
       "exclude": [

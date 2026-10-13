@@ -534,9 +534,9 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P01 Foam collar r1 - rotating horn screw clearance:2",
-      "body": "P01 collar - print two",
-      "part_id": "P01",
+      "path": "P44 Upper bearing collar r34 - keyed clear film:1",
+      "body": "P44 Upper bearing collar r34 - keyed clear film",
+      "part_id": "P44",
       "accepted_appearance": "GS r1 copper goggles",
       "chosen_appearance": "GS r1 copper goggles",
       "chosen_overrides_accepted": false,
@@ -1484,8 +1484,8 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P30 Mouth cassette EXP inset r4 - internal clamp seats:1",
-      "body": "Body1",
+      "path": "P30 Mouth rear cover r34 - recessed screw access:1",
+      "body": "P30 Mouth rear cover r34 - recessed screw access",
       "part_id": "P30",
       "accepted_appearance": "Eye retainer gray - display only",
       "chosen_appearance": "Eye retainer gray - display only",
@@ -1503,16 +1503,16 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "P31 Mouth retainer EXP inset r4 - removable diffuser ribs:1",
-      "body": "Body1",
+      "path": "P31 Mouth holder r34 - eight channels and PCB seat:1",
+      "body": "P31 Mouth holder r34 - eight channels and PCB seat",
       "part_id": "P31",
-      "accepted_appearance": "Eye retainer gray - display only",
-      "chosen_appearance": "Eye retainer gray - display only",
+      "accepted_appearance": "Eye bezel black - display only",
+      "chosen_appearance": "Eye bezel black - display only",
       "chosen_overrides_accepted": false,
       "accepted_rgb": [
-        179,
-        179,
-        179
+        40,
+        40,
+        43
       ],
       "chosen_rgb": [
         40,
@@ -1541,9 +1541,9 @@
       "chosen_rgb_exact": true
     },
     {
-      "path": "REF Mouth Plastazote EXP inset r4 - recessed continuous diffuser:1",
-      "body": "Body1",
-      "part_id": null,
+      "path": "REF Mouth diffuser r34 - installed LD45 envelope:1",
+      "body": "REF Mouth diffuser r34 - installed LD45 envelope",
+      "part_id": "MOUTHFOAM",
       "accepted_appearance": "Eye foam white - display only",
       "chosen_appearance": "Eye foam white - display only",
       "chosen_overrides_accepted": false,
@@ -3154,8 +3154,28 @@
       ],
       "chosen_rgb_exact": true,
       "chosen_overrides_accepted": false
+    },
+    {
+      "path": "C01 Clear bearing film r34 - 0.17mm folded tabs:1",
+      "body": "C01 Clear bearing film r34 - 0.17mm folded tabs",
+      "part_id": "C01",
+      "accepted_appearance": "C01 clear film - display only",
+      "chosen_appearance": "C01 clear film - display only",
+      "chosen_overrides_accepted": false,
+      "accepted_rgb": [
+        185,
+        220,
+        235
+      ],
+      "chosen_rgb": [
+        185,
+        220,
+        235
+      ],
+      "chosen_rgb_exact": true,
+      "opacity": 0.25
     }
   ],
-  "source": "Accepted R18 body appearances; unchanged R16 material RGB palette. R33 updates five component identities and removes the retired wire guide; assigned colors are unchanged.",
+  "source": "Accepted R18 body appearances; unchanged R16 material RGB palette. R33 updates five component identities and removes the retired wire guide; assigned colors are unchanged. R34 replaces upper collar and mouth geometry, updates PCB and foam references, and adds the clear bearing-film reference. Existing chosen part colors are retained.",
   "limitation": "Flat RGB cannot reproduce textured copper. Native release screenshots preserve the accepted material appearance."
 }

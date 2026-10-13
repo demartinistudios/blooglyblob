@@ -73,6 +73,40 @@ def eye_film():
     to_pdf('eye-film-template.svg')
 
 
+# ---------------------------------------------------------------- head bearing film
+def head_bearing_film():
+    # Accepted collar: Ø82.6 outside, Ø62 opening, two 3.2 × 2.5 mm fold tabs.
+    w, h = 215.9, 279.4
+    b = [text(20, 22, 'BlooglyBlob', 4, weight='bold'),
+         text(20, 32, 'Head bearing film · P44', 8, weight='bold'),
+         text(20, 43, 'Print at 100% (actual size). Turn off Fit, Shrink and Scale to page.', 3.6),
+         text(20, 50, 'Check the 50 mm bar before cutting clear film about 0.17–0.19 mm thick.', 3.6)]
+    cx, cy = 107.95, 108
+    y = math.sqrt(31**2 - 1.6**2)
+    a = math.acos(-1.6 / 31)
+    points = [(1.6,y),(1.6,28.5),(-1.6,28.5),(-1.6,y)]
+    for i in range(1,601):
+        theta = a + (2*math.pi-2*a)*i/600
+        points.append((31*math.cos(theta),31*math.sin(theta)))
+    points += [(-1.6,-28.5),(1.6,-28.5),(1.6,-y)]
+    for i in range(1,601):
+        theta = -(math.pi-a) + 2*(math.pi-a)*i/600
+        points.append((31*math.cos(theta),31*math.sin(theta)))
+    path = 'M' + ' L'.join(f'{cx+x:.5f},{cy+y:.5f}' for x,y in points) + ' Z'
+    b += [f'<circle cx="{cx}" cy="{cy}" r="41.3" fill="none" stroke="black" stroke-width="0.1"/>',
+          f'<path d="{path}" fill="none" stroke="black" stroke-width="0.1"/>']
+    for dy in (-31,31):
+        b.append(f'<path d="M{cx-1.6} {cy+dy}h3.2" stroke="black" stroke-width="0.15" stroke-dasharray="1.2 .7"/>')
+    b += [text(cx, cy, 'REMOVE CENTER', 3.6, 'middle', 'bold'),
+          text(cx, cy+7, 'Keep both small tabs', 3.2, 'middle'),
+          text(20, 169, 'Cut the solid lines. Fold both tabs down 90° along the dashed lines.', 3.6),
+          text(20, 177, 'Lay the disc on the collar and insert the tabs into its two slots.', 3.6),
+          text(20, 187, 'Outer diameter 82.6 mm · inner circle 62 mm · tabs 3.2 mm wide, 2.5 mm deep', 3.2)]
+    b += scale_bar(20, 213, 50, '50 mm · actual size')
+    write('head-bearing-film-template.svg', svg(w,h,b,'BlooglyBlob head bearing film template: actual size'))
+    to_pdf('head-bearing-film-template.svg')
+
+
 # ---------------------------------------------------------------- body foam
 SHOULDER_HOLE = 14  # mm: the servo's round top is 12.1 mm across (Kitronik 25105 envelope)
 
@@ -172,6 +206,7 @@ def screw_key(form, w, h):
 
 if __name__ == '__main__':
     eye_film()
+    head_bearing_film()
     body_foam()
     screw_key('letter', 215.9, 279.4)
     screw_key('a4', 210, 297)

@@ -33,7 +33,7 @@ def scenes():
         path = scene['output']; view = scene['view']; selected = view.get('select', ['all'])
         if path in ('assets/r18/head-fastener-cutaway.png','assets/r16/service-stand.png') or not (SRC / path).exists():
             continue
-        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r18/step-11.png'):
+        if any((part in selected or 'all' in selected) and part not in view.get('exclude', []) for part in ('P01', 'P44', 'P30', 'P31', 'E04', 'P08', 'P14', 'P35', 'P36', 'FB32', 'FB01', 'FB24', 'FB41', 'E01', 'E06', 'E07', 'E08', 'E09', 'E14', 'E16', 'E17', 'E18')) or view.get('hardware') or path in ('assets/r16/base-cover-joints.png','assets/r18/step-11.png'):
             result[path] = copy.deepcopy(scene)
     community = {
         'vent-locations': dict(select=['FB01','FB03','FB41'],camera=[.7,.8,-1.6],title='Front and rear vents'),
@@ -52,6 +52,7 @@ def scenes():
                      'P11 Lower light bracket r33 - rear mount:1','P42 Upper light bracket r33 - servo clearance:1',
                      'P12 Rear-mounted middle light bracket r33:1',pebble+'2'],
         labels_by_root={pebble+'2':'E05'}),colors={'E05':[223,226,221]},thumbnail=False)
+    result['assets/part-P44.png'] = dict(view=dict(select=['P44'],camera=[.9,-1.6,.9],clean=True),thumbnail=True)
     result['assets/part-P35.png'] = dict(view=dict(select=['P35'],camera=[.9,-1.6,.9],clean=True),thumbnail=True)
     # R33 changed or new uprights and brackets, in the plain blue of the
     # other frame part images.
@@ -424,21 +425,31 @@ def action_diagrams(render, output):
     emit('head-cable-entry',parts,[.8,-1,1.3],'Pass the head light cable through a gap',
          ['1 Head light cable'],
          [('1',[17,-21,106])])
-    # Mouth board screws are the inner pair; clamp screws are the outer pair.
-    parts=translated(chosen(['P30','E04']),{'E04':[0,-10,0]})
-    for x in [-12.7,12.7]:parts+=screw(2,8,[x,-36,136.65],[0,1,0])+[nut(2,[x,-12.5,136.65],[0,1,0])]
-    emit('mouth-board-fastening',parts,[.5,-1.5,.6],'Fasten the LED stick to P30',
-         ['1 Inner holes: 2 × M2 × 8 + nuts'],
-         [('1',[-12.7,-36,136.65]),('1',[12.7,-36,136.65])],arrows=[([0,-28,136.65],[0,-16,136.65])])
-    parts=chosen(['P30','P31','MOUTHFOAM'])
-    for x in [-28.3,28.3]:parts+=screw(2,8,[x,-8,129.53],[0,-1,0])
-    emit('mouth-clamp-fastening',parts,[.5,1.6,.4],'Clamp the mouth inside the head',
-         ['1 Outer holes: 2 × M2 × 8'],
-         [('1',[-28.3,-8,129.53]),('1',[28.3,-8,129.53])])
+    # Board captured by the rear cover; no separate board fasteners.
+    from guide_closeups import compact_view
+    def mouth_view(name,parts,camera,title,labels,arrows=()):
+        outputs.append(compact_view(render,output,name,parts,camera,title,
+                                    labels=labels,arrows=arrows,label_size=30))
+    parts=translated(chosen(['P30','E04']),{'E04':[0,-14,0]})
+    mouth_view('mouth-board-fastening',parts,[.5,-1.5,.6],'Place the LED stick in the rear cover',
+         [('E04',[0,-33,135.3],(30,40)),('P30',[20,-19,138],(420,380))],
+         arrows=[([0,-31,139.65],[0,-21,139.65])])
+    parts=translated(chosen(['P31','MOUTHFOAM']),{'MOUTHFOAM':[0,-14,0]})
+    mouth_view('mouth-foam-insertion',parts,[.5,-1.5,.6],'Fit the curved foam in the holder',
+         [('C03',[0,-52,130],(30,40)),('P31',[22,-28,137],(440,385))],
+         arrows=[([0,-49,132],[0,-37,132])])
+    parts=translated(chosen(['P30','P31','E04','MOUTHFOAM']),{'P30':[0,14,0],'E04':[0,14,0]})
+    parts += cropped(chosen(['GS20']),[[-42,-41,123],[42,-22,141]])
+    for x in [-28.3,28.3]:
+        parts+=screw(2,8,[x,8,129.53],[0,-1,0])+[nut(2,[x,-25.6,129.53],[0,1,0])]
+    mouth_view('mouth-clamp-fastening',parts,[.5,1.6,.65],'Fasten the mouth inside the head',
+         [('2 × M2 × 8',[28.3,8,129.53],(28,40)),('P30',[-22,-3,138],(450,390))],
+         arrows=[([0,-2,136],[0,-13,136])])
     parts=cropped(chosen(['GS20']),[[-55,-48,121],[55,35,144]])
-    emit('mouth-head-nuts',parts,[.4,1.5,-.4],'Load the two hidden head nuts',
-         ['1 M2 nuts'],
-         [('1',[-28.3,-22,129.53]),('1',[28.3,-22,129.53])])
+    for x in [-20,20]:parts.append(nut(2,[x,-25.6,129.53],[0,1,0]))
+    mouth_view('mouth-head-nuts',parts,[.4,1.5,-.4],'Load the two head nuts',
+         [('2 × M2 nuts',[-20,-25.6,129.53],(30,40))],
+         arrows=[([20*s,-25.6,129.53],[27*s,-25.6,129.53]) for s in [-1,1]])
     # Upright pockets remain accessible until the foam is wrapped.
     parts=chosen(['P02'],{'P02':[0]})
     # The three side slots open on P02's robot-right face (X -5) at Z 22, 46, 90.

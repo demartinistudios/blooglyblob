@@ -23,7 +23,9 @@ def render_legacy_actions(render, output):
     check_circle('P04', 0, 9, [26.5, 97.8], 1.7)
     check_circle('P43', 0, -2.35, [-26.5, 97.8], 1.7)
     for y in [-26.5, 26.5]:
-        check_circle('P01', 2, 116.3, [0, y], 1.7)
+        # A 0.2 mm printing membrane closes the bore immediately below the seat.
+        check_circle('P44', 2, 116.1, [0, y], 1.7)
+        check_circle('P44', 2, 116.3, [0, y], 3.1)
     parts = clipped(v.parts(['P04', 'P43', 'P02']), [[-7,-32,93],[11,32,103]])
     for m in parts: m['guide_color'] = (126,135,169) if m['id']=='P04' else (140,159,179)
     parts += screw(3,10,[5,-26.5,97.8],[-1,0,0],head='countersunk') + [hex_nut(3,[-3.525,-26.5,97.8],[1,0,0])]
@@ -35,7 +37,7 @@ def render_legacy_actions(render, output):
                  ('M3 × 10 countersunk + nut',[-4.7,-26.5,97.8],(150,400))])
     # Nuts slide into the upright slots from the outer faces; the collar is
     # lifted 14 mm to show its tabs going down onto the upright tops.
-    parts = [dict(m, v=m['v']+[0,0,14]) for m in v.parts(['P01'],1)]
+    parts = [dict(m, v=m['v']+[0,0,14]) for m in v.parts(['P44'])]
     parts += clipped(v.parts(['P43','P02']),[[-6,-32,88],[6,32,114.3]])
     arrows = [([0,26.5*s,141],[0,26.5*s,134]) for s in [-1,1]]
     arrows += [([0,26.5*s,127],[0,26.5*s,119]) for s in [-1,1]]
@@ -43,10 +45,20 @@ def render_legacy_actions(render, output):
         parts += screw(3,10,[0,26.5*s,152],[0,0,-1]) + [hex_nut(3,[0,41*s,107.9],[0,0,1])]
         arrows.append(([0,38*s,107.9],[0,31.5*s,107.9]))
     emit('upper-collar-fastening',parts,[1,-.75,.55],
-         'Slide a nut into the slot near each upright top, then screw the upper P01 collar down onto the uprights',
+         'Slide a nut into the slot near each upright top, then screw the upper P44 collar down onto the uprights',
          arrows=arrows,
-         labels=[('2 × M3 × 10',[0,-26.5,152],(28,36)),('P01',[39,0,128.3],(480,150)),
+         labels=[('2 × M3 × 10',[0,-26.5,152],(28,36)),('P44',[39,0,134.5],(480,150)),
                  ('P43',[5,-26.5,95],(60,395)),('2 × M3 nuts',[0,41,107.9],(390,395))],label_size=32)
+    # The accepted clear-film solid includes the folded tabs, at their slot positions.
+    film = v.parts(['C01'])
+    if not film:
+        raise ValueError('The selected assembly must contain the C01 bearing film')
+    film = [dict(m, v=m['v']+[0,0,14], guide_color=(178,205,218)) for m in film]
+    parts = v.parts(['P44']) + film
+    emit('head-bearing-film',parts,[.7,-1.2,1.1],
+         'Lay the bearing disc flat and insert its two folded tabs into the collar slots',
+         arrows=[([0,y,131],[0,y,122]) for y in (-31,31)],
+         labels=[('C01',[34,0,134.67],(435,45)),('P44',[39,0,116.5],(450,365))],label_size=32)
     parts=clipped(v.parts(['GS20','P08']),[[30,0,121],[44,6,130]])
     parts+=screw(2,8,[40.45,0,125.3],[-1,0,0],head='button')
     parts+=[hex_nut(2,[34.1,0,125.3],[1,0,0])]

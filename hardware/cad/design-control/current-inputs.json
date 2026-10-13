@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "purpose": "Mandatory R33/cloud30 CAD, printing, catalog, assembly and rendering inputs. Five changed pieces, six LED placements and retired P13 wire guide. Guide synchronization pending; no selected kit delivery. Physical qualification remains separate.",
+  "purpose": "Mandatory R34/cloud32 CAD, printing, catalog, assembly and rendering inputs. P44 upper collar, matching P30/P31 mouth and updated references. Guide content review remains independent; no selected kit delivery.",
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
@@ -9,23 +9,23 @@
     },
     {
       "path": "hardware/assembly/hardware.json",
-      "sha256": "75ec9f9130007e5fec6c838014911ba2fe0446707e20498cca1ba2d10b24b173",
-      "bytes": 4317
+      "sha256": "6ddde1349b087b6aa85c9b7f1e859d098b223bfa1b411e33d88a45fe1d99e234",
+      "bytes": 4475
     },
     {
       "path": "hardware/assembly/interfaces.json",
-      "sha256": "7ca1dd1bb22294f3dfb70b021696ae633345862e94f37137b6937e10e404055e",
-      "bytes": 2251
+      "sha256": "789d749ab28658a3d691b7102b2800eed3c3ffa06ef0fbb7677afac7e1f911b1",
+      "bytes": 3241
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
-      "sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
-      "bytes": 15430078
+      "sha256": "29ba97cd9783a657646284f8c9541107a0d64cb8fa217b3b521086f29c72dfa8",
+      "bytes": 15621672
     },
     {
       "path": "hardware/cad/current/assembly.step",
-      "sha256": "bd8a38aac1e7218ee9f294be143b3b412da259fad4ee82b3fdea07552dca23f4",
-      "bytes": 21775520
+      "sha256": "91e80d1afff668366b4b2eb372b4ea36fae0d1f4e077775d262a12128d50db31",
+      "bytes": 21907281
     },
     {
       "path": "hardware/cad/current/evidence/audio-tape-r26.json",
@@ -83,6 +83,11 @@
       "bytes": 2786
     },
     {
+      "path": "hardware/cad/current/evidence/mouth-collar-r34.json",
+      "sha256": "eb55444f6fcc0bbf07ba27d0571daa8ea0c4aa28bd84f63600c19eaa3c2f5145",
+      "bytes": 6317
+    },
+    {
       "path": "hardware/cad/current/evidence/print-sources-r29.json",
       "sha256": "48ed7a423a2a31f58c53e76a6dcbef7ca4f27c5644ff778cbd58aff217edea9e",
       "bytes": 8033
@@ -138,6 +143,11 @@
       "bytes": 2126
     },
     {
+      "path": "hardware/cad/current/frames/mouth-collar-r34.json",
+      "sha256": "54eba85b862706c76f144a743911e81f7cd086cabb450268deb6cdf7c8d98bbb",
+      "bytes": 3502
+    },
+    {
       "path": "hardware/cad/current/frames/straight-row-r28.json",
       "sha256": "ab69f0750742d3545e82715ccaede21a77e4d1c3d48eeb8aacbc8af288a5885e",
       "bytes": 1064
@@ -149,18 +159,18 @@
     },
     {
       "path": "hardware/cad/current/native-meshes.json",
-      "sha256": "782f821568dd325c22339ee96d6aed15db75c9df78eca1d2d99fffd57d3622a1",
-      "bytes": 24738401
+      "sha256": "3804b5a93e07eb73b3622cf47335c1aa760ade796074e9dbc9e96ba472cfb079",
+      "bytes": 28320085
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "0a460f2de734590c1156d861021ab698a9ac9fe44f9c12bde906ae5b59507b61",
-      "bytes": 470306
+      "sha256": "4d6f9c63ac43b66184148ce23b52d5000ec24ad490b9d555b92019b673ac24fd",
+      "bytes": 471179
     },
     {
       "path": "hardware/cad/current/step-export-provenance.json",
-      "sha256": "3439485f644468c03aca8c2bb1f849bb844810603ab4f58d33d6a01e97f0fd7c",
-      "bytes": 1809
+      "sha256": "c70916037085d1115ce2c6a95435e49dc0d437bbf30bf7947d7638ed65d906c1",
+      "bytes": 1770
     },
     {
       "path": "hardware/cad/current/stl/A04.stl",
@@ -379,13 +389,13 @@
     },
     {
       "path": "hardware/cad/current/stl/P30.stl",
-      "sha256": "899bed62233a6712b4c128a3dc22b9af0cbb025dc4bd0685bc35a6ff2c258892",
-      "bytes": 331684
+      "sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+      "bytes": 64684
     },
     {
       "path": "hardware/cad/current/stl/P31.stl",
-      "sha256": "e888a6222de75f43863789d700ee0f5a260d8edcd26c0087261ba189218dccc5",
-      "bytes": 223984
+      "sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
+      "bytes": 131084
     },
     {
       "path": "hardware/cad/current/stl/P34.stl",
@@ -433,6 +443,11 @@
       "bytes": 146484
     },
     {
+      "path": "hardware/cad/current/stl/P44.stl",
+      "sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "bytes": 338484
+    },
+    {
       "path": "hardware/cad/current/stl/README.txt",
       "sha256": "e5a9217fb0fac1c925d53698374d7f1e387edfe52ee68d1b66364a9e4b3e7bc3",
       "bytes": 515
@@ -463,19 +478,24 @@
       "bytes": 11661
     },
     {
+      "path": "hardware/cad/design-control/releases/R34-mouth-collar-20261013.json",
+      "sha256": "a4debc2fb4eaeeb5ab5903357a075362c44af20232393f823ea3584e1fcb0b1c",
+      "bytes": 11687
+    },
+    {
       "path": "hardware/catalog/aliases.json",
       "sha256": "6815224c3d8a0795a95af7c206a74fe7155c316dcb3a06bca9f1933daa50a7c1",
       "bytes": 1445
     },
     {
       "path": "hardware/catalog/parts.json",
-      "sha256": "fd38c8bf24b1689f636a02d5d53171f3281d5539e9554fb84d2ea905ea450cc1",
-      "bytes": 48377
+      "sha256": "ec56f677027fa39bf5e9462c88439513987eee34afc1bd85d8dea49833aafa44",
+      "bytes": 49175
     },
     {
       "path": "hardware/catalog/supplies.json",
-      "sha256": "de816a7eaaa7b9831af8d990c60960f0c5ed4d39208dfe1d58429f834c709d21",
-      "bytes": 14446
+      "sha256": "ffd81ef256fa3961da4aa64b0ff95a0f6be6740e562609215e3a7c632b95a00a",
+      "bytes": 14469
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",
@@ -483,19 +503,19 @@
       "bytes": 349549
     },
     {
-      "path": "hardware/printing/current/BlooglyBlob-R33-PLA-Production.3mf",
-      "sha256": "00c77deec17514b3d5093143c7c352628cab0ef033f1ab5db5572f401f92e3b9",
-      "bytes": 19109159
+      "path": "hardware/printing/current/BlooglyBlob-R34-PLA-Production.3mf",
+      "sha256": "4d94f18b3998a40de178c558403e1b9013c086efce83dbf2e5c1fb9861eccb1c",
+      "bytes": 19090223
     },
     {
       "path": "hardware/printing/current/PUBLISHED.json",
-      "sha256": "ae09af672b7a0d123b54ca2c45c3d9ba6f44475564f7a5d06ed677f896214df0",
-      "bytes": 12935
+      "sha256": "4c5355dbf2be7ea731e52b44335274a1525778f0c4b06d9c87cbd5e31f74ba07",
+      "bytes": 13402
     },
     {
       "path": "hardware/printing/current/README.md",
-      "sha256": "ad5ea5220dd562828157c5348144dde75082a9ce2a7bb8bf44a1a5ff81a517de",
-      "bytes": 11886
+      "sha256": "742bd4f4d2f113cba8f9de649198639af076d68777fd513209cdb1ec76b9b797",
+      "bytes": 13566
     },
     {
       "path": "hardware/printing/current/checks/first-layers.png",
@@ -833,6 +853,21 @@
       "bytes": 1394120
     },
     {
+      "path": "hardware/printing/current/checks/r34-first-layer.png",
+      "sha256": "5e3dd540abb0c1ca7d15f7874d86ffe57dbea761ed77408d5f170c42eedc16c7",
+      "bytes": 785301
+    },
+    {
+      "path": "hardware/printing/current/checks/r34-mouth-collar-validation.json",
+      "sha256": "537fc6c9654b1a6f9d191e469d7645c5a08c1cbf1a0e4be32455c3eb0ba57adc",
+      "bytes": 29620
+    },
+    {
+      "path": "hardware/printing/current/checks/r34-mouth-supports.png",
+      "sha256": "ad113c29a2a7e768de5a8bd1570c326087e6584e3f072e9208ff73ed120a23d8",
+      "bytes": 52193
+    },
+    {
       "path": "hardware/printing/current/checks/slice-audit.json",
       "sha256": "36285269c5a72ccde6d5c84dc0fe8f7802c7aa89f44a97e187374cab178a72e3",
       "bytes": 3776
@@ -844,28 +879,28 @@
     },
     {
       "path": "hardware/printing/current/live-source-check.json",
-      "sha256": "9421e3bba1904dad23444f64d862d4ff7be06eb4f2d4250c0fc2058f908e3ce1",
-      "bytes": 796
+      "sha256": "1ea2b759138baf214bb4071fb6a43f3a6f6e3d63d5541808e6e2e5df4cf2862f",
+      "bytes": 800
     },
     {
       "path": "hardware/printing/current/manifest.json",
-      "sha256": "52f25b0001101fa33c37c6ce5eced15a543ca93a143beb62f9a57fe184768aa2",
-      "bytes": 621925
+      "sha256": "19342a45a907d9d5c123da5c7a965398cc01f099eb3f9a83dd5aa2a2cc2bf545",
+      "bytes": 622188
     },
     {
       "path": "hardware/printing/current/object-settings.csv",
-      "sha256": "80f9bfde131180bdae3e05bf80d7e2100c488e25205c989492b0816b59e7425d",
-      "bytes": 7932
+      "sha256": "740f49529a04fd60e741f04e1966a2a06f523d17a1dd0417725c29b949f047bb",
+      "bytes": 7899
     },
     {
       "path": "hardware/printing/current/planned-settings.json",
-      "sha256": "467d9c3d39b4b4e9b71d2ded42d62ad7be3eebae9be93d96c884aabfdf209679",
-      "bytes": 85130
+      "sha256": "cad270e52c13f14a511e7e20026941a2b6c4c5afb736fffb3f6a2cf7cf09154e",
+      "bytes": 75881
     },
     {
       "path": "hardware/printing/current/source-provenance.json",
-      "sha256": "9acf363e9d800f73694669e9c1a61e1110b5914976d3c238c1fcf833eda49087",
-      "bytes": 439911
+      "sha256": "656503cfc8b4c9059bf4b1882989475361ee011c0eed40d44fed366634d29f38",
+      "bytes": 440197
     },
     {
       "path": "hardware/printing/recipes/README.md",
@@ -879,18 +914,18 @@
     },
     {
       "path": "hardware/printing/recipes/projects.json",
-      "sha256": "9f6c22408c5b26d62a5cce21b7e22c68db7a78b642ad3ec58e286b6347faf1c3",
-      "bytes": 27012
+      "sha256": "15f02867f357853094145b7298ec395bafffd7039f604e151beeddc6edc2fe80",
+      "bytes": 27130
     },
     {
       "path": "hardware/printing/recipes/semantic-contract.json",
-      "sha256": "8d73d21fb1f9e6733b5f17bd8bd5ada440d1f2f9725e43efaddec8c747e12c20",
-      "bytes": 183014
+      "sha256": "96579c7d0987e67ae4e19361acee7ef86dc61cb9c84301be558d3a3295a80ca1",
+      "bytes": 183718
     },
     {
       "path": "hardware/rendering/r22-colors.json",
-      "sha256": "954e20e7af488851dbab9e8b8d6d075fed6caec6b54a670f01d19b8a4daae4d8",
-      "bytes": 76411
+      "sha256": "a84a670a8c20cc676e908e86b9a4205bdb89f2be7cb362f70461cc954a4d7e80",
+      "bytes": 77226
     },
     {
       "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
@@ -904,18 +939,18 @@
     },
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "baddd859d078bc82b06f5c031d82defad59ca6d2b79679be941e4a862bb9216f",
-      "bytes": 19208633
+      "sha256": "bfd544e6024fb5189b4c18a5c1b4b36c2ea477ea2bfb38ea3d9154a450f0349d",
+      "bytes": 19424882
     },
     {
       "path": "hardware/rendering/scenes/views.json",
-      "sha256": "1c14d7f956875b4ca787281641b31557a55178b410ba111909bcef646a9020e5",
-      "bytes": 104420
+      "sha256": "651c1a04260cf21342fde514093182b512b6ee9b987720897382e9ad2953fc8a",
+      "bytes": 104361
     },
     {
       "path": "hardware/rendering/source-lock.json",
-      "sha256": "913279290222904e7dd7199fce28de59cfbe57b04e0f98ded1d5971cbd6b978f",
-      "bytes": 5532
+      "sha256": "41c3ace63489516981f905416f147b7ff207d112b8bf4ce4f0d9253c7a7f073d",
+      "bytes": 6008
     },
     {
       "path": "hardware/tools/cad/export_service_stand.py",

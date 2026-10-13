@@ -1,20 +1,20 @@
 {
   "schema_version": 2,
   "cad": {
-    "design_revision": "R33",
+    "design_revision": "R34",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "cloud_version": 30,
-    "release_manifest": "hardware/cad/design-control/releases/R33-body-lighting-20261008.json",
-    "release_manifest_sha256": "a96501ca1f8912be5cf439629b7130562d69d8028bc1aa300b28001af37ac05e"
+    "cloud_version": 32,
+    "release_manifest": "hardware/cad/design-control/releases/R34-mouth-collar-20261013.json",
+    "release_manifest_sha256": "a4debc2fb4eaeeb5ab5903357a075362c44af20232393f823ea3584e1fcb0b1c"
   },
   "scene_review_cad": {
     "cloud_name": "Blue Glee Blob - MAIN",
     "project": "Admin Project",
     "cloud_file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
-    "design_revision": "R33",
-    "cloud_version": 30,
-    "release_manifest": "hardware/cad/design-control/releases/R33-body-lighting-20261008.json",
-    "release_manifest_sha256": "a96501ca1f8912be5cf439629b7130562d69d8028bc1aa300b28001af37ac05e"
+    "design_revision": "R34",
+    "cloud_version": 32,
+    "release_manifest": "hardware/cad/design-control/releases/R34-mouth-collar-20261013.json",
+    "release_manifest_sha256": "a4debc2fb4eaeeb5ab5903357a075362c44af20232393f823ea3584e1fcb0b1c"
   },
   "roles": {
     "mesh": "hardware/rendering/r28-visible-meshes.json.gz",
@@ -34,18 +34,18 @@
   "files": [
     {
       "path": "hardware/rendering/r28-visible-meshes.json.gz",
-      "sha256": "baddd859d078bc82b06f5c031d82defad59ca6d2b79679be941e4a862bb9216f",
-      "bytes": 19208633
+      "sha256": "bfd544e6024fb5189b4c18a5c1b4b36c2ea477ea2bfb38ea3d9154a450f0349d",
+      "bytes": 19424882
     },
     {
       "path": "hardware/cad/current/native-meshes.json",
-      "sha256": "782f821568dd325c22339ee96d6aed15db75c9df78eca1d2d99fffd57d3622a1",
-      "bytes": 24738401
+      "sha256": "3804b5a93e07eb73b3622cf47335c1aa760ade796074e9dbc9e96ba472cfb079",
+      "bytes": 28320085
     },
     {
       "path": "hardware/cad/current/release-assembly.json",
-      "sha256": "0a460f2de734590c1156d861021ab698a9ac9fe44f9c12bde906ae5b59507b61",
-      "bytes": 470306
+      "sha256": "4d6f9c63ac43b66184148ce23b52d5000ec24ad490b9d555b92019b673ac24fd",
+      "bytes": 471179
     },
     {
       "path": "hardware/cad/current/joints.json",
@@ -54,8 +54,8 @@
     },
     {
       "path": "hardware/rendering/r22-colors.json",
-      "sha256": "954e20e7af488851dbab9e8b8d6d075fed6caec6b54a670f01d19b8a4daae4d8",
-      "bytes": 76411
+      "sha256": "a84a670a8c20cc676e908e86b9a4205bdb89f2be7cb362f70461cc954a4d7e80",
+      "bytes": 77226
     },
     {
       "path": "hardware/rendering/r23-service-stand-meshes.json.gz",
@@ -69,11 +69,11 @@
     },
     {
       "path": "hardware/rendering/scenes/views.json",
-      "sha256": "1c14d7f956875b4ca787281641b31557a55178b410ba111909bcef646a9020e5",
-      "bytes": 104420
+      "sha256": "651c1a04260cf21342fde514093182b512b6ee9b987720897382e9ad2953fc8a",
+      "bytes": 104361
     }
   ],
   "frames": "Body-local cm, occurrence transform once, then cm to mm. Bed-normalized print geometry has separate frames.",
-  "scene_review": "R29/cloud25 review against hardware/cad/current/evidence/batch-r29.json: P08/P14 \u00d83.4 bores verified at (15.588457,-9), (0,18), (-15.588457,-9), Z125.3/128.3; underside pocket roof Z124.0. FB32 \u00d82.3 bores verified at (-47,-65.5) and (50,-78.35), Z-41.5/-39.5; corresponding FB24 lid nuts updated. P35/P36 former screw/nut joint removed; actual radius8.3 ring surfaces at Z33\u201338 and62\u201367 identify epoxy bonds. Source transforms and unchanged base/head-shell/belt interfaces retained. USB views locate endpoints and a separated measured connector; no final mated position or cable-bend clearance is claimed. Affected six part cards, assembly/service views, layouts and full-robot view require regenerated assets from this binding; physical qualification remains pending. R30/cloud26 preserves all retained bodies, transforms, appearances and printed interfaces under the accepted native comparison; only the F1 row is removed from the composed rendering mesh. Lighting F2 and C1/C2 placements are unchanged. The power-parts placement, base-cover, electrical layout and routing-access views are regenerated for this selection; unrelated illustrations and presentation images retain their verified geometry and original capture provenance. R31/cloud27 removes four hidden obsolete wire/splice references that were absent from the selected render composition. Retained geometry, transforms, appearances and scene inputs are unchanged; the R30-generated illustrations remain valid without rerendering. R32/cloud28 replaces only the C04 foam row with a saved-native tessellation of the specified round shoulder holes and plain seam. All other mesh rows and colors are unchanged. Body close-ups and illustrations showing the foam require regeneration from this binding. R33/cloud30 replaces the five accepted structural/lighting rows, retires P13 and applies the six native LED transforms. All other render rows and colors remain unchanged. Head-carrier, upright, body-lighting, wire-routing and full-body illustrations require guide-owner regeneration and review; geometry binding is not visual approval of those pending assets.",
+  "scene_review": "R29/cloud25 review against hardware/cad/current/evidence/batch-r29.json: P08/P14 \u00d83.4 bores verified at (15.588457,-9), (0,18), (-15.588457,-9), Z125.3/128.3; underside pocket roof Z124.0. FB32 \u00d82.3 bores verified at (-47,-65.5) and (50,-78.35), Z-41.5/-39.5; corresponding FB24 lid nuts updated. P35/P36 former screw/nut joint removed; actual radius8.3 ring surfaces at Z33\u201338 and62\u201367 identify epoxy bonds. Source transforms and unchanged base/head-shell/belt interfaces retained. USB views locate endpoints and a separated measured connector; no final mated position or cable-bend clearance is claimed. Affected six part cards, assembly/service views, layouts and full-robot view require regenerated assets from this binding; physical qualification remains pending. R30/cloud26 preserves all retained bodies, transforms, appearances and printed interfaces under the accepted native comparison; only the F1 row is removed from the composed rendering mesh. Lighting F2 and C1/C2 placements are unchanged. The power-parts placement, base-cover, electrical layout and routing-access views are regenerated for this selection; unrelated illustrations and presentation images retain their verified geometry and original capture provenance. R31/cloud27 removes four hidden obsolete wire/splice references that were absent from the selected render composition. Retained geometry, transforms, appearances and scene inputs are unchanged; the R30-generated illustrations remain valid without rerendering. R32/cloud28 replaces only the C04 foam row with a saved-native tessellation of the specified round shoulder holes and plain seam. All other mesh rows and colors are unchanged. Body close-ups and illustrations showing the foam require regeneration from this binding. R33/cloud30 replaces the five accepted structural/lighting rows, retires P13 and applies the six native LED transforms. All other render rows and colors remain unchanged. Head-carrier, upright, body-lighting, wire-routing and full-body illustrations require guide-owner regeneration and review; geometry binding is not visual approval of those pending assets. R34/cloud32 updates P44/P30/P31, mouth PCB and foam, and C01 bearing film geometry. Guide owner checked P44 radius1.7 shaft edges at Z116.1, radius3.1 counterbore/seat edges at Z116.3, 0.20 mm bore films, P30 radius1.1 screw bores at Y-18.7/X\u00b128.3/Z129.53, retained head nut pockets Y-26.7..-24.5, and C01 film bounds Z118..120.67/OD82.6. P30/P31 and moved PCB bounds match the native rows. These dimensions authorize rendering; visual adoption is a separate guide review.",
   "reference_frame_check": "Retained F2 and capacitor rows originate in the clean saved cloud19 export: body-local vertices and actual occurrence transforms. R30 native comparisons confirm unchanged retained geometry, transforms and appearances. F1 is absent from the selected composition."
 }

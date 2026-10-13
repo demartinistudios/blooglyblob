@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "cad": "R34/cloud32",
+  "parent_cad": "R33/cloud30",
+  "native_source": {
+    "path": "hardware/cad/current/assembly.f3d",
+    "sha256": "29ba97cd9783a657646284f8c9541107a0d64cb8fa217b3b521086f29c72dfa8",
+    "bytes": 15621672
+  },
+  "parent_native_sha256": "743411cee783792a3c8a101a6d53cc9480fa124f3a8e2d7c10e807e376cfb98e",
+  "scope": {
+    "changed_parts": [
+      "P30",
+      "P31",
+      "P44"
+    ],
+    "quantity_change": "P01 quantity 2 to 1; new P44 quantity 1",
+    "references": [
+      "mouth PCB moved Y -2.4 mm / Z +3 mm",
+      "installed mouth LD45 foam envelope",
+      "C01 0.17 mm folded-tab bearing film"
+    ],
+    "unchanged": "Lower collar, head shell, base, servo carriers, all eight arm joints and unrelated geometry/appearances."
+  },
+  "verification": {
+    "retained_bodies_exact": 558,
+    "changed_printed_bodies": 3,
+    "changed_foam_reference": 1,
+    "new_bearing_film_reference": 1,
+    "moved_PCB_mm": [
+      0,
+      -2.4,
+      3
+    ],
+    "occurrences": 331,
+    "bodies": 563,
+    "joints_preserved": 8,
+    "source_exact": true,
+    "unrelated_metadata_geometry_transforms_preserved": true
+  },
+  "native_reimport": {
+    "file_id": "urn:adsk.wipprod:dm.lineage:nkM4P_10T7yYk-tasXlhbg",
+    "cloud_version": 32,
+    "latest": 32,
+    "complete": true,
+    "modified": false,
+    "native_sha256": "29ba97cd9783a657646284f8c9541107a0d64cb8fa217b3b521086f29c72dfa8",
+    "step_sha256": "91e80d1afff668366b4b2eb372b4ea36fae0d1f4e077775d262a12128d50db31",
+    "retained_bodies_exact_bidirectional_BRep": 563,
+    "retained_occurrences": 331,
+    "joints_preserved": 8,
+    "appearance_visibility_transforms_body_statistics_preserved": true,
+    "timeline_health_unchanged": true,
+    "removed": []
+  },
+  "mesh_checks": [
+    {
+      "part_id": "P30",
+      "sha256": "c4c97bea2d95ce521478aba17cd9bfc407690f4bc1f18acbf8fa19b9d694b570",
+      "source_frame": "assembly mm",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 2935.4725059095304,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P30.stl",
+      "occurrence": "P30 Mouth rear cover r34 - recessed screw access:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "part_id": "P31",
+      "sha256": "fcbf6f480051a48b159a3d456b76aef8fd66a85ba82768065b378a690e135f29",
+      "source_frame": "assembly mm",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 2880.2547983661684,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P31.stl",
+      "occurrence": "P31 Mouth holder r34 - eight channels and PCB seat:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "part_id": "P44",
+      "sha256": "466dac88fa39180c70f7e7b950d410f0a5df30f37d5cae67a3f15aa06907f4c4",
+      "source_frame": "bearing-face-down print frame",
+      "stl_mm_to_assembly_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          120.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fresh_native_export": true,
+      "print_transform_no_scaling_or_repair": true,
+      "closed_mesh": true,
+      "volume_mm3": 16338.229904467158,
+      "quantity": 1,
+      "path": "hardware/cad/current/stl/P44.stl",
+      "occurrence": "P44 Upper bearing collar r34 - keyed clear film:1",
+      "component_local_cm_to_assembly_cm": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "static_collision_check": "Zero overlaps in checked visible candidate assembly. Static nominal geometry does not establish material tolerances or dynamic cable behavior.",
+  "collar_mm": {
+    "bearing_z": 120.5,
+    "film_top_z": 120.67,
+    "height": 11.2,
+    "screw_seat_z": 116.3,
+    "screw_seat_floor": 2,
+    "counterbore_diameter": 6.2,
+    "counterbore_depth": 4.2,
+    "screw_axes_xy": [
+      [
+        0,
+        -26.5
+      ],
+      [
+        0,
+        26.5
+      ]
+    ],
+    "screw_bore_membrane": 0.2,
+    "print_membrane_z": [
+      4.2,
+      4.4
+    ],
+    "film_slot": [
+      3.8,
+      0.6,
+      2.8
+    ],
+    "film_slot_bottom_z": 117.7,
+    "film_outer_diameter": 82.6,
+    "film_inner_diameter": 62,
+    "film_tab_width": 3.2,
+    "film_tab_drop": 2.5,
+    "screws": "2 M3\u00d710, unchanged"
+  },
+  "mouth": {
+    "fasteners": "2 M2\u00d78 + 2 M2 nuts; no washers or separate PCB screws",
+    "foam": "4 mm LD45 strip, cut 5.75 mm high, trim length to curved seat; nominal compressed radial envelope 3.1 mm",
+    "screw_seat_y_mm": -18.7,
+    "PCB_translation_mm": [
+      0,
+      -2.4,
+      3
+    ]
+  },
+  "acceptance": "Owner requested the maintained mouth and collar configuration. Physical printer jobs are managed separately."
+}

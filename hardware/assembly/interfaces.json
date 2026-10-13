@@ -81,6 +81,38 @@
         "powered foam shadow and hotspot inspection",
         "printed strength, nut retention and support removal"
       ]
+    },
+    {
+      "parts": [
+        "P30",
+        "P31",
+        "GS20",
+        "P08",
+        "P14"
+      ],
+      "checks": [
+        "P30/P31 matching holder and cover geometry",
+        "two M2\u00d78 rear screws engage retained M2 head nuts",
+        "mouth PCB seated in cover pocket, LEDs forward, leads in open notch",
+        "4 mm LD45 diffuser trimmed 5.75 mm high and seated without blocking channels",
+        "head and adapter seating with full rotation and wire clearance"
+      ]
+    },
+    {
+      "parts": [
+        "P44",
+        "P43",
+        "P02",
+        "P04",
+        "C01"
+      ],
+      "checks": [
+        "bearing surface Z120.5 mm, nominal 0.17 mm film",
+        "two original M3\u00d710 mounting screws seated below bearing surface",
+        "clear both sacrificial 0.20 mm screw-bore films after printing",
+        "two inward film tabs fold downward into locating slots",
+        "foam groove clear; head rotates freely with secure servo horn"
+      ]
     }
   ]
 }

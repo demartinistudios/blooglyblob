@@ -337,13 +337,31 @@ def _shifter(original):
     return rows
 
 
+def _mouth_stick(original):
+    """Color the accepted PCB and eight LED packages without changing triangles."""
+    vertices=original['v'];lo=vertices.min(0);hi=vertices.max(0)
+    if not np.allclose(hi-lo,[51.1,3.19,10.22],atol=.01):
+        raise ValueError('Review mouth-stick material regions against changed source geometry')
+    centers=vertices[original['f']].mean(axis=1)
+    front=centers[:,1] < hi[1]-1.6-1e-5
+    leds=front & (centers[:,2]>=lo[2]+1.34-1e-5) & (centers[:,2]<=lo[2]+6.34+1e-5)
+    rows=[]
+    for mask,color,label in [(leds,(238,238,223),'LED packages'),
+                             (front & ~leds,(153,156,150),'surface components'),
+                             (~front,(35,42,40),'PCB')]:
+        mesh=trimesh.Trimesh(vertices,original['f'][mask],process=False)
+        mesh.remove_unreferenced_vertices()
+        rows.append(_row(original,mesh,color,label))
+    return rows
+
+
 def replace_envelopes(meshes):
     """Return recognizable rows without mutating accepted mesh/source records.
 
     Run after source/occurrence checks. One source occurrence becomes several
     display rows, preserving its identity; repeated invocation is harmless.
     """
-    makers={'E15':_shifter,'E17':_button,'E14':_audio,'E01':_servo,'E09':_pi,'E07':_fuse,'E08':_capacitor,'E06':_wago,'E18':_jack,'E16':_speaker}
+    makers={'E04':_mouth_stick,'E15':_shifter,'E17':_button,'E14':_audio,'E01':_servo,'E09':_pi,'E07':_fuse,'E08':_capacitor,'E06':_wago,'E18':_jack,'E16':_speaker}
     result=[]
     for row in meshes:
         maker=makers.get(row['id'])

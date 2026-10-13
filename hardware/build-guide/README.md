@@ -150,7 +150,7 @@ additional local tools only when changing those assets; review generated diffs:
   Use product drawings/photos as references, consistent projection and scale,
   and do not store product photos in the repository.
 - `hardware/tools/guide/make_downloads.py` generates film, foam and screw-key
-  PDF templates. It requires `rsvg-convert`.
+  PDF templates, including the tabbed head-bearing disc for P44. It requires `rsvg-convert`.
 - `make guide-social-card` renders the link-preview image `src/social-card.png`
   (1200 × 630) from `hardware/tools/guide/social-card.html`, and the robot mark as
   the opaque 180 × 180 `src/apple-touch-icon.png`, with the browser-check
