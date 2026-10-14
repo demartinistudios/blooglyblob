@@ -111,6 +111,8 @@ class AmbientAnimator:
         self._right_arm_current = 0.0
         self._arm_gesture: ArmGesture | None = None
         self._next_arm_at: float | None = None
+        # Selection history survives speech cancellation; it never queues motion.
+        self._arm_sides: list[str] = []
 
         # Track if LLM animation was running (to resync after)
         self._was_locked = False
@@ -318,11 +320,14 @@ class AmbientAnimator:
                 return
             if now < self._next_arm_at:
                 return
-            side = random.choice(("left", "right"))
+            if not self._arm_sides:
+                self._arm_sides = ["left", "left", "right", "right"]
+            side = random.choice(self._arm_sides)
+            self._arm_sides.remove(side)
             gesture = ArmGesture(
                 side=side, start=now, origin=getattr(self, f"_{side}_arm_current"),
                 peak=random.triangular(12, 32, 16),
-                rise=random.uniform(0.4, 0.6), hold=random.uniform(0.3, 0.5),
+                rise=random.uniform(0.4, 0.6), hold=random.uniform(0.6, 0.9),
                 return_duration=random.uniform(0.65, 0.9),
             )
             self._arm_gesture = gesture
@@ -342,11 +347,11 @@ class AmbientAnimator:
             now < gesture.start + gesture.rise
             or gesture.position(now) > current + self.MIN_ARM_DELTA
         ):
-            # Quiet ends an unfinished lift; a reached peak keeps its short hold.
-            # Rebase a missed peak instead of replaying an upward stroke.
+            # Quiet stops the lift at the reached pose, preserving its hold/return.
+            # Rebase once so resumed speech cannot replay the missed upward stroke.
             gesture = self._arm_gesture = replace(
                 gesture, start=now, origin=current, peak=current,
-                rise=0, hold=0, return_duration=self.RELAX_DURATION,
+                rise=0,
             )
 
         value = gesture.position(now)

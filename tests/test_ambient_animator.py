@@ -199,7 +199,8 @@ def envelope_fixture(monkeypatch):
         "blooglyblob.hardware.ambient_animator.random.uniform", lambda a, b: b
     )
     monkeypatch.setattr(
-        "blooglyblob.hardware.ambient_animator.random.choice", lambda _: "left"
+        "blooglyblob.hardware.ambient_animator.random.choice",
+        lambda options: options[0],
     )
     monkeypatch.setattr(
         "blooglyblob.hardware.ambient_animator.random.triangular",
@@ -277,7 +278,7 @@ def test_hold_expiring_in_silence_never_resumes_pending_motion(monkeypatch):
     assert frame(11.85, 0.8) > held
 
 
-@pytest.mark.parametrize("at", [10.9, 11.55, 11.65])
+@pytest.mark.parametrize("at", [10.9, 11.55, 11.65, 12.3])
 @pytest.mark.parametrize(
     "cancel", ["mute", "retire", "replace", "disable", "idle", "dancing", "alert"]
 )
@@ -404,9 +405,11 @@ def test_brief_gap_continues_but_long_pause_returns_from_current_pose(monkeypatc
     assert 0 < low < raised < 32
     frame(11.1)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == raised
-    frame(11.4)
+    frame(11.95)
+    assert LEFT_ARM.percent_at(servos.left_arm.position) == raised
+    frame(12.4)
     assert 0 < LEFT_ARM.percent_at(servos.left_arm.position) < raised
-    frame(11.71)
+    frame(12.91)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
     assert RIGHT_ARM.percent_at(servos.right_arm.position) == 0
     pose = animator._positions()
@@ -420,7 +423,7 @@ def test_speech_resuming_does_not_restart_or_reverse_return(monkeypatch):
         frame(10 + i * 0.05, 0.8)
     frame(11.1)
     previous = LEFT_ARM.percent_at(servos.left_arm.position)
-    for i in range(1, 14):
+    for i in range(1, 38):
         frame(11.1 + i * 0.05, 0.8)
         position = LEFT_ARM.percent_at(servos.left_arm.position)
         assert position <= previous
@@ -434,14 +437,14 @@ def test_continuing_speech_completes_gesture_then_leaves_shared_rest(monkeypatch
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(32)
     assert RIGHT_ARM.percent_at(servos.right_arm.position) == 0
-    for i in range(27, 55):
+    for i in range(27, 63):
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
-    for i in range(55, 109):
+    for i in range(63, 117):
         frame(10 + i * 0.05, 0.8)
         assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
         assert RIGHT_ARM.percent_at(servos.right_arm.position) == 0
-    for i in range(109, 117):
+    for i in range(117, 125):
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) > 0
 
@@ -473,7 +476,7 @@ def test_head_hold_leaves_coordinated_arm_gestures_available(monkeypatch):
         frame(10 + i * 0.05, 0.8)
     assert servos.head.position == -0.6
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(32)
-    for i in range(27, 55):
+    for i in range(27, 63):
         frame(10 + i * 0.05)
     assert servos.head.position == -0.6
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
@@ -489,7 +492,7 @@ def test_missed_head_window_preserves_unexpired_arm_without_late_rise(monkeypatc
     assert servos.head.position == head
     assert LEFT_ARM.percent_at(servos.left_arm.position) <= early_arm
     previous = LEFT_ARM.percent_at(servos.left_arm.position)
-    for i in range(35, 47):
+    for i in range(35, 72):
         frame(10 + i * 0.05)
         current = LEFT_ARM.percent_at(servos.left_arm.position)
         assert current <= previous
@@ -537,7 +540,7 @@ def test_sustained_quiet_settles_arm_to_calibrated_rest(monkeypatch):
     _, servos, _, frame = envelope_fixture(monkeypatch)
     for i in range(19):
         frame(10 + i * 0.05, 0.8)
-    for i in range(19, 55):
+    for i in range(19, 62):
         frame(10 + i * 0.05)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
     assert RIGHT_ARM.percent_at(servos.right_arm.position) == pytest.approx(0)
@@ -549,7 +552,7 @@ def test_resumed_speech_cannot_replay_peak_after_a_missed_frame(monkeypatch):
         frame(10 + i * 0.05, 0.8)
     frame(11.7)
     previous = LEFT_ARM.percent_at(servos.left_arm.position)
-    for i in range(1, 14):
+    for i in range(1, 38):
         frame(11.7 + i * 0.05, 0.8)
         current = LEFT_ARM.percent_at(servos.left_arm.position)
         assert current <= previous
@@ -567,10 +570,63 @@ def test_completed_lift_holds_through_a_normal_speech_pause(monkeypatch, height)
         frame(10 + i * 0.05, 0.8)
     peak = LEFT_ARM.percent_at(servos.left_arm.position)
     assert peak == pytest.approx(height, abs=0.5)
-    for i in range(27, 35):
+    for i in range(27, 43):
         frame(10 + i * 0.05)
         assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(peak)
-    frame(11.95)
+    frame(12.35)
     assert 0 < LEFT_ARM.percent_at(servos.left_arm.position) < peak
-    frame(12.7)
+    frame(13.1)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
+
+
+@pytest.mark.parametrize("side,profile", [("left", LEFT_ARM), ("right", RIGHT_ARM)])
+@pytest.mark.parametrize("height", [12, 32])
+def test_unfinished_lift_holds_achieved_pose_before_return(
+    monkeypatch, side, profile, height
+):
+    _, servos, _, frame = envelope_fixture(monkeypatch)
+    monkeypatch.setattr(
+        "blooglyblob.hardware.ambient_animator.random.choice", lambda _: side
+    )
+    monkeypatch.setattr(
+        "blooglyblob.hardware.ambient_animator.random.triangular", lambda *args: height
+    )
+    arm = getattr(servos, f"{side}_arm")
+    for i in range(17):
+        frame(10 + i * 0.05, 0.8)
+    frame(10.95)
+    raised = profile.percent_at(arm.position)
+    assert 0 < raised < height
+    for i in range(22, 40):
+        frame(10 + i * 0.05)
+        assert profile.percent_at(arm.position) == pytest.approx(raised)
+    for i in range(40, 60):
+        frame(10 + i * 0.05)
+        current = profile.percent_at(arm.position)
+        assert current <= raised
+        raised = current
+    assert raised == pytest.approx(0)
+
+
+def test_arm_opportunities_balance_without_forcing_alternation(monkeypatch):
+    animator, servos, _, frame = envelope_fixture(monkeypatch)
+    monkeypatch.setattr(
+        "blooglyblob.hardware.ambient_animator.random.choice",
+        lambda options: options[0],
+    )
+    sides = []
+    resting = True
+    for i in range(1800):
+        frame(10 + i * 0.05, 0.8)
+        left = LEFT_ARM.percent_at(servos.left_arm.position)
+        right = RIGHT_ARM.percent_at(servos.right_arm.position)
+        if resting and max(left, right) > 0:
+            sides.append("left" if left > 0 else "right")
+        if not resting and max(left, right) == 0:
+            # Clearing speech must not restart the side distribution.
+            animator.hold_head(0)
+        resting = max(left, right) == 0
+    assert len(sides) >= 12
+    for start in range(0, len(sides) - 3, 4):
+        assert sorted(sides[start : start + 4]) == ["left", "left", "right", "right"]
+    assert any(a == b for a, b in zip(sides, sides[1:]))
