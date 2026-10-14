@@ -156,14 +156,12 @@ async def test_prepare_registers_once_and_close_is_repeatable(tmp_path):
     button.close.assert_called_once()
 
 
-async def test_presentation_and_levels_do_not_call_audio(tmp_path):
+async def test_presentation_does_not_call_audio(tmp_path):
     hardware, audio, _ = rig(tmp_path)
     await hardware.prepare()
     for state in ["idle", "listening", "speaking", "processing", "dancing", "alert"]:
         hardware.present(state)
-        hardware.set_level(2)
         assert hardware.presentation.mode.value == state
-        assert hardware.presentation.audio_level == 1
     assert audio.calls == []
     assert audio.muted == 0
     await hardware.close()
@@ -327,12 +325,15 @@ def test_import_hardware_controller_does_not_load_driver_or_calibration():
 
 @pytest.mark.parametrize("which", ["ambient", "leds"])
 def test_native_stop_never_claims_stuck_worker_stopped(which):
+    from blooglyblob.audio.presentation import OutputPresentation
     from blooglyblob.hardware.ambient_animator import AmbientAnimator
     from blooglyblob.hardware.led_controller import LEDController
     from blooglyblob.hardware.conversation_state import ConversationState
 
     if which == "ambient":
-        controller = AmbientAnimator(MagicMock(), ConversationState(), threading.Lock())
+        controller = AmbientAnimator(
+            MagicMock(), ConversationState(), threading.Lock(), OutputPresentation()
+        )
     else:
         controller = LEDController.__new__(LEDController)
         from blooglyblob.hardware.lighting import LightingState

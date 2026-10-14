@@ -1,4 +1,4 @@
-"""Bounded, best-effort output timing for lights; never an audio completion signal.
+"""Bounded, best-effort output timing for lights and motion; never an audio completion signal.
 
 Only successful writes publish intervals. Retiring an opaque owner rejects both
 late writes and late clears, without waiting for the native speaker worker.
@@ -19,6 +19,7 @@ class OutputSample:
     kind: str | None = None
     level: float = 0.0
     position: float = 0.0
+    owner: object | None = None
 
 
 @dataclass(frozen=True)
@@ -71,7 +72,7 @@ class OutputPresentation:
             ):
                 self._disabled = True
                 self._intervals.clear()
-                log.warning("Lighting output timing unavailable for this playback")
+                log.warning("Output presentation timing unavailable for this playback")
                 return
             self._intervals.append(
                 Interval(start, end, position, max(0.0, min(1.0, level)))
@@ -88,8 +89,9 @@ class OutputPresentation:
                         self._kind,
                         current.level,
                         current.position + now - current.start,
+                        self._owner,
                     )
-            return OutputSample()
+            return OutputSample(owner=None if self._disabled else self._owner)
 
 
 class OutputTimeline:
@@ -113,7 +115,8 @@ class OutputTimeline:
         except Exception:
             self.latency = None
         if self.latency is None:
-            log.warning("Lighting disabled: speaker output latency unavailable")
+            self.output.retire(self.owner)
+            log.warning("Output presentation disabled: speaker latency unavailable")
 
     def before_write(self):
         self._before = self.clock()
@@ -140,5 +143,5 @@ class OutputTimeline:
             except Exception:
                 self.latency = None
                 self.output.retire(self.owner)
-                log.warning("Lighting observation failed; audio continues")
+                log.warning("Output presentation observation failed; audio continues")
         self._frames += frames

@@ -34,6 +34,7 @@ def test_unknown_latency_disables_visuals_only():
     timeline.before_write()
     timeline.written(960, 0.8)
     assert out.sample(1.03).kind is None
+    assert out.sample(1.03).owner is None
 
 
 def test_timeline_is_bounded_and_reanchors_after_gap():
@@ -103,3 +104,37 @@ def test_music_uses_native_frame_count_and_partial_tail():
     timeline.written(100)
     assert math.isclose(out.sample(1.05 + 1050 / 44100).position, 1050 / 44100)
     assert out.sample(1.05 + 1125 / 44100).kind is None
+
+
+def test_gap_keeps_identity_without_inventing_audio_and_mute_clears_it():
+    out = OutputPresentation()
+    owner = out.begin("speech")
+    out.commit(owner, start=2, end=2.02, position=0, level=0.8)
+    for now in (1, 2.03):
+        sample = out.sample(now)
+        assert sample.owner is owner
+        assert sample.kind is None and sample.level == 0
+    out.mute()
+    assert out.sample(2.04).owner is None
+    out.commit(owner, start=3, end=3.02, position=0, level=1)
+    assert out.sample(3).owner is None
+
+
+def test_replacement_owner_survives_stale_retirement_even_in_gap():
+    out = OutputPresentation()
+    old = out.begin("speech")
+    new = out.begin("speech")
+    out.retire(old)
+    out.commit(old, start=1, end=1.1, position=0, level=1)
+    sample = out.sample(1)
+    assert sample.owner is new
+    assert sample.kind is None and sample.level == 0
+    out.retire(new)
+    assert out.sample(1).owner is None
+
+
+def test_disabled_timing_exposes_no_owner():
+    out = OutputPresentation()
+    owner = out.begin("speech")
+    out.commit(owner, start=1, end=4, position=0, level=1)
+    assert out.sample(1).owner is None

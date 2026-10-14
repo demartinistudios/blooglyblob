@@ -181,7 +181,8 @@ class HardwareController:
         if self.servos:
             try:
                 self.ambient = self._ambient_factory(servo_controller=self.servos,
-                    conversation_state=self.presentation, animation_lock=self.animation_lock)
+                    conversation_state=self.presentation, animation_lock=self.animation_lock,
+                    output=self.audio.presentation)
                 if self.ambient:
                     self.ambient.on_failure = self._native_failure
                     self.ambient.start()
@@ -234,10 +235,6 @@ class HardwareController:
         if self._closed or not self._prepared or self.ownership_uncertain:
             raise RuntimeError('Hardware not ready or ownership uncertain')
         return self.media.start_dance(activity_id)
-
-    def set_level(self, level):
-        """Thread-safe voice presentation only; never touches capture."""
-        self.presentation.audio_level = level
 
     def present(self, state):
         mode = ConversationMode(state)

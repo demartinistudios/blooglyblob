@@ -146,9 +146,14 @@ applies. Optional integrations retain their existing roles and configuration.
   restart explicitly after resolving the cause. Startup and shutdown have
   finite deadlines, including foreground execution and Python thread teardown.
 
-Talking gestures and the mouth meter follow actual speaker level while conversation
-remains listening. Silence, drain, flush, mute and failures clear that level.
-Pose holds and animation locks remain authoritative. Eyes are controlled separately.
+Talking gestures and the mouth meter share bounded timing estimates from successful
+speaker writes while conversation remains listening; microphone acceptance is independent.
+Gestures use pre-scanner speech energy, continue existing motion through pauses up to
+250 ms, then relax once over 600 ms. Quiet speech can still start gestures; silence
+and scanner-only sound cannot. Playback retirement, mute, faults and activity changes
+cancel continuation. Explicit gestures, pose holds and animation locks remain
+authoritative. The mouth retains its amplitude-driven response without pause smoothing.
+Eyes are controlled separately.
 The body drifts through purple while sleeping and saturated blues while awake,
 with a continuous fade when waking. A fast blue/cyan chase accompanies the
 Galactic Scanner at roughly the sound's chirp pace; it is not sample-synchronized.

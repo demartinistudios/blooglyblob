@@ -7,13 +7,11 @@ from blooglyblob.hardware.lighting import LightingState, render
 def test_lighting_does_not_repurpose_servo_state():
     servo = ConversationState()
     servo.mode = ConversationMode.LISTENING
-    servo.audio_level = 0.8
     lights = LightingState()
     for mode in ("listening", "waiting", "goodbye", "dancing", "alert"):
         lights.set_mode(mode, now=0)
         render(lights.snapshot(2), 2)
         assert servo.mode == ConversationMode.LISTENING
-        assert servo.audio_level == 0.8
 
 
 def test_dance_body_and_mouth_follow_music_energy_but_eyes_stay_steady():

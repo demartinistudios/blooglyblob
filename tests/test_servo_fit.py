@@ -272,12 +272,15 @@ def test_application_starts_directly_at_fit_pose_and_releases_without_motion(
 
 def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(native_servos):
     import threading
+    from blooglyblob.audio.presentation import OutputPresentation
     from blooglyblob.hardware.ambient_animator import AmbientAnimator
     from blooglyblob.hardware.conversation_state import ConversationState
     from blooglyblob.hardware.servo_controller import ServoController
 
     controller = ServoController()
-    animator = AmbientAnimator(controller, ConversationState(), threading.Lock())
+    animator = AmbientAnimator(
+        controller, ConversationState(), threading.Lock(), OutputPresentation()
+    )
     try:
         animator._sync_from_servos()
         assert animator._left_arm_current == animator._right_arm_current == 0

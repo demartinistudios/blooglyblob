@@ -104,14 +104,12 @@ async def test_scanner_and_stale_stop_preserve_capture_and_speech(tmp_path):
         out.setparams((1, 2, 48000, 0, "NONE", ""))
         out.writeframes(b"\x01\x00" * 4800)
     driver = Driver()
-    captured, levels = [], []
+    captured = []
 
     async def capture(pcm):
         captured.append(pcm)
 
-    audio = AudioController(
-        driver_factory=lambda: driver, on_input=capture, on_level=levels.append
-    )
+    audio = AudioController(driver_factory=lambda: driver, on_input=capture)
     await audio.prepare(path)
     await audio.begin(1)
     await audio.start_background("search", 1)
@@ -121,7 +119,7 @@ async def test_scanner_and_stale_stop_preserve_capture_and_speech(tmp_path):
     await audio.stop_background("search")
     await audio.drain(1)
     assert captured == [b"mic"]
-    assert any(level > 0 for level in levels)
+    assert any(any(frame) for frame in driver.out_stream.frames)
     await audio.close()
 
 
@@ -238,23 +236,25 @@ async def test_output_overflow_fails_without_claiming_drain():
 
 
 @pytest.mark.asyncio
-async def test_failed_driver_drain_never_confirms_completion_and_clears_level():
+async def test_failed_driver_drain_never_confirms_completion_and_retires_presentation():
     driver = Driver()
-    levels = []
+    driver.out_stream.get_output_latency = lambda: 0.05
+    owners_at_drain = []
 
     def fail_drain():
+        owners_at_drain.append(audio.presentation.sample(0).owner)
         raise RuntimeError("private native detail")
 
     driver.out_stream.stop_stream = fail_drain
     audio = AudioController(
         driver_factory=lambda: driver,
-        on_level=levels.append,
     )
     await audio.begin(1)
     await audio.audio(1, bytes(960))
     with pytest.raises(RuntimeError, match="playback_failed"):
         await audio.drain(1)
-    assert levels[-1] == 0
+    assert owners_at_drain and owners_at_drain[0] is not None
+    assert audio.presentation.sample(0).owner is None
     await audio.close()
 
 
@@ -341,11 +341,18 @@ async def test_scanner_only_frames_do_not_drive_talking_and_stale_stop_keeps_new
         threading.Event().wait(0.002)
 
     driver.out_stream.write = paced
-    levels = []
     audio = AudioController(
         driver_factory=lambda: driver,
-        on_level=levels.append,
     )
+    levels = []
+    commit = audio.presentation.commit
+
+    def observe(owner, **values):
+        levels.append(values["level"])
+        commit(owner, **values)
+
+    audio.presentation.commit = observe
+    driver.out_stream.get_output_latency = lambda: 0.02
     await audio.prepare(path)
     await audio.begin(1)
     await audio.start_background("old", 1)

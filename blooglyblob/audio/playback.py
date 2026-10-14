@@ -27,7 +27,6 @@ class Playback:
         self,
         stream,
         on_failure,
-        on_level,
         *,
         capacity=20,
         presentation=None,
@@ -39,7 +38,7 @@ class Playback:
         )
         self._visual_owner = None
         self.stream = stream
-        self._failure, self._level = on_failure, on_level
+        self._failure = on_failure
         self._capacity = capacity
         self._condition = threading.Condition(threading.RLock())
         self._commands = deque()
@@ -211,7 +210,6 @@ class Playback:
                     if voice and len(samples)
                     else 0.0
                 )
-                self._level(level)
                 if background is not None:
                     frame = background.mix(frame)
                 if driver_stopped:
@@ -248,7 +246,6 @@ class Playback:
                 ):
                     clear_background()
                 if not self._commands and background is None:
-                    self._level(0.0)
                     self._condition.wait(0.05)
                     continue
                 command = (
@@ -285,7 +282,6 @@ class Playback:
                         converter = converter_generation = None
                     self.stream.stop_stream()
                     driver_stopped = True
-                    self._level(0.0)
                     self.presentation.retire(self._visual_owner)
                     timeline = None
                     with self._condition:
@@ -305,8 +301,6 @@ class Playback:
                     write(converter.process(command.data), generation)
             except Exception:
                 clear_background("playback_failed")
-                self._level(0.0)
                 self._finish(command.done, "playback_failed")
                 self._fail(generation, "playback_failed")
-        self._level(0.0)
         clear_background("Playback stopped")

@@ -195,7 +195,17 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
             for name in ("head", "left_arm", "right_arm")
         }
     )
-    animator = AmbientAnimator(servos, hardware.presentation, threading.Lock())
+    from blooglyblob.audio.presentation import OutputPresentation
+    import time
+
+    output = OutputPresentation()
+
+    def level(value):
+        owner = output.begin("speech")
+        now = time.monotonic()
+        output.commit(owner, start=now, end=now + 1, position=0, level=value)
+
+    animator = AmbientAnimator(servos, hardware.presentation, threading.Lock(), output)
     monkeypatch.setattr(
         "blooglyblob.hardware.ambient_animator.random.random", lambda: 0.0
     )
@@ -203,7 +213,7 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
         "blooglyblob.hardware.ambient_animator.random.uniform", lambda low, high: high
     )
     hardware.present("listening")
-    hardware.set_level(0.8)
+    level(0.8)
     animator._update()
     assert hardware.presentation.mode.value == "listening"
 
@@ -216,10 +226,10 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
 
     initial = positions()
     assert initial[1] > 0
-    hardware.set_level(0)
+    level(0)
     animator._update()
     assert positions() == initial
-    hardware.set_level(0.8)
+    level(0.8)
     animator.hold_all(300)
     animator._update()
     assert positions() == initial

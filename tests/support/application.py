@@ -36,7 +36,6 @@ def app_rig(monkeypatch, tmp_path):
     hardware = Hardware(audio)
     hardware.prepare, hardware.close = AsyncMock(), AsyncMock()
     hardware.search_path = tmp_path / "scanner.wav"
-    hardware.set_level = Mock()
     ready = Mock()
     app = Application(
         config=AIConfig(openai_api_key="offline"),

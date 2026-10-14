@@ -24,7 +24,7 @@ class AudioController:
 
     Driver factories return an object exposing start(on_input, on_failure),
     out_stream, and stop(). Only the owned writer calls the output stream.
-    on_failure runs on the loop; on_level runs on the writer thread.
+    on_failure runs on the loop.
     Cancellation stops waiting, never cancels ownership cleanup. on_input must
     cooperate with cancellation and must not call this controller's lifecycle
     methods: release cancels and joins its epoch consumer before reopening.
@@ -39,7 +39,6 @@ class AudioController:
         diagnostics=None,
         on_input=_ignore_input,
         on_failure=lambda *_: None,
-        on_level=lambda _: None,
         operation_timeout=5.0,
     ):
         self.diagnostics = diagnostics or AudioDiagnostics()
@@ -48,7 +47,7 @@ class AudioController:
         self._factory = driver_factory or (
             lambda: AudioDriver(diagnostics=self.diagnostics)
         )
-        self._failure, self._level = on_failure, on_level
+        self._failure = on_failure
         self._driver = self._writer = None
         self._generation = None
         self._epoch = 0
@@ -209,7 +208,6 @@ class AudioController:
                 self._writer = Playback(
                     self._driver.out_stream,
                     lambda gen, reason: self._playback_failed(epoch, gen, reason),
-                    self._level,
                     presentation=self.presentation,
                     diagnostics=self.diagnostics,
                 )

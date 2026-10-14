@@ -156,10 +156,6 @@ class Application:
             assert self.session is not None  # Readiness requires a constructed session.
             await self.session.input_audio(pcm)
 
-    def _level(self, level: float) -> None:
-        if self.hardware:
-            self.hardware.set_level(level)
-
     def _alert_from_thread(self, message: str) -> None:
         if self._loop and not self._stopping:
             self._loop.call_soon_threadsafe(self._alert, message)
@@ -290,7 +286,6 @@ class Application:
                 diagnostics=self.diagnostics,
                 on_input=self._audio_input,
                 on_failure=self._media_failure,
-                on_level=self._level,
             )
             await self.audio.check_devices()
             self._check_starting()
