@@ -228,10 +228,12 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
             servos.right_arm.position,
         )
 
+    clock[0] += 0.65
+    animator._update()
     clock[0] += 0.2
     animator._update()
     initial = positions()
-    assert initial[1] > 0
+    assert max(initial[1:]) > 0
     level(0)
     animator._update()
     assert positions() == initial

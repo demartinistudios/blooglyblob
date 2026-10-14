@@ -7,7 +7,7 @@ Provides subtle, automatic servo movements while speaking:
 - No ambient continuation after playback retirement or during sleep/dance/alerts
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import random
 import threading
 import time
@@ -32,24 +32,31 @@ def smoothstep(fraction: float) -> float:
 
 @dataclass(frozen=True)
 class ArmGesture:
-    """One independently timed rise and return, in calibrated arm percentages."""
+    """One arm's smooth emphasis and return, in calibrated percentages."""
 
+    side: str
     start: float
     origin: float
     peak: float
+    rise: float
+    hold: float
+    return_duration: float
 
-    RISE = 0.5
-    RETURN = 0.8
+    @property
+    def return_start(self) -> float:
+        return self.start + self.rise + self.hold
 
-    def position(self, now: float, rest: float) -> float:
+    def position(self, now: float) -> float:
         elapsed = max(0.0, now - self.start)
-        if elapsed < self.RISE:
-            return lerp(self.origin, self.peak, smoothstep(elapsed / self.RISE))
-        fraction = min(1.0, (elapsed - self.RISE) / self.RETURN)
-        return lerp(self.peak, rest, smoothstep(fraction))
+        if elapsed < self.rise:
+            return lerp(self.origin, self.peak, smoothstep(elapsed / self.rise))
+        if now < self.return_start:
+            return self.peak
+        fraction = min(1.0, (now - self.return_start) / self.return_duration)
+        return lerp(self.peak, 0.0, smoothstep(fraction))
 
     def finished(self, now: float) -> bool:
-        return now >= self.start + self.RISE + self.RETURN
+        return now >= self.return_start + self.return_duration
 
 
 class AmbientAnimator:
@@ -76,10 +83,6 @@ class AmbientAnimator:
     # SPEAKING mode settings
     SPEAKING_HEAD_RANGE = 0.5  # Head turn range while speaking
     SPEAKING_HEAD_TURN_CHANCE = 0.02  # Per-frame chance of head turn
-    SPEAKING_ARM_BASE = 15  # Base arm position while speaking (slightly raised)
-    SPEAKING_ARM_GESTURE_MIN = 25  # Min gesture height
-    SPEAKING_ARM_GESTURE_MAX = 50  # Max gesture height
-    SPEAKING_GESTURE_CHANCE = 0.025  # Per-frame chance for each available arm
 
     def __init__(
         self,
@@ -106,7 +109,8 @@ class AmbientAnimator:
         self._head_current = 0.0
         self._left_arm_current = 0.0
         self._right_arm_current = 0.0
-        self._arm_gestures: dict[str, ArmGesture] = {}
+        self._arm_gesture: ArmGesture | None = None
+        self._next_arm_at: float | None = None
 
         # Track if LLM animation was running (to resync after)
         self._was_locked = False
@@ -234,7 +238,7 @@ class AmbientAnimator:
     def _clear_speech(self):
         """Discard continuation; explicit motion owns any repositioning."""
         self._last_speech = self._relaxation = None
-        self._arm_gestures.clear()
+        self._arm_gesture = self._next_arm_at = None
         self._speech_axes = (False, False)
 
     def _update(self):
@@ -256,7 +260,9 @@ class AmbientAnimator:
             self._last_speech = now
             self._relaxation = None
             self._speech_axes = (now >= self._head_hold_until, now >= self._arms_hold_until)
-            self._update_speaking()
+        self._update_arms(now, speaking=speaking)
+        if speaking:
+            self._choose_head_target()
             self._apply_head_movement()
         elif self._last_speech is not None:
             if now - self._last_speech < self.PAUSE_GRACE:
@@ -264,19 +270,13 @@ class AmbientAnimator:
                 self._apply_head_movement(self._speech_axes[0])
             else:
                 self._relax(now)
-        if not speaking:
-            self._update_arms(now, speaking=False)
 
     def _relax(self, now):
         if self._relaxation is None:
             start = self._last_speech + self.PAUSE_GRACE
             if now >= start + self.RELAX_DURATION:
-                # Each axis has its own deadline; discard only expired motion.
+                # Do not replay a head return whose entire window was missed.
                 self._last_speech = None
-                self._arm_gestures = {
-                    side: gesture for side, gesture in self._arm_gestures.items()
-                    if not gesture.finished(now)
-                }
                 self._sync_from_servos()
                 return
             self._relaxation = (start, self._head_current)
@@ -292,14 +292,8 @@ class AmbientAnimator:
             self._last_speech = self._relaxation = None
             self._head_target = self._head_current
 
-    def _update_speaking(self):
-        """SPEAKING mode: Natural gesturing while talking.
-
-        Both arms independently gesture from a raised speaking posture.
-        Movements are gradual and fluid, not snapping up/down.
-        """
-        self._update_arms(time.monotonic(), speaking=True)
-
+    def _choose_head_target(self):
+        """Choose a head target during audible speech."""
         # Occasional head turns while speaking (unless held by LLM moveHead)
         if time.monotonic() < self._head_hold_until:
             # Head is held in LLM-requested position, don't move it
@@ -315,30 +309,52 @@ class AmbientAnimator:
     def _update_arms(self, now: float, *, speaking: bool):
         if not self._speech_axes[1] or now < self._arms_hold_until:
             return
-        if not speaking and not self._arm_gestures:
-            return
-        positions = []
-        completed = False
-        for side in ("left", "right"):
-            current = getattr(self, f"_{side}_arm_current")
-            gesture = self._arm_gestures.get(side)
-            if gesture is None and speaking and random.random() < self.SPEAKING_GESTURE_CHANCE:
-                gesture = ArmGesture(now, current, random.uniform(
-                    self.SPEAKING_ARM_GESTURE_MIN, self.SPEAKING_ARM_GESTURE_MAX
-                ))
-                self._arm_gestures[side] = gesture
-            if gesture is not None:
-                current = gesture.position(now, self.SPEAKING_ARM_BASE)
-                if gesture.finished(now):
-                    del self._arm_gestures[side]
-                    completed = True
-            positions.append(current)
-        self._write_positions(
-            self._head_current, positions[0], positions[1], head=False, final=completed
+        gesture = self._arm_gesture
+        if gesture is None:
+            if not speaking:
+                return
+            if self._next_arm_at is None:
+                self._next_arm_at = now + random.uniform(0.35, 0.65)
+                return
+            if now < self._next_arm_at:
+                return
+            side = random.choice(("left", "right"))
+            gesture = ArmGesture(
+                side=side, start=now, origin=getattr(self, f"_{side}_arm_current"),
+                peak=random.triangular(12, 32, 16),
+                rise=random.uniform(0.4, 0.6), hold=random.uniform(0, 0.12),
+                return_duration=random.uniform(0.65, 0.9),
+            )
+            self._arm_gesture = gesture
+
+        current = getattr(self, f"_{gesture.side}_arm_current")
+        settling = not speaking and (
+            self._last_speech is None or now - self._last_speech >= self.PAUSE_GRACE
         )
+        finished = gesture.finished(now)
+        if finished:
+            self._arm_gesture = None
+            self._next_arm_at = now + random.uniform(1.6, 2.8)
+            if not speaking and now >= gesture.return_start + 2 * gesture.return_duration:
+                # Discard a return that is already a whole return-duration late.
+                return
+        elif settling and (now < gesture.return_start or gesture.position(now) > current):
+            # Return from the commanded pose, including when a frame missed the peak.
+            gesture = self._arm_gesture = replace(
+                gesture, start=now, origin=current, peak=current,
+                rise=0, hold=0, return_duration=self.RELAX_DURATION,
+            )
+
+        value = gesture.position(now)
+        left, right = self._left_arm_current, self._right_arm_current
+        if gesture.side == "left":
+            left = value
+        else:
+            right = value
+        self._write_positions(self._head_current, left, right, head=False, final=finished)
 
     def _apply_head_movement(self, head=True):
-        """Advance the head target; arms follow their own complete gestures."""
+        """Advance the head target without changing the arm gesture."""
         head_lerp = self.LERP_FACTOR
         if abs(self._head_target - self._head_current) > 0.1:
             head_lerp *= 0.7

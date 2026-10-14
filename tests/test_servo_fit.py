@@ -270,8 +270,9 @@ def test_application_starts_directly_at_fit_pose_and_releases_without_motion(
     ]
 
 
+@pytest.mark.parametrize("side", ["left", "right"])
 def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(
-    native_servos, monkeypatch
+    native_servos, monkeypatch, side
 ):
     import threading
     from blooglyblob.audio.presentation import OutputPresentation
@@ -293,11 +294,18 @@ def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(
         monkeypatch.setattr(
             "blooglyblob.hardware.ambient_animator.random.uniform", lambda a, b: b
         )
+        monkeypatch.setattr(
+            "blooglyblob.hardware.ambient_animator.random.choice", lambda _: side
+        )
+        monkeypatch.setattr(
+            "blooglyblob.hardware.ambient_animator.random.triangular", lambda *args: 32
+        )
         animator._update_arms(10, speaking=True)
-        animator._update_arms(10.25, speaking=False)
-        # Halfway through the rise reaches 25%, using opposite native directions.
-        assert native_servos[0].value == pytest.approx(0.5)
-        assert native_servos[1].value == pytest.approx(-0.5)
+        animator._update_arms(10.65, speaking=True)
+        animator._update_arms(10.95, speaking=True)
+        # Halfway through the rise reaches16%, using opposite native directions.
+        assert native_servos[0].value == pytest.approx(0.68 if side == "left" else 1)
+        assert native_servos[1].value == pytest.approx(-0.68 if side == "right" else -1)
         controller.left_arm.position = -0.5
         controller.right_arm.position = 0.5
         animator._sync_from_servos()
