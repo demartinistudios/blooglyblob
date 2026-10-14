@@ -196,13 +196,17 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
         }
     )
     from blooglyblob.audio.presentation import OutputPresentation
-    import time
 
     output = OutputPresentation()
+    clock = [10.0]
+    monkeypatch.setattr(
+        "blooglyblob.hardware.ambient_animator.time",
+        SimpleNamespace(monotonic=lambda: clock[0]),
+    )
 
     def level(value):
         owner = output.begin("speech")
-        now = time.monotonic()
+        now = clock[0]
         output.commit(owner, start=now, end=now + 1, position=0, level=value)
 
     animator = AmbientAnimator(servos, hardware.presentation, threading.Lock(), output)
@@ -224,6 +228,8 @@ async def test_listening_voice_presentation_preserves_ambient_holds(monkeypatch)
             servos.right_arm.position,
         )
 
+    clock[0] += 0.2
+    animator._update()
     initial = positions()
     assert initial[1] > 0
     level(0)

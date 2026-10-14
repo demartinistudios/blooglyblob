@@ -148,10 +148,12 @@ applies. Optional integrations retain their existing roles and configuration.
 
 Talking gestures and the mouth meter share bounded timing estimates from successful
 speaker writes while conversation remains listening; microphone acceptance is independent.
-Gestures use pre-scanner speech energy, continue existing motion through pauses up to
-250 ms, then relax once over 600 ms. Quiet speech can still start gestures; silence
-and scanner-only sound cannot. Playback retirement, mute, faults and activity changes
-cancel continuation. Explicit gestures, pose holds and animation locks remain
+Gestures use pre-scanner speech energy. The head continues through pauses up to
+250 ms, then relaxes once over 600 ms. Each arm independently completes a smooth
+500 ms rise and 800 ms return, including through speech pauses; silence does not
+reset both arms together. Active arm gestures are not retargeted. Quiet speech
+can start gestures; silence and scanner-only sound cannot. Playback retirement,
+mute, faults and activity changes cancel continuation. Explicit gestures, pose holds and animation locks remain
 authoritative. The mouth retains its amplitude-driven response without pause smoothing.
 Eyes are controlled separately.
 The body drifts through purple while sleeping and saturated blues while awake,

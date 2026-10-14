@@ -270,7 +270,9 @@ def test_application_starts_directly_at_fit_pose_and_releases_without_motion(
     ]
 
 
-def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(native_servos):
+def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(
+    native_servos, monkeypatch
+):
     import threading
     from blooglyblob.audio.presentation import OutputPresentation
     from blooglyblob.hardware.ambient_animator import AmbientAnimator
@@ -284,17 +286,23 @@ def test_ambient_uses_opposite_arm_profiles_and_resyncs_after_gesture(native_ser
     try:
         animator._sync_from_servos()
         assert animator._left_arm_current == animator._right_arm_current == 0
-        animator._left_arm_target = animator._right_arm_target = 100
-        animator._apply_movements()
-        # One ambient interpolation step raises both arms to 15%, using
-        # opposite native directions on the mounted servos.
-        assert native_servos[0].value == pytest.approx(0.7)
-        assert native_servos[1].value == pytest.approx(-0.7)
+        animator._speech_axes = (True, True)
+        monkeypatch.setattr(
+            "blooglyblob.hardware.ambient_animator.random.random", lambda: 0
+        )
+        monkeypatch.setattr(
+            "blooglyblob.hardware.ambient_animator.random.uniform", lambda a, b: b
+        )
+        animator._update_arms(10, speaking=True)
+        animator._update_arms(10.25, speaking=False)
+        # Halfway through the rise reaches 25%, using opposite native directions.
+        assert native_servos[0].value == pytest.approx(0.5)
+        assert native_servos[1].value == pytest.approx(-0.5)
         controller.left_arm.position = -0.5
         controller.right_arm.position = 0.5
         animator._sync_from_servos()
-        assert animator._left_arm_current == animator._left_arm_target == 75
-        assert animator._right_arm_current == animator._right_arm_target == 75
+        assert animator._left_arm_current == 75
+        assert animator._right_arm_current == 75
     finally:
         controller.cleanup()
 
