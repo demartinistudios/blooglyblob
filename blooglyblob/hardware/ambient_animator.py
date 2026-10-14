@@ -322,7 +322,7 @@ class AmbientAnimator:
             gesture = ArmGesture(
                 side=side, start=now, origin=getattr(self, f"_{side}_arm_current"),
                 peak=random.triangular(12, 32, 16),
-                rise=random.uniform(0.4, 0.6), hold=random.uniform(0, 0.12),
+                rise=random.uniform(0.4, 0.6), hold=random.uniform(0.3, 0.5),
                 return_duration=random.uniform(0.65, 0.9),
             )
             self._arm_gesture = gesture
@@ -338,8 +338,12 @@ class AmbientAnimator:
             if not speaking and now >= gesture.return_start + 2 * gesture.return_duration:
                 # Discard a return that is already a whole return-duration late.
                 return
-        elif settling and (now < gesture.return_start or gesture.position(now) > current):
-            # Return from the commanded pose, including when a frame missed the peak.
+        elif settling and (
+            now < gesture.start + gesture.rise
+            or gesture.position(now) > current + self.MIN_ARM_DELTA
+        ):
+            # Quiet ends an unfinished lift; a reached peak keeps its short hold.
+            # Rebase a missed peak instead of replaying an upward stroke.
             gesture = self._arm_gesture = replace(
                 gesture, start=now, origin=current, peak=current,
                 rise=0, hold=0, return_duration=self.RELAX_DURATION,

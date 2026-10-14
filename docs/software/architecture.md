@@ -152,8 +152,9 @@ Gestures use pre-scanner speech energy. The head continues through pauses up to
 250 ms, then relaxes once over 600 ms. A shared arm scheduler chooses one small
 emphasis gesture at a time, followed by a rest; either arm can repeat. Travel and
 rise/hold/return timing vary, favoring small gestures that return to calibrated
-rest. Brief speech gaps continue the gesture; sustained quiet ends a rise or hold
-with a gentle return. Resumed speech does not retarget that return. Quiet speech
+rest. A reached peak holds for 0.3-0.5 seconds, including through a speech pause.
+Brief gaps continue the gesture; sustained quiet ends an unfinished lift with a
+gentle return. Resumed speech does not retarget that return. Quiet speech
 can start gestures; silence and scanner-only sound cannot. Playback retirement,
 mute, faults and activity changes cancel continuation. Explicit gestures, pose holds and animation locks remain
 authoritative. The mouth retains its amplitude-driven response without pause smoothing.

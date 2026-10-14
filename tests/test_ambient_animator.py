@@ -277,7 +277,7 @@ def test_hold_expiring_in_silence_never_resumes_pending_motion(monkeypatch):
     assert frame(11.85, 0.8) > held
 
 
-@pytest.mark.parametrize("at", [10.9, 11.65])
+@pytest.mark.parametrize("at", [10.9, 11.55, 11.65])
 @pytest.mark.parametrize(
     "cancel", ["mute", "retire", "replace", "disable", "idle", "dancing", "alert"]
 )
@@ -285,7 +285,11 @@ def test_cancellation_discards_grace_and_relaxation(monkeypatch, at, cancel):
     animator, servos, clock, frame = envelope_fixture(monkeypatch)
     for i in range(17):
         frame(10 + i * 0.05, 0.8)
-    if at > 11:
+    if at == 11.55:
+        for i in range(17, 27):
+            frame(10 + i * 0.05, 0.8)
+        frame(11.45)  # Peak hold continues across this gap until cancellation.
+    elif at > 11:
         frame(10.95)
         frame(11.1)
         frame(11.35)
@@ -430,14 +434,14 @@ def test_continuing_speech_completes_gesture_then_leaves_shared_rest(monkeypatch
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(32)
     assert RIGHT_ARM.percent_at(servos.right_arm.position) == 0
-    for i in range(27, 47):
+    for i in range(27, 55):
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
-    for i in range(47, 102):
+    for i in range(55, 109):
         frame(10 + i * 0.05, 0.8)
         assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
         assert RIGHT_ARM.percent_at(servos.right_arm.position) == 0
-    for i in range(102, 110):
+    for i in range(109, 117):
         frame(10 + i * 0.05, 0.8)
     assert LEFT_ARM.percent_at(servos.left_arm.position) > 0
 
@@ -469,7 +473,7 @@ def test_head_hold_leaves_coordinated_arm_gestures_available(monkeypatch):
         frame(10 + i * 0.05, 0.8)
     assert servos.head.position == -0.6
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(32)
-    for i in range(27, 47):
+    for i in range(27, 55):
         frame(10 + i * 0.05)
     assert servos.head.position == -0.6
     assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
@@ -551,3 +555,22 @@ def test_resumed_speech_cannot_replay_peak_after_a_missed_frame(monkeypatch):
         assert current <= previous
         previous = current
     assert previous == pytest.approx(0)
+
+
+@pytest.mark.parametrize("height", [12, 32])
+def test_completed_lift_holds_through_a_normal_speech_pause(monkeypatch, height):
+    _, servos, _, frame = envelope_fixture(monkeypatch)
+    monkeypatch.setattr(
+        "blooglyblob.hardware.ambient_animator.random.triangular", lambda *args: height
+    )
+    for i in range(27):
+        frame(10 + i * 0.05, 0.8)
+    peak = LEFT_ARM.percent_at(servos.left_arm.position)
+    assert peak == pytest.approx(height, abs=0.5)
+    for i in range(27, 35):
+        frame(10 + i * 0.05)
+        assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(peak)
+    frame(11.95)
+    assert 0 < LEFT_ARM.percent_at(servos.left_arm.position) < peak
+    frame(12.7)
+    assert LEFT_ARM.percent_at(servos.left_arm.position) == pytest.approx(0)
