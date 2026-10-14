@@ -187,7 +187,7 @@ footer .studio-credit { margin-top: 28px; font-size: 12px; }
  .hero-motion, .character-intro [data-hero-pause] { display: none; }
  .hero-motion-ready > button > img { opacity: 1; }
 }
-.character-capabilities > h2, .character-build > h2 { margin-top: 0; font-size: clamp(28px, 3vw, 38px); letter-spacing: -.035em; }
+.character-demo > h2, .character-capabilities > h2, .character-build > h2 { margin-top: 0; font-size: clamp(28px, 3vw, 38px); letter-spacing: -.035em; }
 .character-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
 .character-features section { border-top: 1px solid var(--line); padding-top: 24px; }
 .character-features svg { width: 42px; height: 42px; padding: 8px; border-radius: 12px; background: var(--violet-pale); color: var(--blue); }
@@ -766,3 +766,17 @@ a[download]::before { content: ""; display: inline-block; width: 1.15em; height:
 .cost-options .text-button { padding: 0; border: 0; background: none; color: var(--blue); font: inherit; text-align: left; text-decoration: underline; cursor: pointer; }
 .shopping-total strong { font-size: 28px; color: var(--blue); }
 #cost-materials { scroll-margin-top: 100px; }
+
+/* The real-world demo complements the animated portrait above it. */
+.character-demo { margin-bottom: 64px; }
+.demo-player { width: 100%; min-width: 0; aspect-ratio: 16 / 9; min-height: 200px; overflow: hidden; border-radius: 20px; background: #16151d; }
+.demo-preview { display: block; position: relative; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: white; cursor: pointer; font: inherit; }
+.demo-preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.demo-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; padding: 14px 22px; border-radius: 999px; background: var(--blue); box-shadow: 0 3px 18px #0004; font-weight: 650; }
+.demo-duration { font-size: 13px; opacity: .8; font-weight: 400; }
+.demo-preview:hover .demo-play { background: var(--ink); }
+.demo-preview:focus-visible { outline: 3px solid var(--copper); outline-offset: -5px; }
+.demo-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+.demo-link { margin-top: 12px; text-align: right; }
+@media (max-width: 600px) { .character-demo { margin-bottom: 42px; } .demo-player { border-radius: 14px; } }
+@media print { .demo-player { display: none; } }

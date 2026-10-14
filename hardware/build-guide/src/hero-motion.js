@@ -45,28 +45,33 @@ window.BGBHero = (() => {
       });
       patches[name] = {...region, c, ctx: c.getContext('2d'), mask: images[i], blur, margin, glow};
     });
-    const palette = [
-      [255, 91, 69], [255, 163, 65], [255, 226, 95], [102, 242, 143],
-      [89, 228, 244], [112, 171, 255], [157, 130, 255], [237, 130, 243]
+    // Speech palette and center-out meter from blooglyblob/hardware/lighting.py.
+    const speechColors = [[183, 161, 245], [195, 148, 227], [231, 164, 198], [247, 187, 141]];
+    const mouthEndCap = 64;
+    // Synthetic syllables drive the same meter without playing or recording audio.
+    // Each entry is [start, duration, peak level]; the gaps let the mouth go dark.
+    const syllables = [
+      [.15, .28, .52], [.47, .22, .78], [.74, .36, .96], [1.16, .25, .58],
+      [1.46, .34, .84], [1.87, .22, .46], [2.15, .42, .72],
+      [3.45, .26, .62], [3.77, .35, .92], [4.17, .24, .55],
+      [4.48, .38, 1], [4.94, .27, .68], [5.28, .44, .86]
     ];
-    // Cache the eight feathered color zones. Only their brightness changes.
-    const mouthColors = Array.from({length: regions.mouth.width}, (_, x) => {
+    // Feather only the boundaries between the eight physical LED zones.
+    const mouthZones = Array.from({length: regions.mouth.width}, (_, x) => {
       const zone = Math.max(0, Math.min(7.999, (x - 22) / 171 * 8));
       const boundary = Math.round(zone), distance = zone - boundary;
       if (boundary > 0 && boundary < 8 && Math.abs(distance) < .25) {
         let blend = (distance + .25) / .5;
         blend = blend * blend * (3 - 2 * blend);
-        return palette[boundary - 1].map((v, c) => v * (1 - blend) + palette[boundary][c] * blend);
+        return [boundary - 1, boundary, blend];
       }
-      return palette[Math.floor(zone)];
+      return [Math.floor(zone), Math.floor(zone), 0];
     });
     const mouthStrip = document.createElement('canvas');
     mouthStrip.width = regions.mouth.width;
     mouthStrip.height = 1;
     const mouthContext = mouthStrip.getContext('2d');
     const mouthPixels = mouthContext.createImageData(mouthStrip.width, 1);
-    const mouthNotes = [];
-    let lastMouthNote = -1;
     let nextBlink = 2.8 + Math.random() * 2.5, blinkStart = -99;
     let doubleAt = -99, blinkLength = .24;
 
@@ -130,33 +135,32 @@ window.BGBHero = (() => {
       g.globalCompositeOperation = 'source-over';
       composite('body', .3);
 
-      // One horizontal amplitude meter: lit zones form a contiguous run from the left.
+      // Mirrored LED pairs expand from the center as speech gets louder.
       p = patches.mouth;
       g = p.ctx;
       g.clearRect(0, 0, p.width, p.height);
-      // Choose each pulse height once, so it varies without flickering between frames.
-      while (lastMouthNote < Math.floor(t / .62)) {
-        const note = ++lastMouthNote;
-        mouthNotes.push({
-          start: note * .62 + .025 * Math.sin(note * 2.13),
-          loudness: .3 + .65 * Math.pow(Math.random(), 1.2)
-        });
-        if (mouthNotes.length > 9) mouthNotes.shift();
+      let level = 0;
+      const phraseTime = t % 7.4;
+      for (const [start, duration, peak] of syllables) {
+        const age = (phraseTime - start) / duration;
+        if (age > 0 && age < 1) level = Math.max(level, peak * Math.sin(Math.PI * age) ** .7);
       }
-      let amplitude = 0;
-      for (const {start, loudness} of mouthNotes) {
-        const age = t - start;
-        if (age < 0) continue;
-        const envelope = (1 - Math.exp(-age / .12)) * Math.exp(-age / .85);
-        amplitude = Math.max(amplitude, loudness * envelope);
+      const leds = Array.from({length: 8}, () => [0, 0, 0]);
+      if (level >= .025) {
+        for (let i = 0; i < 4; i++) {
+          const amount = Math.max(0, Math.min(1, level * 4 - (3 - i)));
+          let color = speechColors[i].map(channel => Math.round(channel * amount * .75));
+          if (i === 0 && Math.max(...color) > mouthEndCap) {
+            const scale = mouthEndCap / Math.max(...color);
+            color = color.map(channel => Math.round(channel * scale));
+          }
+          leds[i] = leds[7 - i] = color;
+        }
       }
-      const level = Math.min(.99, .1 + amplitude);
-      const edge = 22 + 171 * level;
       for (let x = 0; x < p.width; x++) {
-        const fill = 1 / (1 + Math.exp((x - edge) / 7.5));
-        const brightness = .48 + .52 * fill;
+        const [left, right, blend] = mouthZones[x];
         for (let channel = 0; channel < 3; channel++) {
-          mouthPixels.data[x * 4 + channel] = Math.round(mouthColors[x][channel] * brightness);
+          mouthPixels.data[x * 4 + channel] = Math.round(leds[left][channel] * (1 - blend) + leds[right][channel] * blend);
         }
         mouthPixels.data[x * 4 + 3] = 255;
       }

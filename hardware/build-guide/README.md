@@ -121,8 +121,20 @@ the still by default. Animation stops outside the viewport, in hidden tabs and
 when leaving the page. Image-loading failure also leaves the still visible. The
 control retains keyboard focus during loading and offers a retry on failure. Glow uses canvas compositing
 without depending on browser-specific canvas filters.
+The mouth follows the speech meter in `blooglyblob/hardware/lighting.py`: eight
+LEDs in mirrored pairs, lighting from the peach center toward pink and lavender
+ends as the level rises, with a 64/255 end cap and a dark mouth during pauses.
+A repeating synthetic phrase supplies the level; this is a silent illustration,
+not live audio analysis. Body lighting remains decorative.
 No audio input, device connection, new dependency or image-generation tool is
 needed to run or build the animation.
+
+The homepage also embeds the creator’s YouTube demo below the introduction.
+`assets/demo-poster.jpg` is a self-hosted still with provenance in the release
+asset inventory. The player is created only after the reader presses Play;
+ordinary page loads and offline browser checks make no YouTube requests.
+`#start/demo` links directly to this section. Keep the visible YouTube link as
+a fallback when the embedded player cannot load.
 
 Ordinary checking/building uses committed authored assets. These generators need
 additional local tools only when changing those assets; review generated diffs:

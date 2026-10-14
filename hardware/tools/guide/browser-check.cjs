@@ -141,6 +141,29 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.deepEqual((await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),KEY)).custom,{keep:true});
   await page.evaluate(KEY=>localStorage.removeItem(KEY),KEY);await page.reload();
   assert.equal(await page.locator('#progress-count').textContent(),`0 / ${build.length}`,'fresh browser starts empty');
+  // Demo navigation must work again after scrolling up with the same fragment.
+  const demoViewport=page.viewportSize();
+  for(const width of [1280,390]){
+   await page.setViewportSize({width,height:844});
+   await page.goto(BASE+'#start');
+   const demoLink=page.getByRole('link',{name:'Watch the demo ↓',exact:true});
+   for(const activation of ['click','click','keyboard']){
+    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+    if(activation==='keyboard')await demoLink.press('Enter');else await demoLink.click();
+    await page.waitForURL(BASE+'#start/demo');
+    try{
+     await page.waitForFunction(()=>{
+      const top=document.querySelector('#demo-title').getBoundingClientRect().top;
+      return document.activeElement.id==='demo-title'&&top>=0&&top<innerHeight/2;
+     });
+    }catch(error){
+     console.error('Demo navigation failed',width,activation,await page.evaluate(()=>({focus:document.activeElement.outerHTML,top:document.querySelector('#demo-title').getBoundingClientRect().top,height:innerHeight})));
+     throw error;
+    }
+    assert.equal(await page.locator('.demo-player iframe').count(),0,'jumping to the demo does not start playback');
+   }
+  }
+  await page.setViewportSize(demoViewport);
   // Start path (R1): a new reader follows only primary buttons, landing → Before you start → step 1.
   const START='before-you-start';
   await page.goto(BASE+'#start');await page.locator('#page').waitFor();

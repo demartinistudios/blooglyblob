@@ -88,7 +88,8 @@ function start(){
   ['M9 2h6M12 2v3M18 6l2-2M12 10v5l3 2M12 6a8 8 0 1 0 0 16 8 8 0 0 0 0-16','A little everyday help','Set a named countdown timer, ask what is running or cancel it by name. He lets you know when time is up with sound and lights.'],
   ['M4 20l4-1L20 7l-3-3L5 16l-1 4Zm10-13 3 3M4 4h5M4 8h2','Your own kind of robot','Choose filament colors, add paint, and adjust his voice or personality. The hardware designs and software are open source, ready for tinkering.']
  ];
- return `<article class="character-intro"><div class="intro-grid"><section><p class="eyebrow">Hello, Earth.</p><h1 tabindex="-1">Meet<br>BlooglyBlob.</h1><p class="lede">A curious little visitor from planet Meep. He chats, lights up, waves his arms—and can even throw a little dance party.</p><p class="intro-copy">An open-source, 3D-printed robot you can build yourself. He runs on Raspberry Pi and uses the <a href="https://developers.openai.com/api/docs/models/gpt-live-1" target="_blank" rel="noreferrer">OpenAI Live API</a> for voice conversations.</p>${started?`<div class="actions"><a class="button primary" href="#step-${next.id}">Continue your build →</a></div>`:''}</section>${diagram('assets/r22/main-front.png','BlooglyBlob lit up, with glowing goggle eyes, a rainbow mouth, a softly lit body, blue-violet head and hands, copper details and a black base','',{hero:true})}</div>
+ return `<article class="character-intro"><div class="intro-grid"><section><p class="eyebrow">Hello, Earth.</p><h1 tabindex="-1">Meet<br>BlooglyBlob.</h1><p class="lede">A curious little visitor from planet Meep. He chats, lights up, waves his arms—and can even throw a little dance party.</p><p class="intro-copy">An open-source, 3D-printed robot you can build yourself. He runs on Raspberry Pi and uses the <a href="https://developers.openai.com/api/docs/models/gpt-live-1" target="_blank" rel="noreferrer">OpenAI Live API</a> for voice conversations.</p><div class="actions"><a class="button" href="#start/demo">Watch the demo ↓</a>${started?`<a class="button primary" href="#step-${next.id}">Continue your build →</a>`:''}</div></section>${diagram('assets/r22/main-front.png','BlooglyBlob lit up, with glowing goggle eyes, a rainbow mouth, a softly lit body, blue-violet head and hands, copper details and a black base','',{hero:true})}</div>
+ <section class="character-demo" id="demo" aria-labelledby="demo-title"><p class="eyebrow">See the real robot</p><h2 id="demo-title" tabindex="-1">See BlooglyBlob in action.</h2><div class="demo-player"><button type="button" class="demo-preview" data-play-demo aria-label="Play the BlooglyBlob demo"><img src="assets/demo-poster.jpg" width="1280" height="720" loading="lazy" alt="BlooglyBlob glowing purple on his base in the filmed demo"><span class="demo-play"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Play demo <span class="demo-duration">3:40</span></span></button></div><p class="fine demo-link"><a href="https://youtu.be/m9ELGv8bA2M" target="_blank" rel="noreferrer">Watch on YouTube ↗</a></p></section>
  <section class="character-capabilities" aria-labelledby="character-features-title"><p class="eyebrow">Get to know him</p><h2 id="character-features-title">A few of his favorite things.</h2><div class="character-features">${features.map(([path,title,copy])=>`<section><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${path}"/></svg><h3>${title}</h3><p>${copy}</p></section>`).join('')}</div><div class="character-prompts"><span>Try saying</span><q>Tell me about space.</q><q>Let’s dance!</q><q>Set a five-minute timer.</q></div></section>
  <section class="character-build" aria-labelledby="character-build-title"><p class="eyebrow">Make a little character of your own</p><h2 id="character-build-title">Bring your BlooglyBlob to life.</h2><p>This is a hands-on build with 3D printing, soldering and Raspberry Pi setup. The guide takes you from loose parts to your first conversation.</p><div class="actions">${started?`<a class="button primary" href="#step-${next.id}">Continue your build →</a><a class="button" href="#before-you-start">Before you start</a>`:'<a class="button primary" href="#before-you-start">Start building →</a>'}<a class="button" href="#parts">Explore the parts</a></div><p class="fine">Voice features need an internet connection and your own OpenAI API key. API usage is billed to your account. <a href="#step-computer-ssh-key">See the Pi setup steps</a>.</p>
  <p class="notice"><b>DIY project, provided as is.</b> You are responsible for your build and its use; no safety or performance guarantees are made. This is a hobby project for adults, not a toy, and is not designed for children. <a href="#safety">Read the safety and responsibility notice</a>.</p>
@@ -317,15 +318,17 @@ function safetyHTML(){return `<article class="safety-reference"><p class="eyebro
 function notFound(){return '<p class="eyebrow">Build guide</p><h1 tabindex="-1">Page not found</h1><p>This address doesn’t match a page in the guide.</p><div class="actions"><a class="button primary" href="#start">Meet BlooglyBlob</a><a class="button" href="#parts">Parts & supplies</a></div>'}
 const pages={start,'before-you-start':beforeYouStart,parts:arg=>partsHTML(arg),cost:costHTML,hardware,software,electrical:electricalHTML,safety:safetyHTML,notes:notesHTML,all:()=>buildSteps.map(s=>stepHTML(s,true)).join('')};
 let lastBase=null,partsScroll=0,firstRoute=true,disposeHero=()=>{};
+function focusDemo(){const section=$('#demo');section?.scrollIntoView({block:'start',behavior:'instant'});$('#demo-title')?.focus({preventScroll:true});}
 function route(){
  const hash=decodeURIComponent(location.hash.slice(1)||'start');let [base,arg]=hash.split('/');
  if(base==='content')return;
+ if(base==='start'&&arg==='demo'&&lastBase==='start'&&$('#demo')){closeMenu();focusDemo();return;}
  if(base==='printing'){base='step-print-plates';history.replaceState(null,'','#'+base+(arg?'/'+encodeURIComponent(arg):''));}
  // Plain step numbers such as #14 open that step.
  if(/^\d+$/.test(base)&&buildSteps[+base-1]){location.replace('#step-'+buildSteps[+base-1].id);return}
  if(lastBase==='parts')partsScroll=scrollY;
  const s=base.startsWith('step-')?stepMap[base.slice(5)]:null;
- const known=s||(pages[base]&&(!arg||base==='parts'||(base==='software'&&softwareTopics.includes(arg))));
+ const known=s||(pages[base]&&(!arg||base==='parts'||(base==='start'&&arg==='demo')||(base==='software'&&softwareTopics.includes(arg))));
  disposeHero();
  $('#page').innerHTML=s?stepHTML(s,false,arg):known?pages[base](arg):notFound();
  document.querySelectorAll('[data-route]').forEach(a=>a.classList.toggle('active',a.dataset.route===base));
@@ -337,7 +340,7 @@ function route(){
  disposeHero=window.BGBHero?.mount(document.querySelector('[data-hero]'))||(()=>{});
  lastBase=base;
  document.querySelector('nav a.active')?.scrollIntoView({block:'nearest'});
- if(base==='software'&&softwareTopics.includes(arg)){const section=document.getElementById('software-'+arg);section?.scrollIntoView({block:'start'});section?.querySelector('h2')?.focus({preventScroll:true});}else if(!firstRoute)$('#page h1')?.focus({preventScroll:true});firstRoute=false;
+ if(base==='start'&&arg==='demo'){focusDemo();}else if(base==='software'&&softwareTopics.includes(arg)){const section=document.getElementById('software-'+arg);section?.scrollIntoView({block:'start'});section?.querySelector('h2')?.focus({preventScroll:true});}else if(!firstRoute)$('#page h1')?.focus({preventScroll:true});firstRoute=false;
 }
 function closeMenu(){document.body.classList.remove('menu-open');$('#menu').setAttribute('aria-expanded','false')}
 async function copyCode(button){
@@ -356,6 +359,18 @@ async function copyCode(button){
  }finally{button.removeAttribute('aria-busy');}
 }
 document.addEventListener('click',e=>{
+ // A repeated fragment link does not emit hashchange; scroll it explicitly.
+ if(e.target.closest('a[href="#start/demo"]')&&location.hash==='#start/demo'&&e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey){e.preventDefault();closeMenu();focusDemo();return;}
+ const demo=e.target.closest('[data-play-demo]');
+ if(demo){
+  const iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube-nocookie.com/embed/m9ELGv8bA2M?autoplay=1&playsinline=1&rel=0';
+  iframe.title='BlooglyBlob demo on YouTube';
+  iframe.allow='autoplay; encrypted-media; fullscreen; picture-in-picture';
+  iframe.allowFullscreen=true;
+  iframe.referrerPolicy='strict-origin-when-cross-origin';
+  demo.replaceWith(iframe);iframe.focus();return;
+ }
  if(e.target.closest('[data-cost-materials]')){const heading=$('#cost-materials');heading.scrollIntoView({behavior:'smooth'});heading.focus({preventScroll:true});return;}
  const copy=e.target.closest('[data-copy-code]');
  if(copy){copyCode(copy);return;}

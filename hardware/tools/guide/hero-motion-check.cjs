@@ -54,6 +54,17 @@ module.exports = async function checkHeroMotion(browser, base) {
         observe() {}
         disconnect() {}
       };
+      window.heroMouthFrames = [];
+      const putImageData = CanvasRenderingContext2D.prototype.putImageData;
+      CanvasRenderingContext2D.prototype.putImageData = function (image, ...args) {
+        if (image.width === 220 && image.height === 1) {
+          window.heroMouthFrames.push(Array.from({length: 8}, (_, i) => {
+            const x = Math.round(22 + (i + .5) * 171 / 8);
+            return Array.from(image.data.slice(x * 4, x * 4 + 3));
+          }));
+        }
+        return putImageData.call(this, image, ...args);
+      };
       window.heroPaints = 0;
       window.heroAlphas = [];
       window.heroScreenAlphas = [];
@@ -89,6 +100,28 @@ module.exports = async function checkHeroMotion(browser, base) {
       }, refreshRate);
       assert.ok(paints >= 59 && paints <= 60, `30 fps at ${refreshRate} Hz: got ${paints} frames in two seconds`);
     }
+    const mouths = await timing.evaluate(() => window.heroMouthFrames);
+    const lit = frame => frame.filter(rgb => rgb.some(channel => channel > 0)).length;
+    assert.equal(lit(mouths[0]), 0, 'the mouth starts dark without speech');
+    assert.ok(mouths.some(frame => lit(frame) === 8), 'loud syllables reach all eight LEDs');
+    assert.ok(mouths.some(frame => lit(frame) === 2), 'quiet syllables light only the center pair');
+    const firstSpeech = mouths.findIndex(frame => lit(frame) > 0);
+    assert.ok(firstSpeech >= 0 && mouths.slice(firstSpeech + 1).some(frame => lit(frame) === 0),
+      'pauses extinguish the mouth after speech');
+    for (const frame of mouths) {
+      assert.deepEqual(frame, [...frame].reverse(), 'speech LEDs are mirrored, never a left-to-right meter');
+      assert.ok(Math.max(...frame[0]) <= 64, 'end LEDs retain the runtime brightness cap');
+      for (let i = 0; i < 3; i++) {
+        if (frame[i].some(channel => channel > 0)) {
+          const fullInner = [[146, 111, 170], [173, 123, 148], [185, 140, 106]][i];
+          // Python and JavaScript round half values differently by one channel step.
+          assert.ok(frame[i + 1].every((channel, c) => Math.abs(channel - fullInner[c]) <= 1),
+            'inner pair fills before the next outer pair, using the runtime speech palette');
+        }
+      }
+    }
+    assert.ok(mouths.some(frame => frame[0].join(',') === '48,42,64'),
+      'outer pair uses the runtime lavender color at its cap');
     const visibility = await timing.evaluate(() => {
       for (let tick = 241; tick <= 360; tick++) window.heroTick(tick * 1000 / 120);
       const blinkFades = window.heroScreenAlphas.some(alpha => alpha > 0 && alpha < 1 && alpha !== .3);

@@ -302,6 +302,21 @@
         "source": "DeMartini Studios LLC company logo"
       },
       "credit": "© 2026 DeMartini Studios LLC"
+    },
+    {
+      "path": "hardware/build-guide/src/assets/demo-poster.jpg",
+      "bytes": 47489,
+      "sha256": "8419de713ba7668fc788df0f20bae8b28b9ad891947045ee5843b15b69025f4a",
+      "redistribution": "Original project photograph; MIT under the project license",
+      "disposition": "Self-host the homepage demo poster; the full video stays on YouTube",
+      "provenance": {
+        "source": "Project creator’s BlooglyBlob demonstration video",
+        "url": "https://youtu.be/m9ELGv8bA2M",
+        "frame_seconds": 4,
+        "modifications": "Still extracted from the finished video; resized to 1280 × 720; metadata removed"
+      },
+      "license": "MIT",
+      "license_file": "LICENSE"
     }
   ],
   "publication_status": "Development source; build-kit qualification is separate. See docs/release/checklist.md."
