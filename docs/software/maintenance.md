@@ -24,6 +24,14 @@ Manually installing an older version requires compatibility; it does not undo
 system-package or data changes. Repeatable installation is not reversible
 installation.
 
+Before each provision or update, the command displays the
+[safety and responsibility notice](../../hardware/SAFETY.md). Read it and type
+`ACKNOWLEDGE` to proceed. Enter, refusal or interruption cancels before any device
+changes. These two commands require an interactive terminal; piped responses and
+unattended invocations are not accepted. No acknowledgment record is saved or
+sent to the maintainer. Stop, status, logs and diagnostic commands do not require
+this acknowledgment.
+
 ## Commands
 
 | Command | Purpose |

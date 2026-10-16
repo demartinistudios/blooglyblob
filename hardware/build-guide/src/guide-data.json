@@ -1330,6 +1330,7 @@
         "If it rejects the model or OS, correct the choices in {step:imager-choose}. If SSH fails, fix the connection in {step:pi-connect}. Do not continue past a failed check.",
         "Keep the USB audio module (E14) connected by its USB-A extension cable (E23). The application needs it to start.",
         "Run the command below. It installs the dependencies and starts the application. The application also starts at every boot. It also keeps your Imager Wi-Fi setting, with no file edits.",
+        "Read the safety notice shown in the terminal each time you run provisioning. Type `ACKNOWLEDGE` and press Enter to continue. To cancel before device changes, press Enter without typing anything.",
         "If `sudo` asks for a password, enter the Pi account password. It is not saved in `.env`.",
         "If it ends with \u201cInstallation complete\u201d, continue to {step:service-check}.",
         "If it stops with \u201cOnboard audio is loaded\u201d, reboot the Pi in the next panel. This is expected on the first run.",
@@ -1382,17 +1383,24 @@
           ],
           "actions": [
             3,
-            4,
-            5
+            4
+          ]
+        },
+        {
+          "title": "Read and acknowledge the notice",
+          "textOnly": true,
+          "actions": [
+            5,
+            6
           ]
         },
         {
           "title": "Read how provisioning ended",
           "textOnly": true,
           "actions": [
-            6,
             7,
-            8
+            8,
+            9
           ]
         },
         {
@@ -1423,9 +1431,9 @@
             }
           ],
           "actions": [
-            9,
             10,
-            11
+            11,
+            12
           ]
         }
       ],

@@ -39,6 +39,10 @@ tool_configs = ["*.json"]
 sounds = ["*.wav"]
 songs = ["*.wav", "*.json"]
 
+[tool.setuptools.data-files]
+"share/doc/blooglyblob" = ["LICENSE", "LICENSING.md"]
+"share/doc/blooglyblob/hardware" = ["hardware/SAFETY.md"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"

@@ -30,6 +30,14 @@ homes, without retaining source copies in the guide:
   exports), and the exact editable projects selected by the print manifest,
   their object-settings CSV and project thumbnails. ZIP timestamps are fixed for
   reproducible packages. Plate thumbnails show layouts, not sliced toolpaths.
+- The complete [safety and responsibility notice](../SAFETY.md), rendered from
+  its canonical Markdown into the guide. Keep that notice to headings,
+  paragraphs, bullet lists and inline links supported by the small build helper.
+  Both print ZIPs include the same notice, `LICENSE.txt` and `LICENSING.md`.
+  Packaged links use local bundled files or public repository URLs so they work
+  after extraction. These documents are also available under `downloads/`.
+  Print-file downloads are limited to the two complete ZIPs; raw STL, 3MF and
+  settings CSV files are included only inside those packages.
 - Assembly power/signal tables and the selected print quantities and estimates.
 - Prices from [the price catalog](../catalog/prices.json), combined with current
   part quantities and plate weights. Part cards and `#cost` use this same data;
@@ -40,8 +48,8 @@ homes, without retaining source copies in the guide:
   downloads in ignored `hardware/.work/`; builds never fetch or require them.
 
 The `print-plates` step is the single printing page. `#printing` links redirect there,
-including links that locate a particular part’s plate. Plate layouts, individual
-STL links and settings expand within that step using the main content of
+including links that locate a particular part’s plate. Plate layouts, part-catalog links
+and settings expand within that step using the main content of
 `src/repeat-build.html`, bundled at build time. Edit that one authored source;
 the standalone URL remains available for bookmarks and non-JavaScript readers.
 The printing step offers Bambu Studio and other-slicer instructions; the choice

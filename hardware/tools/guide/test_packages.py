@@ -1,5 +1,8 @@
 """Print downloads must follow the selected printing manifest without altering CAD."""
+import io
 import json
+import re
+from html import unescape
 import shutil
 import tempfile
 import unittest
@@ -132,12 +135,16 @@ class PackageTests(unittest.TestCase):
         for path in first.rglob('*'):
             if path.is_file():
                 self.assertEqual(path.read_bytes(), (second / path.relative_to(first)).read_bytes(), path.name)
-        for path in packages.stl_sources():
-            self.assertEqual(path.read_bytes(), (first / 'stl' / path.name).read_bytes())
-        self.assertEqual(packages.OBJECT_SETTINGS.read_bytes(), (first / 'BlooglyBlob-object-settings.csv').read_bytes())
+        self.assertFalse(list(first.rglob('*.stl')))
+        self.assertFalse(list(first.glob('*.3mf')))
+        self.assertFalse(list(first.glob('*.csv')))
+        with zipfile.ZipFile(first / 'BlooglyBlob-print-set.zip') as archive:
+            projects = {name: archive.read(f'BlooglyBlob-print-set/{name}') for name in (
+                'BlooglyBlob-PLA.3mf', 'BlooglyBlob-PETG-ball.3mf')}
+            self.assertEqual(packages.OBJECT_SETTINGS.read_bytes(), archive.read('BlooglyBlob-print-set/BlooglyBlob-object-settings.csv'))
         for source_key, public_name in [('master_project', 'BlooglyBlob-PLA.3mf'),
                                         ('optional_petg_project', 'BlooglyBlob-PETG-ball.3mf')]:
-            with zipfile.ZipFile(packages.PRINTING / self.manifest[source_key]) as source, zipfile.ZipFile(first / public_name) as public:
+            with zipfile.ZipFile(packages.PRINTING / self.manifest[source_key]) as source, zipfile.ZipFile(io.BytesIO(projects[public_name])) as public:
                 self.assertEqual(source.namelist(), public.namelist())
                 for info in source.infolist():
                     expected = source.read(info)
@@ -168,11 +175,10 @@ class PackageTests(unittest.TestCase):
         copyright_line = next(line for line in packages.LICENSE.read_text().splitlines() if line.startswith('Copyright'))
         with zipfile.ZipFile(first / 'BlooglyBlob-STL.zip') as z:
             expected_stls = {f'BlooglyBlob-STL/{p.name}' for p in packages.stl_sources()}
-            self.assertEqual(set(z.namelist()), expected_stls | {'BlooglyBlob-STL/README.txt', 'BlooglyBlob-STL/LICENSE.txt'})
+            self.assertEqual(set(z.namelist()), expected_stls | {f'BlooglyBlob-STL/{name}' for name in ('README.txt', 'LICENSE.txt', 'SAFETY.md', 'LICENSING.md')})
             self.assertEqual(packages.LICENSE.read_bytes(), z.read('BlooglyBlob-STL/LICENSE.txt'))
             self.assertIn(copyright_line, z.read('BlooglyBlob-STL/README.txt').decode())
-            self.assertEqual({p.name for p in (first / 'stl').iterdir()},
-                             {p.name for p in packages.stl_sources()})
+            self.assertIn('BlooglyBlob-STL/AR07.stl', z.namelist())
             for path in packages.stl_sources():
                 self.assertEqual(path.read_bytes(), z.read(f'BlooglyBlob-STL/{path.name}'))
             self.assertTrue(all(i.date_time == packages.ZIP_TIME for i in z.infolist()))
@@ -194,12 +200,41 @@ class PackageTests(unittest.TestCase):
             self.assertNotIn(self.manifest['cad_revision'].split('/')[0], readme)
             self.assertEqual(set(z.namelist()), {f'BlooglyBlob-print-set/{name}' for name in (
                 'README.md', 'BlooglyBlob-PLA.3mf', 'BlooglyBlob-PETG-ball.3mf',
-                'BlooglyBlob-object-settings.csv', 'LICENSE.txt')})
+                'BlooglyBlob-object-settings.csv', 'LICENSE.txt', 'SAFETY.md', 'LICENSING.md')})
             self.assertTrue(all(i.date_time == packages.ZIP_TIME for i in z.infolist()))
             self.assertEqual(packages.LICENSE.read_bytes(), z.read('BlooglyBlob-print-set/LICENSE.txt'))
             self.assertIn(copyright_line, readme)
-            for name in ('BlooglyBlob-PLA.3mf', 'BlooglyBlob-PETG-ball.3mf', 'BlooglyBlob-object-settings.csv'):
-                self.assertEqual((first / name).read_bytes(), z.read(f'BlooglyBlob-print-set/{name}'))
+
+
+    def test_package_notices_are_complete_and_links_are_portable(self):
+        downloads = self.root / 'notices' / 'downloads'
+        packages.write(downloads)
+        for stem, readme in [('BlooglyBlob-STL', 'README.txt'), ('BlooglyBlob-print-set', 'README.md')]:
+            with zipfile.ZipFile(downloads / f'{stem}.zip') as archive:
+                notice = archive.read(f'{stem}/SAFETY.md').decode()
+                canonical = (packages.ROOT / 'hardware/SAFETY.md').read_text()
+                strip_links = lambda text: re.sub(r'\[([^]]+)\]\([^)]+\)', r'\1', text)
+                self.assertEqual(strip_links(notice), strip_links(canonical))
+                self.assertIn('SAFETY.md', archive.read(f'{stem}/{readme}').decode())
+                for name in ('SAFETY.md', 'LICENSING.md'):
+                    text = archive.read(f'{stem}/{name}').decode()
+                    self.assertEqual(text, (downloads / name).read_text())
+                    for target in re.findall(r'\[[^]]+\]\(([^)]+)\)', text):
+                        if not target.startswith(('https://', '#')):
+                            self.assertIn(f'{stem}/{target.split("#")[0]}', archive.namelist())
+        for name in ('hardware/SAFETY.md', 'LICENSING.md'):
+            self.assertIn(packages.ROOT / name, build.INPUTS)
+
+    def test_safety_html_preserves_every_canonical_warning(self):
+        canonical = (packages.ROOT / 'hardware/SAFETY.md').read_text()
+        rendered = build.safety_notice_html()
+        plain = unescape(re.sub(r'<[^>]+>', '', re.sub(r'</(?:p|h[12]|li)>', ' ', rendered)))
+        canonical = re.sub(r'\[([^]]+)\]\([^)]+\)', r'\1', canonical)
+        canonical = re.sub(r'(?m)^(?:#+ |- )', '', canonical)
+        self.assertEqual(' '.join(plain.split()), ' '.join(canonical.split()))
+        self.assertIn('href="downloads/LICENSE.txt"', rendered)
+        self.assertIn('href="downloads/LICENSING.md"', rendered)
+        self.assertIn('<h1 tabindex="-1">', rendered)
 
 
 class PrintMetadataTests(unittest.TestCase):

@@ -132,6 +132,7 @@ def payload_files(root: Path = ROOT) -> list[Path]:
         "LICENSE",
         "LICENSING.md",
         "LICENSES/CC0-1.0.txt",
+        "hardware/SAFETY.md",
         "blooglyblob/ai/persona.json",
         "blooglyblob/ai/voice_profile.json",
     ]
@@ -237,6 +238,35 @@ def install(destination: str, mode: str, config: dict[str, str]):
                 )
 
 
+def acknowledge_installation(mode: str) -> bool:
+    """Show the current notice on every supported install; keep consent local."""
+    print((ROOT / "hardware/SAFETY.md").read_text())
+    if mode == "provision":
+        print(
+            "Provisioning starts the application. During first bench installation, "
+            "keep servo and lighting circuits disconnected."
+        )
+    else:
+        print("Updating stops and restarts the application.")
+    print("Starting the service can make billable OpenAI speech requests.")
+    if not sys.stdin.isatty():
+        print(
+            "Cancelled: run provision/update in an interactive terminal to acknowledge the notice."
+        )
+        return False
+    try:
+        answer = input(
+            "Type ACKNOWLEDGE to confirm you have reviewed the notice and wish to proceed, "
+            "or press Enter to cancel: "
+        )
+    except (EOFError, KeyboardInterrupt):
+        answer = ""
+    if answer.strip() != "ACKNOWLEDGE":
+        print("\nCancelled. No device changes were made.")
+        return False
+    return True
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -265,6 +295,10 @@ def main(argv=None):
             raise ValueError(
                 "Install OpenSSH ssh/scp on this computer before deploying"
             )
+        if args.command in ("provision", "update") and not acknowledge_installation(
+            args.command
+        ):
+            return 1
         config = settings()
         destination = target(config)
         if args.command == "check":

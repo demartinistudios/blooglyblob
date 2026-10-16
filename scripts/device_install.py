@@ -62,7 +62,13 @@ OWNED_DIRS = (
     "systemd",
     "LICENSES",
 )
-ROOT_FILES = ("pyproject.toml", "README.md", "LICENSE", "LICENSING.md")
+OWNED_FILES = (
+    "pyproject.toml",
+    "README.md",
+    "LICENSE",
+    "LICENSING.md",
+    "hardware/SAFETY.md",
+)
 DIAGNOSTICS = {
     "run": "blooglyblob",
     "servo-fit": "blooglyblob.hardware.servo_fit",
@@ -238,7 +244,7 @@ def validate_application_paths(source, values):
         relative = path.relative_to(source)
         if (
             relative.parts[0] not in OWNED_DIRS
-            and relative.as_posix() not in ROOT_FILES
+            and relative.as_posix() not in OWNED_FILES
         ):
             raise RuntimeError(f"Unexpected runtime payload: {relative}")
     for relative in (path.relative_to(source) for path in paths):

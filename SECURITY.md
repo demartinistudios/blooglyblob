@@ -1,9 +1,12 @@
 # Security and private data
 
 Never post API keys, passwords, Ring tokens, private logs, or personal network
-details in a public issue. For a suspected exposure, contact the repository
-maintainer at [anthony@demartinistudios.com](mailto:anthony@demartinistudios.com).
-Describe the affected file or component without including live credentials.
+details in a public issue. If you suspect that a credential has been exposed,
+revoke or rotate it with the relevant provider and follow that provider's recovery
+guidance. Never send credentials to the maintainer.
+
+This project has no support service and promises no individual response, security
+maintenance or updates. See [project status and support](hardware/SAFETY.md#project-status-and-support).
 
 Keep credentials in ignored local files or protected Pi configuration. SSH
 commands preserve normal host-key verification. The application has no local

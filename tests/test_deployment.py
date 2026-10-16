@@ -106,6 +106,92 @@ def test_make_override_and_saved_values(tmp_path):
     )  # absent exports cannot erase saved .env
 
 
+@pytest.fixture
+def host_operations(monkeypatch):
+    monkeypatch.setattr(deploy.shutil, "which", lambda _: "/usr/bin/tool")
+    monkeypatch.setattr(
+        deploy, "settings", lambda: {"PI_HOST": "robot.local", "PI_USER": "builder"}
+    )
+    operations = SimpleNamespace(install=Mock(), ssh=Mock())
+    monkeypatch.setattr(deploy, "install", operations.install)
+    monkeypatch.setattr(deploy, "ssh", operations.ssh)
+    return operations
+
+
+@pytest.mark.parametrize("mode", ["provision", "update"])
+def test_install_acknowledgment_is_required_on_every_invocation(
+    mode, monkeypatch, host_operations, capsys
+):
+    monkeypatch.setattr(deploy.sys, "stdin", SimpleNamespace(isatty=lambda: True))
+
+    def acknowledge(prompt):
+        assert "ACKNOWLEDGE" in prompt
+        # The operator sees the notice before the first device operation.
+        assert host_operations.install.call_count == acknowledge.count
+        output = capsys.readouterr().out
+        assert "Safety and responsibility" in output
+        assert "magnets" in output
+        assert "OpenAI" in output
+        if mode == "provision":
+            assert "disconnected" in output
+        else:
+            assert "restarts" in output
+        acknowledge.count += 1
+        return "ACKNOWLEDGE"
+
+    acknowledge.count = 0
+    monkeypatch.setattr("builtins.input", acknowledge)
+    assert deploy.main([mode]) == 0
+    assert deploy.main([mode]) == 0
+    assert acknowledge.count == 2
+    assert host_operations.install.call_count == 2
+    host_operations.ssh.assert_not_called()
+
+
+@pytest.mark.parametrize("mode", ["provision", "update"])
+@pytest.mark.parametrize(
+    "reply", ["", "no", "acknowledge", EOFError(), KeyboardInterrupt()]
+)
+def test_declining_install_notice_never_contacts_device(
+    mode, reply, monkeypatch, host_operations, capsys
+):
+    monkeypatch.setattr(deploy.sys, "stdin", SimpleNamespace(isatty=lambda: True))
+    answer = (
+        Mock(side_effect=reply)
+        if isinstance(reply, BaseException)
+        else Mock(return_value=reply)
+    )
+    monkeypatch.setattr("builtins.input", answer)
+    assert deploy.main([mode]) != 0
+    host_operations.install.assert_not_called()
+    host_operations.ssh.assert_not_called()
+    assert "cancel" in capsys.readouterr().out.lower()
+
+
+@pytest.mark.parametrize("mode", ["provision", "update"])
+def test_noninteractive_install_cannot_accept_piped_acknowledgment(
+    mode, monkeypatch, host_operations, capsys
+):
+    monkeypatch.setattr(deploy.sys, "stdin", io.StringIO("ACKNOWLEDGE\n"))
+    assert deploy.main([mode]) != 0
+    host_operations.install.assert_not_called()
+    host_operations.ssh.assert_not_called()
+    assert "interactive terminal" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("command", ["stop", "status", "logs", "check-audio"])
+def test_operational_commands_do_not_require_install_acknowledgment(
+    command, monkeypatch, host_operations
+):
+    monkeypatch.setattr(deploy.sys, "stdin", io.StringIO())
+    answer = Mock(side_effect=AssertionError("Unexpected acknowledgment prompt"))
+    monkeypatch.setattr("builtins.input", answer)
+    assert deploy.main([command]) == 0
+    answer.assert_not_called()
+    host_operations.install.assert_not_called()
+    host_operations.ssh.assert_called_once()
+
+
 def test_payload_excludes_everything_outside_runtime_allowlist(tmp_path):
     names = {str(path.relative_to(deploy.ROOT)) for path in deploy.payload_files()}
     assert {
@@ -116,7 +202,12 @@ def test_payload_excludes_everything_outside_runtime_allowlist(tmp_path):
         "tool_configs/setTimer.json",
         *deploy.MEDIA,
     } <= names
-    assert {"LICENSE", "LICENSING.md", "LICENSES/CC0-1.0.txt"} <= names
+    assert {
+        "LICENSE",
+        "LICENSING.md",
+        "LICENSES/CC0-1.0.txt",
+        "hardware/SAFETY.md",
+    } <= names
     assert all(not name.endswith(".env") for name in names)
     assert "pi/servo_calibration.json" not in names
     assert not any(
@@ -364,7 +455,12 @@ def test_current_install_and_repeat_preserve_settings_state_and_licenses(install
     )
     assert not any("protocol_check" in " ".join(c) for c in manager.calls)
     assert manager.calls[-1] == ["systemctl", "is-active", "blooglyblob.service"]
-    for name in ("LICENSE", "LICENSING.md", "LICENSES/CC0-1.0.txt"):
+    for name in (
+        "LICENSE",
+        "LICENSING.md",
+        "LICENSES/CC0-1.0.txt",
+        "hardware/SAFETY.md",
+    ):
         assert (remote.APP / name).read_bytes() == (deploy.ROOT / name).read_bytes()
 
 

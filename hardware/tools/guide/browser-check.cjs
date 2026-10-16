@@ -33,7 +33,7 @@ fs.mkdirSync(OUT,{recursive:false});
   page.on('request',request=>{const url=new URL(request.url());if(/^https?:$/.test(url.protocol)&&url.origin!==new URL(BASE).origin)externalRequests.add(url.href)});
   await page.goto(BASE);
   const data=await page.evaluate(()=>window.BGB);assert.ok(data.prints.length>0);
-  assert.deepEqual(Object.keys(data).sort(),['costs','electrical','guide','parts','plateSettingsHTML','printSeconds','prints']);
+  assert.deepEqual(Object.keys(data).sort(),['costs','electrical','guide','parts','plateSettingsHTML','printSeconds','prints','safetyNoticeHTML']);
   assert.ok(!/"(exact|status|source|sources)":/.test(JSON.stringify(data)),'private fields in data.js');
   // Homepage motion preserves the still and stops scheduling frames when inactive.
   await page.locator('[data-hero].hero-motion-ready').waitFor();
@@ -287,12 +287,12 @@ fs.mkdirSync(OUT,{recursive:false});
   assert.equal(new URL(page.url()).hash,'#step-print-plates/GS11');
   assert.ok(await page.locator('#plate-settings').evaluate(el=>el.open));
   assert.equal(await page.locator('.selected-plate').getAttribute('id'),'C1');
-  assert.equal(await page.locator('#plate-settings a[href="downloads/stl/GS11.stl"][download]').count(),1);
+  assert.equal(await page.locator('#plate-settings a[href="#parts/GS11"]').count(),1);
   await page.goto(BASE+'#printing/AR07');
   await page.waitForURL(BASE+'#step-print-plates/AR07');
   assert.equal(new URL(page.url()).hash,'#step-print-plates/AR07');
   assert.ok((await page.locator('#page').innerText()).includes('not on the supplied plates'));
-  assert.equal(await page.locator('a[href="downloads/stl/AR07.stl"][download]').count(),1);
+  assert.equal(await page.locator('#page a[href="#parts/AR07"]').count(),1);
   assert.equal(await page.evaluate(key=>localStorage.getItem(key),KEY),beforePrinting);
   await page.goto(BASE+'#hardware');
   const downloadLink=page.locator('a[href="downloads/screw-key-letter.pdf"]');
@@ -312,7 +312,7 @@ fs.mkdirSync(OUT,{recursive:false});
    assert.ok(!/AMS|timelapse|flow dynamics/.test(await page.locator('#page').innerText()));
    await page.locator('#plate-settings > summary').click();
    assert.ok(!/Synchronize filament list from AMS/.test(await page.locator('#page').innerText()));
-   assert.ok(await page.getByRole('link',{name:'Project reference (3MF)',exact:true}).isVisible());
+   assert.ok(await page.getByRole('link',{name:'Complete Bambu print set (ZIP)',exact:true}).isVisible());
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'other slicer overflow '+width);
    await capture({path:path.join(OUT,'other-slicer-'+width+'.png'),fullPage:true});
    await page.goto(BASE+'#step-print-cleanup');await page.goto(BASE+'#step-print-plates');await page.reload();
@@ -465,7 +465,27 @@ fs.mkdirSync(OUT,{recursive:false});
      if(SETUP.includes(step.id)&&width===1440)await checkCopies();
     }
     for(const link of await page.locator('#page a[href^="downloads/"]').all()){assert.notEqual(await link.getAttribute('download'),null);assert.notEqual(await link.evaluate(el=>getComputedStyle(el,'::before').maskImage),'none');}
-    if(route==='printing'){assert.ok(txt.includes(`${pieces} printed pieces / ${installed.length} types`)&&txt.includes('flow dynamics calibration off'));assert.ok(await page.locator('a[href="downloads/BlooglyBlob-PLA.3mf"]').count()>=1);}
+    if(['start','before-you-start','printing','step-print-plates'].includes(route)){
+     const notice=page.locator('.project-notice').first();
+     assert.ok(await notice.isVisible(),'project limits visible: '+route);
+     assert.ok((await notice.innerText()).includes('One prototype'));
+     assert.ok((await notice.innerText()).includes('No technical support'));
+    }
+    if(route==='safety'){
+     const texts=await page.locator('.safety-reference').evaluate(el=>{
+      const expected=document.createElement('div');expected.innerHTML=window.BGB.safetyNoticeHTML;
+      const normalize=value=>value.replace(/\s+/g,' ').trim();
+      return {actual:normalize([...el.children].slice(1).map(child=>child.textContent).join(' ')),expected:normalize(expected.textContent)};
+     });
+     assert.equal(texts.actual,texts.expected,'complete canonical safety notice is displayed');
+     for(const warning of ['do not substitute another supply','Do not bypass it or fit a higher-rated fuse','A jammed servo can keep pushing and overheat','interacting with AI, not a human'])assert.ok(txt.includes(warning),warning);
+    }
+    if(route==='printing'){
+     assert.ok(txt.includes(`${pieces} printed pieces / ${installed.length} types`)&&txt.includes('flow dynamics calibration off'));
+     assert.deepEqual(await page.locator('#page .actions a[download]').evaluateAll(es=>es.map(e=>e.getAttribute('href'))),['downloads/BlooglyBlob-print-set.zip','downloads/BlooglyBlob-STL.zip']);
+     assert.ok(await page.locator('a.primary[href="downloads/BlooglyBlob-print-set.zip"]').isVisible(),'complete Bambu ZIP is primary');
+     assert.ok(await page.locator('#page a[href="#parts/AR07"]').isVisible(),'optional hand retains catalog link');
+    }
     if(route==='hardware'){for(const size of ['M2','M3']){const count=Object.entries(data.guide.totals).filter(([id])=>id.startsWith(size+'x')).reduce((sum,[,n])=>sum+n,0);assert.ok(txt.includes(`${count} ${size} screws`));}}
     for(const href of await page.locator('a[href]').evaluateAll(es=>es.map(e=>e.getAttribute('href')))){
      if(href.startsWith('#step-'))assert.ok(steps.has(href.slice(6).split('/')[0]),href);
@@ -572,11 +592,18 @@ fs.mkdirSync(OUT,{recursive:false});
   for(const doc of ['repeat-build.html','references.html']){
    await page.goto(new URL(doc,BASE).href);
    assert.ok(!OBSOLETE_COMMANDS.test((await page.locator('body').innerText()).replace(/\(R16 series\)/g,'')),doc+' leak');
+   if(doc==='repeat-build.html'){
+    assert.ok(await page.locator('.project-notice').isVisible());
+    assert.ok(await page.locator('a.primary[href="downloads/BlooglyBlob-print-set.zip"]').isVisible());
+    assert.ok(await page.locator('.project-notice a[href="downloads/SAFETY.md"]').isVisible());
+    assert.equal(await page.locator('.downloads a').count(),2);
+   }
    for(const width of [1440,820,360]){await page.setViewportSize({width,height:1000});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,doc+' '+width);await capture({path:path.join(OUT,doc.replace('.html','')+'-'+width+'.png'),fullPage:true});}
    for(const href of await page.locator('a[href]').evaluateAll(es=>es.map(e=>e.getAttribute('href'))))if(href&&!/^(#|https?:|mailto:)/.test(href))links.add(href);
    for(const src of await page.locator('img[src]').evaluateAll(es=>es.map(e=>e.getAttribute('src'))))if(!/^https?:/.test(src))images.add(new URL(src,new URL(doc,BASE)).href.slice(BASE.replace(/[^/]*$/,'').length));
   }
   await page.goto(BASE+'#step-eye-windows');await page.locator('[data-zoom]').first().click();assert.ok(await page.locator('#zoom').isVisible());await page.locator('#close-zoom').click();assert.ok(!await page.locator('#zoom').isVisible());
+  assert.ok(![...links].some(href=>/\.(?:stl|3mf|csv)(?:[?#]|$)/i.test(href)),'guide must not link to loose print files');
   for(const href of new Set([...links,...images]))assert.ok((await page.request.get(new URL(href,BASE).href)).ok(),href);
   await page.goto(BASE+'#step-power-jack');
   const bench=page.locator('.bench-list');

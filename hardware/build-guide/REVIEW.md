@@ -64,3 +64,15 @@ Run `make check` for the current checkout's software, hardware, guide and browse
 checks. Those checks neither operate a device nor establish physical fit or
 powered safety. See [current hardware notes](../cad/CURRENT-NOTES.md) and the
 [release checklist](../../../docs/release/checklist.md) for their separate scope.
+
+## Publication notices and downloads
+
+The guide renders the complete [safety notice](../SAFETY.md) from its canonical
+source. The start, preparation and printing pages state prototype and support
+limits. Printing pages offer the complete Bambu print ZIP and complete STL ZIP;
+raw print files are included only inside those packages. Plate layouts retain
+part-catalog links, including the optional pointing hand.
+Both ZIPs carry safety and licensing documents with portable links. These changes
+do not qualify physical safety or alter print geometry or settings. Affected
+instruction, download and reference surfaces remain pending in the manual
+release checklist until reviewed against the intended release revision.

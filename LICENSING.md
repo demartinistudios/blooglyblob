@@ -104,5 +104,3 @@ provenance and redistribution scope of project media. Third-party CAD and board
 files keep their source and license notes beside them, as in
 `hardware/lighting/adafruit-5975/`. This scope document travels with the
 software license in Python packages and Pi installation payloads.
-
-Maintainer contact: anthony@demartinistudios.com.

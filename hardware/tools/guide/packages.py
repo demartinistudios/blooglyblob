@@ -5,7 +5,7 @@ copies of the two Bambu Studio projects with neutral internal names and license
 metadata, and zips the STLs and the print set. Output is byte-stable: the ZIPs use
 a fixed timestamp.
 """
-import csv, io, json, shutil, sys, zipfile
+import csv, io, json, re, sys, tempfile, zipfile
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 from collections import Counter
@@ -21,7 +21,11 @@ MANIFEST = PRINTING / 'manifest.json'
 OBJECT_SETTINGS = PRINTING / 'object-settings.csv'
 CATALOG = ROOT / 'hardware/catalog/parts.json'
 LICENSE = ROOT / 'LICENSE'
-INPUTS = [STL, MANIFEST, OBJECT_SETTINGS, CATALOG, LICENSE]
+SAFETY = ROOT / 'hardware/SAFETY.md'
+LICENSING = ROOT / 'LICENSING.md'
+INPUTS = [STL, MANIFEST, OBJECT_SETTINGS, CATALOG, LICENSE, SAFETY, LICENSING]
+REPO_FILES = 'https://github.com/demartinistudios/blooglyblob/blob/main/'
+NOTICE_FILES = {LICENSE: 'LICENSE.txt', SAFETY: 'SAFETY.md', LICENSING: 'LICENSING.md'}
 ZIP_TIME = (2026, 9, 25, 0, 0, 0)
 
 # Display names inside the public 3MF copies; geometry, settings and entry order are kept.
@@ -47,6 +51,26 @@ PROJECT_METADATA = {
     'Designer': 'DeMartini Studios LLC',
     'License': 'MIT',
 }
+
+
+def portable_markdown(path):
+    """Keep bundled notice links local; point other repository links to public sources."""
+    def link(match):
+        label, target = match.groups()
+        if target.startswith(('https://', 'http://', '#')):
+            return match.group(0)
+        filename, separator, anchor = target.partition('#')
+        source = (path.parent / filename).resolve()
+        destination = NOTICE_FILES.get(source)
+        if destination is None:
+            destination = REPO_FILES + source.relative_to(ROOT).as_posix()
+        return f'[{label}]({destination}{separator}{anchor})'
+    return re.sub(r'\[([^]]+)\]\(([^)]+)\)', link, path.read_text())
+
+
+def notice_entries():
+    return [(name, path.read_bytes() if path == LICENSE else portable_markdown(path))
+            for path, name in NOTICE_FILES.items()]
 
 
 def sources(printing=PRINTING):
@@ -147,6 +171,12 @@ def zip_write(path, entries):
 
 STL_README = """BlooglyBlob printable parts (STL)
 
+Before buying parts, printing, building or powering a robot, read SAFETY.md.
+It includes project status, support limits and physical/AI precautions. One
+prototype has been built and operated; this is not comprehensive safety testing
+or certification. No support, individual responses, maintenance or updates are
+promised. See LICENSING.md for license scope; these notices add no license terms.
+
 One STL per part type, in millimetres, named by part ID. The build guide's
 Parts page lists what each part is, how many to print and which colour.
 
@@ -169,7 +199,14 @@ BlooglyBlob: https://github.com/demartinistudios/blooglyblob
 
 PRINT_SET_README = """# BlooglyBlob print set
 
-Everything you need to print the robot's parts in Bambu Studio.
+Print projects and settings for the robot's parts in Bambu Studio.
+
+Before buying parts, printing, building or powering a robot, read
+[Safety and responsibility](SAFETY.md), including project status and support
+limits. One prototype has been built and operated; this is not comprehensive
+safety testing or certification. No support, individual responses, maintenance
+or updates are promised. See [license scope](LICENSING.md); these notices add
+no license terms.
 
 | File | What it is |
 | --- | --- |
@@ -177,6 +214,8 @@ Everything you need to print the robot's parts in Bambu Studio.
 | `BlooglyBlob-PETG-ball.3mf` | Optional: the clear antenna ball (A05) in PETG, instead of plate 10. |
 | `BlooglyBlob-object-settings.csv` | Each part's layer height, walls, infill, brim, supports and speeds. |
 | `LICENSE.txt` | The MIT License for these files. |
+| `SAFETY.md` | Project status, support limits and safety precautions. |
+| `LICENSING.md` | License scope and third-party exceptions. |
 
 The projects were prepared for a **Bambu Lab X1 Carbon with a 0.4 mm nozzle and a
 Textured PEI plate**. Estimated total: {duration} and {grams:.2f} g of filament,
@@ -232,7 +271,7 @@ def stl_sources(directory=STL, catalog_path=CATALOG):
 
 
 def write(downloads, selected=None):
-    """Write stl/, the two 3MFs, the settings CSV and both ZIPs into downloads/."""
+    """Write both print ZIPs and their notices; keep raw print files inside ZIPs."""
     selected = selected or sources()
     stls = stl_sources()
     required = Counter()
@@ -243,28 +282,30 @@ def write(downloads, selected=None):
         raise ValueError(f'Missing selected STL downloads: {sorted(missing)}')
     readme = STL_README.format(plates=len(selected['manifest']['plates']),
                                part_types=len(required), pieces=sum(required.values()))
-    (downloads / 'stl').mkdir(parents=True, exist_ok=True)
-    for p in stls:
-        shutil.copyfile(p, downloads / 'stl' / p.name)
+    downloads.mkdir(parents=True, exist_ok=True)
+    notices = notice_entries()
+    for name, content in notices:
+        (downloads / name).write_bytes(content if isinstance(content, bytes) else content.encode('utf-8'))
     zip_write(downloads / 'BlooglyBlob-STL.zip',
-              [('BlooglyBlob-STL/README.txt', readme), ('BlooglyBlob-STL/LICENSE.txt', LICENSE.read_bytes())]
+              [('BlooglyBlob-STL/README.txt', readme)]
+              + [(f'BlooglyBlob-STL/{name}', content) for name, content in notices]
               + [(f'BlooglyBlob-STL/{p.name}', p.read_bytes()) for p in stls])
-    public_3mf(selected['pla'], downloads / 'BlooglyBlob-PLA.3mf')
-    public_3mf(selected['petg'], downloads / 'BlooglyBlob-PETG-ball.3mf')
-    csv_path = downloads / 'BlooglyBlob-object-settings.csv'
-    shutil.copyfile(selected['csv'], csv_path)
+    csv_path = selected['csv']
     rows = list(csv.DictReader(io.StringIO(csv_path.read_text())))
     actual = Counter(row['part'] for row in rows)
     if actual != required:
         raise ValueError(f'Object-settings CSV quantities differ from selected plates: {dict(actual)} != {dict(required)}')
-    check_metadata(downloads / 'BlooglyBlob-PLA.3mf')
-    check_metadata(downloads / 'BlooglyBlob-PETG-ball.3mf')
+    projects = []
+    with tempfile.TemporaryDirectory(prefix='blooglyblob-print-projects-') as folder:
+        for key, name in [('pla', 'BlooglyBlob-PLA.3mf'), ('petg', 'BlooglyBlob-PETG-ball.3mf')]:
+            project = Path(folder) / name
+            public_3mf(selected[key], project)
+            check_metadata(project)
+            projects.append((f'BlooglyBlob-print-set/{name}', project.read_bytes()))
     zip_write(downloads / 'BlooglyBlob-print-set.zip', [
         ('BlooglyBlob-print-set/README.md', print_set_readme(selected['manifest'])),
-        ('BlooglyBlob-print-set/BlooglyBlob-PLA.3mf', (downloads / 'BlooglyBlob-PLA.3mf').read_bytes()),
-        ('BlooglyBlob-print-set/BlooglyBlob-PETG-ball.3mf', (downloads / 'BlooglyBlob-PETG-ball.3mf').read_bytes()),
         ('BlooglyBlob-print-set/BlooglyBlob-object-settings.csv', csv_path.read_bytes()),
-        ('BlooglyBlob-print-set/LICENSE.txt', LICENSE.read_bytes())])
+        ] + projects + [(f'BlooglyBlob-print-set/{name}', content) for name, content in notices])
 
     previews = downloads.parent / 'assets/plates'
     previews.mkdir(parents=True, exist_ok=True)

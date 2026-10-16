@@ -1,8 +1,13 @@
 # Publication inventory
 
-The public repository contains the application, current hardware inputs, build
-guide and tools needed to reproduce them. Development source, a hosted guide and
-a qualified build kit are separate milestones; use the [release checklist](checklist.md).
+DeMartini Studios LLC publishes free files and instructions: the application,
+current hardware inputs, build guide and tools needed to reproduce them. The
+project supplies no kits, assembled robots or hosted AI service. Builders operate
+their own devices and OpenAI accounts. No support service, individual responses,
+maintenance, updates or continued availability are promised; see
+[project status and support](../../hardware/SAFETY.md#project-status-and-support).
+Development source, a hosted guide and a qualified build kit are separate
+milestones; use the [release checklist](checklist.md).
 
 ## Public selection
 
@@ -22,12 +27,17 @@ selection. Public builds must work without those files. Follow the
 
 ## Readiness and validation scope
 
+The author has built and operated one prototype. That experience is not
+comprehensive safety testing or certification and does not establish how another
+build will perform. No future comprehensive validation or certification is promised.
+
 [Software validation](../software/validation.md) separates offline coverage from
 physical qualification. [Current CAD notes](../../hardware/cad/CURRENT-NOTES.md),
 [print guidance](../../hardware/printing/current/README.md) and the
 [guide review summary](../../hardware/build-guide/REVIEW.md) describe current
-limitations. Pending source comparisons and physical assembly, acoustic and
-full-application qualification must not be represented as completed.
+limitations. The prototype experience does not resolve pending source comparisons
+or establish electrical, thermal, reliability, acoustic or full-application
+qualification. Pending reviews must not be represented as completed.
 
 `make hardware-check` verifies offline invariants. Run
 `python3 hardware/tools/validation/check.py --publication` for the current strict

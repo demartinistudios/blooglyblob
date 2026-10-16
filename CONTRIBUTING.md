@@ -4,7 +4,10 @@ Read [AGENTS.md](AGENTS.md) before changing this checkout. For CAD, print recipe
 or assembly-guide changes, follow the [hardware workflow](hardware/README.md).
 Contributors and forks can run its offline checks and propose changes without
 maintainer Fusion access. Participation follows the
-[code of conduct](CODE_OF_CONDUCT.md).
+[code of conduct](CODE_OF_CONDUCT.md). See
+[project status and support](hardware/SAFETY.md#project-status-and-support):
+publishing documentation and accepting reports or contributions do not, by themselves, promise
+individual responses, support, maintenance or updates.
 
 ## Setup and checks
 

@@ -239,6 +239,11 @@ Install from your computer:
 make pi-provision
 ```
 
+The command displays the [safety and responsibility notice](../../hardware/SAFETY.md).
+Read it, then type `ACKNOWLEDGE` to continue, or press Enter to cancel before any
+device changes. Provisioning and updates require an interactive terminal and
+ask each time; they do not save or transmit an acknowledgment record.
+
 Provisioning installs dependencies, the GPIO daemon and application service,
 starts the application and enables it at boot. Sudo may request the Pi account's
 password interactively; it is never stored in `.env`. There is no second

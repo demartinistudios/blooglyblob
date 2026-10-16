@@ -1,5 +1,13 @@
 # Safety and responsibility
 
+## Project status and support
+
+BlooglyBlob is a free, open-source DIY project published by DeMartini Studios LLC. The project provides files and instructions, not kits, assembled robots or a hosted AI service. Builders configure and operate their own devices using their own OpenAI accounts.
+
+The author has built and operated one prototype. That experience is not comprehensive safety testing or certification and does not establish how another build will perform. No future comprehensive validation or certification is promised. Read the [current limitations](https://github.com/demartinistudios/blooglyblob/blob/main/docs/release/publication-inventory.md#readiness-and-validation-scope) before buying parts, building or powering a robot.
+
+This project is published without a support service. No installation assistance, troubleshooting, repairs, individual responses, maintenance, updates or continued availability are promised. Publishing documentation and accepting reports or contributions do not, by themselves, promise support.
+
 ## Your build, your responsibility
 
 BlooglyBlob is a DIY electronics and robotics project. You are responsible for selecting components, printing, assembly, wiring, software configuration, inspection, testing, maintenance and use of your build, including any modifications. Evaluate whether you have the skills and equipment to do the work; get qualified help when needed. Following this guide or passing its checks does not establish that a build is safe, compliant or suitable for a particular person or purpose.
@@ -14,12 +22,12 @@ BlooglyBlob is a hobby electronics project for adults, not a toy, and is not des
 - Do not open the supply or work on mains wiring. Disconnect power before changing wiring; short circuits can cause burns or fire even at low voltage.
 - Keep fingers, hair and clothing away from servos and joints. A jammed servo can keep pushing and overheat; stop immediately. Keep small parts away from young children and pets.
 - The hands attach with small, strong magnets. If swallowed, magnets can cause serious internal injury. Check that each magnet is fully set in cured epoxy and inspect the hands regularly. Keep loose magnets and detachable hands away from young children and pets. If a magnet may have been swallowed, get medical help immediately.
-- Keep the build dry, keep vents clear, and stop using it if wiring is damaged, parts overheat, or movement is obstructed. Do not leave powered tests unattended.
+- Keep the build dry, keep vents clear, and stop using it if wiring is damaged, parts overheat, or movement is obstructed. Do not leave the robot powered or plugged in unattended. Disconnect its power supply from the wall outlet when not in use.
 - AI responses can be incorrect or inappropriate. Do not rely on the robot for emergency, medical or other safety-critical decisions.
 
 ## Privacy, cloud AI and costs
 
-The robot’s microphone sends speech to OpenAI under your API account. Tell people who talk to the robot that its voice is AI-generated and that their conversations go to a cloud service. You are responsible for following OpenAI’s terms and usage policies, including its rules on use by children, and the laws where you live.
+The robot’s microphone sends speech to OpenAI under your API account. Before allowing others to interact with your robot, you are responsible for telling them that they are interacting with AI, not a human, and that their speech is sent to OpenAI through your API account. You are responsible for following OpenAI’s terms and usage policies, including its rules on use by children, and the laws where you live.
 
 API usage is billed to your OpenAI account. Use its billing controls to limit what you can spend. You are responsible for all charges.
 

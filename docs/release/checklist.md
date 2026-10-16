@@ -25,8 +25,10 @@ the visibility change; source availability does not certify hardware readiness.
 - Confirm the GitHub destination, selected refs and public commit identities.
   Use the agreed clean history and maintainer business email. Do not change
   visibility, rewrite history or publish to another destination without approval.
-- State prominently that this is a development prototype with an unverified build
-  guide. Link current limitations; do not mark pending hardware reviews as passed.
+- State the publication scope, prototype experience, testing and limitations
+  accurately, along with the absence of promised support or future validation.
+  Link the [safety notice](../../hardware/SAFETY.md) and current limitations;
+  do not mark pending hardware reviews as passed.
 - Verify contributor checks for the intended source, plus focused checks after
   documentation changes. Keep the local guide preview available independently of
   release qualification, using the [guide procedure](../../hardware/build-guide/README.md#build-and-preview).

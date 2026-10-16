@@ -648,13 +648,14 @@ class ReviewTests(unittest.TestCase):
 
 
 class InlinePrintSettingsTests(unittest.TestCase):
-    def test_catalog_keeps_notes_and_stl_links_without_duplicate_intro(self):
+    def test_catalog_keeps_notes_and_part_links_without_raw_downloads(self):
         html = build.plate_settings_html((build.SRC / 'repeat-build.html').read_text())
-        self.assertTrue(html.startswith('<h2>The ten plates</h2>'))
+        self.assertIn('<h2>The ten plates</h2>', html)
         self.assertIn('Printer and material notes', html)
         self.assertIn('Bambu Lab X1 Carbon', html)
         self.assertIn('Synchronize filament list from AMS', html)
-        self.assertIn('downloads/stl/GS11.stl', html)
+        self.assertIn('href="#parts/GS11"', html)
+        self.assertNotIn('downloads/stl/', html)
         self.assertIn('data-zoom="assets/plates/plate-1.png"', html)
         self.assertNotIn('<h1>', html)
         self.assertNotIn('downloads/BlooglyBlob-PLA.3mf', html)

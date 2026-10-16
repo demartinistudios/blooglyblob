@@ -63,6 +63,10 @@ jobs:
           assert default_voice() and default_greeting()
           for name in ('songs/dance_song.wav', 'songs/dance_song_beats.json', 'sounds/alert_16k.wav'):
               assert (root / name).is_file(), name
+          notices = root / 'share/doc/blooglyblob'
+          for name in ('LICENSE', 'LICENSING.md', 'hardware/SAFETY.md'):
+              assert (notices / name).is_file(), name
+          assert 'Project status and support' in (notices / 'hardware/SAFETY.md').read_text()
           PYTHON
 
   hardware:

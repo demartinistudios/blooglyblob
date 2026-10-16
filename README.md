@@ -12,8 +12,22 @@ moves his head and arms, and can dance to music. You build the character from
 printed parts and purchased electronics, then install the Python application on
 the Pi.
 
-This repository contains the application, editable CAD, STL files, Bambu Studio
-print projects, and illustrated assembly instructions.
+DeMartini Studios LLC publishes these free files and instructions: the application,
+editable CAD, STL files, Bambu Studio print projects and illustrated assembly guide.
+The project does not supply kits, assembled robots or a hosted AI service. Builders
+configure and operate their own devices using their own OpenAI accounts.
+
+The author has built and operated one prototype. That experience is not
+comprehensive safety testing or certification and does not establish how another
+build will perform. No future comprehensive validation or certification is promised.
+Read the [safety notice](hardware/SAFETY.md) and
+[current limitations](docs/release/publication-inventory.md#readiness-and-validation-scope)
+before buying parts, building or powering a robot.
+
+This project is published without a support service. No installation assistance,
+troubleshooting, repairs, individual responses, maintenance, updates or continued
+availability are promised. Documentation and contributions do not, by themselves,
+promise support.
 
 **[Open the build guide →](https://demartinistudios.github.io/blooglyblob/)**
 
@@ -37,11 +51,6 @@ servos. Expect 3D printing, soldering and some terminal commands. You'll need a
 computer for setup, an internet connection and your own OpenAI API key with API
 billing enabled. Conversations use cloud AI; API usage is billed separately from
 a ChatGPT subscription. See the guide's parts list for the complete specifications.
-
-**Project status:** this is a working development project, with physical assembly
-and full-system validation still in progress. Review the
-[current limitations](docs/release/publication-inventory.md#readiness-and-validation-scope)
-before buying or printing parts.
 
 ## Using or changing the software
 

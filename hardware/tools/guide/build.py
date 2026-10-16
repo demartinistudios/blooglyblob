@@ -10,6 +10,7 @@ assembly files; it reads them from their own homes at build time:
 """
 import json, posixpath, re, shutil, sys, tempfile
 from pathlib import Path
+from html import escape
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -131,10 +132,36 @@ def plate_settings_html(source):
         machine = re.search(r'<p class="eyebrow">.*?</p>', content, re.S)
         setup = (machine.group(0) if machine else '') + content[notes:plates]
         content = content[plates:] + '<details data-slicer="bambu"><summary>Printer and material notes</summary>' + setup + '</details>'
-    content = re.sub(r'(<a href="#parts/([A-Z0-9]+)">[^<]+</a>)',
-                     r'\1 <a href="downloads/stl/\2.stl" download aria-label="Download \2 STL">STL</a>', content)
     return re.sub(r'<a href="(assets/plates/[^"]+)">(<img[^>]+>)</a>',
                   r'<button data-zoom="\1" aria-label="Enlarge plate layout">\2</button>', content)
+
+
+def safety_notice_html():
+    """Render the canonical notice's headings, paragraphs, bullets and inline links."""
+    def inline(text):
+        text = escape(' '.join(text.split()))
+        def link(match):
+            label, target = match.groups()
+            download = ''
+            if not target.startswith(('https://', 'http://', '#')):
+                target = 'downloads/' + target
+                download = ' download'
+            return f'<a href="{target}"{download}>{label}</a>'
+        return re.sub(r'\[([^]]+)\]\(([^)]+)\)', link, text)
+
+    blocks = []
+    for block in re.split(r'\n\s*\n', packages.portable_markdown(packages.SAFETY).strip()):
+        heading = re.fullmatch(r'(#{1,2}) ([^\n]+)', block)
+        if heading:
+            level = len(heading[1])
+            focus = ' tabindex="-1"' if level == 1 else ''
+            blocks.append(f'<h{level}{focus}>{inline(heading[2])}</h{level}>')
+        elif block.startswith('- '):
+            items = re.split(r'\n- ', block[2:])
+            blocks.append('<ul>' + ''.join(f'<li>{inline(item)}</li>' for item in items) + '</ul>')
+        else:
+            blocks.append(f'<p>{inline(block)}</p>')
+    return '\n'.join(blocks)
 
 
 def build():
@@ -175,6 +202,7 @@ def build():
         parts = [{k: v for k, v in p.items() if k not in PRIVATE} for p in data['parts']]
         bundle = {'guide': data['guide'], 'parts': parts, 'prints': data['prints'],
                   'electrical': {k: electrical[k] for k in ('power', 'signal')}, 'costs': costs,
+                  'safetyNoticeHTML': safety_notice_html(),
                   'plateSettingsHTML': plate_settings_html((SRC / 'repeat-build.html').read_text()),
                   'printSeconds': print_seconds(selected['manifest'])}
         (output / 'data.js').write_text('window.BGB = ' + json.dumps(bundle, ensure_ascii=False, separators=(',', ':')) + ';\n')
