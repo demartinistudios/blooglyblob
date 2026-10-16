@@ -17,11 +17,11 @@ editable CAD, STL files, Bambu Studio print projects and illustrated assembly gu
 The project does not supply kits, assembled robots or a hosted AI service. Builders
 configure and operate their own devices using their own OpenAI accounts.
 
-The author has built and operated one prototype. That experience is not
-comprehensive safety testing or certification and does not establish how another
-build will perform. No future comprehensive validation or certification is promised.
-Read the [safety notice](hardware/SAFETY.md) and
-[current limitations](docs/release/publication-inventory.md#readiness-and-validation-scope)
+The author has built and tested one complete prototype and revised the build guide
+based on that experience. That experience is not comprehensive safety testing or
+certification and does not guarantee the safety or performance of another build.
+No future comprehensive validation or certification is promised.
+Read the [safety notice and build limitations](hardware/SAFETY.md#build-experience-and-limitations)
 before buying parts, building or powering a robot.
 
 This project is published without a support service. No installation assistance,
@@ -43,7 +43,7 @@ and software commands together in one numbered sequence. You can read it and
 download the print files without cloning this repository.
 
 - **[Parts and supplies](https://demartinistudios.github.io/blooglyblob/#parts):** what to buy, quantities and tools.
-- **[Print the parts](https://demartinistudios.github.io/blooglyblob/#step-print-plates):** Bambu Studio projects, raw STLs, plate layouts and print settings.
+- **[Print the parts](https://demartinistudios.github.io/blooglyblob/#step-print-plates):** Bambu Studio and STL ZIP downloads, plate layouts and print settings.
 - **[Set up the Raspberry Pi](docs/software/setup.md):** Raspberry Pi Imager, Wi-Fi, credentials and installation commands. This is also covered in the guide.
 
 The build uses a Raspberry Pi 3 Model A+, USB audio, speakers, NeoPixel LEDs and

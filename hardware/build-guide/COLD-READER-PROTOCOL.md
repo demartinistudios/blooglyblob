@@ -1,5 +1,8 @@
 # Cold-reader test protocol
 
+An optional method for contributors evaluating guide changes, not a required
+release milestone or promised testing program.
+
 A cold read tests whether a new builder can follow the guide alone. One
 participant builds from the guide while one observer watches and records. The
 observer does not help. Each place the participant stops, re-reads, goes wrong
@@ -31,7 +34,7 @@ to test a chapter again.
 5. Lay out the parts, supplies and tools that the chosen chapters list. Put
    them in their bags and boxes, not sorted by step.
 6. Supply printed parts from earlier prints when the session is not about
-   printing. The prints take about 39 hours, so start them well before.
+   printing. Use the current print estimates to plan ahead.
 7. For the Pi software chapter, provide a network and a computer with a
    terminal. Provide an OpenAI API key on a card if the participant has none.
    Revoke that key after the session.
@@ -92,34 +95,16 @@ to do. Then let them continue from where they stopped.
 Run the chapters in the guide's order. Do not skip ahead or reorder them, even
 between sessions.
 
-1. Prepare
-2. Print
-3. Base hardware
-4. Pi software
-5. Base boards and controls
-6. Base wiring
-7. Light test
-8. Frame and servos
-9. Head
-10. Body
-11. Arms
-12. Backpack and belt
-13. Final wiring
-14. First power-up
-15. Head and arm mounting
-16. Close up and test
-
-Test the Service steps in a separate session, on a finished robot. Start the
-participant at "Before you start" in the first session. Start each later
-session at the first step not yet done.
+Use the current guide's chapter order rather than a copied list. Start the
+participant at "Before you start" in the first session and at the first unfinished
+step in later sessions.
 
 ## What to record
 
 Record each event against its step and panel:
 
 - **Step:** the step number on the page and the step ID in the address bar,
-  after `#step-`. Example: `27 servo-power-capacitor`. Service steps have no
-  number; use their ID.
+  after `#step-`, such as `servo-power-capacitor`.
 - **Panel:** the number at the top left of the panel. For the parts list at
   the top of a step, write `top`. For the safety box, the step note or the
   "Ready to continue" box, write `safety`, `note` or `check`.
@@ -170,7 +155,7 @@ fixed at once; 4 = question or comment with no effect on the build.
 
 ## Triage (after the session)
 
-| # | Cause in the guide | Proposed change | Review surface | Decision |
+| # | Cause in the guide | Proposed change | Affected step or asset | Decision |
 | --- | --- | --- | --- | --- |
 | 1 | | | | fix / no change / bench check |
 
@@ -191,12 +176,9 @@ the guide during a session.
    such as a cable length.
 2. Make each fix by the [instruction design guidance](INSTRUCTION-DESIGN.md).
    Follow "Review an input or guide change" in the [authoring guide](README.md).
-3. Set each affected surface in [review-status.json](review-status.json) to
-   `pending`, with a one-line reason.
-4. Run `make check`.
-5. Review the changed surfaces again. Set them to `verified` with the revision,
-   reviewer and evidence. Add concise public evidence to [REVIEW.md](REVIEW.md).
-   Do not put participant names or identifying details in public files.
+3. Run `make check` and inspect the affected instructions and rendered output.
+4. Keep useful technical findings in [REVIEW.md](REVIEW.md). Do not put participant
+   names or identifying details in public files.
 
 Test a fixed chapter again with a new participant before you count the fix as
 confirmed.

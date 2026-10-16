@@ -1,10 +1,12 @@
 # Build guide authoring
 
-Start with the [hardware workflow](../README.md). There is one authored guide,
+For agents editing the guide. Builders should use the
+[illustrated guide](https://demartinistudios.github.io/blooglyblob/). Start changes
+with the [hardware workflow](../README.md). There is one authored guide,
 `src/`, versioned in ordinary Git. `dist/` is ignored build output. The guide
 consumes selected CAD, print, assembly and reference inputs when built; the CAD
-registry and delivery do not pin guide content. Public assembly instructions
-belong in the guide; contributor workflow and readiness evidence belong here or
+registry and optional delivery snapshot do not pin guide content. Assembly
+instructions belong in the guide; contributor workflow and review evidence belong here or
 in the [current review summary](REVIEW.md). Detailed working notes stay private.
 
 ## Build and preview
@@ -18,9 +20,8 @@ python3 -m http.server 8769 --bind 127.0.0.1 --directory hardware/build-guide/di
 ```
 
 Keep the preview at [http://127.0.0.1:8769](http://127.0.0.1:8769) so browser
-progress remains available. Preview builds can be useful while publication is
-blocked; a successful build is not publication approval. A validated build replaces
-the preview; an interrupted swap retains an ignored `.guide-previous/` backup
+progress remains available. A validated build replaces the preview; an interrupted
+swap retains an ignored `.guide-previous/` backup
 that the next build restores before checking inputs.
 
 The builder copies authored content and derives data/downloads from their own
@@ -85,20 +86,16 @@ step. Review access before closing covers or fitting parts that obstruct tools.
 Check the assembly meaning visually: mating surfaces, clearances, access and
 fastener engagement need review even when a generator succeeds.
 
-Use [review-status.json](review-status.json) as a manual release checklist and
-[REVIEW.md](REVIEW.md) for concise public evidence and limitations.
-After changing the guide or its inputs, mark affected sections pending. Before
-publication, inspect those sections against the intended release revision and
-record `reviewed_revision`, reviewer and evidence. The checker validates the
-checklist entries; it does not infer freshness or perform the human review.
-There is no automatic fingerprint or repository-wide dependency graph.
+Keep useful technical findings and limitations in [REVIEW.md](REVIEW.md).
+When changing servo instructions, check attachment and positioning for all three
+servos against the supported software behavior. Automated checks do not review
+assembly meaning or certify a build.
 
-To test the guide with builders who have not seen it, use the
+For an optional test with builders who have not seen the guide, use the
 [cold-reader test protocol](COLD-READER-PROTOCOL.md).
 
-`consistency.py check` checks quantities, references and documented commands.
-Pending manual review permits local previews. `consistency.py check --publication`
-also requires the release checklist; it does not establish physical fit.
+`consistency.py check` checks quantities, references, writing and documented
+commands. Its legacy `--publication` flag runs the same automated checks.
 
 ## Optional authoring tools
 
@@ -208,17 +205,16 @@ link and part `steps` list when a step ID changes.
 
 ## Publication readiness
 
-Website checks and build-kit qualification are separate. Before an authorized
-website deployment, run `python3 scripts/check_pages.py` and `make guide-browser`.
-These require current-input integrity, a successful build and browser checks;
-pending qualification reviews remain visible in the job summary.
+Before an authorized website deployment, run `python3 scripts/check_pages.py`
+and `make guide-browser`. These require current-input integrity, a successful
+build and browser checks.
 
-Before claiming a qualified build kit, run
-`python3 hardware/tools/validation/check.py --publication` and complete the
-manual release checklist and affected visual/assembly review against the same
-inputs. See [REVIEW.md](REVIEW.md) and the
-[release checklist](../../docs/release/checklist.md) for current limitations and
-qualification scope. Passing software checks does not establish physical fit.
+The optional strict selected-delivery check,
+`python3 hardware/tools/validation/check.py --publication`, also requires a
+selected delivery record and resolved print-input reviews. It is not required for
+ordinary website deployment and does not certify physical safety. See
+[REVIEW.md](REVIEW.md) for review scope and the
+[release checklist](../../docs/release/checklist.md) for publication actions.
 
 Documented commands are checked during ordinary builds too. `make pi-servo-fit`
 and startup share the fixed fit/rest positions; movement remains within
@@ -228,4 +224,4 @@ Do not invoke hardware merely to check that a command exists.
 Deployment uses [the Pages workflow](../../.github/workflows/guide-pages.yml),
 with repository Settings → Pages → Source set to "GitHub Actions". Contributor
 checks do not themselves authorize deployment. Keep preview, deployment and
-physical qualification distinct when reporting completion.
+physical testing distinct when reporting completion.

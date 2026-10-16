@@ -1,78 +1,74 @@
 # Guide review scope
 
-The guide consumes the accepted CAD and print inputs selected by the
-[registry](../cad/design-control/registry.json). The
-[review checklist](review-status.json) records digital review by surface,
-separate from physical assembly acceptance and website deployment.
+For agents reviewing guide changes. Builders should follow the
+[illustrated guide](https://demartinistudios.github.io/blooglyblob/) and
+[Safety & responsibility](../SAFETY.md).
+
+On 2026-10-16, the owner reported building and testing one complete prototype
+and revising the build guide based on that experience. This does not
+establish comprehensive electrical, thermal, endurance or fault testing.
+
+The guide may contain errors or omissions. The notes below describe completed
+work and useful technical lessons, not a certification or a future testing plan.
 
 ## Current assembly update
 
-The mouth uses a printed holder (P31), rear cover (P30) and a captured LED board.
-Two M2×8 screws engage two head-mounted M2 nuts; there are no separate PCB screws
-or mouth washers. The white LD45 diffuser is 4 mm thick, trimmed to 5.75 mm high.
+The focused R34 / Fusion cloud32 review covers the P30/P31 mouth and P44 upper
+bearing collar. [CAD notes](../cad/CURRENT-NOTES.md#mouth-and-upper-bearing-collar)
+retain their dimensions, fastening and assembly constraints. P01 remains the
+lower collar. The eye windows and bearing disc share C01 film and one shopping
+allowance, with a separate disc blank included in the cost calculation.
 
-The upper support collar (P44) uses the existing two M3×10 screws and upright
-nuts. The lower collar remains P01, quantity one. A clear-film bearing disc rests
-on P44 with two folded tabs in its slots. The full-size template has an 82.6 mm
-outer diameter, 62 mm inner circle and two 3.2 mm-wide tabs with a 2.5 mm fold.
-The eye windows and bearing disc share the C01 film supply and one shopping-sheet
-allowance. The cost calculation includes a separate blank for the disc.
+Review covered identities/counts, fastening order, PCB orientation, foam and film
+placement, collar slots, screw access, adjacent head steps, material allowances
+and actual PDF/SVG template scale. Screw keys were regenerated from allocations.
+The eight LED-package colors clarify the board without changing source triangles.
+The full-character still, homepage animation base and social card use the R34
+collar’s native pose with existing lighting and framing; the
+[presentation record](../rendering/presentation-front.json) retains source and hashes.
 
-The owner accepts the assembled mechanical hardware. This is not a blanket
-qualification of electrical protection, thermal behavior or every operating
-condition. The broad manual review remains pending; focused changes do not
-silently clear unrelated checklist entries.
-
-The release review covers matching part identities and counts, fastening order,
-PCB orientation, foam placement, film preparation, collar slots, screw access,
-neighboring head-mounting steps, material allowances and template scale.
-The updated illustrations use R34 / Fusion cloud version 32. The mouth views
-show foam insertion, board capture, head-nut loading and the two-screw assembly;
-the collar views show its screw seats and the bearing-film tabs. Board colors
-identify the eight LED packages without changing any source triangles. The
-obsolete mouth section has been removed. The template was checked at actual
-PDF/SVG size, and the screw keys were regenerated from current allocations.
-The full-character still, homepage animation base and social card now use the
-R34 collar in its native pose, with the existing lighting and framing retained.
-The [presentation record](../rendering/presentation-front.json) records the
-capture source and image hashes.
-
-The print instructions match the selected production package: 70 pieces across
-53 required part types on 10 plates, with all 71 required and optional source
-instances compared to the selected exports. Plate previews and downloadable
-STLs/3MF are bundled from those current inputs. Head-horn fastening now calls for
-gentle seating without overtightening to eliminate slight left–right rotational
-play, viewed from above. The check uses a light touch, without forcing the servo
-shaft to turn.
+The recorded print review covers 70 pieces across 53 required types on 10 plates,
+with all 71 required/optional source instances compared to selected exports.
+Head-horn fastening calls for gentle seating without overtightening to eliminate
+slight left–right rotational play, viewed from above. Check with a light touch;
+do not force the servo shaft to turn.
 
 ## Validation boundaries
 
-The [render source binding](../rendering/source-lock.json) identifies the mesh
-and CAD revision used for assembly illustrations. Review mating surfaces,
-insertion directions and tool access visually; a successful renderer is not
-proof of a correct instruction. The presentation image and decorative homepage
-lighting illustrate the completed robot, rather than fastening or optical
-performance.
+The [render source binding](../rendering/source-lock.json) identifies illustration
+inputs. Review mating surfaces, insertion directions and tool access visually;
+a successful renderer does not establish instruction correctness. Presentation
+images and decorative lighting do not demonstrate fastening or optical performance.
 
-The guide consistency check covers quantities, hardware allocations, step links,
-documented commands and writing constraints. The print recipe checks compare
-selected meshes with the catalog sources. STL downloads, project downloads,
-plate previews and filament estimates are derived from the maintained print
-inputs through the [print procedure](../printing/current/README.md).
-
-Run `make check` for the current checkout's software, hardware, guide and browser
-checks. Those checks neither operate a device nor establish physical fit or
-powered safety. See [current hardware notes](../cad/CURRENT-NOTES.md) and the
-[release checklist](../../../docs/release/checklist.md) for their separate scope.
+Guide consistency checks cover quantities, allocations, links, commands and
+writing constraints. Print checks compare selected meshes with catalog sources;
+the [print procedure](../printing/current/README.md) owns the inputs used for plate
+previews, estimates and download packages. `make check` checks software, hardware,
+guide and browser behavior without operating a device or establishing physical
+fit or powered safety. See [CAD notes](../cad/CURRENT-NOTES.md) and the
+[release checklist](../../docs/release/checklist.md) for scope.
 
 ## Publication notices and downloads
 
-The guide renders the complete [safety notice](../SAFETY.md) from its canonical
-source. The start, preparation and printing pages state prototype and support
-limits. Printing pages offer the complete Bambu print ZIP and complete STL ZIP;
-raw print files are included only inside those packages. Plate layouts retain
-part-catalog links, including the optional pointing hand.
-Both ZIPs carry safety and licensing documents with portable links. These changes
-do not qualify physical safety or alter print geometry or settings. Affected
-instruction, download and reference surfaces remain pending in the manual
-release checklist until reviewed against the intended release revision.
+The guide renders the canonical [safety notice](../SAFETY.md). Start, preparation
+and printing pages state prototype/support limits. Printing offers only the
+complete Bambu and STL ZIPs, each carrying portable safety/licensing documents;
+raw print files are inside those packages. Part-catalog links remain, including
+the optional pointing hand. These changes alter no geometry or print settings.
+
+## Lessons for future edits
+
+- The Pi header was previously mirrored. From the pin side, even pins are on
+  the board-edge row and odd pins on the inner row; count from the microSD end.
+  Step drawings and the complete wiring diagram must agree.
+- JST-SM pins sit inside the larger shroud; the smaller sockets half slides into
+  it. Show the latch and viewing direction. Use continuity and strand-input
+  checks, not drawn wire colors, to establish connections.
+- Preserve access-dependent assembly order and the powered fit sequence:
+  seat horns while the command holds, then STOP, shut down and unplug before
+  fastening center screws. Follow current steps for refitting and closing.
+- Draw the state the action leaves, including insulation and bench/towel support.
+  Keep explanatory prose in captions. Follow the
+  [instruction design rules](INSTRUCTION-DESIGN.md).
+
+Current steps and catalogs own detailed wiring, fastening and supply facts.

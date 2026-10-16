@@ -1,82 +1,87 @@
-# Publication and validated-release checks
+# Publication checks
 
-Use the [publication inventory](publication-inventory.md) for current findings and
-[license scope](../../LICENSING.md) for grants and exceptions. A public development
-repository and a validated build kit are different milestones. The owner approves
-the visibility change; source availability does not certify hardware readiness.
+For agents publishing repository files or the website. The
+[publication inventory](publication-inventory.md) maps the public contents;
+[license scope](../../LICENSING.md) defines grants and exceptions. Publishing
+files does not certify a physical build.
 
 ## Public development repository
 
-- Stage only the reviewed, explicitly named public files and run
-  `make publication-check`; this checks the staged Git index, not unstaged edits.
-  It is also included in `make check`.
-- Review the exact source selection and intended Git history for credentials,
-  private information and redistribution rights. Include native metadata, images,
-  packaged downloads and any superseded GitHub commits still retrievable by SHA.
-  Review GitHub Actions logs/artifacts and other hosted content too. A history
-  rewrite alone does not remove server-side cached objects.
-- Exclude local credentials, calibration, machine state, experiments, caches and
-  environments. Keep publisher documents as external links, with no previous
-  copies accessible from the public repository. Rotate confirmed exposed secrets.
-- Include `LICENSE`, `LICENSING.md` and `LICENSES/`: DeMartini Studios LLC's
-  MIT grant, exclusions, Adafruit MIT notice, CC0 sound-effect notice and
-  [separate soundtrack notice](../../LICENSING.md#project-soundtrack-separate-terms).
-  Confirm the guide footer credits and each print ZIP's `LICENSE.txt`.
-- Confirm the GitHub destination, selected refs and public commit identities.
-  Use the agreed clean history and maintainer business email. Do not change
-  visibility, rewrite history or publish to another destination without approval.
-- State the publication scope, prototype experience, testing and limitations
-  accurately, along with the absence of promised support or future validation.
-  Link the [safety notice](../../hardware/SAFETY.md) and current limitations;
-  do not mark pending hardware reviews as passed.
-- Verify contributor checks for the intended source, plus focused checks after
-  documentation changes. Keep the local guide preview available independently of
-  release qualification, using the [guide procedure](../../hardware/build-guide/README.md#build-and-preview).
-- Resolve the recorded publication blockers, then obtain the owner's approval to
-  change visibility. Recheck the remote state immediately before that action.
+- Stage only reviewed, explicitly named files and run `make publication-check`.
+  It checks the staged Git index, not unstaged edits or all historical versions;
+  it also runs within `make check`.
+- Review the selected files, Git history, downloads, images and embedded CAD/print
+  metadata for credentials, private information and redistribution rights.
+  A clean working tree only means no uncommitted changes: earlier commits can
+  still contain removed material. Check retrievable older GitHub commits,
+  Actions logs/artifacts and other hosted copies; rewriting history alone does
+  not remove server-side cached objects.
+- Exclude credentials, calibration, machine state, experiments, caches and
+  environments. Keep private legacy branches/tags out of public pushes. Link to
+  publisher reference documents rather than bundling copies, including in old
+  public commits. Rotate any confirmed exposed credential; deleting it does not
+  invalidate it.
+- Bambu projects/downloads must have no nonempty `DesignerUserId`; this narrow
+  packaging check does not audit all metadata. Native CAD can contain application
+  resource paths. Review them without arbitrary byte edits that could corrupt the
+  file or invalidate accepted hashes.
+- Include `LICENSE`, `LICENSING.md` and `LICENSES/`, including the Adafruit MIT,
+  CC0 sound-effect and [separate soundtrack notices](../../LICENSING.md#project-soundtrack-separate-terms).
+  Check guide footer credits and each print ZIP's license and safety notices.
+- Confirm the destination, selected branches/tags and commit identities. Use the
+  agreed public history and maintainer business email. Visibility changes,
+  history rewrites and other publication destinations require owner approval;
+  resolve recorded blockers and recheck remote state before the authorized action.
+- Describe prototype experience, testing limits and the absence of promised
+  support or future validation accurately. Link the [safety notice](../../hardware/SAFETY.md);
+  describe only the evidence actually collected. Run contributor checks for the
+  intended source and affected checks after further edits.
 
 ## Hosted development guide
 
-Website deployment and hardware qualification are separate decisions. The Pages
-workflow requires current-input integrity, a successful guide build and browser
-checks. Pending kit reviews remain visible in its job summary; they are not
-converted into approvals and do not alone prevent website deployment.
+The Pages workflow requires current-input integrity, a successful guide build and
+browser checks. Separate print-input reviews appear in its job summary and do
+not alone block website deployment.
 
-- Apply the source/privacy/rights checks above to everything the site distributes.
-- Run `python3 scripts/check_pages.py` and `make guide-browser`. The first command
-  uses the existing offline validator and reports outstanding reviews and kit
-  delivery selection. Input errors or an invalid validator result fail the job.
-  The second builds the guide and checks routes, links, images and interactions.
-- Inspect the outstanding reviews before making readiness claims. Passing website
-  checks does not prove geometry equivalence, connector fit or physical assembly.
-- Obtain the owner's authorization to publish. Verify the successful deployment
-  and public URL before reporting that the site is live.
+- Apply the source, privacy and rights checks above to everything the site distributes.
+- Run `python3 scripts/check_pages.py` and `make guide-browser`. The first reports
+  outstanding print-input reviews and optional delivery selection; input errors or invalid
+  validator results fail. The second builds the guide and checks routes, links,
+  images and interactions.
+- Inspect any outstanding print-input reviews before making readiness claims. Passing website
+  checks does not prove connector fit or physical assembly.
+- Obtain authorization to publish, then verify the successful deployment and
+  public URL before reporting that the site is live.
 
-The [guide procedure](../../hardware/build-guide/README.md#publication-readiness)
-and [workflow](../../.github/workflows/guide-pages.yml) define website checks.
+See the [guide procedure](../../hardware/build-guide/README.md#publication-readiness)
+and [workflow](../../.github/workflows/guide-pages.yml).
 
-## Validated build kit
+<a id="validated-build-kit"></a>
 
-The following remain required before claiming a synchronized, qualified kit.
-They do not need to be complete merely to share development source or host the
-development guide.
+## Optional delivery snapshots and stronger claims
 
-- From a fresh source checkout, run `make dev-setup`, `make guide-setup` and
-  `make check` as documented in [contributing](../../CONTRIBUTING.md). Verify
-  installed-package resources and downloadable CAD/print inputs too.
-- Run `python3 hardware/tools/validation/check.py --publication` and resolve all
-  pending source comparisons, stale review evidence and unsupported commands.
-  Review affected assembly views, instructions, supply/fastener allocations and
-  downloads against the same accepted inputs. Automated checks do not prove fit.
-- Complete a fresh Imager-to-Make installation on the reference Pi with a custom
-  hostname/user, repeat provisioning, reboot and exercise update failure/repair.
-  Record board, image, Python, dependency versions and release commit.
-- Complete the [physical and acoustic qualification](../software/validation.md#physical-qualification)
-  with current hardware, then repeat relevant checks on replacement audio before
-  making replacement-kit claims. Device tests require explicit authorization.
-- Have a fresh builder follow the software and hardware guide together. Record
-  unresolved fit, strength, wiring and optical results honestly.
-- Review the exact generated build-kit contents and metadata. Before distributing
-  a prebuilt environment or image, assess its dependency licenses and notices.
-- Obtain the owner's approval for the qualified release. A successful
-  preview, slice or print does not establish physical qualification.
+A selected delivery is an exact-file release snapshot used by the existing tools.
+It does not mean the project supplies kits or that a build is certified. No
+snapshot or further testing is promised. If preparing one or making a stronger
+compatibility or performance claim, collect evidence for that specific scope:
+
+- From a fresh checkout, run `make dev-setup`, `make guide-setup` and `make check`
+  following [CONTRIBUTING](../../CONTRIBUTING.md). Check installed-package resources
+  and downloadable CAD/print inputs.
+- For a selected snapshot, run `python3 hardware/tools/validation/check.py --publication`.
+  This strict check requires a selected delivery and resolved print-input reviews. Resolve
+  any pending source comparison, stale evidence or unsupported command. Review
+  views, instructions, supply/fastener allocations and downloads against the same
+  inputs. Passing does not certify fit or safety.
+- Before claiming a freshly reproduced installation, exercise Imager-to-Make
+  setup on the reference Pi with a custom hostname/user, repeat provisioning,
+  reboot and update failure/repair. Record board, image, Python/dependency
+  versions and source revision. Device tests require explicit authorization.
+- For measured device behavior, choose relevant [optional evaluation methods](../software/validation.md#optional-device-evaluation).
+  Replacement-audio claims need checks on that replacement. A fresh builder's
+  end-to-end guide review can add evidence; record unresolved fit, strength,
+  wiring and optical observations rather than inferring success.
+- Review the exact snapshot contents and metadata. Before redistributing a prebuilt
+  environment or image, assess its dependency licenses and required notices.
+- Obtain owner approval for publication and describe only the evidence actually
+  collected. A preview, slice or successful print does not certify the device.

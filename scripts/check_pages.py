@@ -1,4 +1,4 @@
-"""Gate Pages on current-input integrity and report separate kit-release reviews."""
+"""Gate Pages on current-input integrity and report separate delivery reviews."""
 
 import html
 import json
@@ -9,18 +9,6 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-# Required report sections from hardware/tools/guide/consistency.py. This checks
-# report completeness; the underlying validator still owns review decisions.
-GUIDE_SURFACES = {
-    "instructions",
-    "part-supply-cards",
-    "print-cards-downloads",
-    "assembly-visuals",
-    "diagrams-templates",
-    "references",
-    "software-commands",
-    "progress-and-navigation",
-}
 
 
 def validate_report(report):
@@ -57,19 +45,11 @@ def validate_success_stages(report):
         "pending" if pending else "verified"
     ):
         raise ValueError("Validator geometry status disagrees with pending reviews")
-    expected = list(pending)
-    if not GUIDE_SURFACES.issubset(stages["guide"]):
-        raise ValueError("Validator guide stage is missing required review surfaces")
-    for surface, review in stages["guide"].items():
-        if (
-            not isinstance(review, dict)
-            or review.get("status") not in ("verified", "pending", "blocked")
-            or not isinstance(review.get("reason"), str)
-        ):
-            raise ValueError(f"Validator guide stage has invalid review: {surface}")
-        if review["status"] != "verified":
-            expected.append(f"{surface}: {review['status']} — {review['reason']}")
-    if report["blockers"] != expected:
+    if stages["guide"].get("status") != "passed":
+        raise ValueError(
+            "Validator success report has not passed automated guide checks"
+        )
+    if report["blockers"] != pending:
         raise ValueError("Validator review summary disagrees with its stage results")
 
 
@@ -84,8 +64,8 @@ def details(title, messages):
 def main():
     errors = []
     blockers = []
-    review_status = "Release-review status unavailable."
-    delivery_status = "Kit delivery status unavailable."
+    review_status = "Print-input review status unavailable."
+    delivery_status = "Delivery snapshot status unavailable."
     try:
         completed = subprocess.run(
             [
@@ -101,7 +81,7 @@ def main():
         report = validate_report(json.loads(completed.stdout))
         errors.extend(report["errors"])
         blockers = report["blockers"]
-        review_status = f"{len(blockers)} outstanding release reviews."
+        review_status = f"{len(blockers)} outstanding print-input reviews."
         if completed.returncode != (0 if report["ok"] else 1):
             errors.append(f"Validator exited unexpectedly: {completed.returncode}")
         registry = json.loads(
@@ -110,9 +90,11 @@ def main():
         if not isinstance(registry, dict) or "delivery" not in registry:
             raise ValueError("Registry is missing delivery-selection status")
         if registry["delivery"] is None:
-            delivery_status = "No kit delivery selected."
+            delivery_status = "No optional delivery snapshot selected."
         elif isinstance(registry["delivery"], dict) and registry["delivery"]:
-            delivery_status = "Kit delivery selected; selection is not qualification."
+            delivery_status = (
+                "Delivery snapshot selected; this is not physical certification."
+            )
         else:
             raise ValueError("Registry has an invalid delivery-selection status")
     except (ValueError, OSError, subprocess.TimeoutExpired) as exc:
@@ -122,16 +104,16 @@ def main():
         "## Pages input checks\n\n"
         f"**Input integrity: {'FAIL' if errors else 'PASS'}**\n\n"
         f"{review_status} {delivery_status}\n\n"
-        "Pending reviews do not block website deployment. Passing this check does "
-        "not establish hardware qualification; the guide build and browser checks "
+        "Pending print-input reviews do not block website deployment. Passing this check does "
+        "not establish physical safety; the guide build and browser checks "
         "must also pass before deployment.\n\n"
-        "For the strict kit-release gate, run "
+        "For the strict selected-delivery review check, run "
         "`python hardware/tools/validation/check.py --publication`.\n\n"
     )
     if errors:
         summary += details("Input errors — deployment blocked", errors)
     if blockers:
-        summary += details("Outstanding release reviews — unchanged", blockers)
+        summary += details("Outstanding print-input reviews", blockers)
     print(summary)
     if summary_path := os.environ.get("GITHUB_STEP_SUMMARY"):
         try:

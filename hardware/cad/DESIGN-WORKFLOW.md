@@ -126,6 +126,6 @@ verify that distinction against the native source.
 
 Follow the [print procedure](../printing/current/README.md) for affected full
 plates and the [guide procedure](../build-guide/README.md) for affected content.
-The guide has a manual release checklist and is not pinned by the CAD registry or
-delivery. Release the CAD lock after safe completion; do not hold it while waiting
+Guide content is not pinned by the CAD registry or delivery.
+Release the CAD lock after safe completion; do not hold it while waiting
 for guide prose or a physical print.

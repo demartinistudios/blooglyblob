@@ -1,5 +1,7 @@
 # Application architecture
 
+For agents changing the runtime.
+
 Blooglyblob runs as one Python application on the Raspberry Pi, started with
 `python -m blooglyblob` and managed by `blooglyblob.service`. The button starts
 a conversation. OpenAI supplies cloud AI; there is no local language model.
@@ -51,8 +53,8 @@ count, adds no lookahead or buffered tail, and never increases individual sample
 magnitude. There is no automatic loudness processing or replacement DSP.
 Restart the application after a profile change. Deploy accepted profile edits
 with `make pi-update`; installed source edits are replaced by the next update.
-Audio tuning and the existing clipping/follow-up investigation remain separate
-from this architecture change.
+See [device evidence and limits](validation.md#physical-qualification) before
+drawing conclusions about acoustic performance from these settings.
 
 ## Audio formats
 
@@ -180,6 +182,5 @@ Readiness means required local initialization and controls completed; it does
 not open a conversation or prove cloud access, acoustic quality, or movement.
 
 `make dev-check` runs formatting, lint, type checks, and hardware-free tests without API
-credentials. The [validation coverage](validation.md) separates offline checks
-from physical qualification, including capture clipping and follow-up behavior
-that still need evaluation in the complete assembly.
+credentials. [Software validation](validation.md) distinguishes offline coverage,
+prototype experience, historical device observations and optional evaluation methods.

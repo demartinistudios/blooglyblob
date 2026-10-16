@@ -514,8 +514,8 @@
     },
     {
       "path": "hardware/printing/current/README.md",
-      "sha256": "742bd4f4d2f113cba8f9de649198639af076d68777fd513209cdb1ec76b9b797",
-      "bytes": 13566
+      "sha256": "09f633fbbc054899274821d311e2cb1887e905f06cd6e5110b6e5bdba2ca816e",
+      "bytes": 14118
     },
     {
       "path": "hardware/printing/current/checks/first-layers.png",
@@ -904,8 +904,8 @@
     },
     {
       "path": "hardware/printing/recipes/README.md",
-      "sha256": "a151da7e8183f01c567a6747a72318c4cab330ca9cfd42fdbc06a388e30c1b19",
-      "bytes": 8150
+      "sha256": "5199a503fcf1a41a76408c811fdd461d7fe20e19ed4af92cbdb608134ddfe22c",
+      "bytes": 8223
     },
     {
       "path": "hardware/printing/recipes/project-privacy.json",

@@ -1,4 +1,4 @@
-"""Pages blocks broken inputs without pretending pending kit reviews passed."""
+"""Pages blocks broken inputs without pretending pending delivery reviews passed."""
 
 import json
 import os
@@ -58,19 +58,7 @@ def report(**changes):
                 "independent_source_geometry": "pending" if blockers else "verified",
                 "publication_blockers": blockers,
             },
-            "guide": {
-                surface: {"status": "verified", "reason": "Reviewed"}
-                for surface in (
-                    "instructions",
-                    "part-supply-cards",
-                    "print-cards-downloads",
-                    "assembly-visuals",
-                    "diagrams-templates",
-                    "references",
-                    "software-commands",
-                    "progress-and-navigation",
-                )
-            },
+            "guide": {"status": "passed", "scope": "automated consistency checks"},
         },
         **changes,
     }
@@ -82,11 +70,11 @@ def test_pending_reviews_pass_without_becoming_approvals(project):
     )
     assert result.returncode == 0, result.stderr
     assert "Input integrity: PASS" in summary
-    assert "2 outstanding release reviews" in summary
+    assert "2 outstanding print-input reviews" in summary
     assert "Geometry comparison pending" in summary
     assert "USB fit unconfirmed" in summary
-    assert "No kit delivery selected" in summary
-    assert "does not establish hardware qualification" in summary
+    assert "No optional delivery snapshot selected" in summary
+    assert "does not establish physical safety" in summary
     assert summary in result.stdout
 
 
@@ -127,8 +115,8 @@ def test_selected_delivery_does_not_claim_qualification(project):
     )
     result, summary = run_check(project, report())
     assert result.returncode == 0
-    assert "Kit delivery selected; selection is not qualification" in summary
-    assert "0 outstanding release reviews" in summary
+    assert "Delivery snapshot selected; this is not physical certification" in summary
+    assert "0 outstanding print-input reviews" in summary
 
 
 @pytest.mark.parametrize("registry", ["{", "[]", "{}", '{"delivery": false}'])
@@ -148,16 +136,11 @@ def test_summary_displays_review_text_literally(project):
     assert "&lt;/pre&gt;&lt;script&gt;bad&lt;/script&gt;" in summary
 
 
-def test_guide_review_remains_visible(project):
-    payload = report()
-    payload["stages"]["guide"]["instructions"] = {
-        "status": "pending",
-        "reason": "Fit unconfirmed",
-    }
-    payload["blockers"] = ["instructions: pending — Fit unconfirmed"]
-    result, summary = run_check(project, payload)
+def test_automated_guide_check_passes_without_manual_review_surfaces(project):
+    result, summary = run_check(project, report())
     assert result.returncode == 0
-    assert "instructions: pending — Fit unconfirmed" in summary
+    assert "Input integrity: PASS" in summary
+    assert "instructions: pending" not in summary
 
 
 @pytest.mark.parametrize("stage", ["cad", "render-inputs", "printing", "guide"])
@@ -177,12 +160,13 @@ def test_pending_reviews_cannot_disappear_from_summary(project):
     assert "review summary disagrees" in summary
 
 
-def test_omitted_guide_surface_cannot_hide_pending_review(project):
+@pytest.mark.parametrize("status", ["failed", "pending", "verified", None])
+def test_missing_or_failed_automated_guide_check_cannot_pass(project, status):
     payload = report()
-    del payload["stages"]["guide"]["instructions"]
+    payload["stages"]["guide"] = {"status": status}
     result, summary = run_check(project, payload)
     assert result.returncode == 1
-    assert "missing required review surfaces" in summary
+    assert "automated guide checks" in summary
 
 
 def test_pages_requires_integrity_build_and_browser_before_upload():

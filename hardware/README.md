@@ -1,11 +1,12 @@
 # Hardware
 
-For assembly, open the [build guide preview](build-guide/README.md#build-and-preview).
+For assembly, open the [illustrated build guide](https://demartinistudios.github.io/blooglyblob/)
+and read [Safety & responsibility](SAFETY.md).
 The guide’s **Build cost** page lists materials used, shopping totals and a
 shopping list with purchase links; [BUILD-COST.md](catalog/BUILD-COST.md)
 explains how they are calculated.
-Website deployment and physical qualification are separate checks. For contributions, this page
-connects the three area procedures:
+The rest of this page is for agents modifying the hardware.
+Start with the relevant procedure:
 [CAD](cad/DESIGN-WORKFLOW.md), [printing](printing/current/README.md), and
 [guide authoring](build-guide/README.md). A contributor or fork can inspect the
 current inputs, build the guide and propose changes without maintainer credentials
@@ -25,13 +26,12 @@ make guide-build
 If `python3` selects another version, add `HOST_PYTHON=python3.12` to each Make
 command.
 
-The first command checks offline invariants. Outstanding publication reviews are
-separate: use `python3 hardware/tools/validation/check.py --publication` to inspect
-them. The second
-builds a local preview; success does not authorize publication. Neither requires
-Fusion, Bambu Studio, scratch outputs, credentials or
-physical devices. Browser verification and optional authoring dependencies are
-in the [guide procedure](build-guide/README.md).
+The first command checks offline invariants; the second builds the guide locally.
+Neither requires Fusion, Bambu Studio, scratch outputs, credentials or physical
+devices. The optional strict selected-delivery check is
+`python3 hardware/tools/validation/check.py --publication`; it additionally requires
+a selected delivery and resolved print-input reviews. Browser verification
+and optional authoring dependencies are in the [guide procedure](build-guide/README.md).
 
 ## Sources of truth
 
@@ -42,7 +42,7 @@ in the [guide procedure](build-guide/README.md).
 | Part identity and dependencies | [Part catalog](catalog/parts.json) |
 | Editable print projects and process | [Current print set](printing/current/README.md) and [recipe locks](printing/recipes/projects.json) |
 | Installed hardware and electrical allocations | [Hardware allocations](assembly/hardware.json) and [electrical tables](assembly/electrical.json) |
-| Current technical limitations | [CAD notes](cad/CURRENT-NOTES.md), [print procedure](printing/current/README.md), and [guide review](build-guide/REVIEW.md) |
+| Technical constraints and review evidence | [CAD notes](cad/CURRENT-NOTES.md), [print procedure](printing/current/README.md), and [guide review](build-guide/REVIEW.md) |
 | Price quotes and consumption allowances | [Price catalog](catalog/prices.json); the guide calculates costs from these quotes, current quantities and plate weights |
 | Purchased supply specifications | [Supply catalog](catalog/supplies.json); guide cards add presentation and links |
 | Component references | [Reference catalog](references/community-20260925/catalog.json) linking to publisher documents |
@@ -70,16 +70,16 @@ same records and checks. Agree ownership before editing shared files.
    [guide surfaces](build-guide/README.md). Record changed, reused and reviewed
    outputs with concise public evidence in the current review/provenance files;
    keep the detailed work record private.
-5. Run offline checks, guide build and browser verification; review the assembly
-   meaning and visuals before claiming a synchronized public build kit.
+5. Run offline checks, guide build and browser verification; review affected
+   instructions and visuals against their sources.
 
-CAD may be accepted while printing or guide work remains pending. A qualified
-build-kit release requires those dependencies and blockers to be resolved.
-The development source and guide can be shared with their limitations stated;
-see the [release checks](../docs/release/checklist.md).
-Digital validation, machine completion, usable stock and physical fit/strength/
-optical qualification are distinct evidence. A passing slice does not establish
-physical qualification; printing and deployment are separate authorized actions.
+CAD acceptance, downstream digital review and physical testing are separate
+evidence. A passing slice does not establish fit, strength or optical performance.
+The registry can optionally select a delivery snapshot binding reviewed inputs;
+none is currently selected. That record neither represents a physical kit being
+offered nor certifies safety. Ordinary source and website publication use the
+[release checklist](../docs/release/checklist.md). Printing, device tests and
+deployment still require their own authorization.
 
 ## Retention
 

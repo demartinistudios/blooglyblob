@@ -1,13 +1,14 @@
 # Publication inventory
 
-DeMartini Studios LLC publishes free files and instructions: the application,
-current hardware inputs, build guide and tools needed to reproduce them. The
-project supplies no kits, assembled robots or hosted AI service. Builders operate
-their own devices and OpenAI accounts. No support service, individual responses,
-maintenance, updates or continued availability are promised; see
+For agents preparing publication: this is a map of the public
+files, their provenance and license coverage. Use the [publication checklist](checklist.md)
+for actions before publishing. Builders should start with the
+[build guide](https://demartinistudios.github.io/blooglyblob/) and
+[safety notice](../../hardware/SAFETY.md).
+
+DeMartini Studios LLC publishes free files and instructions, with no kits,
+assembled robots, hosted AI service or promised support. See
 [project status and support](../../hardware/SAFETY.md#project-status-and-support).
-Development source, a hosted guide and a qualified build kit are separate
-milestones; use the [release checklist](checklist.md).
 
 ## Public selection
 
@@ -27,41 +28,27 @@ selection. Public builds must work without those files. Follow the
 
 ## Readiness and validation scope
 
-The author has built and operated one prototype. That experience is not
-comprehensive safety testing or certification and does not establish how another
-build will perform. No future comprehensive validation or certification is promised.
+The author's one-prototype experience and its limits are described in
+[Build experience and limitations](../../hardware/SAFETY.md#build-experience-and-limitations).
 
-[Software validation](../software/validation.md) separates offline coverage from
-physical qualification. [Current CAD notes](../../hardware/cad/CURRENT-NOTES.md),
+For contributors, [software validation](../software/validation.md),
+[CAD notes](../../hardware/cad/CURRENT-NOTES.md),
 [print guidance](../../hardware/printing/current/README.md) and the
-[guide review summary](../../hardware/build-guide/REVIEW.md) describe current
-limitations. The prototype experience does not resolve pending source comparisons
-or establish electrical, thermal, reliability, acoustic or full-application
-qualification. Pending reviews must not be represented as completed.
-
-`make hardware-check` verifies offline invariants. Run
-`python3 hardware/tools/validation/check.py --publication` for the current strict
-build-kit blockers. A pending source comparison is missing evidence, not proof of
-a defective part. A successful slice or website deployment does not prove fit.
-
-The Pages workflow requires current-input integrity, a guide build and browser
-checks. Pending kit reviews are reported separately in its job summary. Local
-[preview](../../hardware/build-guide/README.md#build-and-preview) remains available
-independently of website deployment and physical qualification.
+[guide review record](../../hardware/build-guide/REVIEW.md) explain technical
+constraints and the scope of recorded evidence. Current print-source comparisons
+are verified. The guide may contain errors or omissions; neither file checks nor
+website deployment establish physical safety. The
+[checklist](checklist.md) explains the separate website and optional delivery checks.
 
 ## Privacy and metadata
 
-Review the intended public files and Git history, including native metadata,
-images and packaged downloads. A clean working tree does not sanitize history.
-Keep private legacy refs out of public pushes. If a credential is exposed, rotate
-it; deleting a file or repository does not invalidate the credential.
+Publication review includes earlier Git versions and metadata embedded in CAD,
+print projects and images, not just visible text. Follow the
+[privacy checks](checklist.md#public-development-repository) before publishing.
 
-Bambu projects and generated downloads must have no nonempty `DesignerUserId`.
-The packaging check enforces that narrow rule; it is not a general privacy audit.
 The [privacy proof](../../hardware/printing/recipes/project-privacy.json) records
-the metadata-only sanitization. Native CAD may retain application resource paths;
-review native metadata deliberately and avoid byte edits that corrupt the file or
-invalidate accepted input hashes.
+removal of Bambu `DesignerUserId` metadata. Packaging rejects nonempty values;
+that check is not a general privacy audit.
 
 ## License coverage
 

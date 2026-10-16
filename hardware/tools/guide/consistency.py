@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Check guide quantities, references and commands; report manual release review.
+"""Check guide quantities, references, commands and writing rules.
 
-Ordinary checks validate usable inputs. --publication additionally requires the
-release checklist. Review revisions are human declarations, not inferred approval.
-Writing-standard violations are errors, so they make ok false in every mode.
+These are automated consistency checks, not manual approval or safety certification.
 `facts` prints each step's and part card's technical tokens for before/after diffs.
 """
 import argparse
@@ -16,13 +14,9 @@ import re
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[3]
-RECEIPT = 'hardware/build-guide/review-status.json'
 GUIDE = 'hardware/build-guide/src'
 REFERENCE = 'hardware/references/community-20260925/catalog.json'
 PRESENTATION = 'hardware/rendering/presentation-front.json'
-SURFACES = ('instructions', 'part-supply-cards', 'print-cards-downloads',
-            'assembly-visuals', 'diagrams-templates', 'references',
-            'software-commands', 'progress-and-navigation')
 
 
 def read(root, path):
@@ -573,27 +567,9 @@ def missing_commands(root):
     return sorted(commands - targets)
 
 
-def review_status(root):
-    """Read the manual release checklist; changes require an affected-scope review."""
-    receipt_path = root / RECEIPT
-    rows = indexed(read(root, RECEIPT)['surfaces'], 'surface', 'guide review') if receipt_path.exists() else {}
-    if set(rows) - set(SURFACES):
-        raise ValueError('Review record contains unknown surfaces')
-    result = {}
-    for surface in SURFACES:
-        row = rows.get(surface, {})
-        state = row.get('status', 'pending')
-        if state not in ('pending', 'blocked', 'verified'):
-            raise ValueError(f'{surface}: invalid review status {state}')
-        if state == 'verified' and not all(row.get(key) for key in ('reviewed_revision', 'reviewer', 'evidence')):
-            raise ValueError(f'{surface}: verified review requires revision, reviewer and evidence')
-        result[surface] = {'status': state, 'reason': row.get('reason', 'Review required')}
-    return result
-
-
-def check(root=ROOT, publication=False):
+def check(root=ROOT):
     root = Path(root).resolve()
-    result = {'errors': [], 'blockers': [], 'review': {}}
+    result = {'errors': []}
     try:
         guide = read(root, f'{GUIDE}/guide-data.json')
         parts = read(root, f'{GUIDE}/parts.json')
@@ -607,13 +583,9 @@ def check(root=ROOT, publication=False):
         check_reference_page((root / GUIDE / 'references.html').read_text(),
                              read(root, f'{GUIDE}/references/catalog.json'))
         result['errors'] += [f'Guide command make {target} has no Makefile target' for target in missing_commands(root)]
-        result['review'] = review_status(root)
-        for surface, row in result['review'].items():
-            if row['status'] != 'verified':
-                result['blockers'].append(f"{surface}: {row['status']} — {row['reason']}")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         result['errors'].append(str(exc))
-    result['ok'] = not result['errors'] and (not publication or not result['blockers'])
+    result['ok'] = not result['errors']
     return result
 
 
@@ -621,7 +593,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('check', 'facts'))
     parser.add_argument('--root', type=Path, default=ROOT)
-    parser.add_argument('--publication', action='store_true')
+    parser.add_argument('--publication', action='store_true',
+                        help='Compatibility flag; runs the same automated guide checks')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args()
     if args.command == 'facts':
@@ -629,7 +602,7 @@ def main():
         inventory = fact_inventory(read(root, f'{GUIDE}/guide-data.json'), read(root, f'{GUIDE}/parts.json'))
         print(json.dumps(inventory, indent=2, ensure_ascii=False) if args.json else format_facts(inventory), end='')
         return 0
-    report = check(args.root, args.publication)
+    report = check(args.root)
     if args.json:
         print(json.dumps(report, indent=2))
     else:
@@ -640,11 +613,8 @@ def main():
         if rules:
             print(f"Writing errors: {sum(rules.values())} ("
                   + ', '.join(f'{rule} {n}' for rule, n in sorted(rules.items())) + ')')
-        if args.publication:
-            for blocker in report['blockers']:
-                print('REVIEW REQUIRED: ' + blocker)
         if not report['errors']:
-            print('Preview build allowed. Review status is independent of CAD acceptance and deployment.')
+            print('Automated guide checks passed; this does not certify physical safety or authorize deployment.')
     return 0 if report['ok'] else 1
 
 

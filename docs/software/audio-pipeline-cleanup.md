@@ -23,11 +23,11 @@ from packet delivery; cancellation must not release audio ownership prematurely.
 Offline tests cover capture and transport contracts, anti-alias filtering,
 finite-stream sample counts/tails, split-packet equivalence, gain preservation,
 file completion/cancellation, voice coloration, scanner ducking and lifecycle
-failures. See [software validation](validation.md) for test destinations and
-remaining physical qualification.
+failures. See [software validation](validation.md) for test destinations,
+device evidence and optional evaluation methods.
 
-Device acceptance requires listening through conversation, search and follow-up
-questions, interruption, dance and alerts. Check pitch/duration and scanner
+During authorized audio evaluation, listen through conversation, search and
+follow-up questions, interruption, dance and alerts. Check pitch/duration and scanner
 ducking, and inspect capture/output overflow, playback failure, unexpected idle
 transitions and exit 73. Investigate ownership and input delivery rather than
 changing gain or increasing queues to hide faults. Offline checks cannot

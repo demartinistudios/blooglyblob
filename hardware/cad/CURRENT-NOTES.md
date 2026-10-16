@@ -1,5 +1,8 @@
 # Current hardware notes
 
+For agents: design constraints, rationale and evidence.
+Builders should follow the [illustrated guide](https://demartinistudios.github.io/blooglyblob/).
+
 The registry selects R34, Fusion cloud version 32. The native assembly, STL
 exports and print projects are the maintained build inputs. Historical revision
 names in current evidence identify the source of unchanged features.
@@ -61,10 +64,10 @@ P11 and P42 mount behind the front upright using two M3×14 countersunk screws
 and two M3 nuts. Install the upper light bracket before the servo carriers block
 access. P12 retains the rear mounting and brings its LEDs forward to the middle
 height. Retain six Pebbles and two ties per Pebble. The lower and middle pad ends
-have a 6 mm gap: bend the lower top exits behind their pads and the middle bottom
-exits toward the LED-facing side, after clearing the end ties. Keep excess slack
-out of servo movement and screw access. The local modeled wire envelope is
-5×0.95 mm with a 5 mm bend radius; the complete strand slack was not simulated.
+have a 6 mm gap. Route every wire behind its pad after clearing the end ties,
+never across a light’s face. The lower top and middle bottom wires cross behind
+the front upright. Keep slack clear of servos and screw access. The local modeled
+envelope is 5×0.95 mm with a 5 mm bend radius; complete strand slack was not simulated.
 
 [Native and interface evidence](current/evidence/body-lighting-r33.json) records
 geometry and clearance checks. The accepted trial improved assembly and lighting;
@@ -117,14 +120,18 @@ the head/mouth. The head shell remains unchanged; R34 replaces P31 as described 
 P08/P14 use direct native STL exports with closed edges at exact serialized
 coordinates. Their source frames and the Fusion design are unchanged;
 [export provenance](current/stl/head-export-provenance.json) records the checks.
+An earlier P08 export sliced with an unintended center cap after tiny placement
+changes. Preserve the replacement and check the opening in Preview; see the
+[print lesson and tests](../printing/current/README.md#head-export-stability).
 
 ## Audio cradle
 
 FB24 has a solid rear tape surface. Attach the USB module's rear face, opposite
 the microphones, to that surface with tape under 1 mm thick. Do not cut open the
 closed rear slits. Keep microphones exposed and follow the guide's module-first
-installation sequence. Actual tape adhesion and USB connector clearance remain
-physical qualification items. R29 enlarges the USB opening to 15.5 × 17.6 mm
+installation sequence. The owner’s successful prototype does not establish tape
+endurance or clearance for other USB modules and cables. R29 enlarges the USB
+opening to 15.5 × 17.6 mm
 and moves the left lid fastening 12.85 mm rearward onto a matching lid tab.
 FB24 and FB32 change; the two M2 × 8 lid screws and base mounting stay the same.
 
@@ -132,8 +139,8 @@ FB24 and FB32 change; the two M2 × 8 lid screws and base mounting stay the same
 
 P35 includes 1.5 mm hinge-root blends and tapered ribs extending outward up to
 2 mm. Hinge gaps, pin seats and screw access are retained. Remove supports without
-forcing the ears apart. Printed strength and support removal require physical
-qualification.
+forcing the ears apart. Inspect support removal on each print; the digital
+evidence does not establish loaded strength or fatigue life.
 
 P36 canisters now have smooth 2 mm walls without internal fastening nuts.
 The two corresponding P35 screw passages are closed. Bond the canisters at
@@ -143,15 +150,14 @@ the backpack-to-carrier screws and belt joints remain removable.
 
 ## R29 downstream work
 
-CAD is accepted. Guide images, instructions and supply allocations now reflect
-all six affected part families, including removal of two canister screws and
-two nuts. Scoped digital guide review and focused checks passed. Print preparation
-replaces all seven P08/P14/FB24/FB32/P35/P36 instances and includes full W1/W2/C2
-slicing and digital support review. Five localized W1 support blockers clear the
-P08 nut pockets and relocated audio nut slot and screw bore. Accessible cradle
-supports and backpack hinge-gap supports still require removal. Final package
-integration and combined checks are recorded in the current printing receipts;
-no physical print was dispatched as part of this preparation.
+This is retained evidence for unchanged features, not an open task list. The
+R29 preparation replaced seven P08/P14/FB24/FB32/P35/P36 instances and reviewed
+full W1/W2/C2 slices. Five localized W1 blockers clear the P08 nut pockets and
+relocated audio nut slot and screw bore. Accessible cradle and backpack hinge-gap
+supports still need careful removal from each print. Guide images, instructions
+and allocations include the six affected part families and omit the two retired
+canister screws/nuts. Current print receipts retain the digital integration
+checks; that preparation record itself included no physical print dispatch.
 
 ## Current print and rendering evidence
 
@@ -167,11 +173,17 @@ mesh, native exports, palette and service-stand mesh. The stand originated in
 R23; the renderer checks its transforms, body volumes and bounds against the
 current assembly before reuse. A historical name does not imply a second design.
 
-## Qualification limits
+<a id="qualification-limits"></a>
 
-Digital input checks, slicing and guide review do not establish printed fit,
-adhesive retention, cable reach, mechanical strength, acoustic performance or
-complete powered operation. The current print-source comparison receipt covers the selected release instances.
-See the [semantic review contract](../printing/recipes/README.md)
-and [guide review summary](../build-guide/REVIEW.md). No synchronized kit delivery
-is selected in the registry.
+## Evidence limits
+
+The [safety notice](../SAFETY.md) describes the owner’s completed prototype and
+build experience. Digital checks above do not establish fit, adhesive retention,
+cable reach, strength, acoustic performance or powered safety for another build.
+No comprehensive endurance or fault testing is established.
+
+The selected print-source comparisons are recorded in the
+[semantic review contract](../printing/recipes/README.md); the
+[guide review summary](../build-guide/REVIEW.md) describes digital review scope.
+No optional delivery snapshot is selected in the registry. This is a maintainer
+record of selected inputs, not a certification or a physical kit offering.

@@ -7,10 +7,9 @@ build guide follows the same four stages below, before mounting the Pi.
 ## 1. Prepare the microSD card
 
 Use a Raspberry Pi 3 Model A+ and Raspberry Pi OS Lite **64-bit**, based on
-**Trixie with Python 3.13**. A Pi 3B+ has provided development evidence; final
-physical qualification is still pending. Do not substitute a newer OS release
-without checking support: the installer verifies the board, architecture, OS
-and Python version.
+**Trixie with Python 3.13**. Do not substitute a newer OS release without
+checking support: the installer verifies the board,
+architecture, OS and Python version.
 
 On your computer, install Git, Make, Python 3.12 or newer, OpenSSH (`ssh`, `scp`)
 and [Raspberry Pi Imager](https://www.raspberrypi.com/software/). Run terminal
@@ -349,5 +348,5 @@ its horns were installed for different calibrated positions.
 
 `make pi-check-audio` can inspect audio devices after installation. Keep physical
 tests in their assembly stages. The button starts a conversation; there are no
-wake-word models or keys. Follow the [release checklist](../release/checklist.md)
-before claiming a new build or replacement audio arrangement is supported.
+wake-word models or keys. Contributors extending support to other configurations
+should evaluate them using the [optional device checks](validation.md#optional-device-evaluation).

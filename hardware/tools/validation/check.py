@@ -41,9 +41,9 @@ def check(publication=False):
     except (ValueError,OSError,KeyError,TypeError) as exc:
         result['errors'].append('Printing: '+str(exc))
     guide=module('check_guide','hardware/tools/guide/consistency.py').check()
-    result['stages']['guide']=guide['review']
+    result['stages']['guide']={'status':'passed' if guide['ok'] else 'failed',
+                               'scope':'automated consistency checks; not physical certification'}
     result['errors'].extend('Guide: '+x for x in guide['errors'])
-    result['blockers'].extend(guide['blockers'])
     result['ok']=not result['errors'] and (not publication or not result['blockers'])
     return result
 

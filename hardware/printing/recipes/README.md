@@ -1,14 +1,16 @@
 # Editable recipe checks
 
+For agents changing print projects or their verification records.
+
 `python3 hardware/tools/printing/projects.py check` validates immutable project
 bytes and archive integrity, settings, component/modifier meshes and transforms,
 plate membership, build printability and catalog demand. The manifest-selected
 download filenames must select exactly the validated recipe roles. `--json` returns structured readiness;
-`--release` additionally requires the selected delivery and no outstanding source
-review. `prepare --output <new-directory>` copies the complete accepted projects
-and a baseline receipt. These commands never slice, dispatch or establish physical
-qualification. Basic checks use Python's standard library and no installed Bambu
-profiles.
+`--release` additionally requires an optional selected delivery snapshot and no
+outstanding source review. `prepare --output <new-directory>` copies the complete
+accepted projects and a baseline receipt. These commands never slice, dispatch or
+certify a physical build. Basic checks use Python's standard library and no
+installed Bambu profiles.
 
 `projects.json` binds the exact projects and `semantic-contract.json`. The whole-file
 hash already protects every archive member; the historical member inventory is
@@ -35,10 +37,10 @@ intended openings. It runs with `projects.py check`, including CI. It does not
 prove absence of self-intersections or replace the affected full-plate slice
 review.
 
-The current contract verifies all 72 required/optional instance source meshes.
+The current contract verifies all selected required and optional instance source meshes.
 The projects reuse the selected downloadable STLs with independently reviewed
 placement frames. No sampled surface-equivalence approvals are used. These checks
-establish digital consistency; physical qualification remains separate.
+establish digital consistency, not physical safety or fit.
 
 ## Replace a source mesh
 

@@ -181,8 +181,6 @@ def build():
     report = consistency.check(ROOT)
     if report['errors']:
         raise ValueError('Guide consistency failed: ' + '; '.join(report['errors']))
-    if report['blockers']:
-        print('Guide checks passed. Manual publication review is separate; see hardware/build-guide/review-status.json.')
 
     DIST.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.guide-stage-', dir=DIST.parent) as folder:

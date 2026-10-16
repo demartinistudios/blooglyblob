@@ -4,9 +4,13 @@
 
 BlooglyBlob is a free, open-source DIY project published by DeMartini Studios LLC. The project provides files and instructions, not kits, assembled robots or a hosted AI service. Builders configure and operate their own devices using their own OpenAI accounts.
 
-The author has built and operated one prototype. That experience is not comprehensive safety testing or certification and does not establish how another build will perform. No future comprehensive validation or certification is promised. Read the [current limitations](https://github.com/demartinistudios/blooglyblob/blob/main/docs/release/publication-inventory.md#readiness-and-validation-scope) before buying parts, building or powering a robot.
-
 This project is published without a support service. No installation assistance, troubleshooting, repairs, individual responses, maintenance, updates or continued availability are promised. Publishing documentation and accepting reports or contributions do not, by themselves, promise support.
+
+## Build experience and limitations
+
+The author has built and tested one complete prototype and revised the build guide based on that experience. That experience is not comprehensive safety testing or certification and does not guarantee the safety or performance of another build. No future comprehensive validation or certification is promised.
+
+The guide may contain errors or omissions. Automated project checks test software behavior and consistency between project files. They do not establish the safety or performance of your build. Inspect and test your assembly and follow the precautions below.
 
 ## Your build, your responsibility
 

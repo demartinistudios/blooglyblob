@@ -556,7 +556,7 @@ class ReferenceTests(unittest.TestCase):
             c.check_reference_page('<a href="https://example.com/old.pdf">Drawing</a>', presentation)
 
 
-class ReviewTests(unittest.TestCase):
+class GuideCheckTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -566,25 +566,6 @@ class ReviewTests(unittest.TestCase):
         p = self.root / name
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(value)
-
-    def test_missing_manual_review_stays_pending(self):
-        self.assertTrue(all(row['status'] == 'pending'
-                            for row in c.review_status(self.root).values()))
-
-    def test_verified_review_requires_revision_reviewer_and_evidence(self):
-        row = dict(surface='instructions', status='verified')
-        self.write(c.RECEIPT, json.dumps({'surfaces': [row]}))
-        with self.assertRaisesRegex(ValueError, 'revision, reviewer and evidence'):
-            c.review_status(self.root)
-        row.update(reviewed_revision='fixture revision', reviewer='Fixture reviewer',
-                   evidence=['fixture inspection'], reason='Instructions inspected')
-        self.write(c.RECEIPT, json.dumps({'surfaces': [row]}))
-        self.assertEqual(c.review_status(self.root)['instructions']['status'], 'verified')
-
-    def test_unknown_surface_is_rejected(self):
-        self.write(c.RECEIPT, json.dumps({'surfaces': [dict(surface='typo', status='verified')]}))
-        with self.assertRaisesRegex(ValueError, 'unknown surfaces'):
-            c.review_status(self.root)
 
     def test_command_check_does_not_confuse_prose_or_execute_targets(self):
         self.write('Makefile', 'pi-check:\n\tfalse\n')
@@ -606,27 +587,27 @@ class ReviewTests(unittest.TestCase):
             stack.enter_context(patch.object(c, 'check_writing', return_value=list(writing)))
             stack.enter_context(patch.object(c, 'read', return_value={}))
             stack.enter_context(patch.object(c, 'missing_commands', return_value=list(commands)))
-            stack.enter_context(patch.object(c, 'review_status', return_value={
-                'instructions': {'status': 'pending', 'reason': 'Assembly inspection needed'}}))
-            return c.check(self.root), c.check(self.root, publication=True)
+            return c.check(self.root)
 
-    def test_pending_review_allows_preview_but_blocks_publication(self):
-        offline, publication = self.check_fixture()
-        self.assertTrue(offline['ok'])
-        self.assertEqual(offline['errors'], [])
-        self.assertFalse(publication['ok'])
+    def test_guide_checks_pass_without_a_manual_review_file(self):
+        report = self.check_fixture()
+        self.assertEqual(report, {'ok': True, 'errors': []})
+
+    def test_legacy_publication_flag_uses_automated_checks(self):
+        with patch.object(c, 'check', return_value={'ok': True, 'errors': []}), \
+                patch('sys.argv', ['consistency.py', 'check', '--publication', '--json']):
+            self.assertEqual(c.main(), 0)
 
     def test_missing_documented_command_fails_offline_too(self):
-        offline, _ = self.check_fixture(['pi-servo-fit'])
+        offline = self.check_fixture(['pi-servo-fit'])
         self.assertFalse(offline['ok'])
         self.assertIn('pi-servo-fit', offline['errors'][0])
 
     def test_writing_violations_are_errors_outside_publication(self):
-        offline, publication = self.check_fixture(writing=['sentence-length: fixture actions[0]: 25 words'])
+        offline = self.check_fixture(writing=['sentence-length: fixture actions[0]: 25 words'])
         self.assertFalse(offline['ok'])
-        self.assertFalse(publication['ok'])
         self.assertEqual(offline['errors'], ['sentence-length: fixture actions[0]: 25 words'])
-        offline, _ = self.check_fixture(['pi-servo-fit'], writing=['banned-term: fixture note: simply'])
+        offline = self.check_fixture(['pi-servo-fit'], writing=['banned-term: fixture note: simply'])
         self.assertFalse(offline['ok'])
         self.assertEqual(len(offline['errors']), 2)
 
@@ -640,7 +621,6 @@ class ReviewTests(unittest.TestCase):
             stack.enter_context(patch.object(c, 'read', side_effect=lambda root, path: (
                 {'steps': [step]} if path.endswith('guide-data.json') else [] if path.endswith('parts.json') else {})))
             stack.enter_context(patch.object(c, 'missing_commands', return_value=[]))
-            stack.enter_context(patch.object(c, 'review_status', return_value={}))
             result = c.check(self.root)
         self.assertFalse(result['ok'])
         self.assertEqual(len(result['errors']), 1)
@@ -730,7 +710,7 @@ build.publish_staged(output, destination, backup)
                             ('ELECTRICAL', electrical), ('PRICES', prices)]:
             self.stack.enter_context(patch.object(build, name, value))
         self.stack.enter_context(patch.object(build.packages, 'sources', return_value={'manifest': {'plates': []}}))
-        self.stack.enter_context(patch.object(build.consistency, 'check', return_value={'errors': [], 'blockers': []}))
+        self.stack.enter_context(patch.object(build.consistency, 'check', return_value={'ok': True, 'errors': []}))
         self.writer = self.stack.enter_context(patch.object(build.packages, 'write'))
 
     def assert_preview_preserved(self):
