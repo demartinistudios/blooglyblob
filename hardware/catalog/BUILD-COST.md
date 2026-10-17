@@ -36,6 +36,13 @@ prints, paint, tax, shipping, handling, import charges and OpenAI API use.
   count alone cannot establish coverage.
 - Wire, glue and tape quantities are planning allowances, not measured
   consumption.
+- Loose wire is one 10 ft (3.048 m) continuous length of CNC Tech black
+  stranded 18 AWG PVC wire from DigiKey. Select Digi-Spool and enter 10 feet;
+  the quoted $6.64 is the total at $0.664/ft, not the price of one foot.
+  The 2 m material allowance includes spare for extensions and allocates $4.36
+  per robot. It is not a measured cut list. Label both ends of each new wire
+  with function and destination. Supplied cable assemblies are counted with
+  their components; ties, heat-shrink and anchors remain separate purchases.
 - Printing in one color and painting is also an option; add the chosen finish.
 
 ## Updating prices

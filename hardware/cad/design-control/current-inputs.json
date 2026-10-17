@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
-      "sha256": "da67e02cb3f8d45d0a5e5281800cf712691e5393623b8ab3626e7fa3c489fa31",
-      "bytes": 6664
+      "sha256": "722f03630ddc26a24ddec701201544724edbab621b7a69f6751c8c07ef18743a",
+      "bytes": 6682
     },
     {
       "path": "hardware/assembly/hardware.json",
@@ -494,8 +494,8 @@
     },
     {
       "path": "hardware/catalog/supplies.json",
-      "sha256": "e34f640a971bf0b01e9e5d5129104630ed2bdbff95ae9741dc86dce1b4a158d9",
-      "bytes": 14420
+      "sha256": "b18b52a6041cf1e4cd555196b0e3eabc023a76e66505569100e4a97a3bc4e447",
+      "bytes": 14266
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",

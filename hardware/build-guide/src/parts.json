@@ -1986,43 +1986,32 @@
   },
   {
     "id": "C05",
-    "name": "18 AWG stranded copper wire",
-    "exact": "18 AWG stranded copper wire",
-    "qty": "1 red/black wire kit",
+    "name": "CNC Tech 18 AWG black hookup wire",
+    "exact": "CNC Tech 1007-18-1-2000-001-1-TS, black 18 AWG stranded tinned copper, PVC, UL 1007",
+    "qty": "10 ft (3.048 m) continuous length",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the direct servo feed from W1/3 to W2/1. Cut each wire after test-routing it without tension. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 10 ft (3.05 m) of each color, far more than you need. The Pi power lead uses its own specified wire.",
-    "link": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
-    "verification": "Example product. Cut to fit.",
+    "description": "Black 18 AWG stranded tinned-copper hookup wire with a PVC jacket, rated 300 V / 80 \u00b0C (UL 1007). Manufacturer datasheet states RoHS and REACH compliance. Order one 10 ft (3.048 m) continuous length from DigiKey: choose Digi-Spool and enter 10 feet. Use for power-jack leads, WAGO links, capacitor leads and extensions where needed. Label both ends with function and destination using C14; black can carry +5 V, GND or signals. Diagram colors identify circuit functions, not the jacket color of new wire. Keep supplied servo, GPIO, lighting and audio leads at their original gauges. Test-route before cutting; insulate splices and keep them clear of moving bends. The Pi power lead uses its own specified cable and must not be extended.",
+    "link": "https://www.digikey.com/en/products/detail/cnc-tech/1007-18-1-2000-001-1-TS/28220494",
+    "verification": "Check gauge and labels; cut to fit.",
     "image": "assets/cartoons/C05.svg",
     "steps": [
+      "button-leads",
       "power-jack",
       "power-wiring",
       "servo-power-capacitor",
-      "light-fuse-capacitor"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": []
-  },
-  {
-    "id": "C06",
-    "name": "22 AWG stranded copper wire",
-    "exact": "22 AWG stranded copper wire",
-    "qty": "1 multicolor wire assortment",
-    "optional": 0,
-    "category": "Consumable",
-    "description": "For light wiring extensions and servo extensions. Use red, black and a separate color for signals. Leave service slack.",
-    "link": "https://www.adafruit.com/product/3111",
-    "verification": "Example product",
-    "image": "assets/cartoons/C06.svg",
-    "steps": [
       "light-fuse-capacitor",
       "servo-cables",
       "head-harness",
       "body-light-strand"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "label": "Manufacturer datasheet and RoHS statement",
+        "url": "https://www.cnctech.us/pdfs/1007-XX-1-2000-0XX-1-TS_.pdf"
+      }
+    ]
   },
   {
     "id": "C07",

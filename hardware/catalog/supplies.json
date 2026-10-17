@@ -252,18 +252,10 @@
     },
     {
       "id": "C05",
-      "exact": "18 AWG stranded copper wire",
+      "exact": "CNC Tech 1007-18-1-2000-001-1-TS, black 18 AWG stranded tinned copper, PVC, UL 1007",
       "category": "Consumable",
       "optional": 0,
-      "qty": "1 red/black wire kit",
-      "quantity_scope": "consumable-allowance"
-    },
-    {
-      "id": "C06",
-      "exact": "22 AWG stranded copper wire",
-      "category": "Consumable",
-      "optional": 0,
-      "qty": "1 multicolor wire assortment",
+      "qty": "10 ft (3.048 m) continuous length",
       "quantity_scope": "consumable-allowance"
     },
     {

@@ -577,21 +577,11 @@
       "parts": [
         "C05"
       ],
-      "title": "Fermerry 18 AWG silicone wire specifications",
-      "publisher": "Fermerry",
-      "url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
-      "checked": "2026-10-01",
+      "title": "CNC Tech 18 AWG black UL 1007 hookup wire",
+      "publisher": "CNC Tech",
+      "url": "https://www.cnctech.us/pdfs/1007-XX-1-2000-0XX-1-TS_.pdf",
+      "checked": "2026-10-17",
       "reference_id": "ref-074"
-    },
-    {
-      "parts": [
-        "C06"
-      ],
-      "title": "Adafruit 3111 stranded 22 AWG wire specifications",
-      "publisher": "Adafruit",
-      "url": "https://www.adafruit.com/product/3111",
-      "checked": "2026-10-01",
-      "reference_id": "ref-075"
     },
     {
       "parts": [

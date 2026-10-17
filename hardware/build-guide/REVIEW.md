@@ -64,6 +64,25 @@ Mixed-kit purchases are calculated by component capacity. Material values use
 equal-per-piece allocation, with row rounding, as described in
 [Build cost](../catalog/BUILD-COST.md). Prices are dated quotes excluding freight.
 
+## Loose wire and supplied cables
+
+The guide buys one 10 ft continuous length of CNC Tech black stranded 18 AWG
+UL 1007 PVC wire from DigiKey (1007-18-1-2000-001-1-TS),
+for new power leads and optional extensions. It retains supplied servo, GPIO,
+lighting and audio leads at their original gauges. The owner reports that the
+servo and lighting leads reached without extensions; routing still determines
+whether a builder needs extra length. Optional splices remain insulated and
+clear of moving bends. The specified Pi power cable retains its 150 mm maximum
+finished length and must not be extended.
+
+The manufacturer datasheet states RoHS and REACH compliance, 300 V / 80 °C
+ratings and 34/0.18 mm tinned-copper strands. The PVC jacket is suitable for
+these internal hookup leads; supplied moving cable assemblies remain in use.
+New wires need labels at both ends; schematic colors denote circuit functions.
+The 2 m loose-wire allowance is an estimate with spare, not a measured cut list.
+The separate tie, heat-shrink and adhesive-mount purchases remain unchanged.
+No circuit topology, connector specification, CAD geometry or print input changed.
+
 ## Validation boundaries
 
 The [render source binding](../rendering/source-lock.json) identifies illustration

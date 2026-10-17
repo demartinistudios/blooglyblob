@@ -1181,23 +1181,8 @@ def wire_hank(p, cx, cy, color, loops=5, rx=26, ry=15, d=2.4, tail=1):
 
 
 def wire_18awg(p):
-    """18 AWG stranded silicone wire, a red and a black hank."""
-    wire_hank(p, 0, 0, RED_W)
-    wire_hank(p, 6, 36, BLACK_W, tail=-1)
-
-
-def wire_22awg(p):
-    """Adafruit 3111: six 22 AWG stranded hook-up wire spools in their open box."""
-    kraft, kraft_side = '#caa878', '#a3825a'
-    cols = ('#3b6fc1', '#f2f2ee', '#2f9a57', '#ecc93a', RED_W, BLACK_W)
-    p.prism(rrect(0, 0, 60, 78, 1), 0, 4, kraft, kraft_side)
-    for i, col in enumerate(cols):
-        y = 9 + i * 11.2
-        cable(p, [(39, y + 2), (55, y + 1), (68, y + 3), (78, y + 7)], (col,), 1.5, strip=2)
-        p.rod(12, 48, y, 4.8, col, za=5.5, face=None, tip='round', hi=.4)
-        p.rod(8, 12, y, 5.4, '#2d2e33', za=5.5, face=lambda x, c, e, h: p.flat(ellipse(x, c, e * .3, h * .3, 20), 0, '#151619', stroke='none'), tip='round')
-        p.rod(48, 51, y, 5.4, '#2d2e33', za=5.5, face=None, tip='round')
-    p.prism(rrect(0, 72, 60, 6, .6), 0, 12, kraft, kraft_side)
+    """One continuous length of black CNC Tech 18 AWG PVC hookup wire."""
+    wire_hank(p, 0, 0, BLACK_W, d=2.1)
 
 
 def cable_ties(p):
@@ -1646,8 +1631,7 @@ ITEMS = {
     'C02': (eye_foam, 'Eye diffuser foam patches', None, None),
     'C03': (mouth_foam, 'Mouth diffuser foam strip', None, None),
     'C04': (body_foam, 'Body diffuser foam sheet', None, None),
-    'C05': (wire_18awg, '18 AWG red and black wire', None, None),
-    'C06': (wire_22awg, '22 AWG hook-up wire spools', None, None),
+    'C05': (wire_18awg, '18 AWG black wire, 10 ft continuous length', None, None),
     'C07': (cable_ties, '2.5 mm cable ties', None, None),
     'C08': (magnets, 'Disc magnets', None, None),
     'C09': (epoxy, 'Two-part epoxy', None, None),

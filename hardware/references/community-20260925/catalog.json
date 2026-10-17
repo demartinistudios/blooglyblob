@@ -822,28 +822,14 @@
       "part_ids": [
         "C05"
       ],
-      "title": "Fermerry 18 AWG silicone wire specifications",
-      "kind": "product",
-      "official_url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
-      "checked_date": "2026-10-01",
-      "model_match": "example-product",
-      "limitations": "Red and black, 10 ft each; 18 AWG stranded tinned copper, 2.3 mm outside diameter. No separate datasheet linked.",
+      "title": "CNC Tech 18 AWG black UL 1007 hookup wire",
+      "kind": "datasheet",
+      "official_url": "https://www.cnctech.us/pdfs/1007-XX-1-2000-0XX-1-TS_.pdf",
+      "checked_date": "2026-10-17",
+      "model_match": "exact-model",
+      "limitations": "18 AWG stranded tinned copper, black PVC, 300 V / 80 °C; nominal OD 2.10 mm in manufacturer datasheet. Datasheet states RoHS and REACH compliance. DigiKey Digi-Spool order: 10 feet as one continuous length, not a 2,000 ft manufacturer spool.",
       "source_type": "manufacturer",
-      "publisher": "Fermerry"
-    },
-    {
-      "id": "ref-075",
-      "part_ids": [
-        "C06"
-      ],
-      "title": "Adafruit 3111 stranded 22 AWG wire specifications",
-      "kind": "product",
-      "official_url": "https://www.adafruit.com/product/3111",
-      "checked_date": "2026-10-01",
-      "model_match": "example-product",
-      "limitations": "Six colors, 25 ft each; 22 AWG stranded wire. No separate datasheet linked.",
-      "source_type": "manufacturer",
-      "publisher": "Adafruit"
+      "publisher": "CNC Tech"
     },
     {
       "id": "ref-076",
@@ -1316,21 +1302,12 @@
     },
     {
       "part_id": "C05",
-      "name": "18 AWG stranded copper wire",
+      "name": "CNC Tech 18 AWG black hookup wire",
       "reference_ids": [
         "ref-074"
       ],
       "coverage": "links-only",
-      "limitations": "Red and black, 10 ft each; 18 AWG stranded tinned copper, 2.3 mm outside diameter."
-    },
-    {
-      "part_id": "C06",
-      "name": "22 AWG stranded copper wire",
-      "reference_ids": [
-        "ref-075"
-      ],
-      "coverage": "links-only",
-      "limitations": "Six colors, 25 ft each; 22 AWG stranded wire."
+      "limitations": "18 AWG stranded tinned copper, black PVC, 300 V / 80 °C; nominal OD 2.10 mm in manufacturer datasheet. Datasheet states RoHS and REACH compliance. DigiKey Digi-Spool order: 10 feet as one continuous length, not a 2,000 ft manufacturer spool."
     },
     {
       "part_id": "C07",
