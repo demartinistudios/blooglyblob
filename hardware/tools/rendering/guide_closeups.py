@@ -19,7 +19,7 @@ def item(mesh, name, color=None):
 
 def hardware(d, length, seat, axis):
     from guide_fasteners import screw
-    return screw(d, length, seat, axis)
+    return screw(d, length, seat, axis, head='button' if d == 2 else 'socket')
 
 
 def ring(center, axis, outer, inner, height, name='Nut', sections=48):
@@ -150,15 +150,15 @@ def render_closeups(render, output):
     for m in wall:
         m['flat_shading']=False;m['guide_color']=(110,141,203)
     parts+=wall
-    for x in [-9,9]:parts+=hardware(2,10,ep([x,0,23]),ep([0,0,-1]))+[ring(ep([x,0,19]),ep([0,0,1]),2.185,1.155,.25,'Thin washer'),nut(ep([x,0,-6.8]),ep([0,0,1]))]
+    for x in [-9,9]:parts+=hardware(2,10,ep([x,0,23]),ep([0,0,-1]))+[ring(ep([x,0,19]),ep([0,0,1]),2.185,1.155,.25,'M2 kit washer (nominal outline)'),nut(ep([x,0,-6.8]),ep([0,0,1]))]
     v.emit('eye-cassette-fastening',parts,[.9,1,.45],'Fit the cassette from inside',
-           ['2 × M2 × 10 + thin washers','Blue: head wall, cut away'],arrows=[(ep([x,0,22]),ep([x,0,8])) for x in [-9,9]])
+           ['2 × M2 × 10 + M2 washers','Blue: head wall, cut away'],arrows=[(ep([x,0,22]),ep([x,0,8])) for x in [-9,9]])
     parts=v.parts(['GS20','GS11','GS12','P06','E03'])
     for ref in v.parts(['P06']):
         t=np.array(ref['source']['transform']).reshape(4,4)
         def world(p):return np.array(p)@t[:3,:3].T+t[:3,3]*10
         axis=t[:3,:3]@np.array([0,0,-1])
-        for x in [-9,9]:parts+=hardware(2,10,world([x,0,7.75]),axis)+[ring(world([x,0,7.625]),axis,2.185,1.155,.25,'Thin washer')]
+        for x in [-9,9]:parts+=hardware(2,10,world([x,0,7.75]),axis)+[ring(world([x,0,7.625]),axis,2.185,1.155,.25,'M2 kit washer (nominal outline)')]
         for yy in [-4.318,4.318]:parts+=hardware(2,6,world([0,yy,10.57]),axis)
     v.emit('eye-installed-inside',parts,[0,1,-1.3],'Both eyes, seen from inside',
            [])

@@ -25,7 +25,7 @@
         "Gather the tools in the {tools}.",
         "Put the soldering iron\u2019s stand beside you, away from your lap and out of children\u2019s reach.",
         "Wear safety glasses while you solder, cut or clip leads.",
-        "Sort the screws by size.",
+        "Sort the M2 button heads, M3 socket heads and M3\u00d714 button heads by size.",
         "Keep each servo\u2019s horn and center screw together."
       ],
       "check": "Your colors are chosen, your tools are ready and your screws are sorted.",
@@ -458,7 +458,7 @@
       "actions": [
         "Place one speaker (E16) against the inside of a loose side speaker grille (FB19). Face its cone toward the grille opening.",
         "Line up the four speaker tabs with the four inner holes of the grille.",
-        "From the outside, insert four M3\u00d712 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
+        "From the outside, insert four M3\u00d712 screws through the grille and speaker tabs. On the speaker side, add one M3 nut to each screw.",
         "Hold each nut while you tighten its screw until snug. Keep the speaker tabs flat.",
         "The speaker sits flat against the grille. Its tabs are not bent.",
         "Repeat for the second speaker."
@@ -471,8 +471,7 @@
       },
       "hardware": {
         "M3x12": 8,
-        "N3": 8,
-        "W3": 8
+        "N3": 8
       },
       "note": "You mount these grilles on the base in {step:side-grilles}.",
       "source": [
@@ -488,8 +487,7 @@
           "role": "install",
           "hardware": {
             "M3x12": 8,
-            "N3": 8,
-            "W3": 8
+            "N3": 8
           }
         }
       ],
@@ -1950,7 +1948,7 @@
         "With the meter in continuity mode, touch the probes to the lower pair. It beeps only while you press the button.",
         "Take four 30 cm GPIO jumper leads (E24). Keep the 2.54 mm female socket on one end of each. Label each socket with its Pi pin: 11, 14, 20 or 4.",
         "Cut off the connector at the other end of each lead. Strip the cut end.",
-        "If you cannot get 30 cm leads, splice 22 AWG wire (C06) or 24 AWG wire onto each cut end. Cover each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
+        "If you cannot get 30 cm leads, splice in 18 AWG wire (C05) as needed. Cover each joint with heat-shrink. Make each finished lead about 205\u2013225 mm long.",
         "Lay the button on one flat side of its square bezel, with the switch pair on top.",
         "Slide heat-shrink onto the leads labeled 11 and 14. Solder each one to a switch tab. Either lead may go on either tab.",
         "Slide each sleeve over its tab and joint. Shrink it.",
@@ -1973,10 +1971,11 @@
         "T03": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "C05": "As needed"
       },
       "hardware": {},
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
@@ -2139,7 +2138,7 @@
       "actions": [
         "On the bench, away from printed parts, find the center-pin and sleeve lugs of the power jack (J1). Use the meter in continuity mode.",
         "The center pin is +5 V. The sleeve is the return. The third, switched lug stays unused.",
-        "Solder an 18 AWG lead to each of those two lugs. Label each lead with its function. The return lead may need 150\u2013160 mm.",
+        "Solder an 18 AWG lead to each of those two lugs. Label both ends +5 V or GND. The return lead may need 150\u2013160 mm.",
         "Cover each joint and the unused switched lug with its own heat-shrink.",
         "With the meter in continuity mode, check each lead again. Check that there is no short between center and sleeve.",
         "Let the joints cool before mounting. Leave the leads long for final routing.",
@@ -2170,7 +2169,7 @@
         "M3x12": 2,
         "N3": 2
       },
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json",
@@ -2264,7 +2263,7 @@
         "The finished 24 AWG lead, plug included, must be 150 mm or shorter. Do not add an extension or a service loop. Check that both wires reach before you cut them.",
         "Cut both wires where they reach. Insert the +5 V wire into W1/2. Insert the GND wire into W3/2.",
         "Cut one 18 AWG wire (C05) long enough to reach from W3/3 to the servo ground WAGO (W4/1). Strip 11 mm at each end.",
-        "Insert one end into W3/3. Insert the other end into W4/1.",
+        "Label both ends GND, W3/3 to W4/1. Insert one end into W3/3. Insert the other end into W4/1.",
         "Leave W1/5 and W4/5 empty."
       ],
       "check": "The power jack center reaches W1. Its sleeve reaches W3 and W4. The Pi power lead\u2019s polarity is correct, and it is 150 mm or shorter, plug included.",
@@ -2281,7 +2280,7 @@
         "T06": 1
       },
       "hardware": {},
-      "note": "You soldered the power jack leads in {step:power-jack}.",
+      "note": "You soldered the power jack leads in {step:power-jack}. The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -2359,8 +2358,8 @@
       "title": "Wire the servo power and capacitor",
       "chapter": "Base wiring",
       "actions": [
-        "Test-route a red 18 AWG wire from the input WAGO (W1/3) to the servo power WAGO (W2/1). Mark where it reaches without tension.",
-        "Cut the wire at the mark. Strip 11 mm from each end.",
+        "Test-route an 18 AWG wire from the input WAGO (W1/3) to the servo power WAGO (W2/1). Mark where it reaches without tension.",
+        "Cut the wire at the mark. Label both ends +5 V, W1/3 to W2/1. Strip 11 mm from each end.",
         "Insert one end into W1/3. Insert the other end into W2/1. Close both levers.",
         "Keep W2/2 to W2/4 free for the three servos.",
         "Label one 1000 \u00b5F, 10 V capacitor (E08) C1. The stripe marks its negative leg. On the bench, solder an 18 AWG wire to each leg. Mark the negative wire.",
@@ -2370,7 +2369,7 @@
         "Tie C1\u2019s body to the square with a cable tie (C07). Keep the tie off the rubber-seal end and the vent end.",
         "Tighten the tie only enough to stop sliding. Trim the tail. C1 is held by its tie, not by its wires."
       ],
-      "check": "One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate, and its body is tied down.",
+      "check": "One 18 AWG wire labeled +5 V joins W1/3 to W2/1. C1 polarity is correct. Its two insulated wires are separate, and its body is tied down.",
       "parts": {
         "E08": 1,
         "C05": "As routed",
@@ -2385,7 +2384,7 @@
         "C17": "As used"
       },
       "hardware": {},
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -2449,7 +2448,7 @@
       "actions": [
         "For the light fuse (F2), label the fuse holder (E07) F2. It takes a T1 A time-delay fuse. Keep the fuse out while you wire.",
         "Lay the holder roughly where the layout detail shows. Cut its wire loop in the middle. The end toward the input WAGO (W1) is the F2 input.",
-        "Extend any wire as needed so it routes neatly. Use 18 AWG (C05) for the F2 ends and 22 AWG (C06) for the base-half wires. Cover each joint with heat-shrink slid on before soldering.",
+        "Use the supplied fuse-holder and connector leads. If extra length is needed, splice in 18 AWG wire (C05). Cover each joint with heat-shrink slid on before soldering.",
         "On the pebble strand (E05), find the wire with a copper coil or dots. It is +5 V. The middle wire is DATA. The other is GND.",
         "If the marks are missing or disagree with the factory lead colors, stop. Do not wire this strand.",
         "Look at the plug at each end. The larger, shrouded plug with pins inside is normally the input. {step:body-light-test} confirms it.",
@@ -2474,7 +2473,6 @@
         "R2": 1,
         "E05": 1,
         "C05": "As routed",
-        "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used",
         "T01": 1,
@@ -2487,7 +2485,7 @@
         "C17": "As used"
       },
       "hardware": {},
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/electrical.json"
@@ -3006,18 +3004,18 @@
         "T05": 1
       },
       "hardware": {
-        "M3x14CS": 2,
+        "M3x14": 2,
         "N3": 2
       },
       "actions": [
         "Stand the base on its feet. Both light brackets fit behind the front upright, inside the frame. Fit them now: once the shoulder-servo bracket is in, the upper bracket can\u2019t get past it.",
         "The lower bracket (P11) has long arms that spread wide. The upper bracket (P42) is smaller.",
         "Drop an M3 nut into the slot in the top of the lower bracket\u2019s mounting block. It rests on a ledge behind the screw hole.",
-        "Hold the lower bracket behind the front upright at its lowest hole, nut slot up. From the front, put an M3\u00d714 countersunk screw through the upright into the nut. Turn it until it catches.",
+        "Hold the lower bracket behind the upright at its lowest hole, nut slot up. From the front, insert an M3\u00d714 button-head screw into the nut. Turn it until it catches.",
         "Fit the upper bracket the same way at the highest hole in the front of the upright.",
-        "Check that each bracket sits flat against the upright with its pads level. Tighten both screws until their heads sit flush."
+        "Check that each bracket sits flat against the upright with its pads level. Tighten both screws gently. The button heads remain raised."
       ],
-      "check": "Both brackets sit flat and square behind the front upright, nut slots up. Both screw heads sit flush with its front face.",
+      "check": "Both brackets sit flat and square behind the front upright, nut slots up. The raised button heads hold them firmly.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
@@ -3029,7 +3027,7 @@
           "allocation_id": "joint-body-lights",
           "role": "install",
           "hardware": {
-            "M3x14CS": 2,
+            "M3x14": 2,
             "N3": 2
           }
         }
@@ -3072,14 +3070,14 @@
       "title": "Prepare the three servo cables",
       "parts": {
         "E01": 3,
-        "C06": "As needed",
         "C12": "As fitted",
         "C14": "As used",
         "T01": 1,
         "T02": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "C05": "As needed"
       },
       "hardware": {},
       "actions": [
@@ -3089,11 +3087,11 @@
         "Hold each servo near its place on the frame. A shoulder servo\u2019s cable leaves its top, beside the shaft, so loop it down. Test-route each cable through the harness opening into the base.",
         "LEFT reaches the servo power WAGO (W2/2), the servo ground WAGO (W4/2) and level shifter (S1) C5. RIGHT reaches W2/3, W4/3 and level shifter (S2) D5.",
         "HEAD reaches W2/4, W4/4 and S2 C5. Mark each wire where it reaches with slack. Keep any joint clear of moving parts.",
-        "If a wire is short or thinner than 24 AWG, extend it at the bench. Solder on 22 AWG wire (C06). Cover the joint with heat-shrink (C12). Keep joints out of moving bends.",
+        "Keep the supplied leads. For short leads or wire thinner than 24 AWG, splice on 18 AWG wire (C05) at the bench. Insulate each joint with heat-shrink (C12), clear of moving bends.",
         "Strip 11 mm from each supply and ground wire for its WAGO port. Strip the signal wire so its bare end fits entirely inside its level shifter terminal."
       ],
       "check": "All three servo cables are labeled at both ends and reach their ports with slack. Every extension joint is insulated.",
-      "note": "You connect the servo cables in {step:servo-connections}.",
+      "note": "You connect the servo cables in {step:servo-connections}. The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "source": [],
       "commands": [],
       "panels": [
@@ -3265,17 +3263,17 @@
         "M2x8": 1,
         "N2": 2,
         "M3x20": 1,
-        "M3x10CS": 1,
+        "M3x14": 1,
         "M3x10": 2,
         "N3": 4
       },
       "actions": [
-        "Slide the HEAD servo into the open side of the head-servo bracket (P04), shaft up. The shaft sits at the rear end, away from the bracket\u2019s countersunk front tab. Rest its ears on the bracket.",
+        "Slide the HEAD servo into the open side of the head-servo bracket (P04), shaft up. The shaft sits at the rear end, away from the bracket\u2019s recessed front tab. Rest its ears on the bracket.",
         "Each ear has an M2 nut recess under the bracket. Hold a nut in the front recess with tweezers. Screw an M2\u00d78 down through the front ear until it catches.",
         "Fit the rear ear the same way, with an M2\u00d76. Both screw heads sit on top of the ears.",
         "Tighten until the servo cannot rock or slide. If a nut sits crooked, back the screw out and reseat the nut. Do not force it.",
         "Hold the bracket on the robot-left side of both uprights, near their tops. Fit its front tab into the seat in the front upright.",
-        "From robot-left, put the M3\u00d710 countersunk screw through the front tab and the upright. On the upright\u2019s robot-right face, hold an M3 nut in its recess and turn the screw until it catches.",
+        "From robot-left, put an M3\u00d714 button-head screw through the front tab and upright. Hold an M3 nut in the robot-right recess. Turn the screw until it catches.",
         "From robot-left, push an M3\u00d720 screw through the bracket\u2019s rear end and the rear upright. Hold an M3 nut on its tip at the robot-right face and turn the screw until it catches.",
         "Check that the bracket does not press on the upper light bracket below it. Then tighten both screws. The front screw\u2019s tip must reach the outer face of its nut.",
         "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
@@ -3304,7 +3302,7 @@
             "M2x8": 1,
             "N2": 2,
             "M3x20": 1,
-            "M3x10CS": 1,
+            "M3x14": 1,
             "M3x10": 2,
             "N3": 4
           }
@@ -3332,7 +3330,7 @@
         {
           "title": "Screw the bracket to the uprights",
           "image": "assets/community/head-carrier-fastening.svg",
-          "caption": "The bracket and the tops of both uprights, with the front countersunk screw, the rear screw and their nuts.",
+          "caption": "The bracket and the tops of both uprights, with the front button-head screw, the rear screw and their nuts.",
           "actions": [
             4,
             5,
@@ -3342,7 +3340,7 @@
         {
           "title": "Tighten and route the cable",
           "image": "assets/community/head-carrier-fastening.svg",
-          "caption": "The bracket and the tops of both uprights, with the front countersunk screw, the rear screw and their nuts.",
+          "caption": "The bracket and the tops of both uprights, with the front button-head screw, the rear screw and their nuts.",
           "actions": [
             7,
             8
@@ -3646,8 +3644,8 @@
         "Fit the other board the same way.",
         "Choose either eye as the first eye. Note which head side it goes on. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
         "Plug the 100 mm eye cable (E12) from the first eye\u2019s OUT socket to the second eye\u2019s IN socket. Press each plug housing, not its wires.",
-        "Put an M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through a cassette\u2019s outer holes and the head wall into the housing nuts.",
-        "Tighten until the nuts seat under their roofs. Do not force a screw that bottoms out. Fasten the other cassette the same way.",
+        "Put a kit M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through the cassette\u2019s outer holes and head wall into the housing nuts.",
+        "Start both screws gently. Tighten until the cassette clamps and the nuts seat under their roofs. Stop if a tip bottoms out. Fasten the other cassette the same way.",
         "Fit both eyes now: the mouth blocks straight access to these screws later. The first eye\u2019s IN and the second eye\u2019s OUT stay reachable.",
         "Test-fit the robot-left head strap (GS01), robot-right head strap (GS02) and rear head strap (GS03). Check that they clear the eye housing joints.",
         "Glue only the locating pegs with two-part epoxy (C09). Keep glue off the housing joints, the center seam and the two rear seams. Do not clamp the rear seams shut.",
@@ -3736,7 +3734,6 @@
         "E11": 1,
         "E04": 1,
         "E05": 1,
-        "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used",
         "C07": "As needed",
@@ -3745,7 +3742,8 @@
         "T03": 1,
         "T04": 1,
         "T09": 1,
-        "T06": 1
+        "T06": 1,
+        "C05": "As routed"
       },
       "hardware": {},
       "actions": [
@@ -3755,7 +3753,7 @@
         "Cut the 200 mm JST-SH cable (E11) in the middle. Each half is a lead with a small plug: one is the eye input lead, the other the mouth lead.",
         "On the mouth stick (E04), tin the GND, +5 V and DIN pads. Leave DOUT unused. Strip each mouth lead wire about 2 mm.",
         "Solder black to GND, red to +5 V and white to DIN. No solder may bridge two pads.",
-        "The mouth lead runs from the second eye\u2019s OUT to the mouth. Extend it with 22 AWG wire (C06) as needed, with slack to fit and remove the mouth.",
+        "Run the lead from the second eye\u2019s OUT to the mouth. Extend with 18 AWG (C05) if needed. Insulate splices away from bends. Leave slack to fit and remove the mouth.",
         "Solder the head half\u2019s wires to the eye input lead: +5 V to red, GND to black, DATA to white. Cover each joint with heat-shrink slid on before soldering.",
         "With the meter in continuity mode, touch the head half\u2019s +5 V and GND contacts. The meter must not beep steadily. Check DATA against +5 V and against GND the same way.",
         "If the meter beeps steadily, find and fix the short before you plug in the eyes.",
@@ -3768,7 +3766,7 @@
         "hardware/assembly/electrical.json",
         "hardware/cad/CURRENT-NOTES.md"
       ],
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "kind": "build",
       "number": 43,
       "commands": [],
@@ -3964,7 +3962,6 @@
       "parts": {
         "E05": 1,
         "E10": 1,
-        "C06": "As routed",
         "C12": "As fitted",
         "C14": "As used",
         "T01": 1,
@@ -3973,7 +3970,8 @@
         "T04": 1,
         "T09": 1,
         "T06": 1,
-        "T07": 1
+        "T07": 1,
+        "C05": "As routed"
       },
       "hardware": {},
       "actions": [
@@ -3982,7 +3980,7 @@
         "Label the six pebbles light 0 to light 5, starting at INPUT.",
         "Split the three strand wires apart for about 15 mm after light 5. Push the craft knife tip between two wires. Pull one wire gently along the blade. The wires are thin.",
         "Take the body half of the head light connector (E10), with sockets, from {step:head-harness}. Solder its three wires to the matching strand wires after light 5. Cover each joint with heat-shrink slid on before soldering.",
-        "This is the head light cable. It must reach about 10 cm above the upper support collar (P44), with a turning loop below the head shelf. Extend it with 22 AWG (C06) if short.",
+        "The cable must reach about 10 cm above the upper support collar (P44). Leave a turning loop below the head shelf. If short, extend with 18 AWG (C05). Insulate splices away from bends.",
         "With the meter in continuity mode, touch the body half\u2019s +5 V and GND contacts. The meter must not beep steadily."
       ],
       "check": "Lights 0 to 5 are cut from INPUT. The head light connector\u2019s body half is soldered on after light 5, and +5 V does not reach GND.",
@@ -3990,7 +3988,7 @@
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
       ],
-      "note": "",
+      "note": "The loose wire (C05) is black. Label both ends of each new wire with its function and destination using wire labels (C14). Diagram colors show circuit functions.",
       "kind": "build",
       "number": 46,
       "commands": [],
@@ -4036,13 +4034,13 @@
       },
       "hardware": {
         "N3": 3,
-        "M3x18": 1
+        "M3x20": 1
       },
       "actions": [
         "Stand the base on its feet. Find the three side slots on the robot-right face of the rear upright (P02).",
         "Slide an M3 nut into each slot until it stops. The lower nut holds the lower rear seam cover in {step:body-diffuser}. The middle and upper nuts hold the backpack carrier.",
         "Hold the middle body-light bracket (P12) on the back of the rear upright, over the middle nut. Its arms reach forward on both sides of the upright, pads facing forward.",
-        "Put one of the two M3\u00d718 backpack-carrier screws through P12 into the middle nut. Tighten it gently. It holds P12 until {step:backpack-carrier}.",
+        "Put one of the two M3\u00d720 backpack-carrier screws through P12 into the middle nut. Tighten it gently. It holds P12 until {step:backpack-carrier}.",
         "Tie the lights on in strand order from light 0: lower pair, middle pair, upper pair.",
         "Place each pebble on its pad, LED facing away from the pad. Wrap two 2.5 mm cable ties (C07) around the pad\u2019s narrow necks, one on each side of the resin.",
         "Close each tie gently around the pad and wire, head on the LED side. Keep both ties off the resin and the LED.",
@@ -4066,7 +4064,7 @@
           "role": "preload",
           "hardware": {
             "N3": 2,
-            "M3x18": 1
+            "M3x20": 1
           }
         },
         {
@@ -4152,7 +4150,7 @@
         "Wrap the foam again, over the taped backing. Push each shoulder servo\u2019s round top through its hole.",
         "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright\u2019s hole.",
         "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3\u00d716 screw through P10 and P09 into the nut and tighten it.",
-        "Hold the middle bracket (P12) against the upright and take its M3\u00d718 screw out. Press the foam ends flat against P12.",
+        "Hold the middle bracket (P12) against the upright and take its M3\u00d720 screw out. Press the foam ends flat against P12.",
         "Press a P10 cover over the seam there. Put the screw back through the cover and P12, and tighten it gently.",
         "Fit the last P10 cover over the seam at the upper nut."
       ],
@@ -4306,7 +4304,7 @@
       },
       "actions": [
         "Slide the tongue of the robot-left forearm (AR02) between the fork cheeks of the robot-left upper arm (AR01). Line up the holes.",
-        "From the outer side, push an M3\u00d714 screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
+        "From the outer side, push an M3\u00d714 button-head screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
         "Hold the nut in its pocket with a fingertip. Turn the screw until it catches.",
         "Tighten the screw until the elbow holds a pose but still bends smoothly by hand through 0\u201370\u00b0.",
         "Build the robot-right elbow the same way, from the robot-right upper arm (AR04) and forearm (AR05)."
@@ -4456,12 +4454,12 @@
         "T05": 1
       },
       "hardware": {
-        "M3x18": 1
+        "M3x20": 1
       },
       "actions": [
-        "Back the M3\u00d718 screw out of the middle seam cover.",
+        "Back the M3\u00d720 screw out of the middle seam cover.",
         "Hold the curved backpack carrier (P34) against the middle and upper rear seam covers (P10), hollow side in. Line up its two center holes with theirs.",
-        "With the other hand, drive an M3\u00d718 screw through each center hole into its rear upright nut. Tighten both evenly.",
+        "With the other hand, drive an M3\u00d720 screw through each center hole into its rear upright nut. Tighten both evenly.",
         "If a screw does not catch, line up the holes in the cover and backing behind it."
       ],
       "check": "Each screw holds the carrier, a seam cover and a backing. The middle body-light bracket (P12) backs the middle cover, and a rear seam backing (P09) the top one. The carrier follows the body curve.",
@@ -4478,7 +4476,7 @@
           "allocation_id": "joint-backpack-carrier",
           "role": "install",
           "hardware": {
-            "M3x18": 1
+            "M3x20": 1
           }
         }
       ],
@@ -5571,7 +5569,6 @@
     "M3x6": 7,
     "M3x12": 30,
     "N3": 59,
-    "W3": 8,
     "M3x8": 5,
     "M2x8": 8,
     "N2": 35,
@@ -5579,13 +5576,10 @@
     "M2x10": 8,
     "M3x16": 7,
     "M2x6": 15,
-    "M3x20": 1,
-    "M3x10CS": 1,
+    "M3x20": 3,
+    "M3x14": 5,
     "M3x10": 2,
     "W2": 4,
-    "M3x14CS": 2,
-    "M3x14": 2,
-    "M3x18": 2,
     "CENTER": 3
   }
 }

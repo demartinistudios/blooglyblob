@@ -252,18 +252,10 @@
     },
     {
       "id": "C05",
-      "exact": "18 AWG stranded copper wire",
+      "exact": "CNC Tech 1007-18-1-2000-001-1-TS, black 18 AWG stranded tinned copper, PVC, UL 1007",
       "category": "Consumable",
       "optional": 0,
-      "qty": "1 red/black wire kit",
-      "quantity_scope": "consumable-allowance"
-    },
-    {
-      "id": "C06",
-      "exact": "22 AWG stranded copper wire",
-      "category": "Consumable",
-      "optional": 0,
-      "qty": "1 multicolor wire assortment",
+      "qty": "10 ft (3.048 m) continuous length",
       "quantity_scope": "consumable-allowance"
     },
     {
@@ -404,119 +396,98 @@
     },
     {
       "id": "M3x14",
-      "exact": "M3\u00d714",
+      "exact": "M3\u00d70.5, 14 mm button-head screw (iexcell)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "N3",
-      "exact": "Ordinary M3 hex nut",
+      "exact": "M3 hex nut (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M2x6",
-      "exact": "M2\u00d76",
+      "exact": "M2\u00d70.4, 6 mm button-head screw (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "N2",
-      "exact": "Ordinary M2 hex nut",
+      "exact": "M2 hex nut (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x16",
-      "exact": "M3\u00d716",
+      "exact": "M3\u00d70.5, 16 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x20",
-      "exact": "M3\u00d720",
+      "exact": "M3\u00d70.5, 20 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x10",
-      "exact": "M3\u00d710",
+      "exact": "M3\u00d70.5, 10 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x8",
-      "exact": "M3\u00d78",
+      "exact": "M3\u00d70.5, 8 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M2x10",
-      "exact": "M2\u00d710",
+      "exact": "M2\u00d70.4, 10 mm button-head screw (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "W2",
-      "exact": "BFirst MFWZ002 thin M2 washer",
+      "exact": "M2 washer (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M2x8",
-      "exact": "M2\u00d70.4, 8 mm under-head length",
-      "category": "Fastener",
-      "optional": 0,
-      "quantity_scope": "derived-installed"
-    },
-    {
-      "id": "M3x10CS",
-      "exact": "M3\u00d710 countersunk",
+      "exact": "M2\u00d70.4, 8 mm button-head screw (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x6",
-      "exact": "M3\u00d76",
+      "exact": "M3\u00d70.5, 6 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M2x12",
-      "exact": "M2\u00d712",
+      "exact": "M2\u00d70.4, 12 mm button-head screw (Kadrick M2 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
     },
     {
       "id": "M3x12",
-      "exact": "M3\u00d712",
-      "category": "Fastener",
-      "optional": 0,
-      "quantity_scope": "derived-installed"
-    },
-    {
-      "id": "W3",
-      "exact": "BFirst MFWZ003 M3 washer",
-      "category": "Fastener",
-      "optional": 0,
-      "quantity_scope": "derived-installed"
-    },
-    {
-      "id": "M3x18",
-      "exact": "M3\u00d718",
+      "exact": "M3\u00d70.5, 12 mm socket-head screw (Kadrick M3 kit)",
       "category": "Fastener",
       "optional": 0,
       "quantity_scope": "derived-installed"
@@ -559,13 +530,6 @@
       "optional": 0,
       "qty": 1,
       "quantity_scope": "required-build-supply"
-    },
-    {
-      "id": "M3x14CS",
-      "exact": "M3\u00d70.5, 14 mm overall length, 90\u00b0 countersunk head",
-      "category": "Fastener",
-      "optional": 0,
-      "quantity_scope": "derived-installed"
     },
     {
       "id": "C19",

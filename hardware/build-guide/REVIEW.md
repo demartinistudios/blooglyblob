@@ -33,6 +33,56 @@ Head-horn fastening calls for gentle seating without overtightening to eliminate
 slight left–right rotational play, viewed from above. Check with a light touch;
 do not force the servo shaft to turn.
 
+## Fastener sourcing and head styles
+
+The October 17 guide uses Kadrick M3 socket-head kit B0B51BFSWZ,
+Kadrick M2 button-head kit B0BX96SMW4 and iexcell M3×14 button-head pack
+B08H2HQ3VZ. The [reference catalog](../references/community-20260925/catalog.json)
+links the selected products. The owner built with these kits, confirmed button
+heads at the front post and accepted the installed tip clearance. The exact
+length at every original joint was not recorded; the current allocation uses
+five M3×14 buttons and three M3×20 sockets to match available stock and the
+reviewed interfaces. No CAD geometry or print input changed.
+
+Current-R34 envelope checks support the M3×20 backpack substitution and the
+M3×14 button at the sideways front carrier and elbows. The front-light buttons
+bear at the tapered openings and remain raised. The upper screw's idealized
+tip overlaps the servo reference by 0.05 mm; the owner's assembled-clearance
+confirmation is the physical evidence for retaining that screw. Do not force
+these heads flush. The owner omitted the speaker washers; the guide now seats
+the nuts directly against the speaker tabs and retains gentle-tightening checks.
+
+The owner-measured M3 socket-head sample was Ø5.33 × 3.03 mm; the selected
+iexcell listing gives Ø5.5 × 1.53 mm for its button head. Sample and listing
+dimensions are not manufacturing limits. Exact M2 head and kit-washer dimensions
+remain unmeasured. The guide retains four eye washers and its existing M2×10
+eye-mount screws, with a check for clamping and bottoming; it does not establish
+a newly measured eye stack. Illustrations show nominal hardware, and the screw
+keys gauge under-head length rather than certify head or washer dimensions.
+
+Mixed-kit purchases are calculated by component capacity. Material values use
+equal-per-piece allocation, with row rounding, as described in
+[Build cost](../catalog/BUILD-COST.md). Prices are dated quotes excluding freight.
+
+## Loose wire and supplied cables
+
+The guide buys one 10 ft continuous length of CNC Tech black stranded 18 AWG
+UL 1007 PVC wire from DigiKey (1007-18-1-2000-001-1-TS),
+for new power leads and optional extensions. It retains supplied servo, GPIO,
+lighting and audio leads at their original gauges. The owner reports that the
+servo and lighting leads reached without extensions; routing still determines
+whether a builder needs extra length. Optional splices remain insulated and
+clear of moving bends. The specified Pi power cable retains its 150 mm maximum
+finished length and must not be extended.
+
+The manufacturer datasheet states RoHS and REACH compliance, 300 V / 80 °C
+ratings and 34/0.18 mm tinned-copper strands. The PVC jacket is suitable for
+these internal hookup leads; supplied moving cable assemblies remain in use.
+New wires need labels at both ends; schematic colors denote circuit functions.
+The 2 m loose-wire allowance is an estimate with spare, not a measured cut list.
+The separate tie, heat-shrink and adhesive-mount purchases remain unchanged.
+No circuit topology, connector specification, CAD geometry or print input changed.
+
 ## Validation boundaries
 
 The [render source binding](../rendering/source-lock.json) identifies illustration

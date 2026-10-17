@@ -286,7 +286,7 @@ def action_diagrams(render, output):
         return dict(id=pid,occ=0,root=pid,v=mesh.vertices,f=mesh.faces,source={},flat_shading=True)
     def screw(d,length,seat,axis):
         from guide_fasteners import screw as modeled_screw
-        return modeled_screw(d,length,seat,axis)
+        return modeled_screw(d,length,seat,axis,head='button' if d == 2 else 'socket')
     def shelf_screw(seat):
         rows=screw(3,8,seat,[0,0,-1])
         # Owner-measured M3 head, R29 approval evidence; keep nominal threads.
@@ -466,9 +466,9 @@ def action_diagrams(render, output):
          [(i+1,[x,41.4,z]) for i,(x,z) in enumerate([(-23,40),(23,40),(-23,80),(23,80)])],
          arrows=[([x,41.4,z],[12 if x>0 else -12,41.4,z]) for x in [-23,23] for z in [40,80]])
     parts=translated(chosen(['P02','P09','P10','P12','P34'],{'P02':[0]}),{'P34':[0,18,0]})
-    for z in [46,90]:parts+=screw(3,18,[0,76,z],[0,-1,0])
+    for z in [46,90]:parts+=screw(3,20,[0,76,z],[0,-1,0])
     emit('carrier-frame-fastening',parts,[.9,1,.25],'Fasten the carrier to the frame',
-         ['1, 2 M3 × 18'],
+         ['1, 2 M3 × 20'],
          [('1',[0,76,46]),('2',[0,76,90])],bounds=[[-25,19,26],[25,80,101]],arrows=[([0,61,66],[0,43,66])])
     parts=translated(chosen(['P34','P35','P36','P37','P38','P39','P40']),{pid:[0,18,0] for pid in ['P35','P36','P37','P38','P39','P40']})
     for x in [-12,12]:

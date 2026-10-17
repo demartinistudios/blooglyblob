@@ -15,7 +15,7 @@ def render_legacy_actions(render, output):
         count = np.count_nonzero((abs(points[:, axis] - face) < .001) & (abs(radial - radius) < .001))
         if count < 20:
             raise ValueError(f'{pid}: fastening bore changed at {face}/{center}')
-    # R33: the front screw is countersunk into P04's tab (X 1 to 5, Ø6.8 seat
+    # R33: the front bore is countersunk into P04's tab (X 1 to 5, Ø6.8 seat
     # at X 5) and its nut sits in P43's robot-right recess (X -5 to -2.35).
     # The rear screw still runs X 9 to the nut outside P02.
     check_circle('P04', 0, 1, [-26.5, 97.8], 1.7)
@@ -28,13 +28,14 @@ def render_legacy_actions(render, output):
         check_circle('P44', 2, 116.3, [0, y], 3.1)
     parts = clipped(v.parts(['P04', 'P43', 'P02']), [[-7,-32,93],[11,32,103]])
     for m in parts: m['guide_color'] = (126,135,169) if m['id']=='P04' else (140,159,179)
-    parts += screw(3,10,[5,-26.5,97.8],[-1,0,0],head='countersunk') + [hex_nut(3,[-3.525,-26.5,97.8],[1,0,0])]
+    # Audited button underside: 0.65 mm into the Ø6.8 cone at X5.
+    parts += screw(3,14,[4.35,-26.5,97.8],[-1,0,0],head='button') + [hex_nut(3,[-3.525,-26.5,97.8],[1,0,0])]
     parts += screw(3,20,[9,26.5,97.8],[-1,0,0]) + [hex_nut(3,[-6.2,26.5,97.8],[1,0,0])]
     emit('head-carrier-fastening', parts, [-1,-.85,.95],
-         'Fasten P04 to both uprights from robot-left: countersunk M3 x 10 at the front, M3 x 20 at the rear',
+         'Fasten P04 to both uprights from robot-left: button-head M3 x 14 at the front, M3 x 20 at the rear',
          labels=[('M3 × 20 + nut',[-11,26.5,97.8],(28,40)), ('P04',[-1.27,6.6,99.3],(405,100)),
                  ('P02',[-5,24,101],(40,250)), ('P43',[-5,-29,95],(500,240)),
-                 ('M3 × 10 countersunk + nut',[-4.7,-26.5,97.8],(150,400))])
+                 ('M3 × 14 button + nut',[-4.7,-26.5,97.8],(150,400))])
     # Nuts slide into the upright slots from the outer faces; the collar is
     # lifted 14 mm to show its tabs going down onto the upright tops.
     parts = [dict(m, v=m['v']+[0,0,14]) for m in v.parts(['P44'])]

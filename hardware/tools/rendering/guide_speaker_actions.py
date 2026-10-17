@@ -8,7 +8,7 @@ Source: https://www.adafruit.com/product/1669 (reviewed 2026-09-27).
 import numpy as np
 import trimesh
 from guide_closeups import Views, item, hardware
-from guide_fasteners import washer, hex_nut
+from guide_fasteners import hex_nut
 
 
 def _prism(outline, front, back, name, color):
@@ -86,17 +86,16 @@ def render_speaker_actions(render, output):
                  labels=[('Sound side', [102.4,-8,-31], (345,390)),
                          ('FB19 grille', [141,7,-31], (20,40))])
         # Show the completed joint in the full assembly, not detached layers.
-        # Bearing planes: grille X107, tab X102.2..100.2, washer X100.2..99.67.
+        # Bearing planes: grille X107, tab X102.2..100.2; nut against tab.
         parts=grille+speaker()
         for y in (-40,24):
             for z in (-43,-19):
                 parts+=hardware(3,12,[107,y,z],[-1,0,0])
-                parts.append(washer([99.935,y,z],[1,0,0],3.505,1.6,.53))
-                parts.append(hex_nut(3,[98.47,y,z],[1,0,0]))
+                parts.append(hex_nut(3,[99,y,z],[1,0,0]))
         _compact(v,'speaker-fastening-action',parts,[-1,.06,.08],
-                 'Rear of the speaker seated against FB19: washer and nut on each of the four screws',
-                 labels=[('Washer against speaker', [99.935,24,-15.8], (20,40)),
-                         ('M3 nut', [97.27,-40,-19], (430,385))])
+                 'Rear of the speaker seated against FB19: nut directly against each mounting tab',
+                 labels=[('Nut against speaker tab', [99,24,-15.8], (20,40)),
+                         ('M3 nut', [97.8,-40,-19], (430,385))])
     finally:
         render.meshes=v.original
     return v.paths

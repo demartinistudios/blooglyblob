@@ -64,12 +64,11 @@ def render_context_actions(render, output):
         from guide_speaker_actions import speaker
         parts = shell+grille+speaker(offset=14)
         # The four inner joints were completed on the bench in the prior step.
-        from guide_fasteners import washer, hex_nut
+        from guide_fasteners import hex_nut
         for yy in (-40, 24):
             for zz in (-43, -19):
                 parts += hardware(3, 12, [121, yy, zz], [-1, 0, 0])
-                parts += [washer([113.935, yy, zz], [1, 0, 0], 3.505, 1.6, .53),
-                          hex_nut(3, [112.47, yy, zz], [1, 0, 0])]
+                parts += [hex_nut(3, [113, yy, zz], [1, 0, 0])]
 
         arrows = []
         for yy in [-48, 32]:

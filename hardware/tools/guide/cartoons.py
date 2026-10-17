@@ -431,7 +431,7 @@ def socket_head(p, d, yc, R, hl):
         p.line([(e * .9, c + k * h), (hl - .15, c + k * h)], 0, dim(STEEL, .3), .8)
 
 
-def button_head(p, yc, R, hl):
+def button_head(p, yc, R, hl, socket_af=1.3):
     """ISO 7380 button head: a low dome, hex socket in its crown."""
     t, b = p.band(yc, R, R)
     c, h = (t + b) / 2, (b - t) / 2
@@ -441,7 +441,7 @@ def button_head(p, yc, R, hl):
     p.add(f'<polygon points="{pts(q)}" fill="none" stroke="{INK}" stroke-width="{f(2 * LW)}" stroke-linejoin="round"/>'
           f'<polygon points="{pts(q)}" fill="{STEEL}"/>')
     p.flat([(x + .08, y) for x, y in dome if abs(y - c) < h * .75] + [(hl, c + h * .3), (hl, c - h * .3)], 0, lit(STEEL, .35), stroke='none')
-    af = 1.3 / 2 / math.cos(math.radians(30))
+    af = socket_af / 2 / math.cos(math.radians(30))
     hexa = [(hl * .3 + .22 * af * math.cos(math.radians(a)), c + af * math.sin(math.radians(a))) for a in range(-90, 270, 60)]
     p.flat(hexa, 0, '#3b4148', op=.9)
 
@@ -452,7 +452,7 @@ def screw(d, L, head='socket', label=True):
         if head == 'socket':
             hd, hl = (5.5, 3) if d == 3 else (3.8, 2)
         elif head == 'button':
-            hd, hl = 3.5, 1.3
+            hd, hl = (5.5, 1.53) if d == 3 else (3.5, 1.3)
         else:
             hd, hl = 6, 1.65
         R = hd / 2
@@ -476,18 +476,12 @@ def screw(d, L, head='socket', label=True):
             if head == 'socket':
                 socket_head(p, d, yc, R, hl)
             else:
-                button_head(p, yc, R, hl)
+                button_head(p, yc, R, hl, socket_af=2.0 if d == 3 else 1.3)
             x_under, end = hl, hl + L
         if mark:
             tb = p.band(yc, R, R)[1]
             p.dim_line(x_under, end + .25, tb + 2.2, f'{L} mm')
     return draw
-
-
-def m2x8(p):
-    """M2 x 8: plain socket heads, and the three button heads the head seats need."""
-    screw(2, 8)(p, yc=-3.4, mark=False)
-    screw(2, 8, 'button')(p, yc=3.4)
 
 
 def nut(d):
@@ -1187,23 +1181,8 @@ def wire_hank(p, cx, cy, color, loops=5, rx=26, ry=15, d=2.4, tail=1):
 
 
 def wire_18awg(p):
-    """18 AWG stranded silicone wire, a red and a black hank."""
-    wire_hank(p, 0, 0, RED_W)
-    wire_hank(p, 6, 36, BLACK_W, tail=-1)
-
-
-def wire_22awg(p):
-    """Adafruit 3111: six 22 AWG stranded hook-up wire spools in their open box."""
-    kraft, kraft_side = '#caa878', '#a3825a'
-    cols = ('#3b6fc1', '#f2f2ee', '#2f9a57', '#ecc93a', RED_W, BLACK_W)
-    p.prism(rrect(0, 0, 60, 78, 1), 0, 4, kraft, kraft_side)
-    for i, col in enumerate(cols):
-        y = 9 + i * 11.2
-        cable(p, [(39, y + 2), (55, y + 1), (68, y + 3), (78, y + 7)], (col,), 1.5, strip=2)
-        p.rod(12, 48, y, 4.8, col, za=5.5, face=None, tip='round', hi=.4)
-        p.rod(8, 12, y, 5.4, '#2d2e33', za=5.5, face=lambda x, c, e, h: p.flat(ellipse(x, c, e * .3, h * .3, 20), 0, '#151619', stroke='none'), tip='round')
-        p.rod(48, 51, y, 5.4, '#2d2e33', za=5.5, face=None, tip='round')
-    p.prism(rrect(0, 72, 60, 6, .6), 0, 12, kraft, kraft_side)
+    """One continuous length of black CNC Tech 18 AWG PVC hookup wire."""
+    wire_hank(p, 0, 0, BLACK_W, d=2.1)
 
 
 def cable_ties(p):
@@ -1606,25 +1585,21 @@ def laptop_reader(p):
 ITEMS = {
     'E09': (pi3a, 'Raspberry Pi 3 Model A+', None, None),
     'E16': (speaker_pair, 'Adafruit 1669 enclosed speaker pair', None, None),
-    'M2x6': (screw(2, 6), 'M2 x 6 socket-head screw', FS, FO),
-    'M2x8': (m2x8, 'M2 x 8 socket-head and button-head screws', FS, FO),
-    'M2x10': (screw(2, 10), 'M2 x 10 socket-head screw', FS, FO),
-    'M2x12': (screw(2, 12), 'M2 x 12 socket-head screw', FS, FO),
+    'M2x6': (screw(2, 6, 'button'), 'M2 x 6 button-head screw (nominal head outline)', FS, FO),
+    'M2x8': (screw(2, 8, 'button'), 'M2 x 8 button-head screw (nominal head outline)', FS, FO),
+    'M2x10': (screw(2, 10, 'button'), 'M2 x 10 button-head screw (nominal head outline)', FS, FO),
+    'M2x12': (screw(2, 12, 'button'), 'M2 x 12 button-head screw (nominal head outline)', FS, FO),
     'M3x6': (screw(3, 6), 'M3 x 6 socket-head screw', FS, FO),
     'M3x8': (screw(3, 8), 'M3 x 8 socket-head screw', FS, FO),
     'M3x10': (screw(3, 10), 'M3 x 10 socket-head screw', FS, FO),
     'M3x12': (screw(3, 12), 'M3 x 12 socket-head screw', FS, FO),
-    'M3x14': (screw(3, 14), 'M3 x 14 socket-head screw', FS, FO),
+    'M3x14': (screw(3, 14, 'button'), 'M3 x 14 button-head screw', FS, FO),
     'M3x16': (screw(3, 16), 'M3 x 16 socket-head screw', FS, FO),
-    'M3x18': (screw(3, 18), 'M3 x 18 socket-head screw', FS, FO),
     'M3x20': (screw(3, 20), 'M3 x 20 socket-head screw', FS, FO),
-    'M3x10CS': (screw(3, 10, 'cs'), 'M3 x 10 countersunk screw', FS, FO),
-    'M3x14CS': (screw(3, 14, 'cs'), 'M3 x 14 countersunk screw', FS, FO),
     'CENTER': (center_screw, 'Supplied servo centre screw', FS, FO),
     'N2': (nut(2), 'M2 hex nut', NS, FC),
     'N3': (nut(3), 'M3 hex nut', NS, FC),
-    'W2': (washer(4.37, 2.31, .25), 'M2 metal washer', NS, FC),
-    'W3': (washer(7.01, 3.2, .53), 'M3 washer', NS, FC),
+    'W2': (washer(4.37, 2.31, .25, label=False), 'M2 kit washer (nominal outline, not a dimensional gauge)', NS, FC),
     'T01': (flush_cutters, 'Flush cutters', None, None),
     'C12': (heat_shrink, 'Heat-shrink tubing', None, None),
     'E03': (neopixel_eye, 'Adafruit 5975 NeoPixel eye board, both sides', None, None),
@@ -1656,8 +1631,7 @@ ITEMS = {
     'C02': (eye_foam, 'Eye diffuser foam patches', None, None),
     'C03': (mouth_foam, 'Mouth diffuser foam strip', None, None),
     'C04': (body_foam, 'Body diffuser foam sheet', None, None),
-    'C05': (wire_18awg, '18 AWG red and black wire', None, None),
-    'C06': (wire_22awg, '22 AWG hook-up wire spools', None, None),
+    'C05': (wire_18awg, '18 AWG black wire, 10 ft continuous length', None, None),
     'C07': (cable_ties, '2.5 mm cable ties', None, None),
     'C08': (magnets, 'Disc magnets', None, None),
     'C09': (epoxy, 'Two-part epoxy', None, None),

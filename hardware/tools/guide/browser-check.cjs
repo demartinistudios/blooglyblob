@@ -371,6 +371,15 @@ fs.mkdirSync(OUT,{recursive:false});
      const money=value=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(value));
      assert.deepEqual(await page.locator('.cost-total strong').allInnerTexts(),[data.costs.total,data.costs.single_color_total,data.costs.shopping_total].map(money));
      assert.equal(await page.locator('.shopping-detail tbody tr').count(),data.costs.rows.filter(r=>r.buy_packs>0).length);
+     const fastenerOrders=data.costs.rows.filter(r=>r.category==='Fasteners'&&r.buy_packs>0);
+     assert.equal(fastenerOrders.length,3,'two kits and one button-head pack');
+     for(const row of fastenerOrders){
+      assert.ok((await page.locator('#shopping-list').textContent()).includes(row.purchase_name),'shopping product name: '+row.purchase_name);
+      assert.equal(row.buy_packs,1,'one fastener retail product: '+row.purchase_name);
+      const itemLink=page.locator('.shopping-detail tbody tr td:first-child a').filter({hasText:row.purchase_name});
+      assert.equal(await itemLink.getAttribute('href'),row.url,'kit item links to the retail product');
+      assert.equal(await itemLink.getAttribute('target'),'_blank','retail product opens separately');
+     }
      for(const mode of ['single','palette']){
       await page.locator(`input[name="cost-filament"][value="${mode}"]`).check();
       assert.equal(await page.locator('.shopping-total strong').innerText(),money(mode==='single'?data.costs.single_color_total:data.costs.shopping_total));

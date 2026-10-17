@@ -5,10 +5,10 @@
   "basis": "Compare the materials one robot uses with the shopping total for the listed retail packs and spools.",
   "exclusions": "Not included: tools, optional prints, paint, tax, shipping, handling, import charges and OpenAI API use.",
   "shopping_notes": {
-    "Fasteners": "Screws and nuts are priced individually; washers come in packs. A kit is optional: match every listed size, quantity and head shape.",
+    "Fasteners": "Buy the two specified Kadrick kits and the iexcell M3×14 button-head pack. They supply the listed screws, nuts and eye washers. Servo center screws come with the servos. Check the linked kit variant and size counts before ordering.",
     "Filament": "Prices below are from ELEGOO. If a plain PLA spool is out of stock, its RFID version is the same price. Amazon links are alternatives; their prices may differ."
   },
-  "allowances": "Wire, glue, tape and other cut-material quantities are planning estimates with spare, not measured from a build.",
+  "allowances": "Kit material values are estimates: each screw, nut and washer receives an equal share of its kit price. This is not the cash cost of another robot; a size can run out while other pieces remain. Wire, glue, tape and other cut-material quantities are planning estimates with spare, not measured from a build.",
   "filament_note": "ELEGOO PLA priced by the selected print plates’ estimated grams, including supports and brims. Calibration/purge and failed prints are excluded. Individual part weights are not available; filament is counted once by plate. Printing in one color and painting is also an option; add your chosen finish separately.",
   "items": [
     {
@@ -367,12 +367,15 @@
       "id": "M3x14",
       "quotes": [
         {
-          "pack_price_usd": "0.1",
-          "pack_quantity": "1",
+          "purchase_name": "iexcell M3×14 button-head screws",
+          "pack_price_usd": "8.28",
+          "pack_quantity": "100",
           "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X14SS",
-          "note": "BelMetric BSH3X14SS; socket head 5.5 × 3 mm."
+          "pack_label": "100 M3×14 button-head screws",
+          "url": "https://www.amazon.com/dp/B08H2HQ3VZ",
+          "checked_date": "2026-10-17",
+          "note": "Five used: two elbows, two front light brackets and one front head-servo carrier screw.",
+          "purchase_note": "Select M3×14 button head. The flat-head screw pack is not needed."
         }
       ]
     },
@@ -380,12 +383,7 @@
       "id": "N3",
       "quotes": [
         {
-          "pack_price_usd": "0.04",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR3SS",
-          "note": "BelMetric NR3SS; ordinary hex nut. Priced at the 25–99 quantity tier."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -393,12 +391,7 @@
       "id": "M2x6",
       "quotes": [
         {
-          "pack_price_usd": "0.24",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X6SS",
-          "note": "BelMetric SB2X6SS; button head 3.4 × 1.3 mm."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -406,12 +399,7 @@
       "id": "N2",
       "quotes": [
         {
-          "pack_price_usd": "0.06",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR2SS",
-          "note": "BelMetric NR2SS; ordinary hex nut."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -419,12 +407,7 @@
       "id": "M3x16",
       "quotes": [
         {
-          "pack_price_usd": "0.1",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X16SS",
-          "note": "BelMetric BSH3X16SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -432,12 +415,7 @@
       "id": "M3x20",
       "quotes": [
         {
-          "pack_price_usd": "0.11",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X20SS",
-          "note": "BelMetric BSH3X20SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -445,12 +423,7 @@
       "id": "M3x10",
       "quotes": [
         {
-          "pack_price_usd": "0.09",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X10SS",
-          "note": "BelMetric BSH3X10SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -458,12 +431,7 @@
       "id": "M3x8",
       "quotes": [
         {
-          "pack_price_usd": "0.09",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X8SS",
-          "note": "BelMetric BSH3X8SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -471,12 +439,7 @@
       "id": "M2x10",
       "quotes": [
         {
-          "pack_price_usd": "0.36",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X10SS",
-          "note": "BelMetric SB2X10SS; button head 3.4 × 1.3 mm."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -484,38 +447,7 @@
       "id": "M2x8",
       "quotes": [
         {
-          "pack_price_usd": "0.27",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
-          "note": "BelMetric SB2X8SS; button head 3.4 × 1.3 mm."
-        }
-      ]
-    },
-    {
-      "id": "M3x10CS",
-      "quotes": [
-        {
-          "pack_price_usd": "0.09",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
-          "note": "BelMetric SF3X10SS, A2 stainless; 90° head, 6 mm diameter; length includes head."
-        }
-      ]
-    },
-    {
-      "id": "M3x14CS",
-      "quotes": [
-        {
-          "pack_price_usd": "0.11",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X14SS",
-          "note": "BelMetric SF3X14SS, A2 stainless; 90° head, 6 mm diameter; length includes head."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -523,12 +455,7 @@
       "id": "M3x6",
       "quotes": [
         {
-          "pack_price_usd": "0.07",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X6SS",
-          "note": "BelMetric BSH3X6SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -536,12 +463,7 @@
       "id": "M2x12",
       "quotes": [
         {
-          "pack_price_usd": "0.42",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X12SS",
-          "note": "BelMetric SB2X12SS; button head 3.4 × 1.3 mm."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -549,25 +471,7 @@
       "id": "M3x12",
       "quotes": [
         {
-          "pack_price_usd": "0.07",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X12SS",
-          "note": "BelMetric BSH3X12SS; socket head 5.5 × 3 mm. Priced at the 25–99 quantity tier."
-        }
-      ]
-    },
-    {
-      "id": "M3x18",
-      "quotes": [
-        {
-          "pack_price_usd": "0.13",
-          "pack_quantity": "1",
-          "unit": "each",
-          "pack_label": "1 each",
-          "url": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X18SS",
-          "note": "BelMetric BSH3X18SS; socket head 5.5 × 3 mm."
+          "kit": "kadrick-m3"
         }
       ]
     },
@@ -575,25 +479,7 @@
       "id": "W2",
       "quotes": [
         {
-          "pack_price_usd": "3.73",
-          "pack_quantity": "100",
-          "unit": "washers",
-          "pack_label": "100 washers",
-          "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
-          "note": "BFirst MFWZ002; minimum purchase 100."
-        }
-      ]
-    },
-    {
-      "id": "W3",
-      "quotes": [
-        {
-          "pack_price_usd": "1.94",
-          "pack_quantity": "100",
-          "unit": "washers",
-          "pack_label": "100 washers",
-          "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
-          "note": "BFirst MFWZ003; minimum purchase 100."
+          "kit": "kadrick-m2"
         }
       ]
     },
@@ -663,27 +549,15 @@
       "id": "C05",
       "quotes": [
         {
-          "pack_price_usd": "9.99",
-          "pack_quantity": "6.096",
+          "pack_price_usd": "6.64",
+          "pack_quantity": "3.048",
           "unit": "m",
-          "pack_label": "Red + black, 10 ft each",
-          "url": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
-          "used_quantity": "1",
-          "note": "Allowance: 1 m total across both colors, including the power-jack leads, ground link and direct servo feed. Route before cutting."
-        }
-      ]
-    },
-    {
-      "id": "C06",
-      "quotes": [
-        {
-          "pack_price_usd": "19.95",
-          "pack_quantity": "45.72",
-          "unit": "m",
-          "pack_label": "Six colors × 25 ft",
-          "url": "https://www.adafruit.com/product/3111",
-          "used_quantity": "5",
-          "note": "Allowance: 5 m total across colors for extensions, head power and short light leads, including routing slack. Not 5 m per wire."
+          "pack_label": "10 ft continuous length",
+          "url": "https://www.digikey.com/en/products/detail/cnc-tech/1007-18-1-2000-001-1-TS/28220494",
+          "used_quantity": "2",
+          "checked_date": "2026-10-17",
+          "note": "Planning allowance: 2 m total for power leads, links and optional extensions, including spare. Not a measured cut list. Allocated at $6.64 / 3.048 m. DigiKey USD quote: 10 ft at $0.664 per foot, checked October 17, 2026.",
+          "purchase_note": "Choose Digi-Spool (continuous length) and enter 10 in the Feet field: $6.64 for the full length. Do not order the 2,000 ft manufacturer spool. Black, stranded 18 AWG; label both ends of every new lead. Keep supplied cable assemblies."
         }
       ]
     },
@@ -936,5 +810,48 @@
       ]
     }
   ],
-  "single_color": "Black"
+  "single_color": "Black",
+  "kits": {
+    "kadrick-m3": {
+      "purchase_name": "Kadrick M3 socket-head screw and nut kit",
+      "pack_price_usd": "7.99",
+      "pack_quantity": "400",
+      "unit": "each",
+      "pack_label": "400-piece M3 kit",
+      "url": "https://www.amazon.com/dp/B0B51BFSWZ",
+      "checked_date": "2026-10-17",
+      "components": {
+        "M3x6": 40,
+        "M3x8": 40,
+        "M3x10": 30,
+        "M3x12": 30,
+        "M3x16": 30,
+        "M3x20": 30,
+        "N3": 200
+      },
+      "note": "Estimated material value: kit price divided equally among 400 pieces. Sizes are not interchangeable.",
+      "purchase_note": "One kit supplies all listed M3 socket-head screws and M3 nuts. All 30 M3×12 screws are used; this size has no spares."
+    },
+    "kadrick-m2": {
+      "purchase_name": "Kadrick M2 button-head screw, nut and washer kit",
+      "pack_price_usd": "8.99",
+      "pack_quantity": "660",
+      "unit": "each",
+      "pack_label": "660-piece M2 kit",
+      "url": "https://www.amazon.com/dp/B0BX96SMW4",
+      "checked_date": "2026-10-17",
+      "components": {
+        "M2x4": 40,
+        "M2x6": 40,
+        "M2x8": 40,
+        "M2x10": 40,
+        "M2x12": 30,
+        "M2x16": 30,
+        "N2": 220,
+        "W2": 220
+      },
+      "note": "Estimated material value: kit price divided equally among 660 pieces. Sizes are not interchangeable.",
+      "purchase_note": "One kit supplies all listed M2 screws, M2 nuts and four eye washers. No separate washer pack is needed."
+    }
+  }
 }

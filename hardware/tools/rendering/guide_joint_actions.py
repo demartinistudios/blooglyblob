@@ -39,29 +39,30 @@ def render_joint_actions(render, output):
                  ('FB01 top wall',[30,40,-2],(330,395))],label_size=32)
     # R33 light brackets sit behind the front upright: P11 on the Z22 bore,
     # P42 on the Z90 bore. Each bore is countersunk into P43's front face
-    # (Y-31), so a 14 mm overall countersunk screw ends at Y-17. The nut drops
+    # (Y-31). The button head bears on the cone edge; its 14 mm length
+    # starts under the head. The nut drops
     # into the bracket's top slot (Y-20 to -17.6) and rests on its ledge.
     from guide_fasteners import screw
     for name,bracket,z,post_z,pad in [('lower','P11',22,[0,34],[23.15,3,20]),
                                      ('upper','P42',90,[78,114.3],[14.3,-2.3,90])]:
         parts=clipped(v.parts(['P43']),[[-6,-32,post_z[0]],[6,-21,post_z[1]]])
         parts+=[dict(m,v=m['v']+[0,10,0]) for m in v.parts([bracket])]
-        parts+=screw(3,14,[0,-44,z],[0,1,0],head='countersunk')
+        parts+=screw(3,14,[0,-44,z],[0,1,0],head='button')
         parts+=[m3_nut([0,-8.8,z+13])]
         emit(f'front-light-bracket-{name}',parts,[1,-.55,.8],
-             f'Fasten {bracket} behind the front upright: nut into the top slot, countersunk screw from the front',
+             f'Fasten {bracket} behind the front upright: nut into the top slot, button-head screw from the front',
              arrows=[([0,-8.8,z+9],[0,-8.8,z+3]),([0,-40,z-6],[0,-33,z-6]),([0,-3,z-12],[0,-13,z-12])],
-             labels=[('M3 × 14 countersunk',[0,-40,z],(28,40)),('M3 nut',[0,-8.8,z+15],(420,40)),
+             labels=[('M3 × 14 button',[0,-40,z],(28,40)),('M3 nut',[0,-8.8,z+15],(420,40)),
                      (bracket,pad,(450,330)),('P43',[5,-26.5,z-10],(40,330))],label_size=32)
     # P12 bears on P02's rear face (Y31) and its own rear face is Y38.4. One
-    # backpack-carrier M3x18 holds it on the Z46 nut until the carrier is fitted.
+    # backpack-carrier M3x20 holds it on the Z46 nut until the carrier is fitted.
     parts=clipped(v.parts(['P02']),[[-6,21,26],[6,32,66]])
     parts+=[dict(m,v=m['v']+[0,16,0]) for m in v.parts(['P12'])]
-    parts+=hardware(3,18,[0,70,46],[0,-1,0])
+    parts+=hardware(3,20,[0,70,46],[0,-1,0])
     emit('middle-light-bracket',parts,[.55,1.2,.9],
          'Hold P12 on the back of the rear upright and screw it into the middle nut',
          arrows=[([0,84,46],[0,75,46]),([-12,52,46],[-12,40,46])],
-         labels=[('M3 × 18',[0,73,46],(420,40)),('P12',[25,45,52],(40,60)),
+         labels=[('M3 × 20',[0,73,46],(420,40)),('P12',[25,45,52],(40,60)),
                  ('P02',[5,26.5,30],(40,380))],label_size=32)
     # Each nut well (X±4, |Y| 12 to 18) runs through P03 from Z58 to Z74, open
     # at both ends: the upper nut goes in from above, between the servos, and

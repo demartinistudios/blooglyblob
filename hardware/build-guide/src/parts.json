@@ -573,7 +573,7 @@
     "qty": 3,
     "optional": 0,
     "category": "Printed",
-    "description": "Print three in white PLA. The drawings show them gray. Let them cool. Support each thin cover while you remove its brim. Check the screw hole and the curved fit. The lower cover uses an M3\u00d716 screw. The middle and upper covers share the backpack carrier\u2019s two M3\u00d718 screws.",
+    "description": "Print three in white PLA. The drawings show them gray. Let them cool. Support each thin cover while you remove its brim. Check the screw hole and the curved fit. The lower cover uses an M3\u00d716 screw. The middle and upper covers share the backpack carrier\u2019s two M3\u00d720 screws.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/part-P10.png",
     "link": "",
@@ -757,7 +757,7 @@
     "qty": 2,
     "optional": 0,
     "category": "Printed",
-    "description": "Side grille with a sound sleeve for one speaker. Each screw passes through the grille boss and speaker tab. An M3 washer and nut go on its tip. Leave about 30 mm of cable slack, so the grille can come off before unplugging.",
+    "description": "Side grille with a sound sleeve for one speaker. Each screw passes through the grille boss and speaker tab. An M3 nut goes on its tip. Leave about 30 mm of cable slack, so the grille can come off before unplugging.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/r16/part-FB19.png",
     "link": "",
@@ -1111,7 +1111,7 @@
     "qty": 1,
     "optional": 0,
     "category": "Printed",
-    "description": "Head shell. Three M2\u00d78 button-head screws and M2 nuts fasten it to the head shelf (P08). It uses no washers or plugs. The screw recesses are \u00d84.0 \u00d7 1.55 mm, for \u00d83.5 \u00d7 1.3 mm heads. Check your screws. Clear the support before fitting the eyes, antenna and straps.",
+    "description": "Head shell. Three M2\u00d78 button-head screws from the Kadrick M2 kit and M2 nuts fasten it to the head shelf (P08). It uses no washers or plugs. The screw recesses are \u00d84.0 \u00d7 1.55 mm. Clear the support before fitting the eyes, antenna and straps.",
     "status": "Print it from this release\u2019s files. Clean it before assembly.",
     "image": "assets/r18/part-GS20.png",
     "link": "",
@@ -1665,7 +1665,7 @@
     "qty": 2,
     "optional": 0,
     "category": "Purchased",
-    "description": "Buy one pair: two 3 W, 4 \u03a9 speakers with their four-pin cable and a 64 \u00d7 24 mm mounting pattern. M3\u00d712 screws pass through the grille and speaker tab, with one washer under each nut. Check that the screw tips clear the speaker body.",
+    "description": "Buy one pair: two 3 W, 4 \u03a9 speakers with their four-pin cable and a 64 \u00d7 24 mm mounting pattern. M3\u00d712 screws pass through the grille and speaker tab into M3 nuts. Check that the screw tips clear the speaker body.",
     "link": "https://www.adafruit.com/product/1669",
     "verification": "Exact product specified",
     "image": "assets/cartoons/E16.svg",
@@ -1986,43 +1986,32 @@
   },
   {
     "id": "C05",
-    "name": "18 AWG stranded copper wire",
-    "exact": "18 AWG stranded copper wire",
-    "qty": "1 red/black wire kit",
+    "name": "CNC Tech 18 AWG black hookup wire",
+    "exact": "CNC Tech 1007-18-1-2000-001-1-TS, black 18 AWG stranded tinned copper, PVC, UL 1007",
+    "qty": "10 ft (3.048 m) continuous length",
     "optional": 0,
     "category": "Consumable",
-    "description": "For the power jack (J1) leads, the W3\u2013W4 ground link and the direct servo feed from W1/3 to W2/1. Cut each wire after test-routing it without tension. The J1 sleeve lead may need 150\u2013160 mm. The linked kit has 10 ft (3.05 m) of each color, far more than you need. The Pi power lead uses its own specified wire.",
-    "link": "https://www.fermerry.com/products/fermerry-18awg-silicone-wire-electric-wire-connectors-hook-up-wire-kit-18-gauge-black-and-red-10ft-each-flexible-electric-stranded-tinned-copper-wire",
-    "verification": "Example product. Cut to fit.",
+    "description": "Black 18 AWG stranded tinned-copper hookup wire with a PVC jacket, rated 300 V / 80 \u00b0C (UL 1007). Manufacturer datasheet states RoHS and REACH compliance. Order one 10 ft (3.048 m) continuous length from DigiKey: choose Digi-Spool and enter 10 feet. Use for power-jack leads, WAGO links, capacitor leads and extensions where needed. Label both ends with function and destination using C14; black can carry +5 V, GND or signals. Diagram colors identify circuit functions, not the jacket color of new wire. Keep supplied servo, GPIO, lighting and audio leads at their original gauges. Test-route before cutting; insulate splices and keep them clear of moving bends. The Pi power lead uses its own specified cable and must not be extended.",
+    "link": "https://www.digikey.com/en/products/detail/cnc-tech/1007-18-1-2000-001-1-TS/28220494",
+    "verification": "Check gauge and labels; cut to fit.",
     "image": "assets/cartoons/C05.svg",
     "steps": [
+      "button-leads",
       "power-jack",
       "power-wiring",
       "servo-power-capacitor",
-      "light-fuse-capacitor"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": []
-  },
-  {
-    "id": "C06",
-    "name": "22 AWG stranded copper wire",
-    "exact": "22 AWG stranded copper wire",
-    "qty": "1 multicolor wire assortment",
-    "optional": 0,
-    "category": "Consumable",
-    "description": "For light wiring extensions and servo extensions. Use red, black and a separate color for signals. Leave service slack.",
-    "link": "https://www.adafruit.com/product/3111",
-    "verification": "Example product",
-    "image": "assets/cartoons/C06.svg",
-    "steps": [
       "light-fuse-capacitor",
       "servo-cables",
       "head-harness",
       "body-light-strand"
     ],
     "status": "Check it when it arrives",
-    "additional_links": []
+    "additional_links": [
+      {
+        "label": "Manufacturer datasheet and RoHS statement",
+        "url": "https://www.cnctech.us/pdfs/1007-XX-1-2000-0XX-1-TS_.pdf"
+      }
+    ]
   },
   {
     "id": "C07",
@@ -2480,36 +2469,33 @@
   },
   {
     "id": "M3x14",
-    "name": "M3\u00d714",
-    "exact": "M3\u00d714",
-    "qty": 2,
+    "name": "M3\u00d714 button head",
+    "exact": "M3\u00d70.5, 14 mm button-head screw (iexcell)",
+    "qty": 5,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 socket-head cap screw, 14 mm long (DIN 912 / ISO 4762). Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X14SS",
-    "verification": "Any DIN 912 / ISO 4762 socket-head screw of this size",
+    "description": "Five stainless button-head screws: two elbows, two front light brackets and one front head-servo bracket connection. Length is measured under the \u00d85.50 \u00d7 1.53 mm head. Use a 2 mm hex key.",
+    "link": "https://www.amazon.com/dp/B08H2HQ3VZ",
+    "verification": "iexcell M3\u00d714 button-head pack, ASIN B08H2HQ3VZ",
     "image": "assets/cartoons/M3x14.svg",
     "steps": [
+      "front-light-brackets",
+      "head-servo",
       "elbows"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf",
-        "label": "BelMetric BSH3X14SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "N3",
     "name": "M3 hex nut",
-    "exact": "Ordinary M3 hex nut",
+    "exact": "M3 hex nut (Kadrick M3 kit)",
     "qty": 59,
     "optional": 0,
     "category": "Fastener",
-    "description": "Standard M3 hex nuts, nominal 5.5 mm across flats \u00d7 2.4 mm thick. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
-    "link": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR3SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "M3 hex nuts from the Kadrick M3 kit. Do not use nylon-insert locknuts. The four cover nuts and three audio cradle nuts are glued into open cups. Keep their threads clear.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Supplied by the linked Kadrick kit; check the printed fit",
     "image": "assets/cartoons/N3.svg",
     "steps": [
       "board-cover-nuts",
@@ -2529,23 +2515,18 @@
       "backpack"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
-        "label": "BelMetric NR3SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M2x6",
     "name": "M2\u00d76",
-    "exact": "M2\u00d76",
+    "exact": "M2\u00d70.4, 6 mm button-head screw (Kadrick M2 kit)",
     "qty": 15,
     "optional": 0,
     "category": "Fastener",
-    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X6SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Stainless M2 button-head screw, 6 mm measured under the head. Supplied by the Kadrick M2 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Kadrick M2 button-head kit, ASIN B0BX96SMW4",
     "image": "assets/cartoons/M2x6.svg",
     "steps": [
       "shoulder-servos",
@@ -2555,23 +2536,18 @@
       "upper-arms"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf",
-        "label": "BelMetric SB2X6SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "N2",
     "name": "M2 hex nut",
-    "exact": "Ordinary M2 hex nut",
+    "exact": "M2 hex nut (Kadrick M2 kit)",
     "qty": 35,
     "optional": 0,
     "category": "Fastener",
-    "description": "35 standard M2 hex nuts, nominal 4 mm across flats \u00d7 1.6 mm thick. Do not use nylon-insert locknuts. Check the printed fit. The eight board nuts are glued into open pockets before the boards go in.",
-    "link": "https://belmetric.com/hex-nut-a2-stainless-din-934/?sku=NR2SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "M2 hex nuts from the Kadrick M2 kit. Do not use nylon-insert locknuts. The eight board nuts are glued into open pockets before the boards go in.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Supplied by the linked Kadrick kit; check the printed fit",
     "image": "assets/cartoons/N2.svg",
     "steps": [
       "board-cover-nuts",
@@ -2586,23 +2562,18 @@
       "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
-        "label": "BelMetric NR2SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x16",
     "name": "M3\u00d716",
-    "exact": "M3\u00d716",
+    "exact": "M3\u00d70.5, 16 mm socket-head screw (Kadrick M3 kit)",
     "qty": 7,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X16SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 16 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x16.svg",
     "steps": [
       "frame-uprights",
@@ -2610,113 +2581,90 @@
       "body-diffuser"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf",
-        "label": "BelMetric BSH3X16SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x20",
     "name": "M3\u00d720",
-    "exact": "M3\u00d720",
-    "qty": 1,
+    "exact": "M3\u00d70.5, 20 mm socket-head screw (Kadrick M3 kit)",
+    "qty": 3,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X20SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 20 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x20.svg",
     "steps": [
-      "head-servo"
+      "head-servo",
+      "body-lights",
+      "backpack-carrier"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf",
-        "label": "BelMetric BSH3X20SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x10",
     "name": "M3\u00d710",
-    "exact": "M3\u00d710",
+    "exact": "M3\u00d70.5, 10 mm socket-head screw (Kadrick M3 kit)",
     "qty": 2,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X10SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 10 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x10.svg",
     "steps": [
       "head-servo"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf",
-        "label": "BelMetric BSH3X10SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x8",
     "name": "M3\u00d78",
-    "exact": "M3\u00d78",
+    "exact": "M3\u00d70.5, 8 mm socket-head screw (Kadrick M3 kit)",
     "qty": 5,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X8SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 8 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x8.svg",
     "steps": [
       "button",
       "head-shelf"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf",
-        "label": "BelMetric BSH3X8SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M2x10",
     "name": "M2\u00d710",
-    "exact": "M2\u00d710",
+    "exact": "M2\u00d70.4, 10 mm button-head screw (Kadrick M2 kit)",
     "qty": 8,
     "optional": 0,
     "category": "Fastener",
-    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X10SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Stainless M2 button-head screw, 10 mm measured under the head. Supplied by the Kadrick M2 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Kadrick M2 button-head kit, ASIN B0BX96SMW4",
     "image": "assets/cartoons/M2x10.svg",
     "steps": [
       "pi-shifters",
       "eye-boards"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf",
-        "label": "BelMetric SB2X10SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "W2",
-    "name": "M2 washer, thin metal (BFirst MFWZ002)",
-    "exact": "BFirst MFWZ002 thin M2 washer",
+    "name": "M2 washer",
+    "exact": "M2 washer (Kadrick M2 kit)",
     "qty": 4,
     "optional": 0,
     "category": "Fastener",
-    "description": "Metal washers, 2.31 mm ID \u00d7 4.37 mm OD \u00d7 0.25 mm. Four, at the eyes only.",
-    "link": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
-    "verification": "Exact washer specified",
+    "description": "Four M2 washers from the Kadrick M2 kit, for the eye cassette mounting screws. Start the screws gently. Check that the cassettes clamp before the screw tips bottom out.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Supplied by the linked Kadrick kit; check the printed fit",
     "image": "assets/cartoons/W2.svg",
     "steps": [
       "eye-boards"
@@ -2727,13 +2675,13 @@
   {
     "id": "M2x8",
     "name": "M2\u00d78",
-    "exact": "M2\u00d70.4, 8 mm under-head length",
+    "exact": "M2\u00d70.4, 8 mm button-head screw (Kadrick M2 kit)",
     "qty": 8,
     "optional": 0,
     "category": "Fastener",
-    "description": "Eight: two for the mouth, two for the audio lid, one for the head servo's front ear and three button heads for the head. The head recesses need \u00d83.5 \u00d7 1.3 mm button heads, with no washers or plugs. Measure your screws.",
-    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X8SS",
-    "verification": "BelMetric SB2X8SS is an example button head. Measure the head.",
+    "description": "Stainless M2 button-head screw, 8 mm measured under the head. Supplied by the Kadrick M2 kit. Sort by length using the screw key. Used at the mouth, audio lid, head servo and head shell.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Kadrick M2 button-head kit, ASIN B0BX96SMW4",
     "image": "assets/cartoons/M2x8.svg",
     "steps": [
       "audio-module",
@@ -2742,112 +2690,53 @@
       "head-shoulder-covers"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf",
-        "label": "BelMetric SB2X8SS dimensional drawing"
-      }
-    ]
-  },
-  {
-    "id": "M3x10CS",
-    "name": "M3\u00d710 countersunk",
-    "exact": "M3\u00d710 countersunk",
-    "qty": 1,
-    "optional": 0,
-    "category": "Fastener",
-    "description": "One, for the head-servo bracket's front screw. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
-    "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X10SS",
-    "verification": "BelMetric SF3X10SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
-    "image": "assets/cartoons/M3x10CS.svg",
-    "steps": [
-      "head-servo"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
-        "label": "BelMetric SF3X10SS dimensional drawing"
-      }
-    ]
-  },
-  {
-    "id": "M3x14CS",
-    "name": "M3\u00d714 countersunk",
-    "exact": "M3\u00d70.5, 14 mm overall length, 90\u00b0 countersunk head",
-    "qty": 2,
-    "optional": 0,
-    "category": "Fastener",
-    "description": "Two, for the light brackets. M3 \u00d7 0.5 countersunk, \u00d86 mm 90\u00b0 head. Countersunk length includes the head.",
-    "link": "https://belmetric.com/m3x0-5-flat-head-cap-screw-a2-stainless-iso-10642/?sku=SF3X14SS",
-    "verification": "BelMetric SF3X14SS is an example. Check for a \u00d86 mm, 90\u00b0 head.",
-    "image": "assets/cartoons/M3x14CS.svg",
-    "steps": [
-      "front-light-brackets"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
-        "label": "BelMetric SF3X14SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x6",
     "name": "M3\u00d76",
-    "exact": "M3\u00d76",
+    "exact": "M3\u00d70.5, 6 mm socket-head screw (Kadrick M3 kit)",
     "qty": 7,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X6SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 6 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x6.svg",
     "steps": [
       "front-grille-rear-vent",
       "audio-cradle"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf",
-        "label": "BelMetric BSH3X6SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M2x12",
     "name": "M2\u00d712",
-    "exact": "M2\u00d712",
+    "exact": "M2\u00d70.4, 12 mm button-head screw (Kadrick M2 kit)",
     "qty": 4,
     "optional": 0,
     "category": "Fastener",
-    "description": "M2 \u00d7 0.4 standard thread. The head must fit within \u00d83.8 \u00d7 2 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m2x0-4-button-head-cap-screw-a2-stainless-iso-7380-1/?sku=SB2X12SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Stainless M2 button-head screw, 12 mm measured under the head. Supplied by the Kadrick M2 kit. Sort by length using the screw key.",
+    "link": "https://www.amazon.com/dp/B0BX96SMW4",
+    "verification": "Kadrick M2 button-head kit, ASIN B0BX96SMW4",
     "image": "assets/cartoons/M2x12.svg",
     "steps": [
       "pi-shifters"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf",
-        "label": "BelMetric SB2X12SS dimensional drawing"
-      }
-    ]
+    "additional_links": []
   },
   {
     "id": "M3x12",
     "name": "M3\u00d712",
-    "exact": "M3\u00d712",
+    "exact": "M3\u00d70.5, 12 mm socket-head screw (Kadrick M3 kit)",
     "qty": 30,
     "optional": 0,
     "category": "Fastener",
-    "description": "M3 \u00d7 0.5 standard thread. Socket heads must fit within \u00d85.5 \u00d7 3 mm. Compare it with the actual-size screw key.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X12SS",
-    "verification": "Check against the actual-size screw key",
+    "description": "Black M3 socket-head screw, 12 mm measured under the head. Supplied by the Kadrick M3 kit. Sort by length using the screw key. The robot uses all 30 of this length in the kit.",
+    "link": "https://www.amazon.com/dp/B0B51BFSWZ",
+    "verification": "Kadrick M3 socket-head kit, ASIN B0B51BFSWZ",
     "image": "assets/cartoons/M3x12.svg",
     "steps": [
       "front-grille-rear-vent",
@@ -2858,52 +2747,7 @@
       "bottom-cover"
     ],
     "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf",
-        "label": "BelMetric BSH3X12SS dimensional drawing"
-      }
-    ]
-  },
-  {
-    "id": "W3",
-    "name": "M3 washer (BFirst MFWZ003)",
-    "exact": "BFirst MFWZ003 M3 washer",
-    "qty": 8,
-    "optional": 0,
-    "category": "Fastener",
-    "description": "3.20 mm ID \u00d7 7.01 mm OD \u00d7 0.53 mm. Eight, for the speakers only.",
-    "link": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
-    "verification": "Exact washer specified",
-    "image": "assets/cartoons/W3.svg",
-    "steps": [
-      "speaker-grilles"
-    ],
-    "status": "Check it when it arrives",
     "additional_links": []
-  },
-  {
-    "id": "M3x18",
-    "name": "M3\u00d718",
-    "exact": "M3\u00d718",
-    "qty": 2,
-    "optional": 0,
-    "category": "Fastener",
-    "description": "Two, for the backpack carrier. Use fully threaded A2 stainless DIN 912: M3 \u00d7 0.5, 18 mm long, \u00d85.5 \u00d7 3.0 mm head, 2.5 mm hex.",
-    "link": "https://belmetric.com/m3x0-5-a2-stainless-din-912-allen-socket-head-cap-screw/?sku=BSH3X18SS",
-    "verification": "BelMetric BSH3X18SS is an example. Measure them.",
-    "image": "assets/cartoons/M3x18.svg",
-    "steps": [
-      "body-lights",
-      "backpack-carrier"
-    ],
-    "status": "Check it when it arrives",
-    "additional_links": [
-      {
-        "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf",
-        "label": "BelMetric BSH3X18SS dimensional drawing"
-      }
-    ]
   },
   {
     "id": "CENTER",

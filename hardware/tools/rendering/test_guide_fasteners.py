@@ -47,9 +47,18 @@ class ScrewGeometryTests(unittest.TestCase):
 
     def test_button_head_uses_low_rounded_envelope(self):
         row=screw(2,8,[0,0,0],[0,0,1],head='button')[1]
-        self.assertAlmostEqual(row['v'][:,2].min(),-1.1)
-        self.assertLessEqual(np.linalg.norm(row['v'][:,:2],axis=1).max(),1.9+1e-10)
+        self.assertAlmostEqual(row['v'][:,2].min(),-1.3)
+        self.assertLessEqual(np.linalg.norm(row['v'][:,:2],axis=1).max(),1.75+1e-10)
         self.assertTrue(trimesh.Trimesh(row['v'],row['f'],process=False).is_watertight)
+
+    def test_selected_m3_button_has_correct_head_and_under_head_length(self):
+        rows=screw(3,14,[0,0,0],[0,0,1],head='button')
+        head=rows[1]['v']
+        self.assertAlmostEqual(head[:,2].min(),-1.53)
+        self.assertAlmostEqual(np.linalg.norm(head[:,:2],axis=1).max(),2.75)
+        self.assertAlmostEqual(rows[0]['v'][:,2].min(),0)
+        self.assertAlmostEqual(rows[0]['v'][:,2].max(),14)
+        self.assertTrue(trimesh.Trimesh(rows[1]['v'],rows[1]['f'],process=False).is_watertight)
 
 
 class CountersunkTests(unittest.TestCase):

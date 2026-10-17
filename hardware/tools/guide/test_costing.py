@@ -149,6 +149,75 @@ class CostingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Shared purchase'):
             self.calculate()
 
+    def add_mixed_kit(self):
+        self.prices['kits'] = {'metric': dict(
+            purchase_name='Metric assortment', pack_price_usd='8', pack_quantity='400',
+            unit='each', pack_label='400-piece kit', url='https://example.com/kit',
+            checked_date='2026-10-17', components={'N2': 200, 'M3x12': 30, 'unused': 170})}
+        self.prices['items'][1]['quotes'] = [dict(kit='metric')]
+        self.parts.append(dict(id='M3x12', name='Screw', category='Fastener', qty=30))
+        self.prices['items'].append(dict(id='M3x12', quotes=[dict(kit='metric')]))
+
+    def test_mixed_kit_is_bought_once_and_materials_are_allocated_per_piece(self):
+        self.add_mixed_kit()
+        result = self.calculate()
+        self.assertEqual(result['shopping_categories']['Fasteners'], '8.00')
+        self.assertEqual(result['part_totals']['N2'], '0.08')
+        self.assertEqual(result['part_totals']['M3x12'], '0.60')
+        rows = [r for r in result['rows'] if r.get('kit')]
+        self.assertEqual([r['buy_packs'] for r in rows], [1, 0])
+        self.assertEqual(rows[0]['purchase_name'], 'Metric assortment')
+        self.assertEqual(rows[1]['buy_shared_with'], 'N2')
+
+    def test_component_shortage_requires_second_kit_despite_spare_total_pieces(self):
+        self.add_mixed_kit()
+        self.parts[-1]['qty'] = 31
+        result = self.calculate()
+        self.assertEqual(result['shopping_categories']['Fasteners'], '16.00')
+
+    def test_unused_kit_components_do_not_force_purchase(self):
+        self.add_mixed_kit()
+        self.parts[1]['qty'] = self.parts[-1]['qty'] = 0
+        self.assertEqual(self.calculate()['shopping_categories']['Fasteners'], '0.00')
+
+    def test_invalid_kit_components_fail(self):
+        for value in (0, -1, 1.5, True, '30'):
+            with self.subTest(value=value):
+                self.setUp()
+                self.add_mixed_kit()
+                self.prices['kits']['metric']['components']['M3x12'] = value
+                with self.assertRaisesRegex(ValueError, 'kit component'):
+                    self.calculate()
+        self.setUp()
+        self.add_mixed_kit()
+        self.prices['kits']['metric']['pack_quantity'] = '401'
+        with self.assertRaisesRegex(ValueError, 'Kit piece count'):
+            self.calculate()
+
+    def test_missing_kit_or_component_and_quote_overrides_fail(self):
+        self.add_mixed_kit()
+        self.prices['items'][-1]['quotes'] = [dict(kit='missing')]
+        with self.assertRaisesRegex(ValueError, 'Unknown kit'):
+            self.calculate()
+        self.prices['items'][-1]['quotes'] = [dict(kit='metric', pack_price_usd='1')]
+        with self.assertRaisesRegex(ValueError, 'Kit quote'):
+            self.calculate()
+        self.prices['items'][-1]['quotes'] = [dict(kit='metric')]
+        components = self.prices['kits']['metric']['components']
+        components['unused'] += components.pop('M3x12')
+        with self.assertRaisesRegex(ValueError, 'Missing kit component.*M3x12'):
+            self.calculate()
+
+    def test_kit_demand_is_whole_pieces_and_not_duplicated(self):
+        self.add_mixed_kit()
+        self.parts[-1]['qty'] = 0.5
+        with self.assertRaisesRegex(ValueError, 'whole pieces'):
+            self.calculate()
+        self.parts[-1]['qty'] = 30
+        self.prices['items'][-1]['quotes'] *= 2
+        with self.assertRaisesRegex(ValueError, 'one kit quote'):
+            self.calculate()
+
     def test_single_color_combines_filament_mass_but_full_palette_keeps_spools_separate(self):
         self.plates.append(dict(color='Blue', estimated_grams=900))
         quote = deepcopy(self.prices['items'][2]['quotes'][0])

@@ -43,7 +43,7 @@ def render(name,view,thumb=False):
   from guide_fasteners import screw, hex_nut
   for hw in view['hardware']:
    axis=np.array(hw['axis'],float);seat=np.array(hw['seat'],float)
-   screw_rows=screw(3,14,seat-axis*13,axis)
+   screw_rows=screw(3,14,seat-axis*13,axis,head='button')
    for row in screw_rows:row.update(id='M3×14',root='M3×14')
    chosen += screw_rows
    chosen.append(hex_nut(3,np.array(hw['nut'])+axis*10,axis))

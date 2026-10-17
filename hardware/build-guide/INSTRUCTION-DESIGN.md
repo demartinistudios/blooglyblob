@@ -574,9 +574,10 @@ heat-shrink tool (T09)
 
 **Panel 1: Cut and strip the servo feed**
 
-1. Test-route a red 18 AWG wire from the input WAGO (W1/3) to the servo power
+1. Test-route an 18 AWG wire from the input WAGO (W1/3) to the servo power
    WAGO (W2/1). Mark where it reaches without tension.
-2. Cut the wire at the mark. Strip 11 mm from each end.
+2. Cut the wire at the mark. Label both ends +5 V, W1/3 to W2/1.
+   Strip 11 mm from each end.
 
 *Caption:* The servo feed wire, stripped at both ends.
 
@@ -613,7 +614,7 @@ heat-shrink tool (T09)
 
 *Caption:* Side view of a tie square holding a capacitor.
 
-**Check:** One red 18 AWG wire joins W1/3 to W2/1. C1 polarity is correct.
+**Check:** One 18 AWG wire labeled +5 V joins W1/3 to W2/1. C1 polarity is correct.
 Its two insulated wires are separate, and its body is tied down.
 
 ### How the examples meet the limits
