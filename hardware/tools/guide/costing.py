@@ -32,19 +32,45 @@ def money(value):
     return str(cents(value))
 
 
+def validate_kits(kits):
+    """A kit's total allocates material value; its components determine coverage."""
+    for kit_id, kit in kits.items():
+        components = kit.get('components')
+        if not isinstance(components, dict) or not components:
+            raise ValueError(f'Missing kit components: {kit_id}')
+        for component, quantity in components.items():
+            if type(quantity) is not int or quantity <= 0:
+                raise ValueError(f'Invalid kit component quantity: {kit_id} / {component}')
+        if sum(components.values()) != amount(kit.get('pack_quantity'), 'pack quantity', kit_id, positive=True):
+            raise ValueError(f'Kit piece count must equal component counts: {kit_id}')
+        if not kit.get('purchase_name') or kit.get('unit') != 'each':
+            raise ValueError(f'Kit needs a purchase name and each unit: {kit_id}')
+        date.fromisoformat(str(kit.get('checked_date')))
+        amount(kit.get('pack_price_usd'), 'pack price', kit_id)
+        https_url(kit.get('url'), kit_id)
+        if any(key in kit for key in ('purchase_group', 'included_with', 'used_quantity', 'plate_color')):
+            raise ValueError(f'Kit cannot override demand or purchase grouping: {kit_id}')
+
+
 def purchases(rows, single_color):
     """Round shared demand to whole retail packs; keep filament variants separate."""
     groups = defaultdict(list)
     categories = {name: Decimal(0) for name in COST_CATEGORIES}
     for index, row in enumerate(rows):
-        groups[row.get('purchase_group', index)].append(row)
+        key = ('kit', row['kit']) if row.get('kit') else ('pack', row.get('purchase_group', index))
+        groups[key].append(row)
     for group in groups.values():
         first = group[0]
         fields = ('pack_price_usd', 'pack_quantity', 'unit', 'url', 'category', 'included_with')
         if any(any(row.get(key) != first.get(key) for key in fields) for row in group[1:]):
             raise ValueError(f"Shared purchase quotes must describe the same pack: {first['id']}")
-        used = sum((Decimal(row['used_quantity']) for row in group), Decimal(0))
-        packs = 0 if first.get('included_with') else int((used / Decimal(first['pack_quantity'])).to_integral_value(rounding=ROUND_CEILING))
+        if first.get('kit'):
+            # Unlike foam or a bag of identical nuts, spare sizes cannot cover a shortage.
+            demand = max(Decimal(row['used_quantity']) / row['component_quantity'] for row in group)
+        else:
+            used = sum((Decimal(row['used_quantity']) for row in group), Decimal(0))
+            demand = used / Decimal(first['pack_quantity'])
+        packs = 0 if first.get('included_with') else int(demand.to_integral_value(rounding=ROUND_CEILING))
         cost = cents(packs * Decimal(first['pack_price_usd']))
         categories[first['category']] += cost
         first.update(buy_packs=packs, buy_cost=money(cost))
@@ -75,6 +101,8 @@ def calculate(prices, parts, plates):
     if prices.get('schema_version') != 1 or prices.get('currency') != 'USD':
         raise ValueError('Unsupported price catalog schema or currency')
     date.fromisoformat(str(prices.get('checked_date')))
+    kits = prices.get('kits', {})
+    validate_kits(kits)
     part_map = {p['id']: p for p in parts}
     expected = {p['id'] for p in parts if p['category'] not in ('Printed', 'Tool')}
     ids = [item.get('id') for item in prices['items']]
@@ -87,7 +115,22 @@ def calculate(prices, parts, plates):
         part = part_map[item['id']]
         if not item.get('quotes'):
             raise ValueError(f"Missing price quotes: {part['id']}")
+        if any('kit' in quote for quote in item['quotes']) and len(item['quotes']) != 1:
+            raise ValueError(f"Supply must have exactly one kit quote: {part['id']}")
         for quote in item['quotes']:
+            if 'kit' in quote:
+                if set(quote) != {'kit'}:
+                    raise ValueError(f"Kit quote must only reference its kit: {part['id']}")
+                kit_id = quote['kit']
+                if kit_id not in kits:
+                    raise ValueError(f'Unknown kit: {kit_id}')
+                kit = kits[kit_id]
+                if part['id'] not in kit['components']:
+                    raise ValueError(f"Missing kit component: {kit_id} / {part['id']}")
+                quote = {key: value for key, value in kit.items() if key != 'components'} | {
+                    'kit': kit_id, 'component_quantity': kit['components'][part['id']]}
+            checked = str(quote.get('checked_date', prices['checked_date']))
+            date.fromisoformat(checked)
             price = amount(quote.get('pack_price_usd'), 'pack price', part['id'])
             pack = amount(quote.get('pack_quantity'), 'pack quantity', part['id'], positive=True)
             for url in [quote.get('url')] + [link.get('url') for link in quote.get('alternative_links', [])]:
@@ -102,13 +145,15 @@ def calculate(prices, parts, plates):
             else:
                 used = amount(quote.get('used_quantity', part['qty']), 'used quantity', part['id'])
                 category = {'Purchased': 'Purchased parts', 'Fastener': 'Fasteners', 'Consumable': 'Consumables'}[part['category']]
+            if quote.get('kit') and used != used.to_integral_value():
+                raise ValueError(f"Kit demand must use whole pieces: {part['id']}")
             included = quote.get('included_with')
             if included and (included not in expected or included == part['id'] or price != 0):
                 raise ValueError(f"Invalid included-part price: {part['id']}")
             cost = cents(price * used / pack)
             totals[part['id']] += cost
             categories[category] += cost
-            rows.append({**quote, 'id': part['id'], 'name': quote.get('name', part['name']),
+            rows.append({**quote, 'checked_date': checked, 'id': part['id'], 'name': quote.get('name', part['name']),
                          'category': category, 'used_quantity': format(used.normalize(), 'f'),
                          'cost_used': money(cost)})
     if len(priced_colors) != len(set(priced_colors)) or set(priced_colors) != {p['color'] for p in plates}:

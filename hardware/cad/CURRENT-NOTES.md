@@ -48,11 +48,10 @@ optional print instance. P10 seam covers, base and shoulder carrier are unchange
 
 P43 has a deeper front chamfer, local fastening lands and an inset P04 mounting
 seat. Its opposite M3 nut recess is fully recessed relative to the post's flat
-side; the chamfer exposes part of the perimeter. Use an M3×10 countersunk screw
-for this sideways front carrier connection. Nominal projection is 0.34 mm beyond
-the nut, so verify full nut engagement without crushing the printed seat. This
-is the designed length, not a confirmed record of the owner's trial screw.
-The rear carrier connection retains M3×20.
+side; the chamfer exposes part of the perimeter. The guide uses an iexcell M3×14
+button-head screw for this sideways front carrier connection, following the
+owner-built configuration. Its head remains raised above the recess. The rear
+carrier connection retains an M3×20 socket-head screw from the Kadrick M3 kit.
 
 P04 thickens the front servo-ear crossbar to 5.3 mm with a shallow 1.8 mm nut
 recess and 3.5 mm of solid bearing above it. Both servo screw heads face upward:
@@ -60,9 +59,10 @@ front M2×8 and rear M2×6, with ordinary M2 nuts below. The servo shaft points 
 at the rear end of its body, away from the front post. Assemble the servo and
 carrier on the bench while the underside nuts are accessible.
 
-P11 and P42 mount behind the front upright using two M3×14 countersunk screws
-and two M3 nuts. Install the upper light bracket before the servo carriers block
-access. P12 retains the rear mounting and brings its LEDs forward to the middle
+P11 and P42 mount behind the front upright using two iexcell M3×14 button-head
+screws and two M3 nuts. The owner confirmed the button heads and tip clearance
+in the assembled front post. Install the upper light bracket before the servo
+carriers block access. P12 retains the rear mounting and brings its LEDs forward to the middle
 height. Retain six Pebbles and two ties per Pebble. The lower and middle pad ends
 have a 6 mm gap. Route every wire behind its pad after clearing the end ties,
 never across a light’s face. The lower top and middle bottom wires cross behind

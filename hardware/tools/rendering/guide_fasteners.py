@@ -1,8 +1,9 @@
 """Recognizable, nominal metal hardware for assembly illustrations.
 
 These are drawing solids, not vendor CAD or manufacturing models. Screw length
-is measured from its bearing face to its tip. Head envelopes are M2 Ø3.8 × 2
-and M3 Ø5.5 × 3; an M3 countersunk head is Ø6 with a 90° cone and its
+is measured from its bearing face to its tip. Socket-head envelopes are
+M2 Ø3.8 × 2 and M3 Ø5.5 × 3. Button heads use an illustrative M2 Ø3.5 × 1.3
+and the selected iexcell M3 Ø5.5 × 1.53. An M3 countersunk head is Ø6 with a 90° cone and its
 length is overall, measured from the flush head face; external thread pitches are 0.4 and 0.5 mm respectively.
 Hex sockets illustrate a recessed drive, without specifying a purchased drive.
 All dimensions are millimetres; washer outer/inner arguments are radii.
@@ -84,7 +85,9 @@ def screw(d, length, seat, axis, *, head="socket"):
     if head=='countersunk' and d!=3:
         raise ValueError('Only M3 countersunk screws are drawn')
     pitch, head_d, head_h, socket_af = _SCREWS[d]
-    if head=='button':head_h=.55*d
+    if head=='button':
+        # M2 is a nominal recognition outline; M3 is the selected iexcell head.
+        head_d,head_h,socket_af = {2:(3.5,1.3,1.3),3:(5.5,1.53,2.0)}[d]
     major=d/2; depth=.61343*pitch
     angles=np.linspace(0,2*np.pi,_SECTIONS,endpoint=False)
     # Eight axial samples per pitch resolve both crest and root flats.
@@ -111,7 +114,7 @@ def screw(d, length, seat, axis, *, head="socket"):
     bevel=min(.25,head_h*.12);outer=head_d/2
     vertices=[];faces=[]
     if head=='button':
-        # Low, rounded head within the nominal M2 Ø3.8 × 1.1 envelope.
+        # Rounded profile within the selected illustration envelope.
         profile=[(outer-bevel,0),(outer,-head_h*.1)]
         for t in np.linspace(.18,math.acos(.64),6):
             profile.append((outer*math.cos(t),-head_h*(.1+.9*math.sin(t)/math.sqrt(1-.64**2))))

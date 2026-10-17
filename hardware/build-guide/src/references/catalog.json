@@ -444,166 +444,6 @@
     },
     {
       "parts": [
-        "M3x14"
-      ],
-      "title": "BelMetric BSH3X14SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X14SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-046"
-    },
-    {
-      "parts": [
-        "N3"
-      ],
-      "title": "BelMetric NR3SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/NR3SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-047"
-    },
-    {
-      "parts": [
-        "M2x6"
-      ],
-      "title": "BelMetric SB2X6SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X6SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-048"
-    },
-    {
-      "parts": [
-        "N2"
-      ],
-      "title": "BelMetric NR2SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/NR2SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-049"
-    },
-    {
-      "parts": [
-        "M3x16"
-      ],
-      "title": "BelMetric BSH3X16SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X16SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-050"
-    },
-    {
-      "parts": [
-        "M3x20"
-      ],
-      "title": "BelMetric BSH3X20SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X20SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-051"
-    },
-    {
-      "parts": [
-        "M3x10"
-      ],
-      "title": "BelMetric BSH3X10SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X10SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-052"
-    },
-    {
-      "parts": [
-        "M3x8"
-      ],
-      "title": "BelMetric BSH3X8SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X8SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-053"
-    },
-    {
-      "parts": [
-        "M2x10"
-      ],
-      "title": "BelMetric SB2X10SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X10SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-054"
-    },
-    {
-      "parts": [
-        "M2x8"
-      ],
-      "title": "BelMetric SB2X8SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X8SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-055"
-    },
-    {
-      "parts": [
-        "M3x10CS"
-      ],
-      "title": "BelMetric SF3X10SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X10SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-056"
-    },
-    {
-      "parts": [
-        "M3x14CS"
-      ],
-      "title": "BelMetric SF3X14SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SF3X14SS.pdf",
-      "checked": "2026-10-08",
-      "reference_id": "ref-079"
-    },
-    {
-      "parts": [
-        "M3x6"
-      ],
-      "title": "BelMetric BSH3X6SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X6SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-057"
-    },
-    {
-      "parts": [
-        "M2x12"
-      ],
-      "title": "BelMetric SB2X12SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/SB2X12SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-058"
-    },
-    {
-      "parts": [
-        "M3x12"
-      ],
-      "title": "BelMetric BSH3X12SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X12SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-059"
-    },
-    {
-      "parts": [
-        "M3x18"
-      ],
-      "title": "BelMetric BSH3X18SS dimensional drawing",
-      "publisher": "BelMetric",
-      "url": "https://belmetric.com/content/A-PDF_Drawings/BSH3X18SS.pdf",
-      "checked": "2026-10-01",
-      "reference_id": "ref-060"
-    },
-    {
-      "parts": [
         "E24"
       ],
       "title": "DigiKey Standard 24 AWG jumper wire kit datasheet",
@@ -765,26 +605,6 @@
     },
     {
       "parts": [
-        "W2"
-      ],
-      "title": "BFirst MFWZ 002 M2 washer dimensions",
-      "publisher": "DigiKey",
-      "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-002/274977",
-      "checked": "2026-10-01",
-      "reference_id": "ref-077"
-    },
-    {
-      "parts": [
-        "W3"
-      ],
-      "title": "BFirst MFWZ 003 M3 washer dimensions",
-      "publisher": "DigiKey",
-      "url": "https://www.digikey.com/en/products/detail/bfirst-industrial/MFWZ-003/274978",
-      "checked": "2026-10-01",
-      "reference_id": "ref-078"
-    },
-    {
-      "parts": [
         "C19"
       ],
       "title": "3M Temflex 1700 vinyl electrical tape — datasheet",
@@ -792,6 +612,47 @@
       "url": "https://multimedia.3m.com/mws/media/41145O/3m-temflex-vinyl-electrical-tape-1700.pdf",
       "checked": "2026-10-13",
       "reference_id": "ref-mouth-electrical-tape"
+    },
+    {
+      "parts": [
+        "M3x6",
+        "M3x8",
+        "M3x10",
+        "M3x12",
+        "M3x16",
+        "M3x20",
+        "N3"
+      ],
+      "title": "Kadrick M3 socket-head screw and nut kit — contents and product specifications",
+      "publisher": "Kadrick / Amazon",
+      "url": "https://www.amazon.com/dp/B0B51BFSWZ",
+      "checked": "2026-10-17",
+      "reference_id": "ref-047"
+    },
+    {
+      "parts": [
+        "M2x6",
+        "M2x8",
+        "M2x10",
+        "M2x12",
+        "N2",
+        "W2"
+      ],
+      "title": "Kadrick M2 button-head screw, nut and washer kit — contents and product specifications",
+      "publisher": "Kadrick / Amazon",
+      "url": "https://www.amazon.com/dp/B0BX96SMW4",
+      "checked": "2026-10-17",
+      "reference_id": "ref-048"
+    },
+    {
+      "parts": [
+        "M3x14"
+      ],
+      "title": "iexcell M3×14 button-head screw specifications",
+      "publisher": "iexcell / Amazon",
+      "url": "https://www.amazon.com/dp/B08H2HQ3VZ",
+      "checked": "2026-10-17",
+      "reference_id": "ref-046"
     }
   ]
 }

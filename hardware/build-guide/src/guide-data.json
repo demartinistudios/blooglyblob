@@ -25,7 +25,7 @@
         "Gather the tools in the {tools}.",
         "Put the soldering iron\u2019s stand beside you, away from your lap and out of children\u2019s reach.",
         "Wear safety glasses while you solder, cut or clip leads.",
-        "Sort the screws by size.",
+        "Sort the M2 button heads, M3 socket heads and M3\u00d714 button heads by size.",
         "Keep each servo\u2019s horn and center screw together."
       ],
       "check": "Your colors are chosen, your tools are ready and your screws are sorted.",
@@ -458,7 +458,7 @@
       "actions": [
         "Place one speaker (E16) against the inside of a loose side speaker grille (FB19). Face its cone toward the grille opening.",
         "Line up the four speaker tabs with the four inner holes of the grille.",
-        "From the outside, insert four M3\u00d712 screws through the grille and speaker tabs. On the speaker side, add one M3 washer and one M3 nut to each screw.",
+        "From the outside, insert four M3\u00d712 screws through the grille and speaker tabs. On the speaker side, add one M3 nut to each screw.",
         "Hold each nut while you tighten its screw until snug. Keep the speaker tabs flat.",
         "The speaker sits flat against the grille. Its tabs are not bent.",
         "Repeat for the second speaker."
@@ -471,8 +471,7 @@
       },
       "hardware": {
         "M3x12": 8,
-        "N3": 8,
-        "W3": 8
+        "N3": 8
       },
       "note": "You mount these grilles on the base in {step:side-grilles}.",
       "source": [
@@ -488,8 +487,7 @@
           "role": "install",
           "hardware": {
             "M3x12": 8,
-            "N3": 8,
-            "W3": 8
+            "N3": 8
           }
         }
       ],
@@ -3006,18 +3004,18 @@
         "T05": 1
       },
       "hardware": {
-        "M3x14CS": 2,
+        "M3x14": 2,
         "N3": 2
       },
       "actions": [
         "Stand the base on its feet. Both light brackets fit behind the front upright, inside the frame. Fit them now: once the shoulder-servo bracket is in, the upper bracket can\u2019t get past it.",
         "The lower bracket (P11) has long arms that spread wide. The upper bracket (P42) is smaller.",
         "Drop an M3 nut into the slot in the top of the lower bracket\u2019s mounting block. It rests on a ledge behind the screw hole.",
-        "Hold the lower bracket behind the front upright at its lowest hole, nut slot up. From the front, put an M3\u00d714 countersunk screw through the upright into the nut. Turn it until it catches.",
+        "Hold the lower bracket behind the upright at its lowest hole, nut slot up. From the front, insert an M3\u00d714 button-head screw into the nut. Turn it until it catches.",
         "Fit the upper bracket the same way at the highest hole in the front of the upright.",
-        "Check that each bracket sits flat against the upright with its pads level. Tighten both screws until their heads sit flush."
+        "Check that each bracket sits flat against the upright with its pads level. Tighten both screws gently. The button heads remain raised."
       ],
-      "check": "Both brackets sit flat and square behind the front upright, nut slots up. Both screw heads sit flush with its front face.",
+      "check": "Both brackets sit flat and square behind the front upright, nut slots up. The raised button heads hold them firmly.",
       "source": [
         "hardware/cad/CURRENT-NOTES.md",
         "hardware/assembly/hardware.json"
@@ -3029,7 +3027,7 @@
           "allocation_id": "joint-body-lights",
           "role": "install",
           "hardware": {
-            "M3x14CS": 2,
+            "M3x14": 2,
             "N3": 2
           }
         }
@@ -3265,17 +3263,17 @@
         "M2x8": 1,
         "N2": 2,
         "M3x20": 1,
-        "M3x10CS": 1,
+        "M3x14": 1,
         "M3x10": 2,
         "N3": 4
       },
       "actions": [
-        "Slide the HEAD servo into the open side of the head-servo bracket (P04), shaft up. The shaft sits at the rear end, away from the bracket\u2019s countersunk front tab. Rest its ears on the bracket.",
+        "Slide the HEAD servo into the open side of the head-servo bracket (P04), shaft up. The shaft sits at the rear end, away from the bracket\u2019s recessed front tab. Rest its ears on the bracket.",
         "Each ear has an M2 nut recess under the bracket. Hold a nut in the front recess with tweezers. Screw an M2\u00d78 down through the front ear until it catches.",
         "Fit the rear ear the same way, with an M2\u00d76. Both screw heads sit on top of the ears.",
         "Tighten until the servo cannot rock or slide. If a nut sits crooked, back the screw out and reseat the nut. Do not force it.",
         "Hold the bracket on the robot-left side of both uprights, near their tops. Fit its front tab into the seat in the front upright.",
-        "From robot-left, put the M3\u00d710 countersunk screw through the front tab and the upright. On the upright\u2019s robot-right face, hold an M3 nut in its recess and turn the screw until it catches.",
+        "From robot-left, put an M3\u00d714 button-head screw through the front tab and upright. Hold an M3 nut in the robot-right recess. Turn the screw until it catches.",
         "From robot-left, push an M3\u00d720 screw through the bracket\u2019s rear end and the rear upright. Hold an M3 nut on its tip at the robot-right face and turn the screw until it catches.",
         "Check that the bracket does not press on the upper light bracket below it. Then tighten both screws. The front screw\u2019s tip must reach the outer face of its nut.",
         "Route the servo cable down the frame. Keep it clear of the shaft, where the head horn fits.",
@@ -3304,7 +3302,7 @@
             "M2x8": 1,
             "N2": 2,
             "M3x20": 1,
-            "M3x10CS": 1,
+            "M3x14": 1,
             "M3x10": 2,
             "N3": 4
           }
@@ -3332,7 +3330,7 @@
         {
           "title": "Screw the bracket to the uprights",
           "image": "assets/community/head-carrier-fastening.svg",
-          "caption": "The bracket and the tops of both uprights, with the front countersunk screw, the rear screw and their nuts.",
+          "caption": "The bracket and the tops of both uprights, with the front button-head screw, the rear screw and their nuts.",
           "actions": [
             4,
             5,
@@ -3342,7 +3340,7 @@
         {
           "title": "Tighten and route the cable",
           "image": "assets/community/head-carrier-fastening.svg",
-          "caption": "The bracket and the tops of both uprights, with the front countersunk screw, the rear screw and their nuts.",
+          "caption": "The bracket and the tops of both uprights, with the front button-head screw, the rear screw and their nuts.",
           "actions": [
             7,
             8
@@ -3646,8 +3644,8 @@
         "Fit the other board the same way.",
         "Choose either eye as the first eye. Note which head side it goes on. The first eye is light 6, the second eye light 7 and the mouth lights 8 to 15.",
         "Plug the 100 mm eye cable (E12) from the first eye\u2019s OUT socket to the second eye\u2019s IN socket. Press each plug housing, not its wires.",
-        "Put an M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through a cassette\u2019s outer holes and the head wall into the housing nuts.",
-        "Tighten until the nuts seat under their roofs. Do not force a screw that bottoms out. Fasten the other cassette the same way.",
+        "Put a kit M2 washer on each of two M2\u00d710 screws. From inside the head, pass them through the cassette\u2019s outer holes and head wall into the housing nuts.",
+        "Start both screws gently. Tighten until the cassette clamps and the nuts seat under their roofs. Stop if a tip bottoms out. Fasten the other cassette the same way.",
         "Fit both eyes now: the mouth blocks straight access to these screws later. The first eye\u2019s IN and the second eye\u2019s OUT stay reachable.",
         "Test-fit the robot-left head strap (GS01), robot-right head strap (GS02) and rear head strap (GS03). Check that they clear the eye housing joints.",
         "Glue only the locating pegs with two-part epoxy (C09). Keep glue off the housing joints, the center seam and the two rear seams. Do not clamp the rear seams shut.",
@@ -4036,13 +4034,13 @@
       },
       "hardware": {
         "N3": 3,
-        "M3x18": 1
+        "M3x20": 1
       },
       "actions": [
         "Stand the base on its feet. Find the three side slots on the robot-right face of the rear upright (P02).",
         "Slide an M3 nut into each slot until it stops. The lower nut holds the lower rear seam cover in {step:body-diffuser}. The middle and upper nuts hold the backpack carrier.",
         "Hold the middle body-light bracket (P12) on the back of the rear upright, over the middle nut. Its arms reach forward on both sides of the upright, pads facing forward.",
-        "Put one of the two M3\u00d718 backpack-carrier screws through P12 into the middle nut. Tighten it gently. It holds P12 until {step:backpack-carrier}.",
+        "Put one of the two M3\u00d720 backpack-carrier screws through P12 into the middle nut. Tighten it gently. It holds P12 until {step:backpack-carrier}.",
         "Tie the lights on in strand order from light 0: lower pair, middle pair, upper pair.",
         "Place each pebble on its pad, LED facing away from the pad. Wrap two 2.5 mm cable ties (C07) around the pad\u2019s narrow necks, one on each side of the resin.",
         "Close each tie gently around the pad and wire, head on the LED side. Keep both ties off the resin and the LED.",
@@ -4066,7 +4064,7 @@
           "role": "preload",
           "hardware": {
             "N3": 2,
-            "M3x18": 1
+            "M3x20": 1
           }
         },
         {
@@ -4152,7 +4150,7 @@
         "Wrap the foam again, over the taped backing. Push each shoulder servo\u2019s round top through its hole.",
         "Lift the foam edges at the lower nut. Slide the other P09 behind them. Line up its hole with the upright\u2019s hole.",
         "With one hand, press a rear seam cover (P10) over the seam there, holding P09 against the upright. With the other, drive an M3\u00d716 screw through P10 and P09 into the nut and tighten it.",
-        "Hold the middle bracket (P12) against the upright and take its M3\u00d718 screw out. Press the foam ends flat against P12.",
+        "Hold the middle bracket (P12) against the upright and take its M3\u00d720 screw out. Press the foam ends flat against P12.",
         "Press a P10 cover over the seam there. Put the screw back through the cover and P12, and tighten it gently.",
         "Fit the last P10 cover over the seam at the upper nut."
       ],
@@ -4306,7 +4304,7 @@
       },
       "actions": [
         "Slide the tongue of the robot-left forearm (AR02) between the fork cheeks of the robot-left upper arm (AR01). Line up the holes.",
-        "From the outer side, push an M3\u00d714 screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
+        "From the outer side, push an M3\u00d714 button-head screw through the fork and tongue. Put an M3 nut in the pocket on the inner cheek.",
         "Hold the nut in its pocket with a fingertip. Turn the screw until it catches.",
         "Tighten the screw until the elbow holds a pose but still bends smoothly by hand through 0\u201370\u00b0.",
         "Build the robot-right elbow the same way, from the robot-right upper arm (AR04) and forearm (AR05)."
@@ -4456,12 +4454,12 @@
         "T05": 1
       },
       "hardware": {
-        "M3x18": 1
+        "M3x20": 1
       },
       "actions": [
-        "Back the M3\u00d718 screw out of the middle seam cover.",
+        "Back the M3\u00d720 screw out of the middle seam cover.",
         "Hold the curved backpack carrier (P34) against the middle and upper rear seam covers (P10), hollow side in. Line up its two center holes with theirs.",
-        "With the other hand, drive an M3\u00d718 screw through each center hole into its rear upright nut. Tighten both evenly.",
+        "With the other hand, drive an M3\u00d720 screw through each center hole into its rear upright nut. Tighten both evenly.",
         "If a screw does not catch, line up the holes in the cover and backing behind it."
       ],
       "check": "Each screw holds the carrier, a seam cover and a backing. The middle body-light bracket (P12) backs the middle cover, and a rear seam backing (P09) the top one. The carrier follows the body curve.",
@@ -4478,7 +4476,7 @@
           "allocation_id": "joint-backpack-carrier",
           "role": "install",
           "hardware": {
-            "M3x18": 1
+            "M3x20": 1
           }
         }
       ],
@@ -5571,7 +5569,6 @@
     "M3x6": 7,
     "M3x12": 30,
     "N3": 59,
-    "W3": 8,
     "M3x8": 5,
     "M2x8": 8,
     "N2": 35,
@@ -5579,13 +5576,10 @@
     "M2x10": 8,
     "M3x16": 7,
     "M2x6": 15,
-    "M3x20": 1,
-    "M3x10CS": 1,
+    "M3x20": 3,
+    "M3x14": 5,
     "M3x10": 2,
     "W2": 4,
-    "M3x14CS": 2,
-    "M3x14": 2,
-    "M3x18": 2,
     "CENTER": 3
   }
 }

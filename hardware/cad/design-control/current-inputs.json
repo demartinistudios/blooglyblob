@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "purpose": "Mandatory R34/cloud32 CAD, printing, catalog, assembly and rendering inputs. P44 upper collar, matching P30/P31 mouth and updated references. Guide content review remains independent; no selected kit delivery.",
+  "purpose": "Mandatory R34/cloud32 CAD, printing, catalog, assembly and rendering inputs. P44 upper collar, matching P30/P31 mouth and updated references. Guide content review remains independent; no selected kit delivery. Assembly fasteners and supply descriptions reflect the reviewed Kadrick/iexcell guide configuration; CAD and print inputs unchanged.",
   "files": [
     {
       "path": "hardware/assembly/electrical.json",
@@ -9,13 +9,13 @@
     },
     {
       "path": "hardware/assembly/hardware.json",
-      "sha256": "6ddde1349b087b6aa85c9b7f1e859d098b223bfa1b411e33d88a45fe1d99e234",
-      "bytes": 4475
+      "sha256": "4fcd82d87db093f0fcd5fe333f583c993c509b6d8c1afe9473b94caf846688aa",
+      "bytes": 4593
     },
     {
       "path": "hardware/assembly/interfaces.json",
-      "sha256": "789d749ab28658a3d691b7102b2800eed3c3ffa06ef0fbb7677afac7e1f911b1",
-      "bytes": 3241
+      "sha256": "184db7a9e3e855f63e606b676a534418ce75c98d348e3de366d82d69c8a4bf92",
+      "bytes": 3261
     },
     {
       "path": "hardware/cad/current/assembly.f3d",
@@ -494,8 +494,8 @@
     },
     {
       "path": "hardware/catalog/supplies.json",
-      "sha256": "1a9a6a313af8b9ab62603b72400f7b4f433edfde4d43d75bcc7aa3a94f665aad",
-      "bytes": 14676
+      "sha256": "e34f640a971bf0b01e9e5d5129104630ed2bdbff95ae9741dc86dce1b4a158d9",
+      "bytes": 14420
     },
     {
       "path": "hardware/printing/current/BlooglyBlob-R29-Optional-Clear-PETG-Ball.3mf",

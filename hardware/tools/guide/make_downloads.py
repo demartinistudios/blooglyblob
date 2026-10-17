@@ -5,7 +5,7 @@ Rerunnable and byte-stable. Needs rsvg-convert for the PDFs. The outputs are
 committed guide source; the build copies them like any other authored file.
 The print packages (3MFs and ZIPs) are made at build time by packages.py.
 """
-import json, math, os, re, subprocess, tempfile
+import argparse, json, math, os, re, subprocess, tempfile
 from consistency import allocation_totals, indexed
 from pathlib import Path
 
@@ -36,11 +36,13 @@ def scale_bar(x, y, length, label):
             text(x + length / 2, y + 7, label, 3, 'middle')]
 
 
-def write(name, content, folder=OUT):
+def write(name, content, folder=None):
+    folder = OUT if folder is None else folder
     (folder / name).write_text(content, encoding='utf-8')
 
 
-def to_pdf(name, folder=OUT):
+def to_pdf(name, folder=None):
+    folder = OUT if folder is None else folder
     pdf = OUT / name.replace('.svg', '.pdf')
     subprocess.run(['rsvg-convert', '-f', 'pdf', '-o', str(pdf), str(folder / name)], check=True,
                    env=dict(os.environ, SOURCE_DATE_EPOCH=PDF_TIME))
@@ -140,63 +142,55 @@ def body_foam():
 
 # ---------------------------------------------------------------- screw key
 def hardware_totals():
-    hardware = json.loads((OUT.parents[2] / 'assembly/hardware.json').read_text())
+    hardware = json.loads((Path(__file__).resolve().parents[3] / 'hardware/assembly/hardware.json').read_text())
     return allocation_totals(indexed(hardware['allocations'], 'id', 'installed allocations'))
 
 
 
 def screw_key(form, w, h):
     TOT = hardware_totals()
-    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,18,20])] for n in lengths} | {'M3x10CS', 'M3x14CS'}
+    supported = {f'M{d}x{n}' for d, lengths in [(2, [6,8,10,12]), (3, [6,8,10,12,14,16,20])] for n in lengths}
     if {k for k in TOT if re.fullmatch(r'M[0-9]+x[0-9]+(?:CS)?', k)} != supported:
         raise ValueError('Review screw-key drawing dimensions/layout for the changed screw specification set')
     s = '#142b3d'
     ln = lambda d, sw=0.35: f'<path d="{d}" fill="none" stroke="{s}" stroke-width="{sw}"/>'
     rect = lambda x, y, ww, hh: f'<rect x="{x:g}" y="{y:g}" width="{ww:g}" height="{hh:g}" fill="none" stroke="{s}" stroke-width="0.25"/>'
-    circ = lambda x, y, r: f'<circle cx="{x:g}" cy="{y:g}" r="{r:g}" fill="none" stroke="{s}" stroke-width="0.25"/>'
     b = [text(14, 17, 'BlooglyBlob', 3.6, weight='bold'),
-         text(14, 29, 'Actual-size screw key', 7),
+         text(14, 29, 'Actual-size screw length key', 7),
          text(14, 38, 'Print at 100% (actual size). Turn off Fit, Shrink and Scale to page.', 3.6),
          text(14, 45, 'Check the 50 mm ruler and the 20 × 20 mm square with a real ruler before use.', 3.2),
          text(14, 51, 'Measure from the middle of the printed lines. A screen is not a size reference.', 3.2)]
     ticks = ''.join(f'M{16+i} 59V{59+(5 if i % 10 == 0 else 3 if i % 5 == 0 else 1.5)}' for i in range(51))
     b += [ln('M16 59H66' + ticks, 0.2), text(16, 69, '0', 3.2), text(59, 69, '50 mm', 3.2),
           rect(82, 56, 20, 20), text(109, 63, '20 × 20 mm', 3.2), text(109, 70, 'check square', 3.2),
-          text(14, 85, 'Lay each screw on its drawing with the underside of the head on the start line.', 3.2),
-          text(14, 91, 'The length doesn’t include the head. Outlines show the largest head that fits:', 3.2),
-          text(14, 97, 'M2 heads up to 3.8 mm across and 2 mm tall; M3 socket heads up to 5.5 mm across and 3 mm tall.', 3.2)]
-    y0 = 112
-    for col, dia, lengths in [(0, 2, [6, 8, 10, 12]), (1, 3, [6, 8, 10, 12, 14, 16, 18, 20])]:
-        bx = 15 + col * 97
-        for i, L in enumerate(lengths):
-            y = y0 + i * 13
-            b.append(text(bx, y, f'M{dia} × {L} · {TOT[f"M{dia}x{L}"]} used', 3.2))
-            x, hy = bx + 39, y - 1
-            hd, hh = ((3.5, 1.3) if L == 8 else (3.8, 2)) if dia == 2 else (5.5, 3)
-            b += [rect(x - hh, hy - hd / 2, hh, hd), rect(x, hy - dia / 2, L, dia), ln(f'M{x} {hy-5}V{hy+5}', 0.25)]
-    b += [text(15, 161, f'Three of the {TOT["M2x8"]} M2 × 8 are button heads (drawn: 3.5 × 1.3 mm).', 2.7),
-          text(15, 166, 'They fix the head to its shelf, without washers.', 2.7),
-          text(15, 172, 'M3 countersunk: 90° head, 6 mm across', 3.2),
-          text(15, 177, 'Head top on the start line. The length includes the head.', 2.7)]
-    for y, L in [(186, 10), (197, 14)]:
-        b.append(text(15, y, f'M3 × {L} · {TOT[f"M3x{L}CS"]} used', 2.9))
-        x, hy = 54, y - 1
-        b.append(ln(f'M{x} {hy-3}L{x+1.5} {hy-1.5}H{x+L}V{hy+1.5}H{x+1.5}L{x} {hy+3}Z', 0.25))
-        b.append(ln(f'M{x} {hy-4}V{hy+4}', 0.25))
-    b.append(text(15, 208, 'Nuts, seen from above (ordinary hex nuts)', 3))
-    for xx, d, af in [(25, 2, 4), (57, 3, 5.5)]:
-        r = af / math.sqrt(3)
-        pts = ' '.join(f'{xx + r*math.cos(math.radians(i*60)):.4f},{219 + r*math.sin(math.radians(i*60)):.4f}' for i in range(6))
-        b += [f'<polygon points="{pts}" fill="none" stroke="{s}" stroke-width="0.25"/>', circ(xx, 219, d / 2),
-              text(xx - 10, 228, f'M{d} nuts · {TOT[f"N{d}"]} used', 2.9)]
-    b.append(text(15, 241, 'Washers: inside and outside diameter', 3.2))
-    for xx, di, do, label in [(28, 2.31, 4.37, f'M2 metal: {TOT["W2"]}, 0.25 mm thick'), (71, 3.20, 7.01, f'M3: {TOT["W3"]}, 0.53 mm thick')]:
-        b += [circ(xx, 250, do / 2), circ(xx, 250, di / 2), text(xx - 15, 260, label, 2.7)]
-    b += [text(15, 269, 'M2 nuts are 4 mm across the flats and 1.6 mm thick.', 2.7),
-          text(110, 225, f'Servo center screws · {TOT["CENTER"]}', 3.2),
-          text(110, 232, 'These come with the servos and aren’t drawn here.', 2.8),
-          text(110, 238, 'Keep each one with its servo horn.', 2.8),
-          text(110, 244, 'Don’t use M2 screws in their place.', 2.8)]
+          text(14, 85, 'Place the underside of each head on the start line. Match the tip to the end.', 3.2),
+          text(14, 91, 'All lengths below exclude the head. Head outlines identify the style only.', 3.2),
+          text(14, 97, 'These outlines are not recess-fit gauges; the M2 kit head dimensions are unmeasured.', 3.0)]
+    def profile(x, y, dia, length, button):
+        hd, hh = ((3.5, 1.3) if dia == 2 else (5.5, 1.53)) if button else (5.33, 3.03)
+        if button:
+            head = ln(f'M{x} {y-hd/2}Q{x-hh} {y-hd/2} {x-hh} {y}Q{x-hh} {y+hd/2} {x} {y+hd/2}Z', .25)
+        else:
+            head = rect(x-hh,y-hd/2,hh,hd)
+        return [head,rect(x,y-dia/2,length,dia),ln(f'M{x} {y-5}V{y+5}',.25)]
+    b += [text(15, 108, 'M2 button heads · Kadrick M2 kit', 3.2, weight='bold'),
+          text(112, 108, 'M3 socket heads · Kadrick M3 kit', 3.2, weight='bold')]
+    for bx, dia, lengths in [(15, 2, [6,8,10,12]), (112, 3, [6,8,10,12,16,20])]:
+        for i, length in enumerate(lengths):
+            y = 120 + i*13
+            b.append(text(bx,y,f'M{dia} × {length} · {TOT[f"M{dia}x{length}"]} used',3.2))
+            b += profile(bx+39,y-1,dia,length,dia==2)
+    b += [text(15, 179, 'M3 button heads · extra pack', 3.2, weight='bold'),
+          text(15, 191, f'M3 × 14 · {TOT["M3x14"]} used',3.2)]
+    b += profile(54,190,3,14,True)
+    b += [text(15, 204, 'Use these five button heads at the elbows (2), front light brackets (2),',3.0),
+          text(15, 210, 'and sideways front head-servo carrier joint (1). No flatheads are required.',3.0),
+          text(15, 224, 'Nuts and washers supplied by the kits',3.3,weight='bold'),
+          text(15, 232, f'M2 nuts: {TOT["N2"]} · M3 nuts: {TOT["N3"]} · M2 washers: {TOT["W2"]}',3.2),
+          text(15, 239, 'The four M2 washers go under the eye-housing screw heads. No speaker washers.',3.0),
+          text(15, 246, 'Kit washers are not drawn to scale: their dimensions have not been measured.',3.0),
+          text(15, 259, f'Servo center screws: {TOT["CENTER"]} · supplied with the servos.',3.2),
+          text(15, 266, 'Keep each center screw with its servo horn. Do not substitute an M2 screw.',3.0)]
     name = f'screw-key-{form}.svg'
     # Only the PDF ships; its SVG is an intermediate.
     with tempfile.TemporaryDirectory() as tmp:
@@ -205,8 +199,16 @@ def screw_key(form, w, h):
 
 
 if __name__ == '__main__':
-    eye_film()
-    head_bearing_film()
-    body_foam()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--screw-keys-only', action='store_true')
+    args = parser.parse_args()
+    if args.output:
+        OUT = args.output
+        OUT.mkdir(parents=True, exist_ok=False)
+    if not args.screw_keys_only:
+        eye_film()
+        head_bearing_film()
+        body_foam()
     screw_key('letter', 215.9, 279.4)
     screw_key('a4', 210, 297)
